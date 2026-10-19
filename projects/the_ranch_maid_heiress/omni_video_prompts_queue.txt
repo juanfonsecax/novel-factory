@@ -1,0 +1,2039 @@
+NOVEL FACTORY — Cola de video (Omni 1.1 Flash, First Frame, 10 s) · The Stable Girl
+Frames: C:\Users\juand\Downloads\PROYECTOS REDES SOCIALES\novel_factory\projects\the_ranch_maid_heiress\frames  →  Clips: C:\Users\juand\Downloads\PROYECTOS REDES SOCIALES\novel_factory\projects\the_ranch_maid_heiress\raw_clips
+
+=== SCENE 001 | frame: frame_001.png | salida: scene_001.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_001.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.4 s — medium two-shot: In the grand foyer, the maid in the denim work shirt freezes beside the shattered decanter while the woman in emerald silk towers over her.
+HARD CUT at 3.4 s — SHOT 2 — tight close-up: Close on the maid's hands withdrawing from the broken crystal; her fingers tremble once, then go still.
+HARD CUT at 6.9 s — SHOT 3 — over-the-shoulder shot: Over the maid's shoulder, the woman in emerald silk stares her down while the heir in the white shirt watches from the staircase.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+VICTORIA (cold, precise): "Twelve years in my house, and you steal from me at my son's welcome party."
+ELENA (quiet, shaking): "I didn't touch it. I was in the barn, where I always am."
+
+VOICE NOTES: VICTORIA — low, polished, unhurried American English, smiles through threats, never shouts; ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical.
+
+AUDIO BED: storm wind at the tall windows, crystal settling on oak, the chandelier's faint creak, one held breath
+
+CAMERA & MOVEMENT: Slow push-in on the two women; hard cut to hands; hard cut to the heir at the stairs.
+
+CONTINUITY: Act 1 wardrobe. The decanter shatters here; the silver watch is planted in Elena's saddle bag in scene 4. Victoria Blackwell wardrobe (act 1): emerald silk blouse, tailored black trousers, pearl earrings Elena Vance wardrobe (act 1): faded blue denim work shirt, dark riding jeans, worn boots, low braid Richard Blackwell wardrobe (act 1): pressed white shirt, charcoal blazer, polished boots
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 002 | frame: frame_002.png | salida: scene_002.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_002.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — wide establishing shot: The barn aisle at night: the maid stands small between the stalls, the housekeeper a silhouette in the doorway, rain drumming on the tin roof.
+HARD CUT at 3.5 s — SHOT 2 — over-the-shoulder shot: Over the maid's shoulder, the old photograph shows a woman at a ranch gate, sun-bleached and smiling.
+HARD CUT at 7.0 s — SHOT 3 — tight close-up: Close on the housekeeper's face as she recognizes the photograph; she closes her eyes for one beat.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+MAGGIE (gentle): "Your mother fed this barn before you could walk. Don't let them erase her."
+ELENA (low): "They erased her fifteen years ago. I was too small to stop them."
+
+VOICE NOTES: MAGGIE — grounded, plainspoken American English with a soft Irish lilt worn thin by thirty years in Montana; ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical.
+
+AUDIO BED: rain on a tin roof, a horse shifting in straw, a bucket chain rattling
+
+CAMERA & MOVEMENT: Still wide frame, slow drift left; cut to the photo; cut to Maggie.
+
+CONTINUITY: Act 1 wardrobe. Elena keeps her mother's photograph in her saddle bag; it returns at the end of the episode. Elena Vance wardrobe (act 1): faded blue denim work shirt, dark riding jeans, worn boots, low braid Maggie Doyle wardrobe (act 1): floral house apron over a beige cardigan, long dark skirt
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 003 | frame: frame_003.png | salida: scene_003.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_003.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.3 s — medium shot: In the foyer, the maid holds open her saddle bag while the woman in emerald silk points at it like evidence.
+HARD CUT at 3.3 s — SHOT 2 — tight close-up: Close on the maid's face as she sets her jaw; her hands close around the worn leather.
+HARD CUT at 6.8 s — SHOT 3 — low-angle hero shot: Low angle on the maid from below the staircase, chin lifted, the chandelier hard above her.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+VICTORIA (silky, cruel): "Empty it. If my husband's watch is in there, you leave this ranch tonight."
+ELENA (steady): "My mother's things are in that bag. You will not touch them."
+
+VOICE NOTES: VICTORIA — low, polished, unhurried American English, smiles through threats, never shouts; ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical.
+
+AUDIO BED: leather creaking, a clock ticking somewhere deep in the house, rain softening
+
+CAMERA & MOVEMENT: Controlled handheld; hard cut to face; low-angle tilt up at the last line.
+
+CONTINUITY: Act 1 wardrobe. Elena's saddle bag holds her mother's photograph; the silver watch appears inside it in scene 4. Victoria Blackwell wardrobe (act 1): emerald silk blouse, tailored black trousers, pearl earrings Elena Vance wardrobe (act 1): faded blue denim work shirt, dark riding jeans, worn boots, low braid Richard Blackwell wardrobe (act 1): pressed white shirt, charcoal blazer, polished boots
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 004 | frame: frame_004.png | salida: scene_004.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_004.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.4 s — medium shot: In the stable aisle, the maid tightens a saddle girth while the heir behind her lifts the silver watch from her open bag.
+HARD CUT at 3.4 s — SHOT 2 — insert shot of the evidence object: Insert: the silver watch turns once in the heir's fingers, catching a blade of window light.
+HARD CUT at 6.8 s — SHOT 3 — tight close-up: Close on the maid as she turns and sees him; her hands go still on the leather.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+RICHARD (light, rehearsed): "Look what your mother's saddle was hiding. Twelve years, and you kept it close."
+ELENA (low, furious): "You were in the tack room last night. I saw your boots."
+
+VOICE NOTES: RICHARD — smooth mid-range American English, reasonable tone that never quite reaches sincerity; ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical.
+
+AUDIO BED: a horse snorting, leather straps, straw under boots, the watch's tiny clasp
+
+CAMERA & MOVEMENT: Slow pan from the maid to the watch; hard cut; snap back to her face.
+
+CONTINUITY: Act 1 wardrobe. The silver watch is now planted in Elena's bag; it returns as evidence in act 4. Elena Vance wardrobe (act 1): faded blue denim work shirt, dark riding jeans, worn boots, low braid Richard Blackwell wardrobe (act 1): pressed white shirt, charcoal blazer, polished boots
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 005 | frame: frame_005.png | salida: scene_005.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_005.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — medium shot: In the timber great room, the woman in emerald silk gestures to a chair; the maid in the denim work shirt stays standing.
+HARD CUT at 3.5 s — SHOT 2 — over-the-shoulder shot: Over the mistress's shoulder, the folded confession paper waits on the low table between them.
+HARD CUT at 6.9 s — SHOT 3 — tight close-up: Close on the maid's hand as she slides the paper back across the table without sitting.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+VICTORIA (patient, poisoned): "Sign it, take your pay, and this stays private. The watch never happened."
+ELENA (flat): "It never happened to you. It happened to me the moment you decided it did."
+
+VOICE NOTES: VICTORIA — low, polished, unhurried American English, smiles through threats, never shouts; ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical.
+
+AUDIO BED: a fireplace ticking as it cools, paper sliding on wood, a chair creaking
+
+CAMERA & MOVEMENT: Static two-shot; cut to the paper; cut to her hand pushing it back.
+
+CONTINUITY: Act 1 wardrobe. Victoria's first written offer appears here; the same tactic returns at midnight in scene 30. Victoria Blackwell wardrobe (act 1): emerald silk blouse, tailored black trousers, pearl earrings Elena Vance wardrobe (act 1): faded blue denim work shirt, dark riding jeans, worn boots, low braid
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 006 | frame: frame_006.png | salida: scene_006.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_006.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.3 s — medium shot: At the barn door, the maid works a curry comb in slow circles while the foreman leans on the stall, speaking low.
+HARD CUT at 3.3 s — SHOT 2 — over-the-shoulder shot: Over the maid's shoulder: the foreman's hands tighten on the stall door as he finishes his sentence.
+HARD CUT at 6.8 s — SHOT 3 — tight close-up: Close on the maid's eyes lifting at last, weighing what he just offered.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+COLE (quiet): "I saw Richard at the saddles last night. Say the word and I'll swear it."
+ELENA (careful): "He'll only call you a liar. And then he'll take your house too."
+
+VOICE NOTES: COLE — quiet, low American English, careful diction, warmth held under restraint; ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical.
+
+AUDIO BED: curry comb against hide, a horse's low nicker, wind under the eaves
+
+CAMERA & MOVEMENT: Gentle handheld; cut on 'swear'; close-up holds as she decides.
+
+CONTINUITY: Act 1 wardrobe. Cole has not yet told Elena the whole truth about the fire; that comes in scene 16. Elena Vance wardrobe (act 1): faded blue denim work shirt, dark riding jeans, worn boots, low braid Cole Barrett wardrobe (act 1): oiled tan canvas chore jacket over a grey henley, worn felt hat
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 007 | frame: frame_007.png | salida: scene_007.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_007.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.4 s — medium shot: In the lamplit study, the mistress sits behind the desk with one finger on a closed file; the maid stands before it.
+HARD CUT at 3.4 s — SHOT 2 — tight close-up: Close on the file as her finger lifts, leaving a clean mark in the dust.
+HARD CUT at 6.9 s — SHOT 3 — low-angle hero shot: Low angle on the maid as she absorbs the deadline without looking away.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+VICTORIA (unhurried): "Sheriff Drummond is a family friend. You have until Friday midnight, Elena. Sign, or be charged."
+ELENA (quiet): "And my mother's grave? Do you still pay the keeper to keep it?"
+
+VOICE NOTES: VICTORIA — low, polished, unhurried American English, smiles through threats, never shouts; ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical.
+
+AUDIO BED: a desk clock ticking, leather chair creaking, the window rattling softly
+
+CAMERA & MOVEMENT: Static; cut to the file; slow low-angle rise.
+
+CONTINUITY: Act 1 wardrobe. The Friday-midnight deadline is fixed here and drives acts 2-3. Victoria Blackwell wardrobe (act 1): emerald silk blouse, tailored black trousers, pearl earrings Elena Vance wardrobe (act 1): faded blue denim work shirt, dark riding jeans, worn boots, low braid
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 008 | frame: frame_008.png | salida: scene_008.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_008.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.3 s — medium close-up: In the small stone cottage, the maid kneels with the old saddle across her knees and works the leather lining open.
+HARD CUT at 3.3 s — SHOT 2 — insert shot of the evidence object: Insert: her fingers draw a small brass key from the hidden seam, warm against the cold leather.
+HARD CUT at 7.0 s — SHOT 3 — tight close-up: Close on her face as she recognizes the key; the room darkens around her.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+ELENA (whispered): "You sewed it into the lining, Mama. What were you afraid someone would find?"
+ELENA (breaking): "And why did you never tell me?"
+
+VOICE NOTES: ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical.
+
+AUDIO BED: wind pressing the eaves, leather creaking, a stove ticking as it cools
+
+CAMERA & MOVEMENT: Slow push-in; cut to the key; cut to her face; hold.
+
+CONTINUITY: Act 1 wardrobe. The brass key is introduced here and stays on Elena's neck cord through act 5. Elena Vance wardrobe (act 1): faded blue denim work shirt, dark riding jeans, worn boots, low braid
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 009 | frame: frame_009.png | salida: scene_009.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_009.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — medium shot: In the barn aisle at night, the maid holds up the brass key while the foreman studies the whitewashed tack-room door behind them.
+HARD CUT at 3.5 s — SHOT 2 — insert shot of the evidence object: Insert: the small brass key turns under the bulb, too delicate for any hasp in the barn.
+HARD CUT at 6.9 s — SHOT 3 — over-the-shoulder shot: Over her shoulder: the painted-over iron hasp, sealed with fifteen years of whitewash.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+COLE (low): "That key fits no door in this valley. Your mother never did one thing without a reason."
+ELENA (decided): "Then we open that room. Tonight."
+
+VOICE NOTES: COLE — quiet, low American English, careful diction, warmth held under restraint; ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical.
+
+AUDIO BED: a bulb humming, a horse stamping, wind rattling the barn planks
+
+CAMERA & MOVEMENT: Static two-shot; insert on the key; slow turn to the sealed door.
+
+CONTINUITY: Act 1 wardrobe. The tack room has been sealed since the fire; the padlock is cut in scene 10 (the brass key does not fit it). Elena Vance wardrobe (act 1): faded blue denim work shirt, dark riding jeans, worn boots, low braid Cole Barrett wardrobe (act 1): oiled tan canvas chore jacket over a grey henley, worn felt hat
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 010 | frame: frame_010.png | salida: scene_010.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_010.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.4 s — medium shot: Inside the tack room, the maid kneels over an open tin box while the foreman stands in the doorway with bolt cutters.
+HARD CUT at 3.4 s — SHOT 2 — insert shot of the evidence object: Insert: a cream deed unfolds in her hands, its old seal still intact.
+HARD CUT at 6.9 s — SHOT 3 — tight close-up: Close on her face as she reads the name; her lips part, and she has to steady the paper.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+ELENA (barely audible): "This deed says Vance. Not Blackwell. My mother owned Silver Creek."
+COLE (rough): "Then the fire wasn't bad luck. And I should have told you something years ago."
+
+VOICE NOTES: ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical; COLE — quiet, low American English, careful diction, warmth held under restraint.
+
+AUDIO BED: a work lamp buzzing, old paper unfolding, a chain shifting outside, rain starting
+
+CAMERA & MOVEMENT: Slow push-in over her shoulder; insert on the deed; tight close-up; cut to black on her line.
+
+CONTINUITY: Act 1 wardrobe. The tin box holds the 2008 deed, a bank deposit slip for box 14 and a photograph; it stays hidden under the loose board until act 4. Elena Vance wardrobe (act 1): faded blue denim work shirt, dark riding jeans, worn boots, low braid Cole Barrett wardrobe (act 1): oiled tan canvas chore jacket over a grey henley, worn felt hat
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 011 | frame: frame_011.png | salida: scene_011.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_011.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.4 s — medium shot: At the oak counter, the maid lays the old deed down while the clerk turns a heavy ledger toward her.
+HARD CUT at 3.4 s — SHOT 2 — insert shot of the evidence object: Insert: the ledger's ruled page for the Silver Creek parcel, stamped and countersigned.
+HARD CUT at 7.0 s — SHOT 3 — tight close-up: Close on the maid as the clerk's answer lands; her jaw sets, but her eyes drop.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+CLERK (neutral): "The sale was recorded in 2009. Blackwell owns it. Without a probate file, miss, you're not even her heir."
+ELENA (low): "Then open a probate file."
+
+VOICE NOTES: ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical.
+
+AUDIO BED: ledger pages turning, a wall clock, boots on creaking wood
+
+CAMERA & MOVEMENT: Static; insert on ledger; close-up as the answer lands.
+
+CONTINUITY: Act 2 wardrobe. No probate was ever filed for June Vance; this legal gap drives act 2. Elena Vance wardrobe (act 2): faded blue denim work shirt under a tan canvas barn coat, braid loosened by work
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 012 | frame: frame_012.png | salida: scene_012.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_012.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.4 s — medium shot: On the stone steps, the maid holds a folder to her chest while the foreman waits a step below, hat in hand.
+HARD CUT at 3.4 s — SHOT 2 — tight close-up: Close on her hands tightening on the folder's edge until the card bends.
+HARD CUT at 6.9 s — SHOT 3 — over-the-shoulder shot: Over the foreman's shoulder: her face against the grey street, deciding.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+COLE (careful): "Probate takes months. Victoria's already on the phone with her lawyer."
+ELENA (steady): "Then I won't fight her with a lawyer. I'll fight her with what she's afraid of."
+
+VOICE NOTES: COLE — quiet, low American English, careful diction, warmth held under restraint; ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical.
+
+AUDIO BED: wind across stone steps, a truck passing on wet asphalt, a flag snapping
+
+CAMERA & MOVEMENT: Static; cut to hands; over-the-shoulder as she decides.
+
+CONTINUITY: Act 2 wardrobe. Elena still has the 2008 deed; the county refuses to act on it without probate. Elena Vance wardrobe (act 2): faded blue denim work shirt under a tan canvas barn coat, braid loosened by work Cole Barrett wardrobe (act 2): canvas chore jacket, collar turned up, rain-darkened at the shoulders
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 013 | frame: frame_013.png | salida: scene_013.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_013.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.3 s — medium shot: In the paneled office, the maid holds a single sheet of paper while the woman in black cashmere stands by the window, gloves in hand.
+HARD CUT at 3.3 s — SHOT 2 — over-the-shoulder shot: Over the maid's shoulder: the paper offers a year of grave upkeep and a dropped charge.
+HARD CUT at 6.9 s — SHOT 3 — tight close-up: Close on the maid's face: she reads the terms, and something in her goes cold.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+VICTORIA (soft, final): "I'll keep your mother's grave tended another year. Leave Silver Creek, and the watch charge disappears."
+ELENA (quiet): "You're offering me a gardener. Not my mother's name."
+
+VOICE NOTES: VICTORIA — low, polished, unhurried American English, smiles through threats, never shouts; ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical.
+
+AUDIO BED: a coal settling in the grate, gloves creaking, wind at the window
+
+CAMERA & MOVEMENT: Static; cut to paper; slow close on her face.
+
+CONTINUITY: Act 2 wardrobe. First explicit money offer; Victoria repeats it with a larger sum in scene 30. Victoria Blackwell wardrobe (act 2): black cashmere turtleneck, long grey riding coat, leather gloves Elena Vance wardrobe (act 2): faded blue denim work shirt under a tan canvas barn coat, braid loosened by work
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 014 | frame: frame_014.png | salida: scene_014.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_014.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — medium shot: In the dark-paneled hallway, the heir speaks low to the maid, hands open, while she holds her folder like a shield.
+HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close on the heir's face: the practiced smile is gone for once.
+HARD CUT at 6.9 s — SHOT 3 — over-the-shoulder shot: Over his shoulder: the maid's eyes narrow, reading the first honest thing he's said.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+RICHARD (low): "I know you didn't take the watch. Leave before she decides you're dangerous."
+ELENA (cold): "Why do you care?"
+RICHARD (beat): "Because you keep digging where the whole valley is buried."
+
+VOICE NOTES: RICHARD — smooth mid-range American English, reasonable tone that never quite reaches sincerity; ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical.
+
+AUDIO BED: a floorboard creaking, wind at the high window, muffled voices from below
+
+CAMERA & MOVEMENT: Gentle push-in; cut to his face; over-the-shoulder.
+
+CONTINUITY: Act 2 wardrobe. Richard admits the watch was staged; the audience knows before the town. Richard Blackwell wardrobe (act 2): grey wool overcoat over the white shirt, silver cufflinks Elena Vance wardrobe (act 2): faded blue denim work shirt under a tan canvas barn coat, braid loosened by work
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 015 | frame: frame_015.png | salida: scene_015.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_015.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.4 s — medium shot: At the oilcloth table, the maid and the housekeeper sit across a covered pie neither has touched.
+HARD CUT at 3.4 s — SHOT 2 — tight close-up: Close on the housekeeper's hands twisting a napkin until the linen frays.
+HARD CUT at 6.9 s — SHOT 3 — over-the-shoulder shot: Over the housekeeper's shoulder: the maid's face as she understands what was signed.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+MAGGIE (unsteady): "The night of the fire, I signed a statement for her. I said the lamp fell. It was a lie."
+ELENA (hurt): "You told them my mother was careless."
+
+VOICE NOTES: MAGGIE — grounded, plainspoken American English with a soft Irish lilt worn thin by thirty years in Montana; ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical.
+
+AUDIO BED: the stove ticking, wind at the eaves, a spoon rattling against china
+
+CAMERA & MOVEMENT: Static; cut to hands; over-the-shoulder; hold on Elena.
+
+CONTINUITY: Act 2 wardrobe. Maggie's false statement was signed fifteen years ago under pressure from Victoria; her redemption begins here. Elena Vance wardrobe (act 2): faded blue denim work shirt under a tan canvas barn coat, braid loosened by work Maggie Doyle wardrobe (act 2): wool shawl pinned over the cardigan, apron folded over one arm
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 016 | frame: frame_016.png | salida: scene_016.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_016.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.4 s — medium shot: In the barn aisle, the maid and the foreman stand on either side of a lantern, rain crossing the doorway behind him.
+HARD CUT at 3.4 s — SHOT 2 — tight close-up: Close on the foreman's jaw as he forces the words out.
+HARD CUT at 6.8 s — SHOT 3 — over-the-shoulder shot: Over his shoulder: the maid's face as she takes the confession without blinking.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+COLE (rough): "The night of the fire I was fifteen. I saw a truck leave."
+ELENA (quiet): "You watched it leave and said nothing."
+
+VOICE NOTES: COLE — quiet, low American English, careful diction, warmth held under restraint; ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical.
+
+AUDIO BED: rain hammering the doorway, lantern glass ticking, a horse stamping in straw
+
+CAMERA & MOVEMENT: Slow drift around the lantern; cut to his jaw; cut to her.
+
+CONTINUITY: Act 2 wardrobe. Cole's fire-night confession plants his act 6 testimony. Elena Vance wardrobe (act 2): faded blue denim work shirt under a tan canvas barn coat, braid loosened by work Cole Barrett wardrobe (act 2): canvas chore jacket, collar turned up, rain-darkened at the shoulders
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 017 | frame: frame_017.png | salida: scene_017.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_017.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — medium shot: In the lamplit study, the mistress stands over the desk while the heir paces and loosens his collar.
+HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close on her hand closing a folder marked only by a county seal.
+HARD CUT at 6.9 s — SHOT 3 — over-the-shoulder shot: Over her shoulder: the heir's reflection in the dark window, caught between defiance and fear.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+VICTORIA (cold): "The probate clerk called. Someone requested June Vance's file. Bury it."
+RICHARD (edged): "You're good at that. The watch was your idea, remember?"
+
+VOICE NOTES: VICTORIA — low, polished, unhurried American English, smiles through threats, never shouts; RICHARD — smooth mid-range American English, reasonable tone that never quite reaches sincerity.
+
+AUDIO BED: a drawer sliding shut, rain against glass, a lamp humming
+
+CAMERA & MOVEMENT: Static; cut to the folder; over-the-shoulder into the window.
+
+CONTINUITY: Act 2 wardrobe. The audience learns Victoria ordered the county file pulled and the watch planted. Victoria Blackwell wardrobe (act 2): black cashmere turtleneck, long grey riding coat, leather gloves Richard Blackwell wardrobe (act 2): grey wool overcoat over the white shirt, silver cufflinks
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 018 | frame: frame_018.png | salida: scene_018.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_018.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.4 s — medium shot: At the counter, the clerk shakes her head over a sealed drawer while the maid's open folder waits untouched.
+HARD CUT at 3.4 s — SHOT 2 — insert shot of the evidence object: Insert: the drawer's small brass lock, closed and freshly oiled.
+HARD CUT at 6.9 s — SHOT 3 — tight close-up: Close on the maid as the refusal lands; she doesn't look away.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+CLERK (uncomfortable): "The file was pulled by the Blackwell estate. There's no record you're her daughter."
+ELENA (quiet): "There's a record somewhere. She made sure of it."
+
+VOICE NOTES: ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical.
+
+AUDIO BED: a drawer lock clicking, a clock, a pen set down too carefully
+
+CAMERA & MOVEMENT: Static; insert on the lock; close on her.
+
+CONTINUITY: Act 2 wardrobe. Elena's birth certificate is hidden in the bank box; it resolves this 'no record' refusal in act 5. Elena Vance wardrobe (act 2): faded blue denim work shirt under a tan canvas barn coat, braid loosened by work
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 019 | frame: frame_019.png | salida: scene_019.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_019.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — medium shot: In the candlelit great room, the mistress rises with a glass while the maid stands at the edge of the tables, napkin in hand.
+HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close on the maid's face as every guest turns toward her.
+HARD CUT at 6.9 s — SHOT 3 — low-angle hero shot: Low angle on the maid as she answers the toast without dropping her gaze.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+VICTORIA (bright, public): "Elena will be leaving us soon. Tell them, dear — what are your plans?"
+ELENA (calm, clear): "Mrs. Blackwell is too kind. My plans haven't changed. I'm staying."
+
+VOICE NOTES: VICTORIA — low, polished, unhurried American English, smiles through threats, never shouts; ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical.
+
+AUDIO BED: silverware on china, a glass set down, a room going quiet
+
+CAMERA & MOVEMENT: Static wide; cut to face; low-angle on her answer.
+
+CONTINUITY: Act 2 wardrobe. Public humiliation attempt; Elena's small public defiance sets up the gala reversal in act 6. Victoria Blackwell wardrobe (act 2): black cashmere turtleneck, long grey riding coat, leather gloves Elena Vance wardrobe (act 2): faded blue denim work shirt under a tan canvas barn coat, braid loosened by work Richard Blackwell wardrobe (act 2): grey wool overcoat over the white shirt, silver cufflinks
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 020 | frame: frame_020.png | salida: scene_020.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_020.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.4 s — medium shot: In the gravel yard at night, a steel barrel burns while the mistress holds out a folded paper and the maid watches the flames.
+HARD CUT at 3.4 s — SHOT 2 — insert shot of the evidence object: Insert: the old saddle's leather curling in the fire, stitching glowing before it blackens.
+HARD CUT at 6.9 s — SHOT 3 — tight close-up: Close on the maid's face lit by fire; she does not step back.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+VICTORIA (quiet, absolute): "Sign by midnight, or I press charges for arson as well as theft."
+ELENA (low): "You burned her saddle. That means you're afraid of what was in it."
+
+VOICE NOTES: VICTORIA — low, polished, unhurried American English, smiles through threats, never shouts; ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical.
+
+AUDIO BED: fire roaring in a steel barrel, gravel under boots, a radio crackling in the sheriff's car
+
+CAMERA & MOVEMENT: Slow orbit around the barrel; insert on the saddle; close-up on her.
+
+CONTINUITY: Act 2 wardrobe. The burning barrel destroys June's saddle and its empty lining; the tin box is already hidden in the tack room. Victoria Blackwell wardrobe (act 2): black cashmere turtleneck, long grey riding coat, leather gloves Elena Vance wardrobe (act 2): faded blue denim work shirt under a tan canvas barn coat, braid loosened by work
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 021 | frame: frame_021.png | salida: scene_021.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_021.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.4 s — medium two-shot: In the cottage lamplight, the maid unrolls the old county survey map while the foreman anchors the curling corners with heavy iron horseshoes.
+HARD CUT at 3.4 s — SHOT 2 — insert shot of the evidence object: Insert: a calloused finger traces the parcel boundary where the original boundary line was scraped off with a razor blade.
+HARD CUT at 6.9 s — SHOT 3 — tight close-up: Close on the maid looking up from the map, determination sharpening her eyes.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+ELENA (intense, low): "Look at the parcel boundary. Someone scraped the original section line off with a blade."
+COLE (gravelly): "That's Walter Blackwell's handwriting underneath. He signed over the whole north valley."
+
+VOICE NOTES: ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical; COLE — quiet, low American English, careful diction, warmth held under restraint.
+
+AUDIO BED: kerosene lamp humming, wind whistling through window joints, heavy paper creaking
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 3 wardrobe. Elena wears the denim shirt with sleeves rolled; Cole carries the parcel map. Elena Vance wardrobe (act 3): denim work shirt with rolled sleeves, dark riding jeans, leather work gloves tucked in the belt Cole Barrett wardrobe (act 3): chore jacket with a broken zipper pull, leather work gloves
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 022 | frame: frame_022.png | salida: scene_022.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_022.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — medium shot: In the shadowy tack room, the maid kneels beside the wall timber and slides a cylindrical tin case from the hollow cavity.
+HARD CUT at 3.5 s — SHOT 2 — insert shot of the evidence object: Insert: the cap unscrews with a grinding squeak, revealing rolled bank tax receipts tied with red butcher twine.
+HARD CUT at 6.8 s — SHOT 3 — tight close-up: Close on her face as flashlight beam illuminates the receipts bearing her mother's signature.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+ELENA (shivering whisper): "Every property tax installment from 2005 to 2008. My mother paid them in cash at First Valley Bank."
+
+VOICE NOTES: ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical.
+
+AUDIO BED: tin cap grinding, owls hooting in barn rafters, distant horse snorting softly
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 3 wardrobe. Rusted tin tube discovered; tax receipts will prove ongoing possession. Elena Vance wardrobe (act 3): denim work shirt with rolled sleeves, dark riding jeans, leather work gloves tucked in the belt
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 023 | frame: frame_023.png | salida: scene_023.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_023.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.4 s — medium two-shot: In the moonlight, the foreman gently binds the maid's bruised palm with white tape, his touch slow and deliberate.
+HARD CUT at 3.4 s — SHOT 2 — tight close-up: Close on their intertwined hands as his thumb brushes over her calloused knuckles.
+HARD CUT at 6.9 s — SHOT 3 — over-the-shoulder shot: Over the foreman's broad shoulder, her eyes soften as she looks directly into his face.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+COLE (soft, rough): "You don't have to carry this alone in the dark, Elena. I'm with you."
+ELENA (tender, guarded): "Everyone who stood beside my mother paid for it. Be careful."
+
+VOICE NOTES: COLE — quiet, low American English, careful diction, warmth held under restraint; ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical.
+
+AUDIO BED: dry hay rustling, cricket chirps, soft breathing, timber creaking in night breeze
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 3 wardrobe. Cole wraps Elena's bruised hand; linen tape remains on her palm through scene 28. Elena Vance wardrobe (act 3): denim work shirt with rolled sleeves, dark riding jeans, leather work gloves tucked in the belt Cole Barrett wardrobe (act 3): chore jacket with a broken zipper pull, leather work gloves
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 024 | frame: frame_024.png | salida: scene_024.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_024.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.3 s — medium shot: Behind the desk, the maid freezes with the open ledger as the heir steps over the threshold into the room.
+HARD CUT at 3.3 s — SHOT 2 — tight close-up: Close on the heir's eyes shifting down to the gold-stamped estate accounts ledger in her arms.
+HARD CUT at 6.8 s — SHOT 3 — over-the-shoulder shot: Over the maid's shoulder, the heir slowly reaches behind his back to shut the study door.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+RICHARD (nervous, tense): "You shouldn't have opened that drawer, Elena. That book lists payments my father made to keep quiet."
+ELENA (cold, piercing): "Payments to the county coroner. Your mother bought the death certificate."
+
+VOICE NOTES: RICHARD — smooth mid-range American English, reasonable tone that never quite reaches sincerity; ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical.
+
+AUDIO BED: heavy oak door latching softly, clock pendulum ticking, distant dogs barking
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 3 wardrobe. Richard catches Elena; the 2008 coroner payment record is revealed. Elena Vance wardrobe (act 3): denim work shirt with rolled sleeves, dark riding jeans, leather work gloves tucked in the belt Richard Blackwell wardrobe (act 3): white shirt with sleeves rolled, dark trousers
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 025 | frame: frame_025.png | salida: scene_025.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_025.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — medium shot: In the vast room, the mistress dangles a small brass ribboned key while the maid stands rigid near the cold hearth.
+HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close on the mistress's painted red lips curling into an amused, predatory smile.
+HARD CUT at 6.9 s — SHOT 3 — low-angle hero shot: Low angle on the maid squaring her shoulders against the firelight's orange glow.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+VICTORIA (smooth venom): "Did you think Walter was a saint? He gave promises because he was weak."
+ELENA (unflinching): "He gave her the ranch. And you murdered him before he could file it."
+
+VOICE NOTES: VICTORIA — low, polished, unhurried American English, smiles through threats, never shouts; ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical.
+
+AUDIO BED: grandfather clock striking the quarter hour, embers crackling, wind buffeting glass
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 3 wardrobe. Victoria reveals she knows about the deed claim. Victoria Blackwell wardrobe (act 3): silver-grey silk blouse, charcoal skirt, single pearl strand Elena Vance wardrobe (act 3): denim work shirt with rolled sleeves, dark riding jeans, leather work gloves tucked in the belt Richard Blackwell wardrobe (act 3): white shirt with sleeves rolled, dark trousers
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 026 | frame: frame_026.png | salida: scene_026.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_026.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.4 s — medium two-shot: Under harsh halogen yard lights, the foreman plants his boots in front of the heir, refusing to yield the driveway.
+HARD CUT at 3.4 s — SHOT 2 — tight close-up: Close on the foreman's clenched fist at his side, knuckles white against the tan canvas.
+HARD CUT at 6.8 s — SHOT 3 — over-the-shoulder shot: Over the heir's shoulder, the foreman steps forward into the beam of light.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+COLE (deadly, calm): "Take one step toward the gatehouse tonight, Richard, and I'll finish what your father started."
+RICHARD (bitter, spiteful): "You're throwing your whole life away for a girl who won't even kiss you."
+
+VOICE NOTES: COLE — quiet, low American English, careful diction, warmth held under restraint; RICHARD — smooth mid-range American English, reasonable tone that never quite reaches sincerity.
+
+AUDIO BED: gravel shifting under heavy work boots, halogen floodlights buzzing, cold fog horn far off
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 3 wardrobe. Cole physically blocks Richard from raiding Elena's cottage. Cole Barrett wardrobe (act 3): chore jacket with a broken zipper pull, leather work gloves Richard Blackwell wardrobe (act 3): white shirt with sleeves rolled, dark trousers
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 027 | frame: frame_027.png | salida: scene_027.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_027.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.4 s — medium shot: On the rain-slick porch steps, the heir reaches out with a cream envelope while the maid refuses to accept it.
+HARD CUT at 3.4 s — SHOT 2 — insert shot of the evidence object: Insert: the wet envelope bears the embossed gold seal of the county probate registry.
+HARD CUT at 6.9 s — SHOT 3 — tight close-up: Close on the heir's eyes searching her face, genuine dread beneath his charm.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+RICHARD (shaken, urgent): "My mother hired two men from Billings. If you are here at sunrise, they won't talk."
+ELENA (quiet iron): "Then tell them to bring their shovels. I'm not running."
+
+VOICE NOTES: RICHARD — smooth mid-range American English, reasonable tone that never quite reaches sincerity; ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical.
+
+AUDIO BED: rain dripping from wooden eaves, porch boards creaking, distant thunder rumble
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 3 wardrobe. Richard warns Elena of Victoria's hired muscle from Billings. Elena Vance wardrobe (act 3): denim work shirt with rolled sleeves, dark riding jeans, leather work gloves tucked in the belt Richard Blackwell wardrobe (act 3): white shirt with sleeves rolled, dark trousers
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 028 | frame: frame_028.png | salida: scene_028.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_028.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.3 s — medium shot: In the barn aisle, the housekeeper rushes to the maid and grabs both of her elbows with trembling hands.
+HARD CUT at 3.3 s — SHOT 2 — tight close-up: Close on the housekeeper's tear-streaked spectacles reflecting the amber glow of the hanging bulb.
+HARD CUT at 6.8 s — SHOT 3 — over-the-shoulder shot: Over the housekeeper's shoulder, the maid gently pulls her close to steady her shaking.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+MAGGIE (frantic whisper): "Victoria cleared the safe in the master bedroom. She's packing to leave after the county gala."
+ELENA (grim, steady): "She won't leave Montana until the auction deed is stamped. We have until midnight."
+
+VOICE NOTES: MAGGIE — grounded, plainspoken American English with a soft Irish lilt worn thin by thirty years in Montana; ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical.
+
+AUDIO BED: horses rustling nervous in stalls, wind howling through wall cracks, floor chains clinking
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 3 wardrobe. Maggie reveals Victoria plans to sell and run after the gala. Elena Vance wardrobe (act 3): denim work shirt with rolled sleeves, dark riding jeans, leather work gloves tucked in the belt Maggie Doyle wardrobe (act 3): beige cardigan under the wool shawl, apron gone
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 029 | frame: frame_029.png | salida: scene_029.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_029.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.4 s — medium shot: By the iron gates, the mistress steps out of the luxury car into the headlights, holding a checkbook open.
+HARD CUT at 3.4 s — SHOT 2 — tight close-up: Close on the cashier's draft: five hundred thousand dollars drawn on First Valley Bank.
+HARD CUT at 6.9 s — SHOT 3 — low-angle hero shot: Low angle on the maid standing in the glare of the car beams, unblinking in the gale.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+VICTORIA (velvet bribe): "Half a million dollars in cash. You can buy any ranch from here to Texas, Elena."
+ELENA (ice cold): "And all I have to do is swear my mother was a thief."
+
+VOICE NOTES: VICTORIA — low, polished, unhurried American English, smiles through threats, never shouts; ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical.
+
+AUDIO BED: car engine idling low, wind screaming through iron bars, headlights humming
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 3 wardrobe. Victoria lays out the massive buyout offer. Victoria Blackwell wardrobe (act 3): silver-grey silk blouse, charcoal skirt, single pearl strand Elena Vance wardrobe (act 3): denim work shirt with rolled sleeves, dark riding jeans, leather work gloves tucked in the belt
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 030 | frame: frame_030.png | salida: scene_030.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_030.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.4 s — medium two-shot: Under the headlights, the mistress thrusts the certified check into the maid's face like an execution order.
+HARD CUT at 3.4 s — SHOT 2 — insert shot of the evidence object: Insert: the maid's fingers close around the paper edge, lingering as if about to fold it.
+HARD CUT at 6.9 s — SHOT 3 — tight close-up: Extreme close-up on the maid's eyes, blazing with an impossible choice as rain strikes her skin.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+VICTORIA (whispered, ruthless): "Take the money, Elena. Leave the name behind. Or by morning, you won't have either."
+ELENA (defiant roar): "My mother died for this name. You can't afford it."
+
+VOICE NOTES: VICTORIA — low, polished, unhurried American English, smiles through threats, never shouts; ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical.
+
+AUDIO BED: thunderclaps shaking the valley, heavy rain drumming car hood, paper ripping slightly in wind
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 3 cliffhanger. Elena rejects the half-million buyout; war is officially declared. Victoria Blackwell wardrobe (act 3): silver-grey silk blouse, charcoal skirt, single pearl strand Elena Vance wardrobe (act 3): denim work shirt with rolled sleeves, dark riding jeans, leather work gloves tucked in the belt
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 031 | frame: frame_031.png | salida: scene_031.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_031.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — wide establishing shot: Inside the ransacked cottage, the storm sweeps through shattered windows, scattering torn clothes and broken crockery across wet stones.
+HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close on the maid's boots stepping through broken glass as rain drips from her soaked chin.
+HARD CUT at 6.9 s — SHOT 3 — medium shot: She kneels in the center of the wreckage, her hands feeling frantically beneath a loose hearthstone.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+ELENA (choked, breathless): "They took the tin box. They tore through my floorboards and took the original deed."
+ELENA (shattered whisper): "They took everything."
+
+VOICE NOTES: ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical.
+
+AUDIO BED: gale force winds howl through glass shards, torrents of rain hitting stone floor, thunder
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 4 wardrobe. Elena wears the storm coat, soaked hair; cottage trashed and tin box stolen. Elena Vance wardrobe (act 4): denim work shirt under a charcoal storm coat, hair wet from rain
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 032 | frame: frame_032.png | salida: scene_032.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_032.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.4 s — medium shot: In the swirling red and blue emergency light, the maid faces the padlocked gate as rain washes mud over her boots.
+HARD CUT at 3.4 s — SHOT 2 — insert shot of the evidence object: Insert: a laminated county eviction warrant stapled to the post: 'Immediate Vacate — Trespassing Order'.
+HARD CUT at 6.8 s — SHOT 3 — tight close-up: Close on her wet face illuminated by strobe flashes, defiant rage replacing fear.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+ELENA (bitter, low): "Sheriff Drummond signed an eviction without a hearing. Victoria bought the whole county, but she never bought me."
+
+VOICE NOTES: ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical.
+
+AUDIO BED: police cruiser siren chirping, heavy rain squall, chain links rattling against timber post
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 4 wardrobe. Elena is officially evicted and locked out of the estate. Elena Vance wardrobe (act 4): denim work shirt under a charcoal storm coat, hair wet from rain
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 033 | frame: frame_033.png | salida: scene_033.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_033.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.4 s — medium two-shot: In the drafty shelter, the maid wraps her own dry flannel scarf around the weeping housekeeper's neck.
+HARD CUT at 3.4 s — SHOT 2 — tight close-up: Close on the housekeeper's trembling chin as she clasps Elena's wet wrists with both hands.
+HARD CUT at 6.9 s — SHOT 3 — over-the-shoulder shot: Over the maid's shoulder, the older woman looks up with fifteen years of buried grief.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+MAGGIE (sobbing, broken): "Victoria threatened my sister's nursing care in Helena. That is why I signed the lie."
+ELENA (fierce, gentle): "You kept your family alive, Maggie. I forgive you. Now help me finish this."
+
+VOICE NOTES: MAGGIE — grounded, plainspoken American English with a soft Irish lilt worn thin by thirty years in Montana; ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical.
+
+AUDIO BED: rain thundering deafeningly on corrugated iron roof, gusting wind, weeping breath
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 4 wardrobe. Maggie reveals the extortion behind her false testimony fifteen years ago. Elena Vance wardrobe (act 4): denim work shirt under a charcoal storm coat, hair wet from rain Maggie Doyle wardrobe (act 4): wool shawl against the storm, glasses fogged, small travel bag
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 034 | frame: frame_034.png | salida: scene_034.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_034.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.4 s — medium shot: Inside the glowing library, the mistress feeds the ancient deed into the fireplace flames while rain streaks the window.
+HARD CUT at 3.4 s — SHOT 2 — insert shot of the evidence object: Insert: the wax seal on June Vance's deed melts into blackened bubbles in the fire.
+HARD CUT at 6.8 s — SHOT 3 — tight close-up: Close on the heir turning away from the fireplace, draining his amber glass in one swallow.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+VICTORIA (triumphant, quiet): "There goes Walter's grand sentiment. No deed, no contract, no legal claim in Montana."
+RICHARD (dark, uneasy): "You burned the paper, Mother. You didn't burn what Walter put in the vault."
+
+VOICE NOTES: VICTORIA — low, polished, unhurried American English, smiles through threats, never shouts; RICHARD — smooth mid-range American English, reasonable tone that never quite reaches sincerity.
+
+AUDIO BED: fireplace flames roaring, rain drumming on terrace panes, crystal glass setting down
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 4 wardrobe. The stolen 2008 deed is burned; Victoria believes she erased all proof. Victoria Blackwell wardrobe (act 4): black cashmere sweater, thin diamond bracelet, hair set perfectly despite the storm Richard Blackwell wardrobe (act 4): dark rain jacket over the white shirt, collar up against the storm
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 035 | frame: frame_035.png | salida: scene_035.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_035.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.3 s — medium shot: In a sudden flash of lightning, the maid appears like a ghost in the stable door, blocking the heir's retreat.
+HARD CUT at 3.3 s — SHOT 2 — tight close-up: Close on the heir stumbling backward against a stall door, dropping his car keys onto the straw.
+HARD CUT at 6.8 s — SHOT 3 — over-the-shoulder shot: Over the maid's shoulder, she steps forward and steps firmly onto his dropped keys.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+ELENA (ice cold command): "Tell me what your father put in the vault, Richard. Or sleep in this stable tonight."
+RICHARD (stammering, cornered): "Box 14 at First Valley Trust. The original will. He never revoked it."
+
+VOICE NOTES: ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical; RICHARD — smooth mid-range American English, reasonable tone that never quite reaches sincerity.
+
+AUDIO BED: thunderclap echoing in barn rafters, straw crunching underfoot, keys jangling on wood
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 4 wardrobe. Elena forces Richard to reveal the vault location: Box 14 at First Valley Trust. Elena Vance wardrobe (act 4): denim work shirt under a charcoal storm coat, hair wet from rain Richard Blackwell wardrobe (act 4): dark rain jacket over the white shirt, collar up against the storm
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 036 | frame: frame_036.png | salida: scene_036.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_036.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — wide establishing shot: On the high ridge, the small figure of the maid stands against the vast Montana valley as dawn breaks slate grey.
+HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close on her wet face, eyes stinging with salt and cold wind, but chin jutting forward in stubborn pride.
+HARD CUT at 6.9 s — SHOT 3 — low-angle hero shot: Low angle from the rocks below, framing her towering against the gathering dawn light.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+ELENA (unbroken, resonant): "They took the house. They burned the deed. But every inch of this dirt remembers my mother's sweat."
+
+VOICE NOTES: ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical.
+
+AUDIO BED: gale wind howling over mountain crest, distant hawk cry, thunder rolling away into hills
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 4 wardrobe. Elena reaches her emotional low point and transforms grief into resolve. Elena Vance wardrobe (act 4): denim work shirt under a charcoal storm coat, hair wet from rain
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 037 | frame: frame_037.png | salida: scene_037.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_037.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.4 s — medium two-shot: On the muddy road, the foreman wraps his dry wool jacket around her, pulling the collar up against the wind.
+HARD CUT at 3.4 s — SHOT 2 — tight close-up: Close on his calloused hand lingering at the lapel, steadying her trembling frame.
+HARD CUT at 6.9 s — SHOT 3 — over-the-shoulder shot: Over the maid's shoulder, the foreman looks straight down the mountain toward town.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+COLE (quiet, loyal): "The bank opens in two hours. I've got gas and nothing left to lose."
+ELENA (soft warning): "If we do this, Victoria will have the sheriff arrest us at the door."
+
+VOICE NOTES: COLE — quiet, low American English, careful diction, warmth held under restraint; ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical.
+
+AUDIO BED: diesel truck engine rumbling steady, windshield wipers clicking, wind whistling through pines
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 4 wardrobe. Cole arrives with the truck; they commit to raiding the bank box together. Elena Vance wardrobe (act 4): denim work shirt under a charcoal storm coat, hair wet from rain Cole Barrett wardrobe (act 4): soaked canvas jacket, grey henley underneath, no hat
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 038 | frame: frame_038.png | salida: scene_038.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_038.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.4 s — medium shot: Inside the bouncing truck cab, the maid turns the brass key in the dashboard light, scraping away years of verdigris.
+HARD CUT at 3.4 s — SHOT 2 — insert shot of the evidence object: Insert: under the brass patina, tiny stamped numerals read: 'FVT — 14'.
+HARD CUT at 6.9 s — SHOT 3 — tight close-up: Close on her lips parting as the final realization clicks into place.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+ELENA (hushed awe): "FVT fourteen. First Valley Trust. This was never a saddle lock or a barn key."
+COLE (stunned breath): "It's a bank safety deposit box key. Walter's private vault."
+
+VOICE NOTES: ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical; COLE — quiet, low American English, careful diction, warmth held under restraint.
+
+AUDIO BED: truck tires humming on wet highway, heater blower whirring, key clicking against metal coin tray
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 4 wardrobe. The brass key's true identity is solved: First Valley Trust Box 14. Elena Vance wardrobe (act 4): denim work shirt under a charcoal storm coat, hair wet from rain Cole Barrett wardrobe (act 4): soaked canvas jacket, grey henley underneath, no hat
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 039 | frame: frame_039.png | salida: scene_039.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_039.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.4 s — medium shot: On the bank steps, the maid and foreman turn together as the limousine door opens across the street.
+HARD CUT at 3.4 s — SHOT 2 — over-the-shoulder shot: Over the maid's shoulder, Victoria steps out in her emerald gala dress, accompanied by Sheriff Drummond.
+HARD CUT at 6.8 s — SHOT 3 — tight close-up: Close on the maid slipping the brass key into her fist and bounding up the bank steps.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+COLE (urgent): "Victoria's here with Drummond. They're going to seal the vault before you reach the counter."
+ELENA (determined): "Then hold Drummond on the steps for sixty seconds. Just sixty seconds."
+
+VOICE NOTES: COLE — quiet, low American English, careful diction, warmth held under restraint; ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical.
+
+AUDIO BED: town church bell tolling nine, limousine door slamming, boots racing up granite stairs
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 4 wardrobe. Race to the bank vault; Cole runs interference against the Sheriff. Elena Vance wardrobe (act 4): denim work shirt under a charcoal storm coat, hair wet from rain Cole Barrett wardrobe (act 4): soaked canvas jacket, grey henley underneath, no hat
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 040 | frame: frame_040.png | salida: scene_040.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_040.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.4 s — medium shot: Inside the gleaming vault, the maid turns the brass key into Lock 14; the heavy tumbler clicks open with a hollow ring.
+HARD CUT at 3.4 s — SHOT 2 — insert shot of the evidence object: Insert: the long metal deposit box slides out, containing a blue ribboned document: 'Last Will and Testament of Walter Blackwell'.
+HARD CUT at 6.9 s — SHOT 3 — tight close-up: Close on her eyes widening in profound shock as she reads the bold heading across the parchment.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+ELENA (reverent whisper): "The key was never for a door. It was for Walter Blackwell's final will."
+ELENA (rising triumph): "And the first page leaves Silver Creek entirely to me."
+
+VOICE NOTES: ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical.
+
+AUDIO BED: heavy steel tumbler clunking open, metal drawer sliding on runners, fluorescent bulb hum
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 4 cliffhanger. Elena unlocks Box 14 and secures the certified original will. Elena Vance wardrobe (act 4): denim work shirt under a charcoal storm coat, hair wet from rain
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 041 | frame: frame_041.png | salida: scene_041.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_041.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.4 s — medium shot: In the sunlit bank office, the maid stands tall as the grey-haired bank manager examines the embossed blue notary seal through his bifocals.
+HARD CUT at 3.4 s — SHOT 2 — insert shot of the evidence object: Insert: the manager's heavy gold signet embosser stamps 'CERTIFIED ORIGINAL COPY — FIRST VALLEY TRUST' across the parchment.
+HARD CUT at 6.9 s — SHOT 3 — tight close-up: Close on the maid's face as the heavy brass stamp thuds down, her breath releasing in steady relief.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+ELENA (crisp, steady): "Is the notary seal intact, sir? Does this will hold legal standing in Montana?"
+CLERK (formal, solemn): "It is completely valid, Miss Vance. Walter Blackwell deposited this with his own hand."
+
+VOICE NOTES: ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical.
+
+AUDIO BED: heavy brass seal clunking on paper, ticking grandfather clock, muffled street traffic outside
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 5 wardrobe. Elena wears the clean white button shirt under tan barn coat; certified will in hand. Elena Vance wardrobe (act 5): clean white button shirt under the tan barn coat, braid neat
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 042 | frame: frame_042.png | salida: scene_042.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_042.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.4 s — medium two-shot: On the stone steps, the foreman stands immovable between the mistress and the bank doors, ignoring the sheriff's warning stance.
+HARD CUT at 3.4 s — SHOT 2 — tight close-up: Close on the mistress's furious eyes narrowing beneath her sleek platinum bob.
+HARD CUT at 6.8 s — SHOT 3 — over-the-shoulder shot: Over the foreman's shoulder, the bank double doors click open behind him.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+VICTORIA (venomous hiss): "Step aside, Cole. You are an employee on my payroll until I fire you."
+COLE (unshakable, low): "I don't work for you anymore, Victoria. I work for Silver Creek's real owner."
+
+VOICE NOTES: VICTORIA — low, polished, unhurried American English, smiles through threats, never shouts; COLE — quiet, low American English, careful diction, warmth held under restraint.
+
+AUDIO BED: heavy brass door latch clicking open, morning wind rustling dry leaves on stone, town murmurs
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 5 wardrobe. Cole publicly severs ties with Victoria on the bank steps. Cole Barrett wardrobe (act 5): clean denim jacket over the grey henley, hat brushed for once Victoria Blackwell wardrobe (act 5): deep emerald high-collar dress for the gala, diamond earrings
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 043 | frame: frame_043.png | salida: scene_043.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_043.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.4 s — medium shot: The maid emerges onto the sunlit steps, lifting the stamped court-certified envelope for the entire sidewalk to see.
+HARD CUT at 3.4 s — SHOT 2 — tight close-up: Close on the mistress's painted smile slipping, raw panic flashing behind her eyes for the first time.
+HARD CUT at 6.9 s — SHOT 3 — low-angle hero shot: Low angle on the maid looking down from the granite steps with quiet authority.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+ELENA (ringing, clear): "You told the county my mother had no standing. Walter's certified will begs to differ."
+VICTORIA (strained composure): "That paper is an obsolete draft. It means nothing without court ratification."
+
+VOICE NOTES: ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical; VICTORIA — low, polished, unhurried American English, smiles through threats, never shouts.
+
+AUDIO BED: onlookers murmuring on sidewalk, pigeon wings flapping, wind snapping county banners
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 5 wardrobe. Elena displays the certified will publicly; town whispers spread. Elena Vance wardrobe (act 5): clean white button shirt under the tan barn coat, braid neat Victoria Blackwell wardrobe (act 5): deep emerald high-collar dress for the gala, diamond earrings
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 044 | frame: frame_044.png | salida: scene_044.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_044.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.4 s — medium two-shot: Inside the town car, the mistress grabs her son's lapel as he pulls himself back against the passenger door.
+HARD CUT at 3.4 s — SHOT 2 — tight close-up: Close on the heir unfastening her gloved fingers from his jacket with quiet distaste.
+HARD CUT at 6.8 s — SHOT 3 — over-the-shoulder shot: Over the mistress's shoulder, the heir stares out at the courthouse steps.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+VICTORIA (panicked command): "You will tell Judge Miller the will was stolen from Walter's desk while he was demented."
+RICHARD (quiet, finished): "Father was never demented, Mother. I'm not perjuring myself for your stolen mansion."
+
+VOICE NOTES: VICTORIA — low, polished, unhurried American English, smiles through threats, never shouts; RICHARD — smooth mid-range American English, reasonable tone that never quite reaches sincerity.
+
+AUDIO BED: muffled car interior hush, rain starting to tap car glass, engine ticking as it idles
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 5 wardrobe. Richard refuses to back Victoria's perjury. Victoria Blackwell wardrobe (act 5): deep emerald high-collar dress for the gala, diamond earrings Richard Blackwell wardrobe (act 5): black suit for the gala, sharp lapels, slicked hair
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 045 | frame: frame_045.png | salida: scene_045.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_045.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.4 s — medium shot: In the brick alleyway, the housekeeper presses an aged leather journal into the maid's hands, tears in her eyes.
+HARD CUT at 3.4 s — SHOT 2 — insert shot of the evidence object: Insert: the journal page opens to October 12, 2008: 'Paid Sheriff Drummond $10,000 to classify barn fire as accidental'.
+HARD CUT at 6.8 s — SHOT 3 — tight close-up: Close on the housekeeper whispering her final truth as she holds Elena's fingers tight.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+MAGGIE (solemn, tearful): "Walter kept this fire log. He wrote down the payoff check number right here."
+ELENA (reverent, warm): "This proves the fire was arson, Maggie. You just saved my mother's honor."
+
+VOICE NOTES: MAGGIE — grounded, plainspoken American English with a soft Irish lilt worn thin by thirty years in Montana; ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical.
+
+AUDIO BED: water dripping from fire escape iron, muffled brass band tuning inside civic hall, distant crowd chatter
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 5 wardrobe. Walter's private diary provided by Maggie, giving the final proof of arson. Elena Vance wardrobe (act 5): clean white button shirt under the tan barn coat, braid neat Maggie Doyle wardrobe (act 5): best Sunday cardigan, the apron folded neatly on a chair Cole Barrett wardrobe (act 5): clean denim jacket over the grey henley, hat brushed for once
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 046 | frame: frame_046.png | salida: scene_046.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_046.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.4 s — medium two-shot: Before the towering carved oak doors, the maid pauses, adjusting her mother's silver belt buckle.
+HARD CUT at 3.4 s — SHOT 2 — tight close-up: Close on the foreman reaching out, adjusting the collar of her white shirt with quiet tenderness.
+HARD CUT at 6.9 s — SHOT 3 — low-angle hero shot: Low angle as the maid places her hand on the brass door handle and pushes both doors open.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+COLE (gentle awe): "Every rancher, judge and banker in the state is in that room, Elena."
+ELENA (unshakable pride): "Good. It's time they learned who fed their horses for the last fifteen years."
+
+VOICE NOTES: COLE — quiet, low American English, careful diction, warmth held under restraint; ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical.
+
+AUDIO BED: crystal chandelier hum, ballroom orchestra playing light waltz, heavy oak doors swinging wide
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 5 wardrobe. Elena and Cole enter the county gala together. Elena Vance wardrobe (act 5): clean white button shirt under the tan barn coat, braid neat Cole Barrett wardrobe (act 5): clean denim jacket over the grey henley, hat brushed for once
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 047 | frame: frame_047.png | salida: scene_047.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_047.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — wide establishing shot: The grand ballroom falls utterly silent as the ranch maid in her simple white shirt strides down the red carpet toward the stage.
+HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close on the mistress's hand tightening around the podium microphone until her diamond ring clicks against the steel.
+HARD CUT at 6.9 s — SHOT 3 — over-the-shoulder shot: Over the maid's shoulder, she ascends the three wooden stage stairs without breaking stride.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+VICTORIA (strangled anger): "Security, remove this girl immediately. This is a private county charity gala."
+ELENA (crystal clear): "You're auctioning Silver Creek land tonight, Victoria. But you don't own the dirt."
+
+VOICE NOTES: VICTORIA — low, polished, unhurried American English, smiles through threats, never shouts; ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical.
+
+AUDIO BED: champagne glasses clinking nervously, ballroom murmur rising, microphone feedback whine
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 5 wardrobe. Elena interrupts the live gala auction. Elena Vance wardrobe (act 5): clean white button shirt under the tan barn coat, braid neat Victoria Blackwell wardrobe (act 5): deep emerald high-collar dress for the gala, diamond earrings
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 048 | frame: frame_048.png | salida: scene_048.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_048.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.4 s — medium two-shot: Under the blinding stage lights, the mistress steps right into the maid's face, abandoning all high-society poise.
+HARD CUT at 3.4 s — SHOT 2 — tight close-up: Extreme close-up on the mistress's twisted expression as she speaks directly into Elena's ear.
+HARD CUT at 6.8 s — SHOT 3 — insert shot of the evidence object: Insert: Elena lays Walter's blue-sealed will onto the auctioneer's reading desk.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+VICTORIA (hissed fury): "You are a stable rat playing dress-up. No judge will ever take my ranch away."
+ELENA (level, devastating): "It was never your ranch. You were just warming the chair until I grew up."
+
+VOICE NOTES: VICTORIA — low, polished, unhurried American English, smiles through threats, never shouts; ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical.
+
+AUDIO BED: dramatic crowd gasps echoing in high hall, spotlight hum, microphone catching ragged breaths
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 5 wardrobe. Dopamine comeback line delivered on public stage. Elena Vance wardrobe (act 5): clean white button shirt under the tan barn coat, braid neat Victoria Blackwell wardrobe (act 5): deep emerald high-collar dress for the gala, diamond earrings
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 049 | frame: frame_049.png | salida: scene_049.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_049.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.4 s — medium shot: At the edge of the stage, the maid hands the heavy blue legal dossier down to the seated county probate judge.
+HARD CUT at 3.4 s — SHOT 2 — tight close-up: Close on the judge adjusting his spectacles, his eyebrows climbing higher as he reads the notary stamp.
+HARD CUT at 6.9 s — SHOT 3 — over-the-shoulder shot: Over the judge's shoulder, the maid stands perfectly still as the entire hall holds its breath.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+CLERK (booming, judicial): "This signature is Walter Blackwell's. And the bank vault seal is verified. The auction is halted."
+ELENA (firm, calm): "Thank you, Your Honor. Now ask Mrs. Blackwell about the fire."
+
+VOICE NOTES: ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical.
+
+AUDIO BED: gavel wooden strike on table, stunned uproar from crowd, chairs scraping parquet floor
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 5 wardrobe. The auction is officially halted by the judge. Elena Vance wardrobe (act 5): clean white button shirt under the tan barn coat, braid neat Cole Barrett wardrobe (act 5): clean denim jacket over the grey henley, hat brushed for once
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 050 | frame: frame_050.png | salida: scene_050.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_050.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.4 s — medium two-shot: In the red velvet backstage shadows, the mistress corners the maid against the rope rigging, eyes feverish with malice.
+HARD CUT at 3.4 s — SHOT 2 — tight close-up: Close on the mistress's diamond-ringed hand touching the maid's cheek with chilling faux affection.
+HARD CUT at 6.9 s — SHOT 3 — extreme close-up: Extreme close-up on the mistress's whispered threat, her lips parting with vicious triumph.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+VICTORIA (whispered madness): "Enjoy your paper victory, girl. Two barrels of kerosene are already in Silver Creek barn."
+VICTORIA (deadly hiss): "Sign the release, or watch your horses burn alive tonight."
+
+VOICE NOTES: VICTORIA — low, polished, unhurried American English, smiles through threats, never shouts.
+
+AUDIO BED: muffled hall applause continuing outside, heavy rope groaning under tension, hiss of stage lamps
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 5 cliffhanger. Victoria reveals her scorched-earth threat against the barn and horses. Victoria Blackwell wardrobe (act 5): deep emerald high-collar dress for the gala, diamond earrings Elena Vance wardrobe (act 5): clean white button shirt under the tan barn coat, braid neat
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 051 | frame: frame_051.png | salida: scene_051.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_051.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.4 s — medium shot: The maid sprints through the barn gates as the foreman yanks a lit flare from a captured trespasser's hand.
+HARD CUT at 3.4 s — SHOT 2 — insert shot of the evidence object: Insert: the foreman grinds the smoking red flare out beneath his heavy work boot into the damp mud.
+HARD CUT at 6.9 s — SHOT 3 — tight close-up: Close on the foreman looking up at Elena, breathing hard but smiling with fierce triumph.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+COLE (breathless, triumphant): "We were waiting for them in the hayloft, Elena. Not a single spark touched this barn."
+ELENA (steely relief): "Tie them up. Sheriff Drummond will need company in his own jail."
+
+VOICE NOTES: COLE — quiet, low American English, careful diction, warmth held under restraint; ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical.
+
+AUDIO BED: flare hissing into wet gravel, horses whinnying safe inside, heavy boots running on dirt
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 6 wardrobe. Elena wears deep green flannel shirt and her mother's silver buckle; barn is saved. Elena Vance wardrobe (act 6): deep green flannel shirt, dark jeans, her mother's silver belt buckle Cole Barrett wardrobe (act 6): same denim jacket, hat in hand, standing at the barn door
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 052 | frame: frame_052.png | salida: scene_052.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_052.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.4 s — medium shot: At the witness stand, the heir raises his right hand before the court clerk, his voice echoing across the silent gallery.
+HARD CUT at 3.4 s — SHOT 2 — tight close-up: Close on his pale face as he speaks the words that end his family's dynasty.
+HARD CUT at 6.8 s — SHOT 3 — over-the-shoulder shot: Over the heir's shoulder, Victoria watches from the defense table, face white as chalk.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+RICHARD (resigned, clear): "I planted the silver watch in Elena Vance's saddle bag on my mother's direct orders."
+RICHARD (choked with shame): "Elena never stole anything. We stole fifteen years from her."
+
+VOICE NOTES: RICHARD — smooth mid-range American English, reasonable tone that never quite reaches sincerity.
+
+AUDIO BED: courtroom gavel banging, reporters' camera shutters clicking, collective gasp from gallery
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 6 wardrobe. Richard formally confesses under oath; frame-up collapsed. Richard Blackwell wardrobe (act 6): black gala suit, tie loosened, shaken
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 053 | frame: frame_053.png | salida: scene_053.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_053.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.4 s — medium shot: The housekeeper stands tall at the microphone, looking directly at the district attorney with tearful dignity.
+HARD CUT at 3.4 s — SHOT 2 — tight close-up: Close on her hand pressing the original fire log onto the court clerk's cedar bench.
+HARD CUT at 6.9 s — SHOT 3 — over-the-shoulder shot: Over the housekeeper's shoulder, Elena nods from the front bench with unconditional love.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+MAGGIE (firm, unshakeable): "I formally recant my 2008 testimony. The barn fire was set deliberately by Victoria Blackwell."
+MAGGIE (hallowed truth): "June Vance was murdered protecting that ranch."
+
+VOICE NOTES: MAGGIE — grounded, plainspoken American English with a soft Irish lilt worn thin by thirty years in Montana.
+
+AUDIO BED: courtroom stenographer machine clicking rapidly, paper rustling, silence falling heavy
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 6 wardrobe. Maggie officially clears June Vance's name on court record. Maggie Doyle wardrobe (act 6): same Sunday cardigan, hair escaped from the bun, standing tall
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 054 | frame: frame_054.png | salida: scene_054.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_054.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.4 s — medium shot: At the plaintiff's table, the maid stands erect as the judge brings the wooden gavel down with final authority.
+HARD CUT at 3.4 s — SHOT 2 — insert shot of the evidence object: Insert: the judge signs 'CERTIFICATE OF OWNERSHIP — SILVER CREEK RANCH — OWNER: ELENA VANCE'.
+HARD CUT at 6.9 s — SHOT 3 — tight close-up: Close on Elena's eyes filling with tears of vindication, a slow, radiant smile breaking across her face.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+CLERK (booming proclamation): "This court recognizes Elena Vance as the sole legal heir and owner of Silver Creek Ranch."
+ELENA (whispered joy): "We did it, Mama. The ranch is home again."
+
+VOICE NOTES: ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical.
+
+AUDIO BED: resounding gavel strike, loud sustained applause from gallery, floorboards creaking
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 6 wardrobe. Legal restoration complete; Elena owns Silver Creek. Elena Vance wardrobe (act 6): deep green flannel shirt, dark jeans, her mother's silver belt buckle
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 055 | frame: frame_055.png | salida: scene_055.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_055.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.4 s — medium shot: Under the flashing blue lights of state police cruisers, the troopers secure handcuffs behind the mistress's back.
+HARD CUT at 3.4 s — SHOT 2 — tight close-up: Close on the steel cuffs ratcheting shut with sharp metallic clicks over her bare wrists.
+HARD CUT at 6.8 s — SHOT 3 — over-the-shoulder shot: Over the mistress's shoulder, she sees the entire town watching her downfall in silence.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+CLERK (clipped, official): "Victoria Blackwell, you are under arrest for conspiracy, insurance fraud and attempted arson."
+VICTORIA (screeching, desperate): "You cannot do this to me! I built this town!"
+
+VOICE NOTES: VICTORIA — low, polished, unhurried American English, smiles through threats, never shouts.
+
+AUDIO BED: handcuffs clicking into place, police radios squawking, crowd watching without a sound
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 6 wardrobe. Victoria is arrested in front of the town. Victoria Blackwell wardrobe (act 6): emerald gala dress, gloves gone, jewelry missing
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 056 | frame: frame_056.png | salida: scene_056.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_056.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.4 s — medium two-shot: On the wet steps, the handcuffed mistress collapses forward onto her knees before the maid she once tormented.
+HARD CUT at 3.4 s — SHOT 2 — tight close-up: Close on the mistress's mascara running in black streaks down her pale, pleading face.
+HARD CUT at 6.9 s — SHOT 3 — low-angle hero shot: Low angle on the maid, dignified and untouchable as the night rain begins to fall gently.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+VICTORIA (weeping, broken): "Elena, please! Leave me the guesthouse. Don't throw me onto the street with nothing!"
+ELENA (calm, absolute): "You left me with a broken teacup and a broom. You'll leave with your suitcase."
+
+VOICE NOTES: VICTORIA — low, polished, unhurried American English, smiles through threats, never shouts; ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical.
+
+AUDIO BED: rain softly pattering on granite steps, police cruiser doors opening, distant train whistle
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 6 wardrobe. Dopamine revenge moment: Elena grants zero mercy. Victoria Blackwell wardrobe (act 6): emerald gala dress, gloves gone, jewelry missing Elena Vance wardrobe (act 6): deep green flannel shirt, dark jeans, her mother's silver belt buckle
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 057 | frame: frame_057.png | salida: scene_057.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_057.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.4 s — wide establishing shot: The grand foyer is warm with lamplight; the maid stands where she was once humiliated, now as the estate's mistress.
+HARD CUT at 3.4 s — SHOT 2 — tight close-up: Close on her fingers tracing the polished oak table where the crystal decanter was once smashed.
+HARD CUT at 6.9 s — SHOT 3 — over-the-shoulder shot: Over the maid's shoulder, the housekeeper sets down a porcelain teacup with gentle reverence.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+MAGGIE (tender, peaceful): "The house is quiet, Elena. For the first time in thirty years, it feels clean."
+ELENA (warm, resolute): "It's not just a house anymore, Maggie. It's a sanctuary for everyone they pushed down."
+
+VOICE NOTES: MAGGIE — grounded, plainspoken American English with a soft Irish lilt worn thin by thirty years in Montana; ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical.
+
+AUDIO BED: warm fire crackling in hearth, porcelain cup settling on wood, night breeze through tall windows
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 6 wardrobe. Full visual loop to scene 1: Elena stands in triumph in the foyer. Elena Vance wardrobe (act 6): deep green flannel shirt, dark jeans, her mother's silver belt buckle Maggie Doyle wardrobe (act 6): same Sunday cardigan, hair escaped from the bun, standing tall
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 058 | frame: frame_058.png | salida: scene_058.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_058.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.4 s — medium two-shot: At the corral gate, the foreman turns to the maid, nervously rolling the brim of his felt hat in both hands.
+HARD CUT at 3.4 s — SHOT 2 — tight close-up: Close on Elena's hand reaching up to touch his weathered cheek, stopping his nervous motion.
+HARD CUT at 6.9 s — SHOT 3 — over-the-shoulder shot: Over the foreman's shoulder, she steps into his arms, resting her forehead against his chest.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+COLE (vulnerable, quiet): "You're the master of twenty thousand acres now, Elena. You don't need a stray foreman."
+ELENA (intimate, fierce): "I don't need a foreman, Cole. I need you. Stay and build this with me."
+
+VOICE NOTES: COLE — quiet, low American English, careful diction, warmth held under restraint; ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical.
+
+AUDIO BED: night crickets singing in prairie grass, horses grazing peacefully, soft warm breeze
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 6 wardrobe. Romantic payoff sealed between Elena and Cole. Elena Vance wardrobe (act 6): deep green flannel shirt, dark jeans, her mother's silver belt buckle Cole Barrett wardrobe (act 6): same denim jacket, hat in hand, standing at the barn door
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 059 | frame: frame_059.png | salida: scene_059.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_059.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.4 s — medium shot: Before the roaring stone hearth, the maid steps back as June Vance's smiling photograph occupies the place of honor.
+HARD CUT at 3.4 s — SHOT 2 — insert shot of the evidence object: Insert: the silver belt buckle catches the orange firelight beside the tin frame, engraved: 'VANCE RANCH — 1982'.
+HARD CUT at 6.9 s — SHOT 3 — tight close-up: Close on Elena's face, radiant with deep peace as a single grateful tear slips down her cheek.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+ELENA (solemn, joyous): "Your name will never be erased from Montana again, Mama. Silver Creek is ours, and justice has finally been done."
+
+VOICE NOTES: ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical.
+
+AUDIO BED: deep hearth fire crackling warmly, pine wood popping, soft wind against glass
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 6 wardrobe. Elena places June's portrait on the mantel; season arc completed. Elena Vance wardrobe (act 6): deep green flannel shirt, dark jeans, her mother's silver belt buckle
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 060 | frame: frame_060.png | salida: scene_060.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_060.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.4 s — medium shot: At the quiet study desk, the maid notices a sealed wax envelope attached to the back of the will parchment.
+HARD CUT at 3.4 s — SHOT 2 — insert shot of the evidence object: Insert: her thumb cracks the red wax seal: 'To Elena — Read in private after you claim the ranch'.
+HARD CUT at 6.9 s — SHOT 3 — tight close-up: Close on Elena's eyes widening in stunned alarm as she reads Walter's final words in the letter.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+ELENA (shivering shock): "There is another clause... 'Elena, you are not June's only child. Find your brother before Victoria's family does.'"
+ELENA (breathless cliffhanger): "I have a brother?"
+
+VOICE NOTES: ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical.
+
+AUDIO BED: paper crackling in silence, banker lamp humming softly, sudden wind banging study shutters
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 6 payoff & next-episode cliffhanger. Opens Season 2 / Episode 2 hook. Elena Vance wardrobe (act 6): deep green flannel shirt, dark jeans, her mother's silver belt buckle
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.

@@ -1,0 +1,430 @@
+{
+  "scenes": [
+    {
+      "scene_id": 21,
+      "act": 3,
+      "beat": "investigation_risk",
+      "location": "gatehouse cottage, night",
+      "time_of_day": "night",
+      "characters": ["elena", "cole"],
+      "on_screen_hook": "",
+      "first_frame_prompt": "Cinematic still of the same woman as the reference image, medium shot, standing beside an oak work table in the stone cottage under a swinging kerosene lamp. She wears the denim work shirt with rolled sleeves and dark riding jeans, spreading out a yellowed land map. The foreman in the oiled chore jacket leans over the table beside her. Faces centered and unobstructed for a 9:16 crop.",
+      "internal_cuts": [
+        {"at": 0.0, "framing": "medium two-shot", "action": "In the cottage lamplight, the maid unrolls the old county survey map while the foreman anchors the curling corners with heavy iron horseshoes."},
+        {"at": 3.4, "framing": "insert shot of the evidence object", "action": "Insert: a calloused finger traces the parcel boundary where the original boundary line was scraped off with a razor blade."},
+        {"at": 6.9, "framing": "tight close-up", "action": "Close on the maid looking up from the map, determination sharpening her eyes."}
+      ],
+      "dialogue": [
+        {"speaker": "ELENA", "line": "Look at the parcel boundary. Someone scraped the original section line off with a blade.", "delivery": "intense, low"},
+        {"speaker": "COLE", "line": "That's Walter Blackwell's handwriting underneath. He signed over the whole north valley.", "delivery": "gravelly"}
+      ],
+      "sfx_ambience": "kerosene lamp humming, wind whistling through window joints, heavy paper creaking",
+      "continuity": "Act 3 wardrobe. Elena wears the denim shirt with sleeves rolled; Cole carries the parcel map."
+    },
+    {
+      "scene_id": 22,
+      "act": 3,
+      "beat": "discovery",
+      "location": "Blackwell tack room, night",
+      "time_of_day": "night",
+      "characters": ["elena"],
+      "on_screen_hook": "",
+      "first_frame_prompt": "Cinematic still of the same woman as the reference image, medium close-up, crouching in the shadowy barn tack room beneath hanging leather bridles, holding a pocket flashlight between her teeth. She wears the rolled denim work shirt and dark riding jeans, carefully pulling a rusted metal dispatch tube from inside a hollow wall beam. Face centered and clear for a 9:16 crop.",
+      "internal_cuts": [
+        {"at": 0.0, "framing": "medium shot", "action": "In the shadowy tack room, the maid kneels beside the wall timber and slides a cylindrical tin case from the hollow cavity."},
+        {"at": 3.5, "framing": "insert shot of the evidence object", "action": "Insert: the cap unscrews with a grinding squeak, revealing rolled bank tax receipts tied with red butcher twine."},
+        {"at": 6.8, "framing": "tight close-up", "action": "Close on her face as flashlight beam illuminates the receipts bearing her mother's signature."}
+      ],
+      "dialogue": [
+        {"speaker": "ELENA", "line": "Every property tax installment from 2005 to 2008. My mother paid them in cash at First Valley Bank.", "delivery": "shivering whisper"}
+      ],
+      "sfx_ambience": "tin cap grinding, owls hooting in barn rafters, distant horse snorting softly",
+      "continuity": "Act 3 wardrobe. Rusted tin tube discovered; tax receipts will prove ongoing possession."
+    },
+    {
+      "scene_id": 23,
+      "act": 3,
+      "beat": "romance_intimacy",
+      "location": "Silver Creek barn hayloft, night",
+      "time_of_day": "night",
+      "characters": ["elena", "cole"],
+      "on_screen_hook": "",
+      "first_frame_prompt": "Cinematic still of the same woman as the reference image, medium shot, sitting on golden hay bales in the barn loft under moonlight breaking through open timber slats. She wears the denim work shirt and dark jeans, nursing a fresh blister on her palm. The foreman sits beside her, wrapping clean linen tape around her hand. Both faces visible, centered for 9:16 crop.",
+      "internal_cuts": [
+        {"at": 0.0, "framing": "medium two-shot", "action": "In the moonlight, the foreman gently binds the maid's bruised palm with white tape, his touch slow and deliberate."},
+        {"at": 3.4, "framing": "tight close-up", "action": "Close on their intertwined hands as his thumb brushes over her calloused knuckles."},
+        {"at": 6.9, "framing": "over-the-shoulder shot", "action": "Over the foreman's broad shoulder, her eyes soften as she looks directly into his face."}
+      ],
+      "dialogue": [
+        {"speaker": "COLE", "line": "You don't have to carry this alone in the dark, Elena. I'm with you.", "delivery": "soft, rough"},
+        {"speaker": "ELENA", "line": "Everyone who stood beside my mother paid for it. Be careful.", "delivery": "tender, guarded"}
+      ],
+      "sfx_ambience": "dry hay rustling, cricket chirps, soft breathing, timber creaking in night breeze",
+      "continuity": "Act 3 wardrobe. Cole wraps Elena's bruised hand; linen tape remains on her palm through scene 28."
+    },
+    {
+      "scene_id": 24,
+      "act": 3,
+      "beat": "hard_proof_found",
+      "location": "Blackwell study archives, night",
+      "time_of_day": "night",
+      "characters": ["elena", "richard"],
+      "on_screen_hook": "",
+      "first_frame_prompt": "Cinematic still of the same woman as the reference image, medium shot, standing frozen behind a mahogany desk in a dark library room, clutching an embossed leather ledger to her chest. The heir in his white shirt with sleeves rolled appears in the doorway, moonlight outlining his silhouette. Faces centered, clear and unobstructed for a 9:16 crop.",
+      "internal_cuts": [
+        {"at": 0.0, "framing": "medium shot", "action": "Behind the desk, the maid freezes with the open ledger as the heir steps over the threshold into the room."},
+        {"at": 3.3, "framing": "tight close-up", "action": "Close on the heir's eyes shifting down to the gold-stamped estate accounts ledger in her arms."},
+        {"at": 6.8, "framing": "over-the-shoulder shot", "action": "Over the maid's shoulder, the heir slowly reaches behind his back to shut the study door."}
+      ],
+      "dialogue": [
+        {"speaker": "RICHARD", "line": "You shouldn't have opened that drawer, Elena. That book lists payments my father made to keep quiet.", "delivery": "nervous, tense"},
+        {"speaker": "ELENA", "line": "Payments to the county coroner. Your mother bought the death certificate.", "delivery": "cold, piercing"}
+      ],
+      "sfx_ambience": "heavy oak door latching softly, clock pendulum ticking, distant dogs barking",
+      "continuity": "Act 3 wardrobe. Richard catches Elena; the 2008 coroner payment record is revealed."
+    },
+    {
+      "scene_id": 25,
+      "act": 3,
+      "beat": "counterattack",
+      "location": "Blackwell mansion great room, night",
+      "time_of_day": "night",
+      "characters": ["victoria", "elena", "richard"],
+      "on_screen_hook": "",
+      "first_frame_prompt": "Cinematic still of the same woman as the reference image, medium shot, standing beside the cold stone fireplace in the great room. The woman in the silver-grey silk blouse sits in a high leather wing chair, holding up a duplicate brass key on a ribbon. The heir stands behind her chair, looking away. Faces centered and unobstructed for a 9:16 crop.",
+      "internal_cuts": [
+        {"at": 0.0, "framing": "medium shot", "action": "In the vast room, the mistress dangles a small brass ribboned key while the maid stands rigid near the cold hearth."},
+        {"at": 3.5, "framing": "tight close-up", "action": "Close on the mistress's painted red lips curling into an amused, predatory smile."},
+        {"at": 6.9, "framing": "low-angle hero shot", "action": "Low angle on the maid squaring her shoulders against the firelight's orange glow."}
+      ],
+      "dialogue": [
+        {"speaker": "VICTORIA", "line": "Did you think Walter was a saint? He gave promises because he was weak.", "delivery": "smooth venom"},
+        {"speaker": "ELENA", "line": "He gave her the ranch. And you murdered him before he could file it.", "delivery": "unflinching"}
+      ],
+      "sfx_ambience": "grandfather clock striking the quarter hour, embers crackling, wind buffeting glass",
+      "continuity": "Act 3 wardrobe. Victoria reveals she knows about the deed claim."
+    },
+    {
+      "scene_id": 26,
+      "act": 3,
+      "beat": "ally_shields",
+      "location": "Blackwell mansion gravel drive, night",
+      "time_of_day": "night",
+      "characters": ["cole", "richard"],
+      "on_screen_hook": "",
+      "first_frame_prompt": "Cinematic still of the same man as the reference image, medium shot, standing between two parked ranch pickup trucks on the gravel driveway under yellow floodlights. The foreman in the tan canvas jacket blocks the path of the heir in the dark wool overcoat, jaw clenched tight. Fog drifts over wet stones. Faces centered and clear for a 9:16 crop.",
+      "internal_cuts": [
+        {"at": 0.0, "framing": "medium two-shot", "action": "Under harsh halogen yard lights, the foreman plants his boots in front of the heir, refusing to yield the driveway."},
+        {"at": 3.4, "framing": "tight close-up", "action": "Close on the foreman's clenched fist at his side, knuckles white against the tan canvas."},
+        {"at": 6.8, "framing": "over-the-shoulder shot", "action": "Over the heir's shoulder, the foreman steps forward into the beam of light."}
+      ],
+      "dialogue": [
+        {"speaker": "COLE", "line": "Take one step toward the gatehouse tonight, Richard, and I'll finish what your father started.", "delivery": "deadly, calm"},
+        {"speaker": "RICHARD", "line": "You're throwing your whole life away for a girl who won't even kiss you.", "delivery": "bitter, spiteful"}
+      ],
+      "sfx_ambience": "gravel shifting under heavy work boots, halogen floodlights buzzing, cold fog horn far off",
+      "continuity": "Act 3 wardrobe. Cole physically blocks Richard from raiding Elena's cottage."
+    },
+    {
+      "scene_id": 27,
+      "act": 3,
+      "beat": "moral_crack",
+      "location": "gatehouse cottage porch, night",
+      "time_of_day": "night",
+      "characters": ["elena", "richard"],
+      "on_screen_hook": "",
+      "first_frame_prompt": "Cinematic still of the same woman as the reference image, medium shot, standing in the doorway of the stone gatehouse porch, one hand braced on the doorframe. The heir in his white shirt stands on the lower wood step, drenched in misty night rain, extending an envelope. Faces centered and visible for a 9:16 crop.",
+      "internal_cuts": [
+        {"at": 0.0, "framing": "medium shot", "action": "On the rain-slick porch steps, the heir reaches out with a cream envelope while the maid refuses to accept it."},
+        {"at": 3.4, "framing": "insert shot of the evidence object", "action": "Insert: the wet envelope bears the embossed gold seal of the county probate registry."},
+        {"at": 6.9, "framing": "tight close-up", "action": "Close on the heir's eyes searching her face, genuine dread beneath his charm."}
+      ],
+      "dialogue": [
+        {"speaker": "RICHARD", "line": "My mother hired two men from Billings. If you are here at sunrise, they won't talk.", "delivery": "shaken, urgent"},
+        {"speaker": "ELENA", "line": "Then tell them to bring their shovels. I'm not running.", "delivery": "quiet iron"}
+      ],
+      "sfx_ambience": "rain dripping from wooden eaves, porch boards creaking, distant thunder rumble",
+      "continuity": "Act 3 wardrobe. Richard warns Elena of Victoria's hired muscle from Billings."
+    },
+    {
+      "scene_id": 28,
+      "act": 3,
+      "beat": "countdown_tightens",
+      "location": "Silver Creek barn aisle, night",
+      "time_of_day": "night",
+      "characters": ["elena", "maggie"],
+      "on_screen_hook": "",
+      "first_frame_prompt": "Cinematic still of the same woman as the reference image, medium shot, packing feed bags onto a wheelbarrow in the barn aisle under a single bare bulb. The housekeeper in the beige cardigan and wool shawl hurried down the aisle toward her, clutching a travel valise. Dust in the amber light. Both faces centered for 9:16 crop.",
+      "internal_cuts": [
+        {"at": 0.0, "framing": "medium shot", "action": "In the barn aisle, the housekeeper rushes to the maid and grabs both of her elbows with trembling hands."},
+        {"at": 3.3, "framing": "tight close-up", "action": "Close on the housekeeper's tear-streaked spectacles reflecting the amber glow of the hanging bulb."},
+        {"at": 6.8, "framing": "over-the-shoulder shot", "action": "Over the housekeeper's shoulder, the maid gently pulls her close to steady her shaking."}
+      ],
+      "dialogue": [
+        {"speaker": "MAGGIE", "line": "Victoria cleared the safe in the master bedroom. She's packing to leave after the county gala.", "delivery": "frantic whisper"},
+        {"speaker": "ELENA", "line": "She won't leave Montana until the auction deed is stamped. We have until midnight.", "delivery": "grim, steady"}
+      ],
+      "sfx_ambience": "horses rustling nervous in stalls, wind howling through wall cracks, floor chains clinking",
+      "continuity": "Act 3 wardrobe. Maggie reveals Victoria plans to sell and run after the gala."
+    },
+    {
+      "scene_id": 29,
+      "act": 3,
+      "beat": "temptation_setup",
+      "location": "Blackwell estate gates, midnight",
+      "time_of_day": "midnight",
+      "characters": ["victoria", "elena"],
+      "on_screen_hook": "",
+      "first_frame_prompt": "Cinematic still of the same woman as the reference image, medium shot, standing before the towering wrought-iron ranch gates in the driving wind. The woman in the charcoal riding coat steps out of a dark black sedan, holding a leather cashier folder. Black trees whip in background. Faces centered and clear for a 9:16 crop.",
+      "internal_cuts": [
+        {"at": 0.0, "framing": "medium shot", "action": "By the iron gates, the mistress steps out of the luxury car into the headlights, holding a checkbook open."},
+        {"at": 3.4, "framing": "tight close-up", "action": "Close on the cashier's draft: five hundred thousand dollars drawn on First Valley Bank."},
+        {"at": 6.9, "framing": "low-angle hero shot", "action": "Low angle on the maid standing in the glare of the car beams, unblinking in the gale."}
+      ],
+      "dialogue": [
+        {"speaker": "VICTORIA", "line": "Half a million dollars in cash. You can buy any ranch from here to Texas, Elena.", "delivery": "velvet bribe"},
+        {"speaker": "ELENA", "line": "And all I have to do is swear my mother was a thief.", "delivery": "ice cold"}
+      ],
+      "sfx_ambience": "car engine idling low, wind screaming through iron bars, headlights humming",
+      "continuity": "Act 3 wardrobe. Victoria lays out the massive buyout offer."
+    },
+    {
+      "scene_id": 30,
+      "act": 3,
+      "beat": "act_cliffhanger",
+      "location": "Blackwell estate gates, midnight",
+      "time_of_day": "midnight",
+      "characters": ["victoria", "elena"],
+      "on_screen_hook": "TAKE THE MONEY. LEAVE THE NAME.",
+      "first_frame_prompt": "Cinematic still of the same woman as the reference image, medium shot, standing inches away from the woman in the charcoal coat under blinding car headlights. The mistress extends a certified bank cashier's draft toward the maid's chest with gloved fingers. Rain begins to slant across the beams. Faces centered and unobstructed for a 9:16 crop.",
+      "internal_cuts": [
+        {"at": 0.0, "framing": "medium two-shot", "action": "Under the headlights, the mistress thrusts the certified check into the maid's face like an execution order."},
+        {"at": 3.4, "framing": "insert shot of the evidence object", "action": "Insert: the maid's fingers close around the paper edge, lingering as if about to fold it."},
+        {"at": 6.9, "framing": "tight close-up", "action": "Extreme close-up on the maid's eyes, blazing with an impossible choice as rain strikes her skin."}
+      ],
+      "dialogue": [
+        {"speaker": "VICTORIA", "line": "Take the money, Elena. Leave the name behind. Or by morning, you won't have either.", "delivery": "whispered, ruthless"},
+        {"speaker": "ELENA", "line": "My mother died for this name. You can't afford it.", "delivery": "defiant roar"}
+      ],
+      "sfx_ambience": "thunderclaps shaking the valley, heavy rain drumming car hood, paper ripping slightly in wind",
+      "continuity": "Act 3 cliffhanger. Elena rejects the half-million buyout; war is officially declared."
+    },
+    {
+      "scene_id": 31,
+      "act": 4,
+      "beat": "deal_rejected_cost",
+      "location": "gatehouse cottage, storm night",
+      "time_of_day": "storm night",
+      "characters": ["elena"],
+      "on_screen_hook": "",
+      "first_frame_prompt": "Cinematic still of the same woman as the reference image, medium shot, standing inside the stone gatehouse cottage in torrential rain, water pouring through smashed window panes. She wears the denim work shirt under a charcoal storm coat, soaked hair clinging to her temples. Her belongings are overturned on the wet stone floor. Face centered for 9:16 crop.",
+      "internal_cuts": [
+        {"at": 0.0, "framing": "wide establishing shot", "action": "Inside the ransacked cottage, the storm sweeps through shattered windows, scattering torn clothes and broken crockery across wet stones."},
+        {"at": 3.5, "framing": "tight close-up", "action": "Close on the maid's boots stepping through broken glass as rain drips from her soaked chin."},
+        {"at": 6.9, "framing": "medium shot", "action": "She kneels in the center of the wreckage, her hands feeling frantically beneath a loose hearthstone."}
+      ],
+      "dialogue": [
+        {"speaker": "ELENA", "line": "They took the tin box. They tore through my floorboards and took the original deed.", "delivery": "choked, breathless"},
+        {"speaker": "ELENA", "line": "They took everything.", "delivery": "shattered whisper"}
+      ],
+      "sfx_ambience": "gale force winds howl through glass shards, torrents of rain hitting stone floor, thunder",
+      "continuity": "Act 4 wardrobe. Elena wears the storm coat, soaked hair; cottage trashed and tin box stolen."
+    },
+    {
+      "scene_id": 32,
+      "act": 4,
+      "beat": "institution_turns",
+      "location": "gatehouse cottage yard, storm night",
+      "time_of_day": "storm night",
+      "characters": ["elena"],
+      "on_screen_hook": "",
+      "first_frame_prompt": "Cinematic still of the same woman as the reference image, medium shot, standing in the muddy driveway in blinding rain before a county sheriff cruiser with revolving red and blue roof lights. A heavy red padlock and sheriff eviction notice chain the front gate shut. Face centered and clear for a 9:16 crop.",
+      "internal_cuts": [
+        {"at": 0.0, "framing": "medium shot", "action": "In the swirling red and blue emergency light, the maid faces the padlocked gate as rain washes mud over her boots."},
+        {"at": 3.4, "framing": "insert shot of the evidence object", "action": "Insert: a laminated county eviction warrant stapled to the post: 'Immediate Vacate — Trespassing Order'."},
+        {"at": 6.8, "framing": "tight close-up", "action": "Close on her wet face illuminated by strobe flashes, defiant rage replacing fear."}
+      ],
+      "dialogue": [
+        {"speaker": "ELENA", "line": "Sheriff Drummond signed an eviction without a hearing. Victoria bought the whole county, but she never bought me.", "delivery": "bitter, low"}
+      ],
+      "sfx_ambience": "police cruiser siren chirping, heavy rain squall, chain links rattling against timber post",
+      "continuity": "Act 4 wardrobe. Elena is officially evicted and locked out of the estate."
+    },
+    {
+      "scene_id": 33,
+      "act": 4,
+      "beat": "ally_threat_revealed",
+      "location": "Silver Creek hay shed, storm night",
+      "time_of_day": "storm night",
+      "characters": ["elena", "maggie"],
+      "on_screen_hook": "",
+      "first_frame_prompt": "Cinematic still of the same woman as the reference image, medium shot, huddled beneath dripping corrugated tin in a drafty hay shed with the housekeeper. The older woman wraps a wet wool shawl around her shoulders, shivering violently. Rain streams outside. Both faces centered and unobstructed for a 9:16 crop.",
+      "internal_cuts": [
+        {"at": 0.0, "framing": "medium two-shot", "action": "In the drafty shelter, the maid wraps her own dry flannel scarf around the weeping housekeeper's neck."},
+        {"at": 3.4, "framing": "tight close-up", "action": "Close on the housekeeper's trembling chin as she clasps Elena's wet wrists with both hands."},
+        {"at": 6.9, "framing": "over-the-shoulder shot", "action": "Over the maid's shoulder, the older woman looks up with fifteen years of buried grief."}
+      ],
+      "dialogue": [
+        {"speaker": "MAGGIE", "line": "Victoria threatened my sister's nursing care in Helena. That is why I signed the lie.", "delivery": "sobbing, broken"},
+        {"speaker": "ELENA", "line": "You kept your family alive, Maggie. I forgive you. Now help me finish this.", "delivery": "fierce, gentle"}
+      ],
+      "sfx_ambience": "rain thundering deafeningly on corrugated iron roof, gusting wind, weeping breath",
+      "continuity": "Act 4 wardrobe. Maggie reveals the extortion behind her false testimony fifteen years ago."
+    },
+    {
+      "scene_id": 34,
+      "act": 4,
+      "beat": "evidence_lost",
+      "location": "Blackwell mansion rear terrace, storm night",
+      "time_of_day": "storm night",
+      "characters": ["victoria", "richard"],
+      "on_screen_hook": "",
+      "first_frame_prompt": "Cinematic still of the same woman as the reference image, medium shot, through dark wet glass of the terrace door. Inside the warm lamplit library, the mistress tosses the cream 2008 deed into the blazing brick hearth while the heir watches from a leather armchair with a whiskey glass. Faces centered and visible for 9:16 crop.",
+      "internal_cuts": [
+        {"at": 0.0, "framing": "medium shot", "action": "Inside the glowing library, the mistress feeds the ancient deed into the fireplace flames while rain streaks the window."},
+        {"at": 3.4, "framing": "insert shot of the evidence object", "action": "Insert: the wax seal on June Vance's deed melts into blackened bubbles in the fire."},
+        {"at": 6.8, "framing": "tight close-up", "action": "Close on the heir turning away from the fireplace, draining his amber glass in one swallow."}
+      ],
+      "dialogue": [
+        {"speaker": "VICTORIA", "line": "There goes Walter's grand sentiment. No deed, no contract, no legal claim in Montana.", "delivery": "triumphant, quiet"},
+        {"speaker": "RICHARD", "line": "You burned the paper, Mother. You didn't burn what Walter put in the vault.", "delivery": "dark, uneasy"}
+      ],
+      "sfx_ambience": "fireplace flames roaring, rain drumming on terrace panes, crystal glass setting down",
+      "continuity": "Act 4 wardrobe. The stolen 2008 deed is burned; Victoria believes she erased all proof."
+    },
+    {
+      "scene_id": 35,
+      "act": 4,
+      "beat": "micro_revenge",
+      "location": "Silver Creek stable tack room, storm night",
+      "time_of_day": "storm night",
+      "characters": ["elena", "richard"],
+      "on_screen_hook": "",
+      "first_frame_prompt": "Cinematic still of the same woman as the reference image, medium shot, stepping out of pitch darkness into a stall doorway behind the heir in his wet blazer. She holds a heavy iron branding iron with quiet menace. Lightning flashes through the roof gaps. Faces centered and clear for a 9:16 crop.",
+      "internal_cuts": [
+        {"at": 0.0, "framing": "medium shot", "action": "In a sudden flash of lightning, the maid appears like a ghost in the stable door, blocking the heir's retreat."},
+        {"at": 3.3, "framing": "tight close-up", "action": "Close on the heir stumbling backward against a stall door, dropping his car keys onto the straw."},
+        {"at": 6.8, "framing": "over-the-shoulder shot", "action": "Over the maid's shoulder, she steps forward and steps firmly onto his dropped keys."}
+      ],
+      "dialogue": [
+        {"speaker": "ELENA", "line": "Tell me what your father put in the vault, Richard. Or sleep in this stable tonight.", "delivery": "ice cold command"},
+        {"speaker": "RICHARD", "line": "Box 14 at First Valley Trust. The original will. He never revoked it.", "delivery": "stammering, cornered"}
+      ],
+      "sfx_ambience": "thunderclap echoing in barn rafters, straw crunching underfoot, keys jangling on wood",
+      "continuity": "Act 4 wardrobe. Elena forces Richard to reveal the vault location: Box 14 at First Valley Trust."
+    },
+    {
+      "scene_id": 36,
+      "act": 4,
+      "beat": "all_is_lost_isolation",
+      "location": "ranch ridge overlook, storm dawn",
+      "time_of_day": "storm dawn",
+      "characters": ["elena"],
+      "on_screen_hook": "",
+      "first_frame_prompt": "Cinematic still of the same woman as the reference image, medium shot, standing solitary atop a rocky windswept ridge overlooking the entire Silver Creek valley at storm dawn. Her storm coat whips violently behind her; grey clouds race across jagged peaks. Cold blue light washes the grass. Face centered for a 9:16 crop.",
+      "internal_cuts": [
+        {"at": 0.0, "framing": "wide establishing shot", "action": "On the high ridge, the small figure of the maid stands against the vast Montana valley as dawn breaks slate grey."},
+        {"at": 3.5, "framing": "tight close-up", "action": "Close on her wet face, eyes stinging with salt and cold wind, but chin jutting forward in stubborn pride."},
+        {"at": 6.9, "framing": "low-angle hero shot", "action": "Low angle from the rocks below, framing her towering against the gathering dawn light."}
+      ],
+      "dialogue": [
+        {"speaker": "ELENA", "line": "They took the house. They burned the deed. But every inch of this dirt remembers my mother's sweat.", "delivery": "unbroken, resonant"}
+      ],
+      "sfx_ambience": "gale wind howling over mountain crest, distant hawk cry, thunder rolling away into hills",
+      "continuity": "Act 4 wardrobe. Elena reaches her emotional low point and transforms grief into resolve."
+    },
+    {
+      "scene_id": 37,
+      "act": 4,
+      "beat": "protective_gesture",
+      "location": "ranch ridge road, dawn",
+      "time_of_day": "dawn",
+      "characters": ["elena", "cole"],
+      "on_screen_hook": "",
+      "first_frame_prompt": "Cinematic still of the same woman as the reference image, medium shot, leaning against the wet fender of an old green ranch truck on the gravel road. The foreman in his soaked canvas jacket steps down from the cab, placing his heavy wool coat over her trembling shoulders. Faces centered, unobstructed for 9:16 crop.",
+      "internal_cuts": [
+        {"at": 0.0, "framing": "medium two-shot", "action": "On the muddy road, the foreman wraps his dry wool jacket around her, pulling the collar up against the wind."},
+        {"at": 3.4, "framing": "tight close-up", "action": "Close on his calloused hand lingering at the lapel, steadying her trembling frame."},
+        {"at": 6.9, "framing": "over-the-shoulder shot", "action": "Over the maid's shoulder, the foreman looks straight down the mountain toward town."}
+      ],
+      "dialogue": [
+        {"speaker": "COLE", "line": "The bank opens in two hours. I've got gas and nothing left to lose.", "delivery": "quiet, loyal"},
+        {"speaker": "ELENA", "line": "If we do this, Victoria will have the sheriff arrest us at the door.", "delivery": "soft warning"}
+      ],
+      "sfx_ambience": "diesel truck engine rumbling steady, windshield wipers clicking, wind whistling through pines",
+      "continuity": "Act 4 wardrobe. Cole arrives with the truck; they commit to raiding the bank box together."
+    },
+    {
+      "scene_id": 38,
+      "act": 4,
+      "beat": "the_reinterpretation",
+      "location": "green truck cab, dawn",
+      "time_of_day": "dawn",
+      "characters": ["elena", "cole"],
+      "on_screen_hook": "",
+      "first_frame_prompt": "Cinematic still of the same woman as the reference image, medium shot, sitting in the passenger seat of the vintage pickup truck bouncing on gravel. She holds the small brass key up against the grey dawn windshield, examining the tiny stamped numbers on its barrel. Dashboard glow lights her face. Centered for a 9:16 crop.",
+      "internal_cuts": [
+        {"at": 0.0, "framing": "medium shot", "action": "Inside the bouncing truck cab, the maid turns the brass key in the dashboard light, scraping away years of verdigris."},
+        {"at": 3.4, "framing": "insert shot of the evidence object", "action": "Insert: under the brass patina, tiny stamped numerals read: 'FVT — 14'."},
+        {"at": 6.9, "framing": "tight close-up", "action": "Close on her lips parting as the final realization clicks into place."}
+      ],
+      "dialogue": [
+        {"speaker": "ELENA", "line": "FVT fourteen. First Valley Trust. This was never a saddle lock or a barn key.", "delivery": "hushed awe"},
+        {"speaker": "COLE", "line": "It's a bank safety deposit box key. Walter's private vault.", "delivery": "stunned breath"}
+      ],
+      "sfx_ambience": "truck tires humming on wet highway, heater blower whirring, key clicking against metal coin tray",
+      "continuity": "Act 4 wardrobe. The brass key's true identity is solved: First Valley Trust Box 14."
+    },
+    {
+      "scene_id": 39,
+      "act": 4,
+      "beat": "countdown_race",
+      "location": "town bank exterior, morning",
+      "time_of_day": "early morning",
+      "characters": ["elena", "cole"],
+      "on_screen_hook": "",
+      "first_frame_prompt": "Cinematic still of the same woman as the reference image, medium shot, standing on the granite steps of First Valley Trust bank in town under neoclassical stone pillars. The foreman stands beside her, watching a black Blackwell estate limousine pull up to the opposite curb. Wet morning streets. Both faces centered for 9:16 crop.",
+      "internal_cuts": [
+        {"at": 0.0, "framing": "medium shot", "action": "On the bank steps, the maid and foreman turn together as the limousine door opens across the street."},
+        {"at": 3.4, "framing": "over-the-shoulder shot", "action": "Over the maid's shoulder, Victoria steps out in her emerald gala dress, accompanied by Sheriff Drummond."},
+        {"at": 6.8, "framing": "tight close-up", "action": "Close on the maid slipping the brass key into her fist and bounding up the bank steps."}
+      ],
+      "dialogue": [
+        {"speaker": "COLE", "line": "Victoria's here with Drummond. They're going to seal the vault before you reach the counter.", "delivery": "urgent"},
+        {"speaker": "ELENA", "line": "Then hold Drummond on the steps for sixty seconds. Just sixty seconds.", "delivery": "determined"}
+      ],
+      "sfx_ambience": "town church bell tolling nine, limousine door slamming, boots racing up granite stairs",
+      "continuity": "Act 4 wardrobe. Race to the bank vault; Cole runs interference against the Sheriff."
+    },
+    {
+      "scene_id": 40,
+      "act": 4,
+      "beat": "act_cliffhanger",
+      "location": "First Valley Trust vault corridor, morning",
+      "time_of_day": "morning",
+      "characters": ["elena"],
+      "on_screen_hook": "THE KEY WAS NEVER FOR A DOOR",
+      "first_frame_prompt": "Cinematic still of the same woman as the reference image, medium shot, standing inside the heavy circular steel vault of the bank under fluorescent lighting. She inserts the delicate brass key into the lock of stainless steel Box 14. Heavy brass grate door behind her. Face centered and clear for a 9:16 crop.",
+      "internal_cuts": [
+        {"at": 0.0, "framing": "medium shot", "action": "Inside the gleaming vault, the maid turns the brass key into Lock 14; the heavy tumbler clicks open with a hollow ring."},
+        {"at": 3.4, "framing": "insert shot of the evidence object", "action": "Insert: the long metal deposit box slides out, containing a blue ribboned document: 'Last Will and Testament of Walter Blackwell'."},
+        {"at": 6.9, "framing": "tight close-up", "action": "Close on her eyes widening in profound shock as she reads the bold heading across the parchment."}
+      ],
+      "dialogue": [
+        {"speaker": "ELENA", "line": "The key was never for a door. It was for Walter Blackwell's final will.", "delivery": "reverent whisper"},
+        {"speaker": "ELENA", "line": "And the first page leaves Silver Creek entirely to me.", "delivery": "rising triumph"}
+      ],
+      "sfx_ambience": "heavy steel tumbler clunking open, metal drawer sliding on runners, fluorescent bulb hum",
+      "continuity": "Act 4 cliffhanger. Elena unlocks Box 14 and secures the certified original will."
+    }
+  ],
+  "teasers": [
+    {
+      "id": 2,
+      "title": "The Twist",
+      "hook_text": "THEY BURNED HER MOTHER'S SADDLE",
+      "scenes": [21, 22, 23, 24, 25, 26],
+      "caption": "She refused their half-million dollar bribe.\n\nNow the county sheriff is tearing down her door.\n\nWhat did her mother hide in the vault? Follow for Episode 2."
+    }
+  ]
+}

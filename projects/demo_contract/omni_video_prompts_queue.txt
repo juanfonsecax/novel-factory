@@ -1,0 +1,2053 @@
+NOVEL FACTORY — Cola de video (Omni 1.1 Flash, First Frame, 10 s) · The Silent Contract
+Frames: C:\Users\juand\Downloads\PROYECTOS REDES SOCIALES\novel_factory\projects\demo_contract\frames  →  Clips: C:\Users\juand\Downloads\PROYECTOS REDES SOCIALES\novel_factory\projects\demo_contract\raw_clips
+
+=== SCENE 001 | frame: frame_001.png | salida: scene_001.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_001.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — wide establishing shot: Nora stands at the cliff edge, the lighthouse dark behind her, salt wind whipping her coat.
+HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on a brass key; the room falls quiet around it.
+HARD CUT at 6.9 s — SHOT 3 — over-the-shoulder shot: Nora Hale reacts, holding the moment before the next line.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+NORA (cold, quiet): "They said the lighthouse was empty for ten years. So who left the light on?"
+
+VOICE NOTES: NORA — warm mid-range American English, controlled, slightly breathy under pressure.
+
+AUDIO BED: wind, distant surf, a gull, wet gravel underfoot
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 1 wardrobe: charcoal wool coat over a dark sweater, dark jeans, rain-wet hair. Evidence object in play: a brass key.
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 002 | frame: frame_002.png | salida: scene_002.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_002.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — medium shot: Nora steps off the ferry with one duffel bag, the town sign behind her.
+HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on the deed; the room falls quiet around it.
+HARD CUT at 6.9 s — SHOT 3 — low-angle hero shot: Nora Hale reacts, holding the moment before the next line.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+SAM (dry, warm): "Nora Hale. Ten years, and you still drive like the road owes you money."
+
+VOICE NOTES: SAM — quiet, low American English, careful diction, warmth under restraint.
+
+AUDIO BED: wind, distant surf, a gull, wet gravel underfoot
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 1 wardrobe: charcoal wool coat over a dark sweater, dark jeans, rain-wet hair. Evidence object in play: the deed.
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 003 | frame: frame_003.png | salida: scene_003.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_003.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — tight close-up: Sam leans against a harbor truck with his arms crossed, trying not to smile.
+HARD CUT at 3.5 s — SHOT 2 — medium shot: Close detail on fresh survey stakes; the room falls quiet around it.
+HARD CUT at 6.9 s — SHOT 3 — insert shot of the evidence object: Nora Hale reacts, holding the moment before the next line.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+NORA (guarded): "I inherited a lighthouse, Sam. Not a welcome party."
+SAM (low): "I'm not happy. I'm careful."
+
+VOICE NOTES: NORA — warm mid-range American English, controlled, slightly breathy under pressure; SAM — quiet, low American English, careful diction, warmth under restraint.
+
+AUDIO BED: wind, distant surf, a gull, wet gravel underfoot
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 1 wardrobe: charcoal wool coat over a dark sweater, dark jeans, rain-wet hair. Evidence object in play: fresh survey stakes.
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 004 | frame: frame_004.png | salida: scene_004.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_004.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — over-the-shoulder shot: Nora sets a brass key on the lighthouse kitchen table between them.
+HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on the dead lighthouse lamp; the room falls quiet around it.
+HARD CUT at 6.9 s — SHOT 3 — wide establishing shot: Nora Hale reacts, holding the moment before the next line.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+SAM (flat): "The Kellers already had surveyors on your land. Twice."
+NORA (steady): "Then they can explain it to the state. The trust is mine now."
+
+VOICE NOTES: SAM — quiet, low American English, careful diction, warmth under restraint; NORA — warm mid-range American English, controlled, slightly breathy under pressure.
+
+AUDIO BED: wind, distant surf, a gull, wet gravel underfoot
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 1 wardrobe: charcoal wool coat over a dark sweater, dark jeans, rain-wet hair. Evidence object in play: the dead lighthouse lamp.
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 005 | frame: frame_005.png | salida: scene_005.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_005.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — low-angle hero shot: Sam points through the rain at fresh survey stakes driven into the cliff.
+HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on a brass key; the room falls quiet around it.
+HARD CUT at 6.9 s — SHOT 3 — over-the-shoulder shot: Nora Hale reacts, holding the moment before the next line.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+MARGARET (silk over steel): "Your father was a liar, dear. Sentiment won't change what the deed says."
+NORA (quiet): "Then you won't mind me reading the deed. Slowly."
+
+VOICE NOTES: MARGARET — low, polished, unhurried American English, never shouts; NORA — warm mid-range American English, controlled, slightly breathy under pressure.
+
+AUDIO BED: wind, distant surf, a gull, wet gravel underfoot
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 1 wardrobe: charcoal wool coat over a dark sweater, dark jeans, rain-wet hair. Evidence object in play: a brass key.
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 006 | frame: frame_006.png | salida: scene_006.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_006.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — wide establishing shot: Margaret waits under the dry awning of the Keller estate, gloves folded.
+HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on the deed; the room falls quiet around it.
+HARD CUT at 6.9 s — SHOT 3 — low-angle hero shot: Nora Hale reacts, holding the moment before the next line.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+ADRIAN (reasonable, rehearsed): "Sell us the point. Name your price and leave the past where it belongs."
+NORA (cold): "The past is the only thing you've ever asked me to leave behind."
+
+VOICE NOTES: ADRIAN — smooth mid-range American English, reasonable tone that never quite reaches sincerity; NORA — warm mid-range American English, controlled, slightly breathy under pressure.
+
+AUDIO BED: wind, distant surf, a gull, wet gravel underfoot
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 1 wardrobe: charcoal wool coat over a dark sweater, dark jeans, rain-wet hair. Evidence object in play: the deed.
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 007 | frame: frame_007.png | salida: scene_007.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_007.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — medium shot: Nora reads the deed by a single warm lamp, jaw tight.
+HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on fresh survey stakes; the room falls quiet around it.
+HARD CUT at 6.9 s — SHOT 3 — insert shot of the evidence object: Nora Hale reacts, holding the moment before the next line.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+NORA (suspicious): "You had ten years to buy this land. Why wait until I came back?"
+MARGARET (pleasant): "Because a deed is cleaner than a funeral."
+
+VOICE NOTES: NORA — warm mid-range American English, controlled, slightly breathy under pressure; MARGARET — low, polished, unhurried American English, never shouts.
+
+AUDIO BED: wind, distant surf, a gull, wet gravel underfoot
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 1 wardrobe: charcoal wool coat over a dark sweater, dark jeans, rain-wet hair. Evidence object in play: fresh survey stakes.
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 008 | frame: frame_008.png | salida: scene_008.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_008.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — tight close-up: Adrian blocks the lighthouse door with a folder under his arm.
+HARD CUT at 3.5 s — SHOT 2 — medium shot: Close detail on the dead lighthouse lamp; the room falls quiet around it.
+HARD CUT at 6.9 s — SHOT 3 — wide establishing shot: Nora Hale reacts, holding the moment before the next line.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+CLAIRE (careful): "Your father changed his will three days before he died. That's not nothing."
+NORA (sharp): "Who witnessed it?"
+
+VOICE NOTES: CLAIRE — grounded, plainspoken American English with a slight coastal New England softness; NORA — warm mid-range American English, controlled, slightly breathy under pressure.
+
+AUDIO BED: wind, distant surf, a gull, wet gravel underfoot
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 1 wardrobe: charcoal wool coat over a dark sweater, dark jeans, rain-wet hair. Evidence object in play: the dead lighthouse lamp.
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 009 | frame: frame_009.png | salida: scene_009.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_009.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — over-the-shoulder shot: Nora stands alone on the point, the town lights small below her.
+HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on a brass key; the room falls quiet around it.
+HARD CUT at 6.9 s — SHOT 3 — insert shot of the evidence object: Nora Hale reacts, holding the moment before the next line.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+CLAIRE (quiet): "Margaret Keller's attorney. And a man named Sam."
+NORA (low): "Sam was there that night? At the lighthouse?"
+
+VOICE NOTES: CLAIRE — grounded, plainspoken American English with a slight coastal New England softness; NORA — warm mid-range American English, controlled, slightly breathy under pressure.
+
+AUDIO BED: wind, distant surf, a gull, wet gravel underfoot
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 1 wardrobe: charcoal wool coat over a dark sweater, dark jeans, rain-wet hair. Evidence object in play: a brass key.
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 010 | frame: frame_010.png | salida: scene_010.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_010.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — low-angle hero shot: Nora crouches at the lighthouse base, finding a keyhole hidden under peeling paint.
+HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on the deed; the room falls quiet around it.
+HARD CUT at 6.9 s — SHOT 3 — insert shot of the evidence object: Nora Hale reacts, holding the moment before the next line.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+NORA (hushed): "Dad... what did you lock in the lighthouse?"
+NORA (breaking): "And why did you leave me the key?"
+
+VOICE NOTES: NORA — warm mid-range American English, controlled, slightly breathy under pressure.
+
+AUDIO BED: wind, distant surf, a gull, wet gravel underfoot
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 1 wardrobe: charcoal wool coat over a dark sweater, dark jeans, rain-wet hair. Evidence object in play: the deed.
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 011 | frame: frame_011.png | salida: scene_011.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_011.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — medium shot: Claire slides a sealed envelope across the lawyer's desk.
+HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on the sealed petition; the room falls quiet around it.
+HARD CUT at 6.9 s — SHOT 3 — over-the-shoulder shot: Nora Hale reacts, holding the moment before the next line.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+CLAIRE (clinical): "The petition says you're unfit to manage the trust. They want a guardian by Friday."
+NORA (flat): "On what grounds?"
+
+VOICE NOTES: CLAIRE — grounded, plainspoken American English with a slight coastal New England softness; NORA — warm mid-range American English, controlled, slightly breathy under pressure.
+
+AUDIO BED: rain on windows, a ticking clock, tea poured, a door closing
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 2 wardrobe: charcoal wool coat, dark jeans, hair dry now, no umbrella. Evidence object in play: the sealed petition.
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 012 | frame: frame_012.png | salida: scene_012.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_012.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — tight close-up: Nora reads the witness signature and looks up slowly.
+HARD CUT at 3.5 s — SHOT 2 — medium shot: Close detail on a witness signature; the room falls quiet around it.
+HARD CUT at 6.9 s — SHOT 3 — low-angle hero shot: Nora Hale reacts, holding the moment before the next line.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+NORA (sharp): "Who signed the statement?"
+CLAIRE (quiet): "Half the harbor. And one name you won't like: Sam."
+NORA (bitter): "Of course."
+
+VOICE NOTES: NORA — warm mid-range American English, controlled, slightly breathy under pressure; CLAIRE — grounded, plainspoken American English with a slight coastal New England softness.
+
+AUDIO BED: rain on windows, a ticking clock, tea poured, a door closing
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 2 wardrobe: charcoal wool coat, dark jeans, hair dry now, no umbrella. Evidence object in play: a witness signature.
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 013 | frame: frame_013.png | salida: scene_013.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_013.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — over-the-shoulder shot: Sam stands in the boathouse doorway, rain behind him.
+HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on a scorched beam; the room falls quiet around it.
+HARD CUT at 6.9 s — SHOT 3 — medium shot: Nora Hale reacts, holding the moment before the next line.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+SAM (ashamed): "I signed a paper. I didn't read it. I was twenty-two and scared."
+NORA (cutting): "Scared of what? Of being poor? Of her?"
+
+VOICE NOTES: SAM — quiet, low American English, careful diction, warmth under restraint; NORA — warm mid-range American English, controlled, slightly breathy under pressure.
+
+AUDIO BED: rain on windows, a ticking clock, tea poured, a door closing
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 2 wardrobe: charcoal wool coat, dark jeans, hair dry now, no umbrella. Evidence object in play: a scorched beam.
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 014 | frame: frame_014.png | salida: scene_014.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_014.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — low-angle hero shot: Nora sweeps a flashlight over scorched beams.
+HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on the survey map; the room falls quiet around it.
+HARD CUT at 6.9 s — SHOT 3 — wide establishing shot: Nora Hale reacts, holding the moment before the next line.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+SAM (low): "The fire started in the boathouse, Nora. Not the cliffs."
+NORA (raw): "Then why did the whole town say it was me?"
+
+VOICE NOTES: SAM — quiet, low American English, careful diction, warmth under restraint; NORA — warm mid-range American English, controlled, slightly breathy under pressure.
+
+AUDIO BED: rain on windows, a ticking clock, tea poured, a door closing
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 2 wardrobe: charcoal wool coat, dark jeans, hair dry now, no umbrella. Evidence object in play: the survey map.
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 015 | frame: frame_015.png | salida: scene_015.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_015.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — wide establishing shot: Margaret pours tea without offering a cup.
+HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on the sealed petition; the room falls quiet around it.
+HARD CUT at 6.9 s — SHOT 3 — over-the-shoulder shot: Nora Hale reacts, holding the moment before the next line.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+MARGARET (pleasant threat): "If you reopen that investigation, I'll make sure the town remembers who lit the match."
+NORA (tired): "Go ahead. I've played the villain in your story for ten years."
+
+VOICE NOTES: MARGARET — low, polished, unhurried American English, never shouts; NORA — warm mid-range American English, controlled, slightly breathy under pressure.
+
+AUDIO BED: rain on windows, a ticking clock, tea poured, a door closing
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 2 wardrobe: charcoal wool coat, dark jeans, hair dry now, no umbrella. Evidence object in play: the sealed petition.
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 016 | frame: frame_016.png | salida: scene_016.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_016.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — medium shot: Nora stands in the town hall doorway as every head turns.
+HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on a witness signature; the room falls quiet around it.
+HARD CUT at 6.9 s — SHOT 3 — low-angle hero shot: Nora Hale reacts, holding the moment before the next line.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+NORA (precise): "A debt doesn't transfer with land, Adrian. But fraud does."
+ADRIAN (smiling): "Big words for someone with no lawyer."
+
+VOICE NOTES: NORA — warm mid-range American English, controlled, slightly breathy under pressure; ADRIAN — smooth mid-range American English, reasonable tone that never quite reaches sincerity.
+
+AUDIO BED: rain on windows, a ticking clock, tea poured, a door closing
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 2 wardrobe: charcoal wool coat, dark jeans, hair dry now, no umbrella. Evidence object in play: a witness signature.
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 017 | frame: frame_017.png | salida: scene_017.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_017.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — tight close-up: Adrian corners Nora by the harbor railing.
+HARD CUT at 3.5 s — SHOT 2 — medium shot: Close detail on a scorched beam; the room falls quiet around it.
+HARD CUT at 6.9 s — SHOT 3 — insert shot of the evidence object: Nora Hale reacts, holding the moment before the next line.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+SAM (urgent): "The old survey files are in the boathouse. What's left of them."
+NORA (decided): "Then we go tonight, before the hearing."
+
+VOICE NOTES: SAM — quiet, low American English, careful diction, warmth under restraint; NORA — warm mid-range American English, controlled, slightly breathy under pressure.
+
+AUDIO BED: rain on windows, a ticking clock, tea poured, a door closing
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 2 wardrobe: charcoal wool coat, dark jeans, hair dry now, no umbrella. Evidence object in play: a scorched beam.
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 018 | frame: frame_018.png | salida: scene_018.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_018.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — over-the-shoulder shot: Nora stares at a survey map pinned to the boathouse wall.
+HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on the survey map; the room falls quiet around it.
+HARD CUT at 6.9 s — SHOT 3 — wide establishing shot: Nora Hale reacts, holding the moment before the next line.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+SAM (dry): "You always did like a bad idea with good lighting."
+NORA (impatient): "You coming or not? Bring the pry bar."
+
+VOICE NOTES: SAM — quiet, low American English, careful diction, warmth under restraint; NORA — warm mid-range American English, controlled, slightly breathy under pressure.
+
+AUDIO BED: rain on windows, a ticking clock, tea poured, a door closing
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 2 wardrobe: charcoal wool coat, dark jeans, hair dry now, no umbrella. Evidence object in play: the survey map.
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 019 | frame: frame_019.png | salida: scene_019.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_019.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — low-angle hero shot: Sam watches Nora from across the dock, unable to speak.
+HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on the sealed petition; the room falls quiet around it.
+HARD CUT at 6.9 s — SHOT 3 — over-the-shoulder shot: Nora Hale reacts, holding the moment before the next line.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+NORA (shaking): "There. Seawall permits. Signed by Margaret. Dated before the fire."
+SAM (quiet): "That's not a permit. That's a motive."
+
+VOICE NOTES: NORA — warm mid-range American English, controlled, slightly breathy under pressure; SAM — quiet, low American English, careful diction, warmth under restraint.
+
+AUDIO BED: rain on windows, a ticking clock, tea poured, a door closing
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 2 wardrobe: charcoal wool coat, dark jeans, hair dry now, no umbrella. Evidence object in play: the sealed petition.
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 020 | frame: frame_020.png | salida: scene_020.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_020.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — wide establishing shot: Adrian holds the lighthouse door open, waiting.
+HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on a witness signature; the room falls quiet around it.
+HARD CUT at 6.9 s — SHOT 3 — low-angle hero shot: Nora Hale reacts, holding the moment before the next line.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+ADRIAN (reasonable): "Give me the file and I'll tell the town the fire was an accident."
+NORA (wary): "And in exchange?"
+ADRIAN (soft): "I'll say you were with me that night. Everything goes away."
+
+VOICE NOTES: ADRIAN — smooth mid-range American English, reasonable tone that never quite reaches sincerity; NORA — warm mid-range American English, controlled, slightly breathy under pressure.
+
+AUDIO BED: rain on windows, a ticking clock, tea poured, a door closing
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 2 wardrobe: charcoal wool coat, dark jeans, hair dry now, no umbrella. Evidence object in play: a witness signature.
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 021 | frame: frame_021.png | salida: scene_021.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_021.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — tight close-up: Nora spreads water-stained survey files across the lighthouse floor.
+HARD CUT at 3.5 s — SHOT 2 — medium shot: Close detail on the metal evidence box; the room falls quiet around it.
+HARD CUT at 6.9 s — SHOT 3 — over-the-shoulder shot: Nora Hale reacts, holding the moment before the next line.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+ADRIAN (incredulous): "You'd rather be the arsonist than my alibi?"
+NORA (flat): "I'd rather be alone than owned. Now move."
+
+VOICE NOTES: ADRIAN — smooth mid-range American English, reasonable tone that never quite reaches sincerity; NORA — warm mid-range American English, controlled, slightly breathy under pressure.
+
+AUDIO BED: flashlight click, floorboards, rain on a tin roof, a paper unfolding
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 3 wardrobe: cream knit sweater under the charcoal coat, hair loose. Evidence object in play: the metal evidence box.
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 022 | frame: frame_022.png | salida: scene_022.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_022.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — over-the-shoulder shot: Sam jimmies the boathouse lock with a pry bar.
+HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on the seawall permit; the room falls quiet around it.
+HARD CUT at 6.9 s — SHOT 3 — low-angle hero shot: Nora Hale reacts, holding the moment before the next line.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+MARGARET (satisfied): "The trust is frozen. Emergency petition. Effective this morning."
+NORA (steady): "On what grounds?"
+CLAIRE (ashamed): "Mental incompetence. They have statements."
+
+VOICE NOTES: MARGARET — low, polished, unhurried American English, never shouts; NORA — warm mid-range American English, controlled, slightly breathy under pressure; CLAIRE — grounded, plainspoken American English with a slight coastal New England softness.
+
+AUDIO BED: flashlight click, floorboards, rain on a tin roof, a paper unfolding
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 3 wardrobe: cream knit sweater under the charcoal coat, hair loose. Evidence object in play: the seawall permit.
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 023 | frame: frame_023.png | salida: scene_023.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_023.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — low-angle hero shot: Nora's flashlight beam catches a metal box under the floorboards.
+HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on a folded page; the room falls quiet around it.
+HARD CUT at 6.9 s — SHOT 3 — medium shot: Nora Hale reacts, holding the moment before the next line.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+CLAIRE (gentle): "One of the statements is from Sam."
+NORA (low): "Sam... tell me that's a lie. Tell me to my face."
+
+VOICE NOTES: CLAIRE — grounded, plainspoken American English with a slight coastal New England softness; NORA — warm mid-range American English, controlled, slightly breathy under pressure.
+
+AUDIO BED: flashlight click, floorboards, rain on a tin roof, a paper unfolding
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 3 wardrobe: cream knit sweater under the charcoal coat, hair loose. Evidence object in play: a folded page.
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 024 | frame: frame_024.png | salida: scene_024.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_024.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — wide establishing shot: Sam watches Nora read the permits, his face falling.
+HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on a diner coffee cup; the room falls quiet around it.
+HARD CUT at 6.9 s — SHOT 3 — insert shot of the evidence object: Nora Hale reacts, holding the moment before the next line.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+SAM (broken): "They threatened my sister's job. I'm sorry."
+NORA (bitter): "Everyone keeps apologizing while they take everything."
+NORA (hard): "Don't apologize. Fix it."
+
+VOICE NOTES: SAM — quiet, low American English, careful diction, warmth under restraint; NORA — warm mid-range American English, controlled, slightly breathy under pressure.
+
+AUDIO BED: flashlight click, floorboards, rain on a tin roof, a paper unfolding
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 3 wardrobe: cream knit sweater under the charcoal coat, hair loose. Evidence object in play: a diner coffee cup.
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 025 | frame: frame_025.png | salida: scene_025.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_025.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — medium shot: Nora holds a permit signed by Margaret, dated before the fire.
+HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on the metal evidence box; the room falls quiet around it.
+HARD CUT at 6.9 s — SHOT 3 — over-the-shoulder shot: Nora Hale reacts, holding the moment before the next line.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+ADRIAN (reasonable): "Sign the sale. I'll make the petition disappear."
+NORA (quiet): "And if I don't?"
+ADRIAN (soft): "Then I own your father's name."
+
+VOICE NOTES: ADRIAN — smooth mid-range American English, reasonable tone that never quite reaches sincerity; NORA — warm mid-range American English, controlled, slightly breathy under pressure.
+
+AUDIO BED: flashlight click, floorboards, rain on a tin roof, a paper unfolding
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 3 wardrobe: cream knit sweater under the charcoal coat, hair loose. Evidence object in play: the metal evidence box.
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 026 | frame: frame_026.png | salida: scene_026.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_026.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — tight close-up: Nora and Sam stand close in the archive, the file between them.
+HARD CUT at 3.5 s — SHOT 2 — medium shot: Close detail on the seawall permit; the room falls quiet around it.
+HARD CUT at 6.9 s — SHOT 3 — low-angle hero shot: Nora Hale reacts, holding the moment before the next line.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+NORA (realizing): "Lighthouses keep logs. Every ship, every storm, every night."
+SAM (nodding): "Your father logged the harbor for thirty years."
+
+VOICE NOTES: NORA — warm mid-range American English, controlled, slightly breathy under pressure; SAM — quiet, low American English, careful diction, warmth under restraint.
+
+AUDIO BED: flashlight click, floorboards, rain on a tin roof, a paper unfolding
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 3 wardrobe: cream knit sweater under the charcoal coat, hair loose. Evidence object in play: the seawall permit.
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 027 | frame: frame_027.png | salida: scene_027.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_027.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — over-the-shoulder shot: Adrian waits in a diner booth across from Nora.
+HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on a folded page; the room falls quiet around it.
+HARD CUT at 6.9 s — SHOT 3 — medium shot: Nora Hale reacts, holding the moment before the next line.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+NORA (urgent): "Including the night of the fire. And the boat that left at two a.m."
+SAM (cold): "That's the Keller launch."
+
+VOICE NOTES: NORA — warm mid-range American English, controlled, slightly breathy under pressure; SAM — quiet, low American English, careful diction, warmth under restraint.
+
+AUDIO BED: flashlight click, floorboards, rain on a tin roof, a paper unfolding
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 3 wardrobe: cream knit sweater under the charcoal coat, hair loose. Evidence object in play: a folded page.
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 028 | frame: frame_028.png | salida: scene_028.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_028.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — low-angle hero shot: Nora slides the file across the table, keeping one page back.
+HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on a diner coffee cup; the room falls quiet around it.
+HARD CUT at 6.9 s — SHOT 3 — wide establishing shot: Nora Hale reacts, holding the moment before the next line.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+NORA (quiet): "No. That's Margaret's launch. With Adrian at the helm."
+SAM (careful): "Nora. Are you sure?"
+NORA (steady): "I've never been surer of anything."
+
+VOICE NOTES: NORA — warm mid-range American English, controlled, slightly breathy under pressure; SAM — quiet, low American English, careful diction, warmth under restraint.
+
+AUDIO BED: flashlight click, floorboards, rain on a tin roof, a paper unfolding
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 3 wardrobe: cream knit sweater under the charcoal coat, hair loose. Evidence object in play: a diner coffee cup.
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 029 | frame: frame_029.png | salida: scene_029.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_029.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — wide establishing shot: Adrian leans in, his hand covering hers.
+HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on the metal evidence box; the room falls quiet around it.
+HARD CUT at 6.9 s — SHOT 3 — over-the-shoulder shot: Nora Hale reacts, holding the moment before the next line.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+ADRIAN (amused): "You think a notebook beats a town full of witnesses?"
+NORA (calm): "I think a notebook beats you. And you know it."
+
+VOICE NOTES: ADRIAN — smooth mid-range American English, reasonable tone that never quite reaches sincerity; NORA — warm mid-range American English, controlled, slightly breathy under pressure.
+
+AUDIO BED: flashlight click, floorboards, rain on a tin roof, a paper unfolding
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 3 wardrobe: cream knit sweater under the charcoal coat, hair loose. Evidence object in play: the metal evidence box.
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 030 | frame: frame_030.png | salida: scene_030.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_030.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — medium shot: Nora stands alone in the lamp room, the file in her hands.
+HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on the seawall permit; the room falls quiet around it.
+HARD CUT at 6.9 s — SHOT 3 — low-angle hero shot: Nora Hale reacts, holding the moment before the next line.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+MARGARET (tired): "Name your price, Nora. One last time."
+NORA (final): "The hearing. Tomorrow. Public. All of it."
+MARGARET (quiet): "Then you'll lose the only home you have left."
+
+VOICE NOTES: MARGARET — low, polished, unhurried American English, never shouts; NORA — warm mid-range American English, controlled, slightly breathy under pressure.
+
+AUDIO BED: flashlight click, floorboards, rain on a tin roof, a paper unfolding
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 3 wardrobe: cream knit sweater under the charcoal coat, hair loose. Evidence object in play: the seawall permit.
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 031 | frame: frame_031.png | salida: scene_031.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_031.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — over-the-shoulder shot: Rain hammers the town hall windows as Nora faces the panel.
+HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on the emergency petition; the room falls quiet around it.
+HARD CUT at 6.9 s — SHOT 3 — insert shot of the evidence object: Nora Hale reacts, holding the moment before the next line.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+NORA (steady): "I'd rather lose the house than let you keep my father's name."
+MARGARET (soft): "You already lost it ten years ago."
+
+VOICE NOTES: NORA — warm mid-range American English, controlled, slightly breathy under pressure; MARGARET — low, polished, unhurried American English, never shouts.
+
+AUDIO BED: storm wind, rain on glass, a gavel, a chair scraping
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 4 wardrobe: storm-soaked shirt and trousers, no coat, hair plastered down. Evidence object in play: the emergency petition.
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 032 | frame: frame_032.png | salida: scene_032.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_032.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — low-angle hero shot: Margaret sits perfectly still in the front row.
+HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on a statement form; the room falls quiet around it.
+HARD CUT at 6.9 s — SHOT 3 — insert shot of the evidence object: Nora Hale reacts, holding the moment before the next line.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+CLAIRE (nervous): "The hearing is packed. Half the town came."
+NORA (resolved): "Good. This time, I want witnesses."
+
+VOICE NOTES: CLAIRE — grounded, plainspoken American English with a slight coastal New England softness; NORA — warm mid-range American English, controlled, slightly breathy under pressure.
+
+AUDIO BED: storm wind, rain on glass, a gavel, a chair scraping
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 4 wardrobe: storm-soaked shirt and trousers, no coat, hair plastered down. Evidence object in play: a statement form.
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 033 | frame: frame_033.png | salida: scene_033.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_033.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — wide establishing shot: Claire reads the emergency petition aloud.
+HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on the harbor logbook; the room falls quiet around it.
+HARD CUT at 6.9 s — SHOT 3 — medium shot: Nora Hale reacts, holding the moment before the next line.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+SAM (low): "Nora. Whatever happens in there... I should have told you the truth ten years ago."
+NORA (fierce): "Then tell it now. Loud enough for the back row."
+
+VOICE NOTES: SAM — quiet, low American English, careful diction, warmth under restraint; NORA — warm mid-range American English, controlled, slightly breathy under pressure.
+
+AUDIO BED: storm wind, rain on glass, a gavel, a chair scraping
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 4 wardrobe: storm-soaked shirt and trousers, no coat, hair plastered down. Evidence object in play: the harbor logbook.
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 034 | frame: frame_034.png | salida: scene_034.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_034.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — medium shot: Nora stands in the empty lighthouse, the lamp cold above her.
+HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on the cold lamp; the room falls quiet around it.
+HARD CUT at 6.9 s — SHOT 3 — wide establishing shot: Nora Hale reacts, holding the moment before the next line.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+SAM (public, shaking): "I signed a false statement. Margaret Keller wrote it. I was paid to stay quiet."
+MARGARET (dismissive): "He's a firefighter with a grudge."
+
+VOICE NOTES: SAM — quiet, low American English, careful diction, warmth under restraint; MARGARET — low, polished, unhurried American English, never shouts.
+
+AUDIO BED: storm wind, rain on glass, a gavel, a chair scraping
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 4 wardrobe: storm-soaked shirt and trousers, no coat, hair plastered down. Evidence object in play: the cold lamp.
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 035 | frame: frame_035.png | salida: scene_035.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_035.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — tight close-up: Sam signs a statement at the harbor office, hand shaking.
+HARD CUT at 3.5 s — SHOT 2 — medium shot: Close detail on the emergency petition; the room falls quiet around it.
+HARD CUT at 6.9 s — SHOT 3 — over-the-shoulder shot: Nora Hale reacts, holding the moment before the next line.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+NORA (calm): "Then let's hear from someone who can't be bought."
+ADRIAN (uneasy): "You're bluffing."
+NORA (flat): "I don't bluff. I document."
+
+VOICE NOTES: NORA — warm mid-range American English, controlled, slightly breathy under pressure; ADRIAN — smooth mid-range American English, reasonable tone that never quite reaches sincerity.
+
+AUDIO BED: storm wind, rain on glass, a gavel, a chair scraping
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 4 wardrobe: storm-soaked shirt and trousers, no coat, hair plastered down. Evidence object in play: the emergency petition.
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 036 | frame: frame_036.png | salida: scene_036.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_036.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — over-the-shoulder shot: Nora listens through a half-open door, unseen.
+HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on a statement form; the room falls quiet around it.
+HARD CUT at 6.9 s — SHOT 3 — low-angle hero shot: Nora Hale reacts, holding the moment before the next line.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+NORA (precise): "The harbor log. 2:14 a.m. Keller launch. Adrian at the helm."
+MARGARET (sharp): "That log is thirty years of weather and guesswork."
+
+VOICE NOTES: NORA — warm mid-range American English, controlled, slightly breathy under pressure; MARGARET — low, polished, unhurried American English, never shouts.
+
+AUDIO BED: storm wind, rain on glass, a gavel, a chair scraping
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 4 wardrobe: storm-soaked shirt and trousers, no coat, hair plastered down. Evidence object in play: a statement form.
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 037 | frame: frame_037.png | salida: scene_037.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_037.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — low-angle hero shot: Nora walks the storm beach alone, hair plastered to her face.
+HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on the harbor logbook; the room falls quiet around it.
+HARD CUT at 6.9 s — SHOT 3 — medium shot: Nora Hale reacts, holding the moment before the next line.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+NORA (quiet): "2:14 a.m. One passenger. Margaret."
+ADRIAN (breaking): "It was an accident. We only meant to scare him."
+NORA (raw): "You burned a boathouse and let a town bury my father."
+
+VOICE NOTES: NORA — warm mid-range American English, controlled, slightly breathy under pressure; ADRIAN — smooth mid-range American English, reasonable tone that never quite reaches sincerity.
+
+AUDIO BED: storm wind, rain on glass, a gavel, a chair scraping
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 4 wardrobe: storm-soaked shirt and trousers, no coat, hair plastered down. Evidence object in play: the harbor logbook.
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 038 | frame: frame_038.png | salida: scene_038.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_038.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — wide establishing shot: Adrian waits in her kitchen with the sale papers.
+HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on the cold lamp; the room falls quiet around it.
+HARD CUT at 6.9 s — SHOT 3 — insert shot of the evidence object: Nora Hale reacts, holding the moment before the next line.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+NORA (cold): "You didn't scare him. You killed the only man who could prove it."
+ADRIAN (whisper): "He was already dead when we got there."
+
+VOICE NOTES: NORA — warm mid-range American English, controlled, slightly breathy under pressure; ADRIAN — smooth mid-range American English, reasonable tone that never quite reaches sincerity.
+
+AUDIO BED: storm wind, rain on glass, a gavel, a chair scraping
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 4 wardrobe: storm-soaked shirt and trousers, no coat, hair plastered down. Evidence object in play: the cold lamp.
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 039 | frame: frame_039.png | salida: scene_039.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_039.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — medium shot: Nora stares into the lighthouse lens, thinking.
+HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on the emergency petition; the room falls quiet around it.
+HARD CUT at 6.9 s — SHOT 3 — over-the-shoulder shot: Nora Hale reacts, holding the moment before the next line.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+NORA (sharp): "Then who was in the boathouse with him?"
+ADRIAN (quiet): "Ask your mother."
+
+VOICE NOTES: NORA — warm mid-range American English, controlled, slightly breathy under pressure; ADRIAN — smooth mid-range American English, reasonable tone that never quite reaches sincerity.
+
+AUDIO BED: storm wind, rain on glass, a gavel, a chair scraping
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 4 wardrobe: storm-soaked shirt and trousers, no coat, hair plastered down. Evidence object in play: the emergency petition.
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 040 | frame: frame_040.png | salida: scene_040.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_040.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — tight close-up: Nora finds an old harbor logbook behind the lens housing.
+HARD CUT at 3.5 s — SHOT 2 — medium shot: Close detail on a statement form; the room falls quiet around it.
+HARD CUT at 6.9 s — SHOT 3 — low-angle hero shot: Nora Hale reacts, holding the moment before the next line.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+NORA (hushed): "The harbor log. Every boat, every night. Dad, what did you see?"
+NORA (breaking): "And why did you hide it behind the lens?"
+
+VOICE NOTES: NORA — warm mid-range American English, controlled, slightly breathy under pressure.
+
+AUDIO BED: storm wind, rain on glass, a gavel, a chair scraping
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 4 wardrobe: storm-soaked shirt and trousers, no coat, hair plastered down. Evidence object in play: a statement form.
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 041 | frame: frame_041.png | salida: scene_041.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_041.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — low-angle hero shot: Nora opens the logbook on the lighthouse table, pages brittle.
+HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on the harbor log; the room falls quiet around it.
+HARD CUT at 6.9 s — SHOT 3 — over-the-shoulder shot: Nora Hale reacts, holding the moment before the next line.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+NORA (focused): "Every keeper signs the log. Date, time, weather. No exceptions."
+SAM (quiet): "Your father never missed a night."
+NORA (steady): "Then neither will I."
+
+VOICE NOTES: NORA — warm mid-range American English, controlled, slightly breathy under pressure; SAM — quiet, low American English, careful diction, warmth under restraint.
+
+AUDIO BED: pages turning, a desk lamp humming, gulls outside, footsteps on wet stone
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 5 wardrobe: dark blazer over a black shirt, hair tied back. Evidence object in play: the harbor log.
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 042 | frame: frame_042.png | salida: scene_042.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_042.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — wide establishing shot: Nora and Sam compare timestamps under a desk lamp.
+HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on a torn page; the room falls quiet around it.
+HARD CUT at 6.9 s — SHOT 3 — low-angle hero shot: Nora Hale reacts, holding the moment before the next line.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+SAM (grim): "The page from that night is torn out."
+NORA (triumphant whisper): "No. It's not torn. It's folded. He hid it behind the lens."
+
+VOICE NOTES: SAM — quiet, low American English, careful diction, warmth under restraint; NORA — warm mid-range American English, controlled, slightly breathy under pressure.
+
+AUDIO BED: pages turning, a desk lamp humming, gulls outside, footsteps on wet stone
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 5 wardrobe: dark blazer over a black shirt, hair tied back. Evidence object in play: a torn page.
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 043 | frame: frame_043.png | salida: scene_043.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_043.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — medium shot: Nora traces a line in the log with her finger.
+HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on a timestamp; the room falls quiet around it.
+HARD CUT at 6.9 s — SHOT 3 — insert shot of the evidence object: Nora Hale reacts, holding the moment before the next line.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+NORA (urgent): "2:14 a.m. Keller launch. Two passengers, not one."
+SAM (low): "Who's the second?"
+NORA (cold): "Someone who signed as a witness."
+
+VOICE NOTES: NORA — warm mid-range American English, controlled, slightly breathy under pressure; SAM — quiet, low American English, careful diction, warmth under restraint.
+
+AUDIO BED: pages turning, a desk lamp humming, gulls outside, footsteps on wet stone
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 5 wardrobe: dark blazer over a black shirt, hair tied back. Evidence object in play: a timestamp.
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 044 | frame: frame_044.png | salida: scene_044.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_044.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — tight close-up: Sam reads over her shoulder, close enough to touch.
+HARD CUT at 3.5 s — SHOT 2 — medium shot: Close detail on the town hall steps; the room falls quiet around it.
+HARD CUT at 6.9 s — SHOT 3 — wide establishing shot: Nora Hale reacts, holding the moment before the next line.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+SAM (stunned): "Your mother's name."
+NORA (flat): "She died when I was eleven. I watched them bury her."
+SAM (quiet): "Then who's been paying the lighthouse taxes?"
+
+VOICE NOTES: SAM — quiet, low American English, careful diction, warmth under restraint; NORA — warm mid-range American English, controlled, slightly breathy under pressure.
+
+AUDIO BED: pages turning, a desk lamp humming, gulls outside, footsteps on wet stone
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 5 wardrobe: dark blazer over a black shirt, hair tied back. Evidence object in play: the town hall steps.
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 045 | frame: frame_045.png | salida: scene_045.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_045.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — over-the-shoulder shot: Nora looks up at Sam, a decision forming.
+HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on the harbor log; the room falls quiet around it.
+HARD CUT at 6.9 s — SHOT 3 — insert shot of the evidence object: Nora Hale reacts, holding the moment before the next line.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+NORA (shaking): "Every year. In cash. Under my mother's maiden name."
+SAM (gentle): "Nora, look at me. We can still stop this."
+
+VOICE NOTES: NORA — warm mid-range American English, controlled, slightly breathy under pressure; SAM — quiet, low American English, careful diction, warmth under restraint.
+
+AUDIO BED: pages turning, a desk lamp humming, gulls outside, footsteps on wet stone
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 5 wardrobe: dark blazer over a black shirt, hair tied back. Evidence object in play: the harbor log.
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 046 | frame: frame_046.png | salida: scene_046.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_046.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — low-angle hero shot: Adrian stands on the town hall steps, trying to smile.
+HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on a torn page; the room falls quiet around it.
+HARD CUT at 6.9 s — SHOT 3 — insert shot of the evidence object: Nora Hale reacts, holding the moment before the next line.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+ADRIAN (reasonable): "The hearing is tomorrow. You have one night to change your mind."
+NORA (calm): "I've had ten years. I'm not changing anything."
+
+VOICE NOTES: ADRIAN — smooth mid-range American English, reasonable tone that never quite reaches sincerity; NORA — warm mid-range American English, controlled, slightly breathy under pressure.
+
+AUDIO BED: pages turning, a desk lamp humming, gulls outside, footsteps on wet stone
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 5 wardrobe: dark blazer over a black shirt, hair tied back. Evidence object in play: a torn page.
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 047 | frame: frame_047.png | salida: scene_047.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_047.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — wide establishing shot: Nora walks past him without stopping.
+HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on a timestamp; the room falls quiet around it.
+HARD CUT at 6.9 s — SHOT 3 — medium shot: Nora Hale reacts, holding the moment before the next line.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+MARGARET (controlled): "You've made your point. Name a number."
+NORA (final): "The number is zero. You leave with nothing. That's the price."
+
+VOICE NOTES: MARGARET — low, polished, unhurried American English, never shouts; NORA — warm mid-range American English, controlled, slightly breathy under pressure.
+
+AUDIO BED: pages turning, a desk lamp humming, gulls outside, footsteps on wet stone
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 5 wardrobe: dark blazer over a black shirt, hair tied back. Evidence object in play: a timestamp.
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 048 | frame: frame_048.png | salida: scene_048.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_048.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — medium shot: Margaret waits in the hall, gloves in hand.
+HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on the town hall steps; the room falls quiet around it.
+HARD CUT at 6.9 s — SHOT 3 — wide establishing shot: Nora Hale reacts, holding the moment before the next line.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+CLAIRE (worried): "If you present that log, the town will turn on the Kellers. And on your mother."
+NORA (steady): "Then they'll finally tell the truth about her."
+
+VOICE NOTES: CLAIRE — grounded, plainspoken American English with a slight coastal New England softness; NORA — warm mid-range American English, controlled, slightly breathy under pressure.
+
+AUDIO BED: pages turning, a desk lamp humming, gulls outside, footsteps on wet stone
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 5 wardrobe: dark blazer over a black shirt, hair tied back. Evidence object in play: the town hall steps.
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 049 | frame: frame_049.png | salida: scene_049.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_049.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — tight close-up: Nora faces Margaret on the empty hearing floor.
+HARD CUT at 3.5 s — SHOT 2 — medium shot: Close detail on the harbor log; the room falls quiet around it.
+HARD CUT at 6.9 s — SHOT 3 — over-the-shoulder shot: Nora Hale reacts, holding the moment before the next line.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+NORA (vulnerable): "Whatever they say about me tomorrow, I want you to hear it from me first."
+SAM (low): "I'm not going anywhere."
+
+VOICE NOTES: NORA — warm mid-range American English, controlled, slightly breathy under pressure; SAM — quiet, low American English, careful diction, warmth under restraint.
+
+AUDIO BED: pages turning, a desk lamp humming, gulls outside, footsteps on wet stone
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 5 wardrobe: dark blazer over a black shirt, hair tied back. Evidence object in play: the harbor log.
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 050 | frame: frame_050.png | salida: scene_050.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_050.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — over-the-shoulder shot: Nora stands at the lighthouse door as the town lights come on.
+HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on a torn page; the room falls quiet around it.
+HARD CUT at 6.9 s — SHOT 3 — low-angle hero shot: Nora Hale reacts, holding the moment before the next line.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+MARGARET (cold): "You'll lose the only home you have left."
+NORA (fierce): "I'm not doing this to keep the house. I'm doing it to keep his name."
+
+VOICE NOTES: MARGARET — low, polished, unhurried American English, never shouts; NORA — warm mid-range American English, controlled, slightly breathy under pressure.
+
+AUDIO BED: pages turning, a desk lamp humming, gulls outside, footsteps on wet stone
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 5 wardrobe: dark blazer over a black shirt, hair tied back. Evidence object in play: a torn page.
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 051 | frame: frame_051.png | salida: scene_051.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_051.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — wide establishing shot: The hearing room fills; Nora stands alone at the table.
+HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on the harbor log; the room falls quiet around it.
+HARD CUT at 6.9 s — SHOT 3 — over-the-shoulder shot: Nora Hale reacts, holding the moment before the next line.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+CLAIRE (nervous): "They're calling it an emergency hearing. Every seat is full."
+NORA (resolved): "Good. Let them watch. Let them remember."
+
+VOICE NOTES: CLAIRE — grounded, plainspoken American English with a slight coastal New England softness; NORA — warm mid-range American English, controlled, slightly breathy under pressure.
+
+AUDIO BED: a crowded room holding its breath, paper on wood, wind off the water
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 6 wardrobe: dark blazer, hair down, salt wind in it. Evidence object in play: the harbor log.
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 052 | frame: frame_052.png | salida: scene_052.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_052.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — medium shot: Sam steps to the microphone, the room silent.
+HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on the clerk's desk; the room falls quiet around it.
+HARD CUT at 6.9 s — SHOT 3 — low-angle hero shot: Nora Hale reacts, holding the moment before the next line.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+SAM (steady): "If I do this, I lose the department. I'm still doing it."
+NORA (gentle): "Then do it for the right reason."
+
+VOICE NOTES: SAM — quiet, low American English, careful diction, warmth under restraint; NORA — warm mid-range American English, controlled, slightly breathy under pressure.
+
+AUDIO BED: a crowded room holding its breath, paper on wood, wind off the water
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 6 wardrobe: dark blazer, hair down, salt wind in it. Evidence object in play: the clerk's desk.
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 053 | frame: frame_053.png | salida: scene_053.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_053.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — tight close-up: Margaret's smile falters for the first time.
+HARD CUT at 3.5 s — SHOT 2 — medium shot: Close detail on a second ledger; the room falls quiet around it.
+HARD CUT at 6.9 s — SHOT 3 — insert shot of the evidence object: Nora Hale reacts, holding the moment before the next line.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+NORA (quiet): "You don't have to prove anything to me. Just tell them the truth."
+SAM (breaking): "The truth is I let them bury your father."
+
+VOICE NOTES: NORA — warm mid-range American English, controlled, slightly breathy under pressure; SAM — quiet, low American English, careful diction, warmth under restraint.
+
+AUDIO BED: a crowded room holding its breath, paper on wood, wind off the water
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 6 wardrobe: dark blazer, hair down, salt wind in it. Evidence object in play: a second ledger.
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 054 | frame: frame_054.png | salida: scene_054.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_054.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — over-the-shoulder shot: Nora holds up the harbor log, open to the page.
+HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on Sam's hand; the room falls quiet around it.
+HARD CUT at 6.9 s — SHOT 3 — wide establishing shot: Nora Hale reacts, holding the moment before the next line.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+SAM (public, clear): "I signed a false statement. Margaret Keller wrote it. I was paid to stay quiet."
+MARGARET (dismissive): "He's a firefighter with a grudge. Nothing he says survives cross."
+
+VOICE NOTES: SAM — quiet, low American English, careful diction, warmth under restraint; MARGARET — low, polished, unhurried American English, never shouts.
+
+AUDIO BED: a crowded room holding its breath, paper on wood, wind off the water
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 6 wardrobe: dark blazer, hair down, salt wind in it. Evidence object in play: Sam's hand.
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 055 | frame: frame_055.png | salida: scene_055.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_055.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — low-angle hero shot: Adrian half-rises from his chair.
+HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on the harbor log; the room falls quiet around it.
+HARD CUT at 6.9 s — SHOT 3 — over-the-shoulder shot: Nora Hale reacts, holding the moment before the next line.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+NORA (calm): "Then let's hear from someone who can't be bought. The harbor log."
+ADRIAN (uneasy): "That's a piece of paper."
+
+VOICE NOTES: NORA — warm mid-range American English, controlled, slightly breathy under pressure; ADRIAN — smooth mid-range American English, reasonable tone that never quite reaches sincerity.
+
+AUDIO BED: a crowded room holding its breath, paper on wood, wind off the water
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 6 wardrobe: dark blazer, hair down, salt wind in it. Evidence object in play: the harbor log.
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 056 | frame: frame_056.png | salida: scene_056.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_056.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — wide establishing shot: Nora sets the log on the clerk's desk.
+HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on the clerk's desk; the room falls quiet around it.
+HARD CUT at 6.9 s — SHOT 3 — low-angle hero shot: Nora Hale reacts, holding the moment before the next line.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+NORA (precise): "2:14 a.m. Keller launch. Two passengers. Adrian at the helm."
+MARGARET (sharp): "That log is thirty years of weather and guesswork."
+
+VOICE NOTES: NORA — warm mid-range American English, controlled, slightly breathy under pressure; MARGARET — low, polished, unhurried American English, never shouts.
+
+AUDIO BED: a crowded room holding its breath, paper on wood, wind off the water
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 6 wardrobe: dark blazer, hair down, salt wind in it. Evidence object in play: the clerk's desk.
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 057 | frame: frame_057.png | salida: scene_057.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_057.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — medium shot: Margaret reaches for the log; Nora slides it away.
+HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on a second ledger; the room falls quiet around it.
+HARD CUT at 6.9 s — SHOT 3 — insert shot of the evidence object: Nora Hale reacts, holding the moment before the next line.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+NORA (quiet): "One passenger is Margaret. The other signed the fire report."
+CLAIRE (stunned): "The fire marshal. It's his signature."
+
+VOICE NOTES: NORA — warm mid-range American English, controlled, slightly breathy under pressure; CLAIRE — grounded, plainspoken American English with a slight coastal New England softness.
+
+AUDIO BED: a crowded room holding its breath, paper on wood, wind off the water
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 6 wardrobe: dark blazer, hair down, salt wind in it. Evidence object in play: a second ledger.
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 058 | frame: frame_058.png | salida: scene_058.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_058.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — tight close-up: Sam takes Nora's hand under the table.
+HARD CUT at 3.5 s — SHOT 2 — medium shot: Close detail on Sam's hand; the room falls quiet around it.
+HARD CUT at 6.9 s — SHOT 3 — wide establishing shot: Nora Hale reacts, holding the moment before the next line.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+ADRIAN (breaking): "It was an accident. We only meant to scare him."
+NORA (raw): "You burned a boathouse and let a town bury my father for it."
+
+VOICE NOTES: ADRIAN — smooth mid-range American English, reasonable tone that never quite reaches sincerity; NORA — warm mid-range American English, controlled, slightly breathy under pressure.
+
+AUDIO BED: a crowded room holding its breath, paper on wood, wind off the water
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 6 wardrobe: dark blazer, hair down, salt wind in it. Evidence object in play: Sam's hand.
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 059 | frame: frame_059.png | salida: scene_059.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_059.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — over-the-shoulder shot: Nora walks out of the town hall into the light.
+HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on the harbor log; the room falls quiet around it.
+HARD CUT at 6.9 s — SHOT 3 — insert shot of the evidence object: Nora Hale reacts, holding the moment before the next line.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+NORA (fierce): "That's not an accident. That's a choice. And this town gets to see it."
+MARGARET (quiet): "You'll regret this."
+
+VOICE NOTES: NORA — warm mid-range American English, controlled, slightly breathy under pressure; MARGARET — low, polished, unhurried American English, never shouts.
+
+AUDIO BED: a crowded room holding its breath, paper on wood, wind off the water
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 6 wardrobe: dark blazer, hair down, salt wind in it. Evidence object in play: the harbor log.
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.
+
+=== SCENE 060 | frame: frame_060.png | salida: scene_060.mp4 | estado: pending ===
+Begin exactly on the provided first frame (frame_060.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+
+SHOT PLAN:
+SHOT 1 — 0.0 s to 3.5 s — low-angle hero shot: Nora and Sam stand on the lighthouse point at dusk, an older ledger in Nora's hands.
+HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on the clerk's desk; the room falls quiet around it.
+HARD CUT at 6.9 s — SHOT 3 — insert shot of the evidence object: Nora Hale reacts, holding the moment before the next line.
+End on a held frame that motivates the next scene.
+
+DIALOGUE (native audio, US English, lip-sync exact):
+NORA (hushed): "Wait. This ledger is older. My mother's name is on every page."
+SAM (stunned): "Nora... she's alive?"
+NORA (cold): "She's been here the whole time."
+
+VOICE NOTES: NORA — warm mid-range American English, controlled, slightly breathy under pressure; SAM — quiet, low American English, careful diction, warmth under restraint.
+
+AUDIO BED: a crowded room holding its breath, paper on wood, wind off the water
+
+CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
+
+CONTINUITY: Act 6 wardrobe: dark blazer, hair down, salt wind in it. Evidence object in play: the clerk's desk.
+
+STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
+
+RULES:
+- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.
+- Speak only the dialogue above. No narrator, no added voices, no subtitles.
+- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.
+- Keep faces stable and hands anatomically correct; no extra people.
+- Native US English, conversational pace.
+
+NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
+
+DURATION: exactly 10.0 seconds. Aspect ratio 16:9.

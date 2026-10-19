@@ -1,0 +1,100 @@
+{
+  "schema_version": "1.0",
+  "language": "en-US",
+  "master_aspect": "16:9",
+  "teaser_aspect": "9:16",
+  "visual_style_lock": {
+    "look": "prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette",
+    "lighting": [
+      "late-afternoon sun raking across the scene with long shadows",
+      "overcast storm light with a cold rim on faces",
+      "practical tungsten warmth inside against a blue dusk exterior",
+      "single hard window light with deep falloff",
+      "harbor floodlights and wet reflections at night",
+      "fireplace or lamp glow with visible falloff, never flat studio light"
+    ],
+    "camera_language": [
+      "wide establishing shot with a human scale reference",
+      "medium shot, chest up, subject slightly off-center",
+      "tight close-up, eyes in sharp focus, background falling off",
+      "over-the-shoulder shot with the listener soft in foreground",
+      "low-angle hero shot for status flips",
+      "insert shot of the evidence object (hands only)"
+    ],
+    "composition_rules": [
+      "center-weight the subject so a 9:16 vertical crop still works",
+      "keep 20 percent clean headroom in vertical-safe framing",
+      "faces must never be covered by props or hair",
+      "no text, letters, logos, watermarks or captions inside the frame",
+      "practical location detail over generic studio backdrops"
+    ],
+    "default_shot_rotation": [
+      "wide establishing shot",
+      "medium shot",
+      "tight close-up",
+      "over-the-shoulder shot",
+      "low-angle hero shot"
+    ],
+    "image_prompt_suffix": "Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image.",
+    "image_negative": "cartoon, anime, illustration, 3D render, CGI, plastic skin, airbrushing, beauty filter, ring light, studio flash, flat lighting, extra fingers, deformed hands, text, watermark, logo, frame border, oversaturated colors, stock-photo smile",
+    "video_negative": "on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track"
+  },
+  "identity_lock": {
+    "rule": "Faces come from the reference images attached to the generation. Never describe age, name, eye color, skin tone or base hair color in prompts. Describe only transient state: moment hairstyle, wet hair, flush, sweat sheen, expression, gaze, wardrobe, pose, light and framing.",
+    "reference_phrase": "the same woman as the reference image",
+    "reference_phrase_male": "the same man as the reference image",
+    "reference_workflow": "Attach the character reference sheet (front + 3/4 + profile) to the ChatGPT image generation for every frame. The prompt assumes the reference is present."
+  },
+  "voice_lock": {
+    "narrator": {
+      "id": "narrator",
+      "description": "warm, low American English female narrator, measured pace, intimate close-mic tone, no broadcast brightness",
+      "use": "Only for an optional cold-open voice-over; dialogue scenes use character voices."
+    },
+    "character_voice_archetypes": {
+      "protagonist": "warm mid-range American English, controlled, slightly breathy under pressure, never theatrical",
+      "antagonist": "low, polished, unhurried American English, never shouts, smiles through threats",
+      "ally": "grounded, plainspoken American English with a slight coastal New England softness",
+      "love_interest": "quiet, low American English, careful diction, warmth held under restraint",
+      "authority": "clipped, neutral American English, procedural calm, no drawl"
+    },
+    "delivery_rules": [
+      "Native US English only, no translated cadence.",
+      "Speak at conversation speed, roughly 2.5 words per second.",
+      "Leave a beat of silence after the last word; do not fill it.",
+      "Whispered lines stay audible and close to the mic, never ASMR.",
+      "No narration unless the scene explicitly lists a narrator line."
+    ],
+    "dialogue_line_template": "{speaker} ({delivery}): \"{line}\"",
+    "default_delivery": "measured, low, holding something back"
+  },
+  "prompt_templates": {
+    "omni_prompt_template": "Begin exactly on the provided first frame ({frame_file}) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.\n\n{shot_block}\n\nDIALOGUE (native audio, US English, lip-sync exact):\n{dialogue_block}\n\nAUDIO BED: {ambience}\n\nCAMERA & MOVEMENT: {camera_block}\n\nCONTINUITY: {continuity}\n\nSTYLE: {style}\n\nRULES:\n- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.\n- Speak only the dialogue above. No narrator, no added voices, no subtitles.\n- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.\n- Keep faces stable and hands anatomically correct; no extra people.\n- Native US English, conversational pace.\n\nNEGATIVE: {negative}\n\nDURATION: exactly 10.0 seconds. Aspect ratio 16:9.",
+    "shot_block_header": "SHOT PLAN:",
+    "shot_first_template": "SHOT {n} — 0.0 s to {end:.1f} s — {framing}: {action}",
+    "shot_cut_template": "HARD CUT at {at:.1f} s — SHOT {n} — {framing}: {action}",
+    "shot_last_suffix": "End on a held frame that motivates the next scene.",
+    "camera_block_default": "Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves."
+  },
+  "post_production": {
+    "music_volume_db": -22.0,
+    "music_fade_in_sec": 2.0,
+    "music_fade_out_sec": 4.0,
+    "loudness_target_lufs": -14.0,
+    "true_peak_db": -1.5,
+    "scene_crf": 20,
+    "master_crf": 20,
+    "teaser_crf": 20,
+    "teaser_hook_seconds": 6.0,
+    "teaser_font_size": 64,
+    "teaser_text_y": 150,
+    "teaser_text_box_alpha": 0.55,
+    "video_fade": false,
+    "silence_threshold_db": -35,
+    "silence_min_sec": 0.35,
+    "head_trim_max_sec": 2.5,
+    "tail_trim_max_sec": 2.5,
+    "min_scene_after_trim_sec": 6.0,
+    "allow_short_scene_sec": 6.0
+  }
+}

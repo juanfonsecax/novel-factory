@@ -1,0 +1,61 @@
+{
+  "episode": {
+    "slug": "demo_contract",
+    "title": "The Silent Contract",
+    "series_title": "Salt & Secrets",
+    "episode_number": 1,
+    "logline": "Ten years after the fire that ruined her family, Nora Hale returns to inherit a lighthouse and finds the town's most powerful family has been paying her dead mother's debts.",
+    "genre": "romantic suspense short-drama",
+    "language": "en-US",
+    "audience": "US women 25-55, short-drama and audio-series viewers",
+    "tone": "cinematic, intimate, high-stakes, fast-paced",
+    "hook_line": "They said the lighthouse was empty. Someone left the light on.",
+    "total_scenes": 60,
+    "scene_seconds": 10,
+    "total_seconds": 600,
+    "aspect_master": "16:9",
+    "aspect_teaser": "9:16"
+  },
+  "master": {
+    "file": "demo_contract_master_16x9_1080p.mp4",
+    "duration_seconds": 118.57,
+    "aspect": "16:9",
+    "title": "The Silent Contract",
+    "description": "Ten years after the fire that ruined her family, Nora Hale returns to inherit a lighthouse and finds the town's most powerful family has been paying her dead mother's debts.\n\nA 1:59 cinematic short-drama episode in native English audio.\n\nChapters:\n00:00:00 Act 1 — The Bait\n00:01:38 Act 2 — The Trap\n\nFollow for Episode 2.\n\n#shortdrama #novel #storytime #suspense #drama #episode1\n\nVoices and visuals are AI-generated. Story and edit by the creator.",
+    "tags": [
+      "shortdrama",
+      "novel",
+      "storytime",
+      "suspense",
+      "drama",
+      "episode1"
+    ],
+    "chapters": [
+      {
+        "start": 0.0,
+        "title": "Act 1 — The Bait"
+      },
+      {
+        "start": 98.55,
+        "title": "Act 2 — The Trap"
+      }
+    ]
+  },
+  "teasers": [
+    {
+      "id": 1,
+      "file": "teaser_01_9x16.mp4",
+      "duration_seconds": 58.55,
+      "hook_text": "THE LIGHT WAS NEVER OFF",
+      "caption": "She came back for a lighthouse.\n\nShe found a debt written in blood.\n\nEpisode 1 is live.\n\nFollow for the next chapter.\n\n#shortdrama #novel #storytime #suspense #drama #episode1",
+      "scenes": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    }
+  ]
+}

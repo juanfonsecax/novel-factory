@@ -1,0 +1,488 @@
+{
+  "episode": "demo_contract",
+  "title": "The Silent Contract",
+  "count": 60,
+  "note": "Cada prompt ya incluye el sufijo de estilo global y la cláusula anti-texto.",
+  "items": [
+    {
+      "index": 1,
+      "scene_id": 1,
+      "filename": "frame_001.png",
+      "shot": "wide establishing shot",
+      "location": "Hale lighthouse cliff edge, storm dusk, wind and salt spray",
+      "prompt": "Cinematic still of the same woman as the reference image, wide establishing shot, at Hale lighthouse cliff edge, storm dusk, wind and salt spray. Nora Hale s at the cliff edge, the lighthouse dark behind her, salt wind whipping her coat. Expression: jaw set, eyes bright with contained anger. Wardrobe: charcoal wool coat over a dark sweater, dark jeans, rain-wet hair. Framing keeps the face unobstructed and centered for a 9:16 crop. Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image."
+    },
+    {
+      "index": 2,
+      "scene_id": 2,
+      "filename": "frame_002.png",
+      "shot": "medium shot",
+      "location": "Keller harbor boardwalk, blue hour, wet planks and dock lights",
+      "prompt": "Cinematic still of the same woman as the reference image, medium shot, at Keller harbor boardwalk, blue hour, wet planks and dock lights. Nora Hale off the ferry with one duffel bag, the town sign behind her. Expression: guarded, a half-smile that never reaches the eyes. Wardrobe: charcoal wool coat over a dark sweater, dark jeans, rain-wet hair. Framing keeps the face unobstructed and centered for a 9:16 crop. Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image."
+    },
+    {
+      "index": 3,
+      "scene_id": 3,
+      "filename": "frame_003.png",
+      "shot": "tight close-up",
+      "location": "Hale lighthouse kitchen, night, one warm lamp and a cold stove",
+      "prompt": "Cinematic still of the same woman as the reference image, tight close-up, at Hale lighthouse kitchen, night, one warm lamp and a cold stove. Nora Hale against a harbor truck with his arms crossed, trying not to smile. Expression: tired but alert, watching the room. Wardrobe: charcoal wool coat over a dark sweater, dark jeans, rain-wet hair. Framing keeps the face unobstructed and centered for a 9:16 crop. Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image."
+    },
+    {
+      "index": 4,
+      "scene_id": 4,
+      "filename": "frame_004.png",
+      "shot": "over-the-shoulder shot",
+      "location": "Hale lighthouse cliff edge, storm dusk, wind and salt spray",
+      "prompt": "Cinematic still of the same woman as the reference image, over-the-shoulder shot, at Hale lighthouse cliff edge, storm dusk, wind and salt spray. Nora Hale a brass key on the lighthouse kitchen table between them. Expression: quiet grief held behind the eyes. Wardrobe: charcoal wool coat over a dark sweater, dark jeans, rain-wet hair. Framing keeps the face unobstructed and centered for a 9:16 crop. Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image."
+    },
+    {
+      "index": 5,
+      "scene_id": 5,
+      "filename": "frame_005.png",
+      "shot": "low-angle hero shot",
+      "location": "Keller harbor boardwalk, blue hour, wet planks and dock lights",
+      "prompt": "Cinematic still of the same woman as the reference image, low-angle hero shot, at Keller harbor boardwalk, blue hour, wet planks and dock lights. Nora Hale through the rain at fresh survey stakes driven into the cliff. Expression: defiant, chin lifted. Wardrobe: charcoal wool coat over a dark sweater, dark jeans, rain-wet hair. Framing keeps the face unobstructed and centered for a 9:16 crop. Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image."
+    },
+    {
+      "index": 6,
+      "scene_id": 6,
+      "filename": "frame_006.png",
+      "shot": "wide establishing shot",
+      "location": "Hale lighthouse kitchen, night, one warm lamp and a cold stove",
+      "prompt": "Cinematic still of the same woman as the reference image, wide establishing shot, at Hale lighthouse kitchen, night, one warm lamp and a cold stove. Nora Hale aits under the dry awning of the Keller estate, gloves folded. Expression: afraid and refusing to show it. Wardrobe: charcoal wool coat over a dark sweater, dark jeans, rain-wet hair. Framing keeps the face unobstructed and centered for a 9:16 crop. Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image."
+    },
+    {
+      "index": 7,
+      "scene_id": 7,
+      "filename": "frame_007.png",
+      "shot": "medium shot",
+      "location": "Hale lighthouse cliff edge, storm dusk, wind and salt spray",
+      "prompt": "Cinematic still of the same woman as the reference image, medium shot, at Hale lighthouse cliff edge, storm dusk, wind and salt spray. Nora Hale the deed by a single warm lamp, jaw tight. Expression: cold, clinical calm. Wardrobe: charcoal wool coat over a dark sweater, dark jeans, rain-wet hair. Framing keeps the face unobstructed and centered for a 9:16 crop. Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image."
+    },
+    {
+      "index": 8,
+      "scene_id": 8,
+      "filename": "frame_008.png",
+      "shot": "tight close-up",
+      "location": "Keller harbor boardwalk, blue hour, wet planks and dock lights",
+      "prompt": "Cinematic still of the same woman as the reference image, tight close-up, at Keller harbor boardwalk, blue hour, wet planks and dock lights. Nora Hale cks the lighthouse door with a folder under his arm. Expression: warmth breaking through fatigue. Wardrobe: charcoal wool coat over a dark sweater, dark jeans, rain-wet hair. Framing keeps the face unobstructed and centered for a 9:16 crop. Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image."
+    },
+    {
+      "index": 9,
+      "scene_id": 9,
+      "filename": "frame_009.png",
+      "shot": "over-the-shoulder shot",
+      "location": "Hale lighthouse kitchen, night, one warm lamp and a cold stove",
+      "prompt": "Cinematic still of the same woman as the reference image, over-the-shoulder shot, at Hale lighthouse kitchen, night, one warm lamp and a cold stove. Nora Hale s alone on the point, the town lights small below her. Expression: focused like a lawyer about to object. Wardrobe: charcoal wool coat over a dark sweater, dark jeans, rain-wet hair. Framing keeps the face unobstructed and centered for a 9:16 crop. Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image."
+    },
+    {
+      "index": 10,
+      "scene_id": 10,
+      "filename": "frame_010.png",
+      "shot": "low-angle hero shot",
+      "location": "Hale lighthouse cliff edge, storm dusk, wind and salt spray",
+      "prompt": "Cinematic still of the same woman as the reference image, low-angle hero shot, at Hale lighthouse cliff edge, storm dusk, wind and salt spray. Nora Hale hes at the lighthouse base, finding a keyhole hidden under peeling paint. Expression: relief and dread at the same time. Wardrobe: charcoal wool coat over a dark sweater, dark jeans, rain-wet hair. Framing keeps the face unobstructed and centered for a 9:16 crop. Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image."
+    },
+    {
+      "index": 11,
+      "scene_id": 11,
+      "filename": "frame_011.png",
+      "shot": "medium shot",
+      "location": "Claire Boone's law office, grey morning, rain on the windows",
+      "prompt": "Cinematic still of the same woman as the reference image, medium shot, at Claire Boone's law office, grey morning, rain on the windows. Nora Hale des a sealed envelope across the lawyer's desk. Expression: jaw set, eyes bright with contained anger. Wardrobe: charcoal wool coat, dark jeans, hair dry now, no umbrella. Framing keeps the face unobstructed and centered for a 9:16 crop. Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image."
+    },
+    {
+      "index": 12,
+      "scene_id": 12,
+      "filename": "frame_012.png",
+      "shot": "tight close-up",
+      "location": "Keller boathouse, night, one hanging bulb and a flashlight",
+      "prompt": "Cinematic still of the same woman as the reference image, tight close-up, at Keller boathouse, night, one hanging bulb and a flashlight. Nora Hale the witness signature and looks up slowly. Expression: guarded, a half-smile that never reaches the eyes. Wardrobe: charcoal wool coat, dark jeans, hair dry now, no umbrella. Framing keeps the face unobstructed and centered for a 9:16 crop. Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image."
+    },
+    {
+      "index": 13,
+      "scene_id": 13,
+      "filename": "frame_013.png",
+      "shot": "over-the-shoulder shot",
+      "location": "Keller estate, dusk, warm interior against blue windows",
+      "prompt": "Cinematic still of the same woman as the reference image, over-the-shoulder shot, at Keller estate, dusk, warm interior against blue windows. Nora Hale in the boathouse doorway, rain behind him. Expression: tired but alert, watching the room. Wardrobe: charcoal wool coat, dark jeans, hair dry now, no umbrella. Framing keeps the face unobstructed and centered for a 9:16 crop. Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image."
+    },
+    {
+      "index": 14,
+      "scene_id": 14,
+      "filename": "frame_014.png",
+      "shot": "low-angle hero shot",
+      "location": "Claire Boone's law office, grey morning, rain on the windows",
+      "prompt": "Cinematic still of the same woman as the reference image, low-angle hero shot, at Claire Boone's law office, grey morning, rain on the windows. Nora Hale s a flashlight over scorched beams. Expression: quiet grief held behind the eyes. Wardrobe: charcoal wool coat, dark jeans, hair dry now, no umbrella. Framing keeps the face unobstructed and centered for a 9:16 crop. Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image."
+    },
+    {
+      "index": 15,
+      "scene_id": 15,
+      "filename": "frame_015.png",
+      "shot": "wide establishing shot",
+      "location": "Keller boathouse, night, one hanging bulb and a flashlight",
+      "prompt": "Cinematic still of the same woman as the reference image, wide establishing shot, at Keller boathouse, night, one hanging bulb and a flashlight. Nora Hale ours tea without offering a cup. Expression: defiant, chin lifted. Wardrobe: charcoal wool coat, dark jeans, hair dry now, no umbrella. Framing keeps the face unobstructed and centered for a 9:16 crop. Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image."
+    },
+    {
+      "index": 16,
+      "scene_id": 16,
+      "filename": "frame_016.png",
+      "shot": "medium shot",
+      "location": "Keller estate, dusk, warm interior against blue windows",
+      "prompt": "Cinematic still of the same woman as the reference image, medium shot, at Keller estate, dusk, warm interior against blue windows. Nora Hale s in the town hall doorway as every head turns. Expression: afraid and refusing to show it. Wardrobe: charcoal wool coat, dark jeans, hair dry now, no umbrella. Framing keeps the face unobstructed and centered for a 9:16 crop. Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image."
+    },
+    {
+      "index": 17,
+      "scene_id": 17,
+      "filename": "frame_017.png",
+      "shot": "tight close-up",
+      "location": "Claire Boone's law office, grey morning, rain on the windows",
+      "prompt": "Cinematic still of the same woman as the reference image, tight close-up, at Claire Boone's law office, grey morning, rain on the windows. Nora Hale ners Nora by the harbor railing. Expression: cold, clinical calm. Wardrobe: charcoal wool coat, dark jeans, hair dry now, no umbrella. Framing keeps the face unobstructed and centered for a 9:16 crop. Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image."
+    },
+    {
+      "index": 18,
+      "scene_id": 18,
+      "filename": "frame_018.png",
+      "shot": "over-the-shoulder shot",
+      "location": "Keller boathouse, night, one hanging bulb and a flashlight",
+      "prompt": "Cinematic still of the same woman as the reference image, over-the-shoulder shot, at Keller boathouse, night, one hanging bulb and a flashlight. Nora Hale s at a survey map pinned to the boathouse wall. Expression: warmth breaking through fatigue. Wardrobe: charcoal wool coat, dark jeans, hair dry now, no umbrella. Framing keeps the face unobstructed and centered for a 9:16 crop. Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image."
+    },
+    {
+      "index": 19,
+      "scene_id": 19,
+      "filename": "frame_019.png",
+      "shot": "low-angle hero shot",
+      "location": "Keller estate, dusk, warm interior against blue windows",
+      "prompt": "Cinematic still of the same woman as the reference image, low-angle hero shot, at Keller estate, dusk, warm interior against blue windows. Nora Hale s Nora from across the dock, unable to speak. Expression: focused like a lawyer about to object. Wardrobe: charcoal wool coat, dark jeans, hair dry now, no umbrella. Framing keeps the face unobstructed and centered for a 9:16 crop. Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image."
+    },
+    {
+      "index": 20,
+      "scene_id": 20,
+      "filename": "frame_020.png",
+      "shot": "wide establishing shot",
+      "location": "Claire Boone's law office, grey morning, rain on the windows",
+      "prompt": "Cinematic still of the same woman as the reference image, wide establishing shot, at Claire Boone's law office, grey morning, rain on the windows. Nora Hale ds the lighthouse door open, waiting. Expression: relief and dread at the same time. Wardrobe: charcoal wool coat, dark jeans, hair dry now, no umbrella. Framing keeps the face unobstructed and centered for a 9:16 crop. Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image."
+    },
+    {
+      "index": 21,
+      "scene_id": 21,
+      "filename": "frame_021.png",
+      "shot": "tight close-up",
+      "location": "Keller boathouse, night, flashlight and dust",
+      "prompt": "Cinematic still of the same woman as the reference image, tight close-up, at Keller boathouse, night, flashlight and dust. Nora Hale ds water-stained survey files across the lighthouse floor. Expression: jaw set, eyes bright with contained anger. Wardrobe: cream knit sweater under the charcoal coat, hair loose. Framing keeps the face unobstructed and centered for a 9:16 crop. Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image."
+    },
+    {
+      "index": 22,
+      "scene_id": 22,
+      "filename": "frame_022.png",
+      "shot": "over-the-shoulder shot",
+      "location": "Hale lighthouse archive room, night, a single desk lamp",
+      "prompt": "Cinematic still of the same woman as the reference image, over-the-shoulder shot, at Hale lighthouse archive room, night, a single desk lamp. Nora Hale s the boathouse lock with a pry bar. Expression: guarded, a half-smile that never reaches the eyes. Wardrobe: cream knit sweater under the charcoal coat, hair loose. Framing keeps the face unobstructed and centered for a 9:16 crop. Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image."
+    },
+    {
+      "index": 23,
+      "scene_id": 23,
+      "filename": "frame_023.png",
+      "shot": "low-angle hero shot",
+      "location": "Harbor diner, dawn, cold fluorescent light and steam",
+      "prompt": "Cinematic still of the same woman as the reference image, low-angle hero shot, at Harbor diner, dawn, cold fluorescent light and steam. Nora Hale shlight beam catches a metal box under the floorboards. Expression: tired but alert, watching the room. Wardrobe: cream knit sweater under the charcoal coat, hair loose. Framing keeps the face unobstructed and centered for a 9:16 crop. Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image."
+    },
+    {
+      "index": 24,
+      "scene_id": 24,
+      "filename": "frame_024.png",
+      "shot": "wide establishing shot",
+      "location": "Keller boathouse, night, flashlight and dust",
+      "prompt": "Cinematic still of the same woman as the reference image, wide establishing shot, at Keller boathouse, night, flashlight and dust. Nora Hale s Nora read the permits, his face falling. Expression: quiet grief held behind the eyes. Wardrobe: cream knit sweater under the charcoal coat, hair loose. Framing keeps the face unobstructed and centered for a 9:16 crop. Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image."
+    },
+    {
+      "index": 25,
+      "scene_id": 25,
+      "filename": "frame_025.png",
+      "shot": "medium shot",
+      "location": "Hale lighthouse archive room, night, a single desk lamp",
+      "prompt": "Cinematic still of the same woman as the reference image, medium shot, at Hale lighthouse archive room, night, a single desk lamp. Nora Hale a permit signed by Margaret, dated before the fire. Expression: defiant, chin lifted. Wardrobe: cream knit sweater under the charcoal coat, hair loose. Framing keeps the face unobstructed and centered for a 9:16 crop. Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image."
+    },
+    {
+      "index": 26,
+      "scene_id": 26,
+      "filename": "frame_026.png",
+      "shot": "tight close-up",
+      "location": "Harbor diner, dawn, cold fluorescent light and steam",
+      "prompt": "Cinematic still of the same woman as the reference image, tight close-up, at Harbor diner, dawn, cold fluorescent light and steam. Nora Hale am stand close in the archive, the file between them. Expression: afraid and refusing to show it. Wardrobe: cream knit sweater under the charcoal coat, hair loose. Framing keeps the face unobstructed and centered for a 9:16 crop. Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image."
+    },
+    {
+      "index": 27,
+      "scene_id": 27,
+      "filename": "frame_027.png",
+      "shot": "over-the-shoulder shot",
+      "location": "Keller boathouse, night, flashlight and dust",
+      "prompt": "Cinematic still of the same woman as the reference image, over-the-shoulder shot, at Keller boathouse, night, flashlight and dust. Nora Hale ts in a diner booth across from Nora. Expression: cold, clinical calm. Wardrobe: cream knit sweater under the charcoal coat, hair loose. Framing keeps the face unobstructed and centered for a 9:16 crop. Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image."
+    },
+    {
+      "index": 28,
+      "scene_id": 28,
+      "filename": "frame_028.png",
+      "shot": "low-angle hero shot",
+      "location": "Hale lighthouse archive room, night, a single desk lamp",
+      "prompt": "Cinematic still of the same woman as the reference image, low-angle hero shot, at Hale lighthouse archive room, night, a single desk lamp. Nora Hale s the file across the table, keeping one page back. Expression: warmth breaking through fatigue. Wardrobe: cream knit sweater under the charcoal coat, hair loose. Framing keeps the face unobstructed and centered for a 9:16 crop. Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image."
+    },
+    {
+      "index": 29,
+      "scene_id": 29,
+      "filename": "frame_029.png",
+      "shot": "wide establishing shot",
+      "location": "Harbor diner, dawn, cold fluorescent light and steam",
+      "prompt": "Cinematic still of the same woman as the reference image, wide establishing shot, at Harbor diner, dawn, cold fluorescent light and steam. Nora Hale ns in, his hand covering hers. Expression: focused like a lawyer about to object. Wardrobe: cream knit sweater under the charcoal coat, hair loose. Framing keeps the face unobstructed and centered for a 9:16 crop. Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image."
+    },
+    {
+      "index": 30,
+      "scene_id": 30,
+      "filename": "frame_030.png",
+      "shot": "medium shot",
+      "location": "Keller boathouse, night, flashlight and dust",
+      "prompt": "Cinematic still of the same woman as the reference image, medium shot, at Keller boathouse, night, flashlight and dust. Nora Hale s alone in the lamp room, the file in her hands. Expression: relief and dread at the same time. Wardrobe: cream knit sweater under the charcoal coat, hair loose. Framing keeps the face unobstructed and centered for a 9:16 crop. Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image."
+    },
+    {
+      "index": 31,
+      "scene_id": 31,
+      "filename": "frame_031.png",
+      "shot": "over-the-shoulder shot",
+      "location": "Town hall hearing room, grey morning, rain streaking the windows",
+      "prompt": "Cinematic still of the same woman as the reference image, over-the-shoulder shot, at Town hall hearing room, grey morning, rain streaking the windows. Nora Hale rs the town hall windows as Nora faces the panel. Expression: jaw set, eyes bright with contained anger. Wardrobe: storm-soaked shirt and trousers, no coat, hair plastered down. Framing keeps the face unobstructed and centered for a 9:16 crop. Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image."
+    },
+    {
+      "index": 32,
+      "scene_id": 32,
+      "filename": "frame_032.png",
+      "shot": "low-angle hero shot",
+      "location": "Hale lighthouse, storm night, lightning through the glass",
+      "prompt": "Cinematic still of the same woman as the reference image, low-angle hero shot, at Hale lighthouse, storm night, lightning through the glass. Nora Hale its perfectly still in the front row. Expression: guarded, a half-smile that never reaches the eyes. Wardrobe: storm-soaked shirt and trousers, no coat, hair plastered down. Framing keeps the face unobstructed and centered for a 9:16 crop. Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image."
+    },
+    {
+      "index": 33,
+      "scene_id": 33,
+      "filename": "frame_033.png",
+      "shot": "wide establishing shot",
+      "location": "Hale lighthouse kitchen, night, one lamp, rain outside",
+      "prompt": "Cinematic still of the same woman as the reference image, wide establishing shot, at Hale lighthouse kitchen, night, one lamp, rain outside. Nora Hale ds the emergency petition aloud. Expression: tired but alert, watching the room. Wardrobe: storm-soaked shirt and trousers, no coat, hair plastered down. Framing keeps the face unobstructed and centered for a 9:16 crop. Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image."
+    },
+    {
+      "index": 34,
+      "scene_id": 34,
+      "filename": "frame_034.png",
+      "shot": "medium shot",
+      "location": "Town hall hearing room, grey morning, rain streaking the windows",
+      "prompt": "Cinematic still of the same woman as the reference image, medium shot, at Town hall hearing room, grey morning, rain streaking the windows. Nora Hale s in the empty lighthouse, the lamp cold above her. Expression: quiet grief held behind the eyes. Wardrobe: storm-soaked shirt and trousers, no coat, hair plastered down. Framing keeps the face unobstructed and centered for a 9:16 crop. Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image."
+    },
+    {
+      "index": 35,
+      "scene_id": 35,
+      "filename": "frame_035.png",
+      "shot": "tight close-up",
+      "location": "Hale lighthouse, storm night, lightning through the glass",
+      "prompt": "Cinematic still of the same woman as the reference image, tight close-up, at Hale lighthouse, storm night, lightning through the glass. Nora Hale a statement at the harbor office, hand shaking. Expression: defiant, chin lifted. Wardrobe: storm-soaked shirt and trousers, no coat, hair plastered down. Framing keeps the face unobstructed and centered for a 9:16 crop. Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image."
+    },
+    {
+      "index": 36,
+      "scene_id": 36,
+      "filename": "frame_036.png",
+      "shot": "over-the-shoulder shot",
+      "location": "Hale lighthouse kitchen, night, one lamp, rain outside",
+      "prompt": "Cinematic still of the same woman as the reference image, over-the-shoulder shot, at Hale lighthouse kitchen, night, one lamp, rain outside. Nora Hale ns through a half-open door, unseen. Expression: afraid and refusing to show it. Wardrobe: storm-soaked shirt and trousers, no coat, hair plastered down. Framing keeps the face unobstructed and centered for a 9:16 crop. Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image."
+    },
+    {
+      "index": 37,
+      "scene_id": 37,
+      "filename": "frame_037.png",
+      "shot": "low-angle hero shot",
+      "location": "Town hall hearing room, grey morning, rain streaking the windows",
+      "prompt": "Cinematic still of the same woman as the reference image, low-angle hero shot, at Town hall hearing room, grey morning, rain streaking the windows. Nora Hale the storm beach alone, hair plastered to her face. Expression: cold, clinical calm. Wardrobe: storm-soaked shirt and trousers, no coat, hair plastered down. Framing keeps the face unobstructed and centered for a 9:16 crop. Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image."
+    },
+    {
+      "index": 38,
+      "scene_id": 38,
+      "filename": "frame_038.png",
+      "shot": "wide establishing shot",
+      "location": "Hale lighthouse, storm night, lightning through the glass",
+      "prompt": "Cinematic still of the same woman as the reference image, wide establishing shot, at Hale lighthouse, storm night, lightning through the glass. Nora Hale ts in her kitchen with the sale papers. Expression: warmth breaking through fatigue. Wardrobe: storm-soaked shirt and trousers, no coat, hair plastered down. Framing keeps the face unobstructed and centered for a 9:16 crop. Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image."
+    },
+    {
+      "index": 39,
+      "scene_id": 39,
+      "filename": "frame_039.png",
+      "shot": "medium shot",
+      "location": "Hale lighthouse kitchen, night, one lamp, rain outside",
+      "prompt": "Cinematic still of the same woman as the reference image, medium shot, at Hale lighthouse kitchen, night, one lamp, rain outside. Nora Hale s into the lighthouse lens, thinking. Expression: focused like a lawyer about to object. Wardrobe: storm-soaked shirt and trousers, no coat, hair plastered down. Framing keeps the face unobstructed and centered for a 9:16 crop. Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image."
+    },
+    {
+      "index": 40,
+      "scene_id": 40,
+      "filename": "frame_040.png",
+      "shot": "tight close-up",
+      "location": "Town hall hearing room, grey morning, rain streaking the windows",
+      "prompt": "Cinematic still of the same woman as the reference image, tight close-up, at Town hall hearing room, grey morning, rain streaking the windows. Nora Hale an old harbor logbook behind the lens housing. Expression: relief and dread at the same time. Wardrobe: storm-soaked shirt and trousers, no coat, hair plastered down. Framing keeps the face unobstructed and centered for a 9:16 crop. Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image."
+    },
+    {
+      "index": 41,
+      "scene_id": 41,
+      "filename": "frame_041.png",
+      "shot": "low-angle hero shot",
+      "location": "Hale lighthouse archive room, dawn, cold blue light",
+      "prompt": "Cinematic still of the same woman as the reference image, low-angle hero shot, at Hale lighthouse archive room, dawn, cold blue light. Nora Hale the logbook on the lighthouse table, pages brittle. Expression: jaw set, eyes bright with contained anger. Wardrobe: dark blazer over a black shirt, hair tied back. Framing keeps the face unobstructed and centered for a 9:16 crop. Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image."
+    },
+    {
+      "index": 42,
+      "scene_id": 42,
+      "filename": "frame_042.png",
+      "shot": "wide establishing shot",
+      "location": "Harbor pier, morning, flat silver water",
+      "prompt": "Cinematic still of the same woman as the reference image, wide establishing shot, at Harbor pier, morning, flat silver water. Nora Hale am compare timestamps under a desk lamp. Expression: guarded, a half-smile that never reaches the eyes. Wardrobe: dark blazer over a black shirt, hair tied back. Framing keeps the face unobstructed and centered for a 9:16 crop. Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image."
+    },
+    {
+      "index": 43,
+      "scene_id": 43,
+      "filename": "frame_043.png",
+      "shot": "medium shot",
+      "location": "Town hall steps, dusk, wet stone",
+      "prompt": "Cinematic still of the same woman as the reference image, medium shot, at Town hall steps, dusk, wet stone. Nora Hale s a line in the log with her finger. Expression: tired but alert, watching the room. Wardrobe: dark blazer over a black shirt, hair tied back. Framing keeps the face unobstructed and centered for a 9:16 crop. Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image."
+    },
+    {
+      "index": 44,
+      "scene_id": 44,
+      "filename": "frame_044.png",
+      "shot": "tight close-up",
+      "location": "Hale lighthouse archive room, dawn, cold blue light",
+      "prompt": "Cinematic still of the same woman as the reference image, tight close-up, at Hale lighthouse archive room, dawn, cold blue light. Nora Hale over her shoulder, close enough to touch. Expression: quiet grief held behind the eyes. Wardrobe: dark blazer over a black shirt, hair tied back. Framing keeps the face unobstructed and centered for a 9:16 crop. Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image."
+    },
+    {
+      "index": 45,
+      "scene_id": 45,
+      "filename": "frame_045.png",
+      "shot": "over-the-shoulder shot",
+      "location": "Harbor pier, morning, flat silver water",
+      "prompt": "Cinematic still of the same woman as the reference image, over-the-shoulder shot, at Harbor pier, morning, flat silver water. Nora Hale up at Sam, a decision forming. Expression: defiant, chin lifted. Wardrobe: dark blazer over a black shirt, hair tied back. Framing keeps the face unobstructed and centered for a 9:16 crop. Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image."
+    },
+    {
+      "index": 46,
+      "scene_id": 46,
+      "filename": "frame_046.png",
+      "shot": "low-angle hero shot",
+      "location": "Town hall steps, dusk, wet stone",
+      "prompt": "Cinematic still of the same woman as the reference image, low-angle hero shot, at Town hall steps, dusk, wet stone. Nora Hale nds on the town hall steps, trying to smile. Expression: afraid and refusing to show it. Wardrobe: dark blazer over a black shirt, hair tied back. Framing keeps the face unobstructed and centered for a 9:16 crop. Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image."
+    },
+    {
+      "index": 47,
+      "scene_id": 47,
+      "filename": "frame_047.png",
+      "shot": "wide establishing shot",
+      "location": "Hale lighthouse archive room, dawn, cold blue light",
+      "prompt": "Cinematic still of the same woman as the reference image, wide establishing shot, at Hale lighthouse archive room, dawn, cold blue light. Nora Hale past him without stopping. Expression: cold, clinical calm. Wardrobe: dark blazer over a black shirt, hair tied back. Framing keeps the face unobstructed and centered for a 9:16 crop. Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image."
+    },
+    {
+      "index": 48,
+      "scene_id": 48,
+      "filename": "frame_048.png",
+      "shot": "medium shot",
+      "location": "Harbor pier, morning, flat silver water",
+      "prompt": "Cinematic still of the same woman as the reference image, medium shot, at Harbor pier, morning, flat silver water. Nora Hale aits in the hall, gloves in hand. Expression: warmth breaking through fatigue. Wardrobe: dark blazer over a black shirt, hair tied back. Framing keeps the face unobstructed and centered for a 9:16 crop. Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image."
+    },
+    {
+      "index": 49,
+      "scene_id": 49,
+      "filename": "frame_049.png",
+      "shot": "tight close-up",
+      "location": "Town hall steps, dusk, wet stone",
+      "prompt": "Cinematic still of the same woman as the reference image, tight close-up, at Town hall steps, dusk, wet stone. Nora Hale Margaret on the empty hearing floor. Expression: focused like a lawyer about to object. Wardrobe: dark blazer over a black shirt, hair tied back. Framing keeps the face unobstructed and centered for a 9:16 crop. Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image."
+    },
+    {
+      "index": 50,
+      "scene_id": 50,
+      "filename": "frame_050.png",
+      "shot": "over-the-shoulder shot",
+      "location": "Hale lighthouse archive room, dawn, cold blue light",
+      "prompt": "Cinematic still of the same woman as the reference image, over-the-shoulder shot, at Hale lighthouse archive room, dawn, cold blue light. Nora Hale s at the lighthouse door as the town lights come on. Expression: relief and dread at the same time. Wardrobe: dark blazer over a black shirt, hair tied back. Framing keeps the face unobstructed and centered for a 9:16 crop. Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image."
+    },
+    {
+      "index": 51,
+      "scene_id": 51,
+      "filename": "frame_051.png",
+      "shot": "wide establishing shot",
+      "location": "Town hall hearing room, day, hard window light",
+      "prompt": "Cinematic still of the same woman as the reference image, wide establishing shot, at Town hall hearing room, day, hard window light. Nora Hale g room fills; Nora stands alone at the table. Expression: jaw set, eyes bright with contained anger. Wardrobe: dark blazer, hair down, salt wind in it. Framing keeps the face unobstructed and centered for a 9:16 crop. Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image."
+    },
+    {
+      "index": 52,
+      "scene_id": 52,
+      "filename": "frame_052.png",
+      "shot": "medium shot",
+      "location": "Hale lighthouse point, golden hour, wind down",
+      "prompt": "Cinematic still of the same woman as the reference image, medium shot, at Hale lighthouse point, golden hour, wind down. Nora Hale to the microphone, the room silent. Expression: guarded, a half-smile that never reaches the eyes. Wardrobe: dark blazer, hair down, salt wind in it. Framing keeps the face unobstructed and centered for a 9:16 crop. Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image."
+    },
+    {
+      "index": 53,
+      "scene_id": 53,
+      "filename": "frame_053.png",
+      "shot": "tight close-up",
+      "location": "Harbor, golden hour, calm water",
+      "prompt": "Cinematic still of the same woman as the reference image, tight close-up, at Harbor, golden hour, calm water. Nora Hale smile falters for the first time. Expression: tired but alert, watching the room. Wardrobe: dark blazer, hair down, salt wind in it. Framing keeps the face unobstructed and centered for a 9:16 crop. Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image."
+    },
+    {
+      "index": 54,
+      "scene_id": 54,
+      "filename": "frame_054.png",
+      "shot": "over-the-shoulder shot",
+      "location": "Town hall hearing room, day, hard window light",
+      "prompt": "Cinematic still of the same woman as the reference image, over-the-shoulder shot, at Town hall hearing room, day, hard window light. Nora Hale up the harbor log, open to the page. Expression: quiet grief held behind the eyes. Wardrobe: dark blazer, hair down, salt wind in it. Framing keeps the face unobstructed and centered for a 9:16 crop. Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image."
+    },
+    {
+      "index": 55,
+      "scene_id": 55,
+      "filename": "frame_055.png",
+      "shot": "low-angle hero shot",
+      "location": "Hale lighthouse point, golden hour, wind down",
+      "prompt": "Cinematic still of the same woman as the reference image, low-angle hero shot, at Hale lighthouse point, golden hour, wind down. Nora Hale f-rises from his chair. Expression: defiant, chin lifted. Wardrobe: dark blazer, hair down, salt wind in it. Framing keeps the face unobstructed and centered for a 9:16 crop. Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image."
+    },
+    {
+      "index": 56,
+      "scene_id": 56,
+      "filename": "frame_056.png",
+      "shot": "wide establishing shot",
+      "location": "Harbor, golden hour, calm water",
+      "prompt": "Cinematic still of the same woman as the reference image, wide establishing shot, at Harbor, golden hour, calm water. Nora Hale the log on the clerk's desk. Expression: afraid and refusing to show it. Wardrobe: dark blazer, hair down, salt wind in it. Framing keeps the face unobstructed and centered for a 9:16 crop. Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image."
+    },
+    {
+      "index": 57,
+      "scene_id": 57,
+      "filename": "frame_057.png",
+      "shot": "medium shot",
+      "location": "Town hall hearing room, day, hard window light",
+      "prompt": "Cinematic still of the same woman as the reference image, medium shot, at Town hall hearing room, day, hard window light. Nora Hale eaches for the log; Nora slides it away. Expression: cold, clinical calm. Wardrobe: dark blazer, hair down, salt wind in it. Framing keeps the face unobstructed and centered for a 9:16 crop. Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image."
+    },
+    {
+      "index": 58,
+      "scene_id": 58,
+      "filename": "frame_058.png",
+      "shot": "tight close-up",
+      "location": "Hale lighthouse point, golden hour, wind down",
+      "prompt": "Cinematic still of the same woman as the reference image, tight close-up, at Hale lighthouse point, golden hour, wind down. Nora Hale Nora's hand under the table. Expression: warmth breaking through fatigue. Wardrobe: dark blazer, hair down, salt wind in it. Framing keeps the face unobstructed and centered for a 9:16 crop. Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image."
+    },
+    {
+      "index": 59,
+      "scene_id": 59,
+      "filename": "frame_059.png",
+      "shot": "over-the-shoulder shot",
+      "location": "Harbor, golden hour, calm water",
+      "prompt": "Cinematic still of the same woman as the reference image, over-the-shoulder shot, at Harbor, golden hour, calm water. Nora Hale out of the town hall into the light. Expression: focused like a lawyer about to object. Wardrobe: dark blazer, hair down, salt wind in it. Framing keeps the face unobstructed and centered for a 9:16 crop. Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image."
+    },
+    {
+      "index": 60,
+      "scene_id": 60,
+      "filename": "frame_060.png",
+      "shot": "low-angle hero shot",
+      "location": "Town hall hearing room, day, hard window light",
+      "prompt": "Cinematic still of the same woman as the reference image, low-angle hero shot, at Town hall hearing room, day, hard window light. Nora Hale am stand on the lighthouse point at dusk, an older ledger in Nora's hands. Expression: relief and dread at the same time. Wardrobe: dark blazer, hair down, salt wind in it. Framing keeps the face unobstructed and centered for a 9:16 crop. Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No text, no letters, no logos, no watermarks, no captions inside the image."
+    }
+  ]
+}

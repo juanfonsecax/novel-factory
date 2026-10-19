@@ -1,0 +1,432 @@
+{
+  "scenes": [
+    {
+      "scene_id": 41,
+      "act": 5,
+      "beat": "leverage_converted",
+      "location": "First Valley Trust manager office, morning",
+      "time_of_day": "morning",
+      "characters": ["elena"],
+      "on_screen_hook": "",
+      "first_frame_prompt": "Cinematic still of the same woman as the reference image, medium shot, standing before a polished mahogany desk in the bank manager's sunlit corner office. She wears a clean white button shirt under her tan barn coat with her low braid neat, resting both palms flat on Walter Blackwell's unsealed blue-ribboned will. Face centered and clear for a 9:16 crop.",
+      "internal_cuts": [
+        {"at": 0.0, "framing": "medium shot", "action": "In the sunlit bank office, the maid stands tall as the grey-haired bank manager examines the embossed blue notary seal through his bifocals."},
+        {"at": 3.4, "framing": "insert shot of the evidence object", "action": "Insert: the manager's heavy gold signet embosser stamps 'CERTIFIED ORIGINAL COPY — FIRST VALLEY TRUST' across the parchment."},
+        {"at": 6.9, "framing": "tight close-up", "action": "Close on the maid's face as the heavy brass stamp thuds down, her breath releasing in steady relief."}
+      ],
+      "dialogue": [
+        {"speaker": "ELENA", "line": "Is the notary seal intact, sir? Does this will hold legal standing in Montana?", "delivery": "crisp, steady"},
+        {"speaker": "CLERK", "line": "It is completely valid, Miss Vance. Walter Blackwell deposited this with his own hand.", "delivery": "formal, solemn"}
+      ],
+      "sfx_ambience": "heavy brass seal clunking on paper, ticking grandfather clock, muffled street traffic outside",
+      "continuity": "Act 5 wardrobe. Elena wears the clean white button shirt under tan barn coat; certified will in hand."
+    },
+    {
+      "scene_id": 42,
+      "act": 5,
+      "beat": "ally_buys_time",
+      "location": "town bank steps, morning",
+      "time_of_day": "morning",
+      "characters": ["cole", "victoria"],
+      "on_screen_hook": "",
+      "first_frame_prompt": "Cinematic still of the same man as the reference image, medium shot, standing on the bank granite steps with his boots planted wide, blocking the entrance. The mistress in her deep emerald gala dress glares up at him, fur wrap clenched in her gloved fists. Sheriff Drummond stands beside her, hand resting on his leather gun belt. Faces centered for 9:16 crop.",
+      "internal_cuts": [
+        {"at": 0.0, "framing": "medium two-shot", "action": "On the stone steps, the foreman stands immovable between the mistress and the bank doors, ignoring the sheriff's warning stance."},
+        {"at": 3.4, "framing": "tight close-up", "action": "Close on the mistress's furious eyes narrowing beneath her sleek platinum bob."},
+        {"at": 6.8, "framing": "over-the-shoulder shot", "action": "Over the foreman's shoulder, the bank double doors click open behind him."}
+      ],
+      "dialogue": [
+        {"speaker": "VICTORIA", "line": "Step aside, Cole. You are an employee on my payroll until I fire you.", "delivery": "venomous hiss"},
+        {"speaker": "COLE", "line": "I don't work for you anymore, Victoria. I work for Silver Creek's real owner.", "delivery": "unshakable, low"}
+      ],
+      "sfx_ambience": "heavy brass door latch clicking open, morning wind rustling dry leaves on stone, town murmurs",
+      "continuity": "Act 5 wardrobe. Cole publicly severs ties with Victoria on the bank steps."
+    },
+    {
+      "scene_id": 43,
+      "act": 5,
+      "beat": "public_confrontation_street",
+      "location": "town bank steps, morning",
+      "time_of_day": "morning",
+      "characters": ["elena", "victoria"],
+      "on_screen_hook": "",
+      "first_frame_prompt": "Cinematic still of the same woman as the reference image, medium shot, stepping out through the bank's towering bronze doors onto the sunlit landing, holding a certified navy-blue folder. The mistress in the emerald dress stands three steps below, looking up as a crowd of townsfolk gathers on the sidewalk. Faces centered and unobstructed for a 9:16 crop.",
+      "internal_cuts": [
+        {"at": 0.0, "framing": "medium shot", "action": "The maid emerges onto the sunlit steps, lifting the stamped court-certified envelope for the entire sidewalk to see."},
+        {"at": 3.4, "framing": "tight close-up", "action": "Close on the mistress's painted smile slipping, raw panic flashing behind her eyes for the first time."},
+        {"at": 6.9, "framing": "low-angle hero shot", "action": "Low angle on the maid looking down from the granite steps with quiet authority."}
+      ],
+      "dialogue": [
+        {"speaker": "ELENA", "line": "You told the county my mother had no standing. Walter's certified will begs to differ.", "delivery": "ringing, clear"},
+        {"speaker": "VICTORIA", "line": "That paper is an obsolete draft. It means nothing without court ratification.", "delivery": "strained composure"}
+      ],
+      "sfx_ambience": "onlookers murmuring on sidewalk, pigeon wings flapping, wind snapping county banners",
+      "continuity": "Act 5 wardrobe. Elena displays the certified will publicly; town whispers spread."
+    },
+    {
+      "scene_id": 44,
+      "act": 5,
+      "beat": "antagonist_power_cracks",
+      "location": "Blackwell town car, morning",
+      "time_of_day": "morning",
+      "characters": ["victoria", "richard"],
+      "on_screen_hook": "",
+      "first_frame_prompt": "Cinematic still of the same woman as the reference image, medium shot, sitting in the leather interior of the black town car parked across from the courthouse. The mistress in the emerald gown grips the leather armrest, leaning aggressively toward the heir in his black gala suit. Grey city light reflects off the tinted window. Faces centered for 9:16 crop.",
+      "internal_cuts": [
+        {"at": 0.0, "framing": "medium two-shot", "action": "Inside the town car, the mistress grabs her son's lapel as he pulls himself back against the passenger door."},
+        {"at": 3.4, "framing": "tight close-up", "action": "Close on the heir unfastening her gloved fingers from his jacket with quiet distaste."},
+        {"at": 6.8, "framing": "over-the-shoulder shot", "action": "Over the mistress's shoulder, the heir stares out at the courthouse steps."}
+      ],
+      "dialogue": [
+        {"speaker": "VICTORIA", "line": "You will tell Judge Miller the will was stolen from Walter's desk while he was demented.", "delivery": "panicked command"},
+        {"speaker": "RICHARD", "line": "Father was never demented, Mother. I'm not perjuring myself for your stolen mansion.", "delivery": "quiet, finished"}
+      ],
+      "sfx_ambience": "muffled car interior hush, rain starting to tap car glass, engine ticking as it idles",
+      "continuity": "Act 5 wardrobe. Richard refuses to back Victoria's perjury."
+    },
+    {
+      "scene_id": 45,
+      "act": 5,
+      "beat": "ally_redemption",
+      "location": "county civic hall back alley, noon",
+      "time_of_day": "noon",
+      "characters": ["elena", "maggie", "cole"],
+      "on_screen_hook": "",
+      "first_frame_prompt": "Cinematic still of the same woman as the reference image, medium shot, standing in the brick alley behind the civic hall under wet fire escapes. The housekeeper in her best Sunday cardigan hands Elena an ancient leather-bound diary with a brass clasp. The foreman stands watch at the alley corner. Faces centered and visible for a 9:16 crop.",
+      "internal_cuts": [
+        {"at": 0.0, "framing": "medium shot", "action": "In the brick alleyway, the housekeeper presses an aged leather journal into the maid's hands, tears in her eyes."},
+        {"at": 3.4, "framing": "insert shot of the evidence object", "action": "Insert: the journal page opens to October 12, 2008: 'Paid Sheriff Drummond $10,000 to classify barn fire as accidental'."},
+        {"at": 6.8, "framing": "tight close-up", "action": "Close on the housekeeper whispering her final truth as she holds Elena's fingers tight."}
+      ],
+      "dialogue": [
+        {"speaker": "MAGGIE", "line": "Walter kept this fire log. He wrote down the payoff check number right here.", "delivery": "solemn, tearful"},
+        {"speaker": "ELENA", "line": "This proves the fire was arson, Maggie. You just saved my mother's honor.", "delivery": "reverent, warm"}
+      ],
+      "sfx_ambience": "water dripping from fire escape iron, muffled brass band tuning inside civic hall, distant crowd chatter",
+      "continuity": "Act 5 wardrobe. Walter's private diary provided by Maggie, giving the final proof of arson."
+    },
+    {
+      "scene_id": 46,
+      "act": 5,
+      "beat": "stage_setting_gala",
+      "location": "Silver Creek civic hall foyer, afternoon",
+      "time_of_day": "afternoon",
+      "characters": ["elena", "cole"],
+      "on_screen_hook": "",
+      "first_frame_prompt": "Cinematic still of the same woman as the reference image, medium shot, standing before the double oak doors of the civic hall grand ballroom. She wears her clean white shirt and dark jeans with her low braid brushed smooth, holding the blue probate folder. The foreman in his brushed denim jacket stands tall beside her. Faces centered for 9:16 crop.",
+      "internal_cuts": [
+        {"at": 0.0, "framing": "medium two-shot", "action": "Before the towering carved oak doors, the maid pauses, adjusting her mother's silver belt buckle."},
+        {"at": 3.4, "framing": "tight close-up", "action": "Close on the foreman reaching out, adjusting the collar of her white shirt with quiet tenderness."},
+        {"at": 6.9, "framing": "low-angle hero shot", "action": "Low angle as the maid places her hand on the brass door handle and pushes both doors open."}
+      ],
+      "dialogue": [
+        {"speaker": "COLE", "line": "Every rancher, judge and banker in the state is in that room, Elena.", "delivery": "gentle awe"},
+        {"speaker": "ELENA", "line": "Good. It's time they learned who fed their horses for the last fifteen years.", "delivery": "unshakable pride"}
+      ],
+      "sfx_ambience": "crystal chandelier hum, ballroom orchestra playing light waltz, heavy oak doors swinging wide",
+      "continuity": "Act 5 wardrobe. Elena and Cole enter the county gala together."
+    },
+    {
+      "scene_id": 47,
+      "act": 5,
+      "beat": "dopamine_entrance",
+      "location": "civic hall grand ballroom, afternoon",
+      "time_of_day": "afternoon",
+      "characters": ["elena", "victoria"],
+      "on_screen_hook": "",
+      "first_frame_prompt": "Cinematic still of the same woman as the reference image, medium shot, walking down the central red-carpeted aisle of the glittering gala ballroom. Wealthy patrons in black-tie tuxedos and evening gowns part on either side, staring in stunned silence. The mistress on the raised stage freezes at the microphone. Faces centered for a 9:16 crop.",
+      "internal_cuts": [
+        {"at": 0.0, "framing": "wide establishing shot", "action": "The grand ballroom falls utterly silent as the ranch maid in her simple white shirt strides down the red carpet toward the stage."},
+        {"at": 3.5, "framing": "tight close-up", "action": "Close on the mistress's hand tightening around the podium microphone until her diamond ring clicks against the steel."},
+        {"at": 6.9, "framing": "over-the-shoulder shot", "action": "Over the maid's shoulder, she ascends the three wooden stage stairs without breaking stride."}
+      ],
+      "dialogue": [
+        {"speaker": "VICTORIA", "line": "Security, remove this girl immediately. This is a private county charity gala.", "delivery": "strangled anger"},
+        {"speaker": "ELENA", "line": "You're auctioning Silver Creek land tonight, Victoria. But you don't own the dirt.", "delivery": "crystal clear"}
+      ],
+      "sfx_ambience": "champagne glasses clinking nervously, ballroom murmur rising, microphone feedback whine",
+      "continuity": "Act 5 wardrobe. Elena interrupts the live gala auction."
+    },
+    {
+      "scene_id": 48,
+      "act": 5,
+      "beat": "mask_drops",
+      "location": "civic hall auction stage, afternoon",
+      "time_of_day": "afternoon",
+      "characters": ["elena", "victoria"],
+      "on_screen_hook": "",
+      "first_frame_prompt": "Cinematic still of the same woman as the reference image, medium shot, standing center stage under warm spotlights beside the gala podium. The mistress in her emerald dress stands three feet away, teeth bared in unvarnished rage. An auction board showing 'Silver Creek Parcel A' looms in the background. Faces centered for 9:16 crop.",
+      "internal_cuts": [
+        {"at": 0.0, "framing": "medium two-shot", "action": "Under the blinding stage lights, the mistress steps right into the maid's face, abandoning all high-society poise."},
+        {"at": 3.4, "framing": "tight close-up", "action": "Extreme close-up on the mistress's twisted expression as she speaks directly into Elena's ear."},
+        {"at": 6.8, "framing": "insert shot of the evidence object", "action": "Insert: Elena lays Walter's blue-sealed will onto the auctioneer's reading desk."}
+      ],
+      "dialogue": [
+        {"speaker": "VICTORIA", "line": "You are a stable rat playing dress-up. No judge will ever take my ranch away.", "delivery": "hissed fury"},
+        {"speaker": "ELENA", "line": "It was never your ranch. You were just warming the chair until I grew up.", "delivery": "level, devastating"}
+      ],
+      "sfx_ambience": "dramatic crowd gasps echoing in high hall, spotlight hum, microphone catching ragged breaths",
+      "continuity": "Act 5 wardrobe. Dopamine comeback line delivered on public stage."
+    },
+    {
+      "scene_id": 49,
+      "act": 5,
+      "beat": "evidence_presented",
+      "location": "civic hall auction stage, afternoon",
+      "time_of_day": "afternoon",
+      "characters": ["elena", "cole"],
+      "on_screen_hook": "",
+      "first_frame_prompt": "Cinematic still of the same woman as the reference image, medium shot, standing before the county judge seated at the VIP front table. She hands over Walter's certified will and the fire ledger. The foreman stands beside her with folded arms. Gala guests crane their necks from every table. Faces centered and visible for a 9:16 crop.",
+      "internal_cuts": [
+        {"at": 0.0, "framing": "medium shot", "action": "At the edge of the stage, the maid hands the heavy blue legal dossier down to the seated county probate judge."},
+        {"at": 3.4, "framing": "tight close-up", "action": "Close on the judge adjusting his spectacles, his eyebrows climbing higher as he reads the notary stamp."},
+        {"at": 6.9, "framing": "over-the-shoulder shot", "action": "Over the judge's shoulder, the maid stands perfectly still as the entire hall holds its breath."}
+      ],
+      "dialogue": [
+        {"speaker": "CLERK", "line": "This signature is Walter Blackwell's. And the bank vault seal is verified. The auction is halted.", "delivery": "booming, judicial"},
+        {"speaker": "ELENA", "line": "Thank you, Your Honor. Now ask Mrs. Blackwell about the fire.", "delivery": "firm, calm"}
+      ],
+      "sfx_ambience": "gavel wooden strike on table, stunned uproar from crowd, chairs scraping parquet floor",
+      "continuity": "Act 5 wardrobe. The auction is officially halted by the judge."
+    },
+    {
+      "scene_id": 50,
+      "act": 5,
+      "beat": "act_cliffhanger",
+      "location": "civic hall stage wings, afternoon",
+      "time_of_day": "afternoon",
+      "characters": ["victoria", "elena"],
+      "on_screen_hook": "ONE NIGHT TO BURN THE TRUTH",
+      "first_frame_prompt": "Cinematic still of the same woman as the reference image, medium shot, standing in the shadowy velvet wings behind the stage curtains. The mistress in the emerald dress blocks her exit, leaning close with a terrifying cold smile. Backstage ropes and stage weights hang behind. Faces centered and unobstructed for a 9:16 crop.",
+      "internal_cuts": [
+        {"at": 0.0, "framing": "medium two-shot", "action": "In the red velvet backstage shadows, the mistress corners the maid against the rope rigging, eyes feverish with malice."},
+        {"at": 3.4, "framing": "tight close-up", "action": "Close on the mistress's diamond-ringed hand touching the maid's cheek with chilling faux affection."},
+        {"at": 6.9, "framing": "extreme close-up", "action": "Extreme close-up on the mistress's whispered threat, her lips parting with vicious triumph."}
+      ],
+      "dialogue": [
+        {"speaker": "VICTORIA", "line": "Enjoy your paper victory, girl. Two barrels of kerosene are already in Silver Creek barn.", "delivery": "whispered madness"},
+        {"speaker": "VICTORIA", "line": "Sign the release, or watch your horses burn alive tonight.", "delivery": "deadly hiss"}
+      ],
+      "sfx_ambience": "muffled hall applause continuing outside, heavy rope groaning under tension, hiss of stage lamps",
+      "continuity": "Act 5 cliffhanger. Victoria reveals her scorched-earth threat against the barn and horses."
+    },
+    {
+      "scene_id": 51,
+      "act": 6,
+      "beat": "arson_thwarted",
+      "location": "Silver Creek barn exterior, dusk",
+      "time_of_day": "dusk",
+      "characters": ["elena", "cole"],
+      "on_screen_hook": "",
+      "first_frame_prompt": "Cinematic still of the same woman as the reference image, medium shot, running past the paddock fence toward the barn in fading dusk light. She wears a deep green flannel shirt and dark jeans with her mother's silver belt buckle. The foreman and three ranch hands have two men pinned to the dirt beside dropped kerosene cans. Centered for 9:16 crop.",
+      "internal_cuts": [
+        {"at": 0.0, "framing": "medium shot", "action": "The maid sprints through the barn gates as the foreman yanks a lit flare from a captured trespasser's hand."},
+        {"at": 3.4, "framing": "insert shot of the evidence object", "action": "Insert: the foreman grinds the smoking red flare out beneath his heavy work boot into the damp mud."},
+        {"at": 6.9, "framing": "tight close-up", "action": "Close on the foreman looking up at Elena, breathing hard but smiling with fierce triumph."}
+      ],
+      "dialogue": [
+        {"speaker": "COLE", "line": "We were waiting for them in the hayloft, Elena. Not a single spark touched this barn.", "delivery": "breathless, triumphant"},
+        {"speaker": "ELENA", "line": "Tie them up. Sheriff Drummond will need company in his own jail.", "delivery": "steely relief"}
+      ],
+      "sfx_ambience": "flare hissing into wet gravel, horses whinnying safe inside, heavy boots running on dirt",
+      "continuity": "Act 6 wardrobe. Elena wears deep green flannel shirt and her mother's silver buckle; barn is saved."
+    },
+    {
+      "scene_id": 52,
+      "act": 6,
+      "beat": "heir_confesses_public",
+      "location": "civic hall courtroom chamber, evening",
+      "time_of_day": "evening",
+      "characters": ["richard"],
+      "on_screen_hook": "",
+      "first_frame_prompt": "Cinematic still of the same man as the reference image, medium shot, standing at the witness stand in the packed county courtroom chamber under brass chandeliers. His black gala tie is loosened, collar unbuttoned, looking straight at the presiding judge. Spectators pack the wooden benches. Face centered and clear for a 9:16 crop.",
+      "internal_cuts": [
+        {"at": 0.0, "framing": "medium shot", "action": "At the witness stand, the heir raises his right hand before the court clerk, his voice echoing across the silent gallery."},
+        {"at": 3.4, "framing": "tight close-up", "action": "Close on his pale face as he speaks the words that end his family's dynasty."},
+        {"at": 6.8, "framing": "over-the-shoulder shot", "action": "Over the heir's shoulder, Victoria watches from the defense table, face white as chalk."}
+      ],
+      "dialogue": [
+        {"speaker": "RICHARD", "line": "I planted the silver watch in Elena Vance's saddle bag on my mother's direct orders.", "delivery": "resigned, clear"},
+        {"speaker": "RICHARD", "line": "Elena never stole anything. We stole fifteen years from her.", "delivery": "choked with shame"}
+      ],
+      "sfx_ambience": "courtroom gavel banging, reporters' camera shutters clicking, collective gasp from gallery",
+      "continuity": "Act 6 wardrobe. Richard formally confesses under oath; frame-up collapsed."
+    },
+    {
+      "scene_id": 53,
+      "act": 6,
+      "beat": "ally_recants_oath",
+      "location": "civic hall courtroom chamber, evening",
+      "time_of_day": "evening",
+      "characters": ["maggie"],
+      "on_screen_hook": "",
+      "first_frame_prompt": "Cinematic still of the same woman as the reference image, medium shot, standing beside the witness microphone in the oak-paneled courtroom, wearing her Sunday cardigan with her head held high. Small round spectacles catch the chandeliers. She holds her right hand steady in the air. Face centered and clear for a 9:16 crop.",
+      "internal_cuts": [
+        {"at": 0.0, "framing": "medium shot", "action": "The housekeeper stands tall at the microphone, looking directly at the district attorney with tearful dignity."},
+        {"at": 3.4, "framing": "tight close-up", "action": "Close on her hand pressing the original fire log onto the court clerk's cedar bench."},
+        {"at": 6.9, "framing": "over-the-shoulder shot", "action": "Over the housekeeper's shoulder, Elena nods from the front bench with unconditional love."}
+      ],
+      "dialogue": [
+        {"speaker": "MAGGIE", "line": "I formally recant my 2008 testimony. The barn fire was set deliberately by Victoria Blackwell.", "delivery": "firm, unshakeable"},
+        {"speaker": "MAGGIE", "line": "June Vance was murdered protecting that ranch.", "delivery": "hallowed truth"}
+      ],
+      "sfx_ambience": "courtroom stenographer machine clicking rapidly, paper rustling, silence falling heavy",
+      "continuity": "Act 6 wardrobe. Maggie officially clears June Vance's name on court record."
+    },
+    {
+      "scene_id": 54,
+      "act": 6,
+      "beat": "judicial_restoration",
+      "location": "civic hall courtroom chamber, evening",
+      "time_of_day": "evening",
+      "characters": ["elena"],
+      "on_screen_hook": "",
+      "first_frame_prompt": "Cinematic still of the same woman as the reference image, medium shot, standing at the plaintiff's table in the candlelit courtroom, her green flannel shirt glowing rich against the dark wood. The county judge strikes his wooden gavel, reading from the embossed deed. Face centered, radiant and clear for a 9:16 crop.",
+      "internal_cuts": [
+        {"at": 0.0, "framing": "medium shot", "action": "At the plaintiff's table, the maid stands erect as the judge brings the wooden gavel down with final authority."},
+        {"at": 3.4, "framing": "insert shot of the evidence object", "action": "Insert: the judge signs 'CERTIFICATE OF OWNERSHIP — SILVER CREEK RANCH — OWNER: ELENA VANCE'."},
+        {"at": 6.9, "framing": "tight close-up", "action": "Close on Elena's eyes filling with tears of vindication, a slow, radiant smile breaking across her face."}
+      ],
+      "dialogue": [
+        {"speaker": "CLERK", "line": "This court recognizes Elena Vance as the sole legal heir and owner of Silver Creek Ranch.", "delivery": "booming proclamation"},
+        {"speaker": "ELENA", "line": "We did it, Mama. The ranch is home again.", "delivery": "whispered joy"}
+      ],
+      "sfx_ambience": "resounding gavel strike, loud sustained applause from gallery, floorboards creaking",
+      "continuity": "Act 6 wardrobe. Legal restoration complete; Elena owns Silver Creek."
+    },
+    {
+      "scene_id": 55,
+      "act": 6,
+      "beat": "antagonist_arrest",
+      "location": "civic hall grand steps, night",
+      "time_of_day": "night",
+      "characters": ["victoria"],
+      "on_screen_hook": "",
+      "first_frame_prompt": "Cinematic still of the same woman as the reference image, medium shot, standing on the civic hall stone steps under harsh streetlamps. Two state troopers in grey uniforms lock steel handcuffs onto the wrists of the woman in the emerald dress. Her platinum hair is disheveled, jewelry gone. Face centered and clear for a 9:16 crop.",
+      "internal_cuts": [
+        {"at": 0.0, "framing": "medium shot", "action": "Under the flashing blue lights of state police cruisers, the troopers secure handcuffs behind the mistress's back."},
+        {"at": 3.4, "framing": "tight close-up", "action": "Close on the steel cuffs ratcheting shut with sharp metallic clicks over her bare wrists."},
+        {"at": 6.8, "framing": "over-the-shoulder shot", "action": "Over the mistress's shoulder, she sees the entire town watching her downfall in silence."}
+      ],
+      "dialogue": [
+        {"speaker": "CLERK", "line": "Victoria Blackwell, you are under arrest for conspiracy, insurance fraud and attempted arson.", "delivery": "clipped, official"},
+        {"speaker": "VICTORIA", "line": "You cannot do this to me! I built this town!", "delivery": "screeching, desperate"}
+      ],
+      "sfx_ambience": "handcuffs clicking into place, police radios squawking, crowd watching without a sound",
+      "continuity": "Act 6 wardrobe. Victoria is arrested in front of the town."
+    },
+    {
+      "scene_id": 56,
+      "act": 6,
+      "beat": "antagonist_begs_refusal",
+      "location": "civic hall grand steps, night",
+      "time_of_day": "night",
+      "characters": ["victoria", "elena"],
+      "on_screen_hook": "",
+      "first_frame_prompt": "Cinematic still of the same woman as the reference image, medium shot, looking down at the arrested mistress on the rain-washed stone stairs. The woman in emerald silk drops to one knee on the wet granite, begging through tears. The maid stands above her, serene and unmovable in her green flannel. Faces centered for 9:16 crop.",
+      "internal_cuts": [
+        {"at": 0.0, "framing": "medium two-shot", "action": "On the wet steps, the handcuffed mistress collapses forward onto her knees before the maid she once tormented."},
+        {"at": 3.4, "framing": "tight close-up", "action": "Close on the mistress's mascara running in black streaks down her pale, pleading face."},
+        {"at": 6.9, "framing": "low-angle hero shot", "action": "Low angle on the maid, dignified and untouchable as the night rain begins to fall gently."}
+      ],
+      "dialogue": [
+        {"speaker": "VICTORIA", "line": "Elena, please! Leave me the guesthouse. Don't throw me onto the street with nothing!", "delivery": "weeping, broken"},
+        {"speaker": "ELENA", "line": "You left me with a broken teacup and a broom. You'll leave with your suitcase.", "delivery": "calm, absolute"}
+      ],
+      "sfx_ambience": "rain softly pattering on granite steps, police cruiser doors opening, distant train whistle",
+      "continuity": "Act 6 wardrobe. Dopamine revenge moment: Elena grants zero mercy."
+    },
+    {
+      "scene_id": 57,
+      "act": 6,
+      "beat": "return_to_the_ranch",
+      "location": "Silver Creek mansion foyer, night",
+      "time_of_day": "night",
+      "characters": ["elena", "maggie"],
+      "on_screen_hook": "",
+      "first_frame_prompt": "Cinematic still of the same woman as the reference image, medium shot, standing in the grand timber-and-stone mansion foyer beneath the antler chandelier, exactly where she knelt in scene 1. She wears the green flannel shirt and her mother's silver buckle. The housekeeper stands beside her with a tray of fresh tea. Faces centered for a 9:16 crop.",
+      "internal_cuts": [
+        {"at": 0.0, "framing": "wide establishing shot", "action": "The grand foyer is warm with lamplight; the maid stands where she was once humiliated, now as the estate's mistress."},
+        {"at": 3.4, "framing": "tight close-up", "action": "Close on her fingers tracing the polished oak table where the crystal decanter was once smashed."},
+        {"at": 6.9, "framing": "over-the-shoulder shot", "action": "Over the maid's shoulder, the housekeeper sets down a porcelain teacup with gentle reverence."}
+      ],
+      "dialogue": [
+        {"speaker": "MAGGIE", "line": "The house is quiet, Elena. For the first time in thirty years, it feels clean.", "delivery": "tender, peaceful"},
+        {"speaker": "ELENA", "line": "It's not just a house anymore, Maggie. It's a sanctuary for everyone they pushed down.", "delivery": "warm, resolute"}
+      ],
+      "sfx_ambience": "warm fire crackling in hearth, porcelain cup settling on wood, night breeze through tall windows",
+      "continuity": "Act 6 wardrobe. Full visual loop to scene 1: Elena stands in triumph in the foyer."
+    },
+    {
+      "scene_id": 58,
+      "act": 6,
+      "beat": "romantic_gesture_resolution",
+      "location": "Silver Creek barn gate, moonlight",
+      "time_of_day": "night",
+      "characters": ["elena", "cole"],
+      "on_screen_hook": "",
+      "first_frame_prompt": "Cinematic still of the same woman as the reference image, medium shot, standing at the open white corral gate under a sky full of Montana stars. The foreman in his brushed denim jacket stands beside her, his dusty felt hat in his hands. Soft silver moonlight illuminates their faces. Both centered and unobstructed for a 9:16 crop.",
+      "internal_cuts": [
+        {"at": 0.0, "framing": "medium two-shot", "action": "At the corral gate, the foreman turns to the maid, nervously rolling the brim of his felt hat in both hands."},
+        {"at": 3.4, "framing": "tight close-up", "action": "Close on Elena's hand reaching up to touch his weathered cheek, stopping his nervous motion."},
+        {"at": 6.9, "framing": "over-the-shoulder shot", "action": "Over the foreman's shoulder, she steps into his arms, resting her forehead against his chest."}
+      ],
+      "dialogue": [
+        {"speaker": "COLE", "line": "You're the master of twenty thousand acres now, Elena. You don't need a stray foreman.", "delivery": "vulnerable, quiet"},
+        {"speaker": "ELENA", "line": "I don't need a foreman, Cole. I need you. Stay and build this with me.", "delivery": "intimate, fierce"}
+      ],
+      "sfx_ambience": "night crickets singing in prairie grass, horses grazing peacefully, soft warm breeze",
+      "continuity": "Act 6 wardrobe. Romantic payoff sealed between Elena and Cole."
+    },
+    {
+      "scene_id": 59,
+      "act": 6,
+      "beat": "payoff_memorial",
+      "location": "Blackwell great room mantelpiece, night",
+      "time_of_day": "night",
+      "characters": ["elena"],
+      "on_screen_hook": "",
+      "first_frame_prompt": "Cinematic still of the same woman as the reference image, medium shot, standing before the grand stone fireplace in the mansion's great room. She reverently places her mother's framed tin photograph in the center of the mantelpiece between two warm brass candleholders. Firelight dances across her features. Face centered for 9:16 crop.",
+      "internal_cuts": [
+        {"at": 0.0, "framing": "medium shot", "action": "Before the roaring stone hearth, the maid steps back as June Vance's smiling photograph occupies the place of honor."},
+        {"at": 3.4, "framing": "insert shot of the evidence object", "action": "Insert: the silver belt buckle catches the orange firelight beside the tin frame, engraved: 'VANCE RANCH — 1982'."},
+        {"at": 6.9, "framing": "tight close-up", "action": "Close on Elena's face, radiant with deep peace as a single grateful tear slips down her cheek."}
+      ],
+      "dialogue": [
+        {"speaker": "ELENA", "line": "Your name will never be erased from Montana again, Mama. Silver Creek is ours, and justice has finally been done.", "delivery": "solemn, joyous"}
+      ],
+      "sfx_ambience": "deep hearth fire crackling warmly, pine wood popping, soft wind against glass",
+      "continuity": "Act 6 wardrobe. Elena places June's portrait on the mantel; season arc completed."
+    },
+    {
+      "scene_id": 60,
+      "act": 6,
+      "beat": "payoff_next_hook",
+      "location": "mansion study desk, night",
+      "time_of_day": "night",
+      "characters": ["elena"],
+      "on_screen_hook": "THE WILL NAMES A SECOND HEIR",
+      "first_frame_prompt": "Cinematic still of the same woman as the reference image, medium shot, seated at the heavy walnut desk in the private study under green banker's lamp. She carefully unfolds an undiscovered handwritten parchment tucked behind Walter's will. Shadows deep around the room. Face centered and clear for a 9:16 crop.",
+      "internal_cuts": [
+        {"at": 0.0, "framing": "medium shot", "action": "At the quiet study desk, the maid notices a sealed wax envelope attached to the back of the will parchment."},
+        {"at": 3.4, "framing": "insert shot of the evidence object", "action": "Insert: her thumb cracks the red wax seal: 'To Elena — Read in private after you claim the ranch'."},
+        {"at": 6.9, "framing": "tight close-up", "action": "Close on Elena's eyes widening in stunned alarm as she reads Walter's final words in the letter."}
+      ],
+      "dialogue": [
+        {"speaker": "ELENA", "line": "There is another clause... 'Elena, you are not June's only child. Find your brother before Victoria's family does.'", "delivery": "shivering shock"},
+        {"speaker": "ELENA", "line": "I have a brother?", "delivery": "breathless cliffhanger"}
+      ],
+      "sfx_ambience": "paper crackling in silence, banker lamp humming softly, sudden wind banging study shutters",
+      "continuity": "Act 6 payoff & next-episode cliffhanger. Opens Season 2 / Episode 2 hook."
+    }
+  ],
+  "teasers": [
+    {
+      "id": 3,
+      "title": "The Cliffhanger",
+      "hook_text": "THE WILL NAMES A SECOND HEIR",
+      "scenes": [55, 56, 57, 58, 59, 60],
+      "caption": "They stole her mother's life and twenty years of dignity.\n\nNow she owns every acre of their Montana dynasty.\n\nWho is the second heir? Follow for Episode 2."
+    }
+  ]
+}

@@ -1,0 +1,815 @@
+#!/usr/bin/env python3
+"""Núcleo compartido de novel_factory.
+
+Reglas de diseño:
+- Solo biblioteca estándar de Python + ffmpeg/ffprobe. Cero APIs de pago, cero red.
+- Ningún script de este módulo importa ni modifica el código de USA WHITE /
+  NOTICIAS IA AUTOMATIZADO: la integración es por archivos (cola/pendientes).
+- Todo es auditable: rutas explícitas, JSON legible, errores con contexto.
+
+Este archivo lo importan los generadores (01-03), el runner (automation/) y la
+postproducción (04-05) mediante sys.path.insert(0, <novel_factory>).
+"""
+from __future__ import annotations
+
+import datetime as dt
+import json
+import os
+import re
+import shutil
+import subprocess
+import sys
+import unicodedata
+from pathlib import Path
+from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple
+
+# --- Consola UTF-8 en Windows (mismo patrón que el resto del workspace) ---
+for _flujo in (sys.stdout, sys.stderr):
+    try:
+        _flujo.reconfigure(encoding="utf-8", errors="replace")
+    except Exception:
+        pass
+
+# --- Rutas y constantes globales ---
+NF_ROOT = Path(__file__).resolve().parent
+CONFIG_DIR = NF_ROOT / "config"
+PROJECTS_DIR = NF_ROOT / "projects"
+MUSIC_DIR = NF_ROOT / "music"
+ASSETS_DIR = NF_ROOT / "assets"
+SHOWRUNNER_FILE = CONFIG_DIR / "showrunner_rules.json"
+STYLE_FILE = CONFIG_DIR / "voice_and_style_locks.json"
+
+SCENE_COUNT = 60
+SCENE_SECONDS = 10.0
+TOTAL_SECONDS = SCENE_COUNT * SCENE_SECONDS  # 600 s = 10 min
+FPS = 30
+MASTER_W, MASTER_H = 1920, 1080          # 16:9
+TEASER_W, TEASER_H = 1080, 1920          # 9:16
+DEFAULT_SHOT_ROTATION = [
+    "wide establishing shot",
+    "medium shot",
+    "tight close-up",
+    "over-the-shoulder shot",
+    "low-angle hero shot",
+]
+FRAME_EXTS = (".png", ".jpg", ".jpeg", ".webp")
+
+
+class NFError(RuntimeError):
+    """Error controlado del módulo (mensaje apto para consola)."""
+
+
+# --- Salida de consola homogénea ---
+def log(msg: str = "") -> None:
+    print(msg)
+
+
+def info(msg: str) -> None:
+    print(f"  [i] {msg}")
+
+
+def ok(msg: str) -> None:
+    print(f"  [OK] {msg}")
+
+
+def warn(msg: str) -> None:
+    print(f"  [!] {msg}")
+
+
+def err(msg: str) -> None:
+    print(f"  [X] {msg}")
+
+
+# --- Utilidades de texto / ficheros ---
+def slugify(text: str) -> str:
+    """Convierte un título en slug ASCII seguro para carpeta."""
+    t = unicodedata.normalize("NFKD", text or "")
+    t = "".join(ch for ch in t if not unicodedata.combining(ch))
+    t = t.lower().strip()
+    t = re.sub(r"[^a-z0-9]+", "_", t)
+    return re.sub(r"_+", "_", t).strip("_") or "episode"
+
+
+def now_iso() -> str:
+    return dt.datetime.now().astimezone().isoformat(timespec="seconds")
+
+
+def read_json(path: Path, default: Any = None) -> Any:
+    try:
+        return json.loads(Path(path).read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        return default
+    except Exception as exc:
+        raise NFError(f"No se pudo leer JSON {path}: {exc}") from exc
+
+
+def write_json(path: Path, data: Any) -> Path:
+    """Escritura atómica (tmp + replace) para no dejar JSON a medias."""
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp = path.with_suffix(path.suffix + ".tmp")
+    tmp.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    tmp.replace(path)
+    return path
+
+
+def write_text(path: Path, text: str) -> Path:
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp = path.with_suffix(path.suffix + ".tmp")
+    tmp.write_text(text, encoding="utf-8", newline="\n")
+    tmp.replace(path)
+    return path
+
+
+def load_showrunner() -> Dict[str, Any]:
+    data = read_json(SHOWRUNNER_FILE)
+    if not isinstance(data, dict):
+        raise NFError(f"Falta o está corrupto: {SHOWRUNNER_FILE}")
+    return data
+
+
+def load_style_locks() -> Dict[str, Any]:
+    data = read_json(STYLE_FILE)
+    if not isinstance(data, dict):
+        raise NFError(f"Falta o está corrupto: {STYLE_FILE}")
+    return data
+
+
+def human_duration(seconds: float) -> str:
+    seconds = max(0, int(round(seconds)))
+    h, rem = divmod(seconds, 3600)
+    m, s = divmod(rem, 60)
+    return f"{h}:{m:02d}:{s:02d}" if h else f"{m}:{s:02d}"
+
+
+def fmt_srt(seconds: float) -> str:
+    ms = int(round(max(0.0, seconds) * 1000))
+    h, ms = divmod(ms, 3_600_000)
+    m, ms = divmod(ms, 60_000)
+    s, ms = divmod(ms, 1_000)
+    return f"{h:02d}:{m:02d}:{s:02d},{ms:03d}"
+
+
+def parse_ranges(spec: str) -> List[int]:
+    """'1-5,8,10-12' -> [1..5, 8, 10..12] (1-based, sin duplicados, ordenado)."""
+    out: set[int] = set()
+    for part in str(spec or "").replace(" ", "").split(","):
+        if not part:
+            continue
+        if "-" in part:
+            a, b = part.split("-", 1)
+            if not (a.isdigit() and b.isdigit()):
+                raise NFError(f"Rango inválido: '{part}'")
+            lo, hi = int(a), int(b)
+            if lo > hi:
+                lo, hi = hi, lo
+            out.update(range(lo, hi + 1))
+        elif part.isdigit():
+            out.add(int(part))
+        else:
+            raise NFError(f"Rango inválido: '{part}'")
+    return sorted(i for i in out if 1 <= i <= SCENE_COUNT)
+
+
+# --- Proyectos / episodios ---
+def project_dir(slug: str) -> Path:
+    return PROJECTS_DIR / slugify(slug)
+
+
+def project_paths(slug_or_dir: str | Path) -> Dict[str, Path]:
+    p = Path(slug_or_dir)
+    if p.is_absolute() or (p.exists() and p.is_dir()):
+        root = p
+    else:
+        root = project_dir(str(slug_or_dir))
+    return {
+        "root": root,
+        "master": root / "master_episode.json",
+        "frames": root / "frames",
+        "references": root / "references",
+        "raw_clips": root / "raw_clips",
+        "output": root / "output",
+        "work": root / "output" / ".work",
+        "chatgpt_txt": root / "chatgpt_image_prompts_queue.txt",
+        "chatgpt_json": root / "chatgpt_image_prompts_queue.json",
+        "omni_csv": root / "omni_video_prompts_queue.csv",
+        "omni_json": root / "omni_video_prompts_queue.json",
+        "omni_txt": root / "omni_video_prompts_queue.txt",
+        "chatgpt_refs": root / "chatgpt_reference_sheets.txt",
+        "state": root / "queue_state.json",
+    }
+
+
+def create_project(slug: str) -> Dict[str, Path]:
+    paths = project_paths(project_dir(slug))
+    for key in ("root", "frames", "references", "raw_clips", "output"):
+        paths[key].mkdir(parents=True, exist_ok=True)
+    for folder in (paths["frames"], paths["references"], paths["raw_clips"], paths["output"]):
+        keep = folder / ".gitkeep"
+        if not keep.exists():
+            keep.write_text("", encoding="utf-8")
+    return paths
+
+
+def resolve_project(slug_or_dir: str | Path, must_exist: bool = True) -> Dict[str, Path]:
+    raw = str(slug_or_dir)
+    candidate = Path(raw)
+    if candidate.exists() and candidate.is_dir() and (candidate / "master_episode.json").exists():
+        paths = project_paths(candidate)
+    else:
+        paths = project_paths(project_dir(raw))
+    if must_exist and not paths["master"].exists():
+        raise NFError(
+            f"No existe el proyecto '{raw}'. Se esperaba: {paths['master']}\n"
+            "  Crea el episodio primero con generators/01_story_to_master_json.py"
+        )
+    return paths
+
+
+def scene_stem(index: int) -> str:
+    if not 1 <= int(index) <= SCENE_COUNT:
+        raise NFError(f"scene_id fuera de rango: {index}")
+    return f"scene_{int(index):03d}"
+
+
+def frame_stem(index: int) -> str:
+    if not 1 <= int(index) <= SCENE_COUNT:
+        raise NFError(f"scene_id fuera de rango: {index}")
+    return f"frame_{int(index):03d}"
+
+
+def find_frame(frames_dir: Path, index: int) -> Optional[Path]:
+    base = frame_stem(index)
+    for ext in FRAME_EXTS:
+        p = frames_dir / f"{base}{ext}"
+        if p.exists():
+            return p
+    hits = sorted(p for p in frames_dir.glob(f"{base}.*") if p.suffix.lower() in FRAME_EXTS)
+    return hits[0] if hits else None
+
+
+def find_clip(raw_clips_dir: Path, index: int) -> Optional[Path]:
+    base = scene_stem(index)
+    hits = sorted(p for p in raw_clips_dir.glob(f"{base}.*") if p.suffix.lower() in (".mp4", ".mov", ".m4v", ".webm"))
+    return hits[0] if hits else None
+
+
+# --- FFmpeg / FFprobe ---
+def has_ffmpeg() -> bool:
+    return bool(shutil.which("ffmpeg") and shutil.which("ffprobe"))
+
+
+def require_ffmpeg() -> None:
+    missing = [b for b in ("ffmpeg", "ffprobe") if not shutil.which(b)]
+    if missing:
+        raise NFError(
+            f"Falta en PATH: {', '.join(missing)}. Instala con: winget install Gyan.FFmpeg"
+        )
+
+
+def run_cmd(cmd: Sequence[str], timeout: Optional[int] = None) -> subprocess.CompletedProcess:
+    return subprocess.run(
+        list(cmd),
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+        errors="replace",
+        timeout=timeout,
+    )
+
+
+def run_ffmpeg(cmd: Sequence[str], timeout: Optional[int] = None) -> subprocess.CompletedProcess:
+    res = run_cmd(cmd, timeout=timeout)
+    if res.returncode != 0:
+        tail = (res.stderr or res.stdout or "").strip().splitlines()[-12:]
+        raise NFError("ffmpeg falló:\n  " + "\n  ".join(tail))
+    return res
+
+
+def ffprobe_json(path: Path) -> Dict[str, Any]:
+    res = run_cmd([
+        "ffprobe", "-v", "error", "-print_format", "json",
+        "-show_format", "-show_streams", str(path),
+    ])
+    if res.returncode != 0:
+        tail = (res.stderr or "").strip().splitlines()[-6:]
+        raise NFError(f"ffprobe falló para {Path(path).name}:\n  " + "\n  ".join(tail))
+    try:
+        return json.loads(res.stdout or "{}")
+    except Exception as exc:
+        raise NFError(f"ffprobe devolvió JSON inválido para {Path(path).name}: {exc}") from exc
+
+
+def probe_media(path: Path) -> Dict[str, Any]:
+    data = ffprobe_json(path)
+    fmt = data.get("format") or {}
+    streams = data.get("streams") or []
+    v = next((s for s in streams if s.get("codec_type") == "video"), None)
+    a = next((s for s in streams if s.get("codec_type") == "audio"), None)
+
+    duration = 0.0
+    for raw in (fmt.get("duration"), (v or {}).get("duration"), (a or {}).get("duration")):
+        try:
+            val = float(raw)
+            if val > 0:
+                duration = val
+                break
+        except (TypeError, ValueError):
+            continue
+
+    fps = 0.0
+    if v:
+        rate = str(v.get("avg_frame_rate") or v.get("r_frame_rate") or "0/0")
+        try:
+            num, den = rate.split("/")
+            fps = float(num) / float(den) if float(den) else 0.0
+        except Exception:
+            fps = 0.0
+
+    return {
+        "path": str(path),
+        "duration": duration,
+        "width": int(v.get("width") or 0) if v else 0,
+        "height": int(v.get("height") or 0) if v else 0,
+        "fps": fps,
+        "has_video": bool(v),
+        "has_audio": bool(a),
+        "audio_codec": (a or {}).get("codec_name", ""),
+        "size_bytes": int(fmt.get("size") or 0),
+    }
+
+
+def sha256_file(path: Path) -> str:
+    import hashlib
+
+    hasher = hashlib.sha256()
+    with Path(path).open("rb") as fh:
+        while chunk := fh.read(1 << 20):
+            hasher.update(chunk)
+    return hasher.hexdigest()
+
+
+def detect_font() -> Optional[Path]:
+    """Fuente bold para overlays. Prioriza assets/fonts del módulo; cae a Windows."""
+    fonts_dir = ASSETS_DIR / "fonts"
+    if fonts_dir.exists():
+        candidates = sorted(
+            p for p in fonts_dir.iterdir()
+            if p.suffix.lower() in (".ttf", ".otf") and p.is_file()
+        )
+        if candidates:
+            preferred = [p for p in candidates if "bold" in p.name.lower() or "semibold" in p.name.lower()]
+            return (preferred or candidates)[0]
+    win = Path(os.environ.get("WINDIR", r"C:\Windows")) / "Fonts"
+    for name in ("arialbd.ttf", "seguisb.ttf", "segoeuib.ttf", "arial.ttf", "impact.ttf"):
+        p = win / name
+        if p.exists():
+            return p
+    return None
+
+
+# --- Acceso al JSON Maestro ---
+def load_master(project: str | Path) -> Dict[str, Any]:
+    paths = project_paths(project)
+    master = read_json(paths["master"])
+    if not isinstance(master, dict):
+        raise NFError(f"No existe o es inválido: {paths['master']}")
+    scenes = master.get("scenes")
+    if not isinstance(scenes, list) or not scenes:
+        raise NFError(f"{paths['master']} no contiene 'scenes'.")
+    return master
+
+
+def episode_meta(master: Dict[str, Any]) -> Dict[str, Any]:
+    ep = master.get("episode")
+    return ep if isinstance(ep, dict) else {}
+
+
+def ordered_scenes(master: Dict[str, Any]) -> List[Dict[str, Any]]:
+    scenes = [s for s in (master.get("scenes") or []) if isinstance(s, dict)]
+    return sorted(scenes, key=lambda s: int(s.get("scene_id") or 0))
+
+
+def scene_dialogue_lines(scene: Dict[str, Any]) -> List[Dict[str, str]]:
+    """Normaliza la diálogo a [{speaker,line,delivery}] (tolera strings/legado)."""
+    out: List[Dict[str, str]] = []
+    raw = scene.get("dialogue")
+    if isinstance(raw, str):
+        raw = [raw]
+    for item in raw or []:
+        if isinstance(item, str):
+            if item.strip():
+                out.append({"speaker": "", "line": item.strip(), "delivery": ""})
+        elif isinstance(item, dict):
+            line = str(item.get("line") or item.get("text") or "").strip()
+            if line:
+                out.append({
+                    "speaker": str(item.get("speaker") or "").strip(),
+                    "line": line,
+                    "delivery": str(item.get("delivery") or "").strip(),
+                })
+    return out
+
+
+def scene_dialogue_text(scene: Dict[str, Any], with_speaker: bool = True) -> str:
+    parts = []
+    for d in scene_dialogue_lines(scene):
+        if with_speaker and d["speaker"]:
+            parts.append(f'{d["speaker"].upper()}: "{d["line"]}"')
+        else:
+            parts.append(d["line"])
+    return " ".join(parts).strip()
+
+
+def scene_words(scene: Dict[str, Any]) -> int:
+    return len(re.findall(r"\b[\w'-]+\b", scene_dialogue_text(scene, with_speaker=False)))
+
+
+# --- Normalización y validación del JSON Maestro ---
+def _coerce_dialogue(value: Any) -> List[Dict[str, str]]:
+    if isinstance(value, str):
+        value = [value]
+    if not isinstance(value, list):
+        return []
+    out: List[Dict[str, str]] = []
+    for item in value:
+        if isinstance(item, str) and item.strip():
+            out.append({"speaker": "", "line": item.strip(), "delivery": ""})
+        elif isinstance(item, dict):
+            line = str(item.get("line") or item.get("text") or "").strip()
+            if line:
+                out.append({
+                    "speaker": str(item.get("speaker") or "").strip(),
+                    "line": line,
+                    "delivery": str(item.get("delivery") or "").strip(),
+                })
+    return out
+
+
+def _coerce_cuts(value: Any, rotation: Sequence[str]) -> List[Dict[str, Any]]:
+    cuts: List[Dict[str, Any]] = []
+    if isinstance(value, list):
+        for item in value:
+            if isinstance(item, dict):
+                at = item.get("at", item.get("time", item.get("t", 0)))
+                try:
+                    at_f = float(at)
+                except (TypeError, ValueError):
+                    at_f = 0.0
+                cuts.append({
+                    "at": max(0.0, min(9.5, at_f)),
+                    "framing": str(item.get("framing") or item.get("shot") or "medium shot").strip(),
+                    "action": str(item.get("action") or item.get("description") or "").strip(),
+                })
+            elif isinstance(item, str) and item.strip():
+                cuts.append({"at": 0.0, "framing": item.strip(), "action": ""})
+    cuts.sort(key=lambda c: c["at"])
+    if not cuts:
+        cuts = [
+            {"at": 0.0, "framing": rotation[0] if rotation else "wide establishing shot", "action": ""},
+            {"at": 3.3, "framing": rotation[1] if len(rotation) > 1 else "medium shot", "action": ""},
+            {"at": 6.6, "framing": rotation[2] if len(rotation) > 2 else "tight close-up", "action": ""},
+        ]
+    elif len(cuts) == 1:
+        cuts.append({"at": min(9.5, cuts[0]["at"] + 5.0), "framing": "tight close-up", "action": ""})
+    cuts[0]["at"] = 0.0
+    # Evita dos cortes en el mismo instante
+    fixed: List[Dict[str, Any]] = []
+    for cut in cuts:
+        if fixed and abs(float(cut["at"]) - float(fixed[-1]["at"])) < 0.35:
+            continue
+        fixed.append(cut)
+    return fixed[:4]
+
+
+def _normalize_teasers(payload: Dict[str, Any], scenes: List[Dict[str, Any]], warnings: List[str]) -> List[Dict[str, Any]]:
+    defaults = [
+        {"id": 1, "title": "Official Teaser", "scenes": list(range(1, 7))},
+        {"id": 2, "title": "The Twist", "scenes": list(range(21, 27))},
+        {"id": 3, "title": "The Cliffhanger", "scenes": list(range(55, 61))},
+    ]
+    provided = payload.get("teasers")
+    teasers: List[Dict[str, Any]] = []
+    if isinstance(provided, list) and provided:
+        for idx, item in enumerate(provided[:3]):
+            base = dict(defaults[idx])
+            if isinstance(item, dict):
+                base.update(item)
+            ids: List[int] = []
+            for sid in base.get("scenes") or []:
+                try:
+                    val = int(sid)
+                except (TypeError, ValueError):
+                    continue
+                if 1 <= val <= SCENE_COUNT and val not in ids:
+                    ids.append(val)
+            if len(ids) < 4:
+                warnings.append(f"Teaser {idx + 1} tiene menos de 4 escenas válidas; se completa con el rango por defecto.")
+                for sid in defaults[idx]["scenes"]:
+                    if sid not in ids:
+                        ids.append(sid)
+            base["scenes"] = ids[:6]
+            base["id"] = idx + 1
+            teasers.append(base)
+    if len(teasers) < 3:
+        existing = {t["id"] for t in teasers}
+        for base in defaults:
+            if base["id"] not in existing:
+                teasers.append(dict(base))
+                warnings.append(f"Teaser {base['id']} ausente: se generó con escenas {base['scenes'][0]}-{base['scenes'][-1]}.")
+    # Completa hook/caption de teasers
+    by_id = {int(s.get("scene_id") or 0): s for s in scenes}
+    hook_default = str((payload.get("episode") or {}).get("hook_line") or "").strip()
+    for t in teasers:
+        if not str(t.get("hook_text") or "").strip():
+            first = by_id.get(t["scenes"][0], {})
+            t["hook_text"] = str(first.get("on_screen_hook") or hook_default or f"Episode {t['id']}").strip()
+        if not str(t.get("caption") or "").strip():
+            t["caption"] = str(t.get("hook_text") or "").strip()
+    teasers.sort(key=lambda t: t["id"])
+    return teasers
+
+
+def normalize_master(
+    payload: Any,
+    slug: str,
+    title: str = "",
+    repair: bool = True,
+    allow_partial: bool = False,
+) -> Tuple[Dict[str, Any], List[str]]:
+    """Lleva la respuesta del LLM (o un maestro existente) al esquema canónico.
+
+    Tolerante con formatos habituales: lista de escenas, envoltorios 'data',
+    fences Markdown, diálogo como string, cortes como lista de strings.
+    Devuelve (master, warnings). Los errores estructurales lanzan NFError.
+    """
+    warnings: List[str] = []
+    if isinstance(payload, list):
+        payload = {"scenes": payload}
+    if not isinstance(payload, dict):
+        raise NFError("La entrada no es un objeto JSON ni una lista de escenas.")
+    for key in ("episode_json", "data", "result", "output", "master_episode"):
+        inner = payload.get(key)
+        if isinstance(inner, dict) and isinstance(inner.get("scenes"), list):
+            payload = inner
+            warnings.append(f"Se desenvolvió la clave contenedora '{key}'.")
+            break
+
+    raw_scenes = payload.get("scenes")
+    if not isinstance(raw_scenes, list) or not raw_scenes:
+        raise NFError("El JSON no contiene una lista 'scenes' con las 60 escenas.")
+    if len(raw_scenes) != SCENE_COUNT:
+        if not allow_partial:
+            raise NFError(
+                f"El JSON trae {len(raw_scenes)} escenas y el formato exige exactamente {SCENE_COUNT}. "
+                "Pide al LLM que regenere el guion completo (o divide el trabajo por actos y únelos)."
+            )
+        warnings.append(f"Modo parcial: {len(raw_scenes)} de {SCENE_COUNT} escenas (no publicable todavía).")
+    if not all(isinstance(s, dict) for s in raw_scenes):
+        raise NFError("Todas las entradas de 'scenes' deben ser objetos JSON.")
+
+    style = load_style_locks()
+    rotation = ((style.get("visual_style_lock") or {}).get("default_shot_rotation") or DEFAULT_SHOT_ROTATION)
+    rules = load_showrunner()
+    required_beats = {int(k): v for k, v in (rules.get("required_beats") or {}).items() if str(k).isdigit()}
+
+    ep_in = payload.get("episode") if isinstance(payload.get("episode"), dict) else {}
+    ep: Dict[str, Any] = dict(ep_in)
+    ep.setdefault("slug", slugify(slug))
+    ep.setdefault("title", title or str(ep.get("series_title") or "").strip() or slug.replace("_", " ").title())
+    ep.setdefault("series_title", ep["title"])
+    ep.setdefault("episode_number", 1)
+    ep.setdefault("logline", "")
+    ep.setdefault("genre", "romantic suspense short-drama")
+    ep.setdefault("language", "en-US")
+    ep.setdefault("audience", "US women 25-55, short-drama and audio-series viewers")
+    ep.setdefault("tone", "cinematic, intimate, high-stakes, fast-paced")
+    ep.setdefault("hook_line", "")
+    ep["total_scenes"] = SCENE_COUNT
+    ep["scene_seconds"] = int(SCENE_SECONDS)
+    ep["total_seconds"] = int(TOTAL_SECONDS)
+    ep["aspect_master"] = "16:9"
+    ep["aspect_teaser"] = "9:16"
+    if not str(ep.get("logline") or "").strip():
+        warnings.append("episode.logline vacío: se recomienda una frase de 1-2 líneas para el pack de publicación.")
+
+    scenes: List[Dict[str, Any]] = []
+    for idx, raw in enumerate(raw_scenes, start=1):
+        scene = dict(raw)
+        original_id = scene.get("scene_id")
+        if original_id not in (None, "", idx):
+            try:
+                if int(original_id) != idx:
+                    warnings.append(f"scene_id {original_id} reordenado a {idx}.")
+            except (TypeError, ValueError):
+                pass
+        scene["scene_id"] = idx
+        scene["duration_s"] = float(scene.get("duration_s") or SCENE_SECONDS)
+        try:
+            act = int(scene.get("act") or 0)
+        except (TypeError, ValueError):
+            act = 0
+        scene["act"] = act if 1 <= act <= 6 else ((idx - 1) // 10 + 1)
+        scene["beat"] = str(scene.get("beat") or required_beats.get(idx) or "").strip()
+        scene["dialogue"] = _coerce_dialogue(scene.get("dialogue"))
+        scene["internal_cuts"] = _coerce_cuts(scene.get("internal_cuts"), rotation)
+        scene["first_frame_prompt"] = str(
+            scene.get("first_frame_prompt") or scene.get("image_prompt") or scene.get("frame_prompt") or ""
+        ).strip()
+        scene["sfx_ambience"] = str(scene.get("sfx_ambience") or scene.get("ambience") or "").strip()
+        scene["continuity"] = str(scene.get("continuity") or "").strip()
+        scene["on_screen_hook"] = str(scene.get("on_screen_hook") or "").strip()
+        if not scene["first_frame_prompt"]:
+            warnings.append(f"Escena {idx}: first_frame_prompt vacío (el frame no se podrá generar).")
+        if not scene["dialogue"]:
+            warnings.append(f"Escena {idx}: sin diálogo (10 s de silencio).")
+        scenes.append(scene)
+
+    master: Dict[str, Any] = dict(payload)
+    master["schema_version"] = str(master.get("schema_version") or "1.0")
+    master["generated_by"] = str(master.get("generated_by") or "novel_factory")
+    master.setdefault("generated_at", now_iso())
+    master["episode"] = ep
+    master["characters"] = master.get("characters") if isinstance(master.get("characters"), list) else []
+    master["locations"] = master.get("locations") if isinstance(master.get("locations"), list) else []
+    master["acts"] = master.get("acts") if isinstance(master.get("acts"), list) else []
+    master["scenes"] = scenes
+    master["teasers"] = _normalize_teasers(payload, scenes, warnings)
+
+    pub = dict(master.get("publisher") or {}) if isinstance(master.get("publisher"), dict) else {}
+    pub.setdefault("personaje_id", "emma_hayes")
+    pub.setdefault("cta", "Follow for Episode 2.")
+    pub.setdefault("hashtags", ["#shortdrama", "#novel", "#storytime", "#drama", "#episode1"])
+    pub.setdefault("ai_disclosure", True)
+    master["publisher"] = pub
+
+    master["soundtrack"] = master.get("soundtrack") if isinstance(master.get("soundtrack"), dict) else {
+        "mood": "tense coastal romantic suspense",
+        "bpm": 78,
+        "notes": "Leave dialogue forward; music will be mixed in post at low volume.",
+    }
+
+    if repair:
+        master = _fill_default_prompts(master, style)
+    return master, warnings
+
+
+def _fill_default_prompts(master: Dict[str, Any], style: Dict[str, Any]) -> Dict[str, Any]:
+    """Completa prompts vacíos con una plantilla cinematográfica (solo reparación)."""
+    look = (style.get("visual_style_lock") or {})
+    suffix = str(look.get("image_prompt_suffix") or "").strip()
+    for scene in master["scenes"]:
+        if not scene.get("first_frame_prompt"):
+            loc = str(scene.get("location") or "a windswept coastal town at dusk")
+            shot = str((scene.get("internal_cuts") or [{}])[0].get("framing") or "medium shot")
+            who = str(scene.get("characters")[0] if isinstance(scene.get("characters"), list) and scene.get("characters") else "the protagonist")
+            scene["first_frame_prompt"] = (
+                f"Cinematic still of {who}, {shot}, at {loc}. "
+                f"Dramatic natural lighting, detailed environment, expressive eyes, "
+                f"prestige short-drama production still. {suffix}"
+            ).strip()
+    return master
+
+
+def validate_master(master: Dict[str, Any], allow_partial: bool = False) -> Dict[str, List[str]]:
+    """Validación semántica/estructural. Devuelve {'errors': [...], 'warnings': [...]}."""
+    errors: List[str] = []
+    warnings: List[str] = []
+    ep = episode_meta(master)
+    scenes = [s for s in (master.get("scenes") or []) if isinstance(s, dict)]
+
+    if not ep.get("slug"):
+        errors.append("episode.slug ausente.")
+    if not str(ep.get("title") or "").strip():
+        errors.append("episode.title ausente.")
+    if not allow_partial and len(scenes) != SCENE_COUNT:
+        errors.append(f"Se esperaban {SCENE_COUNT} escenas y hay {len(scenes)}.")
+    ids = [int(s.get("scene_id") or 0) for s in scenes]
+    if ids != list(range(1, len(scenes) + 1)):
+        errors.append("scene_id debe ser 1..N sin huecos ni duplicados.")
+
+    rules = load_showrunner()
+    fmt = rules.get("format") or {}
+    min_words, max_words = (fmt.get("words_per_scene_dialogue") or [18, 30])[:2]
+    prompts = 0
+    silent = 0
+    for scene in scenes:
+        sid = int(scene.get("scene_id") or 0)
+        if not 1 <= int(scene.get("act") or 0) <= 6:
+            errors.append(f"Escena {sid}: act inválido.")
+        prompt = str(scene.get("first_frame_prompt") or "")
+        if len(prompt) < 60:
+            errors.append(f"Escena {sid}: first_frame_prompt demasiado corto ({len(prompt)} chars).")
+        else:
+            prompts += 1
+        cuts = scene.get("internal_cuts")
+        if not isinstance(cuts, list) or len(cuts) < 2:
+            errors.append(f"Escena {sid}: se requieren 2-4 cortes internos.")
+        elif cuts and float(cuts[0].get("at", -1)) != 0.0:
+            warnings.append(f"Escena {sid}: el primer corte debería empezar en 0.0 s.")
+        words = scene_words(scene)
+        if words == 0:
+            silent += 1
+            warnings.append(f"Escena {sid}: sin diálogo.")
+        elif not (min_words - 8 <= words <= max_words + 8):
+            warnings.append(f"Escena {sid}: {words} palabras de diálogo (rango recomendado {min_words}-{max_words}).")
+        if not scene.get("beat"):
+            warnings.append(f"Escena {sid}: sin beat dramático.")
+        if not str(scene.get("sfx_ambience") or "").strip():
+            warnings.append(f"Escena {sid}: sin ambiencia/sfx (el audio nativo puede quedar plano).")
+
+    if scenes:
+        required = {int(k): v for k, v in (rules.get("required_beats") or {}).items() if str(k).isdigit()}
+        by_id = {int(s.get("scene_id") or 0): s for s in scenes}
+        for sid, beat in required.items():
+            if sid in by_id and str(by_id[sid].get("beat") or "") != beat:
+                warnings.append(f"Escena {sid}: beat '{by_id[sid].get('beat')}' (se esperaba '{beat}').")
+
+    teasers = master.get("teasers")
+    if not isinstance(teasers, list) or len(teasers) != 3:
+        warnings.append("Se esperaban 3 teasers (60 s cada uno).")
+    else:
+        for t in teasers:
+            ids_t = t.get("scenes") or []
+            if len(ids_t) != 6:
+                warnings.append(f"Teaser {t.get('id')}: se esperaban 6 escenas (60 s) y hay {len(ids_t)}.")
+            if any(not (1 <= int(i) <= len(scenes)) for i in ids_t):
+                errors.append(f"Teaser {t.get('id')}: referencia escenas fuera de rango.")
+
+    if silent > max(2, len(scenes) // 10):
+        warnings.append(f"{silent} escenas sin diálogo; el episodio puede sentirse vacío.")
+    if prompts < len(scenes):
+        warnings.append(f"{len(scenes) - prompts} escenas sin prompt de imagen utilizable.")
+    characters = [c for c in (master.get("characters") or []) if isinstance(c, dict)]
+    if characters and not any(
+        str(c.get("visual_reference") or c.get("reference_image") or "").strip() for c in characters
+    ):
+        warnings.append(
+            "Ningún personaje define visual_reference/reference_image: la coherencia facial "
+            "dependerá de tus adjuntos manuales (ver 02 — chatgpt_reference_sheets.txt)."
+        )
+    return {"errors": errors, "warnings": warnings}
+
+
+def print_validation(result: Dict[str, List[str]]) -> bool:
+    errors, warnings = result.get("errors", []), result.get("warnings", [])
+    for warning in warnings[:30]:
+        warn(warning)
+    if len(warnings) > 30:
+        warn(f"... y {len(warnings) - 30} advertencias más.")
+    for error in errors:
+        err(error)
+    if not errors:
+        ok(f"Validación superada ({len(warnings)} advertencias).")
+        return True
+    err(f"Validación fallida: {len(errors)} errores, {len(warnings)} advertencias.")
+    return False
+
+
+def extract_json_blob(text: str) -> Any:
+    """Extrae el primer objeto/array JSON de una respuesta LLM con texto alrededor."""
+    text = (text or "").strip()
+    if text.startswith("\ufeff"):
+        text = text.lstrip("\ufeff")
+    fences = re.findall(r"```(?:json)?\s*(.*?)```", text, flags=re.DOTALL | re.IGNORECASE)
+    candidates = [f.strip() for f in fences if f.strip()] + [text]
+    for candidate in candidates:
+        try:
+            return json.loads(candidate)
+        except Exception:
+            pass
+    # Búsqueda por llaves equilibradas (ignora llaves dentro de strings)
+    for opener, closer in (("{", "}"), ("[", "]")):
+        start = text.find(opener)
+        if start == -1:
+            continue
+        depth = 0
+        in_str = False
+        escape = False
+        for pos in range(start, len(text)):
+            ch = text[pos]
+            if in_str:
+                if escape:
+                    escape = False
+                elif ch == "\\":
+                    escape = True
+                elif ch == '"':
+                    in_str = False
+                continue
+            if ch == '"':
+                in_str = True
+            elif ch == opener:
+                depth += 1
+            elif ch == closer:
+                depth -= 1
+                if depth == 0:
+                    try:
+                        return json.loads(text[start:pos + 1])
+                    except Exception:
+                        break
+    raise NFError("No se encontró un JSON válido en el texto. Pega solo el JSON del LLM o revisa el archivo.")
+
+
+def default_teaser_ranges() -> List[List[int]]:
+    return [list(range(1, 7)), list(range(21, 27)), list(range(55, 61))]

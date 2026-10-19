@@ -1,0 +1,25 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Temporary and intermediate work directories
+.work/
+**/.work/
+
+# Video and media outputs (keep folder structures via .gitkeep)
+*.mp4
+*.m4v
+*.mov
+*.avi
+*.mkv
+*.webm
+
+# OS files
+Thumbs.db
+[Dd]esktop.ini
+.DS_Store
+
+# Environment / local overrides
+.env
+*.log

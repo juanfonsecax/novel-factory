@@ -1,0 +1,190 @@
+{
+  "schema_version": "1.0",
+  "name": "US Short-Drama Showrunner Engine (60 x 10s)",
+  "language": "en-US",
+  "format": {
+    "total_scenes": 60,
+    "scene_seconds": 10,
+    "total_seconds": 600,
+    "master_aspect": "16:9",
+    "teaser_aspect": "9:16",
+    "teaser_count": 3,
+    "teaser_seconds": 60,
+    "scenes_per_act": 10,
+    "acts": 6,
+    "words_per_scene_dialogue": [18, 30],
+    "max_characters": 5,
+    "max_primary_locations": 4,
+    "internal_cuts_per_scene": [2, 4]
+  },
+  "required_beats": {
+    "1": "cold_open_hook",
+    "2": "world_and_wound",
+    "10": "act_cliffhanger",
+    "20": "act_cliffhanger",
+    "30": "act_cliffhanger",
+    "40": "act_cliffhanger",
+    "50": "act_cliffhanger",
+    "60": "payoff_next_hook"
+  },
+  "acts": [
+    {
+      "act": 1,
+      "title": "The Bait",
+      "scenes": [1, 10],
+      "goal": "Open a visceral question in the first 3 seconds, establish the protagonist's desire and wound, then detonate the inciting incident.",
+      "must_happen": [
+        "Scene 1 poses an unanswered question or a visual contradiction (no slow establishing montage).",
+        "The protagonist wants something concrete and is denied it by someone with power.",
+        "The antagonist is introduced as reasonable and likable, never cartoonish.",
+        "Scene 10 reveals a secret object, document, witness or betrayal that changes the question."
+      ],
+      "retention_device": "Open loop stacked on a second open loop; every scene ends on a partial answer that creates a new question.",
+      "dopamine_point": "Scene 8-10: first small act of defiance from the protagonist."
+    },
+    {
+      "act": 2,
+      "title": "The Trap",
+      "scenes": [11, 20],
+      "goal": "Tighten the trap: the antagonist uses the system, not violence. Humiliation and betrayal push the protagonist toward a forced choice.",
+      "must_happen": [
+        "The protagonist's credibility or livelihood is threatened in public.",
+        "A trusted ally withholds information or signs something they should not.",
+        "The antagonist offers a deal the protagonist cannot easily refuse.",
+        "Scene 20 ends on a demand, a deadline or a public accusation."
+      ],
+      "retention_device": "Countdown pressure (hearing, deadline, debt) plus dramatic irony: the audience learns the truth before the town does.",
+      "dopamine_point": "Scene 17-18: a first piece of evidence lands in the protagonist's hands."
+    },
+    {
+      "act": 3,
+      "title": "The First Crack",
+      "scenes": [21, 30],
+      "goal": "The protagonist stops reacting and starts investigating. A romance or loyalty beat raises the emotional stakes. A costly mistake keeps the antagonist ahead.",
+      "must_happen": [
+        "The protagonist takes a concrete risk (break-in, trespass, public question, leaked file).",
+        "The audience gets a hard piece of proof the town does not yet believe.",
+        "A romance or intimacy beat complicates the alliance.",
+        "The antagonist counterattacks using the protagonist's own action against her/him.",
+        "Scene 30 ends on a temptation or a compromise that could destroy the case."
+      ],
+      "retention_device": "Proof vs. believability: the protagonist has the truth but not the power to make anyone believe it.",
+      "dopamine_point": "Scene 24-25: discovery of the physical evidence (ledger, recording, permit, logbook)."
+    },
+    {
+      "act": 4,
+      "title": "The Dark Night",
+      "scenes": [31, 40],
+      "goal": "Take everything away. The ally breaks, the institution turns, and the protagonist is isolated. The lowest point must be caused by a choice, not bad luck.",
+      "must_happen": [
+        "The protagonist rejects the antagonist's deal and pays an immediate price.",
+        "The institution (court, trust, employer, town council) freezes or seizes something vital.",
+        "The ally's betrayal is explained by a credible threat, not villainy.",
+        "The protagonist loses the physical evidence or access to it.",
+        "Scene 40 ends with a new interpretation of an old object/place (the lighthouse, the house, the boathouse)."
+      ],
+      "retention_device": "All-is-lost engine: the audience wants to see how the protagonist climbs out, not whether she deserves to.",
+      "dopamine_point": "Scene 35-36: a micro-revenge line or a quiet power move that costs the protagonist something."
+    },
+    {
+      "act": 5,
+      "title": "The Turn",
+      "scenes": [41, 50],
+      "goal": "The protagonist turns the same system against the antagonist using the truth she already had. The confrontation begins in public. A final complication raises the price of winning.",
+      "must_happen": [
+        "The protagonist converts a discarded detail into leverage (logbook, timestamp, witness, receipt).",
+        "The antagonist's power is shown to depend on the town's belief, which can be broken.",
+        "A public or semi-public confrontation forces the antagonist to drop the mask.",
+        "The ally earns a partial redemption through a costly action.",
+        "Scene 50 ends on the antagonist's last threat or a new piece of evidence that reframes the case."
+      ],
+      "retention_device": "Power flip: the audience now knows the protagonist can win, but not at what cost.",
+      "dopamine_point": "Scene 47-49: the protagonist says the line the audience has been waiting ten episodes for."
+    },
+    {
+      "act": 6,
+      "title": "The Payoff",
+      "scenes": [51, 60],
+      "goal": "Deliver the public confrontation, the emotional payoff and the romantic resolution. End on a new open loop for the next episode.",
+      "must_happen": [
+        "The truth is exposed in a public, irreversible way (hearing, broadcast, town meeting).",
+        "The antagonist loses the specific thing they used to control the protagonist.",
+        "The protagonist chooses what she keeps, not only what she destroys.",
+        "A romantic or familial payoff lands in one concrete gesture, not a speech.",
+        "Scene 59 or 60 plants the next-episode hook in a single line or object."
+      ],
+      "retention_device": "Payoff + new question: close the season question and open a second, more personal mystery in the last 20 seconds.",
+      "dopamine_point": "Scene 56-59: public humiliation of the antagonist and the protagonist's final refusal."
+    }
+  ],
+  "retention_engine": {
+    "open_loop_types": [
+      "unanswered question in the first line",
+      "object that should not exist",
+      "person who knows more than they admit",
+      "deadline announced by a third party",
+      "public accusation with no proof yet",
+      "romantic confession interrupted",
+      "a lie the audience can see"
+    ],
+    "dopamine_cadence": "Every 2-3 scenes deliver one of: reveal, comeback line, protective gesture, status flip, romantic near-miss, micro-revenge, public embarrassment of the antagonist.",
+    "cliffhanger_types": [
+      "new evidence that reframes the case",
+      "forced choice with a deadline",
+      "betrayal by an ally",
+      "antagonist drops the mask",
+      "protagonist uses the antagonist's own weapon",
+      "a door opens on a person who should be dead or absent"
+    ],
+    "forbidden": [
+      "slow establishing montage in scene 1",
+      "villain monologue explaining the whole plan",
+      "resolution by accident, weather or coincidence",
+      "characters withholding information for no reason",
+      "melodrama without a concrete physical stake",
+      "cliffhanger that negates the previous episode's payoff"
+    ]
+  },
+  "scene_contract": {
+    "duration_seconds": 10,
+    "dialogue": "18-30 spoken words total per scene (about 7-9 seconds of speech), native US English, subtext over exposition. Optional second line from another character.",
+    "internal_cuts": "2-4 hard cuts inside the 10 seconds. First cut starts at 0.0. Cut times must be 2.5-4 seconds apart. Every cut changes framing and/or blocking: wide -> medium -> close-up, over-the-shoulder, low angle, insert shot.",
+    "first_frame": "One cinematic 16:9 still per scene. It must be the literal first frame of the clip: same wardrobe, same location, same light, same pose the video starts on. Center-weight the subject so a 9:16 crop still works.",
+    "audio": "Native audio only: dialogue, breath, cloth, footsteps, wind, rain, room tone, diegetic SFX. No music in the generated clip (the soundtrack is mixed in post).",
+    "no_text": "No subtitles, captions, logos, watermarks, UI or readable text rendered inside the image or video.",
+    "continuity": "Track wardrobe, hair, injuries, props and time of day per act. A scene may not teleport to a new location without a line or a visual transition."
+  },
+  "continuity_rules": {
+    "wardrobe": "Lock one outfit per character per act; change it only at an act break with a story reason.",
+    "props": "The evidence object must be visible or referenced in at least 4 scenes across different acts.",
+    "time_of_day": "Acts 1-2 late afternoon to night; act 3 night; act 4 storm night; acts 5-6 next morning to dusk.",
+    "locations": "Reuse 3-4 locations maximum so the audience learns the geography: the lighthouse, the harbor/boathouse, the town hall, the antagonist's house.",
+    "identity": "Reference images define faces. Never describe age, eye color or base hair color in prompts; describe only transient state (hair style, wet hair, flush, sweat, expression, wardrobe)."
+  },
+  "dialogue_rules": {
+    "language": "Native US English only. No translated-sounding lines.",
+    "style": "Short sentences. Concrete nouns. One subtext line per scene. No therapy-speak, no lecture, no exposition dumps.",
+    "profanity": "None. Use implication and silence.",
+    "tone": "Restrained, adult, cinematic. Fear and desire are shown through what characters refuse to say.",
+    "per_scene_max_lines": 3
+  },
+  "compliance": {
+    "no_real_celebrities": true,
+    "no_real_brands": true,
+    "no_explicit_content": true,
+    "no_graphic_violence": true,
+    "no_hate_or_stereotypes": true,
+    "no_medical_or_legal_claims": true,
+    "ai_disclosure_recommended": true
+  },
+  "teaser_rules": {
+    "count": 3,
+    "seconds_each": 60,
+    "scenes_each": 6,
+    "teaser_1": "Scenes 1-6: the hook, the world and the first open loop. Must work with zero context.",
+    "teaser_2": "The mid-story twist or the strongest romantic beat. Use 6 consecutive scenes from acts 3-4.",
+    "teaser_3": "The cliffhanger or the confrontation. Use 6 consecutive scenes from acts 5-6.",
+    "hook_text": "5-10 words, all caps allowed for one word, no spoilers, ends with an open loop.",
+    "caption": "2-4 short lines, one question, 4-8 niche hashtags, honest CTA (follow/save/comment), no fake DM promises."
+  }
+}

@@ -1,0 +1,26 @@
+NOVEL FACTORY — Hojas de referencia de personajes (PASO 0) · The Stable Girl
+
+Esto se genera UNA sola vez por episodio, ANTES de la cola de los 60 frames:
+  1. Abre una conversación nueva de ChatGPT con generación de imágenes.
+  2. Pega el prompt de cada personaje; guarda el resultado en la carpeta del
+     proyecto: C:\Users\juand\Downloads\PROYECTOS REDES SOCIALES\novel_factory\projects\the_ranch_maid_heiress\references
+     con el nombre exacto que se indica abajo (reference_<id>.png).
+  3. Adjunta TODAS las hojas de referencia a la conversación y déjalas ahí
+     mientras generas frame_001.png … frame_060.png (chatgpt_image_prompts_queue.txt).
+  4. Los prompts de escena dicen 'the same woman/man as the reference image':
+     la cara nunca se describe en texto, se copia de estas hojas.
+
+=== ELENA VANCE -> reference_elena.png ===
+Photorealistic character reference sheet of Elena Vance: three views of the same person on one wide 16:9 image — front view, three-quarter view and profile view of the head and shoulders — identical face in all three views, neutral medium-grey seamless studio background, even soft key light with gentle falloff, neutral expression. Casting sheet for the character reference image: woman in her mid-twenties, sun-weathered gently angular face, long chestnut hair worn in a single low braid, calm dark-brown eyes, light freckling across the nose, a faint old scar through one eyebrow, slender but strong ranch build, signature faded blue denim work shirt and dark riding jeans. Keep the exact same face, hairline and features in every view. No other people. No text, no letters, no labels, no watermark. Natural skin texture, no airbrushing, no plastic skin, no CGI sheen.
+
+=== VICTORIA BLACKWELL -> reference_victoria.png ===
+Photorealistic character reference sheet of Victoria Blackwell: three views of the same person on one wide 16:9 image — front view, three-quarter view and profile view of the head and shoulders — identical face in all three views, neutral medium-grey seamless studio background, even soft key light with gentle falloff, neutral expression. Casting sheet for the character reference image: woman in her mid-forties, sleek platinum-blonde bob, sharp cheekbones, cool grey eyes, immaculate posture, dark red lipstick, pearl earrings, signature emerald silk blouse over tailored black trousers. Keep the exact same face, hairline and features in every view. No other people. No text, no letters, no labels, no watermark. Natural skin texture, no airbrushing, no plastic skin, no CGI sheen.
+
+=== RICHARD BLACKWELL -> reference_richard.png ===
+Photorealistic character reference sheet of Richard Blackwell: three views of the same person on one wide 16:9 image — front view, three-quarter view and profile view of the head and shoulders — identical face in all three views, neutral medium-grey seamless studio background, even soft key light with gentle falloff, neutral expression. Casting sheet for the character reference image: man around thirty, clean-cut, sandy hair combed back, pale blue eyes, a practiced easy smile, tall athletic build, signature pressed white shirt under a charcoal blazer. Keep the exact same face, hairline and features in every view. No other people. No text, no letters, no labels, no watermark. Natural skin texture, no airbrushing, no plastic skin, no CGI sheen.
+
+=== COLE BARRETT -> reference_cole.png ===
+Photorealistic character reference sheet of Cole Barrett: three views of the same person on one wide 16:9 image — front view, three-quarter view and profile view of the head and shoulders — identical face in all three views, neutral medium-grey seamless studio background, even soft key light with gentle falloff, neutral expression. Casting sheet for the character reference image: man in his early thirties, weathered rancher hands, dark hair a little long under a dust-worn felt hat, steady hazel eyes, quiet jaw, broad shoulders, signature oiled tan canvas chore jacket over a grey henley. Keep the exact same face, hairline and features in every view. No other people. No text, no letters, no labels, no watermark. Natural skin texture, no airbrushing, no plastic skin, no CGI sheen.
+
+=== MAGGIE DOYLE -> reference_maggie.png ===
+Photorealistic character reference sheet of Maggie Doyle: three views of the same person on one wide 16:9 image — front view, three-quarter view and profile view of the head and shoulders — identical face in all three views, neutral medium-grey seamless studio background, even soft key light with gentle falloff, neutral expression. Casting sheet for the character reference image: woman in her late fifties, iron-grey hair pinned up in a loose bun, kind weathered face, small round glasses on a chain, floral house apron over a beige cardigan and a long dark skirt. Keep the exact same face, hairline and features in every view. No other people. No text, no letters, no labels, no watermark. Natural skin texture, no airbrushing, no plastic skin, no CGI sheen.

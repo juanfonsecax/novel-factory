@@ -1,0 +1,626 @@
+{
+  "schema_version": "1.0",
+  "generated_by": "novel_factory/01_story_to_master_json.py --ingest (part 1/3)",
+  "episode": {
+    "slug": "the_ranch_maid_heiress",
+    "title": "The Stable Girl",
+    "series_title": "Silver Creek Secrets",
+    "episode_number": 1,
+    "logline": "Framed for stealing from the Montana ranch family that raised her, the stable maid discovers Silver Creek was never theirs to keep: her mother owned the land, and the proof is hidden in the barn where she died.",
+    "genre": "romantic suspense short-drama",
+    "language": "en-US",
+    "audience": "US women 25-55, short-drama and audio-series viewers",
+    "tone": "cinematic, intimate, high-stakes, fast-paced",
+    "hook_line": "They framed the stable girl. Then she found the deed with her mother's name."
+  },
+  "characters": [
+    {
+      "id": "elena",
+      "name": "Elena Vance",
+      "role": "protagonist",
+      "archetype": "protagonist",
+      "pronoun": "she",
+      "voice_lock": "warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical",
+      "visual_reference": "Casting sheet for the character reference image: woman in her mid-twenties, sun-weathered gently angular face, long chestnut hair worn in a single low braid, calm dark-brown eyes, light freckling across the nose, a faint old scar through one eyebrow, slender but strong ranch build, signature faded blue denim work shirt and dark riding jeans.",
+      "wardrobe_by_act": [
+        "faded blue denim work shirt, dark riding jeans, worn boots, low braid",
+        "faded blue denim work shirt under a tan canvas barn coat, braid loosened by work",
+        "denim work shirt with rolled sleeves, dark riding jeans, leather work gloves tucked in the belt",
+        "denim work shirt under a charcoal storm coat, hair wet from rain",
+        "clean white button shirt under the tan barn coat, braid neat",
+        "deep green flannel shirt, dark jeans, her mother's silver belt buckle"
+      ]
+    },
+    {
+      "id": "victoria",
+      "name": "Victoria Blackwell",
+      "role": "antagonist",
+      "archetype": "antagonist",
+      "pronoun": "she",
+      "voice_lock": "low, polished, unhurried American English, smiles through threats, never shouts",
+      "visual_reference": "Casting sheet for the character reference image: woman in her mid-forties, sleek platinum-blonde bob, sharp cheekbones, cool grey eyes, immaculate posture, dark red lipstick, pearl earrings, signature emerald silk blouse over tailored black trousers.",
+      "wardrobe_by_act": [
+        "emerald silk blouse, tailored black trousers, pearl earrings",
+        "black cashmere turtleneck, long grey riding coat, leather gloves",
+        "silver-grey silk blouse, charcoal skirt, single pearl strand",
+        "black cashmere sweater, thin diamond bracelet, hair set perfectly despite the storm",
+        "deep emerald high-collar dress for the gala, diamond earrings",
+        "emerald gala dress, gloves gone, jewelry missing"
+      ]
+    },
+    {
+      "id": "richard",
+      "name": "Richard Blackwell",
+      "role": "antagonist_heir",
+      "archetype": "antagonist",
+      "pronoun": "he",
+      "voice_lock": "smooth mid-range American English, reasonable tone that never quite reaches sincerity",
+      "visual_reference": "Casting sheet for the character reference image: man around thirty, clean-cut, sandy hair combed back, pale blue eyes, a practiced easy smile, tall athletic build, signature pressed white shirt under a charcoal blazer.",
+      "wardrobe_by_act": [
+        "pressed white shirt, charcoal blazer, polished boots",
+        "grey wool overcoat over the white shirt, silver cufflinks",
+        "white shirt with sleeves rolled, dark trousers",
+        "dark rain jacket over the white shirt, collar up against the storm",
+        "black suit for the gala, sharp lapels, slicked hair",
+        "black gala suit, tie loosened, shaken"
+      ]
+    },
+    {
+      "id": "cole",
+      "name": "Cole Barrett",
+      "role": "love_interest",
+      "archetype": "love_interest",
+      "pronoun": "he",
+      "voice_lock": "quiet, low American English, careful diction, warmth held under restraint",
+      "visual_reference": "Casting sheet for the character reference image: man in his early thirties, weathered rancher hands, dark hair a little long under a dust-worn felt hat, steady hazel eyes, quiet jaw, broad shoulders, signature oiled tan canvas chore jacket over a grey henley.",
+      "wardrobe_by_act": [
+        "oiled tan canvas chore jacket over a grey henley, worn felt hat",
+        "canvas chore jacket, collar turned up, rain-darkened at the shoulders",
+        "chore jacket with a broken zipper pull, leather work gloves",
+        "soaked canvas jacket, grey henley underneath, no hat",
+        "clean denim jacket over the grey henley, hat brushed for once",
+        "same denim jacket, hat in hand, standing at the barn door"
+      ]
+    },
+    {
+      "id": "maggie",
+      "name": "Maggie Doyle",
+      "role": "ally",
+      "archetype": "ally",
+      "pronoun": "she",
+      "voice_lock": "grounded, plainspoken American English with a soft Irish lilt worn thin by thirty years in Montana",
+      "visual_reference": "Casting sheet for the character reference image: woman in her late fifties, iron-grey hair pinned up in a loose bun, kind weathered face, small round glasses on a chain, floral house apron over a beige cardigan and a long dark skirt.",
+      "wardrobe_by_act": [
+        "floral house apron over a beige cardigan, long dark skirt",
+        "wool shawl pinned over the cardigan, apron folded over one arm",
+        "beige cardigan under the wool shawl, apron gone",
+        "wool shawl against the storm, glasses fogged, small travel bag",
+        "best Sunday cardigan, the apron folded neatly on a chair",
+        "same Sunday cardigan, hair escaped from the bun, standing tall"
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "id": "mansion",
+      "name": "Blackwell mansion foyer and great room",
+      "visual": "grand timber-and-stone Montana ranch house, antler chandelier, dark walnut staircase, polished oak floors, storm light through tall west windows"
+    },
+    {
+      "id": "stables",
+      "name": "Silver Creek barn and stables",
+      "visual": "long plank barn aisle, warm bulb light, straw, brass tack on the walls, rain hissing on a tin roof, a middle tack room whitewashed shut"
+    },
+    {
+      "id": "cottage",
+      "name": "the gatehouse cottage",
+      "visual": "small stone cottage at the valley edge, one room, cold enamel stove, a single window over the sink, wind pressing at the eaves"
+    },
+    {
+      "id": "county",
+      "name": "Silver Creek county records and civic hall",
+      "visual": "1920s stone building, brass lamps, a long oak counter, deed ledgers in glass cases, creaking wood floors, a bank counter with brass grille windows"
+    }
+  ],
+  "acts": [
+    {
+      "act": 1,
+      "title": "The Bait",
+      "goal": "Open on the public humiliation, ground Elena's place in the household and her mother's death, then detonate the sealed tack room and the deed with June Vance's name.",
+      "cliffhanger": "THE DEED WAS BURIED WITH HER"
+    },
+    {
+      "act": 2,
+      "title": "The Trap",
+      "goal": "The system closes around Elena: the county refuses her standing, Victoria offers a silence deal, and a Friday-midnight deadline turns the ranch into a cage.",
+      "cliffhanger": "THEY BURNED HER MOTHER'S SADDLE"
+    },
+    {
+      "act": 3,
+      "title": "The First Crack",
+      "goal": "Elena stops defending and starts digging: the two deeds prove the second sale was signed by a dead woman, and a first honest moment with Cole raises the stakes.",
+      "cliffhanger": "TAKE THE MONEY. LEAVE THE NAME."
+    },
+    {
+      "act": 4,
+      "title": "The Dark Night",
+      "goal": "Rejecting the deal costs Elena her freedom and the tin box; Maggie's old lie is explained, and a dead woman's deposit slip turns the brass key into the way out.",
+      "cliffhanger": "THE KEY WAS NEVER FOR A DOOR"
+    },
+    {
+      "act": 5,
+      "title": "The Turn",
+      "goal": "Elena converts the bank box into leverage while the town gathers for the gala; Cole and Maggie each choose to pay a price, and Victoria's last threat sets the stage.",
+      "cliffhanger": "ONE NIGHT TO BURN THE TRUTH"
+    },
+    {
+      "act": 6,
+      "title": "The Payoff",
+      "goal": "At the county hearing the will is read in public, the mask comes off, and Silver Creek changes hands; a line in Walter's letter opens the next mystery.",
+      "cliffhanger": "THE WILL NAMES A SECOND HEIR"
+    }
+  ],
+  "scenes": [
+    {
+      "scene_id": 1,
+      "act": 1,
+      "beat": "cold_open_hook",
+      "location": "Blackwell mansion foyer, storm dusk",
+      "time_of_day": "storm dusk",
+      "characters": ["victoria", "elena", "richard"],
+      "on_screen_hook": "THE STABLE GIRL THEY FRAMED",
+      "first_frame_prompt": "Cinematic still of the same woman as the reference image, medium shot, kneeling on polished oak floor in a grand timber-and-stone ranch foyer under an antler chandelier, storm light through tall west windows. She wears a faded blue denim work shirt and dark riding jeans, one hand hovering over a shattered crystal decanter, jaw tight. The woman in the emerald silk blouse stands over her, gloved hand raised. Faces centered and unobstructed for a 9:16 crop.",
+      "internal_cuts": [
+        {"at": 0.0, "framing": "medium two-shot", "action": "In the grand foyer, the maid in the denim work shirt freezes beside the shattered decanter while the woman in emerald silk towers over her."},
+        {"at": 3.4, "framing": "tight close-up", "action": "Close on the maid's hands withdrawing from the broken crystal; her fingers tremble once, then go still."},
+        {"at": 6.9, "framing": "over-the-shoulder shot", "action": "Over the maid's shoulder, the woman in emerald silk stares her down while the heir in the white shirt watches from the staircase."}
+      ],
+      "dialogue": [
+        {"speaker": "VICTORIA", "line": "Twelve years in my house, and you steal from me at my son's welcome party.", "delivery": "cold, precise"},
+        {"speaker": "ELENA", "line": "I didn't touch it. I was in the barn, where I always am.", "delivery": "quiet, shaking"}
+      ],
+      "sfx_ambience": "storm wind at the tall windows, crystal settling on oak, the chandelier's faint creak, one held breath",
+      "continuity": "Act 1 wardrobe. The decanter shatters here; the silver watch is planted in Elena's saddle bag in scene 4.",
+      "camera": "Slow push-in on the two women; hard cut to hands; hard cut to the heir at the stairs."
+    },
+    {
+      "scene_id": 2,
+      "act": 1,
+      "beat": "world_and_wound",
+      "location": "Silver Creek barn aisle, night",
+      "time_of_day": "night",
+      "characters": ["elena", "maggie"],
+      "on_screen_hook": "",
+      "first_frame_prompt": "Cinematic still of the same woman as the reference image, medium shot, standing in a long plank barn aisle at night, warm bulb light and straw dust in the air, a bay horse watching from its stall. She wears the faded denim work shirt, pressing a small tin-framed photograph to her chest, eyes bright with held-back tears. The housekeeper in the floral apron and beige cardigan steps in from the dark doorway. Faces centered, unobstructed, 9:16-safe.",
+      "internal_cuts": [
+        {"at": 0.0, "framing": "wide establishing shot", "action": "The barn aisle at night: the maid stands small between the stalls, the housekeeper a silhouette in the doorway, rain drumming on the tin roof."},
+        {"at": 3.5, "framing": "over-the-shoulder shot", "action": "Over the maid's shoulder, the old photograph shows a woman at a ranch gate, sun-bleached and smiling."},
+        {"at": 7.0, "framing": "tight close-up", "action": "Close on the housekeeper's face as she recognizes the photograph; she closes her eyes for one beat."}
+      ],
+      "dialogue": [
+        {"speaker": "MAGGIE", "line": "Your mother fed this barn before you could walk. Don't let them erase her.", "delivery": "gentle"},
+        {"speaker": "ELENA", "line": "They erased her fifteen years ago. I was too small to stop them.", "delivery": "low"}
+      ],
+      "sfx_ambience": "rain on a tin roof, a horse shifting in straw, a bucket chain rattling",
+      "continuity": "Act 1 wardrobe. Elena keeps her mother's photograph in her saddle bag; it returns at the end of the episode.",
+      "camera": "Still wide frame, slow drift left; cut to the photo; cut to Maggie."
+    },
+    {
+      "scene_id": 3,
+      "act": 1,
+      "beat": "escalation",
+      "location": "Blackwell mansion foyer, night",
+      "time_of_day": "night",
+      "characters": ["victoria", "elena", "richard"],
+      "on_screen_hook": "",
+      "first_frame_prompt": "Cinematic still of the same woman as the reference image, medium shot, standing in the grand foyer beneath the antler chandelier, holding an open saddle bag while the woman in the emerald silk blouse points at it. The heir in the white shirt leans against the walnut staircase, arms folded, faint smile. Storm light cools the marble; warm lamp light rims the maid's face. Centered, faces unobstructed for 9:16.",
+      "internal_cuts": [
+        {"at": 0.0, "framing": "medium shot", "action": "In the foyer, the maid holds open her saddle bag while the woman in emerald silk points at it like evidence."},
+        {"at": 3.3, "framing": "tight close-up", "action": "Close on the maid's face as she sets her jaw; her hands close around the worn leather."},
+        {"at": 6.8, "framing": "low-angle hero shot", "action": "Low angle on the maid from below the staircase, chin lifted, the chandelier hard above her."}
+      ],
+      "dialogue": [
+        {"speaker": "VICTORIA", "line": "Empty it. If my husband's watch is in there, you leave this ranch tonight.", "delivery": "silky, cruel"},
+        {"speaker": "ELENA", "line": "My mother's things are in that bag. You will not touch them.", "delivery": "steady"}
+      ],
+      "sfx_ambience": "leather creaking, a clock ticking somewhere deep in the house, rain softening",
+      "continuity": "Act 1 wardrobe. Elena's saddle bag holds her mother's photograph; the silver watch appears inside it in scene 4.",
+      "camera": "Controlled handheld; hard cut to face; low-angle tilt up at the last line."
+    },
+    {
+      "scene_id": 4,
+      "act": 1,
+      "beat": "planted_proof",
+      "location": "Silver Creek stable aisle, morning",
+      "time_of_day": "morning",
+      "characters": ["elena", "richard"],
+      "on_screen_hook": "",
+      "first_frame_prompt": "Cinematic still of the same woman as the reference image, medium shot, in a sunlit plank stable aisle, saddling a chestnut horse. Behind her, the heir in the white shirt and charcoal blazer lifts a small silver watch from the open saddle bag, caught mid-motion. Straw dust floats in the light; the maid has not turned yet. Both faces visible, centered, unobstructed for a 9:16 crop.",
+      "internal_cuts": [
+        {"at": 0.0, "framing": "medium shot", "action": "In the stable aisle, the maid tightens a saddle girth while the heir behind her lifts the silver watch from her open bag."},
+        {"at": 3.4, "framing": "insert shot of the evidence object", "action": "Insert: the silver watch turns once in the heir's fingers, catching a blade of window light."},
+        {"at": 6.8, "framing": "tight close-up", "action": "Close on the maid as she turns and sees him; her hands go still on the leather."}
+      ],
+      "dialogue": [
+        {"speaker": "RICHARD", "line": "Look what your mother's saddle was hiding. Twelve years, and you kept it close.", "delivery": "light, rehearsed"},
+        {"speaker": "ELENA", "line": "You were in the tack room last night. I saw your boots.", "delivery": "low, furious"}
+      ],
+      "sfx_ambience": "a horse snorting, leather straps, straw under boots, the watch's tiny clasp",
+      "continuity": "Act 1 wardrobe. The silver watch is now planted in Elena's bag; it returns as evidence in act 4.",
+      "camera": "Slow pan from the maid to the watch; hard cut; snap back to her face."
+    },
+    {
+      "scene_id": 5,
+      "act": 1,
+      "beat": "quiet_deal_offer",
+      "location": "Blackwell great room, morning",
+      "time_of_day": "grey morning",
+      "characters": ["victoria", "elena"],
+      "on_screen_hook": "",
+      "first_frame_prompt": "Cinematic still of the same woman as the reference image, medium shot, standing in a wide great room with exposed timber beams and a cold stone fireplace, grey morning light through the windows. She holds a folded paper while the woman in the emerald silk blouse gestures at a chair, offering it. The maid remains standing. Faces centered and unobstructed for a 9:16 crop.",
+      "internal_cuts": [
+        {"at": 0.0, "framing": "medium shot", "action": "In the timber great room, the woman in emerald silk gestures to a chair; the maid in the denim work shirt stays standing."},
+        {"at": 3.5, "framing": "over-the-shoulder shot", "action": "Over the mistress's shoulder, the folded confession paper waits on the low table between them."},
+        {"at": 6.9, "framing": "tight close-up", "action": "Close on the maid's hand as she slides the paper back across the table without sitting."}
+      ],
+      "dialogue": [
+        {"speaker": "VICTORIA", "line": "Sign it, take your pay, and this stays private. The watch never happened.", "delivery": "patient, poisoned"},
+        {"speaker": "ELENA", "line": "It never happened to you. It happened to me the moment you decided it did.", "delivery": "flat"}
+      ],
+      "sfx_ambience": "a fireplace ticking as it cools, paper sliding on wood, a chair creaking",
+      "continuity": "Act 1 wardrobe. Victoria's first written offer appears here; the same tactic returns at midnight in scene 30.",
+      "camera": "Static two-shot; cut to the paper; cut to her hand pushing it back."
+    },
+    {
+      "scene_id": 6,
+      "act": 1,
+      "beat": "ally_risk",
+      "location": "Silver Creek barn doorway, late afternoon",
+      "time_of_day": "late afternoon",
+      "characters": ["elena", "cole"],
+      "on_screen_hook": "",
+      "first_frame_prompt": "Cinematic still of the same woman as the reference image, medium shot, in the barn doorway with late sun behind her, holding a curry comb. Beside her, the foreman in the tan canvas chore jacket and worn felt hat leans on a stall door, jaw tight. Dust and warm light; the maid listens with her eyes down. Faces centered, unobstructed for a 9:16 crop.",
+      "internal_cuts": [
+        {"at": 0.0, "framing": "medium shot", "action": "At the barn door, the maid works a curry comb in slow circles while the foreman leans on the stall, speaking low."},
+        {"at": 3.3, "framing": "over-the-shoulder shot", "action": "Over the maid's shoulder: the foreman's hands tighten on the stall door as he finishes his sentence."},
+        {"at": 6.8, "framing": "tight close-up", "action": "Close on the maid's eyes lifting at last, weighing what he just offered."}
+      ],
+      "dialogue": [
+        {"speaker": "COLE", "line": "I saw Richard at the saddles last night. Say the word and I'll swear it.", "delivery": "quiet"},
+        {"speaker": "ELENA", "line": "He'll only call you a liar. And then he'll take your house too.", "delivery": "careful"}
+      ],
+      "sfx_ambience": "curry comb against hide, a horse's low nicker, wind under the eaves",
+      "continuity": "Act 1 wardrobe. Cole has not yet told Elena the whole truth about the fire; that comes in scene 16.",
+      "camera": "Gentle handheld; cut on 'swear'; close-up holds as she decides."
+    },
+    {
+      "scene_id": 7,
+      "act": 1,
+      "beat": "deadline_set",
+      "location": "Blackwell study, late afternoon",
+      "time_of_day": "late afternoon",
+      "characters": ["victoria", "elena"],
+      "on_screen_hook": "",
+      "first_frame_prompt": "Cinematic still of the same woman as the reference image, medium shot, standing before a heavy walnut desk in a lamplit study, hands at her sides. The woman in the emerald silk blouse sits behind the desk, one finger resting on a closed file. Bookshelves and a cold window behind; the maid's reflection faint in the glass. Faces centered, unobstructed for 9:16.",
+      "internal_cuts": [
+        {"at": 0.0, "framing": "medium shot", "action": "In the lamplit study, the mistress sits behind the desk with one finger on a closed file; the maid stands before it."},
+        {"at": 3.4, "framing": "tight close-up", "action": "Close on the file as her finger lifts, leaving a clean mark in the dust."},
+        {"at": 6.9, "framing": "low-angle hero shot", "action": "Low angle on the maid as she absorbs the deadline without looking away."}
+      ],
+      "dialogue": [
+        {"speaker": "VICTORIA", "line": "Sheriff Drummond is a family friend. You have until Friday midnight, Elena. Sign, or be charged.", "delivery": "unhurried"},
+        {"speaker": "ELENA", "line": "And my mother's grave? Do you still pay the keeper to keep it?", "delivery": "quiet"}
+      ],
+      "sfx_ambience": "a desk clock ticking, leather chair creaking, the window rattling softly",
+      "continuity": "Act 1 wardrobe. The Friday-midnight deadline is fixed here and drives acts 2-3.",
+      "camera": "Static; cut to the file; slow low-angle rise."
+    },
+    {
+      "scene_id": 8,
+      "act": 1,
+      "beat": "object_that_should_not_exist",
+      "location": "gatehouse cottage, dusk",
+      "time_of_day": "dusk",
+      "characters": ["elena"],
+      "on_screen_hook": "",
+      "first_frame_prompt": "Cinematic still of the same woman as the reference image, medium close-up, kneeling on the stone floor of a small cottage at dusk, an old saddle turned over across her knees. Her fingers part the leather lining; a small brass key rests in her palm. One cold window over the sink, wind at the eaves, a grey-blue cast through the glass. Face centered, unobstructed for 9:16.",
+      "internal_cuts": [
+        {"at": 0.0, "framing": "medium close-up", "action": "In the small stone cottage, the maid kneels with the old saddle across her knees and works the leather lining open."},
+        {"at": 3.3, "framing": "insert shot of the evidence object", "action": "Insert: her fingers draw a small brass key from the hidden seam, warm against the cold leather."},
+        {"at": 7.0, "framing": "tight close-up", "action": "Close on her face as she recognizes the key; the room darkens around her."}
+      ],
+      "dialogue": [
+        {"speaker": "ELENA", "line": "You sewed it into the lining, Mama. What were you afraid someone would find?", "delivery": "whispered"},
+        {"speaker": "ELENA", "line": "And why did you never tell me?", "delivery": "breaking"}
+      ],
+      "sfx_ambience": "wind pressing the eaves, leather creaking, a stove ticking as it cools",
+      "continuity": "Act 1 wardrobe. The brass key is introduced here and stays on Elena's neck cord through act 5.",
+      "camera": "Slow push-in; cut to the key; cut to her face; hold."
+    },
+    {
+      "scene_id": 9,
+      "act": 1,
+      "beat": "the_key_that_fits_nothing",
+      "location": "Silver Creek barn aisle, night",
+      "time_of_day": "night",
+      "characters": ["elena", "cole"],
+      "on_screen_hook": "",
+      "first_frame_prompt": "Cinematic still of the same woman as the reference image, medium shot, standing in the barn aisle at night beside the foreman in the tan canvas chore jacket and felt hat. She holds up the small brass key; he studies it under a warm bulb. Behind them, the tack-room door is whitewashed shut, an old iron hasp painted over. Faces centered, unobstructed for 9:16.",
+      "internal_cuts": [
+        {"at": 0.0, "framing": "medium shot", "action": "In the barn aisle at night, the maid holds up the brass key while the foreman studies the whitewashed tack-room door behind them."},
+        {"at": 3.5, "framing": "insert shot of the evidence object", "action": "Insert: the small brass key turns under the bulb, too delicate for any hasp in the barn."},
+        {"at": 6.9, "framing": "over-the-shoulder shot", "action": "Over her shoulder: the painted-over iron hasp, sealed with fifteen years of whitewash."}
+      ],
+      "dialogue": [
+        {"speaker": "COLE", "line": "That key fits no door in this valley. Your mother never did one thing without a reason.", "delivery": "low"},
+        {"speaker": "ELENA", "line": "Then we open that room. Tonight.", "delivery": "decided"}
+      ],
+      "sfx_ambience": "a bulb humming, a horse stamping, wind rattling the barn planks",
+      "continuity": "Act 1 wardrobe. The tack room has been sealed since the fire; the padlock is cut in scene 10 (the brass key does not fit it).",
+      "camera": "Static two-shot; insert on the key; slow turn to the sealed door."
+    },
+    {
+      "scene_id": 10,
+      "act": 1,
+      "beat": "act_cliffhanger",
+      "location": "Silver Creek sealed tack room, night",
+      "time_of_day": "night",
+      "characters": ["elena", "cole"],
+      "on_screen_hook": "THE DEED WAS BURIED WITH HER",
+      "first_frame_prompt": "Cinematic still of the same woman as the reference image, medium shot, inside a dusty tack room lit by a single work lamp, kneeling beside an open tin box on the floorboards. She holds a cream document, face lit from below by the lamp. The foreman stands in the doorway with bolt cutters. Brass tack, cobwebs, a loose board pried up. Faces centered, unobstructed for 9:16.",
+      "internal_cuts": [
+        {"at": 0.0, "framing": "medium shot", "action": "Inside the tack room, the maid kneels over an open tin box while the foreman stands in the doorway with bolt cutters."},
+        {"at": 3.4, "framing": "insert shot of the evidence object", "action": "Insert: a cream deed unfolds in her hands, its old seal still intact."},
+        {"at": 6.9, "framing": "tight close-up", "action": "Close on her face as she reads the name; her lips part, and she has to steady the paper."}
+      ],
+      "dialogue": [
+        {"speaker": "ELENA", "line": "This deed says Vance. Not Blackwell. My mother owned Silver Creek.", "delivery": "barely audible"},
+        {"speaker": "COLE", "line": "Then the fire wasn't bad luck. And I should have told you something years ago.", "delivery": "rough"}
+      ],
+      "sfx_ambience": "a work lamp buzzing, old paper unfolding, a chain shifting outside, rain starting",
+      "continuity": "Act 1 wardrobe. The tin box holds the 2008 deed, a bank deposit slip for box 14 and a photograph; it stays hidden under the loose board until act 4.",
+      "camera": "Slow push-in over her shoulder; insert on the deed; tight close-up; cut to black on her line."
+    },
+    {
+      "scene_id": 11,
+      "act": 2,
+      "beat": "denied_by_the_record",
+      "location": "Silver Creek county records office, morning",
+      "time_of_day": "morning",
+      "characters": ["elena"],
+      "on_screen_hook": "",
+      "first_frame_prompt": "Cinematic still of the same woman as the reference image, medium shot, standing at a long oak counter in a 1920s stone records office, morning light through tall windows. She holds the cream deed while the clerk behind the counter, a small woman in a grey cardigan, turns a heavy ledger toward her. Brass lamps, glass cases, dust in the air. Faces centered, unobstructed for 9:16.",
+      "internal_cuts": [
+        {"at": 0.0, "framing": "medium shot", "action": "At the oak counter, the maid lays the old deed down while the clerk turns a heavy ledger toward her."},
+        {"at": 3.4, "framing": "insert shot of the evidence object", "action": "Insert: the ledger's ruled page for the Silver Creek parcel, stamped and countersigned."},
+        {"at": 7.0, "framing": "tight close-up", "action": "Close on the maid as the clerk's answer lands; her jaw sets, but her eyes drop."}
+      ],
+      "dialogue": [
+        {"speaker": "CLERK", "line": "The sale was recorded in 2009. Blackwell owns it. Without a probate file, miss, you're not even her heir.", "delivery": "neutral"},
+        {"speaker": "ELENA", "line": "Then open a probate file.", "delivery": "low"}
+      ],
+      "sfx_ambience": "ledger pages turning, a wall clock, boots on creaking wood",
+      "continuity": "Act 2 wardrobe. No probate was ever filed for June Vance; this legal gap drives act 2.",
+      "camera": "Static; insert on ledger; close-up as the answer lands."
+    },
+    {
+      "scene_id": 12,
+      "act": 2,
+      "beat": "cost_of_the_law",
+      "location": "county records steps, grey morning",
+      "time_of_day": "grey morning",
+      "characters": ["elena", "cole"],
+      "on_screen_hook": "",
+      "first_frame_prompt": "Cinematic still of the same woman as the reference image, medium shot, on the wide stone steps of the records office in grey morning light, holding a folder to her chest. The foreman in the tan canvas jacket stands a step below, hat in hand, watching her. Wet street, a county truck passing behind, cold wind moving her braid. Faces centered and unobstructed for 9:16.",
+      "internal_cuts": [
+        {"at": 0.0, "framing": "medium shot", "action": "On the stone steps, the maid holds a folder to her chest while the foreman waits a step below, hat in hand."},
+        {"at": 3.4, "framing": "tight close-up", "action": "Close on her hands tightening on the folder's edge until the card bends."},
+        {"at": 6.9, "framing": "over-the-shoulder shot", "action": "Over the foreman's shoulder: her face against the grey street, deciding."}
+      ],
+      "dialogue": [
+        {"speaker": "COLE", "line": "Probate takes months. Victoria's already on the phone with her lawyer.", "delivery": "careful"},
+        {"speaker": "ELENA", "line": "Then I won't fight her with a lawyer. I'll fight her with what she's afraid of.", "delivery": "steady"}
+      ],
+      "sfx_ambience": "wind across stone steps, a truck passing on wet asphalt, a flag snapping",
+      "continuity": "Act 2 wardrobe. Elena still has the 2008 deed; the county refuses to act on it without probate.",
+      "camera": "Static; cut to hands; over-the-shoulder as she decides."
+    },
+    {
+      "scene_id": 13,
+      "act": 2,
+      "beat": "silence_deal",
+      "location": "Blackwell paneled office, afternoon",
+      "time_of_day": "afternoon",
+      "characters": ["victoria", "elena"],
+      "on_screen_hook": "",
+      "first_frame_prompt": "Cinematic still of the same woman as the reference image, medium shot, standing on a deep wool rug in a warm paneled office, holding a single sheet of paper. The woman in the black cashmere turtleneck and long grey riding coat stands by the window, gloves in hand, back half-turned. Snow-light through the glass, a fire in the grate. Both faces visible, centered for 9:16.",
+      "internal_cuts": [
+        {"at": 0.0, "framing": "medium shot", "action": "In the paneled office, the maid holds a single sheet of paper while the woman in black cashmere stands by the window, gloves in hand."},
+        {"at": 3.3, "framing": "over-the-shoulder shot", "action": "Over the maid's shoulder: the paper offers a year of grave upkeep and a dropped charge."},
+        {"at": 6.9, "framing": "tight close-up", "action": "Close on the maid's face: she reads the terms, and something in her goes cold."}
+      ],
+      "dialogue": [
+        {"speaker": "VICTORIA", "line": "I'll keep your mother's grave tended another year. Leave Silver Creek, and the watch charge disappears.", "delivery": "soft, final"},
+        {"speaker": "ELENA", "line": "You're offering me a gardener. Not my mother's name.", "delivery": "quiet"}
+      ],
+      "sfx_ambience": "a coal settling in the grate, gloves creaking, wind at the window",
+      "continuity": "Act 2 wardrobe. First explicit money offer; Victoria repeats it with a larger sum in scene 30.",
+      "camera": "Static; cut to paper; slow close on her face."
+    },
+    {
+      "scene_id": 14,
+      "act": 2,
+      "beat": "the_heir_warns",
+      "location": "Blackwell dark-paneled hallway, afternoon",
+      "time_of_day": "afternoon",
+      "characters": ["richard", "elena"],
+      "on_screen_hook": "",
+      "first_frame_prompt": "Cinematic still of the same woman as the reference image, medium shot, in a dark-paneled hallway lined with framed ranch photographs, afternoon light from one high window. The heir in the grey wool overcoat stands close, speaking low, hands open. The maid faces him, folder against her chest. Dust in the light; the distance between them small and tense. Faces centered, unobstructed for 9:16.",
+      "internal_cuts": [
+        {"at": 0.0, "framing": "medium shot", "action": "In the dark-paneled hallway, the heir speaks low to the maid, hands open, while she holds her folder like a shield."},
+        {"at": 3.5, "framing": "tight close-up", "action": "Close on the heir's face: the practiced smile is gone for once."},
+        {"at": 6.9, "framing": "over-the-shoulder shot", "action": "Over his shoulder: the maid's eyes narrow, reading the first honest thing he's said."}
+      ],
+      "dialogue": [
+        {"speaker": "RICHARD", "line": "I know you didn't take the watch. Leave before she decides you're dangerous.", "delivery": "low"},
+        {"speaker": "ELENA", "line": "Why do you care?", "delivery": "cold"},
+        {"speaker": "RICHARD", "line": "Because you keep digging where the whole valley is buried.", "delivery": "beat"}
+      ],
+      "sfx_ambience": "a floorboard creaking, wind at the high window, muffled voices from below",
+      "continuity": "Act 2 wardrobe. Richard admits the watch was staged; the audience knows before the town.",
+      "camera": "Gentle push-in; cut to his face; over-the-shoulder."
+    },
+    {
+      "scene_id": 15,
+      "act": 2,
+      "beat": "ally_confession",
+      "location": "gatehouse cottage, dusk",
+      "time_of_day": "dusk",
+      "characters": ["elena", "maggie"],
+      "on_screen_hook": "",
+      "first_frame_prompt": "Cinematic still of the same woman as the reference image, medium shot, seated at a small oilcloth table in the stone cottage at dusk, a covered pie between her hands. The housekeeper in the floral apron and beige cardigan sits across from her, wool shawl around her shoulders, eyes wet behind round glasses. A single lamp and the cold window. Faces centered, unobstructed for 9:16.",
+      "internal_cuts": [
+        {"at": 0.0, "framing": "medium shot", "action": "At the oilcloth table, the maid and the housekeeper sit across a covered pie neither has touched."},
+        {"at": 3.4, "framing": "tight close-up", "action": "Close on the housekeeper's hands twisting a napkin until the linen frays."},
+        {"at": 6.9, "framing": "over-the-shoulder shot", "action": "Over the housekeeper's shoulder: the maid's face as she understands what was signed."}
+      ],
+      "dialogue": [
+        {"speaker": "MAGGIE", "line": "The night of the fire, I signed a statement for her. I said the lamp fell. It was a lie.", "delivery": "unsteady"},
+        {"speaker": "ELENA", "line": "You told them my mother was careless.", "delivery": "hurt"}
+      ],
+      "sfx_ambience": "the stove ticking, wind at the eaves, a spoon rattling against china",
+      "continuity": "Act 2 wardrobe. Maggie's false statement was signed fifteen years ago under pressure from Victoria; her redemption begins here.",
+      "camera": "Static; cut to hands; over-the-shoulder; hold on Elena."
+    },
+    {
+      "scene_id": 16,
+      "act": 2,
+      "beat": "cole_secret",
+      "location": "Silver Creek barn aisle, night",
+      "time_of_day": "night",
+      "characters": ["elena", "cole"],
+      "on_screen_hook": "",
+      "first_frame_prompt": "Cinematic still of the same woman as the reference image, medium shot, standing in the barn aisle at night with a storm lantern between her and the foreman, whose canvas jacket is rain-darkened. Rain streaks the open doorway behind him; straw glows gold under the lantern. She holds her ground; he cannot meet her eyes. Faces centered, unobstructed for 9:16.",
+      "internal_cuts": [
+        {"at": 0.0, "framing": "medium shot", "action": "In the barn aisle, the maid and the foreman stand on either side of a lantern, rain crossing the doorway behind him."},
+        {"at": 3.4, "framing": "tight close-up", "action": "Close on the foreman's jaw as he forces the words out."},
+        {"at": 6.8, "framing": "over-the-shoulder shot", "action": "Over his shoulder: the maid's face as she takes the confession without blinking."}
+      ],
+      "dialogue": [
+        {"speaker": "COLE", "line": "The night of the fire I was fifteen. I saw a truck leave.", "delivery": "rough"},
+        {"speaker": "ELENA", "line": "You watched it leave and said nothing.", "delivery": "quiet"}
+      ],
+      "sfx_ambience": "rain hammering the doorway, lantern glass ticking, a horse stamping in straw",
+      "continuity": "Act 2 wardrobe. Cole's fire-night confession plants his act 6 testimony.",
+      "camera": "Slow drift around the lantern; cut to his jaw; cut to her."
+    },
+    {
+      "scene_id": 17,
+      "act": 2,
+      "beat": "dramatic_irony",
+      "location": "Blackwell study, night",
+      "time_of_day": "night",
+      "characters": ["victoria", "richard"],
+      "on_screen_hook": "",
+      "first_frame_prompt": "Cinematic still of the same woman as the reference image, medium shot, in a lamplit study with the door half open. The woman in the black cashmere turtleneck stands over a desk while the heir in the grey overcoat paces behind her, loosening his collar. A single green banker's lamp, dark bookshelves, the storm reflected in the window. Both faces visible, centered for 9:16.",
+      "internal_cuts": [
+        {"at": 0.0, "framing": "medium shot", "action": "In the lamplit study, the mistress stands over the desk while the heir paces and loosens his collar."},
+        {"at": 3.5, "framing": "tight close-up", "action": "Close on her hand closing a folder marked only by a county seal."},
+        {"at": 6.9, "framing": "over-the-shoulder shot", "action": "Over her shoulder: the heir's reflection in the dark window, caught between defiance and fear."}
+      ],
+      "dialogue": [
+        {"speaker": "VICTORIA", "line": "The probate clerk called. Someone requested June Vance's file. Bury it.", "delivery": "cold"},
+        {"speaker": "RICHARD", "line": "You're good at that. The watch was your idea, remember?", "delivery": "edged"}
+      ],
+      "sfx_ambience": "a drawer sliding shut, rain against glass, a lamp humming",
+      "continuity": "Act 2 wardrobe. The audience learns Victoria ordered the county file pulled and the watch planted.",
+      "camera": "Static; cut to the folder; over-the-shoulder into the window."
+    },
+    {
+      "scene_id": 18,
+      "act": 2,
+      "beat": "file_pulled",
+      "location": "Silver Creek county records office, morning",
+      "time_of_day": "hard morning light",
+      "characters": ["elena"],
+      "on_screen_hook": "",
+      "first_frame_prompt": "Cinematic still of the same woman as the reference image, medium shot, at the oak counter of the records office in hard morning light, the clerk behind it shaking her head. A sealed drawer sits between them. The maid's folder is open, its papers untouched. Glass deed cases and brass lamps behind; cold light. Faces centered, unobstructed for 9:16.",
+      "internal_cuts": [
+        {"at": 0.0, "framing": "medium shot", "action": "At the counter, the clerk shakes her head over a sealed drawer while the maid's open folder waits untouched."},
+        {"at": 3.4, "framing": "insert shot of the evidence object", "action": "Insert: the drawer's small brass lock, closed and freshly oiled."},
+        {"at": 6.9, "framing": "tight close-up", "action": "Close on the maid as the refusal lands; she doesn't look away."}
+      ],
+      "dialogue": [
+        {"speaker": "CLERK", "line": "The file was pulled by the Blackwell estate. There's no record you're her daughter.", "delivery": "uncomfortable"},
+        {"speaker": "ELENA", "line": "There's a record somewhere. She made sure of it.", "delivery": "quiet"}
+      ],
+      "sfx_ambience": "a drawer lock clicking, a clock, a pen set down too carefully",
+      "continuity": "Act 2 wardrobe. Elena's birth certificate is hidden in the bank box; it resolves this 'no record' refusal in act 5.",
+      "camera": "Static; insert on the lock; close on her."
+    },
+    {
+      "scene_id": 19,
+      "act": 2,
+      "beat": "public_humiliation",
+      "location": "Blackwell great room, dinner, night",
+      "time_of_day": "night",
+      "characters": ["victoria", "elena", "richard"],
+      "on_screen_hook": "",
+      "first_frame_prompt": "Cinematic still of the same woman as the reference image, medium shot, standing among candlelit dinner tables in the mansion's great room, a napkin folded in her hand, serving posture. The woman in the silver-grey silk blouse raises a glass at the head table while the heir in the white shirt watches the maid over his wine. Guests blurred in warm light. Faces centered, unobstructed for 9:16.",
+      "internal_cuts": [
+        {"at": 0.0, "framing": "medium shot", "action": "In the candlelit great room, the mistress rises with a glass while the maid stands at the edge of the tables, napkin in hand."},
+        {"at": 3.5, "framing": "tight close-up", "action": "Close on the maid's face as every guest turns toward her."},
+        {"at": 6.9, "framing": "low-angle hero shot", "action": "Low angle on the maid as she answers the toast without dropping her gaze."}
+      ],
+      "dialogue": [
+        {"speaker": "VICTORIA", "line": "Elena will be leaving us soon. Tell them, dear — what are your plans?", "delivery": "bright, public"},
+        {"speaker": "ELENA", "line": "Mrs. Blackwell is too kind. My plans haven't changed. I'm staying.", "delivery": "calm, clear"}
+      ],
+      "sfx_ambience": "silverware on china, a glass set down, a room going quiet",
+      "continuity": "Act 2 wardrobe. Public humiliation attempt; Elena's small public defiance sets up the gala reversal in act 6.",
+      "camera": "Static wide; cut to face; low-angle on her answer."
+    },
+    {
+      "scene_id": 20,
+      "act": 2,
+      "beat": "act_cliffhanger",
+      "location": "Blackwell gravel yard, night",
+      "time_of_day": "night",
+      "characters": ["victoria", "elena"],
+      "on_screen_hook": "THEY BURNED HER MOTHER'S SADDLE",
+      "first_frame_prompt": "Cinematic still of the same woman as the reference image, medium shot, standing in the mansion's gravel yard at night beside a burning steel barrel, orange firelight on her face. The woman in the black cashmere turtleneck holds a folded document out to her; the sheriff's car waits beyond, headlights on. The maid's old saddle is in the flames. Faces centered, unobstructed for 9:16.",
+      "internal_cuts": [
+        {"at": 0.0, "framing": "medium shot", "action": "In the gravel yard at night, a steel barrel burns while the mistress holds out a folded paper and the maid watches the flames."},
+        {"at": 3.4, "framing": "insert shot of the evidence object", "action": "Insert: the old saddle's leather curling in the fire, stitching glowing before it blackens."},
+        {"at": 6.9, "framing": "tight close-up", "action": "Close on the maid's face lit by fire; she does not step back."}
+      ],
+      "dialogue": [
+        {"speaker": "VICTORIA", "line": "Sign by midnight, or I press charges for arson as well as theft.", "delivery": "quiet, absolute"},
+        {"speaker": "ELENA", "line": "You burned her saddle. That means you're afraid of what was in it.", "delivery": "low"}
+      ],
+      "sfx_ambience": "fire roaring in a steel barrel, gravel under boots, a radio crackling in the sheriff's car",
+      "continuity": "Act 2 wardrobe. The burning barrel destroys June's saddle and its empty lining; the tin box is already hidden in the tack room.",
+      "camera": "Slow orbit around the barrel; insert on the saddle; close-up on her."
+    }
+  ],
+  "teasers": [
+    {
+      "id": 1,
+      "title": "Official Teaser",
+      "hook_text": "THE STABLE GIRL THEY FRAMED",
+      "scenes": [1, 2, 3, 4, 5, 6],
+      "caption": "She cleaned their house for twelve years.\n\nThey blamed her for a theft the heir staged.\n\nBut the barn keeps what this family buried.\n\nWhose name is on the deed under the floor? Follow for Episode 2."
+    }
+  ],
+  "publisher": {
+    "personaje_id": "emma_hayes",
+    "cta": "Follow for Episode 2.",
+    "hashtags": ["#shortdrama", "#novel", "#storytime", "#suspense", "#montana", "#episode1"],
+    "ai_disclosure": true
+  },
+  "soundtrack": {
+    "mood": "tense western romantic suspense",
+    "bpm": 82,
+    "notes": "Low strings, brushed drums and room tone under dialogue; no music inside the generated clips."
+  }
+}
