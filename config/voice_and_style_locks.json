@@ -40,10 +40,10 @@
     "video_negative": "on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track"
   },
   "identity_lock": {
-    "rule": "Faces come from the reference images attached to the generation. Never describe age, name, eye color, skin tone or base hair color in prompts. Describe only transient state: moment hairstyle, wet hair, flush, sweat sheen, expression, gaze, wardrobe, pose, light and framing.",
-    "reference_phrase": "the same woman as the reference image",
-    "reference_phrase_male": "the same man as the reference image",
-    "reference_workflow": "Attach the character reference sheet (front + 3/4 + profile) to the ChatGPT image generation for every frame. The prompt assumes the reference is present."
+    "rule": "Faces come from the reference images attached to the generation. Name the character and their reference_<id>.png, but never describe age, eye color, skin tone or base hair color in prompts. Describe only transient state: moment hairstyle, wet hair, flush, sweat sheen, expression, gaze, wardrobe, pose, light and framing.",
+    "reference_phrase": "the character in reference_<id>.png",
+    "reference_phrase_male": "the character in reference_<id>.png",
+    "reference_workflow": "Attach the character reference sheet (front + 3/4 + profile) to the ChatGPT image generation for every frame. The prompt names reference_<id>.png and assumes the reference is attached."
   },
   "voice_lock": {
     "narrator": {
@@ -69,11 +69,14 @@
     "default_delivery": "measured, low, holding something back"
   },
   "prompt_templates": {
-    "omni_prompt_template": "Begin exactly on the provided first frame ({frame_file}) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.\n\n{shot_block}\n\nDIALOGUE (native audio, US English, lip-sync exact):\n{dialogue_block}\n\nAUDIO BED: {ambience}\n\nCAMERA & MOVEMENT: {camera_block}\n\nCONTINUITY: {continuity}\n\nSTYLE: {style}\n\nRULES:\n- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.\n- Speak only the dialogue above. No narrator, no added voices, no subtitles.\n- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.\n- Keep faces stable and hands anatomically correct; no extra people.\n- Native US English, conversational pace.\n\nNEGATIVE: {negative}\n\nDURATION: exactly 10.0 seconds. Aspect ratio 16:9.",
+    "omni_prompt_template": "Begin exactly on the provided first frame ({frame_file}) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.\n\n{shot_block}\n\n{timeline_block}\n\nDIALOGUE (native audio, US English, lip-sync exact):\n{dialogue_block}\n\nAUDIO BED: {ambience}\n\nCAMERA & MOVEMENT: {camera_block}\n\nCONTINUITY: {continuity}\n\nSTYLE: {style}\n\nRULES:\n- One continuous 10-second take. Hard cuts only at the listed times; never cut to a different location.\n- Speak only the dialogue above. No narrator, no added voices, no subtitles.\n- No music, no score, no added sound design beyond the ambience and diegetic SFX listed.\n- Keep faces stable and hands anatomically correct; no extra people.\n- Native US English, conversational pace.\n\nNEGATIVE: {negative}\n\nDURATION: exactly 10.0 seconds. Aspect ratio 16:9.",
     "shot_block_header": "SHOT PLAN:",
     "shot_first_template": "SHOT {n} — 0.0 s to {end:.1f} s — {framing}: {action}",
     "shot_cut_template": "HARD CUT at {at:.1f} s — SHOT {n} — {framing}: {action}",
     "shot_last_suffix": "End on a held frame that motivates the next scene.",
+    "timeline_header": "TIMELINE (one continuous 10 s take):",
+    "timeline_line_template": "  {a:.1f}s to {b:.1f}s  [{framing}] {action}",
+    "timeline_marks_template": "Hard cuts exactly at {marks} s. No dissolves, no fade, no camera reset.",
     "camera_block_default": "Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves."
   },
   "post_production": {
@@ -92,9 +95,19 @@
     "video_fade": false,
     "silence_threshold_db": -35,
     "silence_min_sec": 0.35,
-    "head_trim_max_sec": 2.5,
-    "tail_trim_max_sec": 2.5,
-    "min_scene_after_trim_sec": 6.0,
-    "allow_short_scene_sec": 6.0
+    "duration_policy": "exact",
+    "scene_seconds": 10.0,
+    "duration_tolerance_sec": 0.05,
+    "head_trim_max_sec": 0.35,
+    "tail_trim_max_sec": 0.35,
+    "min_scene_after_trim_sec": 9.0,
+    "allow_short_scene_sec": 9.0,
+    "audio_fade_sec": 0.03,
+    "teaser_fit": "hybrid",
+    "teaser_foreground_width_ratio": 0.8,
+    "teaser_caption_chars_per_line": 42,
+    "teaser_caption_margin_v": 260,
+    "subtitle_chars_per_line": 42,
+    "ai_disclosure_text": "AI-generated"
   }
 }

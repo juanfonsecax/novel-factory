@@ -33,6 +33,7 @@ GEN03 = load_module("nf_gen03", "generators", "03_export_omni_queue.py")
 ASM04 = load_module("nf_asm04", "post_production", "04_assemble_novel_ffmpeg.py")
 PUB05 = load_module("nf_pub05", "post_production", "05_export_to_publisher.py")
 RUNNER = load_module("nf_runner", "automation", "omni_flow_runner.py")
+DASH = load_module("nf_dashboard", "automation", "dashboard.py")
 
 DEMO_DIR = NF_ROOT / "projects" / "demo_contract"
 HAS_FFMPEG = nf.has_ffmpeg()
@@ -256,6 +257,48 @@ class AssemblerTests(unittest.TestCase):
             self.assertIn("descartado", note)
 
 
+    def test_scene_target_seconds_default_and_override(self):
+        self.assertEqual(ASM04.scene_target_seconds({}), nf.SCENE_SECONDS)
+        self.assertEqual(ASM04.scene_target_seconds({"scene_seconds": 10.0}), 10.0)
+        self.assertEqual(ASM04.scene_target_seconds({"scene_seconds": "8"}), 8.0)
+
+    def test_build_cues_proportional_and_rebased(self):
+        timeline = [
+            {"scene": {"scene_id": 5, "dialogue": [
+                {"speaker": "Nora", "line": "One two"},
+                {"speaker": "", "line": "Three four five six"},
+            ]}, "start": 20.0, "dur": 10.0},
+        ]
+        cues = ASM04.build_cues(timeline)
+        self.assertEqual(len(cues), 2)
+        self.assertAlmostEqual(cues[0][0], 20.25, delta=0.001)
+        self.assertGreater(cues[1][0], cues[0][0])
+        self.assertGreater(cues[0][1] - cues[0][0], 0.2)
+        self.assertIn("NORA: One two", cues[0][2])
+
+    def test_build_cues_empty_dialogue(self):
+        timeline = [{"scene": {"scene_id": 1, "dialogue": []}, "start": 0.0, "dur": 10.0}]
+        self.assertEqual(ASM04.build_cues(timeline), [])
+
+    @unittest.skipUnless(HAS_FFMPEG, "ffmpeg no disponible")
+    def test_normalize_scene_exact_duration(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            base = Path(tmp)
+            src = base / "short.mp4"
+            nf.run_ffmpeg([
+                "ffmpeg", "-y", "-v", "error",
+                "-f", "lavfi", "-i", "color=c=blue:s=320x180:d=4:r=30",
+                "-f", "lavfi", "-i", "sine=frequency=440:duration=4:sample_rate=48000",
+                "-map", "0:v", "-map", "1:a", "-t", "4",
+                "-c:v", "libx264", "-preset", "ultrafast", "-crf", "35",
+                "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "96k", str(src),
+            ])
+            dst = base / "norm.mp4"
+            ASM04.normalize_scene(src, dst, 0.2, {"scene_seconds": 3.0}, 30, True)
+            dur = float(nf.probe_media(dst).get("duration") or 0.0)
+            self.assertAlmostEqual(dur, 3.0, delta=nf.DURATION_TOLERANCE_SEC + 0.05)
+
+
 class PublisherTests(unittest.TestCase):
     def _fake_publisher(self, base: Path) -> Path:
         (base / "src").mkdir(parents=True)
@@ -309,6 +352,53 @@ class PublisherTests(unittest.TestCase):
             warnings = PUB05.verify_media(clip)
             self.assertTrue(any("1080x1920" in w for w in warnings))
 
+    def test_enqueue_item_idempotent_and_atomic(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            base = Path(tmp)
+            pend = base / "cola" / "pendientes"
+            src = base / "src.mp4"
+            src.write_bytes(b"video")
+            post = {"id": "nf_slug_teaser_01", "personaje_id": "eva", "tipo": "reel",
+                    "archivo_media": "m.mp4", "estado": "pendiente_aprobacion",
+                    "plataformas": {"instagram": True}}
+            status, dj, dm = PUB05.enqueue_item(pend, post, src, "m.mp4")
+            self.assertEqual(status, "copied")
+            self.assertTrue(dj.exists() and dm.exists())
+            self.assertEqual(dm.read_bytes(), b"video")
+            # re-run: no duplica ni reescribe
+            status2, _, _ = PUB05.enqueue_item(pend, post, src, "m.mp4")
+            self.assertEqual(status2, "skipped")
+            # force reemplaza
+            status3, _, _ = PUB05.enqueue_item(pend, post, src, "m.mp4", force=True)
+            self.assertEqual(status3, "copied")
+            # no quedan temporales .part-*
+            self.assertEqual(list(pend.glob("*.part-*")), [])
+
+    def test_enqueue_item_repairs_partial(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            pend = Path(tmp) / "cola" / "pendientes"
+            pend.mkdir(parents=True)
+            src = Path(tmp) / "src.mp4"
+            src.write_bytes(b"video")
+            post = {"id": "nf_slug_teaser_02", "personaje_id": "eva", "tipo": "reel",
+                    "archivo_media": "m2.mp4", "estado": "pendiente_aprobacion",
+                    "plataformas": {"instagram": True}}
+            # encolado incompleto: solo el JSON
+            nf.write_json(pend / "nf_slug_teaser_02.json", post)
+            status, dj, dm = PUB05.enqueue_item(pend, post, src, "m2.mp4")
+            self.assertEqual(status, "repaired")
+            self.assertTrue(dm.exists())
+
+    def test_validate_post(self):
+        good = {"id": "x", "personaje_id": "eva", "tipo": "reel",
+                "archivo_media": "m.mp4", "estado": "pendiente_aprobacion",
+                "plataformas": {"instagram": True}}
+        self.assertEqual(PUB05.validate_post(good), [])
+        bad = dict(good, tipo="video", plataformas={})
+        problems = PUB05.validate_post(bad)
+        self.assertTrue(any("reel" in p for p in problems))
+        self.assertTrue(any("plataformas" in p for p in problems))
+
 
 class RunnerTests(unittest.TestCase):
     def test_load_queue(self):
@@ -359,6 +449,59 @@ class RunnerTests(unittest.TestCase):
             self.assertTrue(ok, msg=note)
             self.assertTrue((paths["raw_clips"] / "scene_007.mp4").exists())
             self.assertFalse(clip.exists())
+
+
+class DashboardTests(unittest.TestCase):
+    def test_build_state_from_demo(self):
+        state = DASH.build_state(DEMO_DIR)
+        self.assertEqual(state["totals"]["scenes"], 60)
+        self.assertEqual(len(state["scenes"]), 60)
+        first = state["scenes"][0]
+        self.assertTrue(first["image_prompt"])
+        self.assertTrue(first["video_prompt"])
+        self.assertEqual(first["scene_id"], 1)
+        self.assertTrue(first["scene_json"].startswith("{"))
+        self.assertGreaterEqual(state["totals"]["clips_disk"], 1)
+
+    def test_render_escapes_script_tags(self):
+        state = DASH.build_state(DEMO_DIR)
+        state["logline"] = "cierre </script><script>alert(1)</script>"
+        html = DASH.render_dashboard(state, {"scenes": {}, "references": {}})
+        self.assertEqual(html.count("</script>"), 1)
+        self.assertIn("const STATE =", html)
+        self.assertIn("Novel Factory", html)
+
+    def test_tracking_roundtrip(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            paths = {"root": Path(tmp)}
+            data = {"scenes": {"1": {"image_done": "2026-01-01T00:00:00Z"}}, "references": {}}
+            saved = DASH.save_tracking(paths, data)
+            self.assertTrue(saved["updated_at"])
+            loaded = DASH.load_tracking(paths)
+            self.assertEqual(loaded["scenes"]["1"]["image_done"], "2026-01-01T00:00:00Z")
+
+    def test_tracking_rejects_invalid(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            with self.assertRaises(nf.NFError):
+                DASH.save_tracking({"root": Path(tmp)}, ["not", "an", "object"])
+
+
+class LauncherTests(unittest.TestCase):
+    def test_bat_dispatches_import_frames(self):
+        bat = (NF_ROOT / "novelfactory.bat").read_text(encoding="utf-8", errors="replace")
+        self.assertIn('"%CMD%"=="import-frames"', bat)
+        self.assertIn("omni_flow_runner.py", bat)
+        self.assertIn("MODE=import-frames", bat)
+
+    def test_bat_dispatches_dashboard(self):
+        bat = (NF_ROOT / "novelfactory.bat").read_text(encoding="utf-8", errors="replace")
+        self.assertIn('"%CMD%"=="dashboard"', bat)
+        self.assertIn("dashboard.py", bat)
+
+    def test_bat_propagates_errors(self):
+        bat = (NF_ROOT / "novelfactory.bat").read_text(encoding="utf-8", errors="replace")
+        self.assertIn("if errorlevel 1", bat)
+        self.assertIn(":INGEST_RUN", bat)
 
 
 if __name__ == "__main__":

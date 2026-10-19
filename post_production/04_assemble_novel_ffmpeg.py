@@ -118,35 +118,49 @@ def analyze_silence(src: Path, probe: Dict[str, Any], pp: Dict[str, Any]) -> Tup
     return head, tail, note
 
 
+def scene_target_seconds(pp: Dict[str, Any]) -> float:
+    return float(pp.get("scene_seconds") or nf.SCENE_SECONDS)
+
+
 def normalize_scene(
     src: Path,
     dst: Path,
     head: float,
-    keep: float,
     pp: Dict[str, Any],
     crf: int,
     force: bool,
 ) -> None:
+    """Normaliza una escena a EXACTAMENTE scene_seconds (por defecto 10.0 s).
+
+    Recorta la cabecera indicada y rellena con el último fotograma / silencio si el
+    clip es más corto, de modo que todos los clips tengan la misma duración exacta.
+    """
+    target = scene_target_seconds(pp)
     if dst.exists() and not force and dst.stat().st_mtime >= src.stat().st_mtime:
         return
     probe = nf.probe_media(src)
-    keep = max(0.5, min(keep, nf.SCENE_SECONDS))
-    vf = ("scale=1920:1080:force_original_aspect_ratio=increase,"
-          "crop=1920:1080,setsar=1,fps=30,format=yuv420p")
+    vf = (
+        "scale=1920:1080:force_original_aspect_ratio=increase,"
+        "crop=1920:1080,setsar=1,fps=30,"
+        f"tpad=stop_mode=clone:stop_duration={target:.3f}:start_duration=0,"
+        f"trim=0:{target:.3f},format=yuv420p"
+    )
     base = [
         "ffmpeg", "-y", "-v", "error", "-hide_banner",
-        "-ss", f"{max(0.0, head):.3f}", "-t", f"{keep:.3f}", "-i", str(src),
+        "-ss", f"{max(0.0, head):.3f}", "-t", f"{target:.3f}", "-i", str(src),
     ]
     if probe.get("has_audio"):
         map_args = ["-map", "0:v:0", "-map", "0:a:0",
-                    "-af", "aresample=48000,aformat=channel_layouts=stereo"]
+                    "-af", (f"aresample=48000,aformat=channel_layouts=stereo,"
+                            f"apad=whole_dur={target:.3f},atrim=0:{target:.3f}")]
     else:
-        base += ["-f", "lavfi", "-t", f"{keep:.3f}", "-i", "anullsrc=r=48000:cl=stereo"]
-        map_args = ["-map", "0:v:0", "-map", "1:a:0", "-shortest"]
+        base += ["-f", "lavfi", "-t", f"{target:.3f}", "-i", "anullsrc=r=48000:cl=stereo"]
+        map_args = ["-map", "0:v:0", "-map", "1:a:0"]
     cmd = base + map_args + [
         "-vf", vf,
         "-c:v", "libx264", "-preset", "veryfast", "-crf", str(crf), "-pix_fmt", "yuv420p",
         "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-ac", "2",
+        "-t", f"{target:.3f}",
         "-movflags", "+faststart", str(dst),
     ]
     dstdir = dst.parent
@@ -154,11 +168,22 @@ def normalize_scene(
     nf.run_ffmpeg(cmd)
 
 
-def apply_punch_ins(src: Path, dst: Path, cuts: List[Dict[str, Any]], crf: int) -> bool:
-    """Zoom digital sutil (>0) en los segmentos alternos para diferenciar los cortes internos."""
+def apply_punch_ins(
+    src: Path,
+    dst: Path,
+    cuts: List[Dict[str, Any]],
+    crf: int,
+    target: Optional[float] = None,
+) -> bool:
+    """Zoom digital sutil en los segmentos alternos para diferenciar los cortes internos.
+
+    Opera sobre el clip YA normalizado y recortado (su t=0 coincide con el inicio de la
+    escena), por lo que los tiempos de corte del maestro se usan tal cual, sin sumar el
+    desplazamiento de cabecera. Los segmentos suman exactamente `target` segundos.
+    """
     dst.parent.mkdir(parents=True, exist_ok=True)
     probe = nf.probe_media(src)
-    duration = float(probe.get("duration") or 0.0)
+    duration = float(target or probe.get("duration") or 0.0)
     times = sorted({0.0} | {float(c.get("at") or 0.0) for c in cuts if 0 < float(c.get("at") or 0.0) < duration})
     times = [t for t in times if 0 <= t < duration - 0.35]
     if len(times) < 2 or duration <= 0:
@@ -190,7 +215,7 @@ def apply_punch_ins(src: Path, dst: Path, cuts: List[Dict[str, Any]], crf: int) 
     if probe.get("has_audio"):
         cmd += ["-map", "0:a:0", "-c:a", "copy"]
     cmd += ["-c:v", "libx264", "-preset", "veryfast", "-crf", str(crf), "-pix_fmt", "yuv420p",
-            "-movflags", "+faststart", str(dst)]
+            "-t", f"{duration:.3f}", "-movflags", "+faststart", str(dst)]
     nf.run_ffmpeg(cmd)
     return True
 
@@ -222,10 +247,16 @@ def mix_master(
     if music is not None:
         cmd += ["-stream_loop", "-1", "-i", str(music)]
         fade_out_start = max(0.0, total - fade_out)
+        duck_threshold = float(pp.get("duck_threshold", 0.03))
+        duck_ratio = float(pp.get("duck_ratio", 8.0))
+        # Ducked BGM: la música baja sola cuando hablan los personajes.
         graph = (
             f"[1:a]volume={vol}dB,afade=t=in:st=0:d={fade_in},"
             f"afade=t=out:st={fade_out_start:.2f}:d={fade_out}[bg];"
-            f"[0:a][bg]amix=inputs=2:duration=first:dropout_transition=0:normalize=0[mix];"
+            f"[0:a]asplit=2[dial][key];"
+            f"[bg][key]sidechaincompress=threshold={duck_threshold}:ratio={duck_ratio}:"
+            f"attack=20:release=400:makeup=1[bgduck];"
+            f"[dial][bgduck]amix=inputs=2:duration=first:dropout_transition=0:normalize=0[mix];"
             f"[mix]{loudnorm}[aout]"
         )
         if video_fade:
@@ -259,7 +290,8 @@ def mix_master(
 # ---------------------------------------------------------------------------
 # 5. Subtítulos
 # ---------------------------------------------------------------------------
-def write_srt(timeline: List[Dict[str, Any]], out: Path) -> int:
+def build_cues(timeline: List[Dict[str, Any]]) -> List[Tuple[float, float, str]]:
+    """Cues (inicio, fin, texto) proporcionales a las palabras de cada línea."""
     cues: List[Tuple[float, float, str]] = []
     for item in timeline:
         scene = item["scene"]
@@ -280,13 +312,22 @@ def write_srt(timeline: List[Dict[str, Any]], out: Path) -> int:
                 text = f"{entry['speaker'].upper()}: {text}"
             cues.append((cursor, min(cursor + share - 0.05, start + dur - 0.15), text))
             cursor += share
-    if not cues:
-        nf.warn("No hay diálogo: no se escribió .srt.")
-        return 0
+    return cues
+
+
+def write_cues_file(cues: List[Tuple[float, float, str]], out: Path) -> None:
     blocks = []
     for idx, (start, end, text) in enumerate(cues, start=1):
         blocks.append(f"{idx}\n{nf.fmt_srt(start)} --> {nf.fmt_srt(max(start + 0.4, end))}\n{text}\n")
     nf.write_text(out, "\n".join(blocks))
+
+
+def write_srt(timeline: List[Dict[str, Any]], out: Path) -> int:
+    cues = build_cues(timeline)
+    if not cues:
+        nf.warn("No hay diálogo: no se escribió .srt.")
+        return 0
+    write_cues_file(cues, out)
     return len(cues)
 
 
@@ -302,51 +343,111 @@ def render_teaser(
     music: Optional[Path],
     crf: int,
     work: Path,
+    teaser_timeline: Optional[List[Dict[str, Any]]] = None,
 ) -> float:
+    """Teaser 9:16 con encaje híbrido (fondo desenfocado + primer plano centrado).
+
+    Si hay timeline de las escenas del teaser, quema los subtítulos del diálogo.
+    """
     list_file = concat_list(segments, work / f"{out.stem}_list.txt")
-    text_file = work / f"{out.stem}_hook.txt"
-    chain = "scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,setsar=1,fps=30"
-    if hook_text and font is not None:
+    fg_ratio = float(pp.get("teaser_foreground_width_ratio", 0.8))
+    fw = int(round(1080 * fg_ratio / 2) * 2)
+    base_chain = (
+        "[0:v]split=2[bgsrc][fgsrc];"
+        "[bgsrc]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,"
+        "gblur=sigma=32,setsar=1[bg];"
+        f"[fgsrc]scale={fw}:-2,setsar=1[fg];"
+        "[bg][fg]overlay=(W-w)/2:(H-h)/2,fps=30,format=yuv420p[base]"
+    )
+
+    cues = build_cues(teaser_timeline or [])
+    caption_style = (
+        f"Fontsize={int(pp.get('teaser_caption_font_size', 44))},"
+        "PrimaryColour=&H00FFFFFF,OutlineColour=&H00000000,"
+        f"BorderStyle=1,Outline=3,Shadow=0,Alignment=2,"
+        f"MarginV={int(pp.get('teaser_caption_margin_v', 260))}"
+    )
+    srt_name = ""
+    if cues:
+        srt_path = work / f"{out.stem}_captions.srt"
+        write_cues_file(cues, srt_path)
+        srt_name = srt_path.name
+
+    headline_ready = bool(hook_text) and font is not None
+    if hook_text and font is None:
+        nf.warn("Sin fuente TTF disponible: el teaser sale sin headline quemado.")
+    if headline_ready:
         local_font = work / "nf_overlay_font.ttf"
         if not local_font.exists():
             shutil.copyfile(font, local_font)
+    text_file = work / f"{out.stem}_hook.txt"
+    if headline_ready:
         nf.write_text(text_file, hook_text.strip() + "\n")
-        seconds = float(pp.get("teaser_hook_seconds", 6.0))
-        size = int(pp.get("teaser_font_size", 64))
-        y = int(pp.get("teaser_text_y", 150))
-        alpha = float(pp.get("teaser_text_box_alpha", 0.55))
-        chain += (
-            f",drawtext=fontfile=nf_overlay_font.ttf:textfile={text_file.name}:expansion=none:"
-            f"fontcolor=white:fontsize={size}:line_spacing=12:"
-            f"box=1:boxcolor=black@{alpha}:boxborderw=26:"
-            f"x=(w-text_w)/2:y={y}:enable='between(t,0,{seconds})'"
-        )
-    elif hook_text and font is None:
-        nf.warn("Sin fuente TTF disponible: el teaser sale sin headline quemado.")
+
+    def video_chain(with_captions: bool) -> str:
+        chain = base_chain
+        label = "[base]"
+        if with_captions and srt_name:
+            chain += f";{label}subtitles={srt_name}:force_style='{caption_style}'[cap]"
+            label = "[cap]"
+        if headline_ready:
+            seconds = float(pp.get("teaser_hook_seconds", 6.0))
+            size = int(pp.get("teaser_font_size", 64))
+            y = int(pp.get("teaser_text_y", 150))
+            alpha = float(pp.get("teaser_text_box_alpha", 0.55))
+            chain += (
+                f";{label}drawtext=fontfile=nf_overlay_font.ttf:textfile={text_file.name}:expansion=none:"
+                f"fontcolor=white:fontsize={size}:line_spacing=12:"
+                f"box=1:boxcolor=black@{alpha}:boxborderw=26:"
+                f"x=(w-text_w)/2:y={y}:enable='between(t,0,{seconds})'[v]"
+            )
+        else:
+            chain += f";{label}null[v]"
+        return chain
 
     total = sum((nf.probe_media(p).get("duration") or 0.0) for p in segments)
     vol = float(pp.get("music_volume_db", -22.0)) - 2.0
     lufs = float(pp.get("loudness_target_lufs", -14.0))
     tp = float(pp.get("true_peak_db", -1.5))
+    loudnorm = f"loudnorm=I={lufs}:TP={tp}:LRA=11"
+    duck_threshold = float(pp.get("duck_threshold", 0.03))
+    duck_ratio = float(pp.get("duck_ratio", 8.0))
 
-    cmd = ["ffmpeg", "-y", "-v", "error", "-hide_banner", "-f", "concat", "-safe", "0",
-           "-i", list_file.name]
-    if music is not None:
-        cmd += ["-stream_loop", "-1", "-i", str(music.resolve())]
-        fade_out = min(3.0, max(1.0, total * 0.1))
-        graph = (
-            f"[0:v]{chain}[v];"
-            f"[1:a]volume={vol}dB,afade=t=in:st=0:d=1,afade=t=out:st={max(0.0, total - fade_out):.2f}:d={fade_out}[bg];"
-            f"[0:a][bg]amix=inputs=2:duration=first:dropout_transition=0:normalize=0[mix];"
-            f"[mix]loudnorm=I={lufs}:TP={tp}:LRA=11[a]"
-        )
-        cmd += ["-filter_complex", graph, "-map", "[v]", "-map", "[a]"]
-    else:
-        cmd += ["-vf", chain, "-af", f"loudnorm=I={lufs}:TP={tp}:LRA=11"]
-    cmd += ["-c:v", "libx264", "-preset", "veryfast", "-crf", str(crf), "-pix_fmt", "yuv420p",
-            "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-ac", "2",
-            "-movflags", "+faststart", str(out.resolve())]
-    _run_ffmpeg(cmd, cwd=work)
+    def build_graph(with_captions: bool) -> str:
+        graph = video_chain(with_captions)
+        if music is not None:
+            fade_out = min(3.0, max(1.0, total * 0.1))
+            graph += (
+                f";[1:a]volume={vol}dB,afade=t=in:st=0:d=1,"
+                f"afade=t=out:st={max(0.0, total - fade_out):.2f}:d={fade_out}[bg];"
+                f"[0:a]asplit=2[dial][key];"
+                f"[bg][key]sidechaincompress=threshold={duck_threshold}:ratio={duck_ratio}:"
+                f"attack=20:release=400[bgd];"
+                f"[dial][bgd]amix=inputs=2:duration=first:dropout_transition=0:normalize=0[mix];"
+                f"[mix]{loudnorm}[a]"
+            )
+        else:
+            graph += f";[0:a]{loudnorm}[a]"
+        return graph
+
+    def build_cmd(with_captions: bool) -> List[str]:
+        cmd = ["ffmpeg", "-y", "-v", "error", "-hide_banner", "-f", "concat", "-safe", "0",
+               "-i", list_file.name]
+        if music is not None:
+            cmd += ["-stream_loop", "-1", "-i", str(music.resolve())]
+        cmd += ["-filter_complex", build_graph(with_captions), "-map", "[v]", "-map", "[a]"]
+        cmd += ["-c:v", "libx264", "-preset", "veryfast", "-crf", str(crf), "-pix_fmt", "yuv420p",
+                "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-ac", "2",
+                "-movflags", "+faststart", str(out.resolve())]
+        return cmd
+
+    try:
+        _run_ffmpeg(build_cmd(bool(srt_name)), cwd=work)
+    except nf.NFError:
+        if not srt_name:
+            raise
+        nf.warn("No se pudieron quemar los subtítulos del teaser (¿libass?); reintento sin captions.")
+        _run_ffmpeg(build_cmd(False), cwd=work)
     return total
 
 
@@ -550,16 +651,16 @@ def main(argv: Optional[List[str]] = None) -> int:
             head, tail, note = 0.0, min(float(probe.get("duration") or 0.0), nf.SCENE_SECONDS), "sin recorte"
         else:
             head, tail, note = analyze_silence(src, probe, pp)
-        keep = min(max(0.5, tail - head), nf.SCENE_SECONDS)
+        target = scene_target_seconds(pp)
         dst = norm_dir / f"{nf.scene_stem(sid)}.mp4"
-        normalize_scene(src, dst, head, keep, pp, crf_scene, args.force)
+        normalize_scene(src, dst, head, pp, crf_scene, args.force)
         if args.punch_ins:
             punch_dst = work / "norm_punch" / f"{nf.scene_stem(sid)}.mp4"
-            if apply_punch_ins(dst, punch_dst, scene.get("internal_cuts") or [], crf_scene):
+            if apply_punch_ins(dst, punch_dst, scene.get("internal_cuts") or [], crf_scene, target):
                 dst = punch_dst
-        dur = float(nf.probe_media(dst).get("duration") or keep)
-        if dur < float(pp.get("allow_short_scene_sec", 6.0)):
-            nf.warn(f"Escena {sid}: {dur:.2f}s (corta; revisa el clip original).")
+        dur = float(nf.probe_media(dst).get("duration") or target)
+        if abs(dur - target) > nf.DURATION_TOLERANCE_SEC:
+            nf.warn(f"Escena {sid}: {dur:.3f}s (se esperaban {target:.3f}s).")
         timeline.append({"scene": scene, "clip": dst, "start": cursor, "dur": dur, "trim": note})
         cursor += dur
         if idx % 10 == 0 or idx == len(scenes):
@@ -607,9 +708,14 @@ def main(argv: Optional[List[str]] = None) -> int:
             if len(segments) < len(ids):
                 nf.warn(f"Teaser {teaser.get('id')}: faltan escenas ({len(segments)}/{len(ids)}); se omite.")
                 continue
+            t_timeline = [t for t in timeline if int(t["scene"].get("scene_id") or 0) in ids]
+            if t_timeline:
+                base_start = float(t_timeline[0]["start"])
+                t_timeline = [{"scene": t["scene"], "start": float(t["start"]) - base_start,
+                               "dur": float(t["dur"])} for t in t_timeline]
             out = paths["output"] / f"teaser_{int(teaser.get('id') or 0):02d}_9x16.mp4"
             dur = render_teaser(segments, out, str(teaser.get("hook_text") or ""), pp, font,
-                                music, crf_teaser, work)
+                                music, crf_teaser, work, t_timeline)
             teaser_files.append((teaser, out, dur))
             nf.ok(f"Teaser {teaser.get('id')}: {out.name} ({dur:.1f} s)")
 

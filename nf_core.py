@@ -54,6 +54,16 @@ DEFAULT_SHOT_ROTATION = [
 ]
 FRAME_EXTS = (".png", ".jpg", ".jpeg", ".webp")
 
+# --- Contrato de contenido (P0): ritmo de habla y presupuesto por escena ---
+SPEECH_WORDS_PER_SECOND = 2.5    # ritmo conversacional US English (~150 wpm)
+MAX_SCENE_WORDS = 22             # tope real para 10 s escénicos (22/2.5 = 8.8 s)
+MAX_LINE_WORDS = 16              # tope por intervención
+MIN_SCENE_WORDS = 12             # mínimo para que la escena no quede vacía
+MAX_SCENE_SPEECH_SECONDS = 9.0   # deja aire para pausas/acción dentro de 10 s
+CUT_MIN_GAP = 2.5
+CUT_MAX_GAP = 4.0
+DURATION_TOLERANCE_SEC = 0.05
+
 
 class NFError(RuntimeError):
     """Error controlado del módulo (mensaje apto para consola)."""
@@ -82,12 +92,27 @@ def err(msg: str) -> None:
 
 # --- Utilidades de texto / ficheros ---
 def slugify(text: str) -> str:
-    """Convierte un título en slug ASCII seguro para carpeta."""
+    """Convierte un título en slug seguro para carpeta.
+
+    ASCII primero (comportamiento histórico). Si el título no genera nada ASCII
+    (p. ej. chino), conserva caracteres Unicode alfanuméricos y añade un hash
+    corto para evitar colisiones entre títulos CJK distintos.
+    """
+    import hashlib
+
     t = unicodedata.normalize("NFKD", text or "")
-    t = "".join(ch for ch in t if not unicodedata.combining(ch))
-    t = t.lower().strip()
-    t = re.sub(r"[^a-z0-9]+", "_", t)
-    return re.sub(r"_+", "_", t).strip("_") or "episode"
+    ascii_t = "".join(ch for ch in t if not unicodedata.combining(ch)).lower().strip()
+    ascii_slug = re.sub(r"[^a-z0-9]+", "_", ascii_t)
+    ascii_slug = re.sub(r"_+", "_", ascii_slug).strip("_")
+    if ascii_slug:
+        return ascii_slug
+    uni = unicodedata.normalize("NFKC", text or "").lower().strip()
+    uni = re.sub(r"[^\w]+", "_", uni, flags=re.UNICODE)
+    uni = re.sub(r"_+", "_", uni, flags=re.UNICODE).strip("_")
+    if uni:
+        digest = hashlib.sha1((text or "").encode("utf-8")).hexdigest()[:6]
+        return f"{uni}_{digest}"
+    return "episode"
 
 
 def now_iso() -> str:
@@ -197,6 +222,7 @@ def project_paths(slug_or_dir: str | Path) -> Dict[str, Path]:
         "omni_json": root / "omni_video_prompts_queue.json",
         "omni_txt": root / "omni_video_prompts_queue.txt",
         "chatgpt_refs": root / "chatgpt_reference_sheets.txt",
+        "chatgpt_thumbs": root / "chatgpt_thumbnail_prompts.txt",
         "state": root / "queue_state.json",
     }
 
@@ -426,6 +452,147 @@ def scene_words(scene: Dict[str, Any]) -> int:
     return len(re.findall(r"\b[\w'-]+\b", scene_dialogue_text(scene, with_speaker=False)))
 
 
+def scene_line_words(scene: Dict[str, Any]) -> List[int]:
+    """Palabras por intervención, en orden."""
+    return [len(re.findall(r"\b[\w'-]+\b", d["line"])) for d in scene_dialogue_lines(scene)]
+
+
+def scene_speech_seconds(scene: Dict[str, Any], words_per_second: float = SPEECH_WORDS_PER_SECOND) -> float:
+    """Segundos estimados de habla de la escena (todas las líneas)."""
+    wps = float(words_per_second or SPEECH_WORDS_PER_SECOND)
+    return (scene_words(scene) / wps) if wps > 0 else 0.0
+
+
+# --- Reparto canónico / hablantes / continuidad presente ---
+def _cast_keys(character: Dict[str, Any]) -> List[str]:
+    keys: List[str] = []
+    for raw in (character.get("id"), character.get("name"), character.get("archetype")):
+        text = str(raw or "").strip().lower()
+        if not text:
+            continue
+        keys.append(text)
+        keys.append(re.sub(r"[^a-z0-9]+", " ", text).strip())
+        keys.append(re.sub(r"[^a-z0-9]+", "_", text).strip("_"))
+        keys.append(text.split()[0] if text.split() else text)
+    return [k for k in keys if k]
+
+
+def canonical_cast(master: Dict[str, Any]) -> Dict[str, Dict[str, Any]]:
+    """Índice de personajes por id / nombre / primer nombre / arquetipo (minúsculas)."""
+    index: Dict[str, Dict[str, Any]] = {}
+    for character in master.get("characters") or []:
+        if not isinstance(character, dict):
+            continue
+        for key in _cast_keys(character):
+            index.setdefault(key, character)
+    return index
+
+
+def resolve_speaker(speaker: str, master: Dict[str, Any]) -> Optional[str]:
+    """Devuelve el id/name canónico de un hablante, o None si no está en el reparto."""
+    text = str(speaker or "").strip().lower()
+    if not text:
+        return None
+    if text in ("narrator", "narrador", "n/a", "none", "unknown"):
+        return None
+    index = canonical_cast(master)
+    for key in (text, re.sub(r"[^a-z0-9]+", " ", text).strip(),
+                re.sub(r"[^a-z0-9]+", "_", text).strip("_"), text.split()[0] if text.split() else text):
+        character = index.get(key)
+        if character:
+            return str(character.get("id") or character.get("name") or speaker)
+    return None
+
+
+def character_by_key(master: Dict[str, Any]) -> Dict[str, Dict[str, Any]]:
+    """Índice de personajes por id Y por nombre (minúsculas)."""
+    index: Dict[str, Dict[str, Any]] = {}
+    for character in master.get("characters") or []:
+        if not isinstance(character, dict):
+            continue
+        for key in (character.get("id"), character.get("name")):
+            text = str(key or "").strip().lower()
+            if text:
+                index.setdefault(text, character)
+    return index
+
+
+def reference_stem(character: Dict[str, Any]) -> str:
+    """Nombre de archivo canónico de la hoja de referencia: reference_<id>.png."""
+    cid = slugify(str(character.get("id") or character.get("name") or "character")) or "character"
+    return f"reference_{cid}.png"
+
+
+def scene_cast(master: Dict[str, Any], scene: Dict[str, Any]) -> List[Dict[str, Any]]:
+    """Personajes canónicos presentes en una escena (sin duplicados, en orden)."""
+    index = character_by_key(master)
+    out: List[Dict[str, Any]] = []
+    for item in scene.get("characters") or []:
+        text = str(item or "").strip().lower()
+        if not text:
+            continue
+        character = (
+            index.get(text)
+            or index.get(re.sub(r"[^a-z0-9]+", " ", text).strip())
+            or index.get(re.sub(r"[^a-z0-9]+", "_", text).strip("_"))
+            or index.get(text.split()[0] if text.split() else text)
+        )
+        if character is not None and character not in out:
+            out.append(character)
+    return out
+
+
+FUTURE_REF_RE = re.compile(
+    r"\b(scene\s+\d+|returns?\s+in|planted\s+in|pays?\s+off|reveals?\s+in|"
+    r"will\s+be\s+(?:introduced|revealed)|later\s+in|in\s+act\s+\d+|"
+    r"foreshadow|comes?\s+back\s+in|callback)\b",
+    re.IGNORECASE,
+)
+
+
+def strip_future_refs(text: str) -> Tuple[str, List[str]]:
+    """Separa continuidad en PRESENTE de referencias futuras (spoilers).
+
+    Devuelve (texto_presente, frases_eliminadas). Trabaja por frases para no
+    dejar fragmentos colgando cuando se elimina una referencia futura.
+    """
+    raw = str(text or "").strip()
+    if not raw:
+        return "", []
+    kept: List[str] = []
+    removed: List[str] = []
+    for sentence in re.split(r"(?<=[.!?])\s+", raw):
+        sentence = sentence.strip()
+        if not sentence:
+            continue
+        if FUTURE_REF_RE.search(sentence):
+            removed.append(sentence)
+        else:
+            kept.append(sentence)
+    return " ".join(kept).strip(), removed
+
+
+def location_keyword_match(location: str, master: Dict[str, Any]) -> bool:
+    """True si la ubicación de escena encaja con la taxonomía declarada."""
+    text = str(location or "").strip().lower()
+    if not text:
+        return False
+    entries = master.get("locations") or []
+    if not entries:
+        return True
+    for entry in entries:
+        if isinstance(entry, str):
+            name = entry
+        elif isinstance(entry, dict):
+            name = f"{entry.get('id') or ''} {entry.get('name') or ''}".strip()
+        else:
+            continue
+        for word in re.split(r"[^a-z0-9]+", name.lower()):
+            if len(word) >= 4 and word in text:
+                return True
+    return False
+
+
 # --- Normalización y validación del JSON Maestro ---
 def _coerce_dialogue(value: Any) -> List[Dict[str, str]]:
     if isinstance(value, str):
@@ -594,36 +761,64 @@ def normalize_master(
     if not str(ep.get("logline") or "").strip():
         warnings.append("episode.logline vacío: se recomienda una frase de 1-2 líneas para el pack de publicación.")
 
+    cast_index = canonical_cast({"characters": payload.get("characters") or []})
+
     scenes: List[Dict[str, Any]] = []
     for idx, raw in enumerate(raw_scenes, start=1):
         scene = dict(raw)
         original_id = scene.get("scene_id")
-        if original_id not in (None, "", idx):
+        sid = idx
+        if original_id not in (None, ""):
             try:
-                if int(original_id) != idx:
-                    warnings.append(f"scene_id {original_id} reordenado a {idx}.")
+                sid = int(original_id)
             except (TypeError, ValueError):
-                pass
-        scene["scene_id"] = idx
+                warnings.append(f"scene_id no numérico ({original_id!r}); se usa {idx}.")
+                sid = idx
+        scene["scene_id"] = sid
         scene["duration_s"] = float(scene.get("duration_s") or SCENE_SECONDS)
         try:
             act = int(scene.get("act") or 0)
         except (TypeError, ValueError):
             act = 0
-        scene["act"] = act if 1 <= act <= 6 else ((idx - 1) // 10 + 1)
-        scene["beat"] = str(scene.get("beat") or required_beats.get(idx) or "").strip()
+        scene["act"] = act if 1 <= act <= 6 else ((max(1, sid) - 1) // 10 + 1)
+        scene["beat"] = str(scene.get("beat") or required_beats.get(sid) or "").strip()
         scene["dialogue"] = _coerce_dialogue(scene.get("dialogue"))
         scene["internal_cuts"] = _coerce_cuts(scene.get("internal_cuts"), rotation)
         scene["first_frame_prompt"] = str(
             scene.get("first_frame_prompt") or scene.get("image_prompt") or scene.get("frame_prompt") or ""
         ).strip()
         scene["sfx_ambience"] = str(scene.get("sfx_ambience") or scene.get("ambience") or "").strip()
-        scene["continuity"] = str(scene.get("continuity") or "").strip()
+        raw_continuity = str(scene.get("continuity") or "").strip()
+        present, future = strip_future_refs(raw_continuity)
+        scene["continuity"] = raw_continuity
+        scene["continuity_present"] = present
+        scene["continuity_future_refs"] = future
         scene["on_screen_hook"] = str(scene.get("on_screen_hook") or "").strip()
+        raw_chars = scene.get("characters")
+        if isinstance(raw_chars, str):
+            raw_chars = [raw_chars]
+        normalized_chars: List[str] = []
+        for item in raw_chars or []:
+            text = str(item or "").strip()
+            if not text:
+                continue
+            key = text.lower()
+            character = (
+                cast_index.get(key)
+                or cast_index.get(re.sub(r"[^a-z0-9]+", " ", key).strip())
+                or cast_index.get(re.sub(r"[^a-z0-9]+", "_", key).strip("_"))
+                or cast_index.get(key.split()[0] if key.split() else key)
+            )
+            cid = str((character or {}).get("id") or (character or {}).get("name") or text)
+            if cid not in normalized_chars:
+                normalized_chars.append(cid)
+        scene["characters"] = normalized_chars
         if not scene["first_frame_prompt"]:
-            warnings.append(f"Escena {idx}: first_frame_prompt vacío (el frame no se podrá generar).")
+            warnings.append(f"Escena {sid}: first_frame_prompt vacío (el frame no se podrá generar).")
         if not scene["dialogue"]:
-            warnings.append(f"Escena {idx}: sin diálogo (10 s de silencio).")
+            warnings.append(f"Escena {sid}: sin diálogo (10 s de silencio).")
+        if future:
+            warnings.append(f"Escena {sid}: continuidad con referencias futuras ({len(future)}); se sanean en el prompt de vídeo.")
         scenes.append(scene)
 
     master: Dict[str, Any] = dict(payload)
@@ -635,6 +830,7 @@ def normalize_master(
     master["locations"] = master.get("locations") if isinstance(master.get("locations"), list) else []
     master["acts"] = master.get("acts") if isinstance(master.get("acts"), list) else []
     master["scenes"] = scenes
+    master["partial"] = len(scenes) != SCENE_COUNT
     master["teasers"] = _normalize_teasers(payload, scenes, warnings)
 
     pub = dict(master.get("publisher") or {}) if isinstance(master.get("publisher"), dict) else {}
@@ -672,10 +868,24 @@ def _fill_default_prompts(master: Dict[str, Any], style: Dict[str, Any]) -> Dict
     return master
 
 
-def validate_master(master: Dict[str, Any], allow_partial: bool = False) -> Dict[str, List[str]]:
-    """Validación semántica/estructural. Devuelve {'errors': [...], 'warnings': [...]}."""
+def validate_master(
+    master: Dict[str, Any],
+    allow_partial: bool = False,
+    production: bool = False,
+) -> Dict[str, List[str]]:
+    """Validación semántica/estructural. Devuelve {'errors': [...], 'warnings': [...]}.
+
+    Con ``production=True`` los hallazgos de contenido (reparto, hablantes,
+    presupuesto de habla, continuidad futura, taxonomía de ubicaciones) pasan de
+    advertencia a error. En modo normal se conservan como advertencias para no
+    romper los fixtures existentes.
+    """
     errors: List[str] = []
     warnings: List[str] = []
+
+    def strict(msg: str) -> None:
+        (errors if production else warnings).append(msg)
+
     ep = episode_meta(master)
     scenes = [s for s in (master.get("scenes") or []) if isinstance(s, dict)]
 
@@ -685,15 +895,28 @@ def validate_master(master: Dict[str, Any], allow_partial: bool = False) -> Dict
         errors.append("episode.title ausente.")
     if not allow_partial and len(scenes) != SCENE_COUNT:
         errors.append(f"Se esperaban {SCENE_COUNT} escenas y hay {len(scenes)}.")
+    if production and master.get("partial") and not allow_partial:
+        errors.append("El maestro es parcial (<60 escenas): no es publicable.")
     ids = [int(s.get("scene_id") or 0) for s in scenes]
-    if ids != list(range(1, len(scenes) + 1)):
+    if len(set(ids)) != len(ids):
+        errors.append("scene_id duplicado.")
+    if not allow_partial and ids != list(range(1, len(scenes) + 1)):
         errors.append("scene_id debe ser 1..N sin huecos ni duplicados.")
+    elif allow_partial and ids != sorted(ids):
+        warnings.append("IDs parciales desordenados: ordénalos antes de fusionar.")
 
     rules = load_showrunner()
     fmt = rules.get("format") or {}
-    min_words, max_words = (fmt.get("words_per_scene_dialogue") or [18, 30])[:2]
+    wps = float(fmt.get("speech_words_per_second") or SPEECH_WORDS_PER_SECOND)
+    max_scene_words = int(fmt.get("max_scene_words") or MAX_SCENE_WORDS)
+    max_line_words = int(fmt.get("max_line_words") or MAX_LINE_WORDS)
+    min_scene_words = int(fmt.get("min_scene_words") or MIN_SCENE_WORDS)
+    scene_seconds = float(fmt.get("scene_seconds") or SCENE_SECONDS)
+
     prompts = 0
     silent = 0
+    unknown_chars: set[tuple[int, str]] = set()
+    unknown_speakers: set[tuple[int, str]] = set()
     for scene in scenes:
         sid = int(scene.get("scene_id") or 0)
         if not 1 <= int(scene.get("act") or 0) <= 6:
@@ -706,18 +929,56 @@ def validate_master(master: Dict[str, Any], allow_partial: bool = False) -> Dict
         cuts = scene.get("internal_cuts")
         if not isinstance(cuts, list) or len(cuts) < 2:
             errors.append(f"Escena {sid}: se requieren 2-4 cortes internos.")
-        elif cuts and float(cuts[0].get("at", -1)) != 0.0:
-            warnings.append(f"Escena {sid}: el primer corte debería empezar en 0.0 s.")
+        else:
+            if len(cuts) > 4:
+                strict(f"Escena {sid}: {len(cuts)} cortes (máximo 4).")
+            ats = [float(c.get("at") or 0.0) for c in cuts]
+            if ats and ats[0] != 0.0:
+                warnings.append(f"Escena {sid}: el primer corte debería empezar en 0.0 s.")
+            for a, b in zip(ats, ats[1:]):
+                gap = b - a
+                if gap < CUT_MIN_GAP - 1e-6 or gap > CUT_MAX_GAP + 1e-6:
+                    strict(f"Escena {sid}: separación de cortes {gap:.2f}s fuera de {CUT_MIN_GAP}-{CUT_MAX_GAP}s.")
         words = scene_words(scene)
         if words == 0:
             silent += 1
             warnings.append(f"Escena {sid}: sin diálogo.")
-        elif not (min_words - 8 <= words <= max_words + 8):
-            warnings.append(f"Escena {sid}: {words} palabras de diálogo (rango recomendado {min_words}-{max_words}).")
+        else:
+            if words > max_scene_words:
+                strict(f"Escena {sid}: {words} palabras de diálogo > {max_scene_words} (no cabe en {scene_seconds:.0f}s).")
+            elif words < min_scene_words:
+                strict(f"Escena {sid}: solo {words} palabras de diálogo (<{min_scene_words}).")
+        for line_no, count in enumerate(scene_line_words(scene), start=1):
+            if count > max_line_words:
+                strict(f"Escena {sid}: línea {line_no} con {count} palabras > {max_line_words}.")
+        speech = scene_speech_seconds(scene, wps)
+        if speech > MAX_SCENE_SPEECH_SECONDS:
+            strict(f"Escena {sid}: {speech:.1f}s de habla > {MAX_SCENE_SPEECH_SECONDS:.1f}s.")
         if not scene.get("beat"):
             warnings.append(f"Escena {sid}: sin beat dramático.")
         if not str(scene.get("sfx_ambience") or "").strip():
             warnings.append(f"Escena {sid}: sin ambiencia/sfx (el audio nativo puede quedar plano).")
+        for item in scene.get("characters") or []:
+            if str(item or "").strip() and resolve_speaker(str(item), master) is None:
+                unknown_chars.add((sid, str(item)))
+        for entry in scene_dialogue_lines(scene):
+            speaker = entry["speaker"]
+            if not speaker:
+                if production:
+                    strict(f"Escena {sid}: línea sin hablante.")
+            elif resolve_speaker(speaker, master) is None:
+                unknown_speakers.add((sid, speaker))
+        future = scene.get("continuity_future_refs") or []
+        if future:
+            strict(f"Escena {sid}: continuidad con spoiler futuro: {future[0][:70]}")
+        scene_location = str(scene.get("location") or "").strip()
+        if scene_location and not location_keyword_match(scene_location, master):
+            strict(f"Escena {sid}: ubicación '{scene_location}' fuera de la taxonomía declarada.")
+
+    for sid, name in sorted(unknown_chars):
+        strict(f"Escena {sid}: personaje desconocido '{name}' (no está en characters[]).")
+    for sid, speaker in sorted(unknown_speakers):
+        strict(f"Escena {sid}: hablante desconocido '{speaker}' (no está en characters[]).")
 
     if scenes:
         required = {int(k): v for k, v in (rules.get("required_beats") or {}).items() if str(k).isdigit()}
@@ -731,10 +992,12 @@ def validate_master(master: Dict[str, Any], allow_partial: bool = False) -> Dict
         warnings.append("Se esperaban 3 teasers (60 s cada uno).")
     else:
         for t in teasers:
-            ids_t = t.get("scenes") or []
+            ids_t = [int(i) for i in (t.get("scenes") or [])]
             if len(ids_t) != 6:
                 warnings.append(f"Teaser {t.get('id')}: se esperaban 6 escenas (60 s) y hay {len(ids_t)}.")
-            if any(not (1 <= int(i) <= len(scenes)) for i in ids_t):
+            if ids_t and ids_t != list(range(min(ids_t), min(ids_t) + len(ids_t))):
+                strict(f"Teaser {t.get('id')}: las escenas deben ser consecutivas ({ids_t}).")
+            if any(not (1 <= i <= len(scenes)) for i in ids_t):
                 errors.append(f"Teaser {t.get('id')}: referencia escenas fuera de rango.")
 
     if silent > max(2, len(scenes) // 10):
@@ -742,14 +1005,70 @@ def validate_master(master: Dict[str, Any], allow_partial: bool = False) -> Dict
     if prompts < len(scenes):
         warnings.append(f"{len(scenes) - prompts} escenas sin prompt de imagen utilizable.")
     characters = [c for c in (master.get("characters") or []) if isinstance(c, dict)]
-    if characters and not any(
+    if not characters:
+        strict("No hay characters[]: la coherencia facial y las voces no se pueden verificar.")
+    elif not any(
         str(c.get("visual_reference") or c.get("reference_image") or "").strip() for c in characters
     ):
-        warnings.append(
+        strict(
             "Ningún personaje define visual_reference/reference_image: la coherencia facial "
-            "dependerá de tus adjuntos manuales (ver 02 — chatgpt_reference_sheets.txt)."
+            "dependerá de adjuntos manuales (ver 02 — chatgpt_reference_sheets.txt)."
         )
     return {"errors": errors, "warnings": warnings}
+
+
+def merge_payloads(payloads: List[Dict[str, Any]]) -> Tuple[Dict[str, Any], List[str]]:
+    """Fusiona partes del guion por scene_id: ordena, deduplica y no renumera."""
+    warnings: List[str] = []
+    if not payloads:
+        raise NFError("No hay payloads para fusionar.")
+    if len(payloads) == 1:
+        return payloads[0], warnings
+    full = [p for p in payloads if len(p.get("scenes") or []) == SCENE_COUNT]
+    if full:
+        warnings.append("Se recibieron varios JSON con 60 escenas; se usa el primero y se ignoran los demás.")
+        return full[0], warnings
+
+    keyed: Dict[int, Dict[str, Any]] = {}
+    unkeyed: List[Dict[str, Any]] = []
+    for payload in payloads:
+        for scene in payload.get("scenes") or []:
+            if not isinstance(scene, dict):
+                continue
+            try:
+                sid = int(scene.get("scene_id"))
+            except (TypeError, ValueError):
+                unkeyed.append(scene)
+                continue
+            if sid in keyed:
+                warnings.append(f"scene_id {sid} duplicado al fusionar: se conserva la última aparición.")
+            keyed[sid] = scene
+
+    ordered = [keyed[sid] for sid in sorted(keyed)] + unkeyed
+    merged: Dict[str, Any] = {"scenes": ordered}
+    for key in ("episode", "characters", "locations", "acts", "publisher", "soundtrack"):
+        for payload in payloads:
+            if payload.get(key):
+                merged.setdefault(key, payload[key])
+                break
+    teasers: Dict[int, Dict[str, Any]] = {}
+    for payload in payloads:
+        for teaser in payload.get("teasers") or []:
+            if not isinstance(teaser, dict):
+                continue
+            try:
+                tid = int(teaser.get("id") or 0)
+            except (TypeError, ValueError):
+                continue
+            if tid:
+                teasers.setdefault(tid, teaser)
+    if teasers:
+        merged["teasers"] = [teasers[k] for k in sorted(teasers)]
+    missing = [i for i in range(1, SCENE_COUNT + 1) if i not in keyed]
+    if missing:
+        warnings.append(f"Faltan {len(missing)} escenas tras fusionar: {missing[:12]}{'…' if len(missing) > 12 else ''}")
+    warnings.append(f"Fusionados {len(payloads)} archivos en un maestro ({len(ordered)} escenas).")
+    return merged, warnings
 
 
 def print_validation(result: Dict[str, List[str]]) -> bool:

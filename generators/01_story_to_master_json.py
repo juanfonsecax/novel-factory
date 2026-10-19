@@ -105,15 +105,70 @@ def _acts_block(rules: Dict[str, Any]) -> str:
 def _retention_block(rules: Dict[str, Any]) -> str:
     eng = rules.get("retention_engine") or {}
     fmt = rules.get("format") or {}
+    max_words = fmt.get("max_scene_words", 22)
+    max_line = fmt.get("max_line_words", 16)
+    max_speech = fmt.get("max_scene_speech_seconds", 9.0)
+    wps = fmt.get("speech_words_per_second", 2.5)
     return (
         f"- Total scenes: {fmt.get('total_scenes')} x {fmt.get('scene_seconds')} s = {fmt.get('total_seconds')} s.\n"
-        f"- Dialogue per scene: {fmt.get('words_per_scene_dialogue')} words TOTAL (all speakers).\n"
+        f"- Dialogue per scene: {max_words} words TOTAL across all speakers (hard cap). "
+        f"Target {fmt.get('words_per_scene_dialogue')}. Never exceed {max_words}.\n"
+        f"- Max {max_line} words per single line. At ~{wps} words/second that is <= {max_speech} s of speech "
+        f"in a {fmt.get('scene_seconds')} s scene, leaving room for pauses.\n"
         f"- Internal cuts per scene: {fmt.get('internal_cuts_per_scene')}, first at 0.0 s, separated by 2.5-4 s.\n"
         f"- Open-loop types allowed: " + "; ".join(eng.get("open_loop_types") or []) + ".\n"
         f"- Dopamine cadence: {eng.get('dopamine_cadence')}\n"
         f"- Cliffhanger types allowed: " + "; ".join(eng.get("cliffhanger_types") or []) + ".\n"
         f"- Forbidden: " + "; ".join(eng.get("forbidden") or []) + "."
     )
+
+
+def _part_plan(part: str) -> Dict[str, Any]:
+    """Traduce --part a rango de escenas + reglas de prompts/teasers.
+
+    Acepta 'full', la división clásica en 2 ('1'/'2') y las etiquetas explícitas
+    '1of2'/'2of2' y '1of3'/'2of3'/'3of3'.
+    """
+    key = str(part or "full").strip().lower()
+    if key in ("", "full", "0", "all"):
+        return {
+            "label": "",
+            "lo": 1, "hi": 60,
+            "rule": "Write the COMPLETE episode: all 60 scenes, Acts 1-6. Do not summarize or skip scenes.",
+            "teasers": "Teasers: include all 3 (6 consecutive scenes each, 60 s each).",
+        }
+    if key in ("1of3", "2of3", "3of3"):
+        idx = int(key[0])
+        lo, hi = (idx - 1) * 20 + 1, idx * 20
+        label = f"PART {idx} OF 3"
+    else:
+        idx = 1 if key in ("1", "1of2") else 2 if key in ("2", "2of2") else None
+        if idx is None:
+            raise NFError(f"--part inválido: {part!r} (usa full, 1of3/2of3/3of3 o 1of2/2of2)")
+        lo, hi = (1, 30) if idx == 1 else (31, 60)
+        label = f"PART {idx} OF 2"
+
+    teaser_ranges = {1: (1, 6), 2: (21, 26), 3: (55, 60)}
+    within = [tid for tid, (a, b) in teaser_ranges.items() if a >= lo and b <= hi]
+    if within:
+        teaser_rule = (
+            "Teasers: include ONLY teaser(s) " + ", ".join(str(t) for t in within) +
+            " (6 consecutive scenes each). Omit the others."
+        )
+    else:
+        teaser_rule = "Teasers: this part covers no full teaser window; return an empty teasers list."
+
+    return {
+        "label": label,
+        "lo": lo,
+        "hi": hi,
+        "rule": (
+            f"{label}: write ONLY scenes {lo}-{hi}. scene_id must run {lo}..{hi}. "
+            "Keep the exact same characters, wardrobe, props and locations as the rest of the episode. "
+            "Do not summarize any scene."
+        ),
+        "teasers": teaser_rule,
+    }
 
 
 def build_llm_prompt(
@@ -132,21 +187,9 @@ def build_llm_prompt(
     voice = style.get("voice_lock") or {}
     visual = style.get("visual_style_lock") or {}
 
-    if part == "1":
-        part_rule = (
-            "PART 1 OF 2: write ONLY scenes 1-30 (Acts 1-3). scene_id must run 1..30. "
-            "Do not summarize scenes 31-60. Include teasers 1 and 2 only."
-        )
-        teaser_rule = "Teasers: include teaser 1 (scenes 1-6) and teaser 2 (6 consecutive scenes from acts 3-4). Omit teaser 3."
-    elif part == "2":
-        part_rule = (
-            "PART 2 OF 2: write ONLY scenes 31-60 (Acts 4-6). scene_id must run 31..60. "
-            "Continue the exact same characters, wardrobe, props and locations. Include teaser 3 only."
-        )
-        teaser_rule = "Teasers: include teaser 3 only (6 consecutive scenes from acts 5-6). Omit teasers 1-2."
-    else:
-        part_rule = "Write the COMPLETE episode: all 60 scenes, Acts 1-6. Do not summarize or skip scenes."
-        teaser_rule = "Teasers: include all 3 (6 consecutive scenes each, 60 s each)."
+    plan = _part_plan(part)
+    part_rule = plan["rule"]
+    teaser_rule = plan["teasers"]
 
     schema = """{
   "episode": {
@@ -189,7 +232,7 @@ def build_llm_prompt(
       "time_of_day": "storm dusk",
       "characters": ["nora"],
       "on_screen_hook": "5-10 word teaser headline (only for scenes 1, 10, 20, 30, 40, 50, 60; empty elsewhere)",
-      "first_frame_prompt": "Cinematic still of the same woman as the reference image, wide establishing shot, at the Hale lighthouse cliff edge, storm dusk. She stands with her coat snapping in the wind, jaw set, eyes bright with contained anger. Wardrobe: charcoal wool coat over a dark sweater, dark jeans, rain-wet hair. Her face is unobstructed and centered for a 9:16 crop. 45-80 words, no style suffix (it is appended automatically), no text or logos.",
+      "first_frame_prompt": "Cinematic still of Nora Hale (the character in reference_nora.png), wide establishing shot, at the Hale lighthouse cliff edge, storm dusk. Nora stands with her coat snapping in the wind, jaw set, eyes bright with contained anger. Wardrobe: charcoal wool coat over a dark sweater, dark jeans, rain-wet hair. Keep Nora Hale's face and wardrobe identical to reference_nora.png. Framing keeps the face unobstructed and centered for a 9:16 crop. 45-80 words, no style suffix (it is appended automatically), no text or logos.",
       "internal_cuts": [
         {"at": 0.0, "framing": "wide establishing shot", "action": "Nora stands at the cliff edge, the lighthouse dark behind her, salt wind whipping her coat."},
         {"at": 3.6, "framing": "tight close-up", "action": "Her hand closes around a brass key in her pocket; her jaw tightens."},
@@ -199,7 +242,7 @@ def build_llm_prompt(
         {"speaker": "NORA", "line": "They said the lighthouse was empty for ten years. So who left the light on?", "delivery": "cold, quiet"}
       ],
       "sfx_ambience": "wind, distant surf, a gull, wet gravel underfoot",
-      "continuity": "Act 1 wardrobe. The brass key is introduced here and returns in scene 40."
+      "continuity": "Act 1 wardrobe. She is holding the brass key; salt wind, wet gravel, cold hands. Present state only."
     }
   ],
   "teasers": [
@@ -255,8 +298,9 @@ Write the complete episode as ONE valid JSON object that follows the schema belo
 
 - Step 0 (once per episode): fill "visual_reference" for every main character. generators/02 exports chatgpt_reference_sheets.txt so the user can create one reference sheet per character BEFORE the frames and keep all of them attached in the same ChatGPT thread.
 - One still per scene, 16:9, cinematic, photoreal. It must be the literal first frame of the clip.
-- Start the prompt with "Cinematic still of the same woman as the reference image" (or "the same man...").
-- Identity comes from the attached reference images: NEVER write age, name, eye color, skin tone or base hair color in the prompt. Describe only transient state: moment hairstyle, wet hair, flush, sweat, expression, gaze, wardrobe, pose, light, framing.
+- Open every prompt with the character name and the reference file: e.g. "Cinematic still of Nora Hale (the character in reference_nora.png), ...". Use the character's own id in the filename (lowercase, underscores).
+- Identity comes from the attached reference images and the reference file. NEVER write age, eye color, skin tone or base hair color in the prompt. Describe only transient state: moment hairstyle, wet hair, flush, sweat, expression, gaze, wardrobe, pose, light, framing.
+- Close the prompt with a one-line binding: "Keep <Name>'s face and wardrobe identical to reference_<id>.png."
 - Include framing, location, time of day, wardrobe, expression and one telling environmental detail.
 - Center-weight the subject so a 9:16 crop still works. Keep the face unobstructed.
 - 45-80 words per prompt. Do NOT include the global style suffix or negative prompt; they are appended automatically.
@@ -268,7 +312,8 @@ Write the complete episode as ONE valid JSON object that follows the schema belo
 ## AUDIO / VOICE RULES
 
 - Native US English only. Conversational pace (~2.5 words/second).
-- 18-30 words of dialogue TOTAL per scene across all speakers. 1-3 lines. Silence is allowed but rare.
+- 14-22 words of dialogue TOTAL per scene across all speakers (hard cap 22). 1-3 lines, max 16 words each. Silence is allowed but rare.
+- Every "speaker" MUST be the exact name of a character declared in "characters[].name". Never invent speakers (no CLERK, no NARRATOR, no unnamed roles).
 - Subtext over exposition. Concrete nouns. No therapy-speak, no lectures, no villain monologues.
 - The clip contains dialogue + diegetic ambience only. NO music, NO narrator, NO subtitles.
 - Voice archetypes you may reference: {json.dumps(voice.get('character_voice_archetypes') or {}, ensure_ascii=False)}
@@ -277,6 +322,9 @@ Write the complete episode as ONE valid JSON object that follows the schema belo
 ## CONTINUITY
 
 {json.dumps((rules.get('continuity_rules') or {}), ensure_ascii=False, indent=2)}
+
+- Write "continuity" in PRESENT tense only: current wardrobe, current props, current state of mind or body. NO spoilers.
+- NEVER mention a future scene, act or event (no "returns in scene 40", "pays off later", "is revealed in act 5", "it is planted now"). The clip for this scene must not hint at scenes the viewer has not seen.
 
 ## TEASERS
 
@@ -296,7 +344,8 @@ Rules for the JSON:
 - "internal_cuts": 2-4 items. The first "at" is 0.0. Later cuts must be 2.5-4 s apart. Each cut changes framing and/or blocking.
 - "internal_cuts[].action" is VISUAL ONLY (no dialogue in it). "dialogue" is separate.
 - "teasers[].scenes" must reference real scene_id values from this episode and be consecutive.
-- Keep the cast to 3-5 characters and 3-4 primary locations.
+- Keep the cast to 3-5 characters and 3-4 primary locations. Every scene "location" must reuse one of the declared locations (same wording), never a brand-new place.
+- Every dialogue "speaker" and every entry in scene "characters" must match a character declared in "characters[].name".
 - Scene 1 must open with a question or contradiction, not a slow establishing montage.
 - Scenes 10, 20, 30, 40 and 50 must end on a cliffhanger. Scene 59 pays off. Scene 60 opens the next episode.
 - No real celebrities, brands, explicit content, graphic violence, hate or medical/legal claims.
@@ -344,8 +393,8 @@ DEMO_ACTS: List[Dict[str, Any]] = [
              ("NORA", "Then they can explain it to the state. The trust is mine now.", "steady")],
             [("MARGARET", "Your father was a liar, dear. Sentiment won't change what the deed says.", "silk over steel"),
              ("NORA", "Then you won't mind me reading the deed. Slowly.", "quiet")],
-            [("ADRIAN", "Sell us the point. Name your price and leave the past where it belongs.", "reasonable, rehearsed"),
-             ("NORA", "The past is the only thing you've ever asked me to leave behind.", "cold")],
+            [("ADRIAN", "Sell us the point. Name your price and leave.", "reasonable, rehearsed"),
+             ("NORA", "The past is the only thing you've asked me to leave behind.", "cold")],
             [("NORA", "You had ten years to buy this land. Why wait until I came back?", "suspicious"),
              ("MARGARET", "Because a deed is cleaner than a funeral.", "pleasant")],
             [("CLAIRE", "Your father changed his will three days before he died. That's not nothing.", "careful"),
@@ -389,8 +438,8 @@ DEMO_ACTS: List[Dict[str, Any]] = [
              ("NORA", "Scared of what? Of being poor? Of her?", "cutting")],
             [("SAM", "The fire started in the boathouse, Nora. Not the cliffs.", "low"),
              ("NORA", "Then why did the whole town say it was me?", "raw")],
-            [("MARGARET", "If you reopen that investigation, I'll make sure the town remembers who lit the match.", "pleasant threat"),
-             ("NORA", "Go ahead. I've played the villain in your story for ten years.", "tired")],
+            [("MARGARET", "Reopen that investigation and the town remembers who lit the match.", "pleasant threat"),
+             ("NORA", "I've played the villain in your story for ten years.", "tired")],
             [("NORA", "A debt doesn't transfer with land, Adrian. But fraud does.", "precise"),
              ("ADRIAN", "Big words for someone with no lawyer.", "smiling")],
             [("SAM", "The old survey files are in the boathouse. What's left of them.", "urgent"),
@@ -399,9 +448,9 @@ DEMO_ACTS: List[Dict[str, Any]] = [
              ("NORA", "You coming or not? Bring the pry bar.", "impatient")],
             [("NORA", "There. Seawall permits. Signed by Margaret. Dated before the fire.", "shaking"),
              ("SAM", "That's not a permit. That's a motive.", "quiet")],
-            [("ADRIAN", "Give me the file and I'll tell the town the fire was an accident.", "reasonable"),
-             ("NORA", "And in exchange?", "wary"),
-             ("ADRIAN", "I'll say you were with me that night. Everything goes away.", "soft")],
+            [("ADRIAN", "Give me the file and I'll call the fire an accident.", "reasonable"),
+             ("NORA", "In exchange?", "wary"),
+             ("ADRIAN", "I'll say you were with me. Everything goes away.", "soft")],
         ],
     },
     {
@@ -452,7 +501,7 @@ DEMO_ACTS: List[Dict[str, Any]] = [
              ("NORA", "I think a notebook beats you. And you know it.", "calm")],
             [("MARGARET", "Name your price, Nora. One last time.", "tired"),
              ("NORA", "The hearing. Tomorrow. Public. All of it.", "final"),
-             ("MARGARET", "Then you'll lose the only home you have left.", "quiet")],
+             ("MARGARET", "Then you'll lose your only home.", "quiet")],
         ],
     },
     {
@@ -483,7 +532,7 @@ DEMO_ACTS: List[Dict[str, Any]] = [
              ("MARGARET", "You already lost it ten years ago.", "soft")],
             [("CLAIRE", "The hearing is packed. Half the town came.", "nervous"),
              ("NORA", "Good. This time, I want witnesses.", "resolved")],
-            [("SAM", "Nora. Whatever happens in there... I should have told you the truth ten years ago.", "low"),
+            [("SAM", "Nora. Whatever happens in there, I should have told you the truth.", "low"),
              ("NORA", "Then tell it now. Loud enough for the back row.", "fierce")],
             [("SAM", "I signed a false statement. Margaret Keller wrote it. I was paid to stay quiet.", "public, shaking"),
              ("MARGARET", "He's a firefighter with a grudge.", "dismissive")],
@@ -492,13 +541,13 @@ DEMO_ACTS: List[Dict[str, Any]] = [
              ("NORA", "I don't bluff. I document.", "flat")],
             [("NORA", "The harbor log. 2:14 a.m. Keller launch. Adrian at the helm.", "precise"),
              ("MARGARET", "That log is thirty years of weather and guesswork.", "sharp")],
-            [("NORA", "2:14 a.m. One passenger. Margaret.", "quiet"),
-             ("ADRIAN", "It was an accident. We only meant to scare him.", "breaking"),
-             ("NORA", "You burned a boathouse and let a town bury my father.", "raw")],
+            [("NORA", "2:14 a.m. One passenger, Margaret.", "quiet"),
+             ("ADRIAN", "An accident. We meant to scare him.", "breaking"),
+             ("NORA", "You let a town bury my father.", "raw")],
             [("NORA", "You didn't scare him. You killed the only man who could prove it.", "cold"),
              ("ADRIAN", "He was already dead when we got there.", "whisper")],
-            [("NORA", "Then who was in the boathouse with him?", "sharp"),
-             ("ADRIAN", "Ask your mother.", "quiet")],
+            [("NORA", "Then who was in the boathouse with him that night?", "sharp"),
+             ("ADRIAN", "Ask your mother where she's been.", "quiet")],
             [("NORA", "The harbor log. Every boat, every night. Dad, what did you see?", "hushed"),
              ("NORA", "And why did you hide it behind the lens?", "breaking")],
         ],
@@ -544,12 +593,12 @@ DEMO_ACTS: List[Dict[str, Any]] = [
              ("NORA", "I've had ten years. I'm not changing anything.", "calm")],
             [("MARGARET", "You've made your point. Name a number.", "controlled"),
              ("NORA", "The number is zero. You leave with nothing. That's the price.", "final")],
-            [("CLAIRE", "If you present that log, the town will turn on the Kellers. And on your mother.", "worried"),
+            [("CLAIRE", "If you present that log, the town turns on your mother.", "worried"),
              ("NORA", "Then they'll finally tell the truth about her.", "steady")],
             [("NORA", "Whatever they say about me tomorrow, I want you to hear it from me first.", "vulnerable"),
              ("SAM", "I'm not going anywhere.", "low")],
             [("MARGARET", "You'll lose the only home you have left.", "cold"),
-             ("NORA", "I'm not doing this to keep the house. I'm doing it to keep his name.", "fierce")],
+             ("NORA", "I'm not doing this for the house. I'm doing it for his name.", "fierce")],
         ],
     },
     {
@@ -582,8 +631,8 @@ DEMO_ACTS: List[Dict[str, Any]] = [
              ("NORA", "Then do it for the right reason.", "gentle")],
             [("NORA", "You don't have to prove anything to me. Just tell them the truth.", "quiet"),
              ("SAM", "The truth is I let them bury your father.", "breaking")],
-            [("SAM", "I signed a false statement. Margaret Keller wrote it. I was paid to stay quiet.", "public, clear"),
-             ("MARGARET", "He's a firefighter with a grudge. Nothing he says survives cross.", "dismissive")],
+            [("SAM", "I signed a false statement. Margaret wrote it and paid me to stay quiet.", "public, clear"),
+             ("MARGARET", "He's a firefighter with a grudge. Nothing more.", "dismissive")],
             [("NORA", "Then let's hear from someone who can't be bought. The harbor log.", "calm"),
              ("ADRIAN", "That's a piece of paper.", "uneasy")],
             [("NORA", "2:14 a.m. Keller launch. Two passengers. Adrian at the helm.", "precise"),
@@ -591,7 +640,7 @@ DEMO_ACTS: List[Dict[str, Any]] = [
             [("NORA", "One passenger is Margaret. The other signed the fire report.", "quiet"),
              ("CLAIRE", "The fire marshal. It's his signature.", "stunned")],
             [("ADRIAN", "It was an accident. We only meant to scare him.", "breaking"),
-             ("NORA", "You burned a boathouse and let a town bury my father for it.", "raw")],
+             ("NORA", "You burned a boathouse and let a town bury my father.", "raw")],
             [("NORA", "That's not an accident. That's a choice. And this town gets to see it.", "fierce"),
              ("MARGARET", "You'll regret this.", "quiet")],
             [("NORA", "Wait. This ledger is older. My mother's name is on every page.", "hushed"),
@@ -603,15 +652,20 @@ DEMO_ACTS: List[Dict[str, Any]] = [
 
 DEMO_CHARACTERS = [
     {"id": "nora", "name": "Nora Hale", "role": "protagonist", "archetype": "protagonist",
-     "pronoun": "she", "voice_lock": "warm mid-range American English, controlled, slightly breathy under pressure"},
+     "pronoun": "she", "voice_lock": "warm mid-range American English, controlled, slightly breathy under pressure",
+     "visual_reference": "early thirties coastal New England woman, wiry build, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, charcoal wool coat over a dark sweater"},
     {"id": "sam", "name": "Sam Calloway", "role": "love_interest", "archetype": "love_interest",
-     "pronoun": "he", "voice_lock": "quiet, low American English, careful diction, warmth under restraint"},
+     "pronoun": "he", "voice_lock": "quiet, low American English, careful diction, warmth under restraint",
+     "visual_reference": "mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin with salt creases, faded canvas work jacket"},
     {"id": "margaret", "name": "Margaret Keller", "role": "antagonist", "archetype": "antagonist",
-     "pronoun": "she", "voice_lock": "low, polished, unhurried American English, never shouts"},
+     "pronoun": "she", "voice_lock": "low, polished, unhurried American English, never shouts",
+     "visual_reference": "late sixties matriarch, tall and straight-backed, silver hair in a low chignon, pale blue eyes, porcelain skin, tailored dove-grey suit and pearls"},
     {"id": "adrian", "name": "Adrian Keller", "role": "antagonist_heir", "archetype": "antagonist",
-     "pronoun": "he", "voice_lock": "smooth mid-range American English, reasonable tone that never quite reaches sincerity"},
+     "pronoun": "he", "voice_lock": "smooth mid-range American English, reasonable tone that never quite reaches sincerity",
+     "visual_reference": "late thirties heir, lean and groomed, ash-blond hair swept back, cold grey eyes, even features, navy blazer over an open collar"},
     {"id": "claire", "name": "Claire Boone", "role": "ally", "archetype": "ally",
-     "pronoun": "she", "voice_lock": "grounded, plainspoken American English with a slight coastal New England softness"},
+     "pronoun": "she", "voice_lock": "grounded, plainspoken American English with a slight coastal New England softness",
+     "visual_reference": "forties small-town lawyer, compact and practical, brown hair in a blunt bob, warm brown eyes, reading glasses on a cord, forest-green cardigan"},
 ]
 
 DEMO_EXPRESSIONS = [
@@ -641,11 +695,10 @@ DEMO_HOOKS = {
 def build_demo_payload(slug: str, title: str, personaje: str, episode_number: int) -> Dict[str, Any]:
     style = nf.load_style_locks()
     rotation = (style.get("visual_style_lock") or {}).get("default_shot_rotation") or nf.DEFAULT_SHOT_ROTATION
-    pronoun_to_phrase = {
-        "she": "the same woman as the reference image",
-        "he": "the same man as the reference image",
-    }
-    by_speaker = {c["name"].upper(): c for c in DEMO_CHARACTERS}
+    by_speaker: Dict[str, Dict[str, Any]] = {}
+    for character in DEMO_CHARACTERS:
+        for key in (character["name"].upper(), character["name"].split()[0].upper(), str(character["id"]).upper()):
+            by_speaker.setdefault(key, character)
     scenes: List[Dict[str, Any]] = []
 
     for idx in range(1, nf.SCENE_COUNT + 1):
@@ -655,8 +708,8 @@ def build_demo_payload(slug: str, title: str, personaje: str, episode_number: in
         loc_name, light = act["locations"][local % len(act["locations"])]
         lines = act["lines"][local]
         primary_speaker = lines[0][0]
-        character = by_speaker.get(primary_speaker, DEMO_CHARACTERS[0])
-        who = pronoun_to_phrase[character["pronoun"]]
+        character = by_speaker.get(primary_speaker.upper(), DEMO_CHARACTERS[0])
+        reference = f"reference_{character['id']}.png"
 
         shot1 = rotation[(local + act_idx) % len(rotation)]
         shot2 = "tight close-up"
@@ -668,13 +721,24 @@ def build_demo_payload(slug: str, title: str, personaje: str, episode_number: in
 
         prop = act["props"][local % len(act["props"])]
         expression = DEMO_EXPRESSIONS[(idx - 1) % len(DEMO_EXPRESSIONS)]
+        action = str(act["actions"][local]).strip()
         body = (
-            f"Cinematic still of {who}, {shot1}, at {loc_name}, {light}. "
-            f"{character['name']} {act['actions'][local][len(character['name']) + 1:].strip()} "
+            f"Cinematic still of {character['name']} (the character in {reference}), "
+            f"{shot1}, at {loc_name}, {light}. {action} "
             f"Expression: {expression}. Wardrobe: {act['wardrobe']}. "
+            f"Keep {character['name']}'s face and wardrobe identical to {reference}. "
             f"Framing keeps the face unobstructed and centered for a 9:16 crop."
         )
-        body = body.replace("..", ".")
+
+        lead = action.split(" ", 1)[0].rstrip(".,;:!?").upper() if action else ""
+        on_screen: List[str] = []
+        for candidate in DEMO_CHARACTERS:
+            keys = {candidate["name"].upper(), candidate["name"].split()[0].upper(), str(candidate["id"]).upper()}
+            if lead in keys or any(line[0].upper() in keys for line in lines):
+                if candidate["id"] not in on_screen:
+                    on_screen.append(candidate["id"])
+        if not on_screen:
+            on_screen = [character["id"]]
 
         dialogue = [
             {"speaker": speaker, "line": line, "delivery": delivery}
@@ -693,7 +757,7 @@ def build_demo_payload(slug: str, title: str, personaje: str, episode_number: in
             ),
             "location": f"{loc_name}, {light}",
             "time_of_day": light,
-            "characters": [c["name"] for c in DEMO_CHARACTERS if any(line[0] == c["name"].upper() for line in lines)],
+            "characters": on_screen,
             "on_screen_hook": DEMO_HOOKS.get(idx, ""),
             "first_frame_prompt": body,
             "internal_cuts": [
@@ -718,6 +782,32 @@ def build_demo_payload(slug: str, title: str, personaje: str, episode_number: in
          "caption": "The town came to watch her fail.\n\nShe came to read the log.\n\nFollow for the finale."},
     ]
 
+    location_bases: List[str] = []
+    for scene in scenes:
+        base = str(scene.get("location") or "").split(",")[0].strip()
+        if base and base not in location_bases:
+            location_bases.append(base)
+    location_visuals = {
+        "Hale lighthouse cliff edge": "whitewashed stone tower on a black cliff, salt-eaten wood, cold lamp",
+        "Keller harbor boardwalk": "working docks, wet planks, sodium lights, a family launch named MARGARET II",
+        "Hale lighthouse kitchen": "small cold kitchen, one warm lamp, chipped enamel stove",
+        "Claire Boone's law office": "small-town law office, law books, rain on tall windows",
+        "Keller boathouse": "dark timber boathouse, wet floor, hanging bulb, scorched beams",
+        "Keller estate": "glass and cedar house above the water, warm interiors, no clutter",
+        "Hale lighthouse archive room": "lighthouse archive, one desk lamp, dust and old ledgers",
+        "Harbor diner": "harbor diner at dawn, cold fluorescent light, steam and vinyl booths",
+        "Harbor": "working harbor, gold light on calm water",
+        "Hale lighthouse point": "rocky point below the tower, wind down, gold light",
+    }
+    locations = [
+        {
+            "id": (nf.slugify(base)[:40].strip("_") or f"location_{idx + 1}"),
+            "name": base,
+            "visual": location_visuals.get(base, "coastal New England location, cinematic production design"),
+        }
+        for idx, base in enumerate(location_bases)
+    ]
+
     return {
         "schema_version": "1.0",
         "generated_by": "novel_factory/01_story_to_master_json.py --template",
@@ -735,12 +825,7 @@ def build_demo_payload(slug: str, title: str, personaje: str, episode_number: in
             "hook_line": "They said the lighthouse was empty. Someone left the light on.",
         },
         "characters": DEMO_CHARACTERS,
-        "locations": [
-            {"id": "lighthouse", "name": "Hale lighthouse", "visual": "whitewashed stone tower on a black cliff, cold lamp, salt-eaten wood"},
-            {"id": "harbor", "name": "Keller harbor", "visual": "working docks, wet planks, sodium lights, a family launch named MARGARET II"},
-            {"id": "townhall", "name": "Town hall", "visual": "1930s council chamber, dark wood, tall windows, folding chairs"},
-            {"id": "estate", "name": "Keller estate", "visual": "glass and cedar house above the water, warm interiors, no clutter"},
-        ],
+        "locations": locations,
         "acts": [
             {"act": a["act"], "title": a["title"],
              "goal": (nf.load_showrunner().get("acts") or [])[a["act"] - 1].get("goal", ""),
@@ -795,34 +880,8 @@ def load_payloads(paths: List[Path]) -> Tuple[List[Dict[str, Any]], List[str]]:
 
 
 def merge_payloads(payloads: List[Dict[str, Any]]) -> Tuple[Dict[str, Any], List[str]]:
-    warnings: List[str] = []
-    if len(payloads) == 1:
-        return payloads[0], warnings
-    full = [p for p in payloads if len(p.get("scenes") or []) == nf.SCENE_COUNT]
-    if full:
-        warnings.append("Se recibieron varios JSON con 60 escenas; se usa el primero y se ignoran los demás.")
-        return full[0], warnings
-
-    merged: Dict[str, Any] = {"scenes": []}
-    teasers: Dict[int, Dict[str, Any]] = {}
-    for pos, payload in enumerate(payloads):
-        merged["scenes"].extend(payload.get("scenes") or [])
-        for key in ("episode", "characters", "locations", "acts", "publisher", "soundtrack"):
-            if key not in merged and payload.get(key):
-                merged[key] = payload[key]
-        for teaser in payload.get("teasers") or []:
-            if not isinstance(teaser, dict):
-                continue
-            try:
-                tid = int(teaser.get("id") or 0)
-            except (TypeError, ValueError):
-                continue
-            if tid and tid not in teasers:
-                teasers[tid] = teaser
-    if teasers:
-        merged["teasers"] = [teasers[k] for k in sorted(teasers)]
-    warnings.append(f"Fusionados {len(payloads)} archivos en un solo maestro ({len(merged['scenes'])} escenas).")
-    return merged, warnings
+    """Compatibilidad: delega en el fusionador canónico de nf_core."""
+    return nf.merge_payloads(payloads)
 
 
 # ---------------------------------------------------------------------------
@@ -841,32 +900,37 @@ def main(argv: Optional[List[str]] = None) -> int:
     parser.add_argument("--episode-number", type=int, default=1)
     parser.add_argument("--personaje", default="emma_hayes",
                         help="Persona de USA WHITE para el pack de publicación (default: emma_hayes).")
-    parser.add_argument("--part", choices=["full", "1", "2"], default="full",
-                        help="Divide el guion en 2 tandas si el LLM no alcanza 60 escenas.")
+    parser.add_argument("--part", default="full",
+                        help="Divide el guion: full, 1of2/2of2 o 1of3/2of3/3of3 (por tandas de 20).")
     parser.add_argument("--context", type=str, default="",
-                        help="Archivo de la parte anterior para continuidad (modo --part 2).")
+                        help="Archivo de la parte anterior para continuidad (modo --part por tandas).")
     parser.add_argument("--brief", action="store_true", help="Genera story_brief.md + llm_prompt.md (default).")
     parser.add_argument("--template", action="store_true", help="Episodio demo de calibración, sin LLM.")
     parser.add_argument("--ingest", nargs="+", default=None, metavar="JSON",
-                        help="Uno o dos JSON del LLM para validar y guardar como master_episode.json.")
+                        help="Uno o varios JSON del LLM para validar y guardar como master_episode.json.")
     parser.add_argument("--validate", action="store_true", help="Valida un master_episode.json existente.")
+    parser.add_argument("--strict", action="store_true",
+                        help="Modo producción: reparto, hablantes, presupuesto de habla y continuidad pasan a error.")
     parser.add_argument("--allow-partial", action="store_true", help="Permite ingerir menos de 60 escenas.")
     parser.add_argument("--force", action="store_true", help="Sobrescribe sin preguntar (siempre deja backup).")
     args = parser.parse_args(argv)
 
     slug = nf.slugify(args.slug)
-    paths = nf.create_project(slug)
     nf.log("")
     nf.log("=" * 70)
     nf.log("  NOVEL FACTORY — 01 · Guion maestro de 60 escenas (10:00)")
     nf.log("=" * 70)
-    nf.info(f"Proyecto: {paths['root']}")
 
     if args.validate:
+        paths = nf.resolve_project(args.slug)
+        nf.info(f"Proyecto: {paths['root']}")
         master = nf.load_master(paths["root"])
-        result = nf.validate_master(master, allow_partial=args.allow_partial)
+        result = nf.validate_master(master, allow_partial=args.allow_partial, production=args.strict)
         nf.log("")
         return 0 if nf.print_validation(result) else 1
+
+    paths = nf.create_project(slug)
+    nf.info(f"Proyecto: {paths['root']}")
 
     if args.ingest:
         nf.log("")
@@ -878,7 +942,7 @@ def main(argv: Optional[List[str]] = None) -> int:
             payload, slug, args.title, repair=True, allow_partial=args.allow_partial
         )
         warnings.extend(norm_warnings)
-        result = nf.validate_master(master, allow_partial=args.allow_partial)
+        result = nf.validate_master(master, allow_partial=args.allow_partial, production=args.strict)
         for w in warnings:
             nf.warn(w)
         nf.log("")
@@ -906,7 +970,7 @@ def main(argv: Optional[List[str]] = None) -> int:
         nf.info("Generando episodio demo de calibración (sin LLM)…")
         payload = build_demo_payload(slug, args.title or "The Silent Contract", args.personaje, args.episode_number)
         master, warnings = nf.normalize_master(payload, slug, args.title, repair=True)
-        result = nf.validate_master(master)
+        result = nf.validate_master(master, production=args.strict)
         for w in warnings:
             nf.warn(w)
         if not nf.print_validation(result):
@@ -965,14 +1029,17 @@ def main(argv: Optional[List[str]] = None) -> int:
     nf.ok(f"Brief:  {brief_path}")
     nf.ok(f"Prompt: {prompt_path}  ({len(prompt):,} caracteres)")
     nf.log("")
+    plan = _part_plan(args.part)
     nf.log("  Pasos:")
     nf.log("   1. Abre llm_prompt.md, cópialo completo y pégalo en Claude / Gemini / ChatGPT.")
     nf.log("   2. Guarda la respuesta como projects/" + slug + "/llm_response.json")
     nf.log("   3. python generators/01_story_to_master_json.py " + slug + " --ingest " +
-           f"projects/{slug}/llm_response.json")
-    if args.part != "full":
-        nf.log("   (Modo por partes: repite --brief --part 2 --context <parte1.json> y luego")
-        nf.log("    ingiere los dos JSON juntos con --ingest parte1.json parte2.json)")
+           f"projects/{slug}/llm_response.json --strict")
+    if plan["label"]:
+        nf.log(f"   (Tanda {plan['label']}: escenas {plan['lo']}-{plan['hi']}. Repite con la siguiente")
+        nf.log("    --part y --context <json anterior>; luego ingiere TODAS juntas)")
+        nf.log("    python generators/01_story_to_master_json.py " + slug +
+               " --ingest parte1.json parte2.json ... --strict")
     nf.log("")
     return 0
 

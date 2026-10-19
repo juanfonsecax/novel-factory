@@ -81,6 +81,28 @@ def _shot_block(scene: Dict[str, Any], templates: Dict[str, Any]) -> str:
     return "\n".join(lines)
 
 
+def _timeline_block(scene: Dict[str, Any], templates: Dict[str, Any]) -> str:
+    """Línea de tiempo explícita: tramos y marcas absolutas de corte duro."""
+    cuts = scene.get("internal_cuts") or []
+    total = float(scene.get("duration_s") or nf.SCENE_SECONDS)
+    header = str(templates.get("timeline_header") or "TIMELINE (one continuous 10 s take):")
+    line_tpl = str(templates.get("timeline_line_template") or "  {a:.1f}s to {b:.1f}s  [{framing}] {action}")
+    marks_tpl = str(templates.get("timeline_marks_template") or "Hard cuts exactly at {marks} s. No dissolves.")
+    lines: List[str] = [header]
+    marks: List[float] = []
+    for idx, cut in enumerate(cuts):
+        a = float(cut.get("at") or 0.0)
+        b = float(cuts[idx + 1].get("at")) if idx + 1 < len(cuts) else total
+        framing = str(cut.get("framing") or "medium shot").strip()
+        action = str(cut.get("action") or "").strip() or "Hold the moment."
+        lines.append(line_tpl.format(a=a, b=b, framing=framing, action=action))
+        if idx:
+            marks.append(a)
+    if marks:
+        lines.append(marks_tpl.format(marks=", ".join(f"{m:.1f}" for m in marks)))
+    return "\n".join(lines)
+
+
 def _dialogue_block(scene: Dict[str, Any], characters: Dict[str, Dict[str, Any]],
                     style: Dict[str, Any]) -> str:
     voice_lock = style.get("voice_lock") or {}
@@ -108,7 +130,9 @@ def _continuity_block(scene: Dict[str, Any], master: Dict[str, Any], characters:
     parts: List[str] = []
     explicit = str(scene.get("continuity") or "").strip()
     if explicit:
-        parts.append(explicit)
+        present, _removed = nf.strip_future_refs(explicit)
+        if present:
+            parts.append(present)
     act = int(scene.get("act") or 0)
     for key in scene.get("characters") or []:
         character = characters.get(str(key).strip().upper())
@@ -139,6 +163,7 @@ def compose_video_prompt(
         frame_file=frame_file,
         scene_id=f"{sid:03d}",
         shot_block=_shot_block(scene, templates),
+        timeline_block=_timeline_block(scene, templates),
         dialogue_block=_dialogue_block(scene, characters, style),
         ambience=str(scene.get("sfx_ambience") or "").strip() or "natural room tone, cloth movement, footfalls",
         camera_block=str(scene.get("camera") or "").strip()

@@ -28,10 +28,11 @@ from __future__ import annotations
 
 import argparse
 import datetime as dt
+import os
 import shutil
 import sys
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Tuple
 
 NF_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(NF_ROOT))
@@ -142,21 +143,101 @@ def collect_teasers(paths: Dict[str, Path], master: Dict[str, Any]) -> List[Dict
     return out
 
 
-def verify_media(path: Path) -> List[str]:
-    warnings: List[str] = []
+def verify_media(path: Path, strict: bool = False) -> List[str]:
+    """Revisa el MP4. Devuelve una lista de problemas (vacía = OK).
+
+    Con `strict=True` también exige pista de audio; el llamador decide si la lista
+    bloquea el encolado. Nunca lanza salvo que el archivo sea ilegible (entonces la
+    lista contiene el error y el encolado debe abortarse).
+    """
+    problems: List[str] = []
     try:
         probe = nf.probe_media(path)
     except nf.NFError as exc:
         return [str(exc)]
+    if not path.exists() or path.stat().st_size == 0:
+        return [f"{path.name}: archivo vacío o inexistente"]
     if not probe.get("has_video"):
-        warnings.append("el archivo no tiene pista de vídeo")
-    if probe.get("width") and probe.get("height"):
-        if (probe["width"], probe["height"]) != (nf.TEASER_W, nf.TEASER_H):
-            warnings.append(f"resolución {probe['width']}x{probe['height']} (se esperaba 1080x1920)")
+        problems.append("el archivo no tiene pista de vídeo")
+    if (probe.get("width"), probe.get("height")) != (nf.TEASER_W, nf.TEASER_H):
+        problems.append(
+            f"resolución {probe.get('width')}x{probe.get('height')} (se esperaba {nf.TEASER_W}x{nf.TEASER_H})"
+        )
     dur = float(probe.get("duration") or 0.0)
     if dur and not (45.0 <= dur <= 75.0):
-        warnings.append(f"duración {dur:.1f}s (los teasers suelen ser ~60 s)")
-    return warnings
+        problems.append(f"duración {dur:.1f}s (los teasers suelen ser ~60 s)")
+    if strict and not probe.get("has_audio"):
+        problems.append("el archivo no tiene pista de audio")
+    return problems
+
+
+def validate_post(post: Dict[str, Any]) -> List[str]:
+    """Comprueba las claves mínimas que consume el orquestador; lista de problemas."""
+    required = ("id", "personaje_id", "tipo", "archivo_media", "estado", "plataformas")
+    problems = [f"falta '{key}'" for key in required if post.get(key) in (None, "")]
+    if post.get("tipo") != "reel":
+        problems.append("tipo debe ser 'reel'")
+    plats = post.get("plataformas")
+    if not isinstance(plats, dict) or not plats:
+        problems.append("plataformas debe ser un dict no vacío")
+    return problems
+
+
+# ---------------------------------------------------------------------------
+# Encolado atómico e idempotente
+# ---------------------------------------------------------------------------
+def _atomic_copy(src: Path, dest: Path) -> None:
+    tmp = dest.with_name(f".{dest.name}.part-{os.getpid()}")
+    try:
+        shutil.copy2(src, tmp)
+        os.replace(tmp, dest)
+    finally:
+        if tmp.exists():
+            try:
+                tmp.unlink()
+            except OSError:
+                pass
+
+
+def _atomic_write_json(data: Dict[str, Any], dest: Path) -> None:
+    tmp = dest.with_name(f".{dest.name}.part-{os.getpid()}")
+    nf.write_json(tmp, data)
+    try:
+        os.replace(tmp, dest)
+    finally:
+        if tmp.exists():
+            try:
+                tmp.unlink()
+            except OSError:
+                pass
+
+
+def enqueue_item(
+    pendientes: Path,
+    post: Dict[str, Any],
+    src_media: Path,
+    media_name: str,
+    force: bool = False,
+) -> Tuple[str, Path, Path]:
+    """Encola (media + json) de forma atómica e idempotente.
+
+    Un item está completo solo si existen AMBOS archivos. Si falta uno, se repara
+    (no se omite a medias). Devuelve (estado, ruta_json, ruta_media) con estado en
+    {"copied", "repaired", "skipped"}.
+    """
+    dest_json = pendientes / f"{post['id']}.json"
+    dest_media = pendientes / media_name
+    have_json, have_media = dest_json.exists(), dest_media.exists()
+    if have_json and have_media:
+        if not force:
+            return "skipped", dest_json, dest_media
+        status = "copied"  # reemplazo forzado de un item completo
+    else:
+        status = "repaired" if (have_json or have_media) else "copied"
+    pendientes.mkdir(parents=True, exist_ok=True)
+    _atomic_copy(src_media, dest_media)
+    _atomic_write_json(post, dest_json)
+    return status, dest_json, dest_media
 
 
 # ---------------------------------------------------------------------------
@@ -207,6 +288,8 @@ def main(argv: Optional[List[str]] = None) -> int:
     parser.add_argument("--only", default="", help="Solo estos teasers, p. ej. '1,3'.")
     parser.add_argument("--apply", action="store_true", help="Copia de verdad (sin esto solo muestra el plan).")
     parser.add_argument("--force", action="store_true", help="Sobrescribe si ya existe en la cola.")
+    parser.add_argument("--strict", action="store_true",
+                        help="Aborta el encolado de teasers con problemas de media (resolución/audio).")
     args = parser.parse_args(argv)
 
     nf.log("")
@@ -243,57 +326,87 @@ def main(argv: Optional[List[str]] = None) -> int:
         return 1
 
     stamp = dt.datetime.now().astimezone().isoformat(timespec="seconds")
+    hashtags = list((master.get("publisher") or {}).get("hashtags") or [])
     pending: List[Dict[str, Any]] = []
     missing = 0
+    invalid = 0
     for teaser in teasers:
         media: Path = teaser["_media"]
         if not media.exists():
             nf.warn(f"Teaser {teaser['_id']}: falta {media.name} (renderízalo con 04_assemble_novel_ffmpeg.py).")
             missing += 1
             continue
-        for w in verify_media(media):
-            nf.warn(f"Teaser {teaser['_id']}: {w}")
+        problems = verify_media(media, strict=args.strict)
+        if problems:
+            level = nf.err if args.strict else nf.warn
+            for p in problems:
+                level(f"Teaser {teaser['_id']}: {p}")
+            if args.strict:
+                invalid += 1
+                continue
         media_name = f"nf_{slug}_teaser_{int(teaser['_id']):02d}_9x16.mp4"
-        hashtags = list((master.get("publisher") or {}).get("hashtags") or [])
         post = build_post(teaser, slug, personaje, media_name, stamp, hashtags)
-        dest_json = pendientes / f"{post['id']}.json"
-        dest_media = pendientes / media_name
-        pending.append({"teaser": teaser, "post": post, "src": media,
-                        "json": dest_json, "media": dest_media})
+        for p in validate_post(post):
+            nf.err(f"Teaser {teaser['_id']}: post inválido: {p}")
+            invalid += 1
+            post = None
+            break
+        if post is None:
+            continue
+        pending.append({"teaser": teaser, "post": post, "src": media, "media_name": media_name})
     if not pending:
-        nf.err("No hay ningún teaser renderizado para exportar.")
+        if invalid:
+            nf.err(f"{invalid} teaser(s) con problemas; nada que exportar (revisa con --strict).")
+        elif missing:
+            nf.err("No hay ningún teaser renderizado para exportar.")
+        else:
+            nf.err("No hay ningún teaser para exportar.")
         return 1
 
     nf.log("")
     nf.info("Plan de exportación:")
     for item in pending:
-        exists = item["json"].exists() or item["media"].exists()
-        flag = " (YA EN COLA: se omite)" if exists and not args.force else ""
-        nf.log(f"    - {item['json'].name}")
-        nf.log(f"      media : {item['src'].name}  ->  {item['media']}{flag}")
+        dest_media = pendientes / item["media_name"]
+        dest_json = pendientes / f"{item['post']['id']}.json"
+        have_json, have_media = dest_json.exists(), dest_media.exists()
+        if have_json and have_media and not args.force:
+            flag = " (YA EN COLA: se omite)"
+        elif have_json or have_media:
+            flag = " (encolado incompleto: se repara)"
+        else:
+            flag = ""
+        nf.log(f"    - {dest_json.name}")
+        nf.log(f"      media : {item['src'].name}  ->  {dest_media}{flag}")
         nf.log(f"      hook  : {str(item['post']['hook'])[:70]}")
 
     if not args.apply:
         nf.log("")
         nf.info("Esto ha sido un PLAN. Repite con --apply para copiar a la cola.")
-        return 0 if missing == 0 else 1
+        return 0 if (missing == 0 and invalid == 0) else 1
 
-    copied = 0
+    copied = repaired = skipped = 0
     for item in pending:
-        if (item["json"].exists() or item["media"].exists()) and not args.force:
-            nf.warn(f"{item['json'].name}: ya existía en la cola; se omite (usa --force para sobrescribir).")
-            continue
-        shutil.copy2(item["src"], item["media"])
-        nf.write_json(item["json"], item["post"])
-        nf.ok(f"Encolado: {item['json'].name} + {item['media'].name}")
-        copied += 1
-    if copied == 0:
+        status, dest_json, dest_media = enqueue_item(
+            pendientes, item["post"], item["src"], item["media_name"], force=args.force
+        )
+        if status == "skipped":
+            nf.warn(f"{dest_json.name}: ya en la cola (media + json); se omite (usa --force para reemplazar).")
+            skipped += 1
+        elif status == "repaired":
+            nf.ok(f"Reparado (faltaba parte): {dest_json.name} + {dest_media.name}")
+            repaired += 1
+        else:
+            nf.ok(f"Encolado: {dest_json.name} + {dest_media.name}")
+            copied += 1
+    if copied == 0 and repaired == 0:
         nf.warn("No se copió nada (todo existía ya). Usa --force para reemplazar.")
         return 0
+    if repaired:
+        nf.info(f"Reparados: {repaired} (encolados incompletos previos).")
 
     nf.log("")
     nf.log("-" * 70)
-    nf.ok(f"{copied} teaser(s) en cola/pendientes de {publisher.name}.")
+    nf.ok(f"{copied + repaired} teaser(s) en cola/pendientes de {publisher.name}.")
     nf.info("Prueba en seco del publicador (no publica nada):")
     nf.log(f'    cd "{publisher}"')
     nf.log(f"    python src\\orquestador.py --publicar-siguiente --seco")

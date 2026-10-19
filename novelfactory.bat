@@ -13,6 +13,8 @@ REM  Cola Omni       :  novelfactory.bat omni mi_episodio
 REM  Estado          :  novelfactory.bat status mi_episodio
 REM  Asistente clips :  novelfactory.bat assisted mi_episodio
 REM  Vigilar descargas: novelfactory.bat watch mi_episodio --once
+REM  Importar frames :  novelfactory.bat import-frames mi_episodio --frames-src "C:\ruta\frames"
+REM  Dashboard       :  novelfactory.bat dashboard mi_episodio --serve --open
 REM  Ensamblar       :  novelfactory.bat assemble mi_episodio
 REM  Solo preflight  :  novelfactory.bat check mi_episodio
 REM  Exportar cola   :  novelfactory.bat publish mi_episodio --apply
@@ -47,6 +49,8 @@ if /i "%CMD%"=="status"   ( set "SCRIPT=automation\omni_flow_runner.py" & set "M
 if /i "%CMD%"=="queue"    ( set "SCRIPT=automation\omni_flow_runner.py" & set "MODE=queue" & goto :RUN )
 if /i "%CMD%"=="assisted" ( set "SCRIPT=automation\omni_flow_runner.py" & set "MODE=assisted" & goto :RUN )
 if /i "%CMD%"=="watch"    ( set "SCRIPT=automation\omni_flow_runner.py" & set "MODE=watch" & goto :RUN )
+if /i "%CMD%"=="import-frames" ( set "SCRIPT=automation\omni_flow_runner.py" & set "MODE=import-frames" & goto :RUN )
+if /i "%CMD%"=="dashboard" ( set "SCRIPT=automation\dashboard.py" & goto :RUN )
 if /i "%CMD%"=="check"    ( set "SCRIPT=post_production\04_assemble_novel_ffmpeg.py" & set "MODE=--check" & goto :RUN )
 if /i "%CMD%"=="assemble" ( set "SCRIPT=post_production\04_assemble_novel_ffmpeg.py" & goto :RUN )
 if /i "%CMD%"=="publish"  ( set "SCRIPT=post_production\05_export_to_publisher.py" & goto :RUN )
@@ -97,6 +101,8 @@ echo    status ^<slug^>                       Tabla de progreso de clips/frames
 echo    queue ^<slug^>                        Siguiente prompt pendiente por consola
 echo    assisted ^<slug^>                     Asistente de portapapeles para Omni
 echo    watch ^<slug^> [--once]               Vigila Descargas y archiva clips
+echo    import-frames ^<slug^> --frames-src DIR  Importa frames existentes a raw_frames
+echo    dashboard ^<slug^> [--serve] [--open]  Dashboard para copiar prompts y trackear escenas
 echo    check ^<slug^>                        Preflight del ensamblaje (sin render)
 echo    assemble ^<slug^>                     Ensambla master 16:9 + teasers 9:16
 echo    publish ^<slug^> [--apply]            Exporta teasers a la cola del publicador

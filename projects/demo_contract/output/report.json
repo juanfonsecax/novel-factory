@@ -1,101 +1,101 @@
 {
   "episode": "demo_contract",
-  "generated_at": "2026-10-19T12:29:34-05:00",
+  "generated_at": "2026-10-19T16:59:07-05:00",
   "scene_count": 12,
-  "total_seconds": 118.55,
+  "total_seconds": 120.0,
   "master": {
     "file": "demo_contract_master_16x9_1080p.mp4",
-    "duration_seconds": 118.57
+    "duration_seconds": 120.02
   },
   "teasers": [
     {
       "id": 1,
       "file": "teaser_01_9x16.mp4",
-      "duration_seconds": 58.55
+      "duration_seconds": 60.0
     }
   ],
-  "music": "nf_test_music.mp3",
+  "music": null,
   "scenes": [
     {
       "scene_id": 1,
       "start": 0.0,
-      "duration": 9.05,
-      "trim": "recorte 0.95s cabecera / 0.00s cola",
+      "duration": 10.0,
+      "trim": "recorte 0.35s cabecera / 0.00s cola",
       "source": "scene_001.mp4"
     },
     {
       "scene_id": 2,
-      "start": 9.05,
+      "start": 10.0,
       "duration": 10.0,
       "trim": "sin audio",
       "source": "scene_002.mp4"
     },
     {
       "scene_id": 3,
-      "start": 19.05,
+      "start": 20.0,
       "duration": 10.0,
       "trim": "",
       "source": "scene_003.mp4"
     },
     {
       "scene_id": 4,
-      "start": 29.05,
-      "duration": 9.5,
+      "start": 30.0,
+      "duration": 10.0,
       "trim": "",
       "source": "scene_004.mp4"
     },
     {
       "scene_id": 5,
-      "start": 38.55,
+      "start": 40.0,
       "duration": 10.0,
       "trim": "",
       "source": "scene_005.mp4"
     },
     {
       "scene_id": 6,
-      "start": 48.55,
+      "start": 50.0,
       "duration": 10.0,
       "trim": "",
       "source": "scene_006.mp4"
     },
     {
       "scene_id": 7,
-      "start": 58.55,
+      "start": 60.0,
       "duration": 10.0,
       "trim": "",
       "source": "scene_007.mp4"
     },
     {
       "scene_id": 8,
-      "start": 68.55,
+      "start": 70.0,
       "duration": 10.0,
       "trim": "",
       "source": "scene_008.mp4"
     },
     {
       "scene_id": 9,
-      "start": 78.55,
+      "start": 80.0,
       "duration": 10.0,
       "trim": "",
       "source": "scene_009.mp4"
     },
     {
       "scene_id": 10,
-      "start": 88.55,
+      "start": 90.0,
       "duration": 10.0,
       "trim": "",
       "source": "scene_010.mp4"
     },
     {
       "scene_id": 11,
-      "start": 98.55,
+      "start": 100.0,
       "duration": 10.0,
       "trim": "",
       "source": "scene_011.mp4"
     },
     {
       "scene_id": 12,
-      "start": 108.55,
+      "start": 110.0,
       "duration": 10.0,
       "trim": "",
       "source": "scene_012.mp4"

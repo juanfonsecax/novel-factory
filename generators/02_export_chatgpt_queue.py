@@ -56,7 +56,7 @@ def build_reference_sheets(master: Dict[str, Any]) -> List[Dict[str, Any]]:
         entry: Dict[str, Any] = {
             "id": cid,
             "name": str(character.get("name") or cid),
-            "filename": f"reference_{cid}.png",
+            "filename": nf.reference_stem({"id": cid, "name": character.get("name")}),
             "existing_image": existing,
             "prompt": "",
         }
@@ -79,7 +79,7 @@ def write_reference_sheets(paths: Dict[str, Path], master: Dict[str, Any], sheet
         "     con el nombre exacto que se indica abajo (reference_<id>.png).",
         "  3. Adjunta TODAS las hojas de referencia a la conversación y déjalas ahí",
         "     mientras generas frame_001.png … frame_060.png (chatgpt_image_prompts_queue.txt).",
-        "  4. Los prompts de escena dicen 'the same woman/man as the reference image':",
+        "  4. Los prompts de escena nombran al personaje y su archivo reference_<id>.png:",
         "     la cara nunca se describe en texto, se copia de estas hojas.",
         "",
     ]
@@ -113,17 +113,56 @@ def compose_image_prompt(body: str, style: Dict[str, Any]) -> str:
     return " ".join(prompt.split())
 
 
+def scene_cast_entries(master: Dict[str, Any], scene: Dict[str, Any]) -> List[Dict[str, Any]]:
+    """Reparto canónico de la escena con el nombre de archivo de su hoja de referencia."""
+    out: List[Dict[str, Any]] = []
+    for character in nf.scene_cast(master, scene):
+        out.append({
+            "id": str(character.get("id") or nf.slugify(str(character.get("name") or ""))),
+            "name": str(character.get("name") or character.get("id") or ""),
+            "reference": nf.reference_stem(character),
+        })
+    return out
+
+
+def _identity_anchor(cast: List[Dict[str, Any]]) -> str:
+    if not cast:
+        return ""
+    names = ", ".join(f"{c['name']} ({c['reference']})" for c in cast)
+    return f"On screen: {names}. Keep every face and wardrobe identical to the attached reference sheets."
+
+
+def teaser_cover_scenes(master: Dict[str, Any]) -> List[int]:
+    """Primera escena de cada teaser: portada candidata 9:16."""
+    covers: List[int] = []
+    for teaser in master.get("teasers") or []:
+        if not isinstance(teaser, dict):
+            continue
+        ids = [int(i) for i in (teaser.get("scenes") or []) if str(i).strip().isdigit()]
+        if ids:
+            covers.append(ids[0])
+    return covers
+
+
 def build_queue(master: Dict[str, Any], style: Dict[str, Any]) -> List[Dict[str, Any]]:
+    covers = set(teaser_cover_scenes(master))
     entries: List[Dict[str, Any]] = []
     for scene in nf.ordered_scenes(master):
         sid = int(scene.get("scene_id") or 0)
+        cast = scene_cast_entries(master, scene)
+        body = str(scene.get("first_frame_prompt") or "")
+        if cast and "reference_" not in body.lower():
+            body = (body.rstrip(" .") + ". " + _identity_anchor(cast)).strip()
         entries.append({
             "index": sid,
             "scene_id": sid,
             "filename": f"{nf.frame_stem(sid)}.png",
             "shot": str((scene.get("internal_cuts") or [{}])[0].get("framing") or ""),
             "location": str(scene.get("location") or ""),
-            "prompt": compose_image_prompt(scene.get("first_frame_prompt") or "", style),
+            "cast": cast,
+            "references": [c["reference"] for c in cast],
+            "teaser_cover": sid in covers,
+            "prompt": compose_image_prompt(body, style),
         })
     return entries
 
@@ -142,17 +181,20 @@ def write_queue_files(paths: Dict[str, Path], master: Dict[str, Any], entries: L
         "Cómo usarla:",
         "  0. Genera PRIMERO las hojas de referencia con chatgpt_reference_sheets.txt (una sola vez)",
         "     y adjúntalas TODAS en la conversación de ChatGPT.",
-        "  1. Los prompts de escena dicen 'the same woman/man as the reference image': la cara se",
-        "     copia de esas hojas, nunca se describe en texto.",
+        "  1. Cada prompt nombra al personaje y su reference_<id>.png: la cara se copia de esas",
+        "     hojas, nunca se describe en texto.",
         "  2. Carga chatgpt_image_prompts_queue.txt en tu extensión de cola (1 prompt por línea).",
         "  3. Guarda cada imagen generada como frame_001.png ... frame_060.png en frames/.",
         "  4. Verifica con: python generators/02_export_chatgpt_queue.py "
-        f"{ep.get('slug', '')} --check",
+        f"{ep.get('slug', '')} --check --strict",
         "",
     ]
     for entry in entries:
+        cast_note = ", ".join(c["name"] for c in entry["cast"]) or "—"
+        cover = "  [9:16 PORTADA]" if entry["teaser_cover"] else ""
         labeled_lines += [
-            f"=== SCENE {entry['scene_id']:03d} | {entry['filename']} | {entry['shot']} | {entry['location']} ===",
+            f"=== SCENE {entry['scene_id']:03d} | {entry['filename']} | {entry['shot']} | "
+            f"{entry['location']} | cast: {cast_note}{cover} ===",
             entry["prompt"],
             "",
         ]
@@ -167,7 +209,49 @@ def write_queue_files(paths: Dict[str, Path], master: Dict[str, Any], entries: L
     })
 
 
-def run_check(paths: Dict[str, Path], entries: List[Dict[str, Any]], allow_missing: bool) -> int:
+def compose_vertical_prompt(body: str, style: Dict[str, Any]) -> str:
+    """Igual que el horizontal, pero forzando encuadre 9:16 (portada de teaser)."""
+    prompt = compose_image_prompt(body, style)
+    prompt = prompt.replace("16:9 widescreen cinematic still.", "9:16 vertical cinematic still.")
+    if "9:16" not in prompt.lower():
+        prompt = "9:16 vertical teaser cover. " + prompt
+    return " ".join(prompt.split())
+
+
+def write_thumbnail_prompts(
+    paths: Dict[str, Path], master: Dict[str, Any], style: Dict[str, Any], entries: List[Dict[str, Any]]
+) -> Optional[Path]:
+    """Portadas 9:16 para los teasers (la primera escena de cada ventana de 6)."""
+    by_id = {e["scene_id"]: e for e in entries}
+    covers = teaser_cover_scenes(master)
+    if not covers:
+        return None
+    lines = [
+        "NOVEL FACTORY — Portadas de teaser 9:16 (opcional, 3 imágenes verticales)",
+        "",
+        "Genera estas portadas ADEMÁS de los 60 frames 16:9. Mismo personaje y referencia.",
+        "Nombre sugerido: thumbnail_teaser_01.png … thumbnail_teaser_03.png",
+        "",
+    ]
+    for idx, sid in enumerate(covers, start=1):
+        entry = by_id.get(sid)
+        body = str(entry["prompt"]) if entry else ""
+        lines += [
+            f"=== TEASER {idx} | portada de scene {sid:03d} -> thumbnail_teaser_{idx:02d}.png ===",
+            compose_vertical_prompt(body, style),
+            "",
+        ]
+    out = paths.get("chatgpt_thumbs") or (paths["root"] / "chatgpt_thumbnail_prompts.txt")
+    return nf.write_text(out, "\n".join(lines))
+
+
+def run_check(
+    paths: Dict[str, Path],
+    entries: List[Dict[str, Any]],
+    allow_missing: bool,
+    sheets: Optional[List[Dict[str, Any]]] = None,
+    strict: bool = False,
+) -> int:
     present: List[int] = []
     missing: List[int] = []
     for entry in entries:
@@ -177,14 +261,32 @@ def run_check(paths: Dict[str, Path], entries: List[Dict[str, Any]], allow_missi
             missing.append(entry["scene_id"])
     nf.log("")
     nf.info(f"Frames presentes: {len(present)}/{len(entries)}")
+    ok = True
     if missing:
-        ranges = missing
-        nf.warn(f"Faltan {len(missing)} frames: {', '.join(str(i) for i in ranges[:20])}" +
-                (" …" if len(ranges) > 20 else ""))
+        nf.warn(f"Faltan {len(missing)} frames: {', '.join(str(i) for i in missing[:20])}" +
+                (" …" if len(missing) > 20 else ""))
         nf.info("Esperados como frame_XXX.png / .jpg / .jpeg / .webp en " + str(paths["frames"]))
-        return 0 if allow_missing else 1
-    nf.ok("Los 60 fotogramas iniciales están en su sitio.")
-    return 0
+        if not allow_missing:
+            ok = False
+
+    if sheets:
+        refs_dir = paths.get("references") or (paths["root"] / "references")
+        missing_refs = [s for s in sheets if not (refs_dir / s["filename"]).exists() and not s.get("existing_image")]
+        if missing_refs:
+            names = ", ".join(s["filename"] for s in missing_refs)
+            msg = f"Faltan {len(missing_refs)} hojas de referencia en {refs_dir}: {names}"
+            if strict:
+                nf.err(msg)
+                ok = False
+            else:
+                nf.warn(msg + " (usa --strict para que sea error)")
+        else:
+            nf.ok(f"Hojas de referencia presentes: {len(sheets)}.")
+
+    if ok:
+        nf.ok("Los fotogramas iniciales (y sus referencias) están en su sitio.")
+        return 0
+    return 0 if allow_missing else 1
 
 
 def main(argv: Optional[List[str]] = None) -> int:
@@ -192,6 +294,7 @@ def main(argv: Optional[List[str]] = None) -> int:
     parser.add_argument("project", help="Slug del episodio.")
     parser.add_argument("--check", action="store_true", help="Solo verifica los frames en frames/.")
     parser.add_argument("--allow-missing", action="store_true", help="No falla si faltan frames.")
+    parser.add_argument("--strict", action="store_true", help="Falla también si faltan hojas de referencia.")
     parser.add_argument("--show", type=str, default="", help="Imprime los prompts de un rango (ej: 1-3).")
     args = parser.parse_args(argv)
 
@@ -204,6 +307,7 @@ def main(argv: Optional[List[str]] = None) -> int:
     master = nf.load_master(paths["root"])
     style = nf.load_style_locks()
     entries = build_queue(master, style)
+    sheets = build_reference_sheets(master)
     ep = nf.episode_meta(master)
 
     if not args.check:
@@ -215,7 +319,6 @@ def main(argv: Optional[List[str]] = None) -> int:
         nf.info(f"{paths['chatgpt_json'].name}         (índice JSON)")
 
     if not args.check:
-        sheets = build_reference_sheets(master)
         if sheets:
             refs_path = write_reference_sheets(paths, master, sheets)
             to_generate = sum(1 for s in sheets if s["prompt"])
@@ -223,6 +326,9 @@ def main(argv: Optional[List[str]] = None) -> int:
             nf.info(f"{refs_path.name}   (adjúntalas en ChatGPT antes de la cola)")
         else:
             nf.info("Sin visual_reference/reference_image en el maestro: adjunta tus propias imágenes de referencia.")
+        thumbs = write_thumbnail_prompts(paths, master, style, entries)
+        if thumbs:
+            nf.ok(f"Portadas 9:16 de teaser: {thumbs.name}")
 
     if args.show:
         want = set(nf.parse_ranges(args.show))
@@ -233,7 +339,7 @@ def main(argv: Optional[List[str]] = None) -> int:
                 nf.log(entry["prompt"])
                 nf.log("")
 
-    rc = run_check(paths, entries, args.allow_missing) if (args.check or not args.show) else 0
+    rc = run_check(paths, entries, args.allow_missing, sheets=sheets, strict=args.strict) if (args.check or not args.show) else 0
     if not args.check and not args.show:
         nf.log("")
         nf.log(f"  Siguiente: genera los frames y confirma con --check, luego")

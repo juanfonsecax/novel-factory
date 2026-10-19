@@ -57,13 +57,14 @@ novel_factory/
 │  ├─ 02_export_chatgpt_queue.py  Cola de 60 prompts de imagen (ChatGPT) + verificación de frames
 │  └─ 03_export_omni_queue.py     Cola de 60 prompts de vídeo (Omni) en CSV/JSON/TXT
 ├─ automation/
-│  └─ omni_flow_runner.py      status · queue · assisted (portapapeles) · watch (Descargas)
+│  ├─ omni_flow_runner.py      status · queue · assisted · watch (Descargas) · import-frames
+│  └─ dashboard.py             Dashboard local: copiar prompts, ver progreso y tracking
 ├─ post_production/
 │  ├─ 04_assemble_novel_ffmpeg.py   Máster 16:9 + 3 teasers 9:16 + SRT + pack + report
 │  └─ 05_export_to_publisher.py     Exporta teasers a USA WHITE/cola/pendientes
 ├─ music/                      BGM local (ver music/README.md)
 ├─ assets/fonts/               TTF opcional para el headline de los teasers
-├─ tests/test_novel_factory.py 27 tests offline (unittest)
+├─ tests/test_novel_factory.py 41 tests offline (unittest)
 └─ projects/
    └─ <episodio>/
       ├─ story_brief.md              Premisa + reglas (para ti)
@@ -98,9 +99,12 @@ novel_factory/
  2. Frames       novelfactory.bat frames mi_episodio                 cola ChatGPT (60)
                  (ChatGPT genera las imágenes con la referencia      frames/frame_XXX.png
                  del personaje; adjúntalas a la carpeta del proyecto)
+ 2.5 Dashboard   novelfactory.bat dashboard mi_episodio --serve --open  dashboard.html + tracking
+                 (copiar prompts, marcar frames/clips, ver progreso)
  3. Clips        novelfactory.bat omni mi_episodio                   cola Omni (60)
                  novelfactory.bat assisted mi_episodio               raw_clips/scene_XXX.mp4
                  (o) novelfactory.bat watch mi_episodio
+                 (o) novelfactory.bat import-frames mi_episodio --frames-src DIR
  4. Ensamble     novelfactory.bat check mi_episodio                  preflight (sin render)
                  novelfactory.bat assemble mi_episodio               máster + 3 teasers + SRT
  5. Publicar     novelfactory.bat publish mi_episodio                plan de exportación
@@ -156,7 +160,11 @@ novel_factory/
     pulsas Enter y el runner detecta el clip más reciente en `~/Downloads`,
     valida duración (5-15 s) y lo archiva como `raw_clips/scene_XXX.mp4`.
   - `watch --once` (o continuo): vigila Descargas y archiva automáticamente los
-    clips nuevos en orden de escena (espera a que la descarga termine).
+    clips nuevos en orden de escena (espera a que la descarga termine; orden
+    natural `clip_2` antes que `clip_10`).
+  - `import-frames <slug> --frames-src DIR`: importa frames ya generados
+    (`frame_1.png`/`frame_01.png`/`scene_001.png`…) a `frames/`, con
+    `--from-scene/--to-scene` para un rango y `--move` para moverlos en vez de copiar.
   - `--playwright-script tu_script.py`: hook opcional a **tu** automatización local
     (recibe `NF_SCENE`, `NF_FRAME`, `NF_PROMPT` por entorno). El módulo **no**
     incluye ni ejecuta automatización de sitios por defecto (los selectores
@@ -172,7 +180,7 @@ novel_factory/
 | `--limit N` | Solo las primeras N escenas (pruebas rápidas) |
 | `--skip-teasers` / `--no-music` / `--no-srt` | Saltar fases |
 | `--music ruta.mp3` | BGM concreta (si no, autodetecta en `music/`) |
-| `--punch-ins` | Zoom digital sutil en los cortes internos (re-encode extra por clip) |
+| `--punch-ins` | Zoom digital sutil en los cortes internos, alineado con la cabecera recortada |
 | `--no-trim` | No recortar silencio de cabecera/cola |
 | `--video-fade` | Fade a negro al inicio/fin del máster |
 | `--allow-gaps` | Continúa aunque falten clips (marca huecos en `report.json`) |
@@ -180,9 +188,15 @@ novel_factory/
 | `--font ruta.ttf` | Fuente del headline de los teasers |
 
 Pipeline interno: preflight → normalización por escena (1920×1080, 30 fps, AAC 48k,
-recorte de silencio, caché reanudable en `output/.work/norm/`) → concat sin
-recomprimir → mezcla BGM + fade + `loudnorm` -14 LUFS → `.srt` con tiempos reales →
-3 teasers 9:16 con headline quemado → `publish_pack/` + `report.json`.
+recorte de silencio ≤ 0.35 s, **duración exacta 10.0 s** rellenando con el último
+fotograma/silencio si el clip es más corto, caché reanudable en `output/.work/norm/`)
+→ concat sin recomprimir → mezcla BGM + fade + **ducking** (`sidechaincompress`: la
+música baja sola cuando hablan) + `loudnorm` -14 LUFS → `.srt` con tiempos reales →
+3 teasers 9:16 con **encaje híbrido** (fondo desenfocado + primer plano centrado, sin
+recortar el 16:9) + headline y **subtítulos quemados** → `publish_pack/` + `report.json`.
+
+> Todas las escenas duran exactamente `scene_seconds` (10.0 s; tolerancia 0.05 s),
+> de modo que el máster concatenado mide 600 s exactos.
 
 ### 4.5 Publicación (05)
 
@@ -196,10 +210,51 @@ recomprimir → mezcla BGM + fade + `loudnorm` -14 LUFS → `.srt` con tiempos r
 | `--personaje eva_hayes` | Cuenta destino (por defecto, la del maestro) |
 | `--publisher-root "C:\...\USA WHITE"` | Ruta explícita si la autodetección falla |
 | `--force` | Sobrescribe si ya existe en la cola |
+| `--strict` | Aborta el encolado de teasers con problemas de media (resolución/audio) |
 
 La autodetección busca una carpeta con `src/orquestador.py` + `cola/pendientes`
 entre los hermanos del workspace. **Con `--publisher-root` nunca hay fallback
 silencioso**: si la ruta no es válida, se aborta.
+
+**Encolado atómico e idempotente**: la media se copia a un temporal `.part-*` y se
+renombra con `os.replace`, y el JSON se escribe igual; re-ejecutar `--apply` no
+duplica nada (un item cuenta como completo solo si existen **ambos** archivos: media
++ JSON). Si falta una parte, el item se **repara** en vez de omitirse.
+
+### 4.6 Dashboard local (copiar y pegar con tracking)
+
+`novelfactory.bat dashboard mi_episodio [--serve] [--open] [--port 8787]`
+
+Genera `projects/<episodio>/dashboard.html`: un tablero autocontenido (sin build, sin
+npm, sin red) con los 60 prompts de imagen, los 60 prompts de vídeo, las hojas de
+referencia y el guion. Sirve para el trabajo manual de copiar/pegar en ChatGPT y Omni
+sin abrir los JSON.
+
+- **Tabs**: Referencias · Frames (imagen) · Clips (Omni) · Guion.
+- **Copiar prompt**: botón por escena; marca la escena como "copiada".
+- **Marcar hecho**: tracking manual separado del disco. Si `frames/frame_XXX.png` o
+  `raw_clips/scene_XXX.mp4` ya existen, el dashboard lo detecta solo y muestra
+  "Archivo en disco" (no hay que marcarlo a mano).
+- **Filtros**: búsqueda por lugar/beat/diálogo/reparto, estado (pendiente, copiado,
+  hecho), acto, portadas de teaser y "ocultar hechos".
+- **Copiar siguiente pendiente**: toma la primera escena sin frame/clip de la tab
+  activa, copia su prompt y la registra.
+- **Progreso**: frames, clips, marcados manuales, referencias y teasers.
+
+Dos modos de persistencia:
+
+| Modo | Comando | Tracking |
+|---|---|---|
+| Archivo | `dashboard mi_episodio` | `localStorage` del navegador + exportar/importar JSON |
+| Servidor local | `dashboard mi_episodio --serve --open` | `projects/<episodio>/dashboard_tracking.json` (atómico, en disco) |
+
+`--serve` levanta solo `127.0.0.1` (sin red externa) y añade `Recargar estado`
+para releer `frames/`, `raw_clips/` y `output/` sin regenerar el HTML. El botón
+**Exportar tracking** descarga el JSON y **Importar** lo restaura, así el progreso
+nunca queda atado a un navegador. Los archivos de media no se tocan.
+
+> Si regeneras `master_episode.json`, vuelve a ejecutar `dashboard` para refrescar
+> los prompts embebidos; el tracking existente se conserva.
 
 ---
 
@@ -331,11 +386,12 @@ python -m unittest discover -s novel_factory\tests -v
 novel_factory\novelfactory.bat test
 ```
 
-26 tests offline: núcleo y esquema del maestro, generadores (60 prompts de ambas
-colas), helpers del ensamblador (SRT, escape del concat, detección de silencio con
-clips generados al vuelo), exportador (detección de publicador, post JSON) y runner
-(cola, detección de descargas, archivado y validación de clips). Los tests que
-necesitan ffmpeg se saltan solos si no está instalado.
+41 tests offline: núcleo y esquema del maestro, generadores (60 prompts de ambas
+colas), dashboard (estado, render y tracking), helpers del ensamblador (SRT, escape
+del concat, detección de silencio con clips generados al vuelo), exportador
+(detección de publicador, post JSON) y runner (cola, detección de descargas,
+archivado y validación de clips). Los tests que necesitan ffmpeg se saltan solos si
+no está instalado.
 
 ---
 

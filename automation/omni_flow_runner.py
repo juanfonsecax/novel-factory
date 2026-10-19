@@ -21,6 +21,7 @@ Uso:
   python automation/omni_flow_runner.py mi_episodio assisted --count 5
   python automation/omni_flow_runner.py mi_episodio watch --once
   python automation/omni_flow_runner.py mi_episodio watch --interval 3
+  python automation/omni_flow_runner.py mi_episodio import-frames --frames-src "C:\\mis\\imagenes"
   python automation/omni_flow_runner.py mi_episodio assisted --playwright-script "C:\\mi\\omni_local.py"
 """
 from __future__ import annotations
@@ -39,7 +40,30 @@ sys.path.insert(0, str(NF_ROOT))
 import nf_core as nf  # noqa: E402
 
 MEDIA_EXTS = (".mp4", ".mov", ".m4v", ".webm")
+IMAGE_EXTS = (".png", ".jpg", ".jpeg", ".webp")
 DEFAULT_DOWNLOADS = Path.home() / "Downloads"
+
+
+def natural_key(text: str) -> List[Any]:
+    """Clave de orden natural: 'clip_2' < 'clip_10' (no lexicográfico)."""
+    import re as _re
+
+    return [int(part) if part.isdigit() else part.lower()
+            for part in _re.split(r"(\d+)", str(text))]
+
+
+def scene_hint_from_name(name: str) -> Optional[int]:
+    """Extrae un scene_id de un nombre tipo 'scene_007.mp4' o '007 ...'. Si no, None."""
+    import re as _re
+
+    match = _re.search(r"(?:scene[_\-\s]*)?(\d{1,3})(?!\d)", str(name), flags=_re.IGNORECASE)
+    if not match:
+        return None
+    try:
+        sid = int(match.group(1))
+    except ValueError:
+        return None
+    return sid if 1 <= sid <= nf.SCENE_COUNT else None
 
 
 # ---------------------------------------------------------------------------
@@ -154,8 +178,17 @@ def assign_clip(
                        "Usa --force-duration si es correcto.")
     src = src.resolve()
     target.parent.mkdir(parents=True, exist_ok=True)
-    if src != target.resolve():
+    if src == target.resolve():
+        return True, f"{target.name} ya estaba en su sitio ({dur:.1f}s)"
+    try:
         shutil.move(str(src), str(target))
+    except OSError:
+        # Fallback entre volúmenes distintos: copia segura + borrado.
+        shutil.copy2(str(src), str(target))
+        try:
+            src.unlink()
+        except OSError:
+            pass
     note = f"{target.name} ({dur:.1f}s)"
     if abs(dur - nf.SCENE_SECONDS) > 0.8:
         note += "  [!] no dura 10 s exactos"
@@ -328,10 +361,62 @@ def cmd_assisted(args: argparse.Namespace) -> int:
             return 0
 
 
+def cmd_import_frames(args: argparse.Namespace) -> int:
+    """Importa imágenes ya generadas a frames/frame_XXX.<ext> en orden natural."""
+    paths, master = _prepare(args)
+    src_dir = Path(args.frames_src).expanduser()
+    if not src_dir.is_dir():
+        raise nf.NFError(f"No existe la carpeta de frames: {src_dir}")
+    candidates = sorted(
+        (p for p in src_dir.iterdir() if p.is_file() and p.suffix.lower() in IMAGE_EXTS),
+        key=lambda p: natural_key(p.name),
+    )
+    if not candidates:
+        nf.warn(f"No hay imágenes ({', '.join(IMAGE_EXTS)}) en {src_dir}.")
+        return 1
+
+    rows = build_status(paths, master)
+    missing = [r["scene_id"] for r in rows if not r["frame"]]
+    if args.from_scene or args.to_scene:
+        lo = args.from_scene or 1
+        hi = args.to_scene or nf.SCENE_COUNT
+        targets = [sid for sid in range(lo, hi + 1) if (args.overwrite or sid in missing)]
+    else:
+        targets = list(missing)
+
+    if not targets:
+        nf.ok("No hay frames objetivo (usa --overwrite para reemplazar existentes).")
+        return 0
+    if len(candidates) < len(targets):
+        nf.warn(f"{len(candidates)} imágenes para {len(targets)} escenas objetivo; se importan las primeras {len(candidates)}.")
+    pairs = list(zip(targets, candidates))
+    nf.log("")
+    moved = 0
+    for sid, src in pairs:
+        dest = paths["frames"] / f"{nf.frame_stem(sid)}{src.suffix.lower()}"
+        if dest.exists() and not args.overwrite:
+            nf.warn(f"Escena {sid}: {dest.name} ya existe (usa --overwrite).")
+            continue
+        if args.dry_run:
+            nf.info(f"[dry-run] {src.name} -> {dest.name}")
+            continue
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        if args.move:
+            shutil.move(str(src), str(dest))
+        else:
+            shutil.copy2(str(src), str(dest))
+        moved += 1
+        nf.ok(f"{src.name} -> {dest.name}")
+    if not args.dry_run:
+        nf.info(f"Importados {moved} frame(s).")
+        save_state(paths, build_status(paths, master))
+    return 0
+
+
 def _scan_ready(downloads: Path, start: float, seen: Dict[Path, int]) -> List[Path]:
     """Archivos de vídeo nuevos y con tamaño estable entre dos sondeos (descarga completa)."""
     ready: List[Path] = []
-    for media in sorted(downloads.iterdir()):
+    for media in sorted(downloads.iterdir(), key=lambda p: natural_key(p.name)):
         if not media.is_file() or media.suffix.lower() not in MEDIA_EXTS:
             continue
         try:
@@ -375,7 +460,13 @@ def cmd_watch(args: argparse.Namespace) -> int:
                 pending = _missing_rows(rows)
                 if not pending:
                     break
-                row = pending[0]
+                pending_ids = {r["scene_id"] for r in pending}
+                hint = scene_hint_from_name(media.name)
+                if hint and hint in pending_ids:
+                    row = next(r for r in pending if r["scene_id"] == hint)
+                    nf.info(f"{media.name}: detectado scene_id {hint} en el nombre.")
+                else:
+                    row = pending[0]
                 sid = row["scene_id"]
                 seen[media] = media.stat().st_size if media.exists() else 0
                 if args.dry_run:
@@ -405,7 +496,7 @@ def main(argv: Optional[List[str]] = None) -> int:
         description="Runner local de la cola de Omni (status/queue/assisted/watch). Sin APIs.",
     )
     parser.add_argument("project", help="Slug del episodio.")
-    parser.add_argument("command", choices=["status", "queue", "assisted", "watch"],
+    parser.add_argument("command", choices=["status", "queue", "assisted", "watch", "import-frames"],
                         help="Acción a ejecutar.")
     parser.add_argument("--downloads", default=str(DEFAULT_DOWNLOADS),
                         help="Carpeta de descargas a vigilar (por defecto: ~/Downloads).")
@@ -420,6 +511,14 @@ def main(argv: Optional[List[str]] = None) -> int:
                         help="Acepta clips fuera de 5-15 s (por si Omni cambió el formato).")
     parser.add_argument("--playwright-script", default="",
                         help="Script local opcional (Playwright propio) a ejecutar antes de cada espera.")
+    parser.add_argument("--frames-src", default="",
+                        help="import-frames: carpeta con las imágenes ya generadas.")
+    parser.add_argument("--from-scene", type=int, default=0,
+                        help="import-frames: primer scene_id objetivo (por defecto: frames faltantes).")
+    parser.add_argument("--to-scene", type=int, default=0,
+                        help="import-frames: último scene_id objetivo.")
+    parser.add_argument("--move", action="store_true",
+                        help="import-frames: mueve en vez de copiar.")
     args = parser.parse_args(argv)
 
     nf.log("")
@@ -433,6 +532,8 @@ def main(argv: Optional[List[str]] = None) -> int:
             return cmd_queue(args)
         if args.command == "assisted":
             return cmd_assisted(args)
+        if args.command == "import-frames":
+            return cmd_import_frames(args)
         return cmd_watch(args)
     except nf.NFError as exc:
         nf.err(str(exc))

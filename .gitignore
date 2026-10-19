@@ -23,3 +23,7 @@ Thumbs.db
 # Environment / local overrides
 .env
 *.log
+
+# Generated dashboard and local production tracking
+projects/*/dashboard.html
+projects/*/dashboard_tracking.json
