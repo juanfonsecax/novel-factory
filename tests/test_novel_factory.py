@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import importlib.util
 import json
+import shutil
 import sys
 import tempfile
 import unittest
@@ -34,6 +35,7 @@ GEN02 = load_module("nf_gen02", "generators", "02_export_chatgpt_queue.py")
 GEN03 = load_module("nf_gen03", "generators", "03_export_omni_queue.py")
 MPL = load_module("nf_mpl", "generators", "master_prompts_library.py")
 GEN04 = load_module("nf_gen04", "generators", "04_export_master_prompts.py")
+GEN05 = load_module("nf_gen05", "generators", "05_export_muse_method_pack.py")
 ASM04 = load_module("nf_asm04", "post_production", "04_assemble_novel_ffmpeg.py")
 PUB05 = load_module("nf_pub05", "post_production", "05_export_to_publisher.py")
 RUNNER = load_module("nf_runner", "automation", "omni_flow_runner.py")
@@ -325,6 +327,49 @@ class MasterPromptTests(unittest.TestCase):
             self.assertIn("REF_CAST_MASTER.png", data["items"][1]["prompt"])
             lines = written["txt"].read_text(encoding="utf-8").strip().splitlines()
             self.assertEqual(len(lines), 11)
+
+
+@unittest.skipUnless(DEMO_DIR.exists(), "no existe projects/demo_contract")
+class MusePackTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.master = nf.load_master(DEMO_DIR)
+        cls.style = nf.load_style_locks()
+        cls.pack = GEN05.build_pack(cls.master, cls.style)
+
+    def test_pack_counts_and_order(self):
+        self.assertEqual(self.pack["counts"]["images"], 11)
+        self.assertEqual(self.pack["counts"]["storyboards"], 10)
+        self.assertEqual(self.pack["counts"]["batches"], 10)
+        self.assertEqual(self.pack["cast_master"]["filename"], "REF_CAST_MASTER.png")
+        self.assertEqual(self.pack["batches"][0]["reference_images"], [
+            "REF_CAST_MASTER.png", "REF_GRID_MIN_01.png",
+        ])
+        self.assertEqual(self.pack["batches"][-1]["scenes"], [55, 56, 57, 58, 59, 60])
+
+    def test_markdown_has_the_four_steps(self):
+        text = GEN05.render_markdown(self.pack)
+        for step in ("Paso 1", "Paso 2", "Paso 3", "Paso 4"):
+            self.assertIn(step, text)
+        self.assertIn("REF_GRID_MIN_10.png", text)
+        self.assertIn("minute_10.mp4", text)
+        self.assertIn("Comando final 9:16", text)
+
+    def test_write_pack_creates_files(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            written = GEN05.write_pack({"root": Path(tmp)}, self.pack)
+            self.assertTrue(written["md"].exists())
+            self.assertTrue(written["checklist"].exists())
+            self.assertTrue(written["json"].exists())
+            self.assertTrue(written["storyboards_readme"].exists())
+            checklist = written["checklist"].read_text(encoding="utf-8")
+            self.assertEqual(checklist.count("- [ ] `REF_GRID_MIN_"), 10)
+            self.assertEqual(checklist.count("- [ ] `minute_"), 10)
+
+    def test_muse_pack_subcommand_registered(self):
+        script = nf.subcommand_script("muse-pack")
+        self.assertIsNotNone(script)
+        self.assertTrue(script.exists())
 
 
 class AssemblerTests(unittest.TestCase):
@@ -673,6 +718,32 @@ class DashboardTests(unittest.TestCase):
         self.assertEqual(state["storyboard_grids"]["count"], 11)
         self.assertEqual(len(state["storyboard_grids"]["items"]), 11)
         self.assertIn("REF_CAST_MASTER.png", state["storyboard_grids"]["text"])
+        self.assertEqual(state["assembly"]["minutes_expected"], 10)
+        self.assertIn(state["assembly"]["clip_mode"], ("scenes", "batches", "incomplete", "empty"))
+        self.assertIn("batch_clips_disk", state["totals"])
+        self.assertEqual(state["assembly"]["storyboards_expected"], 11)
+        self.assertIn("storyboards_disk", state["totals"])
+
+    def test_build_state_detects_batch_mode(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / "demo_contract"
+            shutil.copytree(DEMO_DIR, root)
+            raw = root / "raw_clips"
+            raw.mkdir(exist_ok=True)
+            for number in range(1, 11):
+                (raw / f"minute_{number:02d}.mp4").write_bytes(b"x")
+            storyboards = root / "storyboards"
+            storyboards.mkdir(exist_ok=True)
+            (storyboards / "REF_CAST_MASTER.png").write_bytes(b"x")
+            (storyboards / "ref_grid_min_01.PNG").write_bytes(b"x")
+            state = DASH.build_state(root)
+            self.assertEqual(state["assembly"]["clip_mode"], "batches")
+            self.assertEqual(state["assembly"]["batch_clips_disk"], 10)
+            self.assertEqual(state["totals"]["batch_clips_disk"], 10)
+            self.assertEqual(state["assembly"]["storyboards_disk"], 2)
+            grid = state["storyboard_grids"]["items"][0]
+            self.assertTrue(grid["exists"])
+            self.assertEqual(grid["disk_file"], "REF_CAST_MASTER.png")
 
     def test_render_escapes_script_tags(self):
         state = DASH.build_state(DEMO_DIR)
@@ -680,6 +751,12 @@ class DashboardTests(unittest.TestCase):
         html = DASH.render_dashboard(state, {"scenes": {}, "references": {}})
         self.assertEqual(html.count("</script>"), 1)
         self.assertIn("const STATE =", html)
+        self.assertIn("Nueva metodología", html)
+        self.assertIn("copy-muse-batch-169", html)
+        self.assertIn("copy-storyboard-grid", html)
+        self.assertIn("toggle-legacy", html)
+        self.assertIn("Ver método anterior", html)
+        self.assertIn("storyboards_disk", html)
         self.assertIn("Novel Factory", html)
         self.assertIn("Prompts maestros", html)
         self.assertIn("platform-filter", html)
@@ -730,12 +807,19 @@ class LauncherTests(unittest.TestCase):
         self.assertTrue(script.exists())
         self.assertIn("prompts", nf.SUBCOMMANDS)
         self.assertTrue(nf.subcommand_script("prompts").exists())
+        self.assertIn("muse-pack", nf.SUBCOMMANDS)
+        self.assertTrue(nf.subcommand_script("muse-pack").exists())
         self.assertTrue(callable(nf.cmd_prepare))
 
     def test_bat_dispatches_prepare(self):
         bat = (NF_ROOT / "novelfactory.bat").read_text(encoding="utf-8", errors="replace")
         self.assertIn('"%CMD%"=="prepare"', bat)
         self.assertIn("nf_core.py\" prepare", bat)
+
+    def test_bat_dispatches_muse_pack(self):
+        bat = (NF_ROOT / "novelfactory.bat").read_text(encoding="utf-8", errors="replace")
+        self.assertIn('"%CMD%"=="muse-pack"', bat)
+        self.assertIn("05_export_muse_method_pack.py", bat)
 
     def test_bat_propagates_errors(self):
         bat = (NF_ROOT / "novelfactory.bat").read_text(encoding="utf-8", errors="replace")

@@ -207,6 +207,40 @@ def build_state(project: str | Path, paths: Optional[Dict[str, Path]] = None) ->
         teasers = sorted(p.name for p in output.glob("teaser_*.mp4"))
         masters = sorted(p.name for p in output.glob("*_master_16x9_1080p.mp4"))
 
+    storyboards_dir = root / "storyboards"
+    on_disk: Dict[str, str] = {}
+    if storyboards_dir.exists():
+        for candidate in storyboards_dir.iterdir():
+            if candidate.is_file():
+                on_disk[candidate.name.lower()] = candidate.name
+    storyboards_disk = 0
+    for item in storyboard_grids:
+        filename = str(item.get("filename") or "")
+        match = on_disk.get(filename.lower(), "")
+        item["exists"] = bool(match)
+        item["disk_file"] = match
+        if match:
+            storyboards_disk += 1
+
+    batch_files: List[str] = []
+    raw_clips = paths["raw_clips"]
+    for number in range(1, 11):
+        for pattern in ("minute_{n:02d}.mp4", "batch_{n:02d}.mp4",
+                        "minute_{n}.mp4", "batch_{n}.mp4"):
+            candidate = raw_clips / pattern.format(n=number)
+            if candidate.exists():
+                batch_files.append(candidate.name)
+                break
+    scene_clips_disk = sum(1 for scene in scenes if scene["clip_exists"])
+    if scenes and scene_clips_disk == len(scenes):
+        clip_mode = "scenes"
+    elif len(batch_files) == 10:
+        clip_mode = "batches"
+    elif batch_files or scene_clips_disk:
+        clip_mode = "incomplete"
+    else:
+        clip_mode = "empty"
+
     return {
         "version": 1,
         "generated_at": nf.now_iso(),
@@ -231,6 +265,14 @@ def build_state(project: str | Path, paths: Optional[Dict[str, Path]] = None) ->
             "text": storyboard_grids_text,
         },
         "assembly": {
+            "clip_mode": clip_mode,
+            "scene_clips_disk": scene_clips_disk,
+            "batch_clips": batch_files,
+            "batch_clips_disk": len(batch_files),
+            "storyboards_disk": storyboards_disk,
+            "storyboards_expected": len(storyboard_grids),
+            "storyboards_dir": str(storyboards_dir),
+            "minutes_expected": 10,
             "teasers": teasers,
             "masters": masters,
             "report": report_exists,
@@ -243,7 +285,9 @@ def build_state(project: str | Path, paths: Optional[Dict[str, Path]] = None) ->
             "references": len(references),
             "references_disk": sum(1 for r in references if r["exists"]),
             "frames_disk": sum(1 for s in scenes if s["frame_exists"]),
-            "clips_disk": sum(1 for s in scenes if s["clip_exists"]),
+            "clips_disk": scene_clips_disk,
+            "batch_clips_disk": len(batch_files),
+            "storyboards_disk": storyboards_disk,
             "teasers": len(teasers),
             "masters": len(masters),
         },
@@ -364,6 +408,16 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .master-actions { display: flex; gap: 8px; flex-wrap: wrap; }
   .quick-access { display: flex; gap: 8px; flex-wrap: wrap; margin: 0 0 18px; }
   .quick-access .btn { flex: 0 1 auto; }
+  .method { background: linear-gradient(135deg, #071a2b, #0b1424 55%); border: 1px solid #164e63; border-radius: 16px; padding: 18px; margin-bottom: 20px; }
+  .method h2 { font-size: 18px; }
+  .method p { color: var(--muted); font-size: 12px; margin-top: 4px; max-width: 900px; }
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px; margin-top: 14px; }
+  .step { background: #040c18; border: 1px solid var(--border); border-radius: 12px; padding: 13px; display: flex; flex-direction: column; gap: 8px; }
+  .step b { color: #fff; font-size: 13px; }
+  .step p { margin: 0; }
+  .step-num { width: 26px; height: 26px; border-radius: 50%; background: var(--accent); color: #06121f; font-weight: 900; display: flex; align-items: center; justify-content: center; font-size: 13px; }
+  .step .btn { margin-top: auto; }
+  .method-foot { margin-top: 12px; color: #a5f3fc; font-size: 12px; }
   .actions { display: flex; gap: 8px; margin-top: auto; flex-wrap: wrap; }
   .actions .btn { flex: 1; }
   .actions .btn.ghost { flex: 0 0 auto; }
@@ -396,7 +450,10 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
       <h1>Novel Factory <span>Dashboard</span></h1>
       <div class="sub" id="project-sub">Cargando proyecto...</div>
     </div>
-    <div class="mode" id="mode">modo archivo</div>
+    <div style="display:flex;align-items:center;gap:8px">
+      <button class="btn ghost small" id="legacy-btn" data-action="toggle-legacy">Ver método anterior</button>
+      <div class="mode" id="mode">modo archivo</div>
+    </div>
   </div>
   <div class="progress-grid" id="progress"></div>
 </header>
@@ -450,7 +507,8 @@ const MODE = "__MODE__";
 const LOCAL_KEY = "novelfactory_tracking_" + (STATE.slug || "episode");
 let state = STATE;
 let tracking = normalizeTracking(TRACKING_SEED);
-let activeTab = "frames";
+let activeTab = "prompts";
+let legacyMode = false;
 let platform = "omni";
 let filters = { state: "all", act: "all", q: "", teaser: false, hideDone: false };
 let saveTimer = null;
@@ -556,7 +614,9 @@ function renderProgress() {
   const markedFrames = state.scenes.filter((s) => sceneData(s.scene_id).image_done).length;
   const markedClips = state.scenes.filter((s) => sceneData(s.scene_id).video_done).length;
   const refs = state.references.filter(refDone).length;
-  const bars = [
+  const images = state.assembly.storyboards_disk || 0;
+  const imagesMax = state.assembly.storyboards_expected || 11;
+  const bars = legacyMode ? [
     ["Frames listos", frames, total],
     ["Clips listos", clips, total],
     ["Escenas completas", state.scenes.filter((s) => frameDone(s) && clipDone(s)).length, total],
@@ -564,7 +624,14 @@ function renderProgress() {
     ["Marcados clip", markedClips, total],
     ["Referencias", refs, state.references.length || 1],
     ["Prompts maestros", (state.master_prompts && state.master_prompts.items ? state.master_prompts.items.length : 0), 4],
+    ["Cola de imágenes", state.storyboard_grids ? state.storyboard_grids.count : 0, 11],
+    ["Lotes Muse AI (modo B)", state.assembly.batch_clips_disk || 0, 10],
     ["Teasers", state.assembly.teasers.length, 3],
+  ] : [
+    ["Imágenes del método nuevo", images, imagesMax],
+    ["Lotes Muse AI (modo B)", state.assembly.batch_clips_disk || 0, 10],
+    ["Prompts maestros", (state.master_prompts && state.master_prompts.items ? state.master_prompts.items.length : 0), 4],
+    ["Teasers", state.assembly.teasers.length, 1],
   ];
   $("#progress").innerHTML = bars.map(([label, value, max]) => {
     const pct = Math.min(100, Math.round((value / (max || 1)) * 100));
@@ -573,19 +640,36 @@ function renderProgress() {
   const mode = $("#mode");
   mode.textContent = MODE === "server" ? "servidor local · tracking en disco" : "modo archivo · tracking en navegador";
   mode.classList.toggle("server", MODE === "server");
-  $("#project-sub").innerHTML = `<b>${esc(state.title)}</b> · ${esc(state.slug)} · ${state.scenes.length} escenas · ${state.scenes.filter((s) => s.clip_exists).length} clips en disco`;
+  const moviePart = legacyMode
+    ? `${state.scenes.filter((s) => s.clip_exists).length} clips de escena · ${state.assembly.batch_clips_disk || 0}/10 lotes de 1 min`
+    : `${images}/${imagesMax} imágenes · ${state.assembly.batch_clips_disk || 0}/10 lotes de 1 min`;
+  $("#project-sub").innerHTML = `<b>${esc(state.title)}</b> · ${esc(state.slug)} · ${state.scenes.length} escenas · ${moviePart}`;
+  syncLegacyButton();
+}
+
+function syncLegacyButton() {
+  const button = $("#legacy-btn");
+  if (!button) return;
+  button.textContent = legacyMode ? "Ocultar método anterior" : "Ver método anterior";
+  button.classList.toggle("active", legacyMode);
 }
 
 function renderTabs() {
   const masterCount = state.master_prompts && state.master_prompts.items ? state.master_prompts.items.length : 0;
   const tabs = [
-    ["references", "Referencias", state.references.length],
-    ["frames", "Frames (imagen)", state.scenes.length],
-    ["clips", "Clips (video)", state.scenes.length],
+    ["prompts", "Método y prompts", masterCount],
     ["script", "Guion", state.scenes.length],
-    ["prompts", "Prompts maestros", masterCount],
   ];
+  if (legacyMode) {
+    tabs.unshift(
+      ["references", "Referencias", state.references.length],
+      ["frames", "Frames (imagen)", state.scenes.length],
+      ["clips", "Clips (video)", state.scenes.length],
+    );
+  }
+  if (!tabs.some(([id]) => id === activeTab)) activeTab = "prompts";
   $("#tabs").innerHTML = tabs.map(([id, label, count]) => `<button class="tab ${activeTab === id ? "active" : ""}" data-tab="${id}">${label} (${count})</button>`).join("");
+  syncLegacyButton();
 }
 
 function matchesScene(scene, kind) {
@@ -746,6 +830,7 @@ function quickPromptButtons() {
 function museBatchCard(batch) {
   const first = batch.scenes && batch.scenes.length ? batch.scenes[0] : "?";
   const last = batch.scenes && batch.scenes.length ? batch.scenes[batch.scenes.length - 1] : "?";
+  const refs = batch.reference_images || ["REF_CAST_MASTER.png", `REF_GRID_MIN_${String(batch.batch_id || 0).padStart(2, "0")}.png`];
   return `<article class="card">
     <div class="card-top">
       <div class="scene-id">${String(batch.batch_id || 0).padStart(2, "0")}</div>
@@ -754,16 +839,123 @@ function museBatchCard(batch) {
         <div class="meta">
           <span class="badge">Escenas ${first}–${last}</span>
           <span class="badge">${esc(batch.start_timecode)}–${esc(batch.end_timecode)}</span>
-          <span class="badge">${esc(batch.aspect_ratio || "16:9")}</span>
+          <span class="badge act">16:9 YouTube</span>
+          <span class="badge cover">9:16 Reels</span>
+          ${refs.map((ref) => `<span class="badge file">📎 ${esc(ref)}</span>`).join("")}
         </div>
       </div>
     </div>
     <pre class="prompt huge">${esc(batch.prompt)}</pre>
     <div class="actions">
-      <button class="btn primary" data-action="copy-muse-batch" data-id="${esc(batch.batch_id)}">Copiar lote</button>
+      <button class="btn primary" data-action="copy-muse-batch-169" data-id="${esc(batch.batch_id)}">Copiar comando 16:9</button>
+      <button class="btn green" data-action="copy-muse-batch-916" data-id="${esc(batch.batch_id)}">Copiar comando 9:16</button>
+      <button class="btn ghost" data-action="copy-muse-batch" data-id="${esc(batch.batch_id)}">Copiar bloque</button>
       <button class="btn" data-action="download-muse-batch" data-id="${esc(batch.batch_id)}">Descargar .txt</button>
     </div>
   </article>`;
+}
+
+function storyboardGridCard(item) {
+  const isCast = item.kind === "cast_sheet";
+  const label = isCast ? "CAST" : String(item.minute || item.index).padStart(2, "0");
+  const first = item.scenes && item.scenes.length ? item.scenes[0] : "";
+  const last = item.scenes && item.scenes.length ? item.scenes[item.scenes.length - 1] : "";
+  return `<article class="card">
+    <div class="card-top">
+      <div class="scene-id">${esc(label)}</div>
+      <div style="flex:1">
+        <div class="card-title">${esc(item.title)}</div>
+        <div class="meta">
+          <span class="badge file">${esc(item.filename)}</span>
+          ${item.scenes && item.scenes.length ? `<span class="badge">Escenas ${first}–${last}</span>` : `<span class="badge">Referencia base</span>`}
+          <span class="badge">${isCast ? "1 imagen 16:9" : "Grid 3x2 · 6 viñetas"}</span>
+          <span class="badge ${item.exists ? "ok" : ""}">${item.exists ? "En disco" : "Pendiente"}</span>
+        </div>
+      </div>
+    </div>
+    <pre class="prompt huge">${esc(item.prompt)}</pre>
+    <div class="actions">
+      <button class="btn primary" data-action="copy-storyboard-grid" data-id="${esc(item.index)}">Copiar prompt</button>
+      <button class="btn" data-action="download-storyboard-grid" data-id="${esc(item.index)}">Descargar .txt</button>
+    </div>
+  </article>`;
+}
+
+function methodBanner() {
+  const assembly = state.assembly || {};
+  return `<div class="method" style="padding:13px 16px;margin-bottom:18px">
+    <div class="master-head" style="margin-bottom:0">
+      <div>
+        <b>Nueva metodología · 11 imágenes + 10 lotes de 1 minuto</b>
+        <p>Imágenes en <b>storyboards/</b>: <b>${assembly.storyboards_disk || 0}/${assembly.storyboards_expected || 11}</b> ·
+        modo detectado: <b>${clipModeLabel(assembly.clip_mode)}</b> · lotes en disco:
+        <b>${assembly.batch_clips_disk || 0}/10</b>. Genera el cast + los 10 storyboards en ChatGPT,
+        luego cada minuto en Muse AI y guarda <b>raw_clips/minute_0X.mp4</b>.</p>
+      </div>
+      <div class="master-actions">
+        <button class="btn green" data-action="goto-prompts">Abrir Prompts maestros</button>
+      </div>
+    </div>
+  </div>`;
+}
+
+function clipModeLabel(mode) {
+  if (mode === "scenes") return "A — 60 escenas de 10 s";
+  if (mode === "batches") return "B — 10 lotes Muse AI de 1 min";
+  if (mode === "incomplete") return "incompleto (faltan clips)";
+  return "sin clips todavía";
+}
+
+function methodPanel() {
+  const grids = storyboardGrids();
+  const batches = museBatches();
+  const assembly = state.assembly || {};
+  const gridCount = grids.count || 0;
+  const batchCount = batches.length;
+  return `<section class="method">
+    <div class="master-head">
+      <div>
+        <h2>Nueva metodología — 11 imágenes + 10 lotes de 1 minuto</h2>
+        <p>ChatGPT crea una hoja maestra de personajes y 10 storyboards (uno por minuto). Muse AI genera
+        cada minuto usando esos dos adjuntos. El ensamblador 04 detecta los lotes y arma el máster de 10 min.</p>
+      </div>
+      <div class="master-actions">
+        ${gridCount ? `<button class="btn green" data-action="copy-storyboard-grids">Copiar cola de ${gridCount} imágenes</button>` : ""}
+        ${batchCount ? `<button class="btn green" data-action="copy-muse-batches">Copiar los ${batchCount} lotes</button>` : ""}
+        <button class="btn" data-action="download-muse-batches">Descargar lotes .txt</button>
+      </div>
+    </div>
+    <div class="steps">
+      <article class="step">
+        <div class="step-num">1</div>
+        <b>ChatGPT · REF_CAST_MASTER.png</b>
+        <p>Genera la hoja maestra con todos los personajes sobre fondo gris neutro. Es la referencia fija de rostros y vestuario.</p>
+        ${gridCount ? `<button class="btn small" data-action="copy-storyboard-grid" data-id="1">Copiar prompt del cast</button>` : ""}
+      </article>
+      <article class="step">
+        <div class="step-num">2</div>
+        <b>ChatGPT · 10 storyboards 3x2</b>
+        <p>Un storyboard por minuto (escenas 1–6, 7–12, … 55–60), seis viñetas por imagen, con los mismos personajes del cast.</p>
+        ${gridCount ? `<button class="btn small" data-action="copy-storyboard-grids">Copiar los 10 grids</button>` : ""}
+      </article>
+      <article class="step">
+        <div class="step-num">3</div>
+        <b>Muse AI · 10 lotes de 1 minuto</b>
+        <p>Adjunta <b>REF_CAST_MASTER.png</b> + <b>REF_GRID_MIN_0X.png</b>. Elige comando 16:9 para YouTube o 9:16 para Reels/Shorts.</p>
+        ${batchCount ? `<button class="btn small" data-action="copy-muse-batch-169" data-id="1">Ejemplo 16:9 (lote 1)</button>` : ""}
+      </article>
+      <article class="step">
+        <div class="step-num">4</div>
+        <b>Guardar y ensamblar</b>
+        <p>Guarda cada resultado como <b>raw_clips/minute_0X.mp4</b>. El 04 detecta el modo B y genera el máster + teaser 9:16.</p>
+        <button class="btn small" data-action="copy-assemble-command">Copiar comando assemble</button>
+      </article>
+    </div>
+    <div class="method-foot">Imágenes en <b>storyboards/</b>: <b>${assembly.storyboards_disk || 0}/${assembly.storyboards_expected || 11}</b> ·
+    modo detectado: <b>${clipModeLabel(assembly.clip_mode)}</b> ·
+    lotes de 1 min en disco: <b>${assembly.batch_clips_disk || 0}/${assembly.minutes_expected || 10}</b>
+    ${assembly.batch_clips && assembly.batch_clips.length ? `(${assembly.batch_clips.map(esc).join(", ")})` : ""}</div>
+  </section>`;
 }
 
 function matchesMaster(prompt) {
@@ -813,12 +1005,13 @@ function renderContent() {
   const holder = $("#content");
   if (activeTab === "prompts") {
     const items = masterItems().filter(matchesMaster);
-    if (!items.length) {
+    if (legacyMode && !items.length) {
       holder.innerHTML = `<div class="empty">No hay prompts maestros que coincidan con el filtro.</div>`;
       return;
     }
     const values = (state.master_prompts && state.master_prompts.values) || {};
     const batches = museBatches();
+    const grids = storyboardGrids();
     const head = `<div class="master-head">
       <div>
         <h2>Prompts maestros 000–003</h2>
@@ -827,31 +1020,51 @@ function renderContent() {
       <div class="master-actions">
         <button class="btn primary" data-action="copy-master-all">Copiar los 4</button>
         <button class="btn" data-action="download-master-all">Descargar JSON</button>
-        ${storyboardGrids().count ? `<button class="btn green" data-action="copy-storyboard-grids">Copiar cola 11 imágenes (Cast + 10 Storyboards)</button>` : ""}
-        ${storyboardGrids().count ? `<button class="btn" data-action="download-storyboard-grids">Descargar cola .txt</button>` : ""}
+        ${grids.count ? `<button class="btn green" data-action="copy-storyboard-grids">Copiar cola 11 imágenes (Cast + 10 Storyboards)</button>` : ""}
+        ${grids.count ? `<button class="btn" data-action="download-storyboard-grids">Descargar cola .txt</button>` : ""}
         ${batches.length ? `<button class="btn green" data-action="copy-muse-batches">Copiar lotes Muse AI</button>` : ""}
         ${batches.length ? `<button class="btn" data-action="download-muse-batches">Descargar lotes .txt</button>` : ""}
       </div>
     </div>
     <div class="quick-access">${quickPromptButtons()}</div>`;
+    const gridSection = grids.count
+      ? `<div class="master-head" style="margin-top:6px">
+          <div>
+            <h2>Cola de imágenes — ChatGPT (${grids.count})</h2>
+            <p>Genera primero <b>REF_CAST_MASTER.png</b> y luego los 10 storyboards <b>REF_GRID_MIN_01…10.png</b>.
+            Cada grid es una sola imagen 16:9 con 6 viñetas (3 columnas x 2 filas).</p>
+          </div>
+          <div class="master-actions">
+            <button class="btn green" data-action="copy-storyboard-grids">Copiar cola completa</button>
+            <button class="btn" data-action="download-storyboard-grids">Descargar cola .txt</button>
+          </div>
+        </div>
+        <div class="grid">${grids.items.map(storyboardGridCard).join("")}</div>`
+      : "";
     const batchSection = batches.length
-      ? `<div class="master-head">
+      ? `<div class="master-head" style="margin-top:22px">
           <div>
             <h2>Lotes Muse AI — 1 minuto / 6 escenas</h2>
-            <p>Cada bloque incluye los cortes [00s–03s], [03s–07s], [07s–10s], SFX, diálogo en inglés y el comando final para Muse AI.</p>
+            <p>Cada bloque incluye los cortes [00s–03s], [03s–07s], [07s–10s], SFX, diálogo en inglés,
+            la línea de adjuntos <b>REF_CAST_MASTER.png + REF_GRID_MIN_0X.png</b> y dos comandos finales:
+            <b>16:9 YouTube</b> y <b>9:16 Reels/Shorts</b>.</p>
           </div>
         </div>
         <div class="grid">${batches.map(museBatchCard).join("")}</div>
-        <div class="master-head" style="margin-top:22px">
-          <div><h2>Prompts individuales</h2></div>
-        </div>`
+        ${legacyMode ? `<div class="master-head" style="margin-top:22px">
+          <div><h2>Prompts individuales 000–003</h2></div>
+        </div>` : ""}`
       : "";
-    holder.innerHTML = `${head}${batchSection}<div class="grid">${items.map(masterPromptCard).join("")}</div>`;
+    if (legacyMode) {
+      holder.innerHTML = `${methodPanel()}${head}${gridSection}${batchSection}<div class="grid">${items.map(masterPromptCard).join("")}</div>`;
+    } else {
+      holder.innerHTML = `${methodPanel()}${gridSection}${batchSection}`;
+    }
     return;
   }
   if (activeTab === "references") {
     const refs = state.references.filter(matchesRef);
-    holder.innerHTML = refs.length ? `<div class="grid">${refs.map(referenceCard).join("")}</div>` : `<div class="empty">No hay referencias que coincidan con el filtro.</div>`;
+    holder.innerHTML = `${methodBanner()}${refs.length ? `<div class="grid">${refs.map(referenceCard).join("")}</div>` : `<div class="empty">No hay referencias que coincidan con el filtro.</div>`}`;
     return;
   }
   const kind = activeTab === "frames" ? "frames" : "clips";
@@ -861,7 +1074,7 @@ function renderContent() {
     return;
   }
   const cards = activeTab === "script" ? scenes.map(scriptCard) : scenes.map((scene) => sceneCard(scene, kind));
-  holder.innerHTML = `<div class="grid">${cards.join("")}</div>`;
+  holder.innerHTML = `${methodBanner()}<div class="grid">${cards.join("")}</div>`;
 }
 
 function render() {
@@ -878,6 +1091,12 @@ async function handleAction(button) {
   const action = button.dataset.action;
   const kind = button.dataset.kind;
   const id = button.dataset.id;
+  if (action === "toggle-legacy") {
+    legacyMode = !legacyMode;
+    if (!legacyMode && ["references", "frames", "clips"].includes(activeTab)) activeTab = "prompts";
+    render();
+    return;
+  }
   if (action === "copy-master" || action === "download-master") {
     const prompt = masterItems().find((item) => item.key === id);
     if (!prompt) return;
@@ -899,6 +1118,12 @@ async function handleAction(button) {
     toast("Manifiesto de prompts descargado");
     return;
   }
+  if (action === "goto-prompts") {
+    activeTab = "prompts";
+    render();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    return;
+  }
   if (action === "copy-storyboard-grids") {
     await copyText(storyboardGridsText(), `Cola de ${storyboardGrids().count} imágenes copiada (1 cast + 10 storyboards)`);
     return;
@@ -906,6 +1131,29 @@ async function handleAction(button) {
   if (action === "download-storyboard-grids") {
     downloadText(`chatgpt_storyboard_grids_queue_${state.slug || "episode"}.txt`, storyboardGridsText());
     toast("Cola de 11 imágenes descargada");
+    return;
+  }
+  if (action === "copy-storyboard-grid" || action === "download-storyboard-grid") {
+    const item = storyboardGrids().items.find((grid) => String(grid.index) === String(id));
+    if (!item) return;
+    if (action === "copy-storyboard-grid") {
+      await copyText(item.prompt, `${item.filename} copiado`);
+    } else {
+      downloadText(`${item.filename.replace(/\.png$/i, "")}_prompt.txt`, item.prompt);
+      toast(`${item.filename} descargado`);
+    }
+    return;
+  }
+  if (action === "copy-muse-batch-169" || action === "copy-muse-batch-916") {
+    const batch = museBatches().find((item) => String(item.batch_id) === String(id));
+    if (!batch) return;
+    const vertical = action === "copy-muse-batch-916";
+    const text = vertical ? batch.muse_command_916 : batch.muse_command;
+    await copyText(text, `Comando ${vertical ? "9:16 (Reels)" : "16:9 (YouTube)"} del lote ${batch.batch_id} copiado`);
+    return;
+  }
+  if (action === "copy-assemble-command") {
+    await copyText(`./novelfactory.bat assemble ${state.slug || "<proyecto>"}`, "Comando de ensamblaje copiado");
     return;
   }
   if (action === "copy-muse-batch") {

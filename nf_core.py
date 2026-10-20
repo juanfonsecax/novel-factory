@@ -58,6 +58,7 @@ FRAME_EXTS = (".png", ".jpg", ".jpeg", ".webp")
 SUBCOMMANDS: Dict[str, str] = {
     "export-master-prompts": "generators/00_export_master_workflow_prompts.py",
     "prompts": "generators/04_export_master_prompts.py",
+    "muse-pack": "generators/05_export_muse_method_pack.py",
 }
 
 # --- Contrato de contenido (P0): ritmo de habla y presupuesto por escena ---
@@ -1180,17 +1181,18 @@ def run_subcommand(name: str, args: Sequence[str]) -> int:
 
 
 def cmd_prepare(project: str, extra_args: Sequence[str] = ()) -> int:
-    """Regenera el workflow (00) y MASTER_PROMPTS (04) desde el mismo proyecto.
+    """Regenera el workflow (00), MASTER_PROMPTS (04) y el paquete Muse (05).
 
-    Así MASTER_WORKFLOW_PROMPTS_READY.md y MASTER_PROMPTS.md quedan siempre
-    100% sincronizados con el brief y el master_episode.json.
+    Así MASTER_WORKFLOW_PROMPTS_READY.md, MASTER_PROMPTS.md y
+    MUSE_PRODUCTION_PACK.md quedan siempre 100% sincronizados con el brief
+    y el master_episode.json.
     """
     common = [str(project), *extra_args]
     for name in ("export-master-prompts", "prompts"):
         rc = run_subcommand(name, common)
         if rc:
             return rc
-    return 0
+    return run_subcommand("muse-pack", [str(project)])
 
 
 def main(argv: Optional[Sequence[str]] = None) -> int:

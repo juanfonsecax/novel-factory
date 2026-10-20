@@ -58,6 +58,7 @@ novel_factory/
 │  ├─ 02_export_chatgpt_queue.py  Cola de 60 prompts de imagen (ChatGPT) + verificación de frames
 │  ├─ 03_export_omni_queue.py     Cola de 60 prompts de vídeo (Omni / Muse AI / Google Flow)
 │  ├─ 04_export_master_prompts.py Exporta los 4 prompts maestros rellenados
+│  ├─ 05_export_muse_method_pack.py Paquete único: 11 imágenes + 10 lotes Muse AI + checklist
 │  └─ master_prompts_library.py   PROMPT 000-003 (historia, guion, grids, video por lotes)
 ├─ automation/
 │  ├─ omni_flow_runner.py      status · queue · assisted · watch (Descargas) · import-frames
@@ -67,7 +68,7 @@ novel_factory/
 │  └─ 05_export_to_publisher.py     Exporta teasers a USA WHITE/cola/pendientes
 ├─ music/                      BGM local (ver music/README.md)
 ├─ assets/fonts/               TTF opcional para el headline de los teasers
-├─ tests/test_novel_factory.py 61 tests offline (unittest)
+├─ tests/test_novel_factory.py 67 tests offline (unittest)
 └─ projects/
    └─ <episodio>/
       ├─ story_brief.md              Premisa + reglas (para ti)
@@ -81,6 +82,9 @@ novel_factory/
       ├─ chatgpt_prompt_002_characters.txt     PROMPT 002 literal (hoja de personajes)
       ├─ chatgpt_storyboard_grids_queue.{txt,json}  Cola de 11 imágenes: REF_CAST_MASTER + REF_GRID_MIN_01…10
       ├─ muse_ai_batches_queue.{txt,json}      Lotes Muse AI de 1 min (6 escenas c/u, adjuntos + 16:9/9:16)
+      ├─ MUSE_PRODUCTION_PACK.md · .json       Guía completa del método nuevo (en orden)
+      ├─ MUSE_CHECKLIST.md                     Checklist de 11 imágenes + 10 videos
+      ├─ storyboards/   REF_CAST_MASTER.png · REF_GRID_MIN_01…10.png (aquí guardas las imágenes)
       ├─ omni_video_prompts_queue.{csv,json,txt}
       ├─ muse_ai_video_prompts_queue.{csv,json,txt}
       ├─ google_flow_video_prompts_queue.{csv,json,txt}
@@ -109,21 +113,22 @@ novel_factory/
                  (pegar llm_prompt.md en Claude/ChatGPT/Gemini)      llm_prompt.md
                  novelfactory.bat ingest mi_episodio guion.json      master_episode.json
                  novelfactory.bat validate mi_episodio
- 2. Frames       novelfactory.bat frames mi_episodio                 cola ChatGPT (60)
-                 (ChatGPT genera las imágenes con la referencia      frames/frame_XXX.png
-                 del personaje; adjúntalas a la carpeta del proyecto)
+ 2. Método nuevo  novelfactory.bat prepare mi_episodio               MUSE_PRODUCTION_PACK.md + colas
+                  (ChatGPT: hoja maestra + 10 storyboards)            storyboards/REF_*.png
+                  (Muse AI: 10 lotes de 1 minuto)                     raw_clips/minute_01…10.mp4
  2.5 Dashboard   novelfactory.bat dashboard mi_episodio --serve --open  dashboard.html + tracking
-                 (copiar prompts, marcar frames/clips, ver progreso)
- 3. Clips        novelfactory.bat omni mi_episodio                   cola Omni (60)
-                 novelfactory.bat muse mi_episodio                   cola Muse AI (60)
+                 (solo método nuevo; el anterior queda en "Ver método anterior")
+ 3. Legacy (opcional)
+                 novelfactory.bat frames mi_episodio                 cola ChatGPT (60 escenas)
+                 novelfactory.bat omni mi_episodio                   cola Omni (60)
                  novelfactory.bat flow mi_episodio                   cola Google Flow (60)
                  novelfactory.bat assisted mi_episodio               raw_clips/scene_XXX.mp4
-                 (o) novelfactory.bat assisted mi_episodio --platform muse
                  (o) novelfactory.bat watch mi_episodio
                  (o) novelfactory.bat import-frames mi_episodio --frames-src DIR
  3.5 Prompts      novelfactory.bat prompts mi_episodio               MASTER_PROMPTS + prompts/*.txt
                   novelfactory.bat export-master-prompts mi_episodio  WORKFLOW 000-003 + lotes Muse AI
-                  novelfactory.bat prepare mi_episodio                workflow 00 + MASTER_PROMPTS 04 sincronizados
+                  novelfactory.bat muse-pack mi_episodio              paquete único 11 imágenes + 10 lotes
+                  novelfactory.bat prepare mi_episodio                workflow 00 + 04 + paquete Muse 05
  4. Ensamble     novelfactory.bat check mi_episodio                  preflight (sin render)
                   novelfactory.bat assemble mi_episodio               máster + teaser 9:16 + SRT
  5. Publicar     novelfactory.bat publish mi_episodio                plan de exportación
@@ -261,7 +266,12 @@ npm, sin red) con los 60 prompts de imagen, los 60 prompts de vídeo, las hojas 
 referencia y el guion. Sirve para el trabajo manual de copiar/pegar en ChatGPT y Omni
 sin abrir los JSON.
 
-- **Tabs**: Referencias · Frames (imagen) · Clips (video) · Guion · **Prompts maestros**.
+- **Tabs**: **Método y prompts** (pestaña inicial) · Guion. El método anterior
+  (Referencias · Frames · Clips) queda oculto tras el botón **Ver método anterior**.
+- **Nueva metodología**: panel de 4 pasos con la cola de 11 imágenes, los 10 lotes
+  Muse AI y el comando de ensamblaje; también aparece como banner en las demás tabs.
+- **Imágenes en disco**: el dashboard lee `storyboards/` y marca cada tarjeta como
+  **En disco** o **Pendiente**; la barra superior muestra el progreso 0/11 y 0/10.
 - **Plataforma de video**: selector en la barra de filtros (Omni / Muse AI / Google
   Flow); cambia el prompt de cada escena y el texto copiado, sin regenerar el HTML.
 - **Prompts maestros**: los 4 prompts (000-003) rellenados con los valores del
@@ -269,9 +279,13 @@ sin abrir los JSON.
   acceso rápido por prompt.
 - **Lotes Muse AI**: bloques de 1 minuto (6 escenas) con adjuntos
   (`REF_CAST_MASTER.png` + `REF_GRID_MIN_XX.png`), cortes de cámara, SFX, diálogo y
-  dos comandos finales (horizontal 16:9 / vertical 9:16), cada uno con copiar y descargar.
-- **Cola de 11 imágenes**: botón para copiar/descargar la cola completa
-  (`REF_CAST_MASTER.png` + 10 storyboards `3x2`), lista para pegar en ChatGPT.
+  dos comandos finales (horizontal 16:9 / vertical 9:16), con botones separados para
+  copiar cada variante, copiar el bloque completo o descargarlo.
+- **Cola de 11 imágenes**: tarjeta por imagen (`REF_CAST_MASTER.png` y
+  `REF_GRID_MIN_01…10.png`) con prompt propio, más botones para copiar/descargar la
+  cola completa, lista para pegar en ChatGPT.
+- **Modo de ensamblaje**: el dashboard detecta escenas (`scene_XXX.mp4`) o lotes
+  (`minute_XX.mp4` / `batch_XX.mp4`) y muestra el progreso 0/10 en la barra superior.
 - **Copiar prompt**: botón por escena; marca la escena como "copiada".
 - **Marcar hecho**: tracking manual separado del disco. Si `frames/frame_XXX.png` o
   `raw_clips/scene_XXX.mp4` ya existen, el dashboard lo detecta solo y muestra
