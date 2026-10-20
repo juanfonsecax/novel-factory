@@ -1,15 +1,19 @@
 #!/usr/bin/env python3
-"""04 — Ensamblaje del episodio con ffmpeg: 60 clips -> master 16:9 (10 min) + 3 teasers 9:16.
+"""04 — Ensamblaje del episodio con ffmpeg: clips -> master 16:9 (10 min) + teasers 9:16.
 
 Qué hace, en orden:
-  1. Preflight: verifica clips, frames y música; informa huecos antes de gastar tiempo.
-  2. Normaliza cada clip: corta silencio muerto al inicio/final (silencedetect),
-     lo limita a 10.0 s, lo estandariza a 1920x1080 / 30 fps / H.264+AAC y lo cachea
-     en output/.work/norm/ (reanudable: no repite trabajo si ya existe).
-  3. Concatena los 60 clips sin recomprimir (concat demuxer + -c copy).
+  1. Preflight: detecta el modo de entrada y verifica clips, frames y música.
+     · Modo A: 60 escenas individuales de 10 s (scene_001.mp4 … scene_060.mp4).
+     · Modo B: 10 lotes Muse AI de 1 min (minute_01.mp4 … minute_10.mp4 o
+       batch_01.mp4 … batch_10.mp4); ensambla el master sin clips por escena.
+  2. Normaliza cada clip: en modo A corta silencio muerto y fija 10.0 s; en modo B
+     fija 60 s por lote sin recorte. Estandariza a 1920x1080 / 30 fps / H.264+AAC
+     con micro-fade de audio (0.08 s) y cachea en output/.work/norm/.
+  3. Concatena los clips sin recomprimir (concat demuxer + -c copy).
   4. Mezcla BGM en bucle a volumen bajo, fades y loudnorm de YouTube (-14 LUFS).
-  5. Escribe subtítulos .srt con los tiempos reales de la línea de tiempo.
-  6. Renderiza los 3 teasers de 60 s en 9:16 (center-crop) con headline opcional.
+  5. Escribe subtítulos .srt sincronizados con la línea de tiempo (600 s).
+  6. Renderiza un teaser vertical automático de 20 s (9:16) y, en modo A, los 3
+     teasers de 60 s con headline opcional.
   7. Deja un pack de publicación (título, descripción, tags, capítulos) y un reporte JSON.
 
 Uso:
@@ -36,6 +40,8 @@ sys.path.insert(0, str(NF_ROOT))
 import nf_core as nf  # noqa: E402
 
 AUDIO_EXTS = (".mp3", ".wav", ".m4a", ".aac", ".ogg", ".flac")
+SCENES_PER_BATCH = 6
+BATCH_PATTERNS = ("minute_{n:02d}.mp4", "batch_{n:02d}.mp4", "minute_{n}.mp4", "batch_{n}.mp4")
 
 
 # ---------------------------------------------------------------------------
@@ -53,6 +59,71 @@ def _run_ffmpeg(cmd: Sequence[str], cwd: Optional[Path] = None) -> None:
     if res.returncode != 0:
         tail = (res.stderr or res.stdout or "").strip().splitlines()[-12:]
         raise nf.NFError("ffmpeg falló:\n  " + "\n  ".join(tail))
+
+
+def batch_for_scene(scene_id: int) -> int:
+    return (max(1, int(scene_id)) - 1) // SCENES_PER_BATCH + 1
+
+
+def find_batch_clip(raw_clips_dir: Path, batch_number: int) -> Optional[Path]:
+    """Busca minute_01.mp4 / batch_01.mp4 (y variantes sin cero a la izquierda)."""
+    for pattern in BATCH_PATTERNS:
+        candidate = raw_clips_dir / pattern.format(n=batch_number)
+        if candidate.exists():
+            return candidate
+    return None
+
+
+def detect_clip_mode(raw_clips_dir: Path, scene_ids: Sequence[int]) -> Dict[str, Any]:
+    """Detecta el modo de entrada: escenas de 10 s (A) o lotes de 1 min (B).
+
+    Devuelve un dict con `mode` = "scenes" | "batches" | "missing", los clips
+    encontrados y las escenas/lotes que faltan. No toca ffmpeg ni el maestro.
+    """
+    ids = [int(sid) for sid in scene_ids]
+    scene_clips: Dict[int, Path] = {}
+    missing_scenes: List[int] = []
+    for sid in ids:
+        clip = nf.find_clip(raw_clips_dir, sid)
+        if clip:
+            scene_clips[sid] = clip
+        else:
+            missing_scenes.append(sid)
+
+    if not missing_scenes:
+        return {
+            "mode": "scenes",
+            "scene_clips": scene_clips,
+            "batch_clips": {},
+            "missing_scenes": [],
+            "missing_batches": [],
+        }
+
+    batch_numbers = sorted({batch_for_scene(sid) for sid in ids})
+    batch_clips: Dict[int, Path] = {}
+    missing_batches: List[int] = []
+    for number in batch_numbers:
+        clip = find_batch_clip(raw_clips_dir, number)
+        if clip:
+            batch_clips[number] = clip
+        else:
+            missing_batches.append(number)
+
+    if batch_clips and not missing_batches:
+        return {
+            "mode": "batches",
+            "scene_clips": scene_clips,
+            "batch_clips": batch_clips,
+            "missing_scenes": [],
+            "missing_batches": [],
+        }
+    return {
+        "mode": "missing",
+        "scene_clips": scene_clips,
+        "batch_clips": batch_clips,
+        "missing_scenes": missing_scenes,
+        "missing_batches": missing_batches,
+    }
 
 
 def concat_list(paths: List[Path], list_file: Path, cwd: Optional[Path] = None) -> Path:
@@ -129,13 +200,14 @@ def normalize_scene(
     pp: Dict[str, Any],
     crf: int,
     force: bool,
+    target: Optional[float] = None,
 ) -> None:
-    """Normaliza una escena a EXACTAMENTE scene_seconds (por defecto 10.0 s).
+    """Normaliza una escena (10 s) o un lote Muse AI (60 s) a duración exacta.
 
     Recorta la cabecera indicada y rellena con el último fotograma / silencio si el
     clip es más corto, de modo que todos los clips tengan la misma duración exacta.
     """
-    target = scene_target_seconds(pp)
+    target = float(target) if target is not None else scene_target_seconds(pp)
     if dst.exists() and not force and dst.stat().st_mtime >= src.stat().st_mtime:
         return
     probe = nf.probe_media(src)
@@ -152,7 +224,8 @@ def normalize_scene(
     if probe.get("has_audio"):
         map_args = ["-map", "0:v:0", "-map", "0:a:0",
                     "-af", (f"aresample=48000,aformat=channel_layouts=stereo,"
-                            f"apad=whole_dur={target:.3f},atrim=0:{target:.3f}")]
+                            f"apad=whole_dur={target:.3f},atrim=0:{target:.3f},"
+                            f"afade=t=in:st=0:d=0.08")]
     else:
         base += ["-f", "lavfi", "-t", f"{target:.3f}", "-i", "anullsrc=r=48000:cl=stereo"]
         map_args = ["-map", "0:v:0", "-map", "1:a:0"]
@@ -334,6 +407,34 @@ def write_srt(timeline: List[Dict[str, Any]], out: Path) -> int:
 # ---------------------------------------------------------------------------
 # 6. Teasers 9:16
 # ---------------------------------------------------------------------------
+def render_auto_teaser(
+    src: Path,
+    out: Path,
+    pp: Dict[str, Any],
+    crf: int,
+    seconds: float = 20.0,
+) -> float:
+    """Extrae los primeros 15–20 s del master y los convierte a 9:16 (Reels/Shorts)."""
+    target = float(seconds or pp.get("auto_teaser_seconds", 20.0))
+    vf = "crop=ih*9/16:ih,scale=1080:1920,setsar=1"
+    af = "afade=t=in:st=0:d=0.08"
+    cmd = [
+        "ffmpeg", "-y", "-v", "error", "-hide_banner", "-i", str(src),
+        "-t", f"{target:.3f}", "-vf", vf, "-af", af,
+        "-c:v", "libx264", "-preset", "veryfast", "-crf", str(crf), "-pix_fmt", "yuv420p",
+        "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-ac", "2",
+        "-shortest", "-movflags", "+faststart", str(out),
+    ]
+    try:
+        nf.run_ffmpeg(cmd)
+    except nf.NFError:
+        fallback = "scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,setsar=1"
+        idx = cmd.index("-vf") + 1
+        cmd[idx] = fallback
+        nf.run_ffmpeg(cmd)
+    return float(nf.probe_media(out).get("duration") or target)
+
+
 def render_teaser(
     segments: List[Path],
     out: Path,
@@ -602,30 +703,35 @@ def main(argv: Optional[List[str]] = None) -> int:
     if args.limit:
         scenes = scenes[: max(1, args.limit)]
 
-    # --- Preflight ---
-    missing: List[int] = []
-    clip_paths: Dict[int, Path] = {}
-    for scene in scenes:
-        sid = int(scene.get("scene_id") or 0)
-        clip = nf.find_clip(paths["raw_clips"], sid)
-        if clip:
-            clip_paths[sid] = clip
-        else:
-            missing.append(sid)
+    # --- Preflight: modo A (escenas 10 s) o modo B (lotes Muse AI de 1 min) ---
+    scene_ids = [int(scene.get("scene_id") or 0) for scene in scenes]
+    detected = detect_clip_mode(paths["raw_clips"], scene_ids)
+    clip_mode = str(detected["mode"])
+    batch_clips: Dict[int, Path] = detected["batch_clips"] if clip_mode == "batches" else {}
+    missing: List[int] = detected["missing_scenes"] if clip_mode != "batches" else []
     music = None if args.no_music else pick_music(master, slug, args.music)
 
     nf.info(f"Episodio: {ep.get('title')}  ({len(scenes)} escenas · {nf.human_duration(sum(10 for _ in scenes))})")
-    nf.info(f"Clips presentes: {len(clip_paths)}/{len(scenes)}")
+    if clip_mode == "batches":
+        nf.info(f"Modo de clips: B — {len(batch_clips)} lote(s) Muse AI de 1 minuto")
+    else:
+        nf.info(f"Modo de clips: A — escenas individuales de 10 s "
+                f"({len(detected['scene_clips'])}/{len(scenes)} presentes)")
     nf.info(f"BGM: {music.name if music else '(sin música)'}")
     font = Path(args.font) if args.font else nf.detect_font()
     if not args.skip_teasers:
         nf.info(f"Fuente de overlay: {font.name if font else '(ninguna: teaser sin headline)'}")
 
+    if detected.get("missing_batches") and detected.get("batch_clips"):
+        nf.warn("Lotes Muse AI incompletos; faltan: " +
+                ", ".join(f"minute_{n:02d}.mp4/batch_{n:02d}.mp4"
+                          for n in detected["missing_batches"][:20]))
     if missing:
         nf.warn(f"Faltan {len(missing)} clips: {', '.join(map(str, missing[:20]))}" +
                 (" …" if len(missing) > 20 else ""))
         if not args.allow_gaps:
-            nf.err("Genera los clips con la cola de Omni (03) o usa --allow-gaps / --limit para pruebas.")
+            nf.err("Genera los clips con la cola de Omni (03), los 10 lotes de Muse AI "
+                   "o usa --allow-gaps / --limit para pruebas.")
             return 1
     if args.check:
         nf.log("")
@@ -637,34 +743,63 @@ def main(argv: Optional[List[str]] = None) -> int:
     norm_dir = work / "norm"
     norm_dir.mkdir(parents=True, exist_ok=True)
     crf_scene = int(pp.get("scene_crf", 20))
+    scene_seconds = scene_target_seconds(pp)
     timeline: List[Dict[str, Any]] = []
+    concat_clips: List[Path] = []
     cursor = 0.0
     nf.log("")
-    nf.info("Normalizando escenas (1920x1080 · 30 fps · AAC 48 kHz)…")
-    for idx, scene in enumerate(scenes, start=1):
-        sid = int(scene.get("scene_id") or 0)
-        if sid not in clip_paths:
-            continue
-        src = clip_paths[sid]
-        probe = nf.probe_media(src)
-        if args.no_trim:
-            head, tail, note = 0.0, min(float(probe.get("duration") or 0.0), nf.SCENE_SECONDS), "sin recorte"
-        else:
-            head, tail, note = analyze_silence(src, probe, pp)
-        target = scene_target_seconds(pp)
-        dst = norm_dir / f"{nf.scene_stem(sid)}.mp4"
-        normalize_scene(src, dst, head, pp, crf_scene, args.force)
+    nf.info("Normalizando clips (1920x1080 · 30 fps · AAC 48 kHz · micro-fade 0.08 s)…")
+
+    if clip_mode == "batches":
         if args.punch_ins:
-            punch_dst = work / "norm_punch" / f"{nf.scene_stem(sid)}.mp4"
-            if apply_punch_ins(dst, punch_dst, scene.get("internal_cuts") or [], crf_scene, target):
-                dst = punch_dst
-        dur = float(nf.probe_media(dst).get("duration") or target)
-        if abs(dur - target) > nf.DURATION_TOLERANCE_SEC:
-            nf.warn(f"Escena {sid}: {dur:.3f}s (se esperaban {target:.3f}s).")
-        timeline.append({"scene": scene, "clip": dst, "start": cursor, "dur": dur, "trim": note})
-        cursor += dur
-        if idx % 10 == 0 or idx == len(scenes):
-            nf.info(f"  … {idx}/{len(scenes)} normalizadas ({nf.human_duration(cursor)})")
+            nf.warn("--punch-ins se omite en modo lotes Muse AI (los cortes ya vienen en el video).")
+        for number in sorted(batch_clips):
+            group = [scene for scene in scenes if batch_for_scene(int(scene.get("scene_id") or 0)) == number]
+            if not group:
+                continue
+            src = batch_clips[number]
+            target = len(group) * scene_seconds
+            dst = norm_dir / f"minute_{number:02d}.mp4"
+            normalize_scene(src, dst, 0.0, pp, crf_scene, args.force, target=target)
+            dur = float(nf.probe_media(dst).get("duration") or target)
+            if abs(dur - target) > nf.DURATION_TOLERANCE_SEC:
+                nf.warn(f"Lote {number:02d}: {dur:.3f}s (se esperaban {target:.3f}s).")
+            for offset, scene in enumerate(group):
+                timeline.append({
+                    "scene": scene,
+                    "clip": dst,
+                    "start": cursor + offset * scene_seconds,
+                    "dur": scene_seconds,
+                    "trim": "lote Muse AI (sin recorte)",
+                })
+            concat_clips.append(dst)
+            cursor += dur
+            nf.info(f"  … lote {number:02d} normalizado ({nf.human_duration(cursor)})")
+    else:
+        for idx, scene in enumerate(scenes, start=1):
+            sid = int(scene.get("scene_id") or 0)
+            if sid not in detected["scene_clips"]:
+                continue
+            src = detected["scene_clips"][sid]
+            probe = nf.probe_media(src)
+            if args.no_trim:
+                head, tail, note = 0.0, min(float(probe.get("duration") or 0.0), nf.SCENE_SECONDS), "sin recorte"
+            else:
+                head, tail, note = analyze_silence(src, probe, pp)
+            dst = norm_dir / f"{nf.scene_stem(sid)}.mp4"
+            normalize_scene(src, dst, head, pp, crf_scene, args.force, target=scene_seconds)
+            if args.punch_ins:
+                punch_dst = work / "norm_punch" / f"{nf.scene_stem(sid)}.mp4"
+                if apply_punch_ins(dst, punch_dst, scene.get("internal_cuts") or [], crf_scene, scene_seconds):
+                    dst = punch_dst
+            dur = float(nf.probe_media(dst).get("duration") or scene_seconds)
+            if abs(dur - scene_seconds) > nf.DURATION_TOLERANCE_SEC:
+                nf.warn(f"Escena {sid}: {dur:.3f}s (se esperaban {scene_seconds:.3f}s).")
+            timeline.append({"scene": scene, "clip": dst, "start": cursor, "dur": dur, "trim": note})
+            concat_clips.append(dst)
+            cursor += dur
+            if idx % 10 == 0 or idx == len(scenes):
+                nf.info(f"  … {idx}/{len(scenes)} normalizadas ({nf.human_duration(cursor)})")
 
     if not timeline:
         nf.err("No hay nada que ensamblar.")
@@ -673,7 +808,7 @@ def main(argv: Optional[List[str]] = None) -> int:
     # --- Concat ---
     nf.log("")
     nf.info("Uniendo clips (concat demuxer, sin recomprimir)…")
-    list_file = concat_list([t["clip"] for t in timeline], work / "master_concat.txt")
+    list_file = concat_list(concat_clips, work / "master_concat.txt")
     master_video = work / "master_video.mp4"
     nf.run_ffmpeg(["ffmpeg", "-y", "-v", "error", "-hide_banner", "-f", "concat", "-safe", "0",
                    "-i", str(list_file), "-c", "copy", "-movflags", "+faststart", str(master_video)])
@@ -687,6 +822,18 @@ def main(argv: Optional[List[str]] = None) -> int:
     master_dur = float(nf.probe_media(master_out).get("duration") or total)
     nf.ok(f"Master: {master_out.name} ({nf.human_duration(master_dur)})")
 
+    # --- Teaser vertical automático (20 s de gancho para Reels/Shorts) ---
+    auto_teaser: Optional[Path] = None
+    auto_teaser_dur = 0.0
+    if not args.skip_teasers:
+        nf.log("")
+        nf.info("Renderizando teaser vertical automático (primeros 20 s → 9:16)…")
+        auto_teaser = paths["output"] / f"{slug}_teaser_9x16.mp4"
+        auto_teaser_dur = render_auto_teaser(
+            master_out, auto_teaser, pp, int(pp.get("teaser_crf", 20))
+        )
+        nf.ok(f"Teaser vertical: {auto_teaser.name} ({auto_teaser_dur:.1f} s)")
+
     # --- Subtítulos ---
     if not args.no_srt:
         srt_path = paths["output"] / f"{slug}_master.srt"
@@ -696,7 +843,10 @@ def main(argv: Optional[List[str]] = None) -> int:
 
     # --- Teasers ---
     teaser_files: List[Tuple[Dict[str, Any], Path, float]] = []
-    if not args.skip_teasers:
+    if not args.skip_teasers and clip_mode == "batches":
+        nf.warn("Modo lotes Muse AI: se omite el render de los 3 teasers por escena; "
+                "usa el teaser vertical automático de 20 s.")
+    elif not args.skip_teasers:
         nf.log("")
         nf.info("Renderizando teasers 9:16…")
         crf_teaser = int(pp.get("teaser_crf", 20))
@@ -728,6 +878,11 @@ def main(argv: Optional[List[str]] = None) -> int:
         "scene_count": len(timeline),
         "total_seconds": round(total, 2),
         "master": {"file": master_out.name, "duration_seconds": round(master_dur, 2)},
+        "clip_mode": clip_mode,
+        "auto_teaser": (
+            {"file": auto_teaser.name, "duration_seconds": round(auto_teaser_dur, 2)}
+            if auto_teaser else None
+        ),
         "teasers": [{"id": t.get("id"), "file": p.name, "duration_seconds": round(d, 2)}
                     for t, p, d in teaser_files],
         "music": music.name if music else None,
@@ -742,6 +897,8 @@ def main(argv: Optional[List[str]] = None) -> int:
     nf.log("-" * 70)
     nf.ok("Ensamblaje terminado.")
     nf.info(f"Master 16:9 : {master_out}  ({nf.human_duration(master_dur)})")
+    if auto_teaser:
+        nf.info(f"Teaser 9:16 : {auto_teaser}  ({auto_teaser_dur:.1f} s, primeros 20 s)")
     for teaser, path, dur in teaser_files:
         nf.info(f"Teaser 9:16 : {path}  ({dur:.1f} s)")
     nf.info(f"Pack         : {paths['output'] / 'publish_pack'}")

@@ -1,6 +1,5 @@
 NOVEL FACTORY — PROMPT 001 — GENERADOR DE STORYBOARD · The Stable Girl
-Pega este prompt en ChatGPT/Muse AI junto con la historia y el estilo visual.
-
+Incluye la historia completa (60 escenas, sin truncar) y los 10 prompts individuales de una imagen por minuto.
 🎬 PROMPT 001 — GENERADOR DE STORYBOARD CINEMATOGRÁFICO (6 ESCENAS POR IMAGEN)
 Actúa como director de cine y crea un storyboard visual para la historia que te voy a proporcionar.
 
@@ -119,3 +118,242 @@ A partir de la historia, duración y estilo proporcionados:
 6. Añade debajo de cada viñeta una descripción de máximo 5–10 palabras.
 7. Mantén la continuidad absoluta de personajes y escenarios.
 8. Cuenta toda la historia visualmente de principio a fin.
+
+==============================================================================
+HISTORIA COMPLETA — 60 ESCENAS (SIN TRUNCAR)
+==============================================================================
+
+ESCENA 001 | Acto 1 | Blackwell mansion foyer, storm dusk | storm dusk | Hook: THE STABLE GIRL THEY FRAMED | Cast: Victoria Blackwell, Elena Vance, Richard Blackwell | Diálogo: VICTORIA: Twelve years in my house, and you steal from me at my son's welcome party. / ELENA: I didn't touch it. I was in the barn, where I always am.
+ESCENA 002 | Acto 1 | Silver Creek barn aisle, night | night | Hook: — | Cast: Elena Vance, Maggie Doyle | Diálogo: MAGGIE: Your mother fed this barn before you could walk. Don't let them erase her. / ELENA: They erased her fifteen years ago. I was too small to stop them.
+ESCENA 003 | Acto 1 | Blackwell mansion foyer, night | night | Hook: — | Cast: Victoria Blackwell, Elena Vance, Richard Blackwell | Diálogo: VICTORIA: Empty it. If my husband's watch is in there, you leave this ranch tonight. / ELENA: My mother's things are in that bag. You will not touch them.
+ESCENA 004 | Acto 1 | Silver Creek stable aisle, morning | morning | Hook: — | Cast: Elena Vance, Richard Blackwell | Diálogo: RICHARD: Look what your mother's saddle was hiding. Twelve years, and you kept it close. / ELENA: You were in the tack room last night. I saw your boots.
+ESCENA 005 | Acto 1 | Blackwell great room, morning | grey morning | Hook: — | Cast: Victoria Blackwell, Elena Vance | Diálogo: VICTORIA: Sign it, take your pay, and this stays private. The watch never happened. / ELENA: It never happened to you. It happened to me the moment you decided it did.
+ESCENA 006 | Acto 1 | Silver Creek barn doorway, late afternoon | late afternoon | Hook: — | Cast: Elena Vance, Cole Barrett | Diálogo: COLE: I saw Richard at the saddles last night. Say the word and I'll swear it. / ELENA: He'll only call you a liar. And then he'll take your house too.
+ESCENA 007 | Acto 1 | Blackwell study, late afternoon | late afternoon | Hook: — | Cast: Victoria Blackwell, Elena Vance | Diálogo: VICTORIA: Sheriff Drummond is a family friend. You have until Friday midnight, Elena. Sign, or be charged. / ELENA: And my mother's grave? Do you still pay the keeper to keep it?
+ESCENA 008 | Acto 1 | gatehouse cottage, dusk | dusk | Hook: — | Cast: Elena Vance | Diálogo: ELENA: You sewed it into the lining, Mama. What were you afraid someone would find? / ELENA: And why did you never tell me?
+ESCENA 009 | Acto 1 | Silver Creek barn aisle, night | night | Hook: — | Cast: Elena Vance, Cole Barrett | Diálogo: COLE: That key fits no door in this valley. Your mother never did one thing without a reason. / ELENA: Then we open that room. Tonight.
+ESCENA 010 | Acto 1 | Silver Creek sealed tack room, night | night | Hook: THE DEED WAS BURIED WITH HER | Cast: Elena Vance, Cole Barrett | Diálogo: ELENA: This deed says Vance. Not Blackwell. My mother owned Silver Creek. / COLE: Then the fire wasn't bad luck. And I should have told you something years ago.
+ESCENA 011 | Acto 2 | Silver Creek county records office, morning | morning | Hook: — | Cast: Elena Vance | Diálogo: CLERK: The sale was recorded in 2009. Blackwell owns it. Without a probate file, miss, you're not even her heir. / ELENA: Then open a probate file.
+ESCENA 012 | Acto 2 | county records steps, grey morning | grey morning | Hook: — | Cast: Elena Vance, Cole Barrett | Diálogo: COLE: Probate takes months. Victoria's already on the phone with her lawyer. / ELENA: Then I won't fight her with a lawyer. I'll fight her with what she's afraid of.
+ESCENA 013 | Acto 2 | Blackwell paneled office, afternoon | afternoon | Hook: — | Cast: Victoria Blackwell, Elena Vance | Diálogo: VICTORIA: I'll keep your mother's grave tended another year. Leave Silver Creek, and the watch charge disappears. / ELENA: You're offering me a gardener. Not my mother's name.
+ESCENA 014 | Acto 2 | Blackwell dark-paneled hallway, afternoon | afternoon | Hook: — | Cast: Richard Blackwell, Elena Vance | Diálogo: RICHARD: I know you didn't take the watch. Leave before she decides you're dangerous. / ELENA: Why do you care? / RICHARD: Because you keep digging where the whole valley is buried.
+ESCENA 015 | Acto 2 | gatehouse cottage, dusk | dusk | Hook: — | Cast: Elena Vance, Maggie Doyle | Diálogo: MAGGIE: The night of the fire, I signed a statement for her. I said the lamp fell. It was a lie. / ELENA: You told them my mother was careless.
+ESCENA 016 | Acto 2 | Silver Creek barn aisle, night | night | Hook: — | Cast: Elena Vance, Cole Barrett | Diálogo: COLE: The night of the fire I was fifteen. I saw a truck leave. / ELENA: You watched it leave and said nothing.
+ESCENA 017 | Acto 2 | Blackwell study, night | night | Hook: — | Cast: Victoria Blackwell, Richard Blackwell | Diálogo: VICTORIA: The probate clerk called. Someone requested June Vance's file. Bury it. / RICHARD: You're good at that. The watch was your idea, remember?
+ESCENA 018 | Acto 2 | Silver Creek county records office, morning | hard morning light | Hook: — | Cast: Elena Vance | Diálogo: CLERK: The file was pulled by the Blackwell estate. There's no record you're her daughter. / ELENA: There's a record somewhere. She made sure of it.
+ESCENA 019 | Acto 2 | Blackwell great room, dinner, night | night | Hook: — | Cast: Victoria Blackwell, Elena Vance, Richard Blackwell | Diálogo: VICTORIA: Elena will be leaving us soon. Tell them, dear — what are your plans? / ELENA: Mrs. Blackwell is too kind. My plans haven't changed. I'm staying.
+ESCENA 020 | Acto 2 | Blackwell gravel yard, night | night | Hook: THEY BURNED HER MOTHER'S SADDLE | Cast: Victoria Blackwell, Elena Vance | Diálogo: VICTORIA: Sign by midnight, or I press charges for arson as well as theft. / ELENA: You burned her saddle. That means you're afraid of what was in it.
+ESCENA 021 | Acto 3 | gatehouse cottage, night | night | Hook: — | Cast: Elena Vance, Cole Barrett | Diálogo: ELENA: Look at the parcel boundary. Someone scraped the original section line off with a blade. / COLE: That's Walter Blackwell's handwriting underneath. He signed over the whole north valley.
+ESCENA 022 | Acto 3 | Blackwell tack room, night | night | Hook: — | Cast: Elena Vance | Diálogo: ELENA: Every property tax installment from 2005 to 2008. My mother paid them in cash at First Valley Bank.
+ESCENA 023 | Acto 3 | Silver Creek barn hayloft, night | night | Hook: — | Cast: Elena Vance, Cole Barrett | Diálogo: COLE: You don't have to carry this alone in the dark, Elena. I'm with you. / ELENA: Everyone who stood beside my mother paid for it. Be careful.
+ESCENA 024 | Acto 3 | Blackwell study archives, night | night | Hook: — | Cast: Elena Vance, Richard Blackwell | Diálogo: RICHARD: You shouldn't have opened that drawer, Elena. That book lists payments my father made to keep quiet. / ELENA: Payments to the county coroner. Your mother bought the death certificate.
+ESCENA 025 | Acto 3 | Blackwell mansion great room, night | night | Hook: — | Cast: Victoria Blackwell, Elena Vance, Richard Blackwell | Diálogo: VICTORIA: Did you think Walter was a saint? He gave promises because he was weak. / ELENA: He gave her the ranch. And you murdered him before he could file it.
+ESCENA 026 | Acto 3 | Blackwell mansion gravel drive, night | night | Hook: — | Cast: Cole Barrett, Richard Blackwell | Diálogo: COLE: Take one step toward the gatehouse tonight, Richard, and I'll finish what your father started. / RICHARD: You're throwing your whole life away for a girl who won't even kiss you.
+ESCENA 027 | Acto 3 | gatehouse cottage porch, night | night | Hook: — | Cast: Elena Vance, Richard Blackwell | Diálogo: RICHARD: My mother hired two men from Billings. If you are here at sunrise, they won't talk. / ELENA: Then tell them to bring their shovels. I'm not running.
+ESCENA 028 | Acto 3 | Silver Creek barn aisle, night | night | Hook: — | Cast: Elena Vance, Maggie Doyle | Diálogo: MAGGIE: Victoria cleared the safe in the master bedroom. She's packing to leave after the county gala. / ELENA: She won't leave Montana until the auction deed is stamped. We have until midnight.
+ESCENA 029 | Acto 3 | Blackwell estate gates, midnight | midnight | Hook: — | Cast: Victoria Blackwell, Elena Vance | Diálogo: VICTORIA: Half a million dollars in cash. You can buy any ranch from here to Texas, Elena. / ELENA: And all I have to do is swear my mother was a thief.
+ESCENA 030 | Acto 3 | Blackwell estate gates, midnight | midnight | Hook: TAKE THE MONEY. LEAVE THE NAME. | Cast: Victoria Blackwell, Elena Vance | Diálogo: VICTORIA: Take the money, Elena. Leave the name behind. Or by morning, you won't have either. / ELENA: My mother died for this name. You can't afford it.
+ESCENA 031 | Acto 4 | gatehouse cottage, storm night | storm night | Hook: — | Cast: Elena Vance | Diálogo: ELENA: They took the tin box. They tore through my floorboards and took the original deed. / ELENA: They took everything.
+ESCENA 032 | Acto 4 | gatehouse cottage yard, storm night | storm night | Hook: — | Cast: Elena Vance | Diálogo: ELENA: Sheriff Drummond signed an eviction without a hearing. Victoria bought the whole county, but she never bought me.
+ESCENA 033 | Acto 4 | Silver Creek hay shed, storm night | storm night | Hook: — | Cast: Elena Vance, Maggie Doyle | Diálogo: MAGGIE: Victoria threatened my sister's nursing care in Helena. That is why I signed the lie. / ELENA: You kept your family alive, Maggie. I forgive you. Now help me finish this.
+ESCENA 034 | Acto 4 | Blackwell mansion rear terrace, storm night | storm night | Hook: — | Cast: Victoria Blackwell, Richard Blackwell | Diálogo: VICTORIA: There goes Walter's grand sentiment. No deed, no contract, no legal claim in Montana. / RICHARD: You burned the paper, Mother. You didn't burn what Walter put in the vault.
+ESCENA 035 | Acto 4 | Silver Creek stable tack room, storm night | storm night | Hook: — | Cast: Elena Vance, Richard Blackwell | Diálogo: ELENA: Tell me what your father put in the vault, Richard. Or sleep in this stable tonight. / RICHARD: Box 14 at First Valley Trust. The original will. He never revoked it.
+ESCENA 036 | Acto 4 | ranch ridge overlook, storm dawn | storm dawn | Hook: — | Cast: Elena Vance | Diálogo: ELENA: They took the house. They burned the deed. But every inch of this dirt remembers my mother's sweat.
+ESCENA 037 | Acto 4 | ranch ridge road, dawn | dawn | Hook: — | Cast: Elena Vance, Cole Barrett | Diálogo: COLE: The bank opens in two hours. I've got gas and nothing left to lose. / ELENA: If we do this, Victoria will have the sheriff arrest us at the door.
+ESCENA 038 | Acto 4 | green truck cab, dawn | dawn | Hook: — | Cast: Elena Vance, Cole Barrett | Diálogo: ELENA: FVT fourteen. First Valley Trust. This was never a saddle lock or a barn key. / COLE: It's a bank safety deposit box key. Walter's private vault.
+ESCENA 039 | Acto 4 | town bank exterior, morning | early morning | Hook: — | Cast: Elena Vance, Cole Barrett | Diálogo: COLE: Victoria's here with Drummond. They're going to seal the vault before you reach the counter. / ELENA: Then hold Drummond on the steps for sixty seconds. Just sixty seconds.
+ESCENA 040 | Acto 4 | First Valley Trust vault corridor, morning | morning | Hook: THE KEY WAS NEVER FOR A DOOR | Cast: Elena Vance | Diálogo: ELENA: The key was never for a door. It was for Walter Blackwell's final will. / ELENA: And the first page leaves Silver Creek entirely to me.
+ESCENA 041 | Acto 5 | First Valley Trust manager office, morning | morning | Hook: — | Cast: Elena Vance | Diálogo: ELENA: Is the notary seal intact, sir? Does this will hold legal standing in Montana? / CLERK: It is completely valid, Miss Vance. Walter Blackwell deposited this with his own hand.
+ESCENA 042 | Acto 5 | town bank steps, morning | morning | Hook: — | Cast: Cole Barrett, Victoria Blackwell | Diálogo: VICTORIA: Step aside, Cole. You are an employee on my payroll until I fire you. / COLE: I don't work for you anymore, Victoria. I work for Silver Creek's real owner.
+ESCENA 043 | Acto 5 | town bank steps, morning | morning | Hook: — | Cast: Elena Vance, Victoria Blackwell | Diálogo: ELENA: You told the county my mother had no standing. Walter's certified will begs to differ. / VICTORIA: That paper is an obsolete draft. It means nothing without court ratification.
+ESCENA 044 | Acto 5 | Blackwell town car, morning | morning | Hook: — | Cast: Victoria Blackwell, Richard Blackwell | Diálogo: VICTORIA: You will tell Judge Miller the will was stolen from Walter's desk while he was demented. / RICHARD: Father was never demented, Mother. I'm not perjuring myself for your stolen mansion.
+ESCENA 045 | Acto 5 | county civic hall back alley, noon | noon | Hook: — | Cast: Elena Vance, Maggie Doyle, Cole Barrett | Diálogo: MAGGIE: Walter kept this fire log. He wrote down the payoff check number right here. / ELENA: This proves the fire was arson, Maggie. You just saved my mother's honor.
+ESCENA 046 | Acto 5 | Silver Creek civic hall foyer, afternoon | afternoon | Hook: — | Cast: Elena Vance, Cole Barrett | Diálogo: COLE: Every rancher, judge and banker in the state is in that room, Elena. / ELENA: Good. It's time they learned who fed their horses for the last fifteen years.
+ESCENA 047 | Acto 5 | civic hall grand ballroom, afternoon | afternoon | Hook: — | Cast: Elena Vance, Victoria Blackwell | Diálogo: VICTORIA: Security, remove this girl immediately. This is a private county charity gala. / ELENA: You're auctioning Silver Creek land tonight, Victoria. But you don't own the dirt.
+ESCENA 048 | Acto 5 | civic hall auction stage, afternoon | afternoon | Hook: — | Cast: Elena Vance, Victoria Blackwell | Diálogo: VICTORIA: You are a stable rat playing dress-up. No judge will ever take my ranch away. / ELENA: It was never your ranch. You were just warming the chair until I grew up.
+ESCENA 049 | Acto 5 | civic hall auction stage, afternoon | afternoon | Hook: — | Cast: Elena Vance, Cole Barrett | Diálogo: CLERK: This signature is Walter Blackwell's. And the bank vault seal is verified. The auction is halted. / ELENA: Thank you, Your Honor. Now ask Mrs. Blackwell about the fire.
+ESCENA 050 | Acto 5 | civic hall stage wings, afternoon | afternoon | Hook: ONE NIGHT TO BURN THE TRUTH | Cast: Victoria Blackwell, Elena Vance | Diálogo: VICTORIA: Enjoy your paper victory, girl. Two barrels of kerosene are already in Silver Creek barn. / VICTORIA: Sign the release, or watch your horses burn alive tonight.
+ESCENA 051 | Acto 6 | Silver Creek barn exterior, dusk | dusk | Hook: — | Cast: Elena Vance, Cole Barrett | Diálogo: COLE: We were waiting for them in the hayloft, Elena. Not a single spark touched this barn. / ELENA: Tie them up. Sheriff Drummond will need company in his own jail.
+ESCENA 052 | Acto 6 | civic hall courtroom chamber, evening | evening | Hook: — | Cast: Richard Blackwell | Diálogo: RICHARD: I planted the silver watch in Elena Vance's saddle bag on my mother's direct orders. / RICHARD: Elena never stole anything. We stole fifteen years from her.
+ESCENA 053 | Acto 6 | civic hall courtroom chamber, evening | evening | Hook: — | Cast: Maggie Doyle | Diálogo: MAGGIE: I formally recant my 2008 testimony. The barn fire was set deliberately by Victoria Blackwell. / MAGGIE: June Vance was murdered protecting that ranch.
+ESCENA 054 | Acto 6 | civic hall courtroom chamber, evening | evening | Hook: — | Cast: Elena Vance | Diálogo: CLERK: This court recognizes Elena Vance as the sole legal heir and owner of Silver Creek Ranch. / ELENA: We did it, Mama. The ranch is home again.
+ESCENA 055 | Acto 6 | civic hall grand steps, night | night | Hook: — | Cast: Victoria Blackwell | Diálogo: CLERK: Victoria Blackwell, you are under arrest for conspiracy, insurance fraud and attempted arson. / VICTORIA: You cannot do this to me! I built this town!
+ESCENA 056 | Acto 6 | civic hall grand steps, night | night | Hook: — | Cast: Victoria Blackwell, Elena Vance | Diálogo: VICTORIA: Elena, please! Leave me the guesthouse. Don't throw me onto the street with nothing! / ELENA: You left me with a broken teacup and a broom. You'll leave with your suitcase.
+ESCENA 057 | Acto 6 | Silver Creek mansion foyer, night | night | Hook: — | Cast: Elena Vance, Maggie Doyle | Diálogo: MAGGIE: The house is quiet, Elena. For the first time in thirty years, it feels clean. / ELENA: It's not just a house anymore, Maggie. It's a sanctuary for everyone they pushed down.
+ESCENA 058 | Acto 6 | Silver Creek barn gate, moonlight | night | Hook: — | Cast: Elena Vance, Cole Barrett | Diálogo: COLE: You're the master of twenty thousand acres now, Elena. You don't need a stray foreman. / ELENA: I don't need a foreman, Cole. I need you. Stay and build this with me.
+ESCENA 059 | Acto 6 | Blackwell great room mantelpiece, night | night | Hook: — | Cast: Elena Vance | Diálogo: ELENA: Your name will never be erased from Montana again, Mama. Silver Creek is ours, and justice has finally been done.
+ESCENA 060 | Acto 6 | mansion study desk, night | night | Hook: THE WILL NAMES A SECOND HEIR | Cast: Elena Vance | Diálogo: ELENA: There is another clause... 'Elena, you are not June's only child. Find your brother before Victoria's family does.' / ELENA: I have a brother?
+
+==============================================================================
+10 PROMPTS INDIVIDUALES — UNA IMAGEN DE STORYBOARD POR MINUTO
+==============================================================================
+
+=== REF_GRID_MIN_01.png ===
+STORYBOARD IMAGE 01/10 — MINUTE 1 (Scenes 1–6)
+
+Genera UNA SOLA IMAGEN 16:9 con una cuadrícula de storyboard de 3 columnas x 2 filas (6 viñetas), en orden de lectura izquierda a derecha y de arriba abajo.
+Usa exactamente los mismos personajes, rostros, edades y vestuarios que REF_CAST_MASTER.png (Hoja de Personajes adjunta). Mantén continuidad de vestuario, props y locaciones entre viñetas.
+Estilo visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
+Cada viñeta es un plano cinematográfico 16:9 con encuadre claro y acción legible.
+Sin texto, sin letras, sin globos de diálogo, sin logos, sin marcas de agua, sin bordes.
+
+VIÑETAS EXACTAS:
+Viñeta 1: Escena 1 — In the grand foyer, the maid in the denim work… (Blackwell mansion foyer, storm dusk).
+Viñeta 2: Escena 2 — The barn aisle at night: the maid stands small between… (Silver Creek barn aisle, night).
+Viñeta 3: Escena 3 — In the foyer, the maid holds open her saddle bag… (Blackwell mansion foyer, night).
+Viñeta 4: Escena 4 — In the stable aisle, the maid tightens a saddle girth… (Silver Creek stable aisle, morning).
+Viñeta 5: Escena 5 — In the timber great room, the woman in emerald silk… (Blackwell great room, morning).
+Viñeta 6: Escena 6 — At the barn door, the maid works a curry comb… (Silver Creek barn doorway, late afternoon).
+
+=== REF_GRID_MIN_02.png ===
+STORYBOARD IMAGE 02/10 — MINUTE 2 (Scenes 7–12)
+
+Genera UNA SOLA IMAGEN 16:9 con una cuadrícula de storyboard de 3 columnas x 2 filas (6 viñetas), en orden de lectura izquierda a derecha y de arriba abajo.
+Usa exactamente los mismos personajes, rostros, edades y vestuarios que REF_CAST_MASTER.png (Hoja de Personajes adjunta). Mantén continuidad de vestuario, props y locaciones entre viñetas.
+Estilo visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
+Cada viñeta es un plano cinematográfico 16:9 con encuadre claro y acción legible.
+Sin texto, sin letras, sin globos de diálogo, sin logos, sin marcas de agua, sin bordes.
+
+VIÑETAS EXACTAS:
+Viñeta 1: Escena 7 — In the lamplit study, the mistress sits behind the desk… (Blackwell study, late afternoon).
+Viñeta 2: Escena 8 — In the small stone cottage, the maid kneels with the… (gatehouse cottage, dusk).
+Viñeta 3: Escena 9 — In the barn aisle at night, the maid holds up… (Silver Creek barn aisle, night).
+Viñeta 4: Escena 10 — Inside the tack room, the maid kneels over an open… (Silver Creek sealed tack room, night).
+Viñeta 5: Escena 11 — At the oak counter, the maid lays the old deed… (Silver Creek county records office, morning).
+Viñeta 6: Escena 12 — On the stone steps, the maid holds a folder to… (county records steps, grey morning).
+
+=== REF_GRID_MIN_03.png ===
+STORYBOARD IMAGE 03/10 — MINUTE 3 (Scenes 13–18)
+
+Genera UNA SOLA IMAGEN 16:9 con una cuadrícula de storyboard de 3 columnas x 2 filas (6 viñetas), en orden de lectura izquierda a derecha y de arriba abajo.
+Usa exactamente los mismos personajes, rostros, edades y vestuarios que REF_CAST_MASTER.png (Hoja de Personajes adjunta). Mantén continuidad de vestuario, props y locaciones entre viñetas.
+Estilo visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
+Cada viñeta es un plano cinematográfico 16:9 con encuadre claro y acción legible.
+Sin texto, sin letras, sin globos de diálogo, sin logos, sin marcas de agua, sin bordes.
+
+VIÑETAS EXACTAS:
+Viñeta 1: Escena 13 — In the paneled office, the maid holds a single sheet… (Blackwell paneled office, afternoon).
+Viñeta 2: Escena 14 — In the dark-paneled hallway, the heir speaks low to the… (Blackwell dark-paneled hallway, afternoon).
+Viñeta 3: Escena 15 — At the oilcloth table, the maid and the housekeeper sit… (gatehouse cottage, dusk).
+Viñeta 4: Escena 16 — In the barn aisle, the maid and the foreman stand… (Silver Creek barn aisle, night).
+Viñeta 5: Escena 17 — In the lamplit study, the mistress stands over the desk… (Blackwell study, night).
+Viñeta 6: Escena 18 — At the counter, the clerk shakes her head over a… (Silver Creek county records office, morning).
+
+=== REF_GRID_MIN_04.png ===
+STORYBOARD IMAGE 04/10 — MINUTE 4 (Scenes 19–24)
+
+Genera UNA SOLA IMAGEN 16:9 con una cuadrícula de storyboard de 3 columnas x 2 filas (6 viñetas), en orden de lectura izquierda a derecha y de arriba abajo.
+Usa exactamente los mismos personajes, rostros, edades y vestuarios que REF_CAST_MASTER.png (Hoja de Personajes adjunta). Mantén continuidad de vestuario, props y locaciones entre viñetas.
+Estilo visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
+Cada viñeta es un plano cinematográfico 16:9 con encuadre claro y acción legible.
+Sin texto, sin letras, sin globos de diálogo, sin logos, sin marcas de agua, sin bordes.
+
+VIÑETAS EXACTAS:
+Viñeta 1: Escena 19 — In the candlelit great room, the mistress rises with a… (Blackwell great room, dinner, night).
+Viñeta 2: Escena 20 — In the gravel yard at night, a steel barrel burns… (Blackwell gravel yard, night).
+Viñeta 3: Escena 21 — In the cottage lamplight, the maid unrolls the old county… (gatehouse cottage, night).
+Viñeta 4: Escena 22 — In the shadowy tack room, the maid kneels beside the… (Blackwell tack room, night).
+Viñeta 5: Escena 23 — In the moonlight, the foreman gently binds the maid's bruised… (Silver Creek barn hayloft, night).
+Viñeta 6: Escena 24 — Behind the desk, the maid freezes with the open ledger… (Blackwell study archives, night).
+
+=== REF_GRID_MIN_05.png ===
+STORYBOARD IMAGE 05/10 — MINUTE 5 (Scenes 25–30)
+
+Genera UNA SOLA IMAGEN 16:9 con una cuadrícula de storyboard de 3 columnas x 2 filas (6 viñetas), en orden de lectura izquierda a derecha y de arriba abajo.
+Usa exactamente los mismos personajes, rostros, edades y vestuarios que REF_CAST_MASTER.png (Hoja de Personajes adjunta). Mantén continuidad de vestuario, props y locaciones entre viñetas.
+Estilo visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
+Cada viñeta es un plano cinematográfico 16:9 con encuadre claro y acción legible.
+Sin texto, sin letras, sin globos de diálogo, sin logos, sin marcas de agua, sin bordes.
+
+VIÑETAS EXACTAS:
+Viñeta 1: Escena 25 — In the vast room, the mistress dangles a small brass… (Blackwell mansion great room, night).
+Viñeta 2: Escena 26 — Under harsh halogen yard lights, the foreman plants his boots… (Blackwell mansion gravel drive, night).
+Viñeta 3: Escena 27 — On the rain-slick porch steps, the heir reaches out with… (gatehouse cottage porch, night).
+Viñeta 4: Escena 28 — In the barn aisle, the housekeeper rushes to the maid… (Silver Creek barn aisle, night).
+Viñeta 5: Escena 29 — By the iron gates, the mistress steps out of the… (Blackwell estate gates, midnight).
+Viñeta 6: Escena 30 — Under the headlights, the mistress thrusts the certified check into… (Blackwell estate gates, midnight).
+
+=== REF_GRID_MIN_06.png ===
+STORYBOARD IMAGE 06/10 — MINUTE 6 (Scenes 31–36)
+
+Genera UNA SOLA IMAGEN 16:9 con una cuadrícula de storyboard de 3 columnas x 2 filas (6 viñetas), en orden de lectura izquierda a derecha y de arriba abajo.
+Usa exactamente los mismos personajes, rostros, edades y vestuarios que REF_CAST_MASTER.png (Hoja de Personajes adjunta). Mantén continuidad de vestuario, props y locaciones entre viñetas.
+Estilo visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
+Cada viñeta es un plano cinematográfico 16:9 con encuadre claro y acción legible.
+Sin texto, sin letras, sin globos de diálogo, sin logos, sin marcas de agua, sin bordes.
+
+VIÑETAS EXACTAS:
+Viñeta 1: Escena 31 — Inside the ransacked cottage, the storm sweeps through shattered windows… (gatehouse cottage, storm night).
+Viñeta 2: Escena 32 — In the swirling red and blue emergency light, the maid… (gatehouse cottage yard, storm night).
+Viñeta 3: Escena 33 — In the drafty shelter, the maid wraps her own dry… (Silver Creek hay shed, storm night).
+Viñeta 4: Escena 34 — Inside the glowing library, the mistress feeds the ancient deed… (Blackwell mansion rear terrace, storm night).
+Viñeta 5: Escena 35 — In a sudden flash of lightning, the maid appears like… (Silver Creek stable tack room, storm night).
+Viñeta 6: Escena 36 — On the high ridge, the small figure of the maid… (ranch ridge overlook, storm dawn).
+
+=== REF_GRID_MIN_07.png ===
+STORYBOARD IMAGE 07/10 — MINUTE 7 (Scenes 37–42)
+
+Genera UNA SOLA IMAGEN 16:9 con una cuadrícula de storyboard de 3 columnas x 2 filas (6 viñetas), en orden de lectura izquierda a derecha y de arriba abajo.
+Usa exactamente los mismos personajes, rostros, edades y vestuarios que REF_CAST_MASTER.png (Hoja de Personajes adjunta). Mantén continuidad de vestuario, props y locaciones entre viñetas.
+Estilo visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
+Cada viñeta es un plano cinematográfico 16:9 con encuadre claro y acción legible.
+Sin texto, sin letras, sin globos de diálogo, sin logos, sin marcas de agua, sin bordes.
+
+VIÑETAS EXACTAS:
+Viñeta 1: Escena 37 — On the muddy road, the foreman wraps his dry wool… (ranch ridge road, dawn).
+Viñeta 2: Escena 38 — Inside the bouncing truck cab, the maid turns the brass… (green truck cab, dawn).
+Viñeta 3: Escena 39 — On the bank steps, the maid and foreman turn together… (town bank exterior, morning).
+Viñeta 4: Escena 40 — Inside the gleaming vault, the maid turns the brass key… (First Valley Trust vault corridor, morning).
+Viñeta 5: Escena 41 — In the sunlit bank office, the maid stands tall as… (First Valley Trust manager office, morning).
+Viñeta 6: Escena 42 — On the stone steps, the foreman stands immovable between the… (town bank steps, morning).
+
+=== REF_GRID_MIN_08.png ===
+STORYBOARD IMAGE 08/10 — MINUTE 8 (Scenes 43–48)
+
+Genera UNA SOLA IMAGEN 16:9 con una cuadrícula de storyboard de 3 columnas x 2 filas (6 viñetas), en orden de lectura izquierda a derecha y de arriba abajo.
+Usa exactamente los mismos personajes, rostros, edades y vestuarios que REF_CAST_MASTER.png (Hoja de Personajes adjunta). Mantén continuidad de vestuario, props y locaciones entre viñetas.
+Estilo visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
+Cada viñeta es un plano cinematográfico 16:9 con encuadre claro y acción legible.
+Sin texto, sin letras, sin globos de diálogo, sin logos, sin marcas de agua, sin bordes.
+
+VIÑETAS EXACTAS:
+Viñeta 1: Escena 43 — The maid emerges onto the sunlit steps, lifting the stamped… (town bank steps, morning).
+Viñeta 2: Escena 44 — Inside the town car, the mistress grabs her son's lapel… (Blackwell town car, morning).
+Viñeta 3: Escena 45 — In the brick alleyway, the housekeeper presses an aged leather… (county civic hall back alley, noon).
+Viñeta 4: Escena 46 — Before the towering carved oak doors, the maid pauses, adjusting… (Silver Creek civic hall foyer, afternoon).
+Viñeta 5: Escena 47 — The grand ballroom falls utterly silent as the ranch maid… (civic hall grand ballroom, afternoon).
+Viñeta 6: Escena 48 — Under the blinding stage lights, the mistress steps right into… (civic hall auction stage, afternoon).
+
+=== REF_GRID_MIN_09.png ===
+STORYBOARD IMAGE 09/10 — MINUTE 9 (Scenes 49–54)
+
+Genera UNA SOLA IMAGEN 16:9 con una cuadrícula de storyboard de 3 columnas x 2 filas (6 viñetas), en orden de lectura izquierda a derecha y de arriba abajo.
+Usa exactamente los mismos personajes, rostros, edades y vestuarios que REF_CAST_MASTER.png (Hoja de Personajes adjunta). Mantén continuidad de vestuario, props y locaciones entre viñetas.
+Estilo visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
+Cada viñeta es un plano cinematográfico 16:9 con encuadre claro y acción legible.
+Sin texto, sin letras, sin globos de diálogo, sin logos, sin marcas de agua, sin bordes.
+
+VIÑETAS EXACTAS:
+Viñeta 1: Escena 49 — At the edge of the stage, the maid hands the… (civic hall auction stage, afternoon).
+Viñeta 2: Escena 50 — In the red velvet backstage shadows, the mistress corners the… (civic hall stage wings, afternoon).
+Viñeta 3: Escena 51 — The maid sprints through the barn gates as the foreman… (Silver Creek barn exterior, dusk).
+Viñeta 4: Escena 52 — At the witness stand, the heir raises his right hand… (civic hall courtroom chamber, evening).
+Viñeta 5: Escena 53 — The housekeeper stands tall at the microphone, looking directly at… (civic hall courtroom chamber, evening).
+Viñeta 6: Escena 54 — At the plaintiff's table, the maid stands erect as the… (civic hall courtroom chamber, evening).
+
+=== REF_GRID_MIN_10.png ===
+STORYBOARD IMAGE 10/10 — MINUTE 10 (Scenes 55–60)
+
+Genera UNA SOLA IMAGEN 16:9 con una cuadrícula de storyboard de 3 columnas x 2 filas (6 viñetas), en orden de lectura izquierda a derecha y de arriba abajo.
+Usa exactamente los mismos personajes, rostros, edades y vestuarios que REF_CAST_MASTER.png (Hoja de Personajes adjunta). Mantén continuidad de vestuario, props y locaciones entre viñetas.
+Estilo visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
+Cada viñeta es un plano cinematográfico 16:9 con encuadre claro y acción legible.
+Sin texto, sin letras, sin globos de diálogo, sin logos, sin marcas de agua, sin bordes.
+
+VIÑETAS EXACTAS:
+Viñeta 1: Escena 55 — Under the flashing blue lights of state police cruisers, the… (civic hall grand steps, night).
+Viñeta 2: Escena 56 — On the wet steps, the handcuffed mistress collapses forward onto… (civic hall grand steps, night).
+Viñeta 3: Escena 57 — The grand foyer is warm with lamplight; the maid stands… (Silver Creek mansion foyer, night).
+Viñeta 4: Escena 58 — At the corral gate, the foreman turns to the maid… (Silver Creek barn gate, moonlight).
+Viñeta 5: Escena 59 — Before the roaring stone hearth, the maid steps back as… (Blackwell great room mantelpiece, night).
+Viñeta 6: Escena 60 — At the quiet study desk, the maid notices a sealed… (mansion study desk, night).

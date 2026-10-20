@@ -53,6 +53,7 @@ if /i "%CMD%"=="muse"     ( set "SCRIPT=generators\03_export_omni_queue.py" & se
 if /i "%CMD%"=="flow"     ( set "SCRIPT=generators\03_export_omni_queue.py" & set "MODE=--platform flow" & goto :RUN )
 if /i "%CMD%"=="prompts"  ( set "SCRIPT=generators\04_export_master_prompts.py" & goto :RUN )
 if /i "%CMD%"=="export-master-prompts" ( set "SCRIPT=generators\00_export_master_workflow_prompts.py" & goto :RUN )
+if /i "%CMD%"=="prepare"  goto :PREPARE
 if /i "%CMD%"=="status"   ( set "SCRIPT=automation\omni_flow_runner.py" & set "MODE=status" & goto :RUN )
 if /i "%CMD%"=="queue"    ( set "SCRIPT=automation\omni_flow_runner.py" & set "MODE=queue" & goto :RUN )
 if /i "%CMD%"=="assisted" ( set "SCRIPT=automation\omni_flow_runner.py" & set "MODE=assisted" & goto :RUN )
@@ -65,6 +66,15 @@ if /i "%CMD%"=="publish"  ( set "SCRIPT=post_production\05_export_to_publisher.p
 if /i "%CMD%"=="test"     ( python -m unittest discover -s tests -v & goto :DONE )
 echo  [!] Comando desconocido: %CMD%
 goto :HELP
+
+:PREPARE
+echo.
+python "%NFDIR%nf_core.py" prepare !REST!
+if errorlevel 1 (
+  echo.
+  echo  [X] prepare termino con errores ^(codigo %errorlevel%^).
+)
+goto :DONE
 
 :INGEST
 REM  ingest <slug> <json...>  ->  --ingest debe ir ANTES de la lista de JSON
@@ -109,6 +119,7 @@ echo    muse ^<slug^>                         Exporta la cola de v??deo (Muse AI
 echo    flow ^<slug^>                         Exporta la cola de v??deo (Google Flow / Veo)
 echo    prompts ^<slug^>                      Exporta los 4 prompts maestros rellenados
 echo    export-master-prompts ^<slug^>        Genera workflow 000-003 + lotes Muse AI (6 escenas)
+echo    prepare ^<slug^>                       Regenera workflow 00 + MASTER_PROMPTS 04 sincronizados
 echo    status ^<slug^>                       Tabla de progreso de clips/frames
 echo    queue ^<slug^>                        Siguiente prompt pendiente por consola
 echo    assisted ^<slug^>                     Asistente de portapapeles para Omni

@@ -420,8 +420,10 @@ def main(argv: Optional[List[str]] = None) -> int:
         nf.ok(
             f"[Muse AI] {len(batch_files['batches'])} lotes de 1 minuto (6 escenas) exportados:"
         )
-        nf.info(batch_files["txt"].name + "  (bloques listos con cámara, SFX, diálogo y comando final)")
+        nf.info(batch_files["txt"].name + "  (bloques con adjuntos, cámara, SFX, diálogo y 2 comandos)")
         nf.info(batch_files["json"].name + " (manifiesto de lotes)")
+        nf.info("Adjuntos por lote: REF_CAST_MASTER.png + REF_GRID_MIN_XX.png · "
+                "comandos 16:9 (YouTube) y 9:16 (Reels).")
 
     rc = run_check(paths, last_rows, args.allow_missing) if not want or args.check else 0
     if not args.check and not want:

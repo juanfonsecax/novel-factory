@@ -1,0 +1,178 @@
+{
+  "schema_version": "1.0",
+  "episode": "the_ranch_maid_heiress",
+  "title": "The Stable Girl",
+  "count": 11,
+  "note": "1 hoja de personajes (REF_CAST_MASTER.png) + 10 storyboards de 6 viñetas (REF_GRID_MIN_01.png … REF_GRID_MIN_10.png).",
+  "items": [
+    {
+      "index": 1,
+      "filename": "REF_CAST_MASTER.png",
+      "kind": "cast_sheet",
+      "minute": 0,
+      "scenes": [],
+      "title": "Hoja maestra de personajes — The Stable Girl",
+      "prompt": "REF_CAST_MASTER.png — HOJA MAESTRA DE PERSONAJES\n\nGenera UNA SOLA IMAGEN 16:9 sobre fondo gris neutro uniforme, con todos los personajes principales del proyecto en una hoja de casting limpia y profesional.\n\n👤 PROMPT 002 — GENERADOR DE PERSONAJES (HOJA MAESTRA EN UNA SOLA IMAGEN)\nActúa como director de casting y diseñador de personajes.\nYa tenemos creado el storyboard de la historia.\nAhora analiza ese storyboard e identifica los personajes principales y secundarios relevantes que aparecen en la historia.\nTu tarea es generar UNA SOLA IMAGEN que muestre juntos a todos los personajes identificados.\n\nREFERENCIA\nStoryboard:\n[ADJUNTAR EL STORYBOARD CREADO ANTERIORMENTE]\n\nREGLA PRINCIPAL\nLos personajes deben basarse directamente en el storyboard.\nDebes mantener exactamente su:\n- Sexo.\n- Edad aproximada.\n- Etnia y rasgos físicos.\n- Rostro.\n- Cabello.\n- Tono de piel.\n- Complexión.\n- Vestuario principal.\n- Accesorios importantes.\n- Estilo visual (prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette Lighting palette: late-afternoon sun raking across the scene with long shadows; overcast storm light with a cold rim on faces; practical tungsten warmth inside against a blue dusk exterior. Camera language: wide establishing shot with a human scale reference; medium shot, chest up, subject slightly off-center; tight close-up, eyes in sharp focus, background falling off; over-the-shoulder shot with the listener soft in foreground.).\n\nSi el storyboard tiene 2 personajes, muestra los 2 en una sola imagen.\nSi tiene 3 personajes, muestra los 3 en una sola imagen.\nSi tiene 4 personajes, muestra los 4 en una sola imagen.\nY así sucesivamente (priorizando los 3 a 5 personajes principales de la trama).\nNo inventes personajes que no sean relevantes para la historia.\n\nCOMPOSICIÓN DE LA IMAGEN\nGenera una hoja de referencia de personajes limpia y profesional.\nTodos los personajes deben aparecer:\n- En una sola imagen.\n- Uno al lado del otro.\n- Claramente separados.\n- De cuerpo completo.\n- De pie.\n- Mirando hacia la cámara.\n- En una pose natural y neutral.\n- Sin taparse entre ellos.\n- Sin interactuar físicamente entre ellos.\nDebe verse claramente el rostro y el cuerpo completo de cada personaje.\nUsa un fondo sencillo y neutro (gris estudio limpio) para que los personajes sean los protagonistas de la imagen.\n\nCONSISTENCIA\nEsta imagen funcionará como referencia oficial de los personajes para las siguientes generaciones de imágenes y videos en Muse AI y Google Flow.\nPor eso, los rostros y características físicas deben corresponder lo máximo posible con los personajes mostrados en el storyboard.\nNo rediseñes a los personajes.\nEl objetivo es extraer del storyboard una referencia visual clara y consistente de cada personaje.\n\nESTILO VISUAL\nUtiliza exactamente el mismo estilo visual utilizado en el storyboard (prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette Lighting palette: late-afternoon sun raking across the scene with long shadows; overcast storm light with a cold rim on faces; practical tungsten warmth inside against a blue dusk exterior. Camera language: wide establishing shot with a human scale reference; medium shot, chest up, subject slightly off-center; tight close-up, eyes in sharp focus, background falling off; over-the-shoulder shot with the listener soft in foreground.).\nNo cambiar el estilo visual de la historia.\n\nVESTUARIO\nUtiliza para cada personaje su vestuario más representativo o principal dentro de la historia.\nEl vestuario debe ayudar a identificar inmediatamente quién es cada personaje.\n\nTEXTO\nColoca debajo de cada personaje únicamente:\nNombre del personaje y su rol corto.\nEjemplo:\nELENA — Protagonist\nCOLTON — Gardener\nVICTORIA — Mother\nNo incluir:\n- Descripciones largas.\n- Diálogos.\n- Biografías.\n- Párrafos.\n- Información de las escenas.\nEl texto debe ser mínimo para mantener la imagen limpia.\n\nRESULTADO FINAL\nGenera UNA SOLA IMAGEN que contenga a todos los personajes relevantes de la historia.\nLa imagen debe funcionar como una hoja maestra de referencia de personajes, que posteriormente pueda utilizarse para mantener la misma apariencia de los personajes en todas las escenas y videos.\nEntrega solamente la imagen de los personajes.\n\nPERSONAJES DEL PROYECTO — nombres, rostros y vestuarios fijos:\n- Elena Vance: Casting sheet for the character reference image: woman in her mid-twenties, sun-weathered gently angular face, long chestnut hair worn in a single low braid, calm dark-brown eyes, light freckling across the nose, a faint old scar through one eyebrow, slender but strong ranch build, signature faded blue denim work shirt and dark riding jeans. Vestuario fijo: faded blue denim work shirt, dark riding jeans, worn boots, low braid.\n- Victoria Blackwell: Casting sheet for the character reference image: woman in her mid-forties, sleek platinum-blonde bob, sharp cheekbones, cool grey eyes, immaculate posture, dark red lipstick, pearl earrings, signature emerald silk blouse over tailored black trousers. Vestuario fijo: emerald silk blouse, tailored black trousers, pearl earrings.\n- Richard Blackwell: Casting sheet for the character reference image: man around thirty, clean-cut, sandy hair combed back, pale blue eyes, a practiced easy smile, tall athletic build, signature pressed white shirt under a charcoal blazer. Vestuario fijo: pressed white shirt, charcoal blazer, polished boots.\n- Cole Barrett: Casting sheet for the character reference image: man in his early thirties, weathered rancher hands, dark hair a little long under a dust-worn felt hat, steady hazel eyes, quiet jaw, broad shoulders, signature oiled tan canvas chore jacket over a grey henley. Vestuario fijo: oiled tan canvas chore jacket over a grey henley, worn felt hat.\n- Maggie Doyle: Casting sheet for the character reference image: woman in her late fifties, iron-grey hair pinned up in a loose bun, kind weathered face, small round glasses on a chain, floral house apron over a beige cardigan and a long dark skirt. Vestuario fijo: floral house apron over a beige cardigan, long dark skirt.\n\nMantén exactamente los mismos rostros, peinados y vestuarios en todas las imágenes del storyboard y de los lotes de Muse AI. Sin texto, sin letras, sin etiquetas, sin logos, sin marcas de agua. Fondo gris neutro, luz suave y pareja, sin otros elementos."
+    },
+    {
+      "index": 2,
+      "filename": "REF_GRID_MIN_01.png",
+      "kind": "storyboard_grid",
+      "minute": 1,
+      "scenes": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "title": "Storyboard minuto 1: escenas 1–6",
+      "prompt": "STORYBOARD IMAGE 01/10 — MINUTE 1 (Scenes 1–6)\n\nGenera UNA SOLA IMAGEN 16:9 con una cuadrícula de storyboard de 3 columnas x 2 filas (6 viñetas), en orden de lectura izquierda a derecha y de arriba abajo.\nUsa exactamente los mismos personajes, rostros, edades y vestuarios que REF_CAST_MASTER.png (Hoja de Personajes adjunta). Mantén continuidad de vestuario, props y locaciones entre viñetas.\nEstilo visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.\nCada viñeta es un plano cinematográfico 16:9 con encuadre claro y acción legible.\nSin texto, sin letras, sin globos de diálogo, sin logos, sin marcas de agua, sin bordes.\n\nVIÑETAS EXACTAS:\nViñeta 1: Escena 1 — In the grand foyer, the maid in the denim work… (Blackwell mansion foyer, storm dusk).\nViñeta 2: Escena 2 — The barn aisle at night: the maid stands small between… (Silver Creek barn aisle, night).\nViñeta 3: Escena 3 — In the foyer, the maid holds open her saddle bag… (Blackwell mansion foyer, night).\nViñeta 4: Escena 4 — In the stable aisle, the maid tightens a saddle girth… (Silver Creek stable aisle, morning).\nViñeta 5: Escena 5 — In the timber great room, the woman in emerald silk… (Blackwell great room, morning).\nViñeta 6: Escena 6 — At the barn door, the maid works a curry comb… (Silver Creek barn doorway, late afternoon)."
+    },
+    {
+      "index": 3,
+      "filename": "REF_GRID_MIN_02.png",
+      "kind": "storyboard_grid",
+      "minute": 2,
+      "scenes": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "title": "Storyboard minuto 2: escenas 7–12",
+      "prompt": "STORYBOARD IMAGE 02/10 — MINUTE 2 (Scenes 7–12)\n\nGenera UNA SOLA IMAGEN 16:9 con una cuadrícula de storyboard de 3 columnas x 2 filas (6 viñetas), en orden de lectura izquierda a derecha y de arriba abajo.\nUsa exactamente los mismos personajes, rostros, edades y vestuarios que REF_CAST_MASTER.png (Hoja de Personajes adjunta). Mantén continuidad de vestuario, props y locaciones entre viñetas.\nEstilo visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.\nCada viñeta es un plano cinematográfico 16:9 con encuadre claro y acción legible.\nSin texto, sin letras, sin globos de diálogo, sin logos, sin marcas de agua, sin bordes.\n\nVIÑETAS EXACTAS:\nViñeta 1: Escena 7 — In the lamplit study, the mistress sits behind the desk… (Blackwell study, late afternoon).\nViñeta 2: Escena 8 — In the small stone cottage, the maid kneels with the… (gatehouse cottage, dusk).\nViñeta 3: Escena 9 — In the barn aisle at night, the maid holds up… (Silver Creek barn aisle, night).\nViñeta 4: Escena 10 — Inside the tack room, the maid kneels over an open… (Silver Creek sealed tack room, night).\nViñeta 5: Escena 11 — At the oak counter, the maid lays the old deed… (Silver Creek county records office, morning).\nViñeta 6: Escena 12 — On the stone steps, the maid holds a folder to… (county records steps, grey morning)."
+    },
+    {
+      "index": 4,
+      "filename": "REF_GRID_MIN_03.png",
+      "kind": "storyboard_grid",
+      "minute": 3,
+      "scenes": [
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "title": "Storyboard minuto 3: escenas 13–18",
+      "prompt": "STORYBOARD IMAGE 03/10 — MINUTE 3 (Scenes 13–18)\n\nGenera UNA SOLA IMAGEN 16:9 con una cuadrícula de storyboard de 3 columnas x 2 filas (6 viñetas), en orden de lectura izquierda a derecha y de arriba abajo.\nUsa exactamente los mismos personajes, rostros, edades y vestuarios que REF_CAST_MASTER.png (Hoja de Personajes adjunta). Mantén continuidad de vestuario, props y locaciones entre viñetas.\nEstilo visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.\nCada viñeta es un plano cinematográfico 16:9 con encuadre claro y acción legible.\nSin texto, sin letras, sin globos de diálogo, sin logos, sin marcas de agua, sin bordes.\n\nVIÑETAS EXACTAS:\nViñeta 1: Escena 13 — In the paneled office, the maid holds a single sheet… (Blackwell paneled office, afternoon).\nViñeta 2: Escena 14 — In the dark-paneled hallway, the heir speaks low to the… (Blackwell dark-paneled hallway, afternoon).\nViñeta 3: Escena 15 — At the oilcloth table, the maid and the housekeeper sit… (gatehouse cottage, dusk).\nViñeta 4: Escena 16 — In the barn aisle, the maid and the foreman stand… (Silver Creek barn aisle, night).\nViñeta 5: Escena 17 — In the lamplit study, the mistress stands over the desk… (Blackwell study, night).\nViñeta 6: Escena 18 — At the counter, the clerk shakes her head over a… (Silver Creek county records office, morning)."
+    },
+    {
+      "index": 5,
+      "filename": "REF_GRID_MIN_04.png",
+      "kind": "storyboard_grid",
+      "minute": 4,
+      "scenes": [
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "title": "Storyboard minuto 4: escenas 19–24",
+      "prompt": "STORYBOARD IMAGE 04/10 — MINUTE 4 (Scenes 19–24)\n\nGenera UNA SOLA IMAGEN 16:9 con una cuadrícula de storyboard de 3 columnas x 2 filas (6 viñetas), en orden de lectura izquierda a derecha y de arriba abajo.\nUsa exactamente los mismos personajes, rostros, edades y vestuarios que REF_CAST_MASTER.png (Hoja de Personajes adjunta). Mantén continuidad de vestuario, props y locaciones entre viñetas.\nEstilo visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.\nCada viñeta es un plano cinematográfico 16:9 con encuadre claro y acción legible.\nSin texto, sin letras, sin globos de diálogo, sin logos, sin marcas de agua, sin bordes.\n\nVIÑETAS EXACTAS:\nViñeta 1: Escena 19 — In the candlelit great room, the mistress rises with a… (Blackwell great room, dinner, night).\nViñeta 2: Escena 20 — In the gravel yard at night, a steel barrel burns… (Blackwell gravel yard, night).\nViñeta 3: Escena 21 — In the cottage lamplight, the maid unrolls the old county… (gatehouse cottage, night).\nViñeta 4: Escena 22 — In the shadowy tack room, the maid kneels beside the… (Blackwell tack room, night).\nViñeta 5: Escena 23 — In the moonlight, the foreman gently binds the maid's bruised… (Silver Creek barn hayloft, night).\nViñeta 6: Escena 24 — Behind the desk, the maid freezes with the open ledger… (Blackwell study archives, night)."
+    },
+    {
+      "index": 6,
+      "filename": "REF_GRID_MIN_05.png",
+      "kind": "storyboard_grid",
+      "minute": 5,
+      "scenes": [
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "title": "Storyboard minuto 5: escenas 25–30",
+      "prompt": "STORYBOARD IMAGE 05/10 — MINUTE 5 (Scenes 25–30)\n\nGenera UNA SOLA IMAGEN 16:9 con una cuadrícula de storyboard de 3 columnas x 2 filas (6 viñetas), en orden de lectura izquierda a derecha y de arriba abajo.\nUsa exactamente los mismos personajes, rostros, edades y vestuarios que REF_CAST_MASTER.png (Hoja de Personajes adjunta). Mantén continuidad de vestuario, props y locaciones entre viñetas.\nEstilo visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.\nCada viñeta es un plano cinematográfico 16:9 con encuadre claro y acción legible.\nSin texto, sin letras, sin globos de diálogo, sin logos, sin marcas de agua, sin bordes.\n\nVIÑETAS EXACTAS:\nViñeta 1: Escena 25 — In the vast room, the mistress dangles a small brass… (Blackwell mansion great room, night).\nViñeta 2: Escena 26 — Under harsh halogen yard lights, the foreman plants his boots… (Blackwell mansion gravel drive, night).\nViñeta 3: Escena 27 — On the rain-slick porch steps, the heir reaches out with… (gatehouse cottage porch, night).\nViñeta 4: Escena 28 — In the barn aisle, the housekeeper rushes to the maid… (Silver Creek barn aisle, night).\nViñeta 5: Escena 29 — By the iron gates, the mistress steps out of the… (Blackwell estate gates, midnight).\nViñeta 6: Escena 30 — Under the headlights, the mistress thrusts the certified check into… (Blackwell estate gates, midnight)."
+    },
+    {
+      "index": 7,
+      "filename": "REF_GRID_MIN_06.png",
+      "kind": "storyboard_grid",
+      "minute": 6,
+      "scenes": [
+        31,
+        32,
+        33,
+        34,
+        35,
+        36
+      ],
+      "title": "Storyboard minuto 6: escenas 31–36",
+      "prompt": "STORYBOARD IMAGE 06/10 — MINUTE 6 (Scenes 31–36)\n\nGenera UNA SOLA IMAGEN 16:9 con una cuadrícula de storyboard de 3 columnas x 2 filas (6 viñetas), en orden de lectura izquierda a derecha y de arriba abajo.\nUsa exactamente los mismos personajes, rostros, edades y vestuarios que REF_CAST_MASTER.png (Hoja de Personajes adjunta). Mantén continuidad de vestuario, props y locaciones entre viñetas.\nEstilo visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.\nCada viñeta es un plano cinematográfico 16:9 con encuadre claro y acción legible.\nSin texto, sin letras, sin globos de diálogo, sin logos, sin marcas de agua, sin bordes.\n\nVIÑETAS EXACTAS:\nViñeta 1: Escena 31 — Inside the ransacked cottage, the storm sweeps through shattered windows… (gatehouse cottage, storm night).\nViñeta 2: Escena 32 — In the swirling red and blue emergency light, the maid… (gatehouse cottage yard, storm night).\nViñeta 3: Escena 33 — In the drafty shelter, the maid wraps her own dry… (Silver Creek hay shed, storm night).\nViñeta 4: Escena 34 — Inside the glowing library, the mistress feeds the ancient deed… (Blackwell mansion rear terrace, storm night).\nViñeta 5: Escena 35 — In a sudden flash of lightning, the maid appears like… (Silver Creek stable tack room, storm night).\nViñeta 6: Escena 36 — On the high ridge, the small figure of the maid… (ranch ridge overlook, storm dawn)."
+    },
+    {
+      "index": 8,
+      "filename": "REF_GRID_MIN_07.png",
+      "kind": "storyboard_grid",
+      "minute": 7,
+      "scenes": [
+        37,
+        38,
+        39,
+        40,
+        41,
+        42
+      ],
+      "title": "Storyboard minuto 7: escenas 37–42",
+      "prompt": "STORYBOARD IMAGE 07/10 — MINUTE 7 (Scenes 37–42)\n\nGenera UNA SOLA IMAGEN 16:9 con una cuadrícula de storyboard de 3 columnas x 2 filas (6 viñetas), en orden de lectura izquierda a derecha y de arriba abajo.\nUsa exactamente los mismos personajes, rostros, edades y vestuarios que REF_CAST_MASTER.png (Hoja de Personajes adjunta). Mantén continuidad de vestuario, props y locaciones entre viñetas.\nEstilo visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.\nCada viñeta es un plano cinematográfico 16:9 con encuadre claro y acción legible.\nSin texto, sin letras, sin globos de diálogo, sin logos, sin marcas de agua, sin bordes.\n\nVIÑETAS EXACTAS:\nViñeta 1: Escena 37 — On the muddy road, the foreman wraps his dry wool… (ranch ridge road, dawn).\nViñeta 2: Escena 38 — Inside the bouncing truck cab, the maid turns the brass… (green truck cab, dawn).\nViñeta 3: Escena 39 — On the bank steps, the maid and foreman turn together… (town bank exterior, morning).\nViñeta 4: Escena 40 — Inside the gleaming vault, the maid turns the brass key… (First Valley Trust vault corridor, morning).\nViñeta 5: Escena 41 — In the sunlit bank office, the maid stands tall as… (First Valley Trust manager office, morning).\nViñeta 6: Escena 42 — On the stone steps, the foreman stands immovable between the… (town bank steps, morning)."
+    },
+    {
+      "index": 9,
+      "filename": "REF_GRID_MIN_08.png",
+      "kind": "storyboard_grid",
+      "minute": 8,
+      "scenes": [
+        43,
+        44,
+        45,
+        46,
+        47,
+        48
+      ],
+      "title": "Storyboard minuto 8: escenas 43–48",
+      "prompt": "STORYBOARD IMAGE 08/10 — MINUTE 8 (Scenes 43–48)\n\nGenera UNA SOLA IMAGEN 16:9 con una cuadrícula de storyboard de 3 columnas x 2 filas (6 viñetas), en orden de lectura izquierda a derecha y de arriba abajo.\nUsa exactamente los mismos personajes, rostros, edades y vestuarios que REF_CAST_MASTER.png (Hoja de Personajes adjunta). Mantén continuidad de vestuario, props y locaciones entre viñetas.\nEstilo visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.\nCada viñeta es un plano cinematográfico 16:9 con encuadre claro y acción legible.\nSin texto, sin letras, sin globos de diálogo, sin logos, sin marcas de agua, sin bordes.\n\nVIÑETAS EXACTAS:\nViñeta 1: Escena 43 — The maid emerges onto the sunlit steps, lifting the stamped… (town bank steps, morning).\nViñeta 2: Escena 44 — Inside the town car, the mistress grabs her son's lapel… (Blackwell town car, morning).\nViñeta 3: Escena 45 — In the brick alleyway, the housekeeper presses an aged leather… (county civic hall back alley, noon).\nViñeta 4: Escena 46 — Before the towering carved oak doors, the maid pauses, adjusting… (Silver Creek civic hall foyer, afternoon).\nViñeta 5: Escena 47 — The grand ballroom falls utterly silent as the ranch maid… (civic hall grand ballroom, afternoon).\nViñeta 6: Escena 48 — Under the blinding stage lights, the mistress steps right into… (civic hall auction stage, afternoon)."
+    },
+    {
+      "index": 10,
+      "filename": "REF_GRID_MIN_09.png",
+      "kind": "storyboard_grid",
+      "minute": 9,
+      "scenes": [
+        49,
+        50,
+        51,
+        52,
+        53,
+        54
+      ],
+      "title": "Storyboard minuto 9: escenas 49–54",
+      "prompt": "STORYBOARD IMAGE 09/10 — MINUTE 9 (Scenes 49–54)\n\nGenera UNA SOLA IMAGEN 16:9 con una cuadrícula de storyboard de 3 columnas x 2 filas (6 viñetas), en orden de lectura izquierda a derecha y de arriba abajo.\nUsa exactamente los mismos personajes, rostros, edades y vestuarios que REF_CAST_MASTER.png (Hoja de Personajes adjunta). Mantén continuidad de vestuario, props y locaciones entre viñetas.\nEstilo visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.\nCada viñeta es un plano cinematográfico 16:9 con encuadre claro y acción legible.\nSin texto, sin letras, sin globos de diálogo, sin logos, sin marcas de agua, sin bordes.\n\nVIÑETAS EXACTAS:\nViñeta 1: Escena 49 — At the edge of the stage, the maid hands the… (civic hall auction stage, afternoon).\nViñeta 2: Escena 50 — In the red velvet backstage shadows, the mistress corners the… (civic hall stage wings, afternoon).\nViñeta 3: Escena 51 — The maid sprints through the barn gates as the foreman… (Silver Creek barn exterior, dusk).\nViñeta 4: Escena 52 — At the witness stand, the heir raises his right hand… (civic hall courtroom chamber, evening).\nViñeta 5: Escena 53 — The housekeeper stands tall at the microphone, looking directly at… (civic hall courtroom chamber, evening).\nViñeta 6: Escena 54 — At the plaintiff's table, the maid stands erect as the… (civic hall courtroom chamber, evening)."
+    },
+    {
+      "index": 11,
+      "filename": "REF_GRID_MIN_10.png",
+      "kind": "storyboard_grid",
+      "minute": 10,
+      "scenes": [
+        55,
+        56,
+        57,
+        58,
+        59,
+        60
+      ],
+      "title": "Storyboard minuto 10: escenas 55–60",
+      "prompt": "STORYBOARD IMAGE 10/10 — MINUTE 10 (Scenes 55–60)\n\nGenera UNA SOLA IMAGEN 16:9 con una cuadrícula de storyboard de 3 columnas x 2 filas (6 viñetas), en orden de lectura izquierda a derecha y de arriba abajo.\nUsa exactamente los mismos personajes, rostros, edades y vestuarios que REF_CAST_MASTER.png (Hoja de Personajes adjunta). Mantén continuidad de vestuario, props y locaciones entre viñetas.\nEstilo visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.\nCada viñeta es un plano cinematográfico 16:9 con encuadre claro y acción legible.\nSin texto, sin letras, sin globos de diálogo, sin logos, sin marcas de agua, sin bordes.\n\nVIÑETAS EXACTAS:\nViñeta 1: Escena 55 — Under the flashing blue lights of state police cruisers, the… (civic hall grand steps, night).\nViñeta 2: Escena 56 — On the wet steps, the handcuffed mistress collapses forward onto… (civic hall grand steps, night).\nViñeta 3: Escena 57 — The grand foyer is warm with lamplight; the maid stands… (Silver Creek mansion foyer, night).\nViñeta 4: Escena 58 — At the corral gate, the foreman turns to the maid… (Silver Creek barn gate, moonlight).\nViñeta 5: Escena 59 — Before the roaring stone hearth, the maid steps back as… (Blackwell great room mantelpiece, night).\nViñeta 6: Escena 60 — At the quiet study desk, the maid notices a sealed… (mansion study desk, night)."
+    }
+  ]
+}

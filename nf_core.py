@@ -57,6 +57,7 @@ FRAME_EXTS = (".png", ".jpg", ".jpeg", ".webp")
 # Subcomandos que viven en scripts de generators/ y se despachan desde nf_core.
 SUBCOMMANDS: Dict[str, str] = {
     "export-master-prompts": "generators/00_export_master_workflow_prompts.py",
+    "prompts": "generators/04_export_master_prompts.py",
 }
 
 # --- Contrato de contenido (P0): ritmo de habla y presupuesto por escena ---
@@ -236,6 +237,8 @@ def project_paths(slug_or_dir: str | Path) -> Dict[str, Path]:
         "master_workflow_prompts_md": root / "MASTER_WORKFLOW_PROMPTS_READY.md",
         "chatgpt_prompt_001": root / "chatgpt_prompt_001_storyboards.txt",
         "chatgpt_prompt_002": root / "chatgpt_prompt_002_characters.txt",
+        "chatgpt_storyboard_grids_txt": root / "chatgpt_storyboard_grids_queue.txt",
+        "chatgpt_storyboard_grids_json": root / "chatgpt_storyboard_grids_queue.json",
         "muse_ai_minute_batches_txt": root / "muse_ai_minute_batches_queue.txt",
         "muse_ai_minute_batches_json": root / "muse_ai_minute_batches_queue.json",
         "muse_ai_batches_txt": root / "muse_ai_batches_queue.txt",
@@ -1176,12 +1179,30 @@ def run_subcommand(name: str, args: Sequence[str]) -> int:
     return int(completed.returncode)
 
 
+def cmd_prepare(project: str, extra_args: Sequence[str] = ()) -> int:
+    """Regenera el workflow (00) y MASTER_PROMPTS (04) desde el mismo proyecto.
+
+    Así MASTER_WORKFLOW_PROMPTS_READY.md y MASTER_PROMPTS.md quedan siempre
+    100% sincronizados con el brief y el master_episode.json.
+    """
+    common = [str(project), *extra_args]
+    for name in ("export-master-prompts", "prompts"):
+        rc = run_subcommand(name, common)
+        if rc:
+            return rc
+    return 0
+
+
 def main(argv: Optional[Sequence[str]] = None) -> int:
     args = list(argv if argv is not None else sys.argv[1:])
     if not args or args[0] in ("-h", "--help"):
         print("Uso: python nf_core.py <subcomando> <proyecto> [opciones]")
-        print("Subcomandos: " + ", ".join(sorted(SUBCOMMANDS)))
+        print("Subcomandos: prepare, " + ", ".join(sorted(SUBCOMMANDS)))
         return 0
+    if args[0].lower() == "prepare":
+        if len(args) < 2:
+            raise NFError("Uso: python nf_core.py prepare <proyecto> [opciones]")
+        return cmd_prepare(args[1], args[2:])
     return run_subcommand(args[0], args[1:])
 
 

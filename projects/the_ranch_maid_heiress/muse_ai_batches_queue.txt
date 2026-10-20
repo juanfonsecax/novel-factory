@@ -2,10 +2,13 @@
 NOVEL FACTORY — MUSE AI — LOTES DE 1 MINUTO (6 ESCENAS) — The Stable Girl
 ==============================================================================
 Escenas: 60 · Lotes: 10 · 10 s por escena
+Cada bloque incluye los adjuntos requeridos y DOS comandos finales: 16:9 (YouTube) y 9:16 (Reels).
 
 ==============================================================================
 BLOQUE 01 — MINUTO 01 — ESCENAS 1–6 — 00:00–01:00
 ==============================================================================
+
+📎 ADJUNTAR EN MUSE AI: [1] REF_CAST_MASTER.png (Hoja de Personajes) + [2] REF_GRID_MIN_01.png (Storyboard Minuto 1: Escenas 1–6)
 
 ESCENA 1 (Viñeta #1 del Storyboard) — 00:00–00:10
 - Location: Blackwell mansion foyer, storm dusk
@@ -79,12 +82,21 @@ ESCENA 6 (Viñeta #6 del Storyboard) — 00:50–01:00
   COLE (quiet): "I saw Richard at the saddles last night. Say the word and I'll swear it."
   ELENA (careful): "He'll only call you a liar. And then he'll take your house too."
 
-COMANDO FINAL PARA PEGAR EN MUSE AI (JUNTO CON EL STORYBOARD Y LA HOJA DE PERSONAJES ADJUNTOS):
-"Usando estrictamente la apariencia y vestuario de los personajes en la Hoja de Personajes adjunta y recreando en orden cada viñeta del Storyboard adjunto: Haz un video cinematográfico realista de 10 segundos por cada escena respetando los cambios de cámara ([00s-03s], [03s-07s], [07s-10s]), el diseño sonoro y los diálogos hablados en INGLÉS con la misma voz para cada personaje, y luego únelos todos para que quede un solo video continuo en formato 16:9."
+COMANDOS FINALES PARA PEGAR EN MUSE AI (ELIGE SEGÚN EL CANAL):
+
+**Opción YouTube Monetización Long-Form (16:9 Horizontal):**
+
+"Usando estrictamente la apariencia y vestuario de los personajes en la Hoja de Personajes adjunta y recreando en orden cada viñeta del Storyboard adjunto: Haz un video cinematográfico realista de 10 segundos por cada escena respetando los cambios de cámara ([00s-03s], [03s-07s], [07s-10s]), el diseño sonoro y los diálogos hablados en INGLÉS con la misma voz para cada personaje, y luego únelos todos para que quede un solo video continuo en formato horizontal 16:9 (guardar como raw_clips/minute_01.mp4)."
+
+**Opción Reels / TikTok / Shorts (9:16 Vertical):**
+
+"Usando estrictamente la apariencia y vestuario de los personajes en la Hoja de Personajes adjunta y recreando en orden cada viñeta del Storyboard adjunto: Haz un video cinematográfico realista de 10 segundos por cada escena respetando los cambios de cámara ([00s-03s], [03s-07s], [07s-10s]), el diseño sonoro y los diálogos hablados en INGLÉS con la misma voz para cada personaje, y luego únelos todos para que quede un solo video continuo en formato vertical 9:16 (guardar como raw_clips/minute_01.mp4)."
 
 ==============================================================================
 BLOQUE 02 — MINUTO 02 — ESCENAS 7–12 — 01:00–02:00
 ==============================================================================
+
+📎 ADJUNTAR EN MUSE AI: [1] REF_CAST_MASTER.png (Hoja de Personajes) + [2] REF_GRID_MIN_02.png (Storyboard Minuto 2: Escenas 7–12)
 
 ESCENA 7 (Viñeta #7 del Storyboard) — 01:00–01:10
 - Location: Blackwell study, late afternoon
@@ -158,12 +170,21 @@ ESCENA 12 (Viñeta #12 del Storyboard) — 01:50–02:00
   COLE (careful): "Probate takes months. Victoria's already on the phone with her lawyer."
   ELENA (steady): "Then I won't fight her with a lawyer. I'll fight her with what she's afraid of."
 
-COMANDO FINAL PARA PEGAR EN MUSE AI (JUNTO CON EL STORYBOARD Y LA HOJA DE PERSONAJES ADJUNTOS):
-"Usando estrictamente la apariencia y vestuario de los personajes en la Hoja de Personajes adjunta y recreando en orden cada viñeta del Storyboard adjunto: Haz un video cinematográfico realista de 10 segundos por cada escena respetando los cambios de cámara ([00s-03s], [03s-07s], [07s-10s]), el diseño sonoro y los diálogos hablados en INGLÉS con la misma voz para cada personaje, y luego únelos todos para que quede un solo video continuo en formato 16:9."
+COMANDOS FINALES PARA PEGAR EN MUSE AI (ELIGE SEGÚN EL CANAL):
+
+**Opción YouTube Monetización Long-Form (16:9 Horizontal):**
+
+"Usando estrictamente la apariencia y vestuario de los personajes en la Hoja de Personajes adjunta y recreando en orden cada viñeta del Storyboard adjunto: Haz un video cinematográfico realista de 10 segundos por cada escena respetando los cambios de cámara ([00s-03s], [03s-07s], [07s-10s]), el diseño sonoro y los diálogos hablados en INGLÉS con la misma voz para cada personaje, y luego únelos todos para que quede un solo video continuo en formato horizontal 16:9 (guardar como raw_clips/minute_02.mp4)."
+
+**Opción Reels / TikTok / Shorts (9:16 Vertical):**
+
+"Usando estrictamente la apariencia y vestuario de los personajes en la Hoja de Personajes adjunta y recreando en orden cada viñeta del Storyboard adjunto: Haz un video cinematográfico realista de 10 segundos por cada escena respetando los cambios de cámara ([00s-03s], [03s-07s], [07s-10s]), el diseño sonoro y los diálogos hablados en INGLÉS con la misma voz para cada personaje, y luego únelos todos para que quede un solo video continuo en formato vertical 9:16 (guardar como raw_clips/minute_02.mp4)."
 
 ==============================================================================
 BLOQUE 03 — MINUTO 03 — ESCENAS 13–18 — 02:00–03:00
 ==============================================================================
+
+📎 ADJUNTAR EN MUSE AI: [1] REF_CAST_MASTER.png (Hoja de Personajes) + [2] REF_GRID_MIN_03.png (Storyboard Minuto 3: Escenas 13–18)
 
 ESCENA 13 (Viñeta #13 del Storyboard) — 02:00–02:10
 - Location: Blackwell paneled office, afternoon
@@ -238,12 +259,21 @@ ESCENA 18 (Viñeta #18 del Storyboard) — 02:50–03:00
   CLERK (uncomfortable): "The file was pulled by the Blackwell estate. There's no record you're her daughter."
   ELENA (quiet): "There's a record somewhere. She made sure of it."
 
-COMANDO FINAL PARA PEGAR EN MUSE AI (JUNTO CON EL STORYBOARD Y LA HOJA DE PERSONAJES ADJUNTOS):
-"Usando estrictamente la apariencia y vestuario de los personajes en la Hoja de Personajes adjunta y recreando en orden cada viñeta del Storyboard adjunto: Haz un video cinematográfico realista de 10 segundos por cada escena respetando los cambios de cámara ([00s-03s], [03s-07s], [07s-10s]), el diseño sonoro y los diálogos hablados en INGLÉS con la misma voz para cada personaje, y luego únelos todos para que quede un solo video continuo en formato 16:9."
+COMANDOS FINALES PARA PEGAR EN MUSE AI (ELIGE SEGÚN EL CANAL):
+
+**Opción YouTube Monetización Long-Form (16:9 Horizontal):**
+
+"Usando estrictamente la apariencia y vestuario de los personajes en la Hoja de Personajes adjunta y recreando en orden cada viñeta del Storyboard adjunto: Haz un video cinematográfico realista de 10 segundos por cada escena respetando los cambios de cámara ([00s-03s], [03s-07s], [07s-10s]), el diseño sonoro y los diálogos hablados en INGLÉS con la misma voz para cada personaje, y luego únelos todos para que quede un solo video continuo en formato horizontal 16:9 (guardar como raw_clips/minute_03.mp4)."
+
+**Opción Reels / TikTok / Shorts (9:16 Vertical):**
+
+"Usando estrictamente la apariencia y vestuario de los personajes en la Hoja de Personajes adjunta y recreando en orden cada viñeta del Storyboard adjunto: Haz un video cinematográfico realista de 10 segundos por cada escena respetando los cambios de cámara ([00s-03s], [03s-07s], [07s-10s]), el diseño sonoro y los diálogos hablados en INGLÉS con la misma voz para cada personaje, y luego únelos todos para que quede un solo video continuo en formato vertical 9:16 (guardar como raw_clips/minute_03.mp4)."
 
 ==============================================================================
 BLOQUE 04 — MINUTO 04 — ESCENAS 19–24 — 03:00–04:00
 ==============================================================================
+
+📎 ADJUNTAR EN MUSE AI: [1] REF_CAST_MASTER.png (Hoja de Personajes) + [2] REF_GRID_MIN_04.png (Storyboard Minuto 4: Escenas 19–24)
 
 ESCENA 19 (Viñeta #19 del Storyboard) — 03:00–03:10
 - Location: Blackwell great room, dinner, night
@@ -316,12 +346,21 @@ ESCENA 24 (Viñeta #24 del Storyboard) — 03:50–04:00
   RICHARD (nervous, tense): "You shouldn't have opened that drawer, Elena. That book lists payments my father made to keep quiet."
   ELENA (cold, piercing): "Payments to the county coroner. Your mother bought the death certificate."
 
-COMANDO FINAL PARA PEGAR EN MUSE AI (JUNTO CON EL STORYBOARD Y LA HOJA DE PERSONAJES ADJUNTOS):
-"Usando estrictamente la apariencia y vestuario de los personajes en la Hoja de Personajes adjunta y recreando en orden cada viñeta del Storyboard adjunto: Haz un video cinematográfico realista de 10 segundos por cada escena respetando los cambios de cámara ([00s-03s], [03s-07s], [07s-10s]), el diseño sonoro y los diálogos hablados en INGLÉS con la misma voz para cada personaje, y luego únelos todos para que quede un solo video continuo en formato 16:9."
+COMANDOS FINALES PARA PEGAR EN MUSE AI (ELIGE SEGÚN EL CANAL):
+
+**Opción YouTube Monetización Long-Form (16:9 Horizontal):**
+
+"Usando estrictamente la apariencia y vestuario de los personajes en la Hoja de Personajes adjunta y recreando en orden cada viñeta del Storyboard adjunto: Haz un video cinematográfico realista de 10 segundos por cada escena respetando los cambios de cámara ([00s-03s], [03s-07s], [07s-10s]), el diseño sonoro y los diálogos hablados en INGLÉS con la misma voz para cada personaje, y luego únelos todos para que quede un solo video continuo en formato horizontal 16:9 (guardar como raw_clips/minute_04.mp4)."
+
+**Opción Reels / TikTok / Shorts (9:16 Vertical):**
+
+"Usando estrictamente la apariencia y vestuario de los personajes en la Hoja de Personajes adjunta y recreando en orden cada viñeta del Storyboard adjunto: Haz un video cinematográfico realista de 10 segundos por cada escena respetando los cambios de cámara ([00s-03s], [03s-07s], [07s-10s]), el diseño sonoro y los diálogos hablados en INGLÉS con la misma voz para cada personaje, y luego únelos todos para que quede un solo video continuo en formato vertical 9:16 (guardar como raw_clips/minute_04.mp4)."
 
 ==============================================================================
 BLOQUE 05 — MINUTO 05 — ESCENAS 25–30 — 04:00–05:00
 ==============================================================================
+
+📎 ADJUNTAR EN MUSE AI: [1] REF_CAST_MASTER.png (Hoja de Personajes) + [2] REF_GRID_MIN_05.png (Storyboard Minuto 5: Escenas 25–30)
 
 ESCENA 25 (Viñeta #25 del Storyboard) — 04:00–04:10
 - Location: Blackwell mansion great room, night
@@ -395,12 +434,21 @@ ESCENA 30 (Viñeta #30 del Storyboard) — 04:50–05:00
   VICTORIA (whispered, ruthless): "Take the money, Elena. Leave the name behind. Or by morning, you won't have either."
   ELENA (defiant roar): "My mother died for this name. You can't afford it."
 
-COMANDO FINAL PARA PEGAR EN MUSE AI (JUNTO CON EL STORYBOARD Y LA HOJA DE PERSONAJES ADJUNTOS):
-"Usando estrictamente la apariencia y vestuario de los personajes en la Hoja de Personajes adjunta y recreando en orden cada viñeta del Storyboard adjunto: Haz un video cinematográfico realista de 10 segundos por cada escena respetando los cambios de cámara ([00s-03s], [03s-07s], [07s-10s]), el diseño sonoro y los diálogos hablados en INGLÉS con la misma voz para cada personaje, y luego únelos todos para que quede un solo video continuo en formato 16:9."
+COMANDOS FINALES PARA PEGAR EN MUSE AI (ELIGE SEGÚN EL CANAL):
+
+**Opción YouTube Monetización Long-Form (16:9 Horizontal):**
+
+"Usando estrictamente la apariencia y vestuario de los personajes en la Hoja de Personajes adjunta y recreando en orden cada viñeta del Storyboard adjunto: Haz un video cinematográfico realista de 10 segundos por cada escena respetando los cambios de cámara ([00s-03s], [03s-07s], [07s-10s]), el diseño sonoro y los diálogos hablados en INGLÉS con la misma voz para cada personaje, y luego únelos todos para que quede un solo video continuo en formato horizontal 16:9 (guardar como raw_clips/minute_05.mp4)."
+
+**Opción Reels / TikTok / Shorts (9:16 Vertical):**
+
+"Usando estrictamente la apariencia y vestuario de los personajes en la Hoja de Personajes adjunta y recreando en orden cada viñeta del Storyboard adjunto: Haz un video cinematográfico realista de 10 segundos por cada escena respetando los cambios de cámara ([00s-03s], [03s-07s], [07s-10s]), el diseño sonoro y los diálogos hablados en INGLÉS con la misma voz para cada personaje, y luego únelos todos para que quede un solo video continuo en formato vertical 9:16 (guardar como raw_clips/minute_05.mp4)."
 
 ==============================================================================
 BLOQUE 06 — MINUTO 06 — ESCENAS 31–36 — 05:00–06:00
 ==============================================================================
+
+📎 ADJUNTAR EN MUSE AI: [1] REF_CAST_MASTER.png (Hoja de Personajes) + [2] REF_GRID_MIN_06.png (Storyboard Minuto 6: Escenas 31–36)
 
 ESCENA 31 (Viñeta #31 del Storyboard) — 05:00–05:10
 - Location: gatehouse cottage, storm night
@@ -472,12 +520,21 @@ ESCENA 36 (Viñeta #36 del Storyboard) — 05:50–06:00
 - Dialogue (English, 6–8 sec max):
   ELENA (unbroken, resonant): "They took the house. They burned the deed. But every inch of this dirt remembers my mother's sweat."
 
-COMANDO FINAL PARA PEGAR EN MUSE AI (JUNTO CON EL STORYBOARD Y LA HOJA DE PERSONAJES ADJUNTOS):
-"Usando estrictamente la apariencia y vestuario de los personajes en la Hoja de Personajes adjunta y recreando en orden cada viñeta del Storyboard adjunto: Haz un video cinematográfico realista de 10 segundos por cada escena respetando los cambios de cámara ([00s-03s], [03s-07s], [07s-10s]), el diseño sonoro y los diálogos hablados en INGLÉS con la misma voz para cada personaje, y luego únelos todos para que quede un solo video continuo en formato 16:9."
+COMANDOS FINALES PARA PEGAR EN MUSE AI (ELIGE SEGÚN EL CANAL):
+
+**Opción YouTube Monetización Long-Form (16:9 Horizontal):**
+
+"Usando estrictamente la apariencia y vestuario de los personajes en la Hoja de Personajes adjunta y recreando en orden cada viñeta del Storyboard adjunto: Haz un video cinematográfico realista de 10 segundos por cada escena respetando los cambios de cámara ([00s-03s], [03s-07s], [07s-10s]), el diseño sonoro y los diálogos hablados en INGLÉS con la misma voz para cada personaje, y luego únelos todos para que quede un solo video continuo en formato horizontal 16:9 (guardar como raw_clips/minute_06.mp4)."
+
+**Opción Reels / TikTok / Shorts (9:16 Vertical):**
+
+"Usando estrictamente la apariencia y vestuario de los personajes en la Hoja de Personajes adjunta y recreando en orden cada viñeta del Storyboard adjunto: Haz un video cinematográfico realista de 10 segundos por cada escena respetando los cambios de cámara ([00s-03s], [03s-07s], [07s-10s]), el diseño sonoro y los diálogos hablados en INGLÉS con la misma voz para cada personaje, y luego únelos todos para que quede un solo video continuo en formato vertical 9:16 (guardar como raw_clips/minute_06.mp4)."
 
 ==============================================================================
 BLOQUE 07 — MINUTO 07 — ESCENAS 37–42 — 06:00–07:00
 ==============================================================================
+
+📎 ADJUNTAR EN MUSE AI: [1] REF_CAST_MASTER.png (Hoja de Personajes) + [2] REF_GRID_MIN_07.png (Storyboard Minuto 7: Escenas 37–42)
 
 ESCENA 37 (Viñeta #37 del Storyboard) — 06:00–06:10
 - Location: ranch ridge road, dawn
@@ -551,12 +608,21 @@ ESCENA 42 (Viñeta #42 del Storyboard) — 06:50–07:00
   VICTORIA (venomous hiss): "Step aside, Cole. You are an employee on my payroll until I fire you."
   COLE (unshakable, low): "I don't work for you anymore, Victoria. I work for Silver Creek's real owner."
 
-COMANDO FINAL PARA PEGAR EN MUSE AI (JUNTO CON EL STORYBOARD Y LA HOJA DE PERSONAJES ADJUNTOS):
-"Usando estrictamente la apariencia y vestuario de los personajes en la Hoja de Personajes adjunta y recreando en orden cada viñeta del Storyboard adjunto: Haz un video cinematográfico realista de 10 segundos por cada escena respetando los cambios de cámara ([00s-03s], [03s-07s], [07s-10s]), el diseño sonoro y los diálogos hablados en INGLÉS con la misma voz para cada personaje, y luego únelos todos para que quede un solo video continuo en formato 16:9."
+COMANDOS FINALES PARA PEGAR EN MUSE AI (ELIGE SEGÚN EL CANAL):
+
+**Opción YouTube Monetización Long-Form (16:9 Horizontal):**
+
+"Usando estrictamente la apariencia y vestuario de los personajes en la Hoja de Personajes adjunta y recreando en orden cada viñeta del Storyboard adjunto: Haz un video cinematográfico realista de 10 segundos por cada escena respetando los cambios de cámara ([00s-03s], [03s-07s], [07s-10s]), el diseño sonoro y los diálogos hablados en INGLÉS con la misma voz para cada personaje, y luego únelos todos para que quede un solo video continuo en formato horizontal 16:9 (guardar como raw_clips/minute_07.mp4)."
+
+**Opción Reels / TikTok / Shorts (9:16 Vertical):**
+
+"Usando estrictamente la apariencia y vestuario de los personajes en la Hoja de Personajes adjunta y recreando en orden cada viñeta del Storyboard adjunto: Haz un video cinematográfico realista de 10 segundos por cada escena respetando los cambios de cámara ([00s-03s], [03s-07s], [07s-10s]), el diseño sonoro y los diálogos hablados en INGLÉS con la misma voz para cada personaje, y luego únelos todos para que quede un solo video continuo en formato vertical 9:16 (guardar como raw_clips/minute_07.mp4)."
 
 ==============================================================================
 BLOQUE 08 — MINUTO 08 — ESCENAS 43–48 — 07:00–08:00
 ==============================================================================
+
+📎 ADJUNTAR EN MUSE AI: [1] REF_CAST_MASTER.png (Hoja de Personajes) + [2] REF_GRID_MIN_08.png (Storyboard Minuto 8: Escenas 43–48)
 
 ESCENA 43 (Viñeta #43 del Storyboard) — 07:00–07:10
 - Location: town bank steps, morning
@@ -630,12 +696,21 @@ ESCENA 48 (Viñeta #48 del Storyboard) — 07:50–08:00
   VICTORIA (hissed fury): "You are a stable rat playing dress-up. No judge will ever take my ranch away."
   ELENA (level, devastating): "It was never your ranch. You were just warming the chair until I grew up."
 
-COMANDO FINAL PARA PEGAR EN MUSE AI (JUNTO CON EL STORYBOARD Y LA HOJA DE PERSONAJES ADJUNTOS):
-"Usando estrictamente la apariencia y vestuario de los personajes en la Hoja de Personajes adjunta y recreando en orden cada viñeta del Storyboard adjunto: Haz un video cinematográfico realista de 10 segundos por cada escena respetando los cambios de cámara ([00s-03s], [03s-07s], [07s-10s]), el diseño sonoro y los diálogos hablados en INGLÉS con la misma voz para cada personaje, y luego únelos todos para que quede un solo video continuo en formato 16:9."
+COMANDOS FINALES PARA PEGAR EN MUSE AI (ELIGE SEGÚN EL CANAL):
+
+**Opción YouTube Monetización Long-Form (16:9 Horizontal):**
+
+"Usando estrictamente la apariencia y vestuario de los personajes en la Hoja de Personajes adjunta y recreando en orden cada viñeta del Storyboard adjunto: Haz un video cinematográfico realista de 10 segundos por cada escena respetando los cambios de cámara ([00s-03s], [03s-07s], [07s-10s]), el diseño sonoro y los diálogos hablados en INGLÉS con la misma voz para cada personaje, y luego únelos todos para que quede un solo video continuo en formato horizontal 16:9 (guardar como raw_clips/minute_08.mp4)."
+
+**Opción Reels / TikTok / Shorts (9:16 Vertical):**
+
+"Usando estrictamente la apariencia y vestuario de los personajes en la Hoja de Personajes adjunta y recreando en orden cada viñeta del Storyboard adjunto: Haz un video cinematográfico realista de 10 segundos por cada escena respetando los cambios de cámara ([00s-03s], [03s-07s], [07s-10s]), el diseño sonoro y los diálogos hablados en INGLÉS con la misma voz para cada personaje, y luego únelos todos para que quede un solo video continuo en formato vertical 9:16 (guardar como raw_clips/minute_08.mp4)."
 
 ==============================================================================
 BLOQUE 09 — MINUTO 09 — ESCENAS 49–54 — 08:00–09:00
 ==============================================================================
+
+📎 ADJUNTAR EN MUSE AI: [1] REF_CAST_MASTER.png (Hoja de Personajes) + [2] REF_GRID_MIN_09.png (Storyboard Minuto 9: Escenas 49–54)
 
 ESCENA 49 (Viñeta #49 del Storyboard) — 08:00–08:10
 - Location: civic hall auction stage, afternoon
@@ -709,12 +784,21 @@ ESCENA 54 (Viñeta #54 del Storyboard) — 08:50–09:00
   CLERK (booming proclamation): "This court recognizes Elena Vance as the sole legal heir and owner of Silver Creek Ranch."
   ELENA (whispered joy): "We did it, Mama. The ranch is home again."
 
-COMANDO FINAL PARA PEGAR EN MUSE AI (JUNTO CON EL STORYBOARD Y LA HOJA DE PERSONAJES ADJUNTOS):
-"Usando estrictamente la apariencia y vestuario de los personajes en la Hoja de Personajes adjunta y recreando en orden cada viñeta del Storyboard adjunto: Haz un video cinematográfico realista de 10 segundos por cada escena respetando los cambios de cámara ([00s-03s], [03s-07s], [07s-10s]), el diseño sonoro y los diálogos hablados en INGLÉS con la misma voz para cada personaje, y luego únelos todos para que quede un solo video continuo en formato 16:9."
+COMANDOS FINALES PARA PEGAR EN MUSE AI (ELIGE SEGÚN EL CANAL):
+
+**Opción YouTube Monetización Long-Form (16:9 Horizontal):**
+
+"Usando estrictamente la apariencia y vestuario de los personajes en la Hoja de Personajes adjunta y recreando en orden cada viñeta del Storyboard adjunto: Haz un video cinematográfico realista de 10 segundos por cada escena respetando los cambios de cámara ([00s-03s], [03s-07s], [07s-10s]), el diseño sonoro y los diálogos hablados en INGLÉS con la misma voz para cada personaje, y luego únelos todos para que quede un solo video continuo en formato horizontal 16:9 (guardar como raw_clips/minute_09.mp4)."
+
+**Opción Reels / TikTok / Shorts (9:16 Vertical):**
+
+"Usando estrictamente la apariencia y vestuario de los personajes en la Hoja de Personajes adjunta y recreando en orden cada viñeta del Storyboard adjunto: Haz un video cinematográfico realista de 10 segundos por cada escena respetando los cambios de cámara ([00s-03s], [03s-07s], [07s-10s]), el diseño sonoro y los diálogos hablados en INGLÉS con la misma voz para cada personaje, y luego únelos todos para que quede un solo video continuo en formato vertical 9:16 (guardar como raw_clips/minute_09.mp4)."
 
 ==============================================================================
 BLOQUE 10 — MINUTO 10 — ESCENAS 55–60 — 09:00–10:00
 ==============================================================================
+
+📎 ADJUNTAR EN MUSE AI: [1] REF_CAST_MASTER.png (Hoja de Personajes) + [2] REF_GRID_MIN_10.png (Storyboard Minuto 10: Escenas 55–60)
 
 ESCENA 55 (Viñeta #55 del Storyboard) — 09:00–09:10
 - Location: civic hall grand steps, night
@@ -787,5 +871,12 @@ ESCENA 60 (Viñeta #60 del Storyboard) — 09:50–10:00
   ELENA (shivering shock): "There is another clause... 'Elena, you are not June's only child. Find your brother before Victoria's family does.'"
   ELENA (breathless cliffhanger): "I have a brother?"
 
-COMANDO FINAL PARA PEGAR EN MUSE AI (JUNTO CON EL STORYBOARD Y LA HOJA DE PERSONAJES ADJUNTOS):
-"Usando estrictamente la apariencia y vestuario de los personajes en la Hoja de Personajes adjunta y recreando en orden cada viñeta del Storyboard adjunto: Haz un video cinematográfico realista de 10 segundos por cada escena respetando los cambios de cámara ([00s-03s], [03s-07s], [07s-10s]), el diseño sonoro y los diálogos hablados en INGLÉS con la misma voz para cada personaje, y luego únelos todos para que quede un solo video continuo en formato 16:9."
+COMANDOS FINALES PARA PEGAR EN MUSE AI (ELIGE SEGÚN EL CANAL):
+
+**Opción YouTube Monetización Long-Form (16:9 Horizontal):**
+
+"Usando estrictamente la apariencia y vestuario de los personajes en la Hoja de Personajes adjunta y recreando en orden cada viñeta del Storyboard adjunto: Haz un video cinematográfico realista de 10 segundos por cada escena respetando los cambios de cámara ([00s-03s], [03s-07s], [07s-10s]), el diseño sonoro y los diálogos hablados en INGLÉS con la misma voz para cada personaje, y luego únelos todos para que quede un solo video continuo en formato horizontal 16:9 (guardar como raw_clips/minute_10.mp4)."
+
+**Opción Reels / TikTok / Shorts (9:16 Vertical):**
+
+"Usando estrictamente la apariencia y vestuario de los personajes en la Hoja de Personajes adjunta y recreando en orden cada viñeta del Storyboard adjunto: Haz un video cinematográfico realista de 10 segundos por cada escena respetando los cambios de cámara ([00s-03s], [03s-07s], [07s-10s]), el diseño sonoro y los diálogos hablados en INGLÉS con la misma voz para cada personaje, y luego únelos todos para que quede un solo video continuo en formato vertical 9:16 (guardar como raw_clips/minute_10.mp4)."

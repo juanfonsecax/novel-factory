@@ -668,15 +668,29 @@ def write_prompt_pack(root: Path, pack: Dict[str, Any]) -> Dict[str, Path]:
 # Lotes de 1 minuto para Muse AI (6 escenas por bloque)
 # ---------------------------------------------------------------------------
 MUSE_FINAL_COMMAND_HEADER = (
-    "COMANDO FINAL PARA PEGAR EN MUSE AI (JUNTO CON EL STORYBOARD Y LA HOJA DE PERSONAJES ADJUNTOS):"
+    "COMANDOS FINALES PARA PEGAR EN MUSE AI (ELIGE SEGÚN EL CANAL):"
 )
-MUSE_FINAL_COMMAND = (
+MUSE_FINAL_COMMAND_TEMPLATE = (
     "Usando estrictamente la apariencia y vestuario de los personajes en la Hoja de Personajes adjunta "
     "y recreando en orden cada viñeta del Storyboard adjunto: Haz un video cinematográfico realista de "
     "10 segundos por cada escena respetando los cambios de cámara ([00s-03s], [03s-07s], [07s-10s]), "
     "el diseño sonoro y los diálogos hablados en INGLÉS con la misma voz para cada personaje, y luego "
-    "únelos todos para que quede un solo video continuo en formato {aspect_ratio}."
+    "únelos todos para que quede un solo video continuo en formato {orientation} {aspect_ratio} "
+    "(guardar como raw_clips/{filename})."
 )
+MUSE_FINAL_COMMAND = MUSE_FINAL_COMMAND_TEMPLATE
+MUSE_ATTACH_LINE = (
+    "📎 ADJUNTAR EN MUSE AI: [1] REF_CAST_MASTER.png (Hoja de Personajes) + "
+    "[2] REF_GRID_MIN_{batch:02d}.png (Storyboard Minuto {minute}: Escenas {first}–{last})"
+)
+
+
+def _muse_final_command(batch_number: int, orientation: str, aspect: str) -> str:
+    return MUSE_FINAL_COMMAND_TEMPLATE.format(
+        orientation=orientation,
+        aspect_ratio=aspect,
+        filename=f"minute_{batch_number:02d}.mp4",
+    )
 
 
 def _muse_timecode(seconds: float) -> str:
@@ -832,10 +846,25 @@ def build_muse_batches(
         last_id = int(group[-1].get("scene_id") or position + len(group))
         start_seconds = (first_id - 1) * nf.SCENE_SECONDS
         end_seconds = last_id * nf.SCENE_SECONDS
-        blocks = [render_muse_scene_block(scene, master, style) for scene in group]
-        command = MUSE_FINAL_COMMAND.replace("{aspect_ratio}", aspect)
-        prompt = "\n\n".join(blocks) + f"\n\n{MUSE_FINAL_COMMAND_HEADER}\n\"{command}\""
         batch_number = len(batches) + 1
+        blocks = [render_muse_scene_block(scene, master, style) for scene in group]
+        attach = MUSE_ATTACH_LINE.format(
+            batch=batch_number,
+            minute=batch_number,
+            first=first_id,
+            last=last_id,
+        )
+        command_169 = _muse_final_command(batch_number, "horizontal", "16:9")
+        command_916 = _muse_final_command(batch_number, "vertical", "9:16")
+        prompt = "\n\n".join([
+            attach,
+            *blocks,
+            MUSE_FINAL_COMMAND_HEADER,
+            "**Opción YouTube Monetización Long-Form (16:9 Horizontal):**",
+            f"\"{command_169}\"",
+            "**Opción Reels / TikTok / Shorts (9:16 Vertical):**",
+            f"\"{command_916}\"",
+        ])
         batches.append({
             "batch_id": batch_number,
             "minute": batch_number,
@@ -845,8 +874,12 @@ def build_muse_batches(
             "start_timecode": _muse_timecode(start_seconds),
             "end_timecode": _muse_timecode(end_seconds),
             "aspect_ratio": aspect,
+            "aspect_ratio_vertical": "9:16",
+            "attach": attach,
+            "reference_images": ["REF_CAST_MASTER.png", f"REF_GRID_MIN_{batch_number:02d}.png"],
             "prompt": prompt,
-            "muse_command": command,
+            "muse_command": command_169,
+            "muse_command_916": command_916,
         })
     return batches
 
@@ -861,6 +894,7 @@ def render_muse_batches_text(master: Dict[str, Any], batches: List[Dict[str, Any
         f"NOVEL FACTORY — MUSE AI — LOTES DE 1 MINUTO (6 ESCENAS) — {title}",
         "=" * 78,
         f"Escenas: {len(nf.ordered_scenes(master))} · Lotes: {len(batches)} · 10 s por escena",
+        "Cada bloque incluye los adjuntos requeridos y DOS comandos finales: 16:9 (YouTube) y 9:16 (Reels).",
         "",
     ]
     for batch in batches:
@@ -898,6 +932,7 @@ def write_muse_batch_files(
         "episode": episode.get("slug"),
         "title": episode.get("title"),
         "aspect_ratio": aspect,
+        "aspect_ratios": {"youtube": "16:9", "reels": "9:16"},
         "scene_seconds": 10,
         "scenes_per_batch": 6,
         "count": len(batches),

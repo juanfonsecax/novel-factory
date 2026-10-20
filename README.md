@@ -2,8 +2,8 @@
 
 Módulo **autónomo, local y auditable** para producir episodios de novela corta
 ("short-drama") en inglés nativo de EE. UU.: **60 escenas de 10 s = 10 minutos**,
-con máster **16:9** para YouTube y **3 teasers 9:16** de 60 s listos para el
-publicador multicanal existente (`USA WHITE/cola/pendientes`).
+con máster **16:9** para YouTube y **teasers 9:16** (automático de 20 s + 3 de 60 s)
+listos para el publicador multicanal existente (`USA WHITE/cola/pendientes`).
 
 - **Cero APIs de pago y cero red**: el guion lo escribe tu LLM en el chat, las
   imágenes vía la cola de ChatGPT y los clips vía **Omni 1.1 Flash** (First Frame,
@@ -63,11 +63,11 @@ novel_factory/
 │  ├─ omni_flow_runner.py      status · queue · assisted · watch (Descargas) · import-frames
 │  └─ dashboard.py             Dashboard local: copiar prompts, ver progreso y tracking
 ├─ post_production/
-│  ├─ 04_assemble_novel_ffmpeg.py   Máster 16:9 + 3 teasers 9:16 + SRT + pack + report
+│  ├─ 04_assemble_novel_ffmpeg.py   Máster 16:9 (escenas o lotes Muse AI) + teaser 20 s 9:16 + SRT + pack + report
 │  └─ 05_export_to_publisher.py     Exporta teasers a USA WHITE/cola/pendientes
 ├─ music/                      BGM local (ver music/README.md)
 ├─ assets/fonts/               TTF opcional para el headline de los teasers
-├─ tests/test_novel_factory.py 53 tests offline (unittest)
+├─ tests/test_novel_factory.py 61 tests offline (unittest)
 └─ projects/
    └─ <episodio>/
       ├─ story_brief.md              Premisa + reglas (para ti)
@@ -77,20 +77,23 @@ novel_factory/
       ├─ chatgpt_reference_sheets.txt  PASO 0: hoja de referencia por personaje
       ├─ MASTER_PROMPTS.md · .txt · master_prompts.json · prompts/
       ├─ MASTER_WORKFLOW_PROMPTS_READY.md      Workflow 000-003 rellenado + variante 9:16
-      ├─ chatgpt_prompt_001_storyboards.txt    PROMPT 001 literal (storyboards 6 viñetas)
+      ├─ chatgpt_prompt_001_storyboards.txt    PROMPT 001 completo (60 escenas + 10 grids 3x2, sin truncar)
       ├─ chatgpt_prompt_002_characters.txt     PROMPT 002 literal (hoja de personajes)
-      ├─ muse_ai_batches_queue.{txt,json}      Lotes Muse AI de 1 min (6 escenas c/u)
+      ├─ chatgpt_storyboard_grids_queue.{txt,json}  Cola de 11 imágenes: REF_CAST_MASTER + REF_GRID_MIN_01…10
+      ├─ muse_ai_batches_queue.{txt,json}      Lotes Muse AI de 1 min (6 escenas c/u, adjuntos + 16:9/9:16)
       ├─ omni_video_prompts_queue.{csv,json,txt}
       ├─ muse_ai_video_prompts_queue.{csv,json,txt}
       ├─ google_flow_video_prompts_queue.{csv,json,txt}
       ├─ queue_state.json            Progreso (lo escribe el runner)
       ├─ references/ reference_<id>.png (hojas de referencia de ChatGPT)
       ├─ frames/   frame_001.png … frame_060.png
-      ├─ raw_clips/ scene_001.mp4 … scene_060.mp4
+      ├─ raw_clips/ scene_001.mp4 … scene_060.mp4  (modo A)
+      │              o minute_01.mp4 … minute_10.mp4 / batch_01…10.mp4  (modo B, Muse AI)
       └─ output/
          ├─ <slug>_master_16x9_1080p.mp4
          ├─ <slug>_master.srt
-         ├─ teaser_01_9x16.mp4 · teaser_02_9x16.mp4 · teaser_03_9x16.mp4
+         ├─ <slug>_teaser_9x16.mp4        Teaser automático de 20 s (9:16)
+         ├─ teaser_01_9x16.mp4 · teaser_02_9x16.mp4 · teaser_03_9x16.mp4  (solo modo A)
          ├─ report.json
          └─ publish_pack/ (título, descripción, tags, capítulos, captions)
 ```
@@ -120,8 +123,9 @@ novel_factory/
                  (o) novelfactory.bat import-frames mi_episodio --frames-src DIR
  3.5 Prompts      novelfactory.bat prompts mi_episodio               MASTER_PROMPTS + prompts/*.txt
                   novelfactory.bat export-master-prompts mi_episodio  WORKFLOW 000-003 + lotes Muse AI
+                  novelfactory.bat prepare mi_episodio                workflow 00 + MASTER_PROMPTS 04 sincronizados
  4. Ensamble     novelfactory.bat check mi_episodio                  preflight (sin render)
-                 novelfactory.bat assemble mi_episodio               máster + 3 teasers + SRT
+                  novelfactory.bat assemble mi_episodio               máster + teaser 9:16 + SRT
  5. Publicar     novelfactory.bat publish mi_episodio                plan de exportación
                  novelfactory.bat publish mi_episodio --apply        posts en cola USA WHITE
 ```
@@ -207,16 +211,23 @@ novel_factory/
 | `--force` | Recalcula la normalización cacheada |
 | `--font ruta.ttf` | Fuente del headline de los teasers |
 
-Pipeline interno: preflight → normalización por escena (1920×1080, 30 fps, AAC 48k,
-recorte de silencio ≤ 0.35 s, **duración exacta 10.0 s** rellenando con el último
-fotograma/silencio si el clip es más corto, caché reanudable en `output/.work/norm/`)
-→ concat sin recomprimir → mezcla BGM + fade + **ducking** (`sidechaincompress`: la
-música baja sola cuando hablan) + `loudnorm` -14 LUFS → `.srt` con tiempos reales →
-3 teasers 9:16 con **encaje híbrido** (fondo desenfocado + primer plano centrado, sin
-recortar el 16:9) + headline y **subtítulos quemados** → `publish_pack/` + `report.json`.
+Detección automática del modo de entrada:
+- **Modo A — escenas**: `raw_clips/scene_001.mp4 … scene_060.mp4` (10 s cada una).
+- **Modo B — lotes Muse AI**: `raw_clips/minute_01.mp4 … minute_10.mp4` o
+  `batch_01.mp4 … batch_10.mp4` (1 min cada uno). Ensambla el máster de 10 min sin
+  necesitar clips por escena y mantiene el SRT sincronizado a 600 s.
 
-> Todas las escenas duran exactamente `scene_seconds` (10.0 s; tolerancia 0.05 s),
-> de modo que el máster concatenado mide 600 s exactos.
+Pipeline interno: preflight → normalización (1920×1080, 30 fps, AAC 48k, **micro-fade
+de audio 0.08 s**; modo A recorta silencio ≤ 0.35 s y fija 10.0 s por escena; modo B
+fija 60 s por lote sin recorte; caché reanudable en `output/.work/norm/`) → concat sin
+recomprimir → mezcla BGM + fade + **ducking** (`sidechaincompress`) + `loudnorm`
+-14 LUFS → `.srt` con tiempos reales → **teaser vertical automático de 20 s**
+(`<slug>_teaser_9x16.mp4`, primer gancho → 1080×1920) y, en modo A, 3 teasers 9:16 con
+**encaje híbrido** (fondo desenfocado + primer plano centrado) + headline y
+**subtítulos quemados** → `publish_pack/` + `report.json`.
+
+> En modo A cada escena dura exactamente `scene_seconds` (10.0 s; tolerancia 0.05 s) y
+> en modo B cada lote 60 s, de modo que el máster concatenado mide 600 s exactos.
 
 ### 4.5 Publicación (05)
 
@@ -256,8 +267,11 @@ sin abrir los JSON.
 - **Prompts maestros**: los 4 prompts (000-003) rellenados con los valores del
   proyecto, con botones de copiar uno, copiar los 4, descargar `.txt` y JSON, y
   acceso rápido por prompt.
-- **Lotes Muse AI**: bloques de 1 minuto (6 escenas) con cortes de cámara, SFX,
-  diálogo y comando final de Muse AI, cada uno con copiar y descargar `.txt`.
+- **Lotes Muse AI**: bloques de 1 minuto (6 escenas) con adjuntos
+  (`REF_CAST_MASTER.png` + `REF_GRID_MIN_XX.png`), cortes de cámara, SFX, diálogo y
+  dos comandos finales (horizontal 16:9 / vertical 9:16), cada uno con copiar y descargar.
+- **Cola de 11 imágenes**: botón para copiar/descargar la cola completa
+  (`REF_CAST_MASTER.png` + 10 storyboards `3x2`), lista para pegar en ChatGPT.
 - **Copiar prompt**: botón por escena; marca la escena como "copiada".
 - **Marcar hecho**: tracking manual separado del disco. Si `frames/frame_XXX.png` o
   `raw_clips/scene_XXX.mp4` ya existen, el dashboard lo detecta solo y muestra

@@ -1,6 +1,6 @@
 # MASTER WORKFLOW PROMPTS READY — The Stable Girl
 
-- Generado: 2026-10-19T20:43:27-05:00
+- Generado: 2026-10-19T21:08:24-05:00
 - Historia fuente: story_brief.md
 - Duración: 10 minuto(s)
 - Escenas: 60 (10 s cada una)

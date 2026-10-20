@@ -249,32 +249,239 @@ def write_thumbnail_prompts(
     return nf.write_text(out, "\n".join(lines))
 
 
+def short_scene_brief(scene: Dict[str, Any], max_words: int = 10) -> str:
+    """Resumen de 5–10 palabras para una viñeta del storyboard."""
+    cuts = [c for c in (scene.get("internal_cuts") or []) if isinstance(c, dict)]
+    candidates = [
+        str(cuts[0].get("action") or "") if cuts else "",
+        str(scene.get("on_screen_hook") or ""),
+        str(scene.get("first_frame_prompt") or ""),
+    ]
+    text = next((c for c in candidates if c.strip()), "key story beat")
+    words = " ".join(text.split()).split()
+    brief = " ".join(words[:max_words]).rstrip(".,;:")
+    return brief + ("…" if len(words) > max_words else "")
+
+
+def scene_breakdown_lines(master: Dict[str, Any]) -> List[str]:
+    """Las 60 escenas completas (nunca truncadas) para PROMPT 001."""
+    lines: List[str] = []
+    for scene in nf.ordered_scenes(master):
+        sid = int(scene.get("scene_id") or 0)
+        cast = ", ".join(c["name"] for c in scene_cast_entries(master, scene)) or "—"
+        dialogue = " / ".join(
+            f"{entry['speaker']}: {entry['line']}" for entry in nf.scene_dialogue_lines(scene)
+        ) or "—"
+        lines.append(
+            f"ESCENA {sid:03d} | Acto {int(scene.get('act') or 0)} | "
+            f"{str(scene.get('location') or '—')} | {str(scene.get('time_of_day') or '—')} | "
+            f"Hook: {str(scene.get('on_screen_hook') or '—')} | Cast: {cast} | "
+            f"Diálogo: {dialogue}"
+        )
+    return lines
+
+
+def _cast_sheet_prompt(master: Dict[str, Any], prompt_002_text: str) -> str:
+    lines = [
+        "REF_CAST_MASTER.png — HOJA MAESTRA DE PERSONAJES",
+        "",
+        "Genera UNA SOLA IMAGEN 16:9 sobre fondo gris neutro uniforme, con todos los personajes "
+        "principales del proyecto en una hoja de casting limpia y profesional.",
+        "",
+        prompt_002_text.strip(),
+        "",
+        "PERSONAJES DEL PROYECTO — nombres, rostros y vestuarios fijos:",
+    ]
+    for character in master.get("characters") or []:
+        if not isinstance(character, dict):
+            continue
+        name = str(character.get("name") or character.get("id") or "Character").strip()
+        visual = str(
+            character.get("visual_reference")
+            or character.get("description")
+            or character.get("appearance")
+            or ""
+        ).strip()
+        if not visual:
+            visual = f"{str(character.get('role') or character.get('archetype') or 'principal').strip()} del proyecto"
+        wardrobe = ""
+        for item in character.get("wardrobe_by_act") or []:
+            if str(item or "").strip():
+                wardrobe = str(item).strip()
+                break
+        line = f"- {name}: {visual}"
+        if wardrobe:
+            line += f" Vestuario fijo: {wardrobe}."
+        lines.append(line)
+    lines += [
+        "",
+        "Mantén exactamente los mismos rostros, peinados y vestuarios en todas las imágenes del "
+        "storyboard y de los lotes de Muse AI. Sin texto, sin letras, sin etiquetas, sin logos, "
+        "sin marcas de agua. Fondo gris neutro, luz suave y pareja, sin otros elementos.",
+    ]
+    return "\n".join(lines)
+
+
+def _storyboard_grid_prompt(
+    master: Dict[str, Any],
+    style: Dict[str, Any],
+    batch_number: int,
+    group: List[Dict[str, Any]],
+    total_batches: int,
+) -> str:
+    first = int(group[0].get("scene_id") or 1)
+    last = int(group[-1].get("scene_id") or first)
+    visual = str((style.get("visual_style_lock") or {}).get("look") or "").strip()
+    lines = [
+        f"STORYBOARD IMAGE {batch_number:02d}/{total_batches:02d} — "
+        f"MINUTE {batch_number} (Scenes {first}–{last})",
+        "",
+        "Genera UNA SOLA IMAGEN 16:9 con una cuadrícula de storyboard de 3 columnas x 2 filas "
+        "(6 viñetas), en orden de lectura izquierda a derecha y de arriba abajo.",
+        "Usa exactamente los mismos personajes, rostros, edades y vestuarios que "
+        "REF_CAST_MASTER.png (Hoja de Personajes adjunta). Mantén continuidad de vestuario, "
+        "props y locaciones entre viñetas.",
+    ]
+    if visual:
+        lines.append(f"Estilo visual: {visual}.")
+    lines += [
+        "Cada viñeta es un plano cinematográfico 16:9 con encuadre claro y acción legible.",
+        "Sin texto, sin letras, sin globos de diálogo, sin logos, sin marcas de agua, sin bordes.",
+        "",
+        "VIÑETAS EXACTAS:",
+    ]
+    for idx, scene in enumerate(group, start=1):
+        sid = int(scene.get("scene_id") or 0)
+        location = str(scene.get("location") or "").strip()
+        brief = short_scene_brief(scene)
+        suffix = f" ({location})" if location else ""
+        lines.append(f"Viñeta {idx}: Escena {sid} — {brief}{suffix}.")
+    return "\n".join(lines)
+
+
+def build_storyboard_grid_items(
+    master: Dict[str, Any],
+    style: Dict[str, Any],
+    pack: Optional[Dict[str, Any]] = None,
+) -> List[Dict[str, Any]]:
+    """Cola de 11 imágenes: 1 hoja de casting + 10 storyboards de 6 viñetas."""
+    pack = pack or mpl.build_prompt_pack(master, style)
+    by_key = {prompt["key"]: prompt for prompt in pack["prompts"]}
+    ep = nf.episode_meta(master)
+    title = str(ep.get("title") or ep.get("slug") or "Episodio")
+    scenes = nf.ordered_scenes(master)
+    groups = [scenes[i:i + 6] for i in range(0, len(scenes), 6)]
+    total_batches = len(groups)
+
+    cast_prompt = _cast_sheet_prompt(master, by_key["prompt_002"]["text"])
+    items: List[Dict[str, Any]] = [{
+        "index": 1,
+        "filename": "REF_CAST_MASTER.png",
+        "kind": "cast_sheet",
+        "minute": 0,
+        "scenes": [],
+        "title": f"Hoja maestra de personajes — {title}",
+        "prompt": cast_prompt,
+    }]
+    for batch_number, group in enumerate(groups, start=1):
+        if not group:
+            continue
+        first = int(group[0].get("scene_id") or 1)
+        last = int(group[-1].get("scene_id") or first)
+        items.append({
+            "index": len(items) + 1,
+            "filename": f"REF_GRID_MIN_{batch_number:02d}.png",
+            "kind": "storyboard_grid",
+            "minute": batch_number,
+            "scenes": [int(scene.get("scene_id") or 0) for scene in group],
+            "title": f"Storyboard minuto {batch_number}: escenas {first}–{last}",
+            "prompt": _storyboard_grid_prompt(master, style, batch_number, group, total_batches),
+        })
+    return items
+
+
+def render_storyboard_grid_queue_text(items: List[Dict[str, Any]]) -> str:
+    """Una línea por prompt (formato de cola de la extensión de ChatGPT)."""
+    return "\n".join(" ".join(str(item.get("prompt") or "").split()) for item in items) + "\n"
+
+
+def write_storyboard_grid_queue(
+    paths: Dict[str, Path],
+    master: Dict[str, Any],
+    style: Dict[str, Any],
+    pack: Optional[Dict[str, Any]] = None,
+) -> Dict[str, Path]:
+    """Exporta la cola de 11 imágenes (cast sheet + 10 grids) en .txt y .json."""
+    root = paths["root"]
+    ep = nf.episode_meta(master)
+    items = build_storyboard_grid_items(master, style, pack)
+    txt_path = paths.get("chatgpt_storyboard_grids_txt") or (root / "chatgpt_storyboard_grids_queue.txt")
+    json_path = paths.get("chatgpt_storyboard_grids_json") or (root / "chatgpt_storyboard_grids_queue.json")
+    nf.write_text(txt_path, render_storyboard_grid_queue_text(items))
+    nf.write_json(json_path, {
+        "schema_version": "1.0",
+        "episode": ep.get("slug"),
+        "title": ep.get("title"),
+        "count": len(items),
+        "note": "1 hoja de personajes (REF_CAST_MASTER.png) + 10 storyboards de 6 viñetas "
+                "(REF_GRID_MIN_01.png … REF_GRID_MIN_10.png).",
+        "items": items,
+    })
+    return {"txt": txt_path, "json": json_path, "items": items}
+
+
 def write_master_image_prompt_files(
     paths: Dict[str, Path],
     master: Dict[str, Any],
     style: Dict[str, Any],
 ) -> Dict[str, Path]:
-    """Exporta PROMPT 001 (storyboards) y PROMPT 002 (hoja de personajes)."""
+    """Exporta PROMPT 001 (60 escenas + 10 grids), PROMPT 002 y la cola de 11 imágenes."""
     pack = mpl.build_prompt_pack(master, style)
     by_key = {prompt["key"]: prompt for prompt in pack["prompts"]}
     root = paths["root"]
     ep = nf.episode_meta(master)
     title = ep.get("title") or ep.get("slug") or "Episodio"
+    grid_items = build_storyboard_grid_items(master, style, pack)
 
     prompt_001 = paths.get("chatgpt_prompt_001") or (root / "chatgpt_prompt_001_storyboards.txt")
     prompt_002 = paths.get("chatgpt_prompt_002") or (root / "chatgpt_prompt_002_characters.txt")
 
     header_001 = (
         f"NOVEL FACTORY — PROMPT 001 — GENERADOR DE STORYBOARD · {title}\n"
-        "Pega este prompt en ChatGPT/Muse AI junto con la historia y el estilo visual.\n\n"
+        "Incluye la historia completa (60 escenas, sin truncar) y los 10 prompts individuales "
+        "de una imagen por minuto.\n\n"
     )
     header_002 = (
         f"NOVEL FACTORY — PROMPT 002 — HOJA MAESTRA DE PERSONAJES · {title}\n"
         "Adjunta el storyboard creado con PROMPT 001 antes de pegar este prompt.\n\n"
     )
-    nf.write_text(prompt_001, header_001 + by_key["prompt_001"]["text"].strip() + "\n")
+    storyboard_lines = [
+        header_001.rstrip(),
+        by_key["prompt_001"]["text"].strip(),
+        "",
+        "=" * 78,
+        f"HISTORIA COMPLETA — {len(nf.ordered_scenes(master))} ESCENAS (SIN TRUNCAR)",
+        "=" * 78,
+        "",
+        *scene_breakdown_lines(master),
+        "",
+        "=" * 78,
+        "10 PROMPTS INDIVIDUALES — UNA IMAGEN DE STORYBOARD POR MINUTO",
+        "=" * 78,
+        "",
+    ]
+    for item in grid_items[1:]:
+        storyboard_lines += [f"=== {item['filename']} ===", item["prompt"], ""]
+    nf.write_text(prompt_001, "\n".join(storyboard_lines))
     nf.write_text(prompt_002, header_002 + by_key["prompt_002"]["text"].strip() + "\n")
-    return {"prompt_001": prompt_001, "prompt_002": prompt_002}
+
+    grids = write_storyboard_grid_queue(paths, master, style, pack)
+    return {
+        "prompt_001": prompt_001,
+        "prompt_002": prompt_002,
+        "grids_txt": grids["txt"],
+        "grids_json": grids["json"],
+    }
 
 
 def run_check(
@@ -351,8 +558,10 @@ def main(argv: Optional[List[str]] = None) -> int:
         nf.info(f"chatgpt_image_prompts_queue_labeled.txt (con nombre de archivo por escena)")
         nf.info(f"{paths['chatgpt_json'].name}         (índice JSON)")
         nf.ok("Prompts maestros de imagen:")
-        nf.info(f"{image_prompts['prompt_001'].name}  (PROMPT 001 — storyboards de 6 viñetas)")
+        nf.info(f"{image_prompts['prompt_001'].name}  (PROMPT 001 — 60 escenas + 10 grids)")
         nf.info(f"{image_prompts['prompt_002'].name}  (PROMPT 002 — hoja maestra de personajes)")
+        nf.info(f"{image_prompts['grids_txt'].name}  (cola de 11 imágenes: 1 cast + 10 grids)")
+        nf.info(f"{image_prompts['grids_json'].name} (manifiesto de la cola de 11 imágenes)")
 
     if not args.check:
         if sheets:

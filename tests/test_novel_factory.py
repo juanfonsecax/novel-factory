@@ -261,8 +261,12 @@ class MasterPromptTests(unittest.TestCase):
             self.assertIn("[00s–03s]", batches_text)
             self.assertIn("[03s–07s]", batches_text)
             self.assertIn("[07s–10s]", batches_text)
-            self.assertIn("COMANDO FINAL PARA PEGAR EN MUSE AI", batches_text)
-            self.assertIn("formato 16:9", batches_text)
+            self.assertIn("COMANDOS FINALES PARA PEGAR EN MUSE AI", batches_text)
+            self.assertIn("📎 ADJUNTAR EN MUSE AI", batches_text)
+            self.assertIn("REF_CAST_MASTER.png", batches_text)
+            self.assertIn("REF_GRID_MIN_01.png", batches_text)
+            self.assertIn("formato horizontal 16:9", batches_text)
+            self.assertIn("formato vertical 9:16", batches_text)
 
     def test_chatgpt_prompt_exports(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -284,6 +288,43 @@ class MasterPromptTests(unittest.TestCase):
             self.assertEqual(data["count"], 10)
             self.assertEqual(len(data["items"]), 10)
             self.assertEqual(data["items"][0]["scenes"], [1, 2, 3, 4, 5, 6])
+            first = data["items"][0]
+            self.assertEqual(first["reference_images"], ["REF_CAST_MASTER.png", "REF_GRID_MIN_01.png"])
+            self.assertIn("formato horizontal 16:9", first["muse_command"])
+            self.assertIn("formato vertical 9:16", first["muse_command_916"])
+
+    def test_storyboard_prompt_includes_all_60_scenes(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            written = GEN02.write_master_image_prompt_files({"root": Path(tmp)}, self.master, self.style)
+            storyboard = written["prompt_001"].read_text(encoding="utf-8")
+            self.assertIn("ESCENA 001", storyboard)
+            self.assertIn("ESCENA 024", storyboard)
+            self.assertIn("ESCENA 025", storyboard)
+            self.assertIn("ESCENA 060", storyboard)
+            self.assertIn("STORYBOARD IMAGE 01/10 — MINUTE 1 (Scenes 1–6)", storyboard)
+            self.assertIn("STORYBOARD IMAGE 10/10 — MINUTE 10 (Scenes 55–60)", storyboard)
+            self.assertGreaterEqual(storyboard.count("ESCENA "), 60)
+
+    def test_storyboard_grids_queue_has_11_prompts(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            written = GEN02.write_storyboard_grid_queue({"root": Path(tmp)}, self.master, self.style)
+            data = json.loads(written["json"].read_text(encoding="utf-8"))
+            self.assertEqual(data["count"], 11)
+            self.assertEqual(len(data["items"]), 11)
+            self.assertEqual(data["items"][0]["filename"], "REF_CAST_MASTER.png")
+            self.assertEqual(data["items"][0]["kind"], "cast_sheet")
+            self.assertIn("gris neutro", data["items"][0]["prompt"])
+            self.assertEqual(
+                [item["filename"] for item in data["items"][1:]],
+                [f"REF_GRID_MIN_{n:02d}.png" for n in range(1, 11)],
+            )
+            self.assertEqual(data["items"][1]["scenes"], [1, 2, 3, 4, 5, 6])
+            self.assertEqual(data["items"][10]["scenes"], [55, 56, 57, 58, 59, 60])
+            self.assertIn("Viñeta 1: Escena 1", data["items"][1]["prompt"])
+            self.assertIn("Viñeta 6: Escena 6", data["items"][1]["prompt"])
+            self.assertIn("REF_CAST_MASTER.png", data["items"][1]["prompt"])
+            lines = written["txt"].read_text(encoding="utf-8").strip().splitlines()
+            self.assertEqual(len(lines), 11)
 
 
 class AssemblerTests(unittest.TestCase):
@@ -411,6 +452,49 @@ class AssemblerTests(unittest.TestCase):
             ASM04.normalize_scene(src, dst, 0.2, {"scene_seconds": 3.0}, 30, True)
             dur = float(nf.probe_media(dst).get("duration") or 0.0)
             self.assertAlmostEqual(dur, 3.0, delta=nf.DURATION_TOLERANCE_SEC + 0.05)
+
+    def test_normalize_scene_has_audio_micro_fade(self):
+        import inspect
+
+        src = inspect.getsource(ASM04.normalize_scene)
+        self.assertIn("afade=t=in:st=0:d=0.08", src)
+
+    def test_detect_clip_mode_scene_files(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            raw = Path(tmp)
+            for sid in range(1, 7):
+                (raw / f"scene_{sid:03d}.mp4").write_bytes(b"x")
+            detected = ASM04.detect_clip_mode(raw, list(range(1, 7)))
+            self.assertEqual(detected["mode"], "scenes")
+            self.assertEqual(detected["scene_clips"][1].name, "scene_001.mp4")
+            self.assertEqual(detected["missing_scenes"], [])
+
+    def test_detect_clip_mode_minute_files(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            raw = Path(tmp)
+            (raw / "minute_01.mp4").write_bytes(b"x")
+            detected = ASM04.detect_clip_mode(raw, list(range(1, 7)))
+            self.assertEqual(detected["mode"], "batches")
+            self.assertEqual(detected["batch_clips"][1].name, "minute_01.mp4")
+            self.assertEqual(detected["missing_batches"], [])
+
+    def test_detect_clip_mode_batch_alias_files(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            raw = Path(tmp)
+            for number in range(1, 11):
+                (raw / f"batch_{number:02d}.mp4").write_bytes(b"x")
+            detected = ASM04.detect_clip_mode(raw, list(range(1, 61)))
+            self.assertEqual(detected["mode"], "batches")
+            self.assertEqual(len(detected["batch_clips"]), 10)
+            self.assertEqual(detected["batch_clips"][10].name, "batch_10.mp4")
+
+    def test_auto_teaser_uses_vertical_crop(self):
+        import inspect
+
+        src = inspect.getsource(ASM04.render_auto_teaser)
+        self.assertIn("crop=ih*9/16:ih", src)
+        self.assertIn("scale=1080:1920", src)
+        self.assertIn("-t", src)
 
 
 class PublisherTests(unittest.TestCase):
@@ -586,6 +670,9 @@ class DashboardTests(unittest.TestCase):
         self.assertEqual(state["totals"]["master_prompts"], 4)
         self.assertEqual(sorted(first["video_prompts"]), ["flow", "muse", "omni"])
         self.assertEqual(len(state["master_prompts"]["items"]), 4)
+        self.assertEqual(state["storyboard_grids"]["count"], 11)
+        self.assertEqual(len(state["storyboard_grids"]["items"]), 11)
+        self.assertIn("REF_CAST_MASTER.png", state["storyboard_grids"]["text"])
 
     def test_render_escapes_script_tags(self):
         state = DASH.build_state(DEMO_DIR)
@@ -641,6 +728,14 @@ class LauncherTests(unittest.TestCase):
         script = nf.subcommand_script("export-master-prompts")
         self.assertIsNotNone(script)
         self.assertTrue(script.exists())
+        self.assertIn("prompts", nf.SUBCOMMANDS)
+        self.assertTrue(nf.subcommand_script("prompts").exists())
+        self.assertTrue(callable(nf.cmd_prepare))
+
+    def test_bat_dispatches_prepare(self):
+        bat = (NF_ROOT / "novelfactory.bat").read_text(encoding="utf-8", errors="replace")
+        self.assertIn('"%CMD%"=="prepare"', bat)
+        self.assertIn("nf_core.py\" prepare", bat)
 
     def test_bat_propagates_errors(self):
         bat = (NF_ROOT / "novelfactory.bat").read_text(encoding="utf-8", errors="replace")

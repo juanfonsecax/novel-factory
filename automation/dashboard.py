@@ -192,6 +192,12 @@ def build_state(project: str | Path, paths: Optional[Dict[str, Path]] = None) ->
         muse_batches = MPL.build_muse_batches(master, style)
     except Exception:
         muse_batches = []
+    try:
+        storyboard_grids = GEN02.build_storyboard_grid_items(master, style, prompt_pack)
+        storyboard_grids_text = GEN02.render_storyboard_grid_queue_text(storyboard_grids)
+    except Exception:
+        storyboard_grids = []
+        storyboard_grids_text = ""
 
     output = paths["output"]
     teasers: List[str] = []
@@ -219,6 +225,11 @@ def build_state(project: str | Path, paths: Optional[Dict[str, Path]] = None) ->
             "items": prompt_pack["prompts"],
         },
         "muse_batches": muse_batches,
+        "storyboard_grids": {
+            "count": len(storyboard_grids),
+            "items": storyboard_grids,
+            "text": storyboard_grids_text,
+        },
         "assembly": {
             "teasers": teasers,
             "masters": masters,
@@ -228,6 +239,7 @@ def build_state(project: str | Path, paths: Optional[Dict[str, Path]] = None) ->
             "scenes": len(scenes),
             "master_prompts": len(prompt_pack["prompts"]),
             "muse_batches": len(muse_batches),
+            "storyboard_grids": len(storyboard_grids),
             "references": len(references),
             "references_disk": sum(1 for r in references if r["exists"]),
             "frames_disk": sum(1 for s in scenes if s["frame_exists"]),
@@ -717,6 +729,16 @@ function museBatches() {
   return Array.isArray(state.muse_batches) ? state.muse_batches : [];
 }
 
+function storyboardGrids() {
+  return state.storyboard_grids || { count: 0, items: [], text: "" };
+}
+
+function storyboardGridsText() {
+  const grids = storyboardGrids();
+  if (grids.text) return grids.text;
+  return (grids.items || []).map((item) => item.prompt).join("\n");
+}
+
 function quickPromptButtons() {
   return masterItems().map((prompt) => `<button class="btn" data-action="copy-master" data-id="${esc(prompt.key)}">${esc(prompt.code)} · ${esc(prompt.title)}</button>`).join("");
 }
@@ -805,6 +827,8 @@ function renderContent() {
       <div class="master-actions">
         <button class="btn primary" data-action="copy-master-all">Copiar los 4</button>
         <button class="btn" data-action="download-master-all">Descargar JSON</button>
+        ${storyboardGrids().count ? `<button class="btn green" data-action="copy-storyboard-grids">Copiar cola 11 imágenes (Cast + 10 Storyboards)</button>` : ""}
+        ${storyboardGrids().count ? `<button class="btn" data-action="download-storyboard-grids">Descargar cola .txt</button>` : ""}
         ${batches.length ? `<button class="btn green" data-action="copy-muse-batches">Copiar lotes Muse AI</button>` : ""}
         ${batches.length ? `<button class="btn" data-action="download-muse-batches">Descargar lotes .txt</button>` : ""}
       </div>
@@ -873,6 +897,15 @@ async function handleAction(button) {
   if (action === "download-master-all") {
     downloadText(`master_prompts_${state.slug || "episode"}.json`, JSON.stringify(state.master_prompts, null, 2), "application/json");
     toast("Manifiesto de prompts descargado");
+    return;
+  }
+  if (action === "copy-storyboard-grids") {
+    await copyText(storyboardGridsText(), `Cola de ${storyboardGrids().count} imágenes copiada (1 cast + 10 storyboards)`);
+    return;
+  }
+  if (action === "download-storyboard-grids") {
+    downloadText(`chatgpt_storyboard_grids_queue_${state.slug || "episode"}.txt`, storyboardGridsText());
+    toast("Cola de 11 imágenes descargada");
     return;
   }
   if (action === "copy-muse-batch") {

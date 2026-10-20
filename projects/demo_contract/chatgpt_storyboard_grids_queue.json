@@ -1,0 +1,178 @@
+{
+  "schema_version": "1.0",
+  "episode": "demo_contract",
+  "title": "The Silent Contract",
+  "count": 11,
+  "note": "1 hoja de personajes (REF_CAST_MASTER.png) + 10 storyboards de 6 viñetas (REF_GRID_MIN_01.png … REF_GRID_MIN_10.png).",
+  "items": [
+    {
+      "index": 1,
+      "filename": "REF_CAST_MASTER.png",
+      "kind": "cast_sheet",
+      "minute": 0,
+      "scenes": [],
+      "title": "Hoja maestra de personajes — The Silent Contract",
+      "prompt": "REF_CAST_MASTER.png — HOJA MAESTRA DE PERSONAJES\n\nGenera UNA SOLA IMAGEN 16:9 sobre fondo gris neutro uniforme, con todos los personajes principales del proyecto en una hoja de casting limpia y profesional.\n\n👤 PROMPT 002 — GENERADOR DE PERSONAJES (HOJA MAESTRA EN UNA SOLA IMAGEN)\nActúa como director de casting y diseñador de personajes.\nYa tenemos creado el storyboard de la historia.\nAhora analiza ese storyboard e identifica los personajes principales y secundarios relevantes que aparecen en la historia.\nTu tarea es generar UNA SOLA IMAGEN que muestre juntos a todos los personajes identificados.\n\nREFERENCIA\nStoryboard:\n[ADJUNTAR EL STORYBOARD CREADO ANTERIORMENTE]\n\nREGLA PRINCIPAL\nLos personajes deben basarse directamente en el storyboard.\nDebes mantener exactamente su:\n- Sexo.\n- Edad aproximada.\n- Etnia y rasgos físicos.\n- Rostro.\n- Cabello.\n- Tono de piel.\n- Complexión.\n- Vestuario principal.\n- Accesorios importantes.\n- Estilo visual (prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette Lighting palette: late-afternoon sun raking across the scene with long shadows; overcast storm light with a cold rim on faces; practical tungsten warmth inside against a blue dusk exterior. Camera language: wide establishing shot with a human scale reference; medium shot, chest up, subject slightly off-center; tight close-up, eyes in sharp focus, background falling off; over-the-shoulder shot with the listener soft in foreground.).\n\nSi el storyboard tiene 2 personajes, muestra los 2 en una sola imagen.\nSi tiene 3 personajes, muestra los 3 en una sola imagen.\nSi tiene 4 personajes, muestra los 4 en una sola imagen.\nY así sucesivamente (priorizando los 3 a 5 personajes principales de la trama).\nNo inventes personajes que no sean relevantes para la historia.\n\nCOMPOSICIÓN DE LA IMAGEN\nGenera una hoja de referencia de personajes limpia y profesional.\nTodos los personajes deben aparecer:\n- En una sola imagen.\n- Uno al lado del otro.\n- Claramente separados.\n- De cuerpo completo.\n- De pie.\n- Mirando hacia la cámara.\n- En una pose natural y neutral.\n- Sin taparse entre ellos.\n- Sin interactuar físicamente entre ellos.\nDebe verse claramente el rostro y el cuerpo completo de cada personaje.\nUsa un fondo sencillo y neutro (gris estudio limpio) para que los personajes sean los protagonistas de la imagen.\n\nCONSISTENCIA\nEsta imagen funcionará como referencia oficial de los personajes para las siguientes generaciones de imágenes y videos en Muse AI y Google Flow.\nPor eso, los rostros y características físicas deben corresponder lo máximo posible con los personajes mostrados en el storyboard.\nNo rediseñes a los personajes.\nEl objetivo es extraer del storyboard una referencia visual clara y consistente de cada personaje.\n\nESTILO VISUAL\nUtiliza exactamente el mismo estilo visual utilizado en el storyboard (prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette Lighting palette: late-afternoon sun raking across the scene with long shadows; overcast storm light with a cold rim on faces; practical tungsten warmth inside against a blue dusk exterior. Camera language: wide establishing shot with a human scale reference; medium shot, chest up, subject slightly off-center; tight close-up, eyes in sharp focus, background falling off; over-the-shoulder shot with the listener soft in foreground.).\nNo cambiar el estilo visual de la historia.\n\nVESTUARIO\nUtiliza para cada personaje su vestuario más representativo o principal dentro de la historia.\nEl vestuario debe ayudar a identificar inmediatamente quién es cada personaje.\n\nTEXTO\nColoca debajo de cada personaje únicamente:\nNombre del personaje y su rol corto.\nEjemplo:\nELENA — Protagonist\nCOLTON — Gardener\nVICTORIA — Mother\nNo incluir:\n- Descripciones largas.\n- Diálogos.\n- Biografías.\n- Párrafos.\n- Información de las escenas.\nEl texto debe ser mínimo para mantener la imagen limpia.\n\nRESULTADO FINAL\nGenera UNA SOLA IMAGEN que contenga a todos los personajes relevantes de la historia.\nLa imagen debe funcionar como una hoja maestra de referencia de personajes, que posteriormente pueda utilizarse para mantener la misma apariencia de los personajes en todas las escenas y videos.\nEntrega solamente la imagen de los personajes.\n\nPERSONAJES DEL PROYECTO — nombres, rostros y vestuarios fijos:\n- Nora Hale: protagonist del proyecto\n- Sam Calloway: love_interest del proyecto\n- Margaret Keller: antagonist del proyecto\n- Adrian Keller: antagonist_heir del proyecto\n- Claire Boone: ally del proyecto\n\nMantén exactamente los mismos rostros, peinados y vestuarios en todas las imágenes del storyboard y de los lotes de Muse AI. Sin texto, sin letras, sin etiquetas, sin logos, sin marcas de agua. Fondo gris neutro, luz suave y pareja, sin otros elementos."
+    },
+    {
+      "index": 2,
+      "filename": "REF_GRID_MIN_01.png",
+      "kind": "storyboard_grid",
+      "minute": 1,
+      "scenes": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "title": "Storyboard minuto 1: escenas 1–6",
+      "prompt": "STORYBOARD IMAGE 01/10 — MINUTE 1 (Scenes 1–6)\n\nGenera UNA SOLA IMAGEN 16:9 con una cuadrícula de storyboard de 3 columnas x 2 filas (6 viñetas), en orden de lectura izquierda a derecha y de arriba abajo.\nUsa exactamente los mismos personajes, rostros, edades y vestuarios que REF_CAST_MASTER.png (Hoja de Personajes adjunta). Mantén continuidad de vestuario, props y locaciones entre viñetas.\nEstilo visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.\nCada viñeta es un plano cinematográfico 16:9 con encuadre claro y acción legible.\nSin texto, sin letras, sin globos de diálogo, sin logos, sin marcas de agua, sin bordes.\n\nVIÑETAS EXACTAS:\nViñeta 1: Escena 1 — Nora stands at the cliff edge, the lighthouse dark behind… (Hale lighthouse cliff edge, storm dusk, wind and salt spray).\nViñeta 2: Escena 2 — Nora steps off the ferry with one duffel bag, the… (Keller harbor boardwalk, blue hour, wet planks and dock lights).\nViñeta 3: Escena 3 — Sam leans against a harbor truck with his arms crossed… (Hale lighthouse kitchen, night, one warm lamp and a cold stove).\nViñeta 4: Escena 4 — Nora sets a brass key on the lighthouse kitchen table… (Hale lighthouse cliff edge, storm dusk, wind and salt spray).\nViñeta 5: Escena 5 — Sam points through the rain at fresh survey stakes driven… (Keller harbor boardwalk, blue hour, wet planks and dock lights).\nViñeta 6: Escena 6 — Margaret waits under the dry awning of the Keller estate… (Hale lighthouse kitchen, night, one warm lamp and a cold stove)."
+    },
+    {
+      "index": 3,
+      "filename": "REF_GRID_MIN_02.png",
+      "kind": "storyboard_grid",
+      "minute": 2,
+      "scenes": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "title": "Storyboard minuto 2: escenas 7–12",
+      "prompt": "STORYBOARD IMAGE 02/10 — MINUTE 2 (Scenes 7–12)\n\nGenera UNA SOLA IMAGEN 16:9 con una cuadrícula de storyboard de 3 columnas x 2 filas (6 viñetas), en orden de lectura izquierda a derecha y de arriba abajo.\nUsa exactamente los mismos personajes, rostros, edades y vestuarios que REF_CAST_MASTER.png (Hoja de Personajes adjunta). Mantén continuidad de vestuario, props y locaciones entre viñetas.\nEstilo visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.\nCada viñeta es un plano cinematográfico 16:9 con encuadre claro y acción legible.\nSin texto, sin letras, sin globos de diálogo, sin logos, sin marcas de agua, sin bordes.\n\nVIÑETAS EXACTAS:\nViñeta 1: Escena 7 — Nora reads the deed by a single warm lamp, jaw… (Hale lighthouse cliff edge, storm dusk, wind and salt spray).\nViñeta 2: Escena 8 — Adrian blocks the lighthouse door with a folder under his… (Keller harbor boardwalk, blue hour, wet planks and dock lights).\nViñeta 3: Escena 9 — Nora stands alone on the point, the town lights small… (Hale lighthouse kitchen, night, one warm lamp and a cold stove).\nViñeta 4: Escena 10 — Nora crouches at the lighthouse base, finding a keyhole hidden… (Hale lighthouse cliff edge, storm dusk, wind and salt spray).\nViñeta 5: Escena 11 — Claire slides a sealed envelope across the lawyer's desk (Claire Boone's law office, grey morning, rain on the windows).\nViñeta 6: Escena 12 — Nora reads the witness signature and looks up slowly (Keller boathouse, night, one hanging bulb and a flashlight)."
+    },
+    {
+      "index": 4,
+      "filename": "REF_GRID_MIN_03.png",
+      "kind": "storyboard_grid",
+      "minute": 3,
+      "scenes": [
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "title": "Storyboard minuto 3: escenas 13–18",
+      "prompt": "STORYBOARD IMAGE 03/10 — MINUTE 3 (Scenes 13–18)\n\nGenera UNA SOLA IMAGEN 16:9 con una cuadrícula de storyboard de 3 columnas x 2 filas (6 viñetas), en orden de lectura izquierda a derecha y de arriba abajo.\nUsa exactamente los mismos personajes, rostros, edades y vestuarios que REF_CAST_MASTER.png (Hoja de Personajes adjunta). Mantén continuidad de vestuario, props y locaciones entre viñetas.\nEstilo visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.\nCada viñeta es un plano cinematográfico 16:9 con encuadre claro y acción legible.\nSin texto, sin letras, sin globos de diálogo, sin logos, sin marcas de agua, sin bordes.\n\nVIÑETAS EXACTAS:\nViñeta 1: Escena 13 — Sam stands in the boathouse doorway, rain behind him (Keller estate, dusk, warm interior against blue windows).\nViñeta 2: Escena 14 — Nora sweeps a flashlight over scorched beams (Claire Boone's law office, grey morning, rain on the windows).\nViñeta 3: Escena 15 — Margaret pours tea without offering a cup (Keller boathouse, night, one hanging bulb and a flashlight).\nViñeta 4: Escena 16 — Nora stands in the town hall doorway as every head… (Keller estate, dusk, warm interior against blue windows).\nViñeta 5: Escena 17 — Adrian corners Nora by the harbor railing (Claire Boone's law office, grey morning, rain on the windows).\nViñeta 6: Escena 18 — Nora stares at a survey map pinned to the boathouse… (Keller boathouse, night, one hanging bulb and a flashlight)."
+    },
+    {
+      "index": 5,
+      "filename": "REF_GRID_MIN_04.png",
+      "kind": "storyboard_grid",
+      "minute": 4,
+      "scenes": [
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "title": "Storyboard minuto 4: escenas 19–24",
+      "prompt": "STORYBOARD IMAGE 04/10 — MINUTE 4 (Scenes 19–24)\n\nGenera UNA SOLA IMAGEN 16:9 con una cuadrícula de storyboard de 3 columnas x 2 filas (6 viñetas), en orden de lectura izquierda a derecha y de arriba abajo.\nUsa exactamente los mismos personajes, rostros, edades y vestuarios que REF_CAST_MASTER.png (Hoja de Personajes adjunta). Mantén continuidad de vestuario, props y locaciones entre viñetas.\nEstilo visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.\nCada viñeta es un plano cinematográfico 16:9 con encuadre claro y acción legible.\nSin texto, sin letras, sin globos de diálogo, sin logos, sin marcas de agua, sin bordes.\n\nVIÑETAS EXACTAS:\nViñeta 1: Escena 19 — Sam watches Nora from across the dock, unable to speak (Keller estate, dusk, warm interior against blue windows).\nViñeta 2: Escena 20 — Adrian holds the lighthouse door open, waiting (Claire Boone's law office, grey morning, rain on the windows).\nViñeta 3: Escena 21 — Nora spreads water-stained survey files across the lighthouse floor (Keller boathouse, night, flashlight and dust).\nViñeta 4: Escena 22 — Sam jimmies the boathouse lock with a pry bar (Hale lighthouse archive room, night, a single desk lamp).\nViñeta 5: Escena 23 — Nora's flashlight beam catches a metal box under the floorboards (Harbor diner, dawn, cold fluorescent light and steam).\nViñeta 6: Escena 24 — Sam watches Nora read the permits, his face falling (Keller boathouse, night, flashlight and dust)."
+    },
+    {
+      "index": 6,
+      "filename": "REF_GRID_MIN_05.png",
+      "kind": "storyboard_grid",
+      "minute": 5,
+      "scenes": [
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "title": "Storyboard minuto 5: escenas 25–30",
+      "prompt": "STORYBOARD IMAGE 05/10 — MINUTE 5 (Scenes 25–30)\n\nGenera UNA SOLA IMAGEN 16:9 con una cuadrícula de storyboard de 3 columnas x 2 filas (6 viñetas), en orden de lectura izquierda a derecha y de arriba abajo.\nUsa exactamente los mismos personajes, rostros, edades y vestuarios que REF_CAST_MASTER.png (Hoja de Personajes adjunta). Mantén continuidad de vestuario, props y locaciones entre viñetas.\nEstilo visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.\nCada viñeta es un plano cinematográfico 16:9 con encuadre claro y acción legible.\nSin texto, sin letras, sin globos de diálogo, sin logos, sin marcas de agua, sin bordes.\n\nVIÑETAS EXACTAS:\nViñeta 1: Escena 25 — Nora holds a permit signed by Margaret, dated before the… (Hale lighthouse archive room, night, a single desk lamp).\nViñeta 2: Escena 26 — Nora and Sam stand close in the archive, the file… (Harbor diner, dawn, cold fluorescent light and steam).\nViñeta 3: Escena 27 — Adrian waits in a diner booth across from Nora (Keller boathouse, night, flashlight and dust).\nViñeta 4: Escena 28 — Nora slides the file across the table, keeping one page… (Hale lighthouse archive room, night, a single desk lamp).\nViñeta 5: Escena 29 — Adrian leans in, his hand covering hers (Harbor diner, dawn, cold fluorescent light and steam).\nViñeta 6: Escena 30 — Nora stands alone in the lamp room, the file in… (Keller boathouse, night, flashlight and dust)."
+    },
+    {
+      "index": 7,
+      "filename": "REF_GRID_MIN_06.png",
+      "kind": "storyboard_grid",
+      "minute": 6,
+      "scenes": [
+        31,
+        32,
+        33,
+        34,
+        35,
+        36
+      ],
+      "title": "Storyboard minuto 6: escenas 31–36",
+      "prompt": "STORYBOARD IMAGE 06/10 — MINUTE 6 (Scenes 31–36)\n\nGenera UNA SOLA IMAGEN 16:9 con una cuadrícula de storyboard de 3 columnas x 2 filas (6 viñetas), en orden de lectura izquierda a derecha y de arriba abajo.\nUsa exactamente los mismos personajes, rostros, edades y vestuarios que REF_CAST_MASTER.png (Hoja de Personajes adjunta). Mantén continuidad de vestuario, props y locaciones entre viñetas.\nEstilo visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.\nCada viñeta es un plano cinematográfico 16:9 con encuadre claro y acción legible.\nSin texto, sin letras, sin globos de diálogo, sin logos, sin marcas de agua, sin bordes.\n\nVIÑETAS EXACTAS:\nViñeta 1: Escena 31 — Rain hammers the town hall windows as Nora faces the… (Town hall hearing room, grey morning, rain streaking the windows).\nViñeta 2: Escena 32 — Margaret sits perfectly still in the front row (Hale lighthouse, storm night, lightning through the glass).\nViñeta 3: Escena 33 — Claire reads the emergency petition aloud (Hale lighthouse kitchen, night, one lamp, rain outside).\nViñeta 4: Escena 34 — Nora stands in the empty lighthouse, the lamp cold above… (Town hall hearing room, grey morning, rain streaking the windows).\nViñeta 5: Escena 35 — Sam signs a statement at the harbor office, hand shaking (Hale lighthouse, storm night, lightning through the glass).\nViñeta 6: Escena 36 — Nora listens through a half-open door, unseen (Hale lighthouse kitchen, night, one lamp, rain outside)."
+    },
+    {
+      "index": 8,
+      "filename": "REF_GRID_MIN_07.png",
+      "kind": "storyboard_grid",
+      "minute": 7,
+      "scenes": [
+        37,
+        38,
+        39,
+        40,
+        41,
+        42
+      ],
+      "title": "Storyboard minuto 7: escenas 37–42",
+      "prompt": "STORYBOARD IMAGE 07/10 — MINUTE 7 (Scenes 37–42)\n\nGenera UNA SOLA IMAGEN 16:9 con una cuadrícula de storyboard de 3 columnas x 2 filas (6 viñetas), en orden de lectura izquierda a derecha y de arriba abajo.\nUsa exactamente los mismos personajes, rostros, edades y vestuarios que REF_CAST_MASTER.png (Hoja de Personajes adjunta). Mantén continuidad de vestuario, props y locaciones entre viñetas.\nEstilo visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.\nCada viñeta es un plano cinematográfico 16:9 con encuadre claro y acción legible.\nSin texto, sin letras, sin globos de diálogo, sin logos, sin marcas de agua, sin bordes.\n\nVIÑETAS EXACTAS:\nViñeta 1: Escena 37 — Nora walks the storm beach alone, hair plastered to her… (Town hall hearing room, grey morning, rain streaking the windows).\nViñeta 2: Escena 38 — Adrian waits in her kitchen with the sale papers (Hale lighthouse, storm night, lightning through the glass).\nViñeta 3: Escena 39 — Nora stares into the lighthouse lens, thinking (Hale lighthouse kitchen, night, one lamp, rain outside).\nViñeta 4: Escena 40 — Nora finds an old harbor logbook behind the lens housing (Town hall hearing room, grey morning, rain streaking the windows).\nViñeta 5: Escena 41 — Nora opens the logbook on the lighthouse table, pages brittle (Hale lighthouse archive room, dawn, cold blue light).\nViñeta 6: Escena 42 — Nora and Sam compare timestamps under a desk lamp (Harbor pier, morning, flat silver water)."
+    },
+    {
+      "index": 9,
+      "filename": "REF_GRID_MIN_08.png",
+      "kind": "storyboard_grid",
+      "minute": 8,
+      "scenes": [
+        43,
+        44,
+        45,
+        46,
+        47,
+        48
+      ],
+      "title": "Storyboard minuto 8: escenas 43–48",
+      "prompt": "STORYBOARD IMAGE 08/10 — MINUTE 8 (Scenes 43–48)\n\nGenera UNA SOLA IMAGEN 16:9 con una cuadrícula de storyboard de 3 columnas x 2 filas (6 viñetas), en orden de lectura izquierda a derecha y de arriba abajo.\nUsa exactamente los mismos personajes, rostros, edades y vestuarios que REF_CAST_MASTER.png (Hoja de Personajes adjunta). Mantén continuidad de vestuario, props y locaciones entre viñetas.\nEstilo visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.\nCada viñeta es un plano cinematográfico 16:9 con encuadre claro y acción legible.\nSin texto, sin letras, sin globos de diálogo, sin logos, sin marcas de agua, sin bordes.\n\nVIÑETAS EXACTAS:\nViñeta 1: Escena 43 — Nora traces a line in the log with her finger (Town hall steps, dusk, wet stone).\nViñeta 2: Escena 44 — Sam reads over her shoulder, close enough to touch (Hale lighthouse archive room, dawn, cold blue light).\nViñeta 3: Escena 45 — Nora looks up at Sam, a decision forming (Harbor pier, morning, flat silver water).\nViñeta 4: Escena 46 — Adrian stands on the town hall steps, trying to smile (Town hall steps, dusk, wet stone).\nViñeta 5: Escena 47 — Nora walks past him without stopping (Hale lighthouse archive room, dawn, cold blue light).\nViñeta 6: Escena 48 — Margaret waits in the hall, gloves in hand (Harbor pier, morning, flat silver water)."
+    },
+    {
+      "index": 10,
+      "filename": "REF_GRID_MIN_09.png",
+      "kind": "storyboard_grid",
+      "minute": 9,
+      "scenes": [
+        49,
+        50,
+        51,
+        52,
+        53,
+        54
+      ],
+      "title": "Storyboard minuto 9: escenas 49–54",
+      "prompt": "STORYBOARD IMAGE 09/10 — MINUTE 9 (Scenes 49–54)\n\nGenera UNA SOLA IMAGEN 16:9 con una cuadrícula de storyboard de 3 columnas x 2 filas (6 viñetas), en orden de lectura izquierda a derecha y de arriba abajo.\nUsa exactamente los mismos personajes, rostros, edades y vestuarios que REF_CAST_MASTER.png (Hoja de Personajes adjunta). Mantén continuidad de vestuario, props y locaciones entre viñetas.\nEstilo visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.\nCada viñeta es un plano cinematográfico 16:9 con encuadre claro y acción legible.\nSin texto, sin letras, sin globos de diálogo, sin logos, sin marcas de agua, sin bordes.\n\nVIÑETAS EXACTAS:\nViñeta 1: Escena 49 — Nora faces Margaret on the empty hearing floor (Town hall steps, dusk, wet stone).\nViñeta 2: Escena 50 — Nora stands at the lighthouse door as the town lights… (Hale lighthouse archive room, dawn, cold blue light).\nViñeta 3: Escena 51 — The hearing room fills; Nora stands alone at the table (Town hall hearing room, day, hard window light).\nViñeta 4: Escena 52 — Sam steps to the microphone, the room silent (Hale lighthouse point, golden hour, wind down).\nViñeta 5: Escena 53 — Margaret's smile falters for the first time (Harbor, golden hour, calm water).\nViñeta 6: Escena 54 — Nora holds up the harbor log, open to the page (Town hall hearing room, day, hard window light)."
+    },
+    {
+      "index": 11,
+      "filename": "REF_GRID_MIN_10.png",
+      "kind": "storyboard_grid",
+      "minute": 10,
+      "scenes": [
+        55,
+        56,
+        57,
+        58,
+        59,
+        60
+      ],
+      "title": "Storyboard minuto 10: escenas 55–60",
+      "prompt": "STORYBOARD IMAGE 10/10 — MINUTE 10 (Scenes 55–60)\n\nGenera UNA SOLA IMAGEN 16:9 con una cuadrícula de storyboard de 3 columnas x 2 filas (6 viñetas), en orden de lectura izquierda a derecha y de arriba abajo.\nUsa exactamente los mismos personajes, rostros, edades y vestuarios que REF_CAST_MASTER.png (Hoja de Personajes adjunta). Mantén continuidad de vestuario, props y locaciones entre viñetas.\nEstilo visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.\nCada viñeta es un plano cinematográfico 16:9 con encuadre claro y acción legible.\nSin texto, sin letras, sin globos de diálogo, sin logos, sin marcas de agua, sin bordes.\n\nVIÑETAS EXACTAS:\nViñeta 1: Escena 55 — Adrian half-rises from his chair (Hale lighthouse point, golden hour, wind down).\nViñeta 2: Escena 56 — Nora sets the log on the clerk's desk (Harbor, golden hour, calm water).\nViñeta 3: Escena 57 — Margaret reaches for the log; Nora slides it away (Town hall hearing room, day, hard window light).\nViñeta 4: Escena 58 — Sam takes Nora's hand under the table (Hale lighthouse point, golden hour, wind down).\nViñeta 5: Escena 59 — Nora walks out of the town hall into the light (Harbor, golden hour, calm water).\nViñeta 6: Escena 60 — Nora and Sam stand on the lighthouse point at dusk… (Town hall hearing room, day, hard window light)."
+    }
+  ]
+}

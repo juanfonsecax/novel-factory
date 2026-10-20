@@ -234,6 +234,8 @@ def main(argv: Optional[List[str]] = None) -> int:
             nf.info(written["txt"].name + f"  ({len(result['batches'])} lotes de 6 escenas)")
             nf.info(written["json"].name + "  (manifiesto de lotes)")
             nf.info(written["alias_txt"].name + "  (alias para el exportador 03)")
+            nf.info("Cada lote adjunta REF_CAST_MASTER.png + REF_GRID_MIN_XX.png y trae "
+                    "comandos finales 16:9 (YouTube) y 9:16 (Reels).")
         else:
             nf.warn("Sin master_episode.json: no se generaron lotes de Muse AI.")
         if result["story_path"]:
