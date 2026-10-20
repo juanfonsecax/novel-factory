@@ -54,6 +54,11 @@ DEFAULT_SHOT_ROTATION = [
 ]
 FRAME_EXTS = (".png", ".jpg", ".jpeg", ".webp")
 
+# Subcomandos que viven en scripts de generators/ y se despachan desde nf_core.
+SUBCOMMANDS: Dict[str, str] = {
+    "export-master-prompts": "generators/00_export_master_workflow_prompts.py",
+}
+
 # --- Contrato de contenido (P0): ritmo de habla y presupuesto por escena ---
 SPEECH_WORDS_PER_SECOND = 2.5    # ritmo conversacional US English (~150 wpm)
 MAX_SCENE_WORDS = 22             # tope real para 10 s escénicos (22/2.5 = 8.8 s)
@@ -224,12 +229,29 @@ def project_paths(slug_or_dir: str | Path) -> Dict[str, Path]:
         "chatgpt_refs": root / "chatgpt_reference_sheets.txt",
         "chatgpt_thumbs": root / "chatgpt_thumbnail_prompts.txt",
         "state": root / "queue_state.json",
+        "master_prompts_md": root / "MASTER_PROMPTS.md",
+        "master_prompts_txt": root / "MASTER_PROMPTS.txt",
+        "master_prompts_json": root / "master_prompts.json",
+        "prompts_dir": root / "prompts",
+        "master_workflow_prompts_md": root / "MASTER_WORKFLOW_PROMPTS_READY.md",
+        "chatgpt_prompt_001": root / "chatgpt_prompt_001_storyboards.txt",
+        "chatgpt_prompt_002": root / "chatgpt_prompt_002_characters.txt",
+        "muse_ai_minute_batches_txt": root / "muse_ai_minute_batches_queue.txt",
+        "muse_ai_minute_batches_json": root / "muse_ai_minute_batches_queue.json",
+        "muse_ai_batches_txt": root / "muse_ai_batches_queue.txt",
+        "muse_ai_batches_json": root / "muse_ai_batches_queue.json",
+        "muse_csv": root / "muse_ai_video_prompts_queue.csv",
+        "muse_json": root / "muse_ai_video_prompts_queue.json",
+        "muse_txt": root / "muse_ai_video_prompts_queue.txt",
+        "flow_csv": root / "google_flow_video_prompts_queue.csv",
+        "flow_json": root / "google_flow_video_prompts_queue.json",
+        "flow_txt": root / "google_flow_video_prompts_queue.txt",
     }
 
 
 def create_project(slug: str) -> Dict[str, Path]:
     paths = project_paths(project_dir(slug))
-    for key in ("root", "frames", "references", "raw_clips", "output"):
+    for key in ("root", "frames", "references", "raw_clips", "output", "prompts_dir"):
         paths[key].mkdir(parents=True, exist_ok=True)
     for folder in (paths["frames"], paths["references"], paths["raw_clips"], paths["output"]):
         keep = folder / ".gitkeep"
@@ -241,7 +263,9 @@ def create_project(slug: str) -> Dict[str, Path]:
 def resolve_project(slug_or_dir: str | Path, must_exist: bool = True) -> Dict[str, Path]:
     raw = str(slug_or_dir)
     candidate = Path(raw)
-    if candidate.exists() and candidate.is_dir() and (candidate / "master_episode.json").exists():
+    if candidate.exists() and candidate.is_dir() and (
+        (candidate / "master_episode.json").exists() or not must_exist
+    ):
         paths = project_paths(candidate)
     else:
         paths = project_paths(project_dir(raw))
@@ -1132,3 +1156,38 @@ def extract_json_blob(text: str) -> Any:
 
 def default_teaser_ranges() -> List[List[int]]:
     return [list(range(1, 7)), list(range(21, 27)), list(range(55, 61))]
+
+
+# --- Despacho de subcomandos (CLI opcional de nf_core) ---
+def subcommand_script(name: str) -> Optional[Path]:
+    rel = SUBCOMMANDS.get(str(name or "").strip().lower())
+    return (NF_ROOT / rel) if rel else None
+
+
+def run_subcommand(name: str, args: Sequence[str]) -> int:
+    script = subcommand_script(name)
+    if not script:
+        raise NFError(
+            f"Subcomando desconocido: {name!r}. Disponibles: {', '.join(sorted(SUBCOMMANDS))}"
+        )
+    if not script.exists():
+        raise NFError(f"No existe el script del subcomando: {script}")
+    completed = subprocess.run([sys.executable, str(script), *args])
+    return int(completed.returncode)
+
+
+def main(argv: Optional[Sequence[str]] = None) -> int:
+    args = list(argv if argv is not None else sys.argv[1:])
+    if not args or args[0] in ("-h", "--help"):
+        print("Uso: python nf_core.py <subcomando> <proyecto> [opciones]")
+        print("Subcomandos: " + ", ".join(sorted(SUBCOMMANDS)))
+        return 0
+    return run_subcommand(args[0], args[1:])
+
+
+if __name__ == "__main__":
+    try:
+        raise SystemExit(main())
+    except NFError as exc:
+        err(str(exc))
+        raise SystemExit(1)

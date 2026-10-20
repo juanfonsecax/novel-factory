@@ -53,9 +53,12 @@ novel_factory/
 │  ├─ showrunner_rules.json    Reglas dramáticas: 6 actos, beats, retención, teasers, compliance
 │  └─ voice_and_style_locks.json  Bloqueos visuales/voz/prompts y parámetros de postproducción
 ├─ generators/
+│  ├─ 00_export_master_workflow_prompts.py  Workflow 000-003 en un .md + lotes Muse AI de 1 min
 │  ├─ 01_story_to_master_json.py  Brief + prompt-pack para tu LLM + ingesta + demo
 │  ├─ 02_export_chatgpt_queue.py  Cola de 60 prompts de imagen (ChatGPT) + verificación de frames
-│  └─ 03_export_omni_queue.py     Cola de 60 prompts de vídeo (Omni) en CSV/JSON/TXT
+│  ├─ 03_export_omni_queue.py     Cola de 60 prompts de vídeo (Omni / Muse AI / Google Flow)
+│  ├─ 04_export_master_prompts.py Exporta los 4 prompts maestros rellenados
+│  └─ master_prompts_library.py   PROMPT 000-003 (historia, guion, grids, video por lotes)
 ├─ automation/
 │  ├─ omni_flow_runner.py      status · queue · assisted · watch (Descargas) · import-frames
 │  └─ dashboard.py             Dashboard local: copiar prompts, ver progreso y tracking
@@ -64,7 +67,7 @@ novel_factory/
 │  └─ 05_export_to_publisher.py     Exporta teasers a USA WHITE/cola/pendientes
 ├─ music/                      BGM local (ver music/README.md)
 ├─ assets/fonts/               TTF opcional para el headline de los teasers
-├─ tests/test_novel_factory.py 41 tests offline (unittest)
+├─ tests/test_novel_factory.py 53 tests offline (unittest)
 └─ projects/
    └─ <episodio>/
       ├─ story_brief.md              Premisa + reglas (para ti)
@@ -72,7 +75,14 @@ novel_factory/
       ├─ master_episode.json         Guion maestro (60 escenas, fuente de todo)
       ├─ chatgpt_image_prompts_queue.{txt,json,md}
       ├─ chatgpt_reference_sheets.txt  PASO 0: hoja de referencia por personaje
+      ├─ MASTER_PROMPTS.md · .txt · master_prompts.json · prompts/
+      ├─ MASTER_WORKFLOW_PROMPTS_READY.md      Workflow 000-003 rellenado + variante 9:16
+      ├─ chatgpt_prompt_001_storyboards.txt    PROMPT 001 literal (storyboards 6 viñetas)
+      ├─ chatgpt_prompt_002_characters.txt     PROMPT 002 literal (hoja de personajes)
+      ├─ muse_ai_batches_queue.{txt,json}      Lotes Muse AI de 1 min (6 escenas c/u)
       ├─ omni_video_prompts_queue.{csv,json,txt}
+      ├─ muse_ai_video_prompts_queue.{csv,json,txt}
+      ├─ google_flow_video_prompts_queue.{csv,json,txt}
       ├─ queue_state.json            Progreso (lo escribe el runner)
       ├─ references/ reference_<id>.png (hojas de referencia de ChatGPT)
       ├─ frames/   frame_001.png … frame_060.png
@@ -102,9 +112,14 @@ novel_factory/
  2.5 Dashboard   novelfactory.bat dashboard mi_episodio --serve --open  dashboard.html + tracking
                  (copiar prompts, marcar frames/clips, ver progreso)
  3. Clips        novelfactory.bat omni mi_episodio                   cola Omni (60)
+                 novelfactory.bat muse mi_episodio                   cola Muse AI (60)
+                 novelfactory.bat flow mi_episodio                   cola Google Flow (60)
                  novelfactory.bat assisted mi_episodio               raw_clips/scene_XXX.mp4
+                 (o) novelfactory.bat assisted mi_episodio --platform muse
                  (o) novelfactory.bat watch mi_episodio
                  (o) novelfactory.bat import-frames mi_episodio --frames-src DIR
+ 3.5 Prompts      novelfactory.bat prompts mi_episodio               MASTER_PROMPTS + prompts/*.txt
+                  novelfactory.bat export-master-prompts mi_episodio  WORKFLOW 000-003 + lotes Muse AI
  4. Ensamble     novelfactory.bat check mi_episodio                  preflight (sin render)
                  novelfactory.bat assemble mi_episodio               máster + 3 teasers + SRT
  5. Publicar     novelfactory.bat publish mi_episodio                plan de exportación
@@ -153,6 +168,9 @@ novel_factory/
   audio bed, movimiento de cámara, continuidad, estilo, reglas y negativos
   (todo determinista desde el maestro, no prosa libre).
 - `--only-missing` re-exporta solo escenas sin clip; `--show 1-2` imprime prompts.
+- `--platform omni|muse|flow|all`: mismo maestro, tres plantillas de prompt nativas.
+  `muse` pide 10 s exactos con audio nativo; `flow` (Veo) asume el tope de 8 s, cierra
+  el diálogo antes de 7.5 s y deja que la postproducción extienda a 10 s.
 - **Runner** (`automation/omni_flow_runner.py`):
   - `status`: tabla escena a escena (frame/clip/duración) + `queue_state.json`.
   - `queue`: imprime el prompt de la siguiente escena pendiente (scripting).
@@ -165,6 +183,8 @@ novel_factory/
   - `import-frames <slug> --frames-src DIR`: importa frames ya generados
     (`frame_1.png`/`frame_01.png`/`scene_001.png`…) a `frames/`, con
     `--from-scene/--to-scene` para un rango y `--move` para moverlos en vez de copiar.
+  - `--platform omni|muse|flow` (en `queue`/`assisted`): elige qué cola consume el
+    runner. `assisted` copia el prompt renderizado para esa plataforma.
   - `--playwright-script tu_script.py`: hook opcional a **tu** automatización local
     (recibe `NF_SCENE`, `NF_FRAME`, `NF_PROMPT` por entorno). El módulo **no**
     incluye ni ejecuta automatización de sitios por defecto (los selectores
@@ -230,7 +250,14 @@ npm, sin red) con los 60 prompts de imagen, los 60 prompts de vídeo, las hojas 
 referencia y el guion. Sirve para el trabajo manual de copiar/pegar en ChatGPT y Omni
 sin abrir los JSON.
 
-- **Tabs**: Referencias · Frames (imagen) · Clips (Omni) · Guion.
+- **Tabs**: Referencias · Frames (imagen) · Clips (video) · Guion · **Prompts maestros**.
+- **Plataforma de video**: selector en la barra de filtros (Omni / Muse AI / Google
+  Flow); cambia el prompt de cada escena y el texto copiado, sin regenerar el HTML.
+- **Prompts maestros**: los 4 prompts (000-003) rellenados con los valores del
+  proyecto, con botones de copiar uno, copiar los 4, descargar `.txt` y JSON, y
+  acceso rápido por prompt.
+- **Lotes Muse AI**: bloques de 1 minuto (6 escenas) con cortes de cámara, SFX,
+  diálogo y comando final de Muse AI, cada uno con copiar y descargar `.txt`.
 - **Copiar prompt**: botón por escena; marca la escena como "copiada".
 - **Marcar hecho**: tracking manual separado del disco. Si `frames/frame_XXX.png` o
   `raw_clips/scene_XXX.mp4` ya existen, el dashboard lo detecta solo y muestra
@@ -255,6 +282,25 @@ nunca queda atado a un navegador. Los archivos de media no se tocan.
 
 > Si regeneras `master_episode.json`, vuelve a ejecutar `dashboard` para refrescar
 > los prompts embebidos; el tracking existente se conserva.
+
+### 4.7 Prompts maestros (000–003)
+
+La librería `generators/master_prompts_library.py` contiene los cuatro prompts de
+producción encadenados y los rellena con los valores reales del episodio:
+
+| Prompt | Para qué sirve | Salida esperada |
+|---|---|---|
+| **000** Arquitecto de historias virales | Convierte tu idea en título, elenco y sinopsis por bloques | Texto que alimenta al 001 |
+| **001** Guionista de micro-dramas | Desglose técnico de 60 escenas × 10 s con JSON exacto | `master_episode.json` (vía `ingest`) |
+| **002** Arquitecto de grids de imagen | Plan de contact sheets por minuto (6 paneles) para las imágenes | Grids/frames para ChatGPT |
+| **003** Director de video por lotes | Flujo Muse AI + Google Flow con reglas de plataforma | Clips `scene_XXX.mp4` |
+
+- Se generan solos al crear/plantilla/ingerir (`01` los exporta), y también a mano:
+  `novelfactory.bat prompts mi_episodio` → `MASTER_PROMPTS.md` + `.txt` + `prompts/*.txt`.
+- **Relleno literal**: los marcadores (`{story_idea}`, `{duration_minutes}`,
+  `{total_scenes}`, `{total_grid_images}`, `{visual_style}`, `{aspect_ratio}`) se
+  sustituyen por reemplazo de texto, así los ejemplos JSON de los prompts nunca se rompen.
+- El **PROMPT 000** conserva el texto original íntegro (cabecera 🧠 incluida).
 
 ---
 
@@ -373,7 +419,8 @@ aquí el runner es asistido, no automatizado).
   describe edad, nombre, color de ojos ni pelo base (solo estado transitorio).
 - **Voice lock**: arquetipos de voz (protagonista/antagonista/aliado/amor/autoridad),
   velocidad ~2.5 palabras/s, inglés nativo, sin narrador salvo línea explícita.
-- Plantilla completa del prompt de Omni y los parámetros de postproducción
+- Plantillas completas de prompt para Omni, Muse AI (`muse_prompt_template`) y
+  Google Flow (`flow_prompt_template`), y los parámetros de postproducción
   (volumen de música, fades, loudness, CRF, recorte de silencio, overlay del teaser).
 
 ---
@@ -386,12 +433,13 @@ python -m unittest discover -s novel_factory\tests -v
 novel_factory\novelfactory.bat test
 ```
 
-41 tests offline: núcleo y esquema del maestro, generadores (60 prompts de ambas
-colas), dashboard (estado, render y tracking), helpers del ensamblador (SRT, escape
+48 tests offline: núcleo y esquema del maestro, generadores (60 prompts de imagen y
+de vídeo por plataforma), librería de prompts maestros (000-003 sin marcadores),
+dashboard (estado, render, prompts y tracking), helpers del ensamblador (SRT, escape
 del concat, detección de silencio con clips generados al vuelo), exportador
-(detección de publicador, post JSON) y runner (cola, detección de descargas,
-archivado y validación de clips). Los tests que necesitan ffmpeg se saltan solos si
-no está instalado.
+(detección de publicador, post JSON) y runner (cola por plataforma, detección de
+descargas, archivado y validación de clips). Los tests que necesitan ffmpeg se saltan
+solos si no está instalado.
 
 ---
 

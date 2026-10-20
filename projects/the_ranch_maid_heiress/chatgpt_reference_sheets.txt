@@ -7,7 +7,7 @@ Esto se genera UNA sola vez por episodio, ANTES de la cola de los 60 frames:
      con el nombre exacto que se indica abajo (reference_<id>.png).
   3. Adjunta TODAS las hojas de referencia a la conversación y déjalas ahí
      mientras generas frame_001.png … frame_060.png (chatgpt_image_prompts_queue.txt).
-  4. Los prompts de escena dicen 'the same woman/man as the reference image':
+  4. Los prompts de escena nombran al personaje y su archivo reference_<id>.png:
      la cara nunca se describe en texto, se copia de estas hojas.
 
 === ELENA VANCE -> reference_elena.png ===

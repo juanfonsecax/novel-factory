@@ -1,0 +1,49 @@
+🧠 PROMPT 000 — ARQUITECTO DE HISTORIAS VIRALES (CHINA / USA MICRO-DRAMA SHOWRUNNER)
+Actúa como un Showrunner experto en Micro-Dramas virales de Estados Unidos y China (estilo ReelShort, DramaBox y canales de novelas con IA de +500,000 vistas).
+
+Tu objetivo es transformar mi idea base en una HISTORIA DE ALTA RETENCIÓN pensada para el mercado en INGLÉS (alto RPM), estructurada matemáticamente para una duración de 10 minuto(s) (60 escenas de 10 segundos cada una, divididas en 10 bloques de 1 minuto / 6 escenas).
+
+IDEA BASE / SEMILLA:
+PREMISE:
+Ten years after the fire that ruined her family, Nora Hale returns to inherit a lighthouse and finds the town's most powerful family has been paying her dead mother's debts.
+
+EPISODE:
+- Title: The Silent Contract
+- Series: Salt & Secrets
+- Logline: Ten years after the fire that ruined her family, Nora Hale returns to inherit a lighthouse and finds the town's most powerful family has been paying her dead mother's debts.
+- Genre: romantic suspense short-drama
+- Tone: cinematic, intimate, high-stakes, fast-paced
+- Setting: (not specified)
+
+CAST:
+- Nora Hale (protagonist) | voice: warm mid-range American English, controlled, slightly breathy under pressure
+- Sam Calloway (love_interest) | voice: quiet, low American English, careful diction, warmth under restraint
+- Margaret Keller (antagonist) | voice: low, polished, unhurried American English, never shouts
+- Adrian Keller (antagonist) | voice: smooth mid-range American English, reasonable tone that never quite reaches sincerity
+- Claire Boone (ally) | voice: grounded, plainspoken American English with a slight coastal New England softness
+
+LOCATIONS:
+- Hale lighthouse
+- Keller harbor
+- Town hall
+- Keller estate
+
+ACT MAP:
+- Act 1 — The Bait : Open a visceral question in the first 3 seconds, establish the protagonist's desire and wound, then detonate the inciting incident.
+- Act 2 — The Trap : Tighten the trap: the antagonist uses the system, not violence. Humiliation and betrayal push the protagonist toward a forced choice.
+- Act 3 — The First Crack : The protagonist stops reacting and starts investigating. A romance or loyalty beat raises the emotional stakes. A costly mistake keeps the antagonist ahead.
+- Act 4 — The Dark Night : Take everything away. The ally breaks, the institution turns, and the protagonist is isolated. The lowest point must be caused by a choice, not bad luck.
+- Act 5 — The Turn : The protagonist turns the same system against the antagonist using the truth she already had. The confrontation begins in public. A final complication raises the price of winning.
+- Act 6 — The Payoff : Deliver the public confrontation, the emotional payoff and the romantic resolution. End on a new open loop for the next episode.
+
+REGLAS DE ORO DE DRAMATURGIA Y RETENCIÓN QUE DEBES APLICAR:
+1. GANCHO EXPLOSIVO EN LOS PRIMEROS 10 SEGUNDOS (ESCENA 1): La historia jamás debe empezar de forma lenta. Debe abrir en medio de una tensión máxima: una humillación pública, una traición descubierta, un secreto millonario, una diferencia extrema de clases sociales o un contrato inesperado.
+2. MICRO-GIROS CADA 30 SEGUNDOS (CADA 3 ESCENAS): Cada 3 escenas debe ocurrir una revelación, un conflicto emocional, una mirada prohibida, una confrontación o un obstáculo que impida que el espectador cierre el video.
+3. CLIFFHANGER AL FINAL DE CADA MINUTO (ESCENAS 6, 12, 18...): La última escena de cada bloque de 6 escenas debe terminar en máxima tensión dramática.
+4. PERSONAJES CON CONTRASTE VISUAL INMEDIATO (MÁXIMO 3 A 5 PERSONAJES PRINCIPALES): Diseña personajes cuyo estatus social y personalidad se entiendan en 1 segundo solo por su vestuario (ej. multimillonario arrogante vs. trabajadora humilde con dignidad de hierro; heredera secreta vs. villana elitista).
+5. ECONOMÍA DE ESCENARIOS (MÁXIMO 3 A 5 LOCACIONES): Concentra la acción en locaciones visualmente ricas y contrastantes para mantener continuidad perfecta.
+
+ENTREGA EL RESULTADO EN ESTE FORMATO EXACTO (LISTO PARA COPIAR AL PROMPT 001):
+1. TÍTULO VIRAL EN INGLÉS (3 opciones de alto CTR).
+2. ELENCO PRINCIPAL (3 a 5 personajes: Nombre, Edad, Apariencia Física exacta, Vestuario característico fijo y Timbre de Voz en inglés).
+3. SINOPSIS NARRATIVA INTENSA BLOQUE POR BLOQUE (1 párrafo por cada minuto de historia = 6 escenas por minuto, describiendo inicio, conflicto, giros y desenlace/cliffhanger).

@@ -1,11 +1,17 @@
-"scene_id","frame_file","output_file","duration_seconds","status","prompt"
-"1","frame_001.png","scene_001.mp4","10","pending","Begin exactly on the provided first frame (frame_001.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+"scene_id","platform","frame_file","output_file","duration_seconds","dialogue_words","speech_seconds","status","prompt"
+"1","omni","frame_001.png","scene_001.mp4","10","15","6.0","done","Begin exactly on the provided first frame (frame_001.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
 
 SHOT PLAN:
 SHOT 1 — 0.0 s to 3.5 s — wide establishing shot: Nora stands at the cliff edge, the lighthouse dark behind her, salt wind whipping her coat.
 HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on a brass key; the room falls quiet around it.
 HARD CUT at 6.9 s — SHOT 3 — over-the-shoulder shot: Nora Hale reacts, holding the moment before the next line.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [wide establishing shot] Nora stands at the cliff edge, the lighthouse dark behind her, salt wind whipping her coat.
+  3.5s to 6.9s  [tight close-up] Close detail on a brass key; the room falls quiet around it.
+  6.9s to 10.0s  [over-the-shoulder shot] Nora Hale reacts, holding the moment before the next line.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 NORA (cold, quiet): ""They said the lighthouse was empty for ten years. So who left the light on?""
@@ -30,13 +36,19 @@ RULES:
 NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
 
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
-"2","frame_002.png","scene_002.mp4","10","pending","Begin exactly on the provided first frame (frame_002.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+"2","omni","frame_002.png","scene_002.mp4","10","14","5.6","done","Begin exactly on the provided first frame (frame_002.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
 
 SHOT PLAN:
 SHOT 1 — 0.0 s to 3.5 s — medium shot: Nora steps off the ferry with one duffel bag, the town sign behind her.
 HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on the deed; the room falls quiet around it.
 HARD CUT at 6.9 s — SHOT 3 — low-angle hero shot: Nora Hale reacts, holding the moment before the next line.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [medium shot] Nora steps off the ferry with one duffel bag, the town sign behind her.
+  3.5s to 6.9s  [tight close-up] Close detail on the deed; the room falls quiet around it.
+  6.9s to 10.0s  [low-angle hero shot] Nora Hale reacts, holding the moment before the next line.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 SAM (dry, warm): ""Nora Hale. Ten years, and you still drive like the road owes you money.""
@@ -61,13 +73,19 @@ RULES:
 NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
 
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
-"3","frame_003.png","scene_003.mp4","10","pending","Begin exactly on the provided first frame (frame_003.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+"3","omni","frame_003.png","scene_003.mp4","10","14","5.6","done","Begin exactly on the provided first frame (frame_003.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
 
 SHOT PLAN:
 SHOT 1 — 0.0 s to 3.5 s — tight close-up: Sam leans against a harbor truck with his arms crossed, trying not to smile.
 HARD CUT at 3.5 s — SHOT 2 — medium shot: Close detail on fresh survey stakes; the room falls quiet around it.
 HARD CUT at 6.9 s — SHOT 3 — insert shot of the evidence object: Nora Hale reacts, holding the moment before the next line.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [tight close-up] Sam leans against a harbor truck with his arms crossed, trying not to smile.
+  3.5s to 6.9s  [medium shot] Close detail on fresh survey stakes; the room falls quiet around it.
+  6.9s to 10.0s  [insert shot of the evidence object] Nora Hale reacts, holding the moment before the next line.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 NORA (guarded): ""I inherited a lighthouse, Sam. Not a welcome party.""
@@ -93,13 +111,19 @@ RULES:
 NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
 
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
-"4","frame_004.png","scene_004.mp4","10","pending","Begin exactly on the provided first frame (frame_004.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+"4","omni","frame_004.png","scene_004.mp4","10","22","8.8","done","Begin exactly on the provided first frame (frame_004.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
 
 SHOT PLAN:
 SHOT 1 — 0.0 s to 3.5 s — over-the-shoulder shot: Nora sets a brass key on the lighthouse kitchen table between them.
 HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on the dead lighthouse lamp; the room falls quiet around it.
 HARD CUT at 6.9 s — SHOT 3 — wide establishing shot: Nora Hale reacts, holding the moment before the next line.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [over-the-shoulder shot] Nora sets a brass key on the lighthouse kitchen table between them.
+  3.5s to 6.9s  [tight close-up] Close detail on the dead lighthouse lamp; the room falls quiet around it.
+  6.9s to 10.0s  [wide establishing shot] Nora Hale reacts, holding the moment before the next line.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 SAM (flat): ""The Kellers already had surveyors on your land. Twice.""
@@ -125,13 +149,19 @@ RULES:
 NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
 
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
-"5","frame_005.png","scene_005.mp4","10","pending","Begin exactly on the provided first frame (frame_005.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+"5","omni","frame_005.png","scene_005.mp4","10","22","8.8","done","Begin exactly on the provided first frame (frame_005.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
 
 SHOT PLAN:
 SHOT 1 — 0.0 s to 3.5 s — low-angle hero shot: Sam points through the rain at fresh survey stakes driven into the cliff.
 HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on a brass key; the room falls quiet around it.
 HARD CUT at 6.9 s — SHOT 3 — over-the-shoulder shot: Nora Hale reacts, holding the moment before the next line.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [low-angle hero shot] Sam points through the rain at fresh survey stakes driven into the cliff.
+  3.5s to 6.9s  [tight close-up] Close detail on a brass key; the room falls quiet around it.
+  6.9s to 10.0s  [over-the-shoulder shot] Nora Hale reacts, holding the moment before the next line.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 MARGARET (silk over steel): ""Your father was a liar, dear. Sentiment won't change what the deed says.""
@@ -157,13 +187,19 @@ RULES:
 NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
 
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
-"6","frame_006.png","scene_006.mp4","10","pending","Begin exactly on the provided first frame (frame_006.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+"6","omni","frame_006.png","scene_006.mp4","10","27","10.8","done","Begin exactly on the provided first frame (frame_006.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
 
 SHOT PLAN:
 SHOT 1 — 0.0 s to 3.5 s — wide establishing shot: Margaret waits under the dry awning of the Keller estate, gloves folded.
 HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on the deed; the room falls quiet around it.
 HARD CUT at 6.9 s — SHOT 3 — low-angle hero shot: Nora Hale reacts, holding the moment before the next line.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [wide establishing shot] Margaret waits under the dry awning of the Keller estate, gloves folded.
+  3.5s to 6.9s  [tight close-up] Close detail on the deed; the room falls quiet around it.
+  6.9s to 10.0s  [low-angle hero shot] Nora Hale reacts, holding the moment before the next line.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 ADRIAN (reasonable, rehearsed): ""Sell us the point. Name your price and leave the past where it belongs.""
@@ -189,13 +225,19 @@ RULES:
 NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
 
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
-"7","frame_007.png","scene_007.mp4","10","pending","Begin exactly on the provided first frame (frame_007.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+"7","omni","frame_007.png","scene_007.mp4","10","22","8.8","done","Begin exactly on the provided first frame (frame_007.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
 
 SHOT PLAN:
 SHOT 1 — 0.0 s to 3.5 s — medium shot: Nora reads the deed by a single warm lamp, jaw tight.
 HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on fresh survey stakes; the room falls quiet around it.
 HARD CUT at 6.9 s — SHOT 3 — insert shot of the evidence object: Nora Hale reacts, holding the moment before the next line.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [medium shot] Nora reads the deed by a single warm lamp, jaw tight.
+  3.5s to 6.9s  [tight close-up] Close detail on fresh survey stakes; the room falls quiet around it.
+  6.9s to 10.0s  [insert shot of the evidence object] Nora Hale reacts, holding the moment before the next line.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 NORA (suspicious): ""You had ten years to buy this land. Why wait until I came back?""
@@ -221,13 +263,19 @@ RULES:
 NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
 
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
-"8","frame_008.png","scene_008.mp4","10","pending","Begin exactly on the provided first frame (frame_008.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+"8","omni","frame_008.png","scene_008.mp4","10","16","6.4","done","Begin exactly on the provided first frame (frame_008.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
 
 SHOT PLAN:
 SHOT 1 — 0.0 s to 3.5 s — tight close-up: Adrian blocks the lighthouse door with a folder under his arm.
 HARD CUT at 3.5 s — SHOT 2 — medium shot: Close detail on the dead lighthouse lamp; the room falls quiet around it.
 HARD CUT at 6.9 s — SHOT 3 — wide establishing shot: Nora Hale reacts, holding the moment before the next line.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [tight close-up] Adrian blocks the lighthouse door with a folder under his arm.
+  3.5s to 6.9s  [medium shot] Close detail on the dead lighthouse lamp; the room falls quiet around it.
+  6.9s to 10.0s  [wide establishing shot] Nora Hale reacts, holding the moment before the next line.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 CLAIRE (careful): ""Your father changed his will three days before he died. That's not nothing.""
@@ -253,13 +301,19 @@ RULES:
 NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
 
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
-"9","frame_009.png","scene_009.mp4","10","pending","Begin exactly on the provided first frame (frame_009.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+"9","omni","frame_009.png","scene_009.mp4","10","16","6.4","done","Begin exactly on the provided first frame (frame_009.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
 
 SHOT PLAN:
 SHOT 1 — 0.0 s to 3.5 s — over-the-shoulder shot: Nora stands alone on the point, the town lights small below her.
 HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on a brass key; the room falls quiet around it.
 HARD CUT at 6.9 s — SHOT 3 — insert shot of the evidence object: Nora Hale reacts, holding the moment before the next line.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [over-the-shoulder shot] Nora stands alone on the point, the town lights small below her.
+  3.5s to 6.9s  [tight close-up] Close detail on a brass key; the room falls quiet around it.
+  6.9s to 10.0s  [insert shot of the evidence object] Nora Hale reacts, holding the moment before the next line.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 CLAIRE (quiet): ""Margaret Keller's attorney. And a man named Sam.""
@@ -285,13 +339,19 @@ RULES:
 NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
 
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
-"10","frame_010.png","scene_010.mp4","10","pending","Begin exactly on the provided first frame (frame_010.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+"10","omni","frame_010.png","scene_010.mp4","10","16","6.4","done","Begin exactly on the provided first frame (frame_010.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
 
 SHOT PLAN:
 SHOT 1 — 0.0 s to 3.5 s — low-angle hero shot: Nora crouches at the lighthouse base, finding a keyhole hidden under peeling paint.
 HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on the deed; the room falls quiet around it.
 HARD CUT at 6.9 s — SHOT 3 — insert shot of the evidence object: Nora Hale reacts, holding the moment before the next line.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [low-angle hero shot] Nora crouches at the lighthouse base, finding a keyhole hidden under peeling paint.
+  3.5s to 6.9s  [tight close-up] Close detail on the deed; the room falls quiet around it.
+  6.9s to 10.0s  [insert shot of the evidence object] Nora Hale reacts, holding the moment before the next line.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 NORA (hushed): ""Dad... what did you lock in the lighthouse?""
@@ -317,13 +377,19 @@ RULES:
 NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
 
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
-"11","frame_011.png","scene_011.mp4","10","pending","Begin exactly on the provided first frame (frame_011.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+"11","omni","frame_011.png","scene_011.mp4","10","18","7.2","done","Begin exactly on the provided first frame (frame_011.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
 
 SHOT PLAN:
 SHOT 1 — 0.0 s to 3.5 s — medium shot: Claire slides a sealed envelope across the lawyer's desk.
 HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on the sealed petition; the room falls quiet around it.
 HARD CUT at 6.9 s — SHOT 3 — over-the-shoulder shot: Nora Hale reacts, holding the moment before the next line.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [medium shot] Claire slides a sealed envelope across the lawyer's desk.
+  3.5s to 6.9s  [tight close-up] Close detail on the sealed petition; the room falls quiet around it.
+  6.9s to 10.0s  [over-the-shoulder shot] Nora Hale reacts, holding the moment before the next line.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 CLAIRE (clinical): ""The petition says you're unfit to manage the trust. They want a guardian by Friday.""
@@ -349,13 +415,19 @@ RULES:
 NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
 
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
-"12","frame_012.png","scene_012.mp4","10","pending","Begin exactly on the provided first frame (frame_012.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+"12","omni","frame_012.png","scene_012.mp4","10","16","6.4","done","Begin exactly on the provided first frame (frame_012.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
 
 SHOT PLAN:
 SHOT 1 — 0.0 s to 3.5 s — tight close-up: Nora reads the witness signature and looks up slowly.
 HARD CUT at 3.5 s — SHOT 2 — medium shot: Close detail on a witness signature; the room falls quiet around it.
 HARD CUT at 6.9 s — SHOT 3 — low-angle hero shot: Nora Hale reacts, holding the moment before the next line.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [tight close-up] Nora reads the witness signature and looks up slowly.
+  3.5s to 6.9s  [medium shot] Close detail on a witness signature; the room falls quiet around it.
+  6.9s to 10.0s  [low-angle hero shot] Nora Hale reacts, holding the moment before the next line.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 NORA (sharp): ""Who signed the statement?""
@@ -382,13 +454,19 @@ RULES:
 NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
 
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
-"13","frame_013.png","scene_013.mp4","10","pending","Begin exactly on the provided first frame (frame_013.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+"13","omni","frame_013.png","scene_013.mp4","10","21","8.4","pending","Begin exactly on the provided first frame (frame_013.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
 
 SHOT PLAN:
 SHOT 1 — 0.0 s to 3.5 s — over-the-shoulder shot: Sam stands in the boathouse doorway, rain behind him.
 HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on a scorched beam; the room falls quiet around it.
 HARD CUT at 6.9 s — SHOT 3 — medium shot: Nora Hale reacts, holding the moment before the next line.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [over-the-shoulder shot] Sam stands in the boathouse doorway, rain behind him.
+  3.5s to 6.9s  [tight close-up] Close detail on a scorched beam; the room falls quiet around it.
+  6.9s to 10.0s  [medium shot] Nora Hale reacts, holding the moment before the next line.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 SAM (ashamed): ""I signed a paper. I didn't read it. I was twenty-two and scared.""
@@ -414,13 +492,19 @@ RULES:
 NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
 
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
-"14","frame_014.png","scene_014.mp4","10","pending","Begin exactly on the provided first frame (frame_014.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+"14","omni","frame_014.png","scene_014.mp4","10","20","8.0","pending","Begin exactly on the provided first frame (frame_014.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
 
 SHOT PLAN:
 SHOT 1 — 0.0 s to 3.5 s — low-angle hero shot: Nora sweeps a flashlight over scorched beams.
 HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on the survey map; the room falls quiet around it.
 HARD CUT at 6.9 s — SHOT 3 — wide establishing shot: Nora Hale reacts, holding the moment before the next line.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [low-angle hero shot] Nora sweeps a flashlight over scorched beams.
+  3.5s to 6.9s  [tight close-up] Close detail on the survey map; the room falls quiet around it.
+  6.9s to 10.0s  [wide establishing shot] Nora Hale reacts, holding the moment before the next line.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 SAM (low): ""The fire started in the boathouse, Nora. Not the cliffs.""
@@ -446,13 +530,19 @@ RULES:
 NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
 
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
-"15","frame_015.png","scene_015.mp4","10","pending","Begin exactly on the provided first frame (frame_015.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+"15","omni","frame_015.png","scene_015.mp4","10","27","10.8","pending","Begin exactly on the provided first frame (frame_015.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
 
 SHOT PLAN:
 SHOT 1 — 0.0 s to 3.5 s — wide establishing shot: Margaret pours tea without offering a cup.
 HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on the sealed petition; the room falls quiet around it.
 HARD CUT at 6.9 s — SHOT 3 — over-the-shoulder shot: Nora Hale reacts, holding the moment before the next line.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [wide establishing shot] Margaret pours tea without offering a cup.
+  3.5s to 6.9s  [tight close-up] Close detail on the sealed petition; the room falls quiet around it.
+  6.9s to 10.0s  [over-the-shoulder shot] Nora Hale reacts, holding the moment before the next line.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 MARGARET (pleasant threat): ""If you reopen that investigation, I'll make sure the town remembers who lit the match.""
@@ -478,13 +568,19 @@ RULES:
 NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
 
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
-"16","frame_016.png","scene_016.mp4","10","pending","Begin exactly on the provided first frame (frame_016.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+"16","omni","frame_016.png","scene_016.mp4","10","17","6.8","pending","Begin exactly on the provided first frame (frame_016.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
 
 SHOT PLAN:
 SHOT 1 — 0.0 s to 3.5 s — medium shot: Nora stands in the town hall doorway as every head turns.
 HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on a witness signature; the room falls quiet around it.
 HARD CUT at 6.9 s — SHOT 3 — low-angle hero shot: Nora Hale reacts, holding the moment before the next line.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [medium shot] Nora stands in the town hall doorway as every head turns.
+  3.5s to 6.9s  [tight close-up] Close detail on a witness signature; the room falls quiet around it.
+  6.9s to 10.0s  [low-angle hero shot] Nora Hale reacts, holding the moment before the next line.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 NORA (precise): ""A debt doesn't transfer with land, Adrian. But fraud does.""
@@ -510,13 +606,19 @@ RULES:
 NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
 
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
-"17","frame_017.png","scene_017.mp4","10","pending","Begin exactly on the provided first frame (frame_017.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+"17","omni","frame_017.png","scene_017.mp4","10","19","7.6","pending","Begin exactly on the provided first frame (frame_017.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
 
 SHOT PLAN:
 SHOT 1 — 0.0 s to 3.5 s — tight close-up: Adrian corners Nora by the harbor railing.
 HARD CUT at 3.5 s — SHOT 2 — medium shot: Close detail on a scorched beam; the room falls quiet around it.
 HARD CUT at 6.9 s — SHOT 3 — insert shot of the evidence object: Nora Hale reacts, holding the moment before the next line.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [tight close-up] Adrian corners Nora by the harbor railing.
+  3.5s to 6.9s  [medium shot] Close detail on a scorched beam; the room falls quiet around it.
+  6.9s to 10.0s  [insert shot of the evidence object] Nora Hale reacts, holding the moment before the next line.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 SAM (urgent): ""The old survey files are in the boathouse. What's left of them.""
@@ -542,13 +644,19 @@ RULES:
 NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
 
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
-"18","frame_018.png","scene_018.mp4","10","pending","Begin exactly on the provided first frame (frame_018.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+"18","omni","frame_018.png","scene_018.mp4","10","18","7.2","pending","Begin exactly on the provided first frame (frame_018.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
 
 SHOT PLAN:
 SHOT 1 — 0.0 s to 3.5 s — over-the-shoulder shot: Nora stares at a survey map pinned to the boathouse wall.
 HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on the survey map; the room falls quiet around it.
 HARD CUT at 6.9 s — SHOT 3 — wide establishing shot: Nora Hale reacts, holding the moment before the next line.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [over-the-shoulder shot] Nora stares at a survey map pinned to the boathouse wall.
+  3.5s to 6.9s  [tight close-up] Close detail on the survey map; the room falls quiet around it.
+  6.9s to 10.0s  [wide establishing shot] Nora Hale reacts, holding the moment before the next line.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 SAM (dry): ""You always did like a bad idea with good lighting.""
@@ -574,13 +682,19 @@ RULES:
 NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
 
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
-"19","frame_019.png","scene_019.mp4","10","pending","Begin exactly on the provided first frame (frame_019.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+"19","omni","frame_019.png","scene_019.mp4","10","17","6.8","pending","Begin exactly on the provided first frame (frame_019.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
 
 SHOT PLAN:
 SHOT 1 — 0.0 s to 3.5 s — low-angle hero shot: Sam watches Nora from across the dock, unable to speak.
 HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on the sealed petition; the room falls quiet around it.
 HARD CUT at 6.9 s — SHOT 3 — over-the-shoulder shot: Nora Hale reacts, holding the moment before the next line.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [low-angle hero shot] Sam watches Nora from across the dock, unable to speak.
+  3.5s to 6.9s  [tight close-up] Close detail on the sealed petition; the room falls quiet around it.
+  6.9s to 10.0s  [over-the-shoulder shot] Nora Hale reacts, holding the moment before the next line.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 NORA (shaking): ""There. Seawall permits. Signed by Margaret. Dated before the fire.""
@@ -606,13 +720,19 @@ RULES:
 NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
 
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
-"20","frame_020.png","scene_020.mp4","10","pending","Begin exactly on the provided first frame (frame_020.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+"20","omni","frame_020.png","scene_020.mp4","10","28","11.2","pending","Begin exactly on the provided first frame (frame_020.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
 
 SHOT PLAN:
 SHOT 1 — 0.0 s to 3.5 s — wide establishing shot: Adrian holds the lighthouse door open, waiting.
 HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on a witness signature; the room falls quiet around it.
 HARD CUT at 6.9 s — SHOT 3 — low-angle hero shot: Nora Hale reacts, holding the moment before the next line.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [wide establishing shot] Adrian holds the lighthouse door open, waiting.
+  3.5s to 6.9s  [tight close-up] Close detail on a witness signature; the room falls quiet around it.
+  6.9s to 10.0s  [low-angle hero shot] Nora Hale reacts, holding the moment before the next line.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 ADRIAN (reasonable): ""Give me the file and I'll tell the town the fire was an accident.""
@@ -639,13 +759,19 @@ RULES:
 NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
 
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
-"21","frame_021.png","scene_021.mp4","10","pending","Begin exactly on the provided first frame (frame_021.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+"21","omni","frame_021.png","scene_021.mp4","10","16","6.4","pending","Begin exactly on the provided first frame (frame_021.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
 
 SHOT PLAN:
 SHOT 1 — 0.0 s to 3.5 s — tight close-up: Nora spreads water-stained survey files across the lighthouse floor.
 HARD CUT at 3.5 s — SHOT 2 — medium shot: Close detail on the metal evidence box; the room falls quiet around it.
 HARD CUT at 6.9 s — SHOT 3 — over-the-shoulder shot: Nora Hale reacts, holding the moment before the next line.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [tight close-up] Nora spreads water-stained survey files across the lighthouse floor.
+  3.5s to 6.9s  [medium shot] Close detail on the metal evidence box; the room falls quiet around it.
+  6.9s to 10.0s  [over-the-shoulder shot] Nora Hale reacts, holding the moment before the next line.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 ADRIAN (incredulous): ""You'd rather be the arsonist than my alibi?""
@@ -671,13 +797,19 @@ RULES:
 NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
 
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
-"22","frame_022.png","scene_022.mp4","10","pending","Begin exactly on the provided first frame (frame_022.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+"22","omni","frame_022.png","scene_022.mp4","10","17","6.8","pending","Begin exactly on the provided first frame (frame_022.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
 
 SHOT PLAN:
 SHOT 1 — 0.0 s to 3.5 s — over-the-shoulder shot: Sam jimmies the boathouse lock with a pry bar.
 HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on the seawall permit; the room falls quiet around it.
 HARD CUT at 6.9 s — SHOT 3 — low-angle hero shot: Nora Hale reacts, holding the moment before the next line.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [over-the-shoulder shot] Sam jimmies the boathouse lock with a pry bar.
+  3.5s to 6.9s  [tight close-up] Close detail on the seawall permit; the room falls quiet around it.
+  6.9s to 10.0s  [low-angle hero shot] Nora Hale reacts, holding the moment before the next line.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 MARGARET (satisfied): ""The trust is frozen. Emergency petition. Effective this morning.""
@@ -704,13 +836,19 @@ RULES:
 NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
 
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
-"23","frame_023.png","scene_023.mp4","10","pending","Begin exactly on the provided first frame (frame_023.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+"23","omni","frame_023.png","scene_023.mp4","10","18","7.2","pending","Begin exactly on the provided first frame (frame_023.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
 
 SHOT PLAN:
 SHOT 1 — 0.0 s to 3.5 s — low-angle hero shot: Nora's flashlight beam catches a metal box under the floorboards.
 HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on a folded page; the room falls quiet around it.
 HARD CUT at 6.9 s — SHOT 3 — medium shot: Nora Hale reacts, holding the moment before the next line.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [low-angle hero shot] Nora's flashlight beam catches a metal box under the floorboards.
+  3.5s to 6.9s  [tight close-up] Close detail on a folded page; the room falls quiet around it.
+  6.9s to 10.0s  [medium shot] Nora Hale reacts, holding the moment before the next line.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 CLAIRE (gentle): ""One of the statements is from Sam.""
@@ -736,13 +874,19 @@ RULES:
 NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
 
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
-"24","frame_024.png","scene_024.mp4","10","pending","Begin exactly on the provided first frame (frame_024.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+"24","omni","frame_024.png","scene_024.mp4","10","18","7.2","pending","Begin exactly on the provided first frame (frame_024.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
 
 SHOT PLAN:
 SHOT 1 — 0.0 s to 3.5 s — wide establishing shot: Sam watches Nora read the permits, his face falling.
 HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on a diner coffee cup; the room falls quiet around it.
 HARD CUT at 6.9 s — SHOT 3 — insert shot of the evidence object: Nora Hale reacts, holding the moment before the next line.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [wide establishing shot] Sam watches Nora read the permits, his face falling.
+  3.5s to 6.9s  [tight close-up] Close detail on a diner coffee cup; the room falls quiet around it.
+  6.9s to 10.0s  [insert shot of the evidence object] Nora Hale reacts, holding the moment before the next line.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 SAM (broken): ""They threatened my sister's job. I'm sorry.""
@@ -769,13 +913,19 @@ RULES:
 NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
 
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
-"25","frame_025.png","scene_025.mp4","10","pending","Begin exactly on the provided first frame (frame_025.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+"25","omni","frame_025.png","scene_025.mp4","10","18","7.2","pending","Begin exactly on the provided first frame (frame_025.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
 
 SHOT PLAN:
 SHOT 1 — 0.0 s to 3.5 s — medium shot: Nora holds a permit signed by Margaret, dated before the fire.
 HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on the metal evidence box; the room falls quiet around it.
 HARD CUT at 6.9 s — SHOT 3 — over-the-shoulder shot: Nora Hale reacts, holding the moment before the next line.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [medium shot] Nora holds a permit signed by Margaret, dated before the fire.
+  3.5s to 6.9s  [tight close-up] Close detail on the metal evidence box; the room falls quiet around it.
+  6.9s to 10.0s  [over-the-shoulder shot] Nora Hale reacts, holding the moment before the next line.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 ADRIAN (reasonable): ""Sign the sale. I'll make the petition disappear.""
@@ -802,13 +952,19 @@ RULES:
 NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
 
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
-"26","frame_026.png","scene_026.mp4","10","pending","Begin exactly on the provided first frame (frame_026.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+"26","omni","frame_026.png","scene_026.mp4","10","17","6.8","pending","Begin exactly on the provided first frame (frame_026.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
 
 SHOT PLAN:
 SHOT 1 — 0.0 s to 3.5 s — tight close-up: Nora and Sam stand close in the archive, the file between them.
 HARD CUT at 3.5 s — SHOT 2 — medium shot: Close detail on the seawall permit; the room falls quiet around it.
 HARD CUT at 6.9 s — SHOT 3 — low-angle hero shot: Nora Hale reacts, holding the moment before the next line.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [tight close-up] Nora and Sam stand close in the archive, the file between them.
+  3.5s to 6.9s  [medium shot] Close detail on the seawall permit; the room falls quiet around it.
+  6.9s to 10.0s  [low-angle hero shot] Nora Hale reacts, holding the moment before the next line.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 NORA (realizing): ""Lighthouses keep logs. Every ship, every storm, every night.""
@@ -834,13 +990,19 @@ RULES:
 NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
 
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
-"27","frame_027.png","scene_027.mp4","10","pending","Begin exactly on the provided first frame (frame_027.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+"27","omni","frame_027.png","scene_027.mp4","10","19","7.6","pending","Begin exactly on the provided first frame (frame_027.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
 
 SHOT PLAN:
 SHOT 1 — 0.0 s to 3.5 s — over-the-shoulder shot: Adrian waits in a diner booth across from Nora.
 HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on a folded page; the room falls quiet around it.
 HARD CUT at 6.9 s — SHOT 3 — medium shot: Nora Hale reacts, holding the moment before the next line.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [over-the-shoulder shot] Adrian waits in a diner booth across from Nora.
+  3.5s to 6.9s  [tight close-up] Close detail on a folded page; the room falls quiet around it.
+  6.9s to 10.0s  [medium shot] Nora Hale reacts, holding the moment before the next line.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 NORA (urgent): ""Including the night of the fire. And the boat that left at two a.m.""
@@ -866,13 +1028,19 @@ RULES:
 NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
 
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
-"28","frame_028.png","scene_028.mp4","10","pending","Begin exactly on the provided first frame (frame_028.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+"28","omni","frame_028.png","scene_028.mp4","10","19","7.6","pending","Begin exactly on the provided first frame (frame_028.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
 
 SHOT PLAN:
 SHOT 1 — 0.0 s to 3.5 s — low-angle hero shot: Nora slides the file across the table, keeping one page back.
 HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on a diner coffee cup; the room falls quiet around it.
 HARD CUT at 6.9 s — SHOT 3 — wide establishing shot: Nora Hale reacts, holding the moment before the next line.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [low-angle hero shot] Nora slides the file across the table, keeping one page back.
+  3.5s to 6.9s  [tight close-up] Close detail on a diner coffee cup; the room falls quiet around it.
+  6.9s to 10.0s  [wide establishing shot] Nora Hale reacts, holding the moment before the next line.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 NORA (quiet): ""No. That's Margaret's launch. With Adrian at the helm.""
@@ -899,13 +1067,19 @@ RULES:
 NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
 
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
-"29","frame_029.png","scene_029.mp4","10","pending","Begin exactly on the provided first frame (frame_029.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+"29","omni","frame_029.png","scene_029.mp4","10","20","8.0","pending","Begin exactly on the provided first frame (frame_029.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
 
 SHOT PLAN:
 SHOT 1 — 0.0 s to 3.5 s — wide establishing shot: Adrian leans in, his hand covering hers.
 HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on the metal evidence box; the room falls quiet around it.
 HARD CUT at 6.9 s — SHOT 3 — over-the-shoulder shot: Nora Hale reacts, holding the moment before the next line.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [wide establishing shot] Adrian leans in, his hand covering hers.
+  3.5s to 6.9s  [tight close-up] Close detail on the metal evidence box; the room falls quiet around it.
+  6.9s to 10.0s  [over-the-shoulder shot] Nora Hale reacts, holding the moment before the next line.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 ADRIAN (amused): ""You think a notebook beats a town full of witnesses?""
@@ -931,13 +1105,19 @@ RULES:
 NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
 
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
-"30","frame_030.png","scene_030.mp4","10","pending","Begin exactly on the provided first frame (frame_030.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+"30","omni","frame_030.png","scene_030.mp4","10","23","9.2","pending","Begin exactly on the provided first frame (frame_030.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
 
 SHOT PLAN:
 SHOT 1 — 0.0 s to 3.5 s — medium shot: Nora stands alone in the lamp room, the file in her hands.
 HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on the seawall permit; the room falls quiet around it.
 HARD CUT at 6.9 s — SHOT 3 — low-angle hero shot: Nora Hale reacts, holding the moment before the next line.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [medium shot] Nora stands alone in the lamp room, the file in her hands.
+  3.5s to 6.9s  [tight close-up] Close detail on the seawall permit; the room falls quiet around it.
+  6.9s to 10.0s  [low-angle hero shot] Nora Hale reacts, holding the moment before the next line.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 MARGARET (tired): ""Name your price, Nora. One last time.""
@@ -964,13 +1144,19 @@ RULES:
 NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
 
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
-"31","frame_031.png","scene_031.mp4","10","pending","Begin exactly on the provided first frame (frame_031.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+"31","omni","frame_031.png","scene_031.mp4","10","19","7.6","pending","Begin exactly on the provided first frame (frame_031.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
 
 SHOT PLAN:
 SHOT 1 — 0.0 s to 3.5 s — over-the-shoulder shot: Rain hammers the town hall windows as Nora faces the panel.
 HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on the emergency petition; the room falls quiet around it.
 HARD CUT at 6.9 s — SHOT 3 — insert shot of the evidence object: Nora Hale reacts, holding the moment before the next line.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [over-the-shoulder shot] Rain hammers the town hall windows as Nora faces the panel.
+  3.5s to 6.9s  [tight close-up] Close detail on the emergency petition; the room falls quiet around it.
+  6.9s to 10.0s  [insert shot of the evidence object] Nora Hale reacts, holding the moment before the next line.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 NORA (steady): ""I'd rather lose the house than let you keep my father's name.""
@@ -996,13 +1182,19 @@ RULES:
 NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
 
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
-"32","frame_032.png","scene_032.mp4","10","pending","Begin exactly on the provided first frame (frame_032.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+"32","omni","frame_032.png","scene_032.mp4","10","14","5.6","pending","Begin exactly on the provided first frame (frame_032.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
 
 SHOT PLAN:
 SHOT 1 — 0.0 s to 3.5 s — low-angle hero shot: Margaret sits perfectly still in the front row.
 HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on a statement form; the room falls quiet around it.
 HARD CUT at 6.9 s — SHOT 3 — insert shot of the evidence object: Nora Hale reacts, holding the moment before the next line.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [low-angle hero shot] Margaret sits perfectly still in the front row.
+  3.5s to 6.9s  [tight close-up] Close detail on a statement form; the room falls quiet around it.
+  6.9s to 10.0s  [insert shot of the evidence object] Nora Hale reacts, holding the moment before the next line.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 CLAIRE (nervous): ""The hearing is packed. Half the town came.""
@@ -1028,13 +1220,19 @@ RULES:
 NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
 
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
-"33","frame_033.png","scene_033.mp4","10","pending","Begin exactly on the provided first frame (frame_033.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+"33","omni","frame_033.png","scene_033.mp4","10","25","10.0","pending","Begin exactly on the provided first frame (frame_033.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
 
 SHOT PLAN:
 SHOT 1 — 0.0 s to 3.5 s — wide establishing shot: Claire reads the emergency petition aloud.
 HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on the harbor logbook; the room falls quiet around it.
 HARD CUT at 6.9 s — SHOT 3 — medium shot: Nora Hale reacts, holding the moment before the next line.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [wide establishing shot] Claire reads the emergency petition aloud.
+  3.5s to 6.9s  [tight close-up] Close detail on the harbor logbook; the room falls quiet around it.
+  6.9s to 10.0s  [medium shot] Nora Hale reacts, holding the moment before the next line.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 SAM (low): ""Nora. Whatever happens in there... I should have told you the truth ten years ago.""
@@ -1060,13 +1258,19 @@ RULES:
 NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
 
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
-"34","frame_034.png","scene_034.mp4","10","pending","Begin exactly on the provided first frame (frame_034.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+"34","omni","frame_034.png","scene_034.mp4","10","21","8.4","pending","Begin exactly on the provided first frame (frame_034.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
 
 SHOT PLAN:
 SHOT 1 — 0.0 s to 3.5 s — medium shot: Nora stands in the empty lighthouse, the lamp cold above her.
 HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on the cold lamp; the room falls quiet around it.
 HARD CUT at 6.9 s — SHOT 3 — wide establishing shot: Nora Hale reacts, holding the moment before the next line.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [medium shot] Nora stands in the empty lighthouse, the lamp cold above her.
+  3.5s to 6.9s  [tight close-up] Close detail on the cold lamp; the room falls quiet around it.
+  6.9s to 10.0s  [wide establishing shot] Nora Hale reacts, holding the moment before the next line.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 SAM (public, shaking): ""I signed a false statement. Margaret Keller wrote it. I was paid to stay quiet.""
@@ -1092,13 +1296,19 @@ RULES:
 NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
 
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
-"35","frame_035.png","scene_035.mp4","10","pending","Begin exactly on the provided first frame (frame_035.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+"35","omni","frame_035.png","scene_035.mp4","10","16","6.4","pending","Begin exactly on the provided first frame (frame_035.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
 
 SHOT PLAN:
 SHOT 1 — 0.0 s to 3.5 s — tight close-up: Sam signs a statement at the harbor office, hand shaking.
 HARD CUT at 3.5 s — SHOT 2 — medium shot: Close detail on the emergency petition; the room falls quiet around it.
 HARD CUT at 6.9 s — SHOT 3 — over-the-shoulder shot: Nora Hale reacts, holding the moment before the next line.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [tight close-up] Sam signs a statement at the harbor office, hand shaking.
+  3.5s to 6.9s  [medium shot] Close detail on the emergency petition; the room falls quiet around it.
+  6.9s to 10.0s  [over-the-shoulder shot] Nora Hale reacts, holding the moment before the next line.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 NORA (calm): ""Then let's hear from someone who can't be bought.""
@@ -1125,13 +1335,19 @@ RULES:
 NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
 
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
-"36","frame_036.png","scene_036.mp4","10","pending","Begin exactly on the provided first frame (frame_036.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+"36","omni","frame_036.png","scene_036.mp4","10","22","8.8","pending","Begin exactly on the provided first frame (frame_036.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
 
 SHOT PLAN:
 SHOT 1 — 0.0 s to 3.5 s — over-the-shoulder shot: Nora listens through a half-open door, unseen.
 HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on a statement form; the room falls quiet around it.
 HARD CUT at 6.9 s — SHOT 3 — low-angle hero shot: Nora Hale reacts, holding the moment before the next line.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [over-the-shoulder shot] Nora listens through a half-open door, unseen.
+  3.5s to 6.9s  [tight close-up] Close detail on a statement form; the room falls quiet around it.
+  6.9s to 10.0s  [low-angle hero shot] Nora Hale reacts, holding the moment before the next line.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 NORA (precise): ""The harbor log. 2:14 a.m. Keller launch. Adrian at the helm.""
@@ -1157,13 +1373,19 @@ RULES:
 NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
 
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
-"37","frame_037.png","scene_037.mp4","10","pending","Begin exactly on the provided first frame (frame_037.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+"37","omni","frame_037.png","scene_037.mp4","10","28","11.2","pending","Begin exactly on the provided first frame (frame_037.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
 
 SHOT PLAN:
 SHOT 1 — 0.0 s to 3.5 s — low-angle hero shot: Nora walks the storm beach alone, hair plastered to her face.
 HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on the harbor logbook; the room falls quiet around it.
 HARD CUT at 6.9 s — SHOT 3 — medium shot: Nora Hale reacts, holding the moment before the next line.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [low-angle hero shot] Nora walks the storm beach alone, hair plastered to her face.
+  3.5s to 6.9s  [tight close-up] Close detail on the harbor logbook; the room falls quiet around it.
+  6.9s to 10.0s  [medium shot] Nora Hale reacts, holding the moment before the next line.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 NORA (quiet): ""2:14 a.m. One passenger. Margaret.""
@@ -1190,13 +1412,19 @@ RULES:
 NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
 
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
-"38","frame_038.png","scene_038.mp4","10","pending","Begin exactly on the provided first frame (frame_038.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+"38","omni","frame_038.png","scene_038.mp4","10","21","8.4","pending","Begin exactly on the provided first frame (frame_038.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
 
 SHOT PLAN:
 SHOT 1 — 0.0 s to 3.5 s — wide establishing shot: Adrian waits in her kitchen with the sale papers.
 HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on the cold lamp; the room falls quiet around it.
 HARD CUT at 6.9 s — SHOT 3 — insert shot of the evidence object: Nora Hale reacts, holding the moment before the next line.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [wide establishing shot] Adrian waits in her kitchen with the sale papers.
+  3.5s to 6.9s  [tight close-up] Close detail on the cold lamp; the room falls quiet around it.
+  6.9s to 10.0s  [insert shot of the evidence object] Nora Hale reacts, holding the moment before the next line.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 NORA (cold): ""You didn't scare him. You killed the only man who could prove it.""
@@ -1222,13 +1450,19 @@ RULES:
 NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
 
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
-"39","frame_039.png","scene_039.mp4","10","pending","Begin exactly on the provided first frame (frame_039.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+"39","omni","frame_039.png","scene_039.mp4","10","11","4.4","pending","Begin exactly on the provided first frame (frame_039.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
 
 SHOT PLAN:
 SHOT 1 — 0.0 s to 3.5 s — medium shot: Nora stares into the lighthouse lens, thinking.
 HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on the emergency petition; the room falls quiet around it.
 HARD CUT at 6.9 s — SHOT 3 — over-the-shoulder shot: Nora Hale reacts, holding the moment before the next line.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [medium shot] Nora stares into the lighthouse lens, thinking.
+  3.5s to 6.9s  [tight close-up] Close detail on the emergency petition; the room falls quiet around it.
+  6.9s to 10.0s  [over-the-shoulder shot] Nora Hale reacts, holding the moment before the next line.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 NORA (sharp): ""Then who was in the boathouse with him?""
@@ -1254,13 +1488,19 @@ RULES:
 NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
 
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
-"40","frame_040.png","scene_040.mp4","10","pending","Begin exactly on the provided first frame (frame_040.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+"40","omni","frame_040.png","scene_040.mp4","10","21","8.4","pending","Begin exactly on the provided first frame (frame_040.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
 
 SHOT PLAN:
 SHOT 1 — 0.0 s to 3.5 s — tight close-up: Nora finds an old harbor logbook behind the lens housing.
 HARD CUT at 3.5 s — SHOT 2 — medium shot: Close detail on a statement form; the room falls quiet around it.
 HARD CUT at 6.9 s — SHOT 3 — low-angle hero shot: Nora Hale reacts, holding the moment before the next line.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [tight close-up] Nora finds an old harbor logbook behind the lens housing.
+  3.5s to 6.9s  [medium shot] Close detail on a statement form; the room falls quiet around it.
+  6.9s to 10.0s  [low-angle hero shot] Nora Hale reacts, holding the moment before the next line.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 NORA (hushed): ""The harbor log. Every boat, every night. Dad, what did you see?""
@@ -1286,13 +1526,19 @@ RULES:
 NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
 
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
-"41","frame_041.png","scene_041.mp4","10","pending","Begin exactly on the provided first frame (frame_041.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+"41","omni","frame_041.png","scene_041.mp4","10","20","8.0","pending","Begin exactly on the provided first frame (frame_041.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
 
 SHOT PLAN:
 SHOT 1 — 0.0 s to 3.5 s — low-angle hero shot: Nora opens the logbook on the lighthouse table, pages brittle.
 HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on the harbor log; the room falls quiet around it.
 HARD CUT at 6.9 s — SHOT 3 — over-the-shoulder shot: Nora Hale reacts, holding the moment before the next line.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [low-angle hero shot] Nora opens the logbook on the lighthouse table, pages brittle.
+  3.5s to 6.9s  [tight close-up] Close detail on the harbor log; the room falls quiet around it.
+  6.9s to 10.0s  [over-the-shoulder shot] Nora Hale reacts, holding the moment before the next line.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 NORA (focused): ""Every keeper signs the log. Date, time, weather. No exceptions.""
@@ -1319,13 +1565,19 @@ RULES:
 NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
 
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
-"42","frame_042.png","scene_042.mp4","10","pending","Begin exactly on the provided first frame (frame_042.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+"42","omni","frame_042.png","scene_042.mp4","10","20","8.0","pending","Begin exactly on the provided first frame (frame_042.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
 
 SHOT PLAN:
 SHOT 1 — 0.0 s to 3.5 s — wide establishing shot: Nora and Sam compare timestamps under a desk lamp.
 HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on a torn page; the room falls quiet around it.
 HARD CUT at 6.9 s — SHOT 3 — low-angle hero shot: Nora Hale reacts, holding the moment before the next line.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [wide establishing shot] Nora and Sam compare timestamps under a desk lamp.
+  3.5s to 6.9s  [tight close-up] Close detail on a torn page; the room falls quiet around it.
+  6.9s to 10.0s  [low-angle hero shot] Nora Hale reacts, holding the moment before the next line.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 SAM (grim): ""The page from that night is torn out.""
@@ -1351,13 +1603,19 @@ RULES:
 NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
 
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
-"43","frame_043.png","scene_043.mp4","10","pending","Begin exactly on the provided first frame (frame_043.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+"43","omni","frame_043.png","scene_043.mp4","10","19","7.6","pending","Begin exactly on the provided first frame (frame_043.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
 
 SHOT PLAN:
 SHOT 1 — 0.0 s to 3.5 s — medium shot: Nora traces a line in the log with her finger.
 HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on a timestamp; the room falls quiet around it.
 HARD CUT at 6.9 s — SHOT 3 — insert shot of the evidence object: Nora Hale reacts, holding the moment before the next line.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [medium shot] Nora traces a line in the log with her finger.
+  3.5s to 6.9s  [tight close-up] Close detail on a timestamp; the room falls quiet around it.
+  6.9s to 10.0s  [insert shot of the evidence object] Nora Hale reacts, holding the moment before the next line.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 NORA (urgent): ""2:14 a.m. Keller launch. Two passengers, not one.""
@@ -1384,13 +1642,19 @@ RULES:
 NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
 
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
-"44","frame_044.png","scene_044.mp4","10","pending","Begin exactly on the provided first frame (frame_044.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+"44","omni","frame_044.png","scene_044.mp4","10","21","8.4","pending","Begin exactly on the provided first frame (frame_044.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
 
 SHOT PLAN:
 SHOT 1 — 0.0 s to 3.5 s — tight close-up: Sam reads over her shoulder, close enough to touch.
 HARD CUT at 3.5 s — SHOT 2 — medium shot: Close detail on the town hall steps; the room falls quiet around it.
 HARD CUT at 6.9 s — SHOT 3 — wide establishing shot: Nora Hale reacts, holding the moment before the next line.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [tight close-up] Sam reads over her shoulder, close enough to touch.
+  3.5s to 6.9s  [medium shot] Close detail on the town hall steps; the room falls quiet around it.
+  6.9s to 10.0s  [wide establishing shot] Nora Hale reacts, holding the moment before the next line.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 SAM (stunned): ""Your mother's name.""
@@ -1417,13 +1681,19 @@ RULES:
 NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
 
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
-"45","frame_045.png","scene_045.mp4","10","pending","Begin exactly on the provided first frame (frame_045.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+"45","omni","frame_045.png","scene_045.mp4","10","18","7.2","pending","Begin exactly on the provided first frame (frame_045.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
 
 SHOT PLAN:
 SHOT 1 — 0.0 s to 3.5 s — over-the-shoulder shot: Nora looks up at Sam, a decision forming.
 HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on the harbor log; the room falls quiet around it.
 HARD CUT at 6.9 s — SHOT 3 — insert shot of the evidence object: Nora Hale reacts, holding the moment before the next line.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [over-the-shoulder shot] Nora looks up at Sam, a decision forming.
+  3.5s to 6.9s  [tight close-up] Close detail on the harbor log; the room falls quiet around it.
+  6.9s to 10.0s  [insert shot of the evidence object] Nora Hale reacts, holding the moment before the next line.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 NORA (shaking): ""Every year. In cash. Under my mother's maiden name.""
@@ -1449,13 +1719,19 @@ RULES:
 NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
 
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
-"46","frame_046.png","scene_046.mp4","10","pending","Begin exactly on the provided first frame (frame_046.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+"46","omni","frame_046.png","scene_046.mp4","10","20","8.0","pending","Begin exactly on the provided first frame (frame_046.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
 
 SHOT PLAN:
 SHOT 1 — 0.0 s to 3.5 s — low-angle hero shot: Adrian stands on the town hall steps, trying to smile.
 HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on a torn page; the room falls quiet around it.
 HARD CUT at 6.9 s — SHOT 3 — insert shot of the evidence object: Nora Hale reacts, holding the moment before the next line.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [low-angle hero shot] Adrian stands on the town hall steps, trying to smile.
+  3.5s to 6.9s  [tight close-up] Close detail on a torn page; the room falls quiet around it.
+  6.9s to 10.0s  [insert shot of the evidence object] Nora Hale reacts, holding the moment before the next line.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 ADRIAN (reasonable): ""The hearing is tomorrow. You have one night to change your mind.""
@@ -1481,13 +1757,19 @@ RULES:
 NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
 
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
-"47","frame_047.png","scene_047.mp4","10","pending","Begin exactly on the provided first frame (frame_047.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+"47","omni","frame_047.png","scene_047.mp4","10","18","7.2","pending","Begin exactly on the provided first frame (frame_047.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
 
 SHOT PLAN:
 SHOT 1 — 0.0 s to 3.5 s — wide establishing shot: Nora walks past him without stopping.
 HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on a timestamp; the room falls quiet around it.
 HARD CUT at 6.9 s — SHOT 3 — medium shot: Nora Hale reacts, holding the moment before the next line.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [wide establishing shot] Nora walks past him without stopping.
+  3.5s to 6.9s  [tight close-up] Close detail on a timestamp; the room falls quiet around it.
+  6.9s to 10.0s  [medium shot] Nora Hale reacts, holding the moment before the next line.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 MARGARET (controlled): ""You've made your point. Name a number.""
@@ -1513,13 +1795,19 @@ RULES:
 NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
 
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
-"48","frame_048.png","scene_048.mp4","10","pending","Begin exactly on the provided first frame (frame_048.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+"48","omni","frame_048.png","scene_048.mp4","10","24","9.6","pending","Begin exactly on the provided first frame (frame_048.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
 
 SHOT PLAN:
 SHOT 1 — 0.0 s to 3.5 s — medium shot: Margaret waits in the hall, gloves in hand.
 HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on the town hall steps; the room falls quiet around it.
 HARD CUT at 6.9 s — SHOT 3 — wide establishing shot: Nora Hale reacts, holding the moment before the next line.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [medium shot] Margaret waits in the hall, gloves in hand.
+  3.5s to 6.9s  [tight close-up] Close detail on the town hall steps; the room falls quiet around it.
+  6.9s to 10.0s  [wide establishing shot] Nora Hale reacts, holding the moment before the next line.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 CLAIRE (worried): ""If you present that log, the town will turn on the Kellers. And on your mother.""
@@ -1545,13 +1833,19 @@ RULES:
 NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
 
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
-"49","frame_049.png","scene_049.mp4","10","pending","Begin exactly on the provided first frame (frame_049.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+"49","omni","frame_049.png","scene_049.mp4","10","19","7.6","pending","Begin exactly on the provided first frame (frame_049.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
 
 SHOT PLAN:
 SHOT 1 — 0.0 s to 3.5 s — tight close-up: Nora faces Margaret on the empty hearing floor.
 HARD CUT at 3.5 s — SHOT 2 — medium shot: Close detail on the harbor log; the room falls quiet around it.
 HARD CUT at 6.9 s — SHOT 3 — over-the-shoulder shot: Nora Hale reacts, holding the moment before the next line.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [tight close-up] Nora faces Margaret on the empty hearing floor.
+  3.5s to 6.9s  [medium shot] Close detail on the harbor log; the room falls quiet around it.
+  6.9s to 10.0s  [over-the-shoulder shot] Nora Hale reacts, holding the moment before the next line.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 NORA (vulnerable): ""Whatever they say about me tomorrow, I want you to hear it from me first.""
@@ -1577,13 +1871,19 @@ RULES:
 NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
 
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
-"50","frame_050.png","scene_050.mp4","10","pending","Begin exactly on the provided first frame (frame_050.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+"50","omni","frame_050.png","scene_050.mp4","10","23","9.2","pending","Begin exactly on the provided first frame (frame_050.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
 
 SHOT PLAN:
 SHOT 1 — 0.0 s to 3.5 s — over-the-shoulder shot: Nora stands at the lighthouse door as the town lights come on.
 HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on a torn page; the room falls quiet around it.
 HARD CUT at 6.9 s — SHOT 3 — low-angle hero shot: Nora Hale reacts, holding the moment before the next line.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [over-the-shoulder shot] Nora stands at the lighthouse door as the town lights come on.
+  3.5s to 6.9s  [tight close-up] Close detail on a torn page; the room falls quiet around it.
+  6.9s to 10.0s  [low-angle hero shot] Nora Hale reacts, holding the moment before the next line.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 MARGARET (cold): ""You'll lose the only home you have left.""
@@ -1609,13 +1909,19 @@ RULES:
 NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
 
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
-"51","frame_051.png","scene_051.mp4","10","pending","Begin exactly on the provided first frame (frame_051.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+"51","omni","frame_051.png","scene_051.mp4","10","17","6.8","pending","Begin exactly on the provided first frame (frame_051.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
 
 SHOT PLAN:
 SHOT 1 — 0.0 s to 3.5 s — wide establishing shot: The hearing room fills; Nora stands alone at the table.
 HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on the harbor log; the room falls quiet around it.
 HARD CUT at 6.9 s — SHOT 3 — over-the-shoulder shot: Nora Hale reacts, holding the moment before the next line.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [wide establishing shot] The hearing room fills; Nora stands alone at the table.
+  3.5s to 6.9s  [tight close-up] Close detail on the harbor log; the room falls quiet around it.
+  6.9s to 10.0s  [over-the-shoulder shot] Nora Hale reacts, holding the moment before the next line.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 CLAIRE (nervous): ""They're calling it an emergency hearing. Every seat is full.""
@@ -1641,13 +1947,19 @@ RULES:
 NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
 
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
-"52","frame_052.png","scene_052.mp4","10","pending","Begin exactly on the provided first frame (frame_052.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+"52","omni","frame_052.png","scene_052.mp4","10","19","7.6","pending","Begin exactly on the provided first frame (frame_052.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
 
 SHOT PLAN:
 SHOT 1 — 0.0 s to 3.5 s — medium shot: Sam steps to the microphone, the room silent.
 HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on the clerk's desk; the room falls quiet around it.
 HARD CUT at 6.9 s — SHOT 3 — low-angle hero shot: Nora Hale reacts, holding the moment before the next line.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [medium shot] Sam steps to the microphone, the room silent.
+  3.5s to 6.9s  [tight close-up] Close detail on the clerk's desk; the room falls quiet around it.
+  6.9s to 10.0s  [low-angle hero shot] Nora Hale reacts, holding the moment before the next line.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 SAM (steady): ""If I do this, I lose the department. I'm still doing it.""
@@ -1673,13 +1985,19 @@ RULES:
 NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
 
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
-"53","frame_053.png","scene_053.mp4","10","pending","Begin exactly on the provided first frame (frame_053.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+"53","omni","frame_053.png","scene_053.mp4","10","22","8.8","pending","Begin exactly on the provided first frame (frame_053.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
 
 SHOT PLAN:
 SHOT 1 — 0.0 s to 3.5 s — tight close-up: Margaret's smile falters for the first time.
 HARD CUT at 3.5 s — SHOT 2 — medium shot: Close detail on a second ledger; the room falls quiet around it.
 HARD CUT at 6.9 s — SHOT 3 — insert shot of the evidence object: Nora Hale reacts, holding the moment before the next line.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [tight close-up] Margaret's smile falters for the first time.
+  3.5s to 6.9s  [medium shot] Close detail on a second ledger; the room falls quiet around it.
+  6.9s to 10.0s  [insert shot of the evidence object] Nora Hale reacts, holding the moment before the next line.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 NORA (quiet): ""You don't have to prove anything to me. Just tell them the truth.""
@@ -1705,13 +2023,19 @@ RULES:
 NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
 
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
-"54","frame_054.png","scene_054.mp4","10","pending","Begin exactly on the provided first frame (frame_054.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+"54","omni","frame_054.png","scene_054.mp4","10","26","10.4","pending","Begin exactly on the provided first frame (frame_054.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
 
 SHOT PLAN:
 SHOT 1 — 0.0 s to 3.5 s — over-the-shoulder shot: Nora holds up the harbor log, open to the page.
 HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on Sam's hand; the room falls quiet around it.
 HARD CUT at 6.9 s — SHOT 3 — wide establishing shot: Nora Hale reacts, holding the moment before the next line.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [over-the-shoulder shot] Nora holds up the harbor log, open to the page.
+  3.5s to 6.9s  [tight close-up] Close detail on Sam's hand; the room falls quiet around it.
+  6.9s to 10.0s  [wide establishing shot] Nora Hale reacts, holding the moment before the next line.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 SAM (public, clear): ""I signed a false statement. Margaret Keller wrote it. I was paid to stay quiet.""
@@ -1737,13 +2061,19 @@ RULES:
 NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
 
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
-"55","frame_055.png","scene_055.mp4","10","pending","Begin exactly on the provided first frame (frame_055.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+"55","omni","frame_055.png","scene_055.mp4","10","17","6.8","pending","Begin exactly on the provided first frame (frame_055.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
 
 SHOT PLAN:
 SHOT 1 — 0.0 s to 3.5 s — low-angle hero shot: Adrian half-rises from his chair.
 HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on the harbor log; the room falls quiet around it.
 HARD CUT at 6.9 s — SHOT 3 — over-the-shoulder shot: Nora Hale reacts, holding the moment before the next line.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [low-angle hero shot] Adrian half-rises from his chair.
+  3.5s to 6.9s  [tight close-up] Close detail on the harbor log; the room falls quiet around it.
+  6.9s to 10.0s  [over-the-shoulder shot] Nora Hale reacts, holding the moment before the next line.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 NORA (calm): ""Then let's hear from someone who can't be bought. The harbor log.""
@@ -1769,13 +2099,19 @@ RULES:
 NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
 
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
-"56","frame_056.png","scene_056.mp4","10","pending","Begin exactly on the provided first frame (frame_056.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+"56","omni","frame_056.png","scene_056.mp4","10","21","8.4","pending","Begin exactly on the provided first frame (frame_056.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
 
 SHOT PLAN:
 SHOT 1 — 0.0 s to 3.5 s — wide establishing shot: Nora sets the log on the clerk's desk.
 HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on the clerk's desk; the room falls quiet around it.
 HARD CUT at 6.9 s — SHOT 3 — low-angle hero shot: Nora Hale reacts, holding the moment before the next line.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [wide establishing shot] Nora sets the log on the clerk's desk.
+  3.5s to 6.9s  [tight close-up] Close detail on the clerk's desk; the room falls quiet around it.
+  6.9s to 10.0s  [low-angle hero shot] Nora Hale reacts, holding the moment before the next line.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 NORA (precise): ""2:14 a.m. Keller launch. Two passengers. Adrian at the helm.""
@@ -1801,13 +2137,19 @@ RULES:
 NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
 
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
-"57","frame_057.png","scene_057.mp4","10","pending","Begin exactly on the provided first frame (frame_057.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+"57","omni","frame_057.png","scene_057.mp4","10","16","6.4","pending","Begin exactly on the provided first frame (frame_057.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
 
 SHOT PLAN:
 SHOT 1 — 0.0 s to 3.5 s — medium shot: Margaret reaches for the log; Nora slides it away.
 HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on a second ledger; the room falls quiet around it.
 HARD CUT at 6.9 s — SHOT 3 — insert shot of the evidence object: Nora Hale reacts, holding the moment before the next line.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [medium shot] Margaret reaches for the log; Nora slides it away.
+  3.5s to 6.9s  [tight close-up] Close detail on a second ledger; the room falls quiet around it.
+  6.9s to 10.0s  [insert shot of the evidence object] Nora Hale reacts, holding the moment before the next line.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 NORA (quiet): ""One passenger is Margaret. The other signed the fire report.""
@@ -1833,13 +2175,19 @@ RULES:
 NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
 
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
-"58","frame_058.png","scene_058.mp4","10","pending","Begin exactly on the provided first frame (frame_058.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+"58","omni","frame_058.png","scene_058.mp4","10","23","9.2","pending","Begin exactly on the provided first frame (frame_058.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
 
 SHOT PLAN:
 SHOT 1 — 0.0 s to 3.5 s — tight close-up: Sam takes Nora's hand under the table.
 HARD CUT at 3.5 s — SHOT 2 — medium shot: Close detail on Sam's hand; the room falls quiet around it.
 HARD CUT at 6.9 s — SHOT 3 — wide establishing shot: Nora Hale reacts, holding the moment before the next line.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [tight close-up] Sam takes Nora's hand under the table.
+  3.5s to 6.9s  [medium shot] Close detail on Sam's hand; the room falls quiet around it.
+  6.9s to 10.0s  [wide establishing shot] Nora Hale reacts, holding the moment before the next line.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 ADRIAN (breaking): ""It was an accident. We only meant to scare him.""
@@ -1865,13 +2213,19 @@ RULES:
 NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
 
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
-"59","frame_059.png","scene_059.mp4","10","pending","Begin exactly on the provided first frame (frame_059.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+"59","omni","frame_059.png","scene_059.mp4","10","17","6.8","pending","Begin exactly on the provided first frame (frame_059.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
 
 SHOT PLAN:
 SHOT 1 — 0.0 s to 3.5 s — over-the-shoulder shot: Nora walks out of the town hall into the light.
 HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on the harbor log; the room falls quiet around it.
 HARD CUT at 6.9 s — SHOT 3 — insert shot of the evidence object: Nora Hale reacts, holding the moment before the next line.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [over-the-shoulder shot] Nora walks out of the town hall into the light.
+  3.5s to 6.9s  [tight close-up] Close detail on the harbor log; the room falls quiet around it.
+  6.9s to 10.0s  [insert shot of the evidence object] Nora Hale reacts, holding the moment before the next line.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 NORA (fierce): ""That's not an accident. That's a choice. And this town gets to see it.""
@@ -1897,13 +2251,19 @@ RULES:
 NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border, location change, wardrobe change, identity drift, extra characters, morphing faces, distorted hands, slow motion, stock-footage look, music, score, laugh track
 
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
-"60","frame_060.png","scene_060.mp4","10","pending","Begin exactly on the provided first frame (frame_060.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
+"60","omni","frame_060.png","scene_060.mp4","10","21","8.4","pending","Begin exactly on the provided first frame (frame_060.png) and keep its faces, wardrobe, location, light and color grade for the entire 10 seconds.
 
 SHOT PLAN:
 SHOT 1 — 0.0 s to 3.5 s — low-angle hero shot: Nora and Sam stand on the lighthouse point at dusk, an older ledger in Nora's hands.
 HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close detail on the clerk's desk; the room falls quiet around it.
 HARD CUT at 6.9 s — SHOT 3 — insert shot of the evidence object: Nora Hale reacts, holding the moment before the next line.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [low-angle hero shot] Nora and Sam stand on the lighthouse point at dusk, an older ledger in Nora's hands.
+  3.5s to 6.9s  [tight close-up] Close detail on the clerk's desk; the room falls quiet around it.
+  6.9s to 10.0s  [insert shot of the evidence object] Nora Hale reacts, holding the moment before the next line.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 NORA (hushed): ""Wait. This ledger is older. My mother's name is on every page.""

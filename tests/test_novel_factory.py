@@ -8,6 +8,7 @@ Ejecutar desde la raíz del workspace:
 from __future__ import annotations
 
 import importlib.util
+import json
 import sys
 import tempfile
 import unittest
@@ -27,9 +28,12 @@ def load_module(name: str, *parts: str):
     return mod
 
 
+GEN00 = load_module("nf_gen00", "generators", "00_export_master_workflow_prompts.py")
 GEN01 = load_module("nf_gen01", "generators", "01_story_to_master_json.py")
 GEN02 = load_module("nf_gen02", "generators", "02_export_chatgpt_queue.py")
 GEN03 = load_module("nf_gen03", "generators", "03_export_omni_queue.py")
+MPL = load_module("nf_mpl", "generators", "master_prompts_library.py")
+GEN04 = load_module("nf_gen04", "generators", "04_export_master_prompts.py")
 ASM04 = load_module("nf_asm04", "post_production", "04_assemble_novel_ffmpeg.py")
 PUB05 = load_module("nf_pub05", "post_production", "05_export_to_publisher.py")
 RUNNER = load_module("nf_runner", "automation", "omni_flow_runner.py")
@@ -170,6 +174,116 @@ class GeneratorTests(unittest.TestCase):
             text = out.read_text(encoding="utf-8")
             self.assertIn("reference_elena.png", text)
             self.assertIn("reference_cole.png", text)
+
+
+@unittest.skipUnless(DEMO_DIR.exists(), "no existe projects/demo_contract")
+class MasterPromptTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.master = nf.load_master(DEMO_DIR)
+        cls.style = nf.load_style_locks()
+        cls.paths = nf.project_paths(DEMO_DIR)
+        cls.pack = MPL.build_prompt_pack(cls.master, cls.style)
+
+    def test_four_prompts_and_no_unfilled(self):
+        self.assertEqual([p["key"] for p in self.pack["prompts"]], list(MPL.PROMPT_ORDER))
+        self.assertEqual(int(self.pack["values"]["total_scenes"]), 60)
+        for prompt in self.pack["prompts"]:
+            self.assertEqual(prompt["unfilled"], [], msg=prompt["key"])
+            self.assertGreater(prompt["chars"], 500)
+
+    def test_prompt_000_keeps_literal_header(self):
+        text = MPL.TEMPLATES["prompt_000"]["text"]
+        self.assertTrue(text.startswith("🧠 PROMPT 000"))
+        self.assertIn("ARQUITECTO DE HISTORIAS VIRALES", text)
+        self.assertIn("CHINA / USA MICRO-DRAMA", text)
+
+    def test_platform_prompts_differ(self):
+        muse = GEN03.build_rows(self.master, self.paths, self.style, "muse")
+        flow = GEN03.build_rows(self.master, self.paths, self.style, "flow")
+        self.assertEqual(len(muse), 60)
+        self.assertTrue(muse[0]["prompt"].startswith("MUSE AI"))
+        self.assertIn("10 SECONDS", muse[0]["prompt"])
+        self.assertTrue(flow[0]["prompt"].startswith("GOOGLE FLOW"))
+        self.assertIn("7.5 s", flow[0]["prompt"])
+        self.assertEqual(muse[0]["platform"], "muse")
+        self.assertEqual(flow[0]["platform"], "flow")
+
+    def test_write_prompt_pack(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            written = MPL.write_prompt_pack(Path(tmp), self.pack)
+            for key in ("markdown", "plain", "json"):
+                self.assertTrue(written[key].exists(), msg=key)
+            prompt_files = list((Path(tmp) / "prompts").glob("*.txt"))
+            self.assertEqual(len(prompt_files), 4)
+            self.assertIn("PROMPT 000", written["markdown"].read_text(encoding="utf-8"))
+
+    def test_export_entrypoint(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            result = GEN04.export_prompts(DEMO_DIR, Path(tmp))
+            self.assertEqual(len(result["pack"]["prompts"]), 4)
+            self.assertTrue((Path(tmp) / "master_prompts.json").exists())
+
+    def test_four_literal_prompt_constants(self):
+        expected = {
+            "PROMPT_000_VIRAL_STORY_ARCHITECT": "PROMPT 000",
+            "PROMPT_001_STORYBOARD_GENERATOR": "PROMPT 001",
+            "PROMPT_002_CHARACTER_SHEET_GENERATOR": "PROMPT 002",
+            "PROMPT_003_SCRIPT_CAMERA_SOUND_GENERATOR": "PROMPT 003",
+        }
+        for name, header in expected.items():
+            text = getattr(MPL, name)
+            self.assertIn(header, text)
+            self.assertGreater(len(text), 500, msg=name)
+        self.assertIn("6 viñetas", MPL.PROMPT_001_STORYBOARD_GENERATOR)
+        self.assertIn("UNA SOLA IMAGEN", MPL.PROMPT_002_CHARACTER_SHEET_GENERATOR)
+        self.assertIn("COMANDO FINAL PARA PEGAR EN MUSE AI", MPL.PROMPT_003_SCRIPT_CAMERA_SOUND_GENERATOR)
+
+    def test_workflow_export_writes_ready_and_batches(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            result = GEN00.export_workflow(DEMO_DIR, Path(tmp))
+            target = Path(tmp)
+            ready = target / "MASTER_WORKFLOW_PROMPTS_READY.md"
+            self.assertTrue(ready.exists())
+            text = ready.read_text(encoding="utf-8")
+            for code in ("PROMPT 000", "PROMPT 001", "PROMPT 002", "PROMPT 003", "9:16"):
+                self.assertIn(code, text)
+            self.assertEqual(len(result["batches"]), 10)
+            for name in (
+                "muse_ai_minute_batches_queue.txt",
+                "muse_ai_minute_batches_queue.json",
+                "muse_ai_batches_queue.txt",
+                "muse_ai_batches_queue.json",
+            ):
+                self.assertTrue((target / name).exists(), msg=name)
+            batches_text = (target / "muse_ai_batches_queue.txt").read_text(encoding="utf-8")
+            self.assertIn("ESCENA 1", batches_text)
+            self.assertIn("[00s–03s]", batches_text)
+            self.assertIn("[03s–07s]", batches_text)
+            self.assertIn("[07s–10s]", batches_text)
+            self.assertIn("COMANDO FINAL PARA PEGAR EN MUSE AI", batches_text)
+            self.assertIn("formato 16:9", batches_text)
+
+    def test_chatgpt_prompt_exports(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            paths = {"root": Path(tmp)}
+            written = GEN02.write_master_image_prompt_files(paths, self.master, self.style)
+            storyboard = written["prompt_001"].read_text(encoding="utf-8")
+            characters = written["prompt_002"].read_text(encoding="utf-8")
+            self.assertIn("GENERADOR DE STORYBOARD", storyboard)
+            self.assertIn("HOJA MAESTRA DE PERSONAJES", characters)
+            self.assertNotIn("{story_idea}", storyboard)
+            self.assertNotIn("{visual_style}", characters)
+
+    def test_muse_batches_export(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            files = GEN03.write_muse_batches({"root": Path(tmp)}, self.master, self.style)
+            self.assertTrue(files["txt"].exists())
+            self.assertTrue(files["json"].exists())
+            data = json.loads(files["json"].read_text(encoding="utf-8"))
+            self.assertEqual(data["count"], 10)
+            self.assertEqual(len(data["items"]), 10)
+            self.assertEqual(data["items"][0]["scenes"], [1, 2, 3, 4, 5, 6])
 
 
 class AssemblerTests(unittest.TestCase):
@@ -410,6 +524,13 @@ class RunnerTests(unittest.TestCase):
             self.assertEqual(sorted(queue), [1, 2])
             self.assertEqual(queue[1]["prompt"], "p1")
 
+    def test_load_platform_queue(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            queue_file = Path(tmp) / "muse_ai_video_prompts_queue.json"
+            nf.write_json(queue_file, {"items": [{"scene_id": 3, "prompt": "muse prompt"}]})
+            queue = RUNNER.load_queue({"muse_json": queue_file}, "muse")
+            self.assertEqual(queue[3]["prompt"], "muse prompt")
+
     def test_find_newest_media_respects_since(self):
         import os
         import time
@@ -462,6 +583,9 @@ class DashboardTests(unittest.TestCase):
         self.assertEqual(first["scene_id"], 1)
         self.assertTrue(first["scene_json"].startswith("{"))
         self.assertGreaterEqual(state["totals"]["clips_disk"], 1)
+        self.assertEqual(state["totals"]["master_prompts"], 4)
+        self.assertEqual(sorted(first["video_prompts"]), ["flow", "muse", "omni"])
+        self.assertEqual(len(state["master_prompts"]["items"]), 4)
 
     def test_render_escapes_script_tags(self):
         state = DASH.build_state(DEMO_DIR)
@@ -470,6 +594,9 @@ class DashboardTests(unittest.TestCase):
         self.assertEqual(html.count("</script>"), 1)
         self.assertIn("const STATE =", html)
         self.assertIn("Novel Factory", html)
+        self.assertIn("Prompts maestros", html)
+        self.assertIn("platform-filter", html)
+        self.assertIn("Copiar prompt", html)
 
     def test_tracking_roundtrip(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -497,6 +624,23 @@ class LauncherTests(unittest.TestCase):
         bat = (NF_ROOT / "novelfactory.bat").read_text(encoding="utf-8", errors="replace")
         self.assertIn('"%CMD%"=="dashboard"', bat)
         self.assertIn("dashboard.py", bat)
+
+    def test_bat_dispatches_master_prompts_and_platforms(self):
+        bat = (NF_ROOT / "novelfactory.bat").read_text(encoding="utf-8", errors="replace")
+        self.assertIn('"%CMD%"=="prompts"', bat)
+        self.assertIn("04_export_master_prompts.py", bat)
+        self.assertIn('"%CMD%"=="export-master-prompts"', bat)
+        self.assertIn("00_export_master_workflow_prompts.py", bat)
+        self.assertIn('"%CMD%"=="muse"', bat)
+        self.assertIn('"%CMD%"=="flow"', bat)
+        self.assertIn("--platform muse", bat)
+        self.assertIn("--platform flow", bat)
+
+    def test_nf_core_registers_export_master_prompts(self):
+        self.assertIn("export-master-prompts", nf.SUBCOMMANDS)
+        script = nf.subcommand_script("export-master-prompts")
+        self.assertIsNotNone(script)
+        self.assertTrue(script.exists())
 
     def test_bat_propagates_errors(self):
         bat = (NF_ROOT / "novelfactory.bat").read_text(encoding="utf-8", errors="replace")

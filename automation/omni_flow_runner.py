@@ -19,6 +19,8 @@ Uso:
   python automation/omni_flow_runner.py mi_episodio status
   python automation/omni_flow_runner.py mi_episodio queue
   python automation/omni_flow_runner.py mi_episodio assisted --count 5
+  python automation/omni_flow_runner.py mi_episodio assisted --platform muse
+  python automation/omni_flow_runner.py mi_episodio assisted --platform flow
   python automation/omni_flow_runner.py mi_episodio watch --once
   python automation/omni_flow_runner.py mi_episodio watch --interval 3
   python automation/omni_flow_runner.py mi_episodio import-frames --frames-src "C:\\mis\\imagenes"
@@ -42,6 +44,11 @@ import nf_core as nf  # noqa: E402
 MEDIA_EXTS = (".mp4", ".mov", ".m4v", ".webm")
 IMAGE_EXTS = (".png", ".jpg", ".jpeg", ".webp")
 DEFAULT_DOWNLOADS = Path.home() / "Downloads"
+QUEUE_KEYS = {
+    "omni": ("omni_json", "Omni 1.1 Flash"),
+    "muse": ("muse_json", "Muse AI"),
+    "flow": ("flow_json", "Google Flow (Veo)"),
+}
 
 
 def natural_key(text: str) -> List[Any]:
@@ -69,8 +76,12 @@ def scene_hint_from_name(name: str) -> Optional[int]:
 # ---------------------------------------------------------------------------
 # Estado del proyecto
 # ---------------------------------------------------------------------------
-def load_queue(paths: Dict[str, Path]) -> Dict[int, Dict[str, Any]]:
-    data = nf.read_json(paths["omni_json"], default=None)
+def load_queue(paths: Dict[str, Path], platform: str = "omni") -> Dict[int, Dict[str, Any]]:
+    key, _label = QUEUE_KEYS.get(str(platform or "omni").strip().lower(), QUEUE_KEYS["omni"])
+    queue_path = paths.get(key)
+    if not queue_path:
+        return {}
+    data = nf.read_json(queue_path, default=None)
     items = data.get("items") if isinstance(data, dict) else data
     out: Dict[int, Dict[str, Any]] = {}
     for item in items or []:
@@ -241,7 +252,9 @@ def cmd_status(args: argparse.Namespace) -> int:
 
 def cmd_queue(args: argparse.Namespace) -> int:
     paths, master = _prepare(args)
-    queue = load_queue(paths)
+    platform = getattr(args, "platform", "omni")
+    _key, label = QUEUE_KEYS.get(platform, QUEUE_KEYS["omni"])
+    queue = load_queue(paths, platform)
     rows = build_status(paths, master)
     for r in rows:
         if r["clip"]:
@@ -249,7 +262,7 @@ def cmd_queue(args: argparse.Namespace) -> int:
         sid = r["scene_id"]
         item = queue.get(sid)
         if not item:
-            nf.warn(f"Escena {sid}: no está en la cola de Omni; regenera la cola con 03.")
+            nf.warn(f"Escena {sid}: no está en la cola de {label}; regenera la cola con 03 --platform {platform}.")
             return 1
         nf.log("")
         nf.log(f"=== Escena {sid} ===")
@@ -276,9 +289,11 @@ def _missing_rows(rows: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
 def cmd_assisted(args: argparse.Namespace) -> int:
     nf.require_ffmpeg()
     paths, master = _prepare(args)
-    queue = load_queue(paths)
+    platform = getattr(args, "platform", "omni")
+    _key, label = QUEUE_KEYS.get(platform, QUEUE_KEYS["omni"])
+    queue = load_queue(paths, platform)
     if not queue:
-        nf.warn("No hay cola de Omni. Ejecuta generators/03_export_omni_queue.py primero.")
+        nf.warn(f"No hay cola de {label}. Ejecuta generators/03_export_omni_queue.py {args.project} --platform {platform}")
         return 1
     done = 0
     skipped: set = set()
@@ -498,6 +513,8 @@ def main(argv: Optional[List[str]] = None) -> int:
     parser.add_argument("project", help="Slug del episodio.")
     parser.add_argument("command", choices=["status", "queue", "assisted", "watch", "import-frames"],
                         help="Acción a ejecutar.")
+    parser.add_argument("--platform", choices=list(QUEUE_KEYS), default="omni",
+                        help="Cola de video a usar en queue/assisted: omni (default), muse o flow.")
     parser.add_argument("--downloads", default=str(DEFAULT_DOWNLOADS),
                         help="Carpeta de descargas a vigilar (por defecto: ~/Downloads).")
     parser.add_argument("--interval", type=float, default=3.0, help="Segundos entre sondeos en watch.")
@@ -523,7 +540,7 @@ def main(argv: Optional[List[str]] = None) -> int:
 
     nf.log("")
     nf.log("=" * 70)
-    nf.log("  NOVEL FACTORY — Runner de la cola de Omni")
+    nf.log("  NOVEL FACTORY — Runner de la cola de video")
     nf.log("=" * 70)
     try:
         if args.command == "status":

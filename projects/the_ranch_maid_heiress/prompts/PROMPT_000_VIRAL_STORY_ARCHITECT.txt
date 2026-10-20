@@ -1,0 +1,49 @@
+🧠 PROMPT 000 — ARQUITECTO DE HISTORIAS VIRALES (CHINA / USA MICRO-DRAMA SHOWRUNNER)
+Actúa como un Showrunner experto en Micro-Dramas virales de Estados Unidos y China (estilo ReelShort, DramaBox y canales de novelas con IA de +500,000 vistas).
+
+Tu objetivo es transformar mi idea base en una HISTORIA DE ALTA RETENCIÓN pensada para el mercado en INGLÉS (alto RPM), estructurada matemáticamente para una duración de 10 minuto(s) (60 escenas de 10 segundos cada una, divididas en 10 bloques de 1 minuto / 6 escenas).
+
+IDEA BASE / SEMILLA:
+PREMISE:
+# THE STABLE GIRL — Episodio 1 de "Silver Creek Secrets"
+
+EPISODE:
+- Title: The Stable Girl
+- Series: Silver Creek Secrets
+- Logline: Framed for stealing from the Montana ranch family that raised her, the stable maid discovers Silver Creek was never theirs to keep: her mother owned the land, and the proof is hidden in the barn where she died.
+- Genre: romantic suspense short-drama
+- Tone: cinematic, intimate, high-stakes, fast-paced
+- Setting: (not specified)
+
+CAST:
+- Elena Vance (protagonist): Casting sheet for the character reference image: woman in her mid-twenties, sun-weathered gently angular face, long chestnut hair worn in a single low braid, calm dark-brown eyes, light freckling across the nose, a faint old scar through one eyebrow, slender but strong ranch build, signature faded blue denim work shirt and dark riding jeans. | voice: warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical
+- Victoria Blackwell (antagonist): Casting sheet for the character reference image: woman in her mid-forties, sleek platinum-blonde bob, sharp cheekbones, cool grey eyes, immaculate posture, dark red lipstick, pearl earrings, signature emerald silk blouse over tailored black trousers. | voice: low, polished, unhurried American English, smiles through threats, never shouts
+- Richard Blackwell (antagonist): Casting sheet for the character reference image: man around thirty, clean-cut, sandy hair combed back, pale blue eyes, a practiced easy smile, tall athletic build, signature pressed white shirt under a charcoal blazer. | voice: smooth mid-range American English, reasonable tone that never quite reaches sincerity
+- Cole Barrett (love_interest): Casting sheet for the character reference image: man in his early thirties, weathered rancher hands, dark hair a little long under a dust-worn felt hat, steady hazel eyes, quiet jaw, broad shoulders, signature oiled tan canvas chore jacket over a grey henley. | voice: quiet, low American English, careful diction, warmth held under restraint
+- Maggie Doyle (ally): Casting sheet for the character reference image: woman in her late fifties, iron-grey hair pinned up in a loose bun, kind weathered face, small round glasses on a chain, floral house apron over a beige cardigan and a long dark skirt. | voice: grounded, plainspoken American English with a soft Irish lilt worn thin by thirty years in Montana
+
+LOCATIONS:
+- Blackwell mansion foyer and great room
+- Silver Creek barn and stables
+- the gatehouse cottage
+- Silver Creek county records and civic hall
+
+ACT MAP:
+- Act 1 — The Bait : Open on the public humiliation, ground Elena's place in the household and her mother's death, then detonate the sealed tack room and the deed with June Vance's name.
+- Act 2 — The Trap : The system closes around Elena: the county refuses her standing, Victoria offers a silence deal, and a Friday-midnight deadline turns the ranch into a cage.
+- Act 3 — The First Crack : Elena stops defending and starts digging: the two deeds prove the second sale was signed by a dead woman, and a first honest moment with Cole raises the stakes.
+- Act 4 — The Dark Night : Rejecting the deal costs Elena her freedom and the tin box; Maggie's old lie is explained, and a dead woman's deposit slip turns the brass key into the way out.
+- Act 5 — The Turn : Elena converts the bank box into leverage while the town gathers for the gala; Cole and Maggie each choose to pay a price, and Victoria's last threat sets the stage.
+- Act 6 — The Payoff : At the county hearing the will is read in public, the mask comes off, and Silver Creek changes hands; a line in Walter's letter opens the next mystery.
+
+REGLAS DE ORO DE DRAMATURGIA Y RETENCIÓN QUE DEBES APLICAR:
+1. GANCHO EXPLOSIVO EN LOS PRIMEROS 10 SEGUNDOS (ESCENA 1): La historia jamás debe empezar de forma lenta. Debe abrir en medio de una tensión máxima: una humillación pública, una traición descubierta, un secreto millonario, una diferencia extrema de clases sociales o un contrato inesperado.
+2. MICRO-GIROS CADA 30 SEGUNDOS (CADA 3 ESCENAS): Cada 3 escenas debe ocurrir una revelación, un conflicto emocional, una mirada prohibida, una confrontación o un obstáculo que impida que el espectador cierre el video.
+3. CLIFFHANGER AL FINAL DE CADA MINUTO (ESCENAS 6, 12, 18...): La última escena de cada bloque de 6 escenas debe terminar en máxima tensión dramática.
+4. PERSONAJES CON CONTRASTE VISUAL INMEDIATO (MÁXIMO 3 A 5 PERSONAJES PRINCIPALES): Diseña personajes cuyo estatus social y personalidad se entiendan en 1 segundo solo por su vestuario (ej. multimillonario arrogante vs. trabajadora humilde con dignidad de hierro; heredera secreta vs. villana elitista).
+5. ECONOMÍA DE ESCENARIOS (MÁXIMO 3 A 5 LOCACIONES): Concentra la acción en locaciones visualmente ricas y contrastantes para mantener continuidad perfecta.
+
+ENTREGA EL RESULTADO EN ESTE FORMATO EXACTO (LISTO PARA COPIAR AL PROMPT 001):
+1. TÍTULO VIRAL EN INGLÉS (3 opciones de alto CTR).
+2. ELENCO PRINCIPAL (3 a 5 personajes: Nombre, Edad, Apariencia Física exacta, Vestuario característico fijo y Timbre de Voz en inglés).
+3. SINOPSIS NARRATIVA INTENSA BLOQUE POR BLOQUE (1 párrafo por cada minuto de historia = 6 escenas por minuto, describiendo inicio, conflicto, giros y desenlace/cliffhanger).

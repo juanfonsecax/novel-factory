@@ -10,6 +10,10 @@ REM  Episodio demo   :  novelfactory.bat demo mi_episodio
 REM  Validar maestro :  novelfactory.bat validate mi_episodio
 REM  Cola ChatGPT    :  novelfactory.bat frames mi_episodio
 REM  Cola Omni       :  novelfactory.bat omni mi_episodio
+REM  Cola Muse AI    :  novelfactory.bat muse mi_episodio
+REM  Cola Flow/Veo   :  novelfactory.bat flow mi_episodio
+REM  Prompts maestros:  novelfactory.bat prompts mi_episodio
+REM  Workflow prompts: novelfactory.bat export-master-prompts mi_episodio
 REM  Estado          :  novelfactory.bat status mi_episodio
 REM  Asistente clips :  novelfactory.bat assisted mi_episodio
 REM  Vigilar descargas: novelfactory.bat watch mi_episodio --once
@@ -45,6 +49,10 @@ if /i "%CMD%"=="demo"     ( set "SCRIPT=generators\01_story_to_master_json.py" &
 if /i "%CMD%"=="validate" ( set "SCRIPT=generators\01_story_to_master_json.py" & set "MODE=--validate" & goto :RUN )
 if /i "%CMD%"=="frames"   ( set "SCRIPT=generators\02_export_chatgpt_queue.py" & goto :RUN )
 if /i "%CMD%"=="omni"     ( set "SCRIPT=generators\03_export_omni_queue.py" & goto :RUN )
+if /i "%CMD%"=="muse"     ( set "SCRIPT=generators\03_export_omni_queue.py" & set "MODE=--platform muse" & goto :RUN )
+if /i "%CMD%"=="flow"     ( set "SCRIPT=generators\03_export_omni_queue.py" & set "MODE=--platform flow" & goto :RUN )
+if /i "%CMD%"=="prompts"  ( set "SCRIPT=generators\04_export_master_prompts.py" & goto :RUN )
+if /i "%CMD%"=="export-master-prompts" ( set "SCRIPT=generators\00_export_master_workflow_prompts.py" & goto :RUN )
 if /i "%CMD%"=="status"   ( set "SCRIPT=automation\omni_flow_runner.py" & set "MODE=status" & goto :RUN )
 if /i "%CMD%"=="queue"    ( set "SCRIPT=automation\omni_flow_runner.py" & set "MODE=queue" & goto :RUN )
 if /i "%CMD%"=="assisted" ( set "SCRIPT=automation\omni_flow_runner.py" & set "MODE=assisted" & goto :RUN )
@@ -97,6 +105,10 @@ echo    demo ^<slug^>                         Episodio demo de calibraci??n (sin
 echo    validate ^<slug^>                     Valida master_episode.json
 echo    frames ^<slug^>                       Exporta la cola de im??genes (ChatGPT)
 echo    omni ^<slug^>                         Exporta la cola de v??deo (Omni)
+echo    muse ^<slug^>                         Exporta la cola de v??deo (Muse AI)
+echo    flow ^<slug^>                         Exporta la cola de v??deo (Google Flow / Veo)
+echo    prompts ^<slug^>                      Exporta los 4 prompts maestros rellenados
+echo    export-master-prompts ^<slug^>        Genera workflow 000-003 + lotes Muse AI (6 escenas)
 echo    status ^<slug^>                       Tabla de progreso de clips/frames
 echo    queue ^<slug^>                        Siguiente prompt pendiente por consola
 echo    assisted ^<slug^>                     Asistente de portapapeles para Omni
@@ -112,6 +124,10 @@ echo  Ejemplo completo:
 echo    novelfactory.bat demo demo_contract
 echo    novelfactory.bat frames demo_contract
 echo    novelfactory.bat omni demo_contract
+echo    novelfactory.bat muse demo_contract
+echo    novelfactory.bat flow demo_contract
+echo    novelfactory.bat prompts demo_contract
+echo    novelfactory.bat export-master-prompts demo_contract
 echo    novelfactory.bat assemble demo_contract
 echo.
 

@@ -10,6 +10,12 @@ HARD CUT at 3.4 s — SHOT 2 — tight close-up: Close on the maid's hands withd
 HARD CUT at 6.9 s — SHOT 3 — over-the-shoulder shot: Over the maid's shoulder, the woman in emerald silk stares her down while the heir in the white shirt watches from the staircase.
 End on a held frame that motivates the next scene.
 
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.4s  [medium two-shot] In the grand foyer, the maid in the denim work shirt freezes beside the shattered decanter while the woman in emerald silk towers over her.
+  3.4s to 6.9s  [tight close-up] Close on the maid's hands withdrawing from the broken crystal; her fingers tremble once, then go still.
+  6.9s to 10.0s  [over-the-shoulder shot] Over the maid's shoulder, the woman in emerald silk stares her down while the heir in the white shirt watches from the staircase.
+Hard cuts exactly at 3.4, 6.9 s. No dissolves, no fade, no camera reset.
+
 DIALOGUE (native audio, US English, lip-sync exact):
 VICTORIA (cold, precise): "Twelve years in my house, and you steal from me at my son's welcome party."
 ELENA (quiet, shaking): "I didn't touch it. I was in the barn, where I always am."
@@ -20,7 +26,7 @@ AUDIO BED: storm wind at the tall windows, crystal settling on oak, the chandeli
 
 CAMERA & MOVEMENT: Slow push-in on the two women; hard cut to hands; hard cut to the heir at the stairs.
 
-CONTINUITY: Act 1 wardrobe. The decanter shatters here; the silver watch is planted in Elena's saddle bag in scene 4. Victoria Blackwell wardrobe (act 1): emerald silk blouse, tailored black trousers, pearl earrings Elena Vance wardrobe (act 1): faded blue denim work shirt, dark riding jeans, worn boots, low braid Richard Blackwell wardrobe (act 1): pressed white shirt, charcoal blazer, polished boots
+CONTINUITY: Act 1 wardrobe. Victoria Blackwell wardrobe (act 1): emerald silk blouse, tailored black trousers, pearl earrings Elena Vance wardrobe (act 1): faded blue denim work shirt, dark riding jeans, worn boots, low braid Richard Blackwell wardrobe (act 1): pressed white shirt, charcoal blazer, polished boots
 
 STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
 
@@ -43,6 +49,12 @@ SHOT 1 — 0.0 s to 3.5 s — wide establishing shot: The barn aisle at night: t
 HARD CUT at 3.5 s — SHOT 2 — over-the-shoulder shot: Over the maid's shoulder, the old photograph shows a woman at a ranch gate, sun-bleached and smiling.
 HARD CUT at 7.0 s — SHOT 3 — tight close-up: Close on the housekeeper's face as she recognizes the photograph; she closes her eyes for one beat.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [wide establishing shot] The barn aisle at night: the maid stands small between the stalls, the housekeeper a silhouette in the doorway, rain drumming on the tin roof.
+  3.5s to 7.0s  [over-the-shoulder shot] Over the maid's shoulder, the old photograph shows a woman at a ranch gate, sun-bleached and smiling.
+  7.0s to 10.0s  [tight close-up] Close on the housekeeper's face as she recognizes the photograph; she closes her eyes for one beat.
+Hard cuts exactly at 3.5, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 MAGGIE (gentle): "Your mother fed this barn before you could walk. Don't let them erase her."
@@ -78,6 +90,12 @@ HARD CUT at 3.3 s — SHOT 2 — tight close-up: Close on the maid's face as she
 HARD CUT at 6.8 s — SHOT 3 — low-angle hero shot: Low angle on the maid from below the staircase, chin lifted, the chandelier hard above her.
 End on a held frame that motivates the next scene.
 
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.3s  [medium shot] In the foyer, the maid holds open her saddle bag while the woman in emerald silk points at it like evidence.
+  3.3s to 6.8s  [tight close-up] Close on the maid's face as she sets her jaw; her hands close around the worn leather.
+  6.8s to 10.0s  [low-angle hero shot] Low angle on the maid from below the staircase, chin lifted, the chandelier hard above her.
+Hard cuts exactly at 3.3, 6.8 s. No dissolves, no fade, no camera reset.
+
 DIALOGUE (native audio, US English, lip-sync exact):
 VICTORIA (silky, cruel): "Empty it. If my husband's watch is in there, you leave this ranch tonight."
 ELENA (steady): "My mother's things are in that bag. You will not touch them."
@@ -88,7 +106,7 @@ AUDIO BED: leather creaking, a clock ticking somewhere deep in the house, rain s
 
 CAMERA & MOVEMENT: Controlled handheld; hard cut to face; low-angle tilt up at the last line.
 
-CONTINUITY: Act 1 wardrobe. Elena's saddle bag holds her mother's photograph; the silver watch appears inside it in scene 4. Victoria Blackwell wardrobe (act 1): emerald silk blouse, tailored black trousers, pearl earrings Elena Vance wardrobe (act 1): faded blue denim work shirt, dark riding jeans, worn boots, low braid Richard Blackwell wardrobe (act 1): pressed white shirt, charcoal blazer, polished boots
+CONTINUITY: Act 1 wardrobe. Victoria Blackwell wardrobe (act 1): emerald silk blouse, tailored black trousers, pearl earrings Elena Vance wardrobe (act 1): faded blue denim work shirt, dark riding jeans, worn boots, low braid Richard Blackwell wardrobe (act 1): pressed white shirt, charcoal blazer, polished boots
 
 STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
 
@@ -112,6 +130,12 @@ HARD CUT at 3.4 s — SHOT 2 — insert shot of the evidence object: Insert: the
 HARD CUT at 6.8 s — SHOT 3 — tight close-up: Close on the maid as she turns and sees him; her hands go still on the leather.
 End on a held frame that motivates the next scene.
 
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.4s  [medium shot] In the stable aisle, the maid tightens a saddle girth while the heir behind her lifts the silver watch from her open bag.
+  3.4s to 6.8s  [insert shot of the evidence object] Insert: the silver watch turns once in the heir's fingers, catching a blade of window light.
+  6.8s to 10.0s  [tight close-up] Close on the maid as she turns and sees him; her hands go still on the leather.
+Hard cuts exactly at 3.4, 6.8 s. No dissolves, no fade, no camera reset.
+
 DIALOGUE (native audio, US English, lip-sync exact):
 RICHARD (light, rehearsed): "Look what your mother's saddle was hiding. Twelve years, and you kept it close."
 ELENA (low, furious): "You were in the tack room last night. I saw your boots."
@@ -122,7 +146,7 @@ AUDIO BED: a horse snorting, leather straps, straw under boots, the watch's tiny
 
 CAMERA & MOVEMENT: Slow pan from the maid to the watch; hard cut; snap back to her face.
 
-CONTINUITY: Act 1 wardrobe. The silver watch is now planted in Elena's bag; it returns as evidence in act 4. Elena Vance wardrobe (act 1): faded blue denim work shirt, dark riding jeans, worn boots, low braid Richard Blackwell wardrobe (act 1): pressed white shirt, charcoal blazer, polished boots
+CONTINUITY: Act 1 wardrobe. Elena Vance wardrobe (act 1): faded blue denim work shirt, dark riding jeans, worn boots, low braid Richard Blackwell wardrobe (act 1): pressed white shirt, charcoal blazer, polished boots
 
 STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
 
@@ -146,6 +170,12 @@ HARD CUT at 3.5 s — SHOT 2 — over-the-shoulder shot: Over the mistress's sho
 HARD CUT at 6.9 s — SHOT 3 — tight close-up: Close on the maid's hand as she slides the paper back across the table without sitting.
 End on a held frame that motivates the next scene.
 
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [medium shot] In the timber great room, the woman in emerald silk gestures to a chair; the maid in the denim work shirt stays standing.
+  3.5s to 6.9s  [over-the-shoulder shot] Over the mistress's shoulder, the folded confession paper waits on the low table between them.
+  6.9s to 10.0s  [tight close-up] Close on the maid's hand as she slides the paper back across the table without sitting.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
+
 DIALOGUE (native audio, US English, lip-sync exact):
 VICTORIA (patient, poisoned): "Sign it, take your pay, and this stays private. The watch never happened."
 ELENA (flat): "It never happened to you. It happened to me the moment you decided it did."
@@ -156,7 +186,7 @@ AUDIO BED: a fireplace ticking as it cools, paper sliding on wood, a chair creak
 
 CAMERA & MOVEMENT: Static two-shot; cut to the paper; cut to her hand pushing it back.
 
-CONTINUITY: Act 1 wardrobe. Victoria's first written offer appears here; the same tactic returns at midnight in scene 30. Victoria Blackwell wardrobe (act 1): emerald silk blouse, tailored black trousers, pearl earrings Elena Vance wardrobe (act 1): faded blue denim work shirt, dark riding jeans, worn boots, low braid
+CONTINUITY: Act 1 wardrobe. Victoria Blackwell wardrobe (act 1): emerald silk blouse, tailored black trousers, pearl earrings Elena Vance wardrobe (act 1): faded blue denim work shirt, dark riding jeans, worn boots, low braid
 
 STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
 
@@ -180,6 +210,12 @@ HARD CUT at 3.3 s — SHOT 2 — over-the-shoulder shot: Over the maid's shoulde
 HARD CUT at 6.8 s — SHOT 3 — tight close-up: Close on the maid's eyes lifting at last, weighing what he just offered.
 End on a held frame that motivates the next scene.
 
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.3s  [medium shot] At the barn door, the maid works a curry comb in slow circles while the foreman leans on the stall, speaking low.
+  3.3s to 6.8s  [over-the-shoulder shot] Over the maid's shoulder: the foreman's hands tighten on the stall door as he finishes his sentence.
+  6.8s to 10.0s  [tight close-up] Close on the maid's eyes lifting at last, weighing what he just offered.
+Hard cuts exactly at 3.3, 6.8 s. No dissolves, no fade, no camera reset.
+
 DIALOGUE (native audio, US English, lip-sync exact):
 COLE (quiet): "I saw Richard at the saddles last night. Say the word and I'll swear it."
 ELENA (careful): "He'll only call you a liar. And then he'll take your house too."
@@ -190,7 +226,7 @@ AUDIO BED: curry comb against hide, a horse's low nicker, wind under the eaves
 
 CAMERA & MOVEMENT: Gentle handheld; cut on 'swear'; close-up holds as she decides.
 
-CONTINUITY: Act 1 wardrobe. Cole has not yet told Elena the whole truth about the fire; that comes in scene 16. Elena Vance wardrobe (act 1): faded blue denim work shirt, dark riding jeans, worn boots, low braid Cole Barrett wardrobe (act 1): oiled tan canvas chore jacket over a grey henley, worn felt hat
+CONTINUITY: Act 1 wardrobe. Elena Vance wardrobe (act 1): faded blue denim work shirt, dark riding jeans, worn boots, low braid Cole Barrett wardrobe (act 1): oiled tan canvas chore jacket over a grey henley, worn felt hat
 
 STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
 
@@ -213,6 +249,12 @@ SHOT 1 — 0.0 s to 3.4 s — medium shot: In the lamplit study, the mistress si
 HARD CUT at 3.4 s — SHOT 2 — tight close-up: Close on the file as her finger lifts, leaving a clean mark in the dust.
 HARD CUT at 6.9 s — SHOT 3 — low-angle hero shot: Low angle on the maid as she absorbs the deadline without looking away.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.4s  [medium shot] In the lamplit study, the mistress sits behind the desk with one finger on a closed file; the maid stands before it.
+  3.4s to 6.9s  [tight close-up] Close on the file as her finger lifts, leaving a clean mark in the dust.
+  6.9s to 10.0s  [low-angle hero shot] Low angle on the maid as she absorbs the deadline without looking away.
+Hard cuts exactly at 3.4, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 VICTORIA (unhurried): "Sheriff Drummond is a family friend. You have until Friday midnight, Elena. Sign, or be charged."
@@ -248,6 +290,12 @@ HARD CUT at 3.3 s — SHOT 2 — insert shot of the evidence object: Insert: her
 HARD CUT at 7.0 s — SHOT 3 — tight close-up: Close on her face as she recognizes the key; the room darkens around her.
 End on a held frame that motivates the next scene.
 
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.3s  [medium close-up] In the small stone cottage, the maid kneels with the old saddle across her knees and works the leather lining open.
+  3.3s to 7.0s  [insert shot of the evidence object] Insert: her fingers draw a small brass key from the hidden seam, warm against the cold leather.
+  7.0s to 10.0s  [tight close-up] Close on her face as she recognizes the key; the room darkens around her.
+Hard cuts exactly at 3.3, 7.0 s. No dissolves, no fade, no camera reset.
+
 DIALOGUE (native audio, US English, lip-sync exact):
 ELENA (whispered): "You sewed it into the lining, Mama. What were you afraid someone would find?"
 ELENA (breaking): "And why did you never tell me?"
@@ -282,6 +330,12 @@ HARD CUT at 3.5 s — SHOT 2 — insert shot of the evidence object: Insert: the
 HARD CUT at 6.9 s — SHOT 3 — over-the-shoulder shot: Over her shoulder: the painted-over iron hasp, sealed with fifteen years of whitewash.
 End on a held frame that motivates the next scene.
 
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [medium shot] In the barn aisle at night, the maid holds up the brass key while the foreman studies the whitewashed tack-room door behind them.
+  3.5s to 6.9s  [insert shot of the evidence object] Insert: the small brass key turns under the bulb, too delicate for any hasp in the barn.
+  6.9s to 10.0s  [over-the-shoulder shot] Over her shoulder: the painted-over iron hasp, sealed with fifteen years of whitewash.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
+
 DIALOGUE (native audio, US English, lip-sync exact):
 COLE (low): "That key fits no door in this valley. Your mother never did one thing without a reason."
 ELENA (decided): "Then we open that room. Tonight."
@@ -292,7 +346,7 @@ AUDIO BED: a bulb humming, a horse stamping, wind rattling the barn planks
 
 CAMERA & MOVEMENT: Static two-shot; insert on the key; slow turn to the sealed door.
 
-CONTINUITY: Act 1 wardrobe. The tack room has been sealed since the fire; the padlock is cut in scene 10 (the brass key does not fit it). Elena Vance wardrobe (act 1): faded blue denim work shirt, dark riding jeans, worn boots, low braid Cole Barrett wardrobe (act 1): oiled tan canvas chore jacket over a grey henley, worn felt hat
+CONTINUITY: Act 1 wardrobe. Elena Vance wardrobe (act 1): faded blue denim work shirt, dark riding jeans, worn boots, low braid Cole Barrett wardrobe (act 1): oiled tan canvas chore jacket over a grey henley, worn felt hat
 
 STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
 
@@ -315,6 +369,12 @@ SHOT 1 — 0.0 s to 3.4 s — medium shot: Inside the tack room, the maid kneels
 HARD CUT at 3.4 s — SHOT 2 — insert shot of the evidence object: Insert: a cream deed unfolds in her hands, its old seal still intact.
 HARD CUT at 6.9 s — SHOT 3 — tight close-up: Close on her face as she reads the name; her lips part, and she has to steady the paper.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.4s  [medium shot] Inside the tack room, the maid kneels over an open tin box while the foreman stands in the doorway with bolt cutters.
+  3.4s to 6.9s  [insert shot of the evidence object] Insert: a cream deed unfolds in her hands, its old seal still intact.
+  6.9s to 10.0s  [tight close-up] Close on her face as she reads the name; her lips part, and she has to steady the paper.
+Hard cuts exactly at 3.4, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 ELENA (barely audible): "This deed says Vance. Not Blackwell. My mother owned Silver Creek."
@@ -350,6 +410,12 @@ HARD CUT at 3.4 s — SHOT 2 — insert shot of the evidence object: Insert: the
 HARD CUT at 7.0 s — SHOT 3 — tight close-up: Close on the maid as the clerk's answer lands; her jaw sets, but her eyes drop.
 End on a held frame that motivates the next scene.
 
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.4s  [medium shot] At the oak counter, the maid lays the old deed down while the clerk turns a heavy ledger toward her.
+  3.4s to 7.0s  [insert shot of the evidence object] Insert: the ledger's ruled page for the Silver Creek parcel, stamped and countersigned.
+  7.0s to 10.0s  [tight close-up] Close on the maid as the clerk's answer lands; her jaw sets, but her eyes drop.
+Hard cuts exactly at 3.4, 7.0 s. No dissolves, no fade, no camera reset.
+
 DIALOGUE (native audio, US English, lip-sync exact):
 CLERK (neutral): "The sale was recorded in 2009. Blackwell owns it. Without a probate file, miss, you're not even her heir."
 ELENA (low): "Then open a probate file."
@@ -383,6 +449,12 @@ SHOT 1 — 0.0 s to 3.4 s — medium shot: On the stone steps, the maid holds a 
 HARD CUT at 3.4 s — SHOT 2 — tight close-up: Close on her hands tightening on the folder's edge until the card bends.
 HARD CUT at 6.9 s — SHOT 3 — over-the-shoulder shot: Over the foreman's shoulder: her face against the grey street, deciding.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.4s  [medium shot] On the stone steps, the maid holds a folder to her chest while the foreman waits a step below, hat in hand.
+  3.4s to 6.9s  [tight close-up] Close on her hands tightening on the folder's edge until the card bends.
+  6.9s to 10.0s  [over-the-shoulder shot] Over the foreman's shoulder: her face against the grey street, deciding.
+Hard cuts exactly at 3.4, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 COLE (careful): "Probate takes months. Victoria's already on the phone with her lawyer."
@@ -418,6 +490,12 @@ HARD CUT at 3.3 s — SHOT 2 — over-the-shoulder shot: Over the maid's shoulde
 HARD CUT at 6.9 s — SHOT 3 — tight close-up: Close on the maid's face: she reads the terms, and something in her goes cold.
 End on a held frame that motivates the next scene.
 
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.3s  [medium shot] In the paneled office, the maid holds a single sheet of paper while the woman in black cashmere stands by the window, gloves in hand.
+  3.3s to 6.9s  [over-the-shoulder shot] Over the maid's shoulder: the paper offers a year of grave upkeep and a dropped charge.
+  6.9s to 10.0s  [tight close-up] Close on the maid's face: she reads the terms, and something in her goes cold.
+Hard cuts exactly at 3.3, 6.9 s. No dissolves, no fade, no camera reset.
+
 DIALOGUE (native audio, US English, lip-sync exact):
 VICTORIA (soft, final): "I'll keep your mother's grave tended another year. Leave Silver Creek, and the watch charge disappears."
 ELENA (quiet): "You're offering me a gardener. Not my mother's name."
@@ -428,7 +506,7 @@ AUDIO BED: a coal settling in the grate, gloves creaking, wind at the window
 
 CAMERA & MOVEMENT: Static; cut to paper; slow close on her face.
 
-CONTINUITY: Act 2 wardrobe. First explicit money offer; Victoria repeats it with a larger sum in scene 30. Victoria Blackwell wardrobe (act 2): black cashmere turtleneck, long grey riding coat, leather gloves Elena Vance wardrobe (act 2): faded blue denim work shirt under a tan canvas barn coat, braid loosened by work
+CONTINUITY: Act 2 wardrobe. Victoria Blackwell wardrobe (act 2): black cashmere turtleneck, long grey riding coat, leather gloves Elena Vance wardrobe (act 2): faded blue denim work shirt under a tan canvas barn coat, braid loosened by work
 
 STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
 
@@ -451,6 +529,12 @@ SHOT 1 — 0.0 s to 3.5 s — medium shot: In the dark-paneled hallway, the heir
 HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close on the heir's face: the practiced smile is gone for once.
 HARD CUT at 6.9 s — SHOT 3 — over-the-shoulder shot: Over his shoulder: the maid's eyes narrow, reading the first honest thing he's said.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [medium shot] In the dark-paneled hallway, the heir speaks low to the maid, hands open, while she holds her folder like a shield.
+  3.5s to 6.9s  [tight close-up] Close on the heir's face: the practiced smile is gone for once.
+  6.9s to 10.0s  [over-the-shoulder shot] Over his shoulder: the maid's eyes narrow, reading the first honest thing he's said.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 RICHARD (low): "I know you didn't take the watch. Leave before she decides you're dangerous."
@@ -487,6 +571,12 @@ HARD CUT at 3.4 s — SHOT 2 — tight close-up: Close on the housekeeper's hand
 HARD CUT at 6.9 s — SHOT 3 — over-the-shoulder shot: Over the housekeeper's shoulder: the maid's face as she understands what was signed.
 End on a held frame that motivates the next scene.
 
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.4s  [medium shot] At the oilcloth table, the maid and the housekeeper sit across a covered pie neither has touched.
+  3.4s to 6.9s  [tight close-up] Close on the housekeeper's hands twisting a napkin until the linen frays.
+  6.9s to 10.0s  [over-the-shoulder shot] Over the housekeeper's shoulder: the maid's face as she understands what was signed.
+Hard cuts exactly at 3.4, 6.9 s. No dissolves, no fade, no camera reset.
+
 DIALOGUE (native audio, US English, lip-sync exact):
 MAGGIE (unsteady): "The night of the fire, I signed a statement for her. I said the lamp fell. It was a lie."
 ELENA (hurt): "You told them my mother was careless."
@@ -520,6 +610,12 @@ SHOT 1 — 0.0 s to 3.4 s — medium shot: In the barn aisle, the maid and the f
 HARD CUT at 3.4 s — SHOT 2 — tight close-up: Close on the foreman's jaw as he forces the words out.
 HARD CUT at 6.8 s — SHOT 3 — over-the-shoulder shot: Over his shoulder: the maid's face as she takes the confession without blinking.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.4s  [medium shot] In the barn aisle, the maid and the foreman stand on either side of a lantern, rain crossing the doorway behind him.
+  3.4s to 6.8s  [tight close-up] Close on the foreman's jaw as he forces the words out.
+  6.8s to 10.0s  [over-the-shoulder shot] Over his shoulder: the maid's face as she takes the confession without blinking.
+Hard cuts exactly at 3.4, 6.8 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 COLE (rough): "The night of the fire I was fifteen. I saw a truck leave."
@@ -555,6 +651,12 @@ HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close on her hand closing a fol
 HARD CUT at 6.9 s — SHOT 3 — over-the-shoulder shot: Over her shoulder: the heir's reflection in the dark window, caught between defiance and fear.
 End on a held frame that motivates the next scene.
 
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [medium shot] In the lamplit study, the mistress stands over the desk while the heir paces and loosens his collar.
+  3.5s to 6.9s  [tight close-up] Close on her hand closing a folder marked only by a county seal.
+  6.9s to 10.0s  [over-the-shoulder shot] Over her shoulder: the heir's reflection in the dark window, caught between defiance and fear.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
+
 DIALOGUE (native audio, US English, lip-sync exact):
 VICTORIA (cold): "The probate clerk called. Someone requested June Vance's file. Bury it."
 RICHARD (edged): "You're good at that. The watch was your idea, remember?"
@@ -589,6 +691,12 @@ HARD CUT at 3.4 s — SHOT 2 — insert shot of the evidence object: Insert: the
 HARD CUT at 6.9 s — SHOT 3 — tight close-up: Close on the maid as the refusal lands; she doesn't look away.
 End on a held frame that motivates the next scene.
 
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.4s  [medium shot] At the counter, the clerk shakes her head over a sealed drawer while the maid's open folder waits untouched.
+  3.4s to 6.9s  [insert shot of the evidence object] Insert: the drawer's small brass lock, closed and freshly oiled.
+  6.9s to 10.0s  [tight close-up] Close on the maid as the refusal lands; she doesn't look away.
+Hard cuts exactly at 3.4, 6.9 s. No dissolves, no fade, no camera reset.
+
 DIALOGUE (native audio, US English, lip-sync exact):
 CLERK (uncomfortable): "The file was pulled by the Blackwell estate. There's no record you're her daughter."
 ELENA (quiet): "There's a record somewhere. She made sure of it."
@@ -599,7 +707,7 @@ AUDIO BED: a drawer lock clicking, a clock, a pen set down too carefully
 
 CAMERA & MOVEMENT: Static; insert on the lock; close on her.
 
-CONTINUITY: Act 2 wardrobe. Elena's birth certificate is hidden in the bank box; it resolves this 'no record' refusal in act 5. Elena Vance wardrobe (act 2): faded blue denim work shirt under a tan canvas barn coat, braid loosened by work
+CONTINUITY: Act 2 wardrobe. Elena Vance wardrobe (act 2): faded blue denim work shirt under a tan canvas barn coat, braid loosened by work
 
 STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
 
@@ -623,6 +731,12 @@ HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close on the maid's face as eve
 HARD CUT at 6.9 s — SHOT 3 — low-angle hero shot: Low angle on the maid as she answers the toast without dropping her gaze.
 End on a held frame that motivates the next scene.
 
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [medium shot] In the candlelit great room, the mistress rises with a glass while the maid stands at the edge of the tables, napkin in hand.
+  3.5s to 6.9s  [tight close-up] Close on the maid's face as every guest turns toward her.
+  6.9s to 10.0s  [low-angle hero shot] Low angle on the maid as she answers the toast without dropping her gaze.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
+
 DIALOGUE (native audio, US English, lip-sync exact):
 VICTORIA (bright, public): "Elena will be leaving us soon. Tell them, dear — what are your plans?"
 ELENA (calm, clear): "Mrs. Blackwell is too kind. My plans haven't changed. I'm staying."
@@ -633,7 +747,7 @@ AUDIO BED: silverware on china, a glass set down, a room going quiet
 
 CAMERA & MOVEMENT: Static wide; cut to face; low-angle on her answer.
 
-CONTINUITY: Act 2 wardrobe. Public humiliation attempt; Elena's small public defiance sets up the gala reversal in act 6. Victoria Blackwell wardrobe (act 2): black cashmere turtleneck, long grey riding coat, leather gloves Elena Vance wardrobe (act 2): faded blue denim work shirt under a tan canvas barn coat, braid loosened by work Richard Blackwell wardrobe (act 2): grey wool overcoat over the white shirt, silver cufflinks
+CONTINUITY: Act 2 wardrobe. Victoria Blackwell wardrobe (act 2): black cashmere turtleneck, long grey riding coat, leather gloves Elena Vance wardrobe (act 2): faded blue denim work shirt under a tan canvas barn coat, braid loosened by work Richard Blackwell wardrobe (act 2): grey wool overcoat over the white shirt, silver cufflinks
 
 STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
 
@@ -656,6 +770,12 @@ SHOT 1 — 0.0 s to 3.4 s — medium shot: In the gravel yard at night, a steel 
 HARD CUT at 3.4 s — SHOT 2 — insert shot of the evidence object: Insert: the old saddle's leather curling in the fire, stitching glowing before it blackens.
 HARD CUT at 6.9 s — SHOT 3 — tight close-up: Close on the maid's face lit by fire; she does not step back.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.4s  [medium shot] In the gravel yard at night, a steel barrel burns while the mistress holds out a folded paper and the maid watches the flames.
+  3.4s to 6.9s  [insert shot of the evidence object] Insert: the old saddle's leather curling in the fire, stitching glowing before it blackens.
+  6.9s to 10.0s  [tight close-up] Close on the maid's face lit by fire; she does not step back.
+Hard cuts exactly at 3.4, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 VICTORIA (quiet, absolute): "Sign by midnight, or I press charges for arson as well as theft."
@@ -691,6 +811,12 @@ HARD CUT at 3.4 s — SHOT 2 — insert shot of the evidence object: Insert: a c
 HARD CUT at 6.9 s — SHOT 3 — tight close-up: Close on the maid looking up from the map, determination sharpening her eyes.
 End on a held frame that motivates the next scene.
 
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.4s  [medium two-shot] In the cottage lamplight, the maid unrolls the old county survey map while the foreman anchors the curling corners with heavy iron horseshoes.
+  3.4s to 6.9s  [insert shot of the evidence object] Insert: a calloused finger traces the parcel boundary where the original boundary line was scraped off with a razor blade.
+  6.9s to 10.0s  [tight close-up] Close on the maid looking up from the map, determination sharpening her eyes.
+Hard cuts exactly at 3.4, 6.9 s. No dissolves, no fade, no camera reset.
+
 DIALOGUE (native audio, US English, lip-sync exact):
 ELENA (intense, low): "Look at the parcel boundary. Someone scraped the original section line off with a blade."
 COLE (gravelly): "That's Walter Blackwell's handwriting underneath. He signed over the whole north valley."
@@ -725,6 +851,12 @@ HARD CUT at 3.5 s — SHOT 2 — insert shot of the evidence object: Insert: the
 HARD CUT at 6.8 s — SHOT 3 — tight close-up: Close on her face as flashlight beam illuminates the receipts bearing her mother's signature.
 End on a held frame that motivates the next scene.
 
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [medium shot] In the shadowy tack room, the maid kneels beside the wall timber and slides a cylindrical tin case from the hollow cavity.
+  3.5s to 6.8s  [insert shot of the evidence object] Insert: the cap unscrews with a grinding squeak, revealing rolled bank tax receipts tied with red butcher twine.
+  6.8s to 10.0s  [tight close-up] Close on her face as flashlight beam illuminates the receipts bearing her mother's signature.
+Hard cuts exactly at 3.5, 6.8 s. No dissolves, no fade, no camera reset.
+
 DIALOGUE (native audio, US English, lip-sync exact):
 ELENA (shivering whisper): "Every property tax installment from 2005 to 2008. My mother paid them in cash at First Valley Bank."
 
@@ -758,6 +890,12 @@ HARD CUT at 3.4 s — SHOT 2 — tight close-up: Close on their intertwined hand
 HARD CUT at 6.9 s — SHOT 3 — over-the-shoulder shot: Over the foreman's broad shoulder, her eyes soften as she looks directly into his face.
 End on a held frame that motivates the next scene.
 
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.4s  [medium two-shot] In the moonlight, the foreman gently binds the maid's bruised palm with white tape, his touch slow and deliberate.
+  3.4s to 6.9s  [tight close-up] Close on their intertwined hands as his thumb brushes over her calloused knuckles.
+  6.9s to 10.0s  [over-the-shoulder shot] Over the foreman's broad shoulder, her eyes soften as she looks directly into his face.
+Hard cuts exactly at 3.4, 6.9 s. No dissolves, no fade, no camera reset.
+
 DIALOGUE (native audio, US English, lip-sync exact):
 COLE (soft, rough): "You don't have to carry this alone in the dark, Elena. I'm with you."
 ELENA (tender, guarded): "Everyone who stood beside my mother paid for it. Be careful."
@@ -768,7 +906,7 @@ AUDIO BED: dry hay rustling, cricket chirps, soft breathing, timber creaking in 
 
 CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
 
-CONTINUITY: Act 3 wardrobe. Cole wraps Elena's bruised hand; linen tape remains on her palm through scene 28. Elena Vance wardrobe (act 3): denim work shirt with rolled sleeves, dark riding jeans, leather work gloves tucked in the belt Cole Barrett wardrobe (act 3): chore jacket with a broken zipper pull, leather work gloves
+CONTINUITY: Act 3 wardrobe. Elena Vance wardrobe (act 3): denim work shirt with rolled sleeves, dark riding jeans, leather work gloves tucked in the belt Cole Barrett wardrobe (act 3): chore jacket with a broken zipper pull, leather work gloves
 
 STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
 
@@ -791,6 +929,12 @@ SHOT 1 — 0.0 s to 3.3 s — medium shot: Behind the desk, the maid freezes wit
 HARD CUT at 3.3 s — SHOT 2 — tight close-up: Close on the heir's eyes shifting down to the gold-stamped estate accounts ledger in her arms.
 HARD CUT at 6.8 s — SHOT 3 — over-the-shoulder shot: Over the maid's shoulder, the heir slowly reaches behind his back to shut the study door.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.3s  [medium shot] Behind the desk, the maid freezes with the open ledger as the heir steps over the threshold into the room.
+  3.3s to 6.8s  [tight close-up] Close on the heir's eyes shifting down to the gold-stamped estate accounts ledger in her arms.
+  6.8s to 10.0s  [over-the-shoulder shot] Over the maid's shoulder, the heir slowly reaches behind his back to shut the study door.
+Hard cuts exactly at 3.3, 6.8 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 RICHARD (nervous, tense): "You shouldn't have opened that drawer, Elena. That book lists payments my father made to keep quiet."
@@ -826,6 +970,12 @@ HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close on the mistress's painted
 HARD CUT at 6.9 s — SHOT 3 — low-angle hero shot: Low angle on the maid squaring her shoulders against the firelight's orange glow.
 End on a held frame that motivates the next scene.
 
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [medium shot] In the vast room, the mistress dangles a small brass ribboned key while the maid stands rigid near the cold hearth.
+  3.5s to 6.9s  [tight close-up] Close on the mistress's painted red lips curling into an amused, predatory smile.
+  6.9s to 10.0s  [low-angle hero shot] Low angle on the maid squaring her shoulders against the firelight's orange glow.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
+
 DIALOGUE (native audio, US English, lip-sync exact):
 VICTORIA (smooth venom): "Did you think Walter was a saint? He gave promises because he was weak."
 ELENA (unflinching): "He gave her the ranch. And you murdered him before he could file it."
@@ -859,6 +1009,12 @@ SHOT 1 — 0.0 s to 3.4 s — medium two-shot: Under harsh halogen yard lights, 
 HARD CUT at 3.4 s — SHOT 2 — tight close-up: Close on the foreman's clenched fist at his side, knuckles white against the tan canvas.
 HARD CUT at 6.8 s — SHOT 3 — over-the-shoulder shot: Over the heir's shoulder, the foreman steps forward into the beam of light.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.4s  [medium two-shot] Under harsh halogen yard lights, the foreman plants his boots in front of the heir, refusing to yield the driveway.
+  3.4s to 6.8s  [tight close-up] Close on the foreman's clenched fist at his side, knuckles white against the tan canvas.
+  6.8s to 10.0s  [over-the-shoulder shot] Over the heir's shoulder, the foreman steps forward into the beam of light.
+Hard cuts exactly at 3.4, 6.8 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 COLE (deadly, calm): "Take one step toward the gatehouse tonight, Richard, and I'll finish what your father started."
@@ -894,6 +1050,12 @@ HARD CUT at 3.4 s — SHOT 2 — insert shot of the evidence object: Insert: the
 HARD CUT at 6.9 s — SHOT 3 — tight close-up: Close on the heir's eyes searching her face, genuine dread beneath his charm.
 End on a held frame that motivates the next scene.
 
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.4s  [medium shot] On the rain-slick porch steps, the heir reaches out with a cream envelope while the maid refuses to accept it.
+  3.4s to 6.9s  [insert shot of the evidence object] Insert: the wet envelope bears the embossed gold seal of the county probate registry.
+  6.9s to 10.0s  [tight close-up] Close on the heir's eyes searching her face, genuine dread beneath his charm.
+Hard cuts exactly at 3.4, 6.9 s. No dissolves, no fade, no camera reset.
+
 DIALOGUE (native audio, US English, lip-sync exact):
 RICHARD (shaken, urgent): "My mother hired two men from Billings. If you are here at sunrise, they won't talk."
 ELENA (quiet iron): "Then tell them to bring their shovels. I'm not running."
@@ -927,6 +1089,12 @@ SHOT 1 — 0.0 s to 3.3 s — medium shot: In the barn aisle, the housekeeper ru
 HARD CUT at 3.3 s — SHOT 2 — tight close-up: Close on the housekeeper's tear-streaked spectacles reflecting the amber glow of the hanging bulb.
 HARD CUT at 6.8 s — SHOT 3 — over-the-shoulder shot: Over the housekeeper's shoulder, the maid gently pulls her close to steady her shaking.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.3s  [medium shot] In the barn aisle, the housekeeper rushes to the maid and grabs both of her elbows with trembling hands.
+  3.3s to 6.8s  [tight close-up] Close on the housekeeper's tear-streaked spectacles reflecting the amber glow of the hanging bulb.
+  6.8s to 10.0s  [over-the-shoulder shot] Over the housekeeper's shoulder, the maid gently pulls her close to steady her shaking.
+Hard cuts exactly at 3.3, 6.8 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 MAGGIE (frantic whisper): "Victoria cleared the safe in the master bedroom. She's packing to leave after the county gala."
@@ -962,6 +1130,12 @@ HARD CUT at 3.4 s — SHOT 2 — tight close-up: Close on the cashier's draft: f
 HARD CUT at 6.9 s — SHOT 3 — low-angle hero shot: Low angle on the maid standing in the glare of the car beams, unblinking in the gale.
 End on a held frame that motivates the next scene.
 
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.4s  [medium shot] By the iron gates, the mistress steps out of the luxury car into the headlights, holding a checkbook open.
+  3.4s to 6.9s  [tight close-up] Close on the cashier's draft: five hundred thousand dollars drawn on First Valley Bank.
+  6.9s to 10.0s  [low-angle hero shot] Low angle on the maid standing in the glare of the car beams, unblinking in the gale.
+Hard cuts exactly at 3.4, 6.9 s. No dissolves, no fade, no camera reset.
+
 DIALOGUE (native audio, US English, lip-sync exact):
 VICTORIA (velvet bribe): "Half a million dollars in cash. You can buy any ranch from here to Texas, Elena."
 ELENA (ice cold): "And all I have to do is swear my mother was a thief."
@@ -995,6 +1169,12 @@ SHOT 1 — 0.0 s to 3.4 s — medium two-shot: Under the headlights, the mistres
 HARD CUT at 3.4 s — SHOT 2 — insert shot of the evidence object: Insert: the maid's fingers close around the paper edge, lingering as if about to fold it.
 HARD CUT at 6.9 s — SHOT 3 — tight close-up: Extreme close-up on the maid's eyes, blazing with an impossible choice as rain strikes her skin.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.4s  [medium two-shot] Under the headlights, the mistress thrusts the certified check into the maid's face like an execution order.
+  3.4s to 6.9s  [insert shot of the evidence object] Insert: the maid's fingers close around the paper edge, lingering as if about to fold it.
+  6.9s to 10.0s  [tight close-up] Extreme close-up on the maid's eyes, blazing with an impossible choice as rain strikes her skin.
+Hard cuts exactly at 3.4, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 VICTORIA (whispered, ruthless): "Take the money, Elena. Leave the name behind. Or by morning, you won't have either."
@@ -1030,6 +1210,12 @@ HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close on the maid's boots stepp
 HARD CUT at 6.9 s — SHOT 3 — medium shot: She kneels in the center of the wreckage, her hands feeling frantically beneath a loose hearthstone.
 End on a held frame that motivates the next scene.
 
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [wide establishing shot] Inside the ransacked cottage, the storm sweeps through shattered windows, scattering torn clothes and broken crockery across wet stones.
+  3.5s to 6.9s  [tight close-up] Close on the maid's boots stepping through broken glass as rain drips from her soaked chin.
+  6.9s to 10.0s  [medium shot] She kneels in the center of the wreckage, her hands feeling frantically beneath a loose hearthstone.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
+
 DIALOGUE (native audio, US English, lip-sync exact):
 ELENA (choked, breathless): "They took the tin box. They tore through my floorboards and took the original deed."
 ELENA (shattered whisper): "They took everything."
@@ -1064,6 +1250,12 @@ HARD CUT at 3.4 s — SHOT 2 — insert shot of the evidence object: Insert: a l
 HARD CUT at 6.8 s — SHOT 3 — tight close-up: Close on her wet face illuminated by strobe flashes, defiant rage replacing fear.
 End on a held frame that motivates the next scene.
 
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.4s  [medium shot] In the swirling red and blue emergency light, the maid faces the padlocked gate as rain washes mud over her boots.
+  3.4s to 6.8s  [insert shot of the evidence object] Insert: a laminated county eviction warrant stapled to the post: 'Immediate Vacate — Trespassing Order'.
+  6.8s to 10.0s  [tight close-up] Close on her wet face illuminated by strobe flashes, defiant rage replacing fear.
+Hard cuts exactly at 3.4, 6.8 s. No dissolves, no fade, no camera reset.
+
 DIALOGUE (native audio, US English, lip-sync exact):
 ELENA (bitter, low): "Sheriff Drummond signed an eviction without a hearing. Victoria bought the whole county, but she never bought me."
 
@@ -1096,6 +1288,12 @@ SHOT 1 — 0.0 s to 3.4 s — medium two-shot: In the drafty shelter, the maid w
 HARD CUT at 3.4 s — SHOT 2 — tight close-up: Close on the housekeeper's trembling chin as she clasps Elena's wet wrists with both hands.
 HARD CUT at 6.9 s — SHOT 3 — over-the-shoulder shot: Over the maid's shoulder, the older woman looks up with fifteen years of buried grief.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.4s  [medium two-shot] In the drafty shelter, the maid wraps her own dry flannel scarf around the weeping housekeeper's neck.
+  3.4s to 6.9s  [tight close-up] Close on the housekeeper's trembling chin as she clasps Elena's wet wrists with both hands.
+  6.9s to 10.0s  [over-the-shoulder shot] Over the maid's shoulder, the older woman looks up with fifteen years of buried grief.
+Hard cuts exactly at 3.4, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 MAGGIE (sobbing, broken): "Victoria threatened my sister's nursing care in Helena. That is why I signed the lie."
@@ -1131,6 +1329,12 @@ HARD CUT at 3.4 s — SHOT 2 — insert shot of the evidence object: Insert: the
 HARD CUT at 6.8 s — SHOT 3 — tight close-up: Close on the heir turning away from the fireplace, draining his amber glass in one swallow.
 End on a held frame that motivates the next scene.
 
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.4s  [medium shot] Inside the glowing library, the mistress feeds the ancient deed into the fireplace flames while rain streaks the window.
+  3.4s to 6.8s  [insert shot of the evidence object] Insert: the wax seal on June Vance's deed melts into blackened bubbles in the fire.
+  6.8s to 10.0s  [tight close-up] Close on the heir turning away from the fireplace, draining his amber glass in one swallow.
+Hard cuts exactly at 3.4, 6.8 s. No dissolves, no fade, no camera reset.
+
 DIALOGUE (native audio, US English, lip-sync exact):
 VICTORIA (triumphant, quiet): "There goes Walter's grand sentiment. No deed, no contract, no legal claim in Montana."
 RICHARD (dark, uneasy): "You burned the paper, Mother. You didn't burn what Walter put in the vault."
@@ -1164,6 +1368,12 @@ SHOT 1 — 0.0 s to 3.3 s — medium shot: In a sudden flash of lightning, the m
 HARD CUT at 3.3 s — SHOT 2 — tight close-up: Close on the heir stumbling backward against a stall door, dropping his car keys onto the straw.
 HARD CUT at 6.8 s — SHOT 3 — over-the-shoulder shot: Over the maid's shoulder, she steps forward and steps firmly onto his dropped keys.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.3s  [medium shot] In a sudden flash of lightning, the maid appears like a ghost in the stable door, blocking the heir's retreat.
+  3.3s to 6.8s  [tight close-up] Close on the heir stumbling backward against a stall door, dropping his car keys onto the straw.
+  6.8s to 10.0s  [over-the-shoulder shot] Over the maid's shoulder, she steps forward and steps firmly onto his dropped keys.
+Hard cuts exactly at 3.3, 6.8 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 ELENA (ice cold command): "Tell me what your father put in the vault, Richard. Or sleep in this stable tonight."
@@ -1199,6 +1409,12 @@ HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close on her wet face, eyes sti
 HARD CUT at 6.9 s — SHOT 3 — low-angle hero shot: Low angle from the rocks below, framing her towering against the gathering dawn light.
 End on a held frame that motivates the next scene.
 
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [wide establishing shot] On the high ridge, the small figure of the maid stands against the vast Montana valley as dawn breaks slate grey.
+  3.5s to 6.9s  [tight close-up] Close on her wet face, eyes stinging with salt and cold wind, but chin jutting forward in stubborn pride.
+  6.9s to 10.0s  [low-angle hero shot] Low angle from the rocks below, framing her towering against the gathering dawn light.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
+
 DIALOGUE (native audio, US English, lip-sync exact):
 ELENA (unbroken, resonant): "They took the house. They burned the deed. But every inch of this dirt remembers my mother's sweat."
 
@@ -1231,6 +1447,12 @@ SHOT 1 — 0.0 s to 3.4 s — medium two-shot: On the muddy road, the foreman wr
 HARD CUT at 3.4 s — SHOT 2 — tight close-up: Close on his calloused hand lingering at the lapel, steadying her trembling frame.
 HARD CUT at 6.9 s — SHOT 3 — over-the-shoulder shot: Over the maid's shoulder, the foreman looks straight down the mountain toward town.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.4s  [medium two-shot] On the muddy road, the foreman wraps his dry wool jacket around her, pulling the collar up against the wind.
+  3.4s to 6.9s  [tight close-up] Close on his calloused hand lingering at the lapel, steadying her trembling frame.
+  6.9s to 10.0s  [over-the-shoulder shot] Over the maid's shoulder, the foreman looks straight down the mountain toward town.
+Hard cuts exactly at 3.4, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 COLE (quiet, loyal): "The bank opens in two hours. I've got gas and nothing left to lose."
@@ -1266,6 +1488,12 @@ HARD CUT at 3.4 s — SHOT 2 — insert shot of the evidence object: Insert: und
 HARD CUT at 6.9 s — SHOT 3 — tight close-up: Close on her lips parting as the final realization clicks into place.
 End on a held frame that motivates the next scene.
 
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.4s  [medium shot] Inside the bouncing truck cab, the maid turns the brass key in the dashboard light, scraping away years of verdigris.
+  3.4s to 6.9s  [insert shot of the evidence object] Insert: under the brass patina, tiny stamped numerals read: 'FVT — 14'.
+  6.9s to 10.0s  [tight close-up] Close on her lips parting as the final realization clicks into place.
+Hard cuts exactly at 3.4, 6.9 s. No dissolves, no fade, no camera reset.
+
 DIALOGUE (native audio, US English, lip-sync exact):
 ELENA (hushed awe): "FVT fourteen. First Valley Trust. This was never a saddle lock or a barn key."
 COLE (stunned breath): "It's a bank safety deposit box key. Walter's private vault."
@@ -1299,6 +1527,12 @@ SHOT 1 — 0.0 s to 3.4 s — medium shot: On the bank steps, the maid and forem
 HARD CUT at 3.4 s — SHOT 2 — over-the-shoulder shot: Over the maid's shoulder, Victoria steps out in her emerald gala dress, accompanied by Sheriff Drummond.
 HARD CUT at 6.8 s — SHOT 3 — tight close-up: Close on the maid slipping the brass key into her fist and bounding up the bank steps.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.4s  [medium shot] On the bank steps, the maid and foreman turn together as the limousine door opens across the street.
+  3.4s to 6.8s  [over-the-shoulder shot] Over the maid's shoulder, Victoria steps out in her emerald gala dress, accompanied by Sheriff Drummond.
+  6.8s to 10.0s  [tight close-up] Close on the maid slipping the brass key into her fist and bounding up the bank steps.
+Hard cuts exactly at 3.4, 6.8 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 COLE (urgent): "Victoria's here with Drummond. They're going to seal the vault before you reach the counter."
@@ -1334,6 +1568,12 @@ HARD CUT at 3.4 s — SHOT 2 — insert shot of the evidence object: Insert: the
 HARD CUT at 6.9 s — SHOT 3 — tight close-up: Close on her eyes widening in profound shock as she reads the bold heading across the parchment.
 End on a held frame that motivates the next scene.
 
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.4s  [medium shot] Inside the gleaming vault, the maid turns the brass key into Lock 14; the heavy tumbler clicks open with a hollow ring.
+  3.4s to 6.9s  [insert shot of the evidence object] Insert: the long metal deposit box slides out, containing a blue ribboned document: 'Last Will and Testament of Walter Blackwell'.
+  6.9s to 10.0s  [tight close-up] Close on her eyes widening in profound shock as she reads the bold heading across the parchment.
+Hard cuts exactly at 3.4, 6.9 s. No dissolves, no fade, no camera reset.
+
 DIALOGUE (native audio, US English, lip-sync exact):
 ELENA (reverent whisper): "The key was never for a door. It was for Walter Blackwell's final will."
 ELENA (rising triumph): "And the first page leaves Silver Creek entirely to me."
@@ -1367,6 +1607,12 @@ SHOT 1 — 0.0 s to 3.4 s — medium shot: In the sunlit bank office, the maid s
 HARD CUT at 3.4 s — SHOT 2 — insert shot of the evidence object: Insert: the manager's heavy gold signet embosser stamps 'CERTIFIED ORIGINAL COPY — FIRST VALLEY TRUST' across the parchment.
 HARD CUT at 6.9 s — SHOT 3 — tight close-up: Close on the maid's face as the heavy brass stamp thuds down, her breath releasing in steady relief.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.4s  [medium shot] In the sunlit bank office, the maid stands tall as the grey-haired bank manager examines the embossed blue notary seal through his bifocals.
+  3.4s to 6.9s  [insert shot of the evidence object] Insert: the manager's heavy gold signet embosser stamps 'CERTIFIED ORIGINAL COPY — FIRST VALLEY TRUST' across the parchment.
+  6.9s to 10.0s  [tight close-up] Close on the maid's face as the heavy brass stamp thuds down, her breath releasing in steady relief.
+Hard cuts exactly at 3.4, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 ELENA (crisp, steady): "Is the notary seal intact, sir? Does this will hold legal standing in Montana?"
@@ -1402,6 +1648,12 @@ HARD CUT at 3.4 s — SHOT 2 — tight close-up: Close on the mistress's furious
 HARD CUT at 6.8 s — SHOT 3 — over-the-shoulder shot: Over the foreman's shoulder, the bank double doors click open behind him.
 End on a held frame that motivates the next scene.
 
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.4s  [medium two-shot] On the stone steps, the foreman stands immovable between the mistress and the bank doors, ignoring the sheriff's warning stance.
+  3.4s to 6.8s  [tight close-up] Close on the mistress's furious eyes narrowing beneath her sleek platinum bob.
+  6.8s to 10.0s  [over-the-shoulder shot] Over the foreman's shoulder, the bank double doors click open behind him.
+Hard cuts exactly at 3.4, 6.8 s. No dissolves, no fade, no camera reset.
+
 DIALOGUE (native audio, US English, lip-sync exact):
 VICTORIA (venomous hiss): "Step aside, Cole. You are an employee on my payroll until I fire you."
 COLE (unshakable, low): "I don't work for you anymore, Victoria. I work for Silver Creek's real owner."
@@ -1435,6 +1687,12 @@ SHOT 1 — 0.0 s to 3.4 s — medium shot: The maid emerges onto the sunlit step
 HARD CUT at 3.4 s — SHOT 2 — tight close-up: Close on the mistress's painted smile slipping, raw panic flashing behind her eyes for the first time.
 HARD CUT at 6.9 s — SHOT 3 — low-angle hero shot: Low angle on the maid looking down from the granite steps with quiet authority.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.4s  [medium shot] The maid emerges onto the sunlit steps, lifting the stamped court-certified envelope for the entire sidewalk to see.
+  3.4s to 6.9s  [tight close-up] Close on the mistress's painted smile slipping, raw panic flashing behind her eyes for the first time.
+  6.9s to 10.0s  [low-angle hero shot] Low angle on the maid looking down from the granite steps with quiet authority.
+Hard cuts exactly at 3.4, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 ELENA (ringing, clear): "You told the county my mother had no standing. Walter's certified will begs to differ."
@@ -1470,6 +1728,12 @@ HARD CUT at 3.4 s — SHOT 2 — tight close-up: Close on the heir unfastening h
 HARD CUT at 6.8 s — SHOT 3 — over-the-shoulder shot: Over the mistress's shoulder, the heir stares out at the courthouse steps.
 End on a held frame that motivates the next scene.
 
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.4s  [medium two-shot] Inside the town car, the mistress grabs her son's lapel as he pulls himself back against the passenger door.
+  3.4s to 6.8s  [tight close-up] Close on the heir unfastening her gloved fingers from his jacket with quiet distaste.
+  6.8s to 10.0s  [over-the-shoulder shot] Over the mistress's shoulder, the heir stares out at the courthouse steps.
+Hard cuts exactly at 3.4, 6.8 s. No dissolves, no fade, no camera reset.
+
 DIALOGUE (native audio, US English, lip-sync exact):
 VICTORIA (panicked command): "You will tell Judge Miller the will was stolen from Walter's desk while he was demented."
 RICHARD (quiet, finished): "Father was never demented, Mother. I'm not perjuring myself for your stolen mansion."
@@ -1503,6 +1767,12 @@ SHOT 1 — 0.0 s to 3.4 s — medium shot: In the brick alleyway, the housekeepe
 HARD CUT at 3.4 s — SHOT 2 — insert shot of the evidence object: Insert: the journal page opens to October 12, 2008: 'Paid Sheriff Drummond $10,000 to classify barn fire as accidental'.
 HARD CUT at 6.8 s — SHOT 3 — tight close-up: Close on the housekeeper whispering her final truth as she holds Elena's fingers tight.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.4s  [medium shot] In the brick alleyway, the housekeeper presses an aged leather journal into the maid's hands, tears in her eyes.
+  3.4s to 6.8s  [insert shot of the evidence object] Insert: the journal page opens to October 12, 2008: 'Paid Sheriff Drummond $10,000 to classify barn fire as accidental'.
+  6.8s to 10.0s  [tight close-up] Close on the housekeeper whispering her final truth as she holds Elena's fingers tight.
+Hard cuts exactly at 3.4, 6.8 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 MAGGIE (solemn, tearful): "Walter kept this fire log. He wrote down the payoff check number right here."
@@ -1538,6 +1808,12 @@ HARD CUT at 3.4 s — SHOT 2 — tight close-up: Close on the foreman reaching o
 HARD CUT at 6.9 s — SHOT 3 — low-angle hero shot: Low angle as the maid places her hand on the brass door handle and pushes both doors open.
 End on a held frame that motivates the next scene.
 
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.4s  [medium two-shot] Before the towering carved oak doors, the maid pauses, adjusting her mother's silver belt buckle.
+  3.4s to 6.9s  [tight close-up] Close on the foreman reaching out, adjusting the collar of her white shirt with quiet tenderness.
+  6.9s to 10.0s  [low-angle hero shot] Low angle as the maid places her hand on the brass door handle and pushes both doors open.
+Hard cuts exactly at 3.4, 6.9 s. No dissolves, no fade, no camera reset.
+
 DIALOGUE (native audio, US English, lip-sync exact):
 COLE (gentle awe): "Every rancher, judge and banker in the state is in that room, Elena."
 ELENA (unshakable pride): "Good. It's time they learned who fed their horses for the last fifteen years."
@@ -1571,6 +1847,12 @@ SHOT 1 — 0.0 s to 3.5 s — wide establishing shot: The grand ballroom falls u
 HARD CUT at 3.5 s — SHOT 2 — tight close-up: Close on the mistress's hand tightening around the podium microphone until her diamond ring clicks against the steel.
 HARD CUT at 6.9 s — SHOT 3 — over-the-shoulder shot: Over the maid's shoulder, she ascends the three wooden stage stairs without breaking stride.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.5s  [wide establishing shot] The grand ballroom falls utterly silent as the ranch maid in her simple white shirt strides down the red carpet toward the stage.
+  3.5s to 6.9s  [tight close-up] Close on the mistress's hand tightening around the podium microphone until her diamond ring clicks against the steel.
+  6.9s to 10.0s  [over-the-shoulder shot] Over the maid's shoulder, she ascends the three wooden stage stairs without breaking stride.
+Hard cuts exactly at 3.5, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 VICTORIA (strangled anger): "Security, remove this girl immediately. This is a private county charity gala."
@@ -1606,6 +1888,12 @@ HARD CUT at 3.4 s — SHOT 2 — tight close-up: Extreme close-up on the mistres
 HARD CUT at 6.8 s — SHOT 3 — insert shot of the evidence object: Insert: Elena lays Walter's blue-sealed will onto the auctioneer's reading desk.
 End on a held frame that motivates the next scene.
 
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.4s  [medium two-shot] Under the blinding stage lights, the mistress steps right into the maid's face, abandoning all high-society poise.
+  3.4s to 6.8s  [tight close-up] Extreme close-up on the mistress's twisted expression as she speaks directly into Elena's ear.
+  6.8s to 10.0s  [insert shot of the evidence object] Insert: Elena lays Walter's blue-sealed will onto the auctioneer's reading desk.
+Hard cuts exactly at 3.4, 6.8 s. No dissolves, no fade, no camera reset.
+
 DIALOGUE (native audio, US English, lip-sync exact):
 VICTORIA (hissed fury): "You are a stable rat playing dress-up. No judge will ever take my ranch away."
 ELENA (level, devastating): "It was never your ranch. You were just warming the chair until I grew up."
@@ -1639,6 +1927,12 @@ SHOT 1 — 0.0 s to 3.4 s — medium shot: At the edge of the stage, the maid ha
 HARD CUT at 3.4 s — SHOT 2 — tight close-up: Close on the judge adjusting his spectacles, his eyebrows climbing higher as he reads the notary stamp.
 HARD CUT at 6.9 s — SHOT 3 — over-the-shoulder shot: Over the judge's shoulder, the maid stands perfectly still as the entire hall holds its breath.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.4s  [medium shot] At the edge of the stage, the maid hands the heavy blue legal dossier down to the seated county probate judge.
+  3.4s to 6.9s  [tight close-up] Close on the judge adjusting his spectacles, his eyebrows climbing higher as he reads the notary stamp.
+  6.9s to 10.0s  [over-the-shoulder shot] Over the judge's shoulder, the maid stands perfectly still as the entire hall holds its breath.
+Hard cuts exactly at 3.4, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 CLERK (booming, judicial): "This signature is Walter Blackwell's. And the bank vault seal is verified. The auction is halted."
@@ -1674,6 +1968,12 @@ HARD CUT at 3.4 s — SHOT 2 — tight close-up: Close on the mistress's diamond
 HARD CUT at 6.9 s — SHOT 3 — extreme close-up: Extreme close-up on the mistress's whispered threat, her lips parting with vicious triumph.
 End on a held frame that motivates the next scene.
 
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.4s  [medium two-shot] In the red velvet backstage shadows, the mistress corners the maid against the rope rigging, eyes feverish with malice.
+  3.4s to 6.9s  [tight close-up] Close on the mistress's diamond-ringed hand touching the maid's cheek with chilling faux affection.
+  6.9s to 10.0s  [extreme close-up] Extreme close-up on the mistress's whispered threat, her lips parting with vicious triumph.
+Hard cuts exactly at 3.4, 6.9 s. No dissolves, no fade, no camera reset.
+
 DIALOGUE (native audio, US English, lip-sync exact):
 VICTORIA (whispered madness): "Enjoy your paper victory, girl. Two barrels of kerosene are already in Silver Creek barn."
 VICTORIA (deadly hiss): "Sign the release, or watch your horses burn alive tonight."
@@ -1707,6 +2007,12 @@ SHOT 1 — 0.0 s to 3.4 s — medium shot: The maid sprints through the barn gat
 HARD CUT at 3.4 s — SHOT 2 — insert shot of the evidence object: Insert: the foreman grinds the smoking red flare out beneath his heavy work boot into the damp mud.
 HARD CUT at 6.9 s — SHOT 3 — tight close-up: Close on the foreman looking up at Elena, breathing hard but smiling with fierce triumph.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.4s  [medium shot] The maid sprints through the barn gates as the foreman yanks a lit flare from a captured trespasser's hand.
+  3.4s to 6.9s  [insert shot of the evidence object] Insert: the foreman grinds the smoking red flare out beneath his heavy work boot into the damp mud.
+  6.9s to 10.0s  [tight close-up] Close on the foreman looking up at Elena, breathing hard but smiling with fierce triumph.
+Hard cuts exactly at 3.4, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 COLE (breathless, triumphant): "We were waiting for them in the hayloft, Elena. Not a single spark touched this barn."
@@ -1742,6 +2048,12 @@ HARD CUT at 3.4 s — SHOT 2 — tight close-up: Close on his pale face as he sp
 HARD CUT at 6.8 s — SHOT 3 — over-the-shoulder shot: Over the heir's shoulder, Victoria watches from the defense table, face white as chalk.
 End on a held frame that motivates the next scene.
 
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.4s  [medium shot] At the witness stand, the heir raises his right hand before the court clerk, his voice echoing across the silent gallery.
+  3.4s to 6.8s  [tight close-up] Close on his pale face as he speaks the words that end his family's dynasty.
+  6.8s to 10.0s  [over-the-shoulder shot] Over the heir's shoulder, Victoria watches from the defense table, face white as chalk.
+Hard cuts exactly at 3.4, 6.8 s. No dissolves, no fade, no camera reset.
+
 DIALOGUE (native audio, US English, lip-sync exact):
 RICHARD (resigned, clear): "I planted the silver watch in Elena Vance's saddle bag on my mother's direct orders."
 RICHARD (choked with shame): "Elena never stole anything. We stole fifteen years from her."
@@ -1775,6 +2087,12 @@ SHOT 1 — 0.0 s to 3.4 s — medium shot: The housekeeper stands tall at the mi
 HARD CUT at 3.4 s — SHOT 2 — tight close-up: Close on her hand pressing the original fire log onto the court clerk's cedar bench.
 HARD CUT at 6.9 s — SHOT 3 — over-the-shoulder shot: Over the housekeeper's shoulder, Elena nods from the front bench with unconditional love.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.4s  [medium shot] The housekeeper stands tall at the microphone, looking directly at the district attorney with tearful dignity.
+  3.4s to 6.9s  [tight close-up] Close on her hand pressing the original fire log onto the court clerk's cedar bench.
+  6.9s to 10.0s  [over-the-shoulder shot] Over the housekeeper's shoulder, Elena nods from the front bench with unconditional love.
+Hard cuts exactly at 3.4, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 MAGGIE (firm, unshakeable): "I formally recant my 2008 testimony. The barn fire was set deliberately by Victoria Blackwell."
@@ -1810,6 +2128,12 @@ HARD CUT at 3.4 s — SHOT 2 — insert shot of the evidence object: Insert: the
 HARD CUT at 6.9 s — SHOT 3 — tight close-up: Close on Elena's eyes filling with tears of vindication, a slow, radiant smile breaking across her face.
 End on a held frame that motivates the next scene.
 
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.4s  [medium shot] At the plaintiff's table, the maid stands erect as the judge brings the wooden gavel down with final authority.
+  3.4s to 6.9s  [insert shot of the evidence object] Insert: the judge signs 'CERTIFICATE OF OWNERSHIP — SILVER CREEK RANCH — OWNER: ELENA VANCE'.
+  6.9s to 10.0s  [tight close-up] Close on Elena's eyes filling with tears of vindication, a slow, radiant smile breaking across her face.
+Hard cuts exactly at 3.4, 6.9 s. No dissolves, no fade, no camera reset.
+
 DIALOGUE (native audio, US English, lip-sync exact):
 CLERK (booming proclamation): "This court recognizes Elena Vance as the sole legal heir and owner of Silver Creek Ranch."
 ELENA (whispered joy): "We did it, Mama. The ranch is home again."
@@ -1843,6 +2167,12 @@ SHOT 1 — 0.0 s to 3.4 s — medium shot: Under the flashing blue lights of sta
 HARD CUT at 3.4 s — SHOT 2 — tight close-up: Close on the steel cuffs ratcheting shut with sharp metallic clicks over her bare wrists.
 HARD CUT at 6.8 s — SHOT 3 — over-the-shoulder shot: Over the mistress's shoulder, she sees the entire town watching her downfall in silence.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.4s  [medium shot] Under the flashing blue lights of state police cruisers, the troopers secure handcuffs behind the mistress's back.
+  3.4s to 6.8s  [tight close-up] Close on the steel cuffs ratcheting shut with sharp metallic clicks over her bare wrists.
+  6.8s to 10.0s  [over-the-shoulder shot] Over the mistress's shoulder, she sees the entire town watching her downfall in silence.
+Hard cuts exactly at 3.4, 6.8 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 CLERK (clipped, official): "Victoria Blackwell, you are under arrest for conspiracy, insurance fraud and attempted arson."
@@ -1878,6 +2208,12 @@ HARD CUT at 3.4 s — SHOT 2 — tight close-up: Close on the mistress's mascara
 HARD CUT at 6.9 s — SHOT 3 — low-angle hero shot: Low angle on the maid, dignified and untouchable as the night rain begins to fall gently.
 End on a held frame that motivates the next scene.
 
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.4s  [medium two-shot] On the wet steps, the handcuffed mistress collapses forward onto her knees before the maid she once tormented.
+  3.4s to 6.9s  [tight close-up] Close on the mistress's mascara running in black streaks down her pale, pleading face.
+  6.9s to 10.0s  [low-angle hero shot] Low angle on the maid, dignified and untouchable as the night rain begins to fall gently.
+Hard cuts exactly at 3.4, 6.9 s. No dissolves, no fade, no camera reset.
+
 DIALOGUE (native audio, US English, lip-sync exact):
 VICTORIA (weeping, broken): "Elena, please! Leave me the guesthouse. Don't throw me onto the street with nothing!"
 ELENA (calm, absolute): "You left me with a broken teacup and a broom. You'll leave with your suitcase."
@@ -1912,6 +2248,12 @@ HARD CUT at 3.4 s — SHOT 2 — tight close-up: Close on her fingers tracing th
 HARD CUT at 6.9 s — SHOT 3 — over-the-shoulder shot: Over the maid's shoulder, the housekeeper sets down a porcelain teacup with gentle reverence.
 End on a held frame that motivates the next scene.
 
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.4s  [wide establishing shot] The grand foyer is warm with lamplight; the maid stands where she was once humiliated, now as the estate's mistress.
+  3.4s to 6.9s  [tight close-up] Close on her fingers tracing the polished oak table where the crystal decanter was once smashed.
+  6.9s to 10.0s  [over-the-shoulder shot] Over the maid's shoulder, the housekeeper sets down a porcelain teacup with gentle reverence.
+Hard cuts exactly at 3.4, 6.9 s. No dissolves, no fade, no camera reset.
+
 DIALOGUE (native audio, US English, lip-sync exact):
 MAGGIE (tender, peaceful): "The house is quiet, Elena. For the first time in thirty years, it feels clean."
 ELENA (warm, resolute): "It's not just a house anymore, Maggie. It's a sanctuary for everyone they pushed down."
@@ -1922,7 +2264,7 @@ AUDIO BED: warm fire crackling in hearth, porcelain cup settling on wood, night 
 
 CAMERA & MOVEMENT: Handheld but controlled, subtle drift and breathing, no whip pans. Cuts are hard cuts, not dissolves.
 
-CONTINUITY: Act 6 wardrobe. Full visual loop to scene 1: Elena stands in triumph in the foyer. Elena Vance wardrobe (act 6): deep green flannel shirt, dark jeans, her mother's silver belt buckle Maggie Doyle wardrobe (act 6): same Sunday cardigan, hair escaped from the bun, standing tall
+CONTINUITY: Act 6 wardrobe. Elena Vance wardrobe (act 6): deep green flannel shirt, dark jeans, her mother's silver belt buckle Maggie Doyle wardrobe (act 6): same Sunday cardigan, hair escaped from the bun, standing tall
 
 STYLE: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette
 
@@ -1945,6 +2287,12 @@ SHOT 1 — 0.0 s to 3.4 s — medium two-shot: At the corral gate, the foreman t
 HARD CUT at 3.4 s — SHOT 2 — tight close-up: Close on Elena's hand reaching up to touch his weathered cheek, stopping his nervous motion.
 HARD CUT at 6.9 s — SHOT 3 — over-the-shoulder shot: Over the foreman's shoulder, she steps into his arms, resting her forehead against his chest.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.4s  [medium two-shot] At the corral gate, the foreman turns to the maid, nervously rolling the brim of his felt hat in both hands.
+  3.4s to 6.9s  [tight close-up] Close on Elena's hand reaching up to touch his weathered cheek, stopping his nervous motion.
+  6.9s to 10.0s  [over-the-shoulder shot] Over the foreman's shoulder, she steps into his arms, resting her forehead against his chest.
+Hard cuts exactly at 3.4, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 COLE (vulnerable, quiet): "You're the master of twenty thousand acres now, Elena. You don't need a stray foreman."
@@ -1980,6 +2328,12 @@ HARD CUT at 3.4 s — SHOT 2 — insert shot of the evidence object: Insert: the
 HARD CUT at 6.9 s — SHOT 3 — tight close-up: Close on Elena's face, radiant with deep peace as a single grateful tear slips down her cheek.
 End on a held frame that motivates the next scene.
 
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.4s  [medium shot] Before the roaring stone hearth, the maid steps back as June Vance's smiling photograph occupies the place of honor.
+  3.4s to 6.9s  [insert shot of the evidence object] Insert: the silver belt buckle catches the orange firelight beside the tin frame, engraved: 'VANCE RANCH — 1982'.
+  6.9s to 10.0s  [tight close-up] Close on Elena's face, radiant with deep peace as a single grateful tear slips down her cheek.
+Hard cuts exactly at 3.4, 6.9 s. No dissolves, no fade, no camera reset.
+
 DIALOGUE (native audio, US English, lip-sync exact):
 ELENA (solemn, joyous): "Your name will never be erased from Montana again, Mama. Silver Creek is ours, and justice has finally been done."
 
@@ -2012,6 +2366,12 @@ SHOT 1 — 0.0 s to 3.4 s — medium shot: At the quiet study desk, the maid not
 HARD CUT at 3.4 s — SHOT 2 — insert shot of the evidence object: Insert: her thumb cracks the red wax seal: 'To Elena — Read in private after you claim the ranch'.
 HARD CUT at 6.9 s — SHOT 3 — tight close-up: Close on Elena's eyes widening in stunned alarm as she reads Walter's final words in the letter.
 End on a held frame that motivates the next scene.
+
+TIMELINE (one continuous 10 s take):
+  0.0s to 3.4s  [medium shot] At the quiet study desk, the maid notices a sealed wax envelope attached to the back of the will parchment.
+  3.4s to 6.9s  [insert shot of the evidence object] Insert: her thumb cracks the red wax seal: 'To Elena — Read in private after you claim the ranch'.
+  6.9s to 10.0s  [tight close-up] Close on Elena's eyes widening in stunned alarm as she reads Walter's final words in the letter.
+Hard cuts exactly at 3.4, 6.9 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact):
 ELENA (shivering shock): "There is another clause... 'Elena, you are not June's only child. Find your brother before Victoria's family does.'"

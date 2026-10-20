@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""03 — Exporta la cola de video (Omni 1.1 Flash, modo First Frame, 10 s).
+"""03 — Exporta las colas de video (Omni 1.1 Flash, Muse AI y Google Flow).
 
 Compone, escena por escena, el prompt de video definitivo a partir de datos
 estructurados del maestro (nada se confía a prosa suelta del LLM):
@@ -8,13 +8,16 @@ estructurados del maestro (nada se confía a prosa suelta del LLM):
   - diálogo con voz y entrega por personaje (bloqueo de voz en inglés),
   - ambiencia/sfx, continuidad, estilo y prompts negativos.
 
-Salidas en la carpeta del episodio:
-  omni_video_prompts_queue.csv   (cola principal: scene_id, frame, output, prompt)
-  omni_video_prompts_queue.json  (manifiesto completo)
-  omni_video_prompts_queue.txt   (legible, un bloque por escena)
+Salidas en la carpeta del episodio (según --platform):
+  omni_video_prompts_queue.{csv,json,txt}         Omni 1.1 Flash (default)
+  muse_ai_video_prompts_queue.{csv,json,txt}      Muse AI
+  google_flow_video_prompts_queue.{csv,json,txt}  Google Flow (Veo)
 
 Uso:
   python generators/03_export_omni_queue.py mi_episodio
+  python generators/03_export_omni_queue.py mi_episodio --platform muse
+  python generators/03_export_omni_queue.py mi_episodio --platform flow
+  python generators/03_export_omni_queue.py mi_episodio --platform all
   python generators/03_export_omni_queue.py mi_episodio --only-missing
   python generators/03_export_omni_queue.py mi_episodio --check
 """
@@ -27,13 +30,64 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 NF_ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(NF_ROOT))
+GENERATORS_DIR = Path(__file__).resolve().parent
+for _path in (NF_ROOT, GENERATORS_DIR):
+    if str(_path) not in sys.path:
+        sys.path.insert(0, str(_path))
 import nf_core as nf  # noqa: E402
+import master_prompts_library as mpl  # noqa: E402
 
 
 class _SafeDict(dict):
     def __missing__(self, key: str) -> str:  # deja el marcador si falta una clave
         return "{" + key + "}"
+
+
+PLATFORM_SPECS: Dict[str, Dict[str, Any]] = {
+    "omni": {
+        "id": "omni",
+        "label": "Omni 1.1 Flash",
+        "template": "omni_prompt_template",
+        "csv": "omni_csv",
+        "json": "omni_json",
+        "txt": "omni_txt",
+        "manifest": "omni_video_prompts_queue",
+        "notes": [
+            "Modo First Frame: sube el frame_XXX.png y pega el prompt completo.",
+            "Duración exacta: 10 s. Audio nativo en inglés. Sin música.",
+            "Descarga el clip como scene_XXX.mp4 dentro de raw_clips/.",
+        ],
+    },
+    "muse": {
+        "id": "muse",
+        "label": "Muse AI",
+        "template": "muse_prompt_template",
+        "csv": "muse_csv",
+        "json": "muse_json",
+        "txt": "muse_txt",
+        "manifest": "muse_ai_video_prompts_queue",
+        "notes": [
+            "Sube el frame_XXX.png como primer fotograma y pega el prompt completo.",
+            "Solicita 10 s, 16:9 y audio nativo en inglés.",
+            "Verifica los 2-4 cortes internos y descarga como scene_XXX.mp4 en raw_clips/.",
+        ],
+    },
+    "flow": {
+        "id": "flow",
+        "label": "Google Flow (Veo)",
+        "template": "flow_prompt_template",
+        "csv": "flow_csv",
+        "json": "flow_json",
+        "txt": "flow_txt",
+        "manifest": "google_flow_video_prompts_queue",
+        "notes": [
+            "Usa 'Frames to Video' con frame_XXX.png como ingrediente/primer fotograma.",
+            "Si Flow limita a 8 s, genera 8 s: la postproducción extiende a 10 s.",
+            "El diálogo debe terminar antes de 7.5 s. Descarga como scene_XXX.mp4.",
+        ],
+    },
+}
+PLATFORM_ORDER = ("omni", "muse", "flow")
 
 
 def _characters_by_key(master: Dict[str, Any]) -> Dict[str, Dict[str, Any]]:
@@ -151,7 +205,12 @@ def compose_video_prompt(
     scene: Dict[str, Any],
     paths: Dict[str, Path],
     style: Dict[str, Any],
+    platform: str = "omni",
 ) -> str:
+    platform = str(platform or "omni").strip().lower()
+    spec = PLATFORM_SPECS.get(platform)
+    if not spec:
+        raise nf.NFError(f"Plataforma desconocida: {platform!r}. Usa: {', '.join(PLATFORM_ORDER)}")
     templates = style.get("prompt_templates") or {}
     visual = style.get("visual_style_lock") or {}
     characters = _characters_by_key(master)
@@ -162,6 +221,9 @@ def compose_video_prompt(
     values = _SafeDict(
         frame_file=frame_file,
         scene_id=f"{sid:03d}",
+        platform_label=str(spec.get("label") or platform),
+        speech_seconds=f"{nf.scene_speech_seconds(scene):.1f}",
+        dialogue_words=str(nf.scene_words(scene)),
         shot_block=_shot_block(scene, templates),
         timeline_block=_timeline_block(scene, templates),
         dialogue_block=_dialogue_block(scene, characters, style),
@@ -172,12 +234,25 @@ def compose_video_prompt(
         style=str(visual.get("look") or "prestige cinematic short-drama, photoreal, 35mm anamorphic"),
         negative=str(visual.get("video_negative") or "").strip(),
     )
-    template = str(templates.get("omni_prompt_template") or "{shot_block}\n{dialogue_block}")
+    template = str(
+        templates.get(str(spec.get("template") or "omni_prompt_template"))
+        or templates.get("omni_prompt_template")
+        or "{shot_block}\n{dialogue_block}"
+    )
     prompt = template.format_map(values)
     return "\n".join(line.rstrip() for line in prompt.splitlines()).strip()
 
 
-def build_rows(master: Dict[str, Any], paths: Dict[str, Path], style: Dict[str, Any]) -> List[Dict[str, Any]]:
+def build_rows(
+    master: Dict[str, Any],
+    paths: Dict[str, Path],
+    style: Dict[str, Any],
+    platform: str = "omni",
+) -> List[Dict[str, Any]]:
+    platform = str(platform or "omni").strip().lower()
+    spec = PLATFORM_SPECS.get(platform)
+    if not spec:
+        raise nf.NFError(f"Plataforma desconocida: {platform!r}. Usa: {', '.join(PLATFORM_ORDER)}")
     rows: List[Dict[str, Any]] = []
     for scene in nf.ordered_scenes(master):
         sid = int(scene.get("scene_id") or 0)
@@ -185,43 +260,58 @@ def build_rows(master: Dict[str, Any], paths: Dict[str, Path], style: Dict[str, 
         clip = nf.find_clip(paths["raw_clips"], sid)
         rows.append({
             "scene_id": sid,
+            "platform": platform,
+            "platform_label": str(spec.get("label") or platform),
             "frame_file": frame.name if frame else f"{nf.frame_stem(sid)}.png",
             "frame_status": "ok" if frame else "missing",
             "output_file": f"{nf.scene_stem(sid)}.mp4",
             "duration_seconds": int(scene.get("duration_s") or nf.SCENE_SECONDS),
+            "dialogue_words": nf.scene_words(scene),
+            "speech_seconds": round(nf.scene_speech_seconds(scene), 2),
             "status": "done" if clip else "pending",
-            "prompt": compose_video_prompt(master, scene, paths, style),
+            "prompt": compose_video_prompt(master, scene, paths, style, platform),
         })
     return rows
 
 
-def write_queue_files(paths: Dict[str, Path], master: Dict[str, Any], rows: List[Dict[str, Any]]) -> None:
-    fieldnames = ["scene_id", "frame_file", "output_file", "duration_seconds", "status", "prompt"]
-    with paths["omni_csv"].open("w", encoding="utf-8", newline="") as fh:
+def write_queue_files(
+    paths: Dict[str, Path],
+    master: Dict[str, Any],
+    rows: List[Dict[str, Any]],
+    platform: str = "omni",
+) -> None:
+    platform = str(platform or "omni").strip().lower()
+    spec = PLATFORM_SPECS.get(platform)
+    if not spec:
+        raise nf.NFError(f"Plataforma desconocida: {platform!r}. Usa: {', '.join(PLATFORM_ORDER)}")
+    label = str(spec.get("label") or platform)
+    fieldnames = [
+        "scene_id", "platform", "frame_file", "output_file", "duration_seconds",
+        "dialogue_words", "speech_seconds", "status", "prompt",
+    ]
+    with paths[str(spec["csv"])].open("w", encoding="utf-8", newline="") as fh:
         writer = csv.DictWriter(fh, fieldnames=fieldnames, quoting=csv.QUOTE_ALL)
         writer.writeheader()
         for row in rows:
-            writer.writerow({k: row[k] for k in fieldnames})
+            writer.writerow({k: row.get(k, "") for k in fieldnames})
 
     ep = nf.episode_meta(master)
-    nf.write_json(paths["omni_json"], {
+    nf.write_json(paths[str(spec["json"])], {
         "episode": ep.get("slug"),
         "title": ep.get("title"),
+        "platform": platform,
+        "platform_label": label,
         "frame_dir": str(paths["frames"]),
         "raw_clips_dir": str(paths["raw_clips"]),
         "output_pattern": "scene_XXX.mp4",
         "duration_seconds": nf.SCENE_SECONDS,
         "aspect": "16:9",
-        "notes": [
-            "Modo First Frame: sube el frame_XXX.png y pega el prompt completo.",
-            "Duración exacta: 10 s. Audio nativo en inglés. Sin música.",
-            "Descarga el clip como scene_XXX.mp4 dentro de raw_clips/.",
-        ],
+        "notes": list(spec.get("notes") or []),
         "items": rows,
     })
 
     lines = [
-        f"NOVEL FACTORY — Cola de video (Omni 1.1 Flash, First Frame, 10 s) · {ep.get('title')}",
+        f"NOVEL FACTORY — Cola de video ({label}, First Frame, 10 s) · {ep.get('title')}",
         f"Frames: {paths['frames']}  →  Clips: {paths['raw_clips']}",
         "",
     ]
@@ -232,7 +322,23 @@ def write_queue_files(paths: Dict[str, Path], master: Dict[str, Any], rows: List
             row["prompt"],
             "",
         ]
-    nf.write_text(paths["omni_txt"], "\n".join(lines))
+    nf.write_text(paths[str(spec["txt"])], "\n".join(lines))
+
+
+def write_muse_batches(
+    paths: Dict[str, Path],
+    master: Dict[str, Any],
+    style: Dict[str, Any],
+    aspect_ratio: str = "",
+) -> Dict[str, Any]:
+    """Cola de Muse AI agrupada en bloques de 6 escenas (1 minuto por bloque)."""
+    return mpl.write_muse_batch_files(
+        paths["root"],
+        master,
+        style,
+        basename="muse_ai_batches_queue",
+        aspect_ratio=aspect_ratio,
+    )
 
 
 def run_check(paths: Dict[str, Path], rows: List[Dict[str, Any]], allow_missing: bool) -> int:
@@ -258,48 +364,67 @@ def run_check(paths: Dict[str, Path], rows: List[Dict[str, Any]], allow_missing:
 
 
 def main(argv: Optional[List[str]] = None) -> int:
-    parser = argparse.ArgumentParser(description="03 — Cola de prompts de video para Omni 1.1 Flash.")
+    parser = argparse.ArgumentParser(description="03 — Cola de prompts de video para Omni, Muse AI y Google Flow.")
     parser.add_argument("project", help="Slug del episodio.")
+    parser.add_argument("--platform", choices=list(PLATFORM_ORDER) + ["all"], default="omni",
+                        help="Plataforma de video: omni (default), muse, flow o all.")
     parser.add_argument("--only-missing", action="store_true", help="Exporta solo las escenas sin clip.")
     parser.add_argument("--check", action="store_true", help="Verifica frames y clips sin reexportar.")
     parser.add_argument("--allow-missing", action="store_true", help="No falla si faltan archivos.")
     parser.add_argument("--show", type=str, default="", help="Imprime prompts de un rango (ej: 1-2).")
     args = parser.parse_args(argv)
 
+    platforms = list(PLATFORM_ORDER) if args.platform == "all" else [args.platform]
+    labels = ", ".join(str(PLATFORM_SPECS[p]["label"]) for p in platforms)
     nf.log("")
     nf.log("=" * 70)
-    nf.log("  NOVEL FACTORY — 03 · Cola de video (Omni 1.1 Flash · 10 s · First Frame)")
+    nf.log(f"  NOVEL FACTORY — 03 · Cola de video ({labels} · 10 s · First Frame)")
     nf.log("=" * 70)
 
     paths = nf.resolve_project(args.project)
     master = nf.load_master(paths["root"])
     style = nf.load_style_locks()
-    rows = build_rows(master, paths, style)
-    total = len(rows)
+    last_rows: List[Dict[str, Any]] = []
+    want = set(nf.parse_ranges(args.show)) if args.show else set()
 
-    if args.only_missing:
-        rows = [r for r in rows if r["status"] != "done"]
-        nf.info(f"Filtro --only-missing: {len(rows)} de {total} escenas por generar.")
+    for platform in platforms:
+        spec = PLATFORM_SPECS[platform]
+        label = str(spec["label"])
+        rows = build_rows(master, paths, style, platform)
+        total = len(rows)
+
+        if args.only_missing:
+            rows = [r for r in rows if r["status"] != "done"]
+            nf.info(f"[{label}] Filtro --only-missing: {len(rows)} de {total} escenas por generar.")
+
+        if not args.check:
+            write_queue_files(paths, master, rows, platform)
+            nf.log("")
+            nf.ok(f"[{label}] {len(rows)} prompts de video exportados:")
+            nf.info(paths[str(spec["csv"])].name + "  (cola principal, campos citados)")
+            nf.info(paths[str(spec["json"])].name + " (manifiesto completo)")
+            nf.info(paths[str(spec["txt"])].name + "  (legible, bloque por escena)")
+
+        if want:
+            nf.log("")
+            for row in rows:
+                if row["scene_id"] in want:
+                    nf.log(f"--- [{label}] SCENE {row['scene_id']:03d} -> {row['output_file']} ---")
+                    nf.log(row["prompt"])
+                    nf.log("")
+        last_rows = rows
 
     if not args.check:
-        write_queue_files(paths, master, rows)
+        batch_files = write_muse_batches(paths, master, style)
         nf.log("")
-        nf.ok(f"{len(rows)} prompts de video exportados:")
-        nf.info(paths["omni_csv"].name + "  (cola principal, campos citados)")
-        nf.info(paths["omni_json"].name + " (manifiesto completo)")
-        nf.info(paths["omni_txt"].name + "  (legible, bloque por escena)")
+        nf.ok(
+            f"[Muse AI] {len(batch_files['batches'])} lotes de 1 minuto (6 escenas) exportados:"
+        )
+        nf.info(batch_files["txt"].name + "  (bloques listos con cámara, SFX, diálogo y comando final)")
+        nf.info(batch_files["json"].name + " (manifiesto de lotes)")
 
-    if args.show:
-        want = set(nf.parse_ranges(args.show))
-        nf.log("")
-        for row in rows:
-            if row["scene_id"] in want:
-                nf.log(f"--- SCENE {row['scene_id']:03d} -> {row['output_file']} ---")
-                nf.log(row["prompt"])
-                nf.log("")
-
-    rc = run_check(paths, rows, args.allow_missing) if not args.show or args.check else 0
-    if not args.check and not args.show:
+    rc = run_check(paths, last_rows, args.allow_missing) if not want or args.check else 0
+    if not args.check and not want:
         nf.log("")
         nf.log(f"  Cuando tengas clips en raw_clips/: python post_production/04_assemble_novel_ffmpeg.py {args.project}")
         nf.log("")

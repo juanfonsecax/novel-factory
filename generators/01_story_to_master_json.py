@@ -28,8 +28,12 @@ from string import Template
 from typing import Any, Dict, List, Optional, Tuple
 
 NF_ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(NF_ROOT))
+GENERATORS_DIR = Path(__file__).resolve().parent
+for _path in (NF_ROOT, GENERATORS_DIR):
+    if str(_path) not in sys.path:
+        sys.path.insert(0, str(_path))
 import nf_core as nf  # noqa: E402
+import master_prompts_library as mpl  # noqa: E402
 
 
 # ---------------------------------------------------------------------------
@@ -169,6 +173,34 @@ def _part_plan(part: str) -> Dict[str, Any]:
         ),
         "teasers": teaser_rule,
     }
+
+
+def export_master_prompts(
+    paths: Dict[str, Path],
+    master: Optional[Dict[str, Any]] = None,
+    brief_text: str = "",
+    overrides: Optional[Dict[str, Any]] = None,
+) -> Optional[Dict[str, Any]]:
+    """Escribe MASTER_PROMPTS.md/.txt/.json + prompts/*.txt junto al proyecto."""
+    try:
+        style = nf.load_style_locks()
+        pack = mpl.build_prompt_pack(master or {}, style, brief_text, overrides)
+        written = mpl.write_prompt_pack(paths["root"], pack)
+        nf.ok(f"Prompts maestros: {written['markdown'].name} (+4 en prompts/)")
+        return pack
+    except Exception as exc:  # noqa: BLE001 - nunca bloquea la creación del maestro
+        nf.warn(f"No se pudieron exportar los prompts maestros: {exc}")
+        return None
+
+
+def _read_brief_text(paths: Dict[str, Path]) -> str:
+    brief = paths["root"] / "story_brief.md"
+    if not brief.exists():
+        return ""
+    try:
+        return brief.read_text(encoding="utf-8", errors="replace")
+    except OSError:
+        return ""
 
 
 def build_llm_prompt(
@@ -962,6 +994,7 @@ def main(argv: Optional[List[str]] = None) -> int:
         nf.ok(f"Maestro escrito: {paths['master']}")
         nf.info(f"{ep.get('title')} · {len(master['scenes'])} escenas · {nf.human_duration(ep.get('total_seconds', 600))}")
         nf.info(f"Personaje de publicación: {master.get('publisher', {}).get('personaje_id')}")
+        export_master_prompts(paths, master, _read_brief_text(paths))
         nf.log("")
         nf.log("  Siguiente: python generators/02_export_chatgpt_queue.py " + slug)
         return 0
@@ -986,6 +1019,7 @@ def main(argv: Optional[List[str]] = None) -> int:
         nf.log("")
         nf.ok(f"Episodio demo listo: {paths['master']}")
         nf.warn("Es un fixture de calibración, no un guion final. Reemplázalo con --brief + --ingest.")
+        export_master_prompts(paths, master, _read_brief_text(paths))
         nf.log("")
         nf.log("  Siguiente: python generators/02_export_chatgpt_queue.py " + slug)
         return 0
@@ -1024,6 +1058,22 @@ def main(argv: Optional[List[str]] = None) -> int:
         context_text=context_text,
     )
     prompt_path = nf.write_text(paths["root"] / "llm_prompt.md", prompt)
+
+    style = nf.load_style_locks()
+    seed = (idea or source_text or title).strip()
+    export_master_prompts(
+        paths,
+        {},
+        brief,
+        overrides={
+            "story_idea": seed,
+            "duration_minutes": 10,
+            "total_scenes": 60,
+            "total_grid_images": 10,
+            "visual_style": mpl.visual_style_from_style(style),
+            "aspect_ratio": "16:9",
+        },
+    )
 
     nf.log("")
     nf.ok(f"Brief:  {brief_path}")

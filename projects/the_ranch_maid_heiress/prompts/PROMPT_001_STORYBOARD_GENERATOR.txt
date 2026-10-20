@@ -1,0 +1,121 @@
+🎬 PROMPT 001 — GENERADOR DE STORYBOARD CINEMATOGRÁFICO (6 ESCENAS POR IMAGEN)
+Actúa como director de cine y crea un storyboard visual para la historia que te voy a proporcionar.
+
+DATOS DE LA HISTORIA
+Historia:
+PREMISE:
+# THE STABLE GIRL — Episodio 1 de "Silver Creek Secrets"
+
+EPISODE:
+- Title: The Stable Girl
+- Series: Silver Creek Secrets
+- Logline: Framed for stealing from the Montana ranch family that raised her, the stable maid discovers Silver Creek was never theirs to keep: her mother owned the land, and the proof is hidden in the barn where she died.
+- Genre: romantic suspense short-drama
+- Tone: cinematic, intimate, high-stakes, fast-paced
+- Setting: (not specified)
+
+CAST:
+- Elena Vance (protagonist): Casting sheet for the character reference image: woman in her mid-twenties, sun-weathered gently angular face, long chestnut hair worn in a single low braid, calm dark-brown eyes, light freckling across the nose, a faint old scar through one eyebrow, slender but strong ranch build, signature faded blue denim work shirt and dark riding jeans. | voice: warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical
+- Victoria Blackwell (antagonist): Casting sheet for the character reference image: woman in her mid-forties, sleek platinum-blonde bob, sharp cheekbones, cool grey eyes, immaculate posture, dark red lipstick, pearl earrings, signature emerald silk blouse over tailored black trousers. | voice: low, polished, unhurried American English, smiles through threats, never shouts
+- Richard Blackwell (antagonist): Casting sheet for the character reference image: man around thirty, clean-cut, sandy hair combed back, pale blue eyes, a practiced easy smile, tall athletic build, signature pressed white shirt under a charcoal blazer. | voice: smooth mid-range American English, reasonable tone that never quite reaches sincerity
+- Cole Barrett (love_interest): Casting sheet for the character reference image: man in his early thirties, weathered rancher hands, dark hair a little long under a dust-worn felt hat, steady hazel eyes, quiet jaw, broad shoulders, signature oiled tan canvas chore jacket over a grey henley. | voice: quiet, low American English, careful diction, warmth held under restraint
+- Maggie Doyle (ally): Casting sheet for the character reference image: woman in her late fifties, iron-grey hair pinned up in a loose bun, kind weathered face, small round glasses on a chain, floral house apron over a beige cardigan and a long dark skirt. | voice: grounded, plainspoken American English with a soft Irish lilt worn thin by thirty years in Montana
+
+LOCATIONS:
+- Blackwell mansion foyer and great room
+- Silver Creek barn and stables
+- the gatehouse cottage
+- Silver Creek county records and civic hall
+
+ACT MAP:
+- Act 1 — The Bait : Open on the public humiliation, ground Elena's place in the household and her mother's death, then detonate the sealed tack room and the deed with June Vance's name.
+- Act 2 — The Trap : The system closes around Elena: the county refuses her standing, Victoria offers a silence deal, and a Friday-midnight deadline turns the ranch into a cage.
+- Act 3 — The First Crack : Elena stops defending and starts digging: the two deeds prove the second sale was signed by a dead woman, and a first honest moment with Cole raises the stakes.
+- Act 4 — The Dark Night : Rejecting the deal costs Elena her freedom and the tin box; Maggie's old lie is explained, and a dead woman's deposit slip turns the brass key into the way out.
+- Act 5 — The Turn : Elena converts the bank box into leverage while the town gathers for the gala; Cole and Maggie each choose to pay a price, and Victoria's last threat sets the stage.
+- Act 6 — The Payoff : At the county hearing the will is read in public, the mask comes off, and Silver Creek changes hands; a line in Walter's letter opens the next mystery.
+
+Duración:
+10 minuto(s) (60 escenas de 10 segundos = 10 imagen(es) de storyboard de 6 viñetas cada una)
+
+Estilo visual:
+prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette Lighting palette: late-afternoon sun raking across the scene with long shadows; overcast storm light with a cold rim on faces; practical tungsten warmth inside against a blue dusk exterior. Camera language: wide establishing shot with a human scale reference; medium shot, chest up, subject slightly off-center; tight close-up, eyes in sharp focus, background falling off; over-the-shoulder shot with the listener soft in foreground.
+(Opciones: Cinematográfico realista 35mm / Realista / Animación 3D / Animación 2D / Anime / Ilustración)
+
+REGLAS DEL STORYBOARD
+Cada escena dura exactamente 10 segundos.
+Calcula automáticamente el número de escenas según la duración.
+Cada imagen debe contener 6 escenas/viñetas (en cuadrícula limpia de 3x2: 6 viñetas numeradas del 1 al 6).
+Por lo tanto:
+1 minuto = 6 escenas = 1 imagen
+2 minutos = 12 escenas = 2 imágenes
+3 minutos = 18 escenas = 3 imágenes
+4 minutos = 24 escenas = 4 imágenes
+5 minutos = 30 escenas = 5 imágenes
+10 minutos = 60 escenas = 10 imágenes
+Cada imagen representa exactamente 1 minuto de historia.
+
+CADA VIÑETA
+Cada viñeta debe mostrar visualmente el momento correspondiente de la historia con encuadre de cine profesional (alternando planos generales establecedores, planos medios dramáticos y primeros planos emocionales).
+Debe incluir:
+- Personajes.
+- Lugar.
+- Acción física clara.
+- Emoción intensa en los rostros.
+- Composición e iluminación cinematográfica.
+Debajo de cada viñeta puede aparecer una descripción extremadamente breve de la escena, de aproximadamente 5 a 10 palabras.
+Ejemplo:
+“1. Elena meets the billionaire in the rain.”
+“4. The father discovers the secret romance.”
+La descripción debe ser únicamente una referencia rápida de lo que ocurre.
+
+IMPORTANTE:
+No escribir diálogos ni párrafos dentro del storyboard.
+Las descripciones deben ser:
+- Muy breves (5 a 10 palabras).
+- Claras.
+- Fáciles de leer.
+- Sin saturar la imagen.
+- Máximo una línea cuando sea posible.
+
+CONTINUIDAD
+Mantén la misma apariencia exacta de los personajes durante todo el storyboard.
+Conserva también la continuidad estricta de:
+- Rostros.
+- Cabello.
+- Edad.
+- Complexión.
+- Vestuario.
+- Locaciones.
+- Época.
+- Objetos importantes (anillos, contratos, vehículos, herramientas).
+- Iluminación.
+- Ambiente.
+Si un personaje cambia de ropa por motivos narrativos, el cambio debe ser coherente.
+
+ESTILO VISUAL
+Utiliza exactamente el estilo visual seleccionado (prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette Lighting palette: late-afternoon sun raking across the scene with long shadows; overcast storm light with a cold rim on faces; practical tungsten warmth inside against a blue dusk exterior. Camera language: wide establishing shot with a human scale reference; medium shot, chest up, subject slightly off-center; tight close-up, eyes in sharp focus, background falling off; over-the-shoulder shot with the listener soft in foreground.).
+Mantén ese estilo de manera consistente en todas las imágenes y todas las viñetas.
+El storyboard debe tener apariencia profesional y cinematográfica.
+
+IMPORTANTE
+El resultado debe ser principalmente visual.
+No incluir:
+- Diálogos.
+- Narración extensa.
+- Subtítulos.
+- Párrafos.
+- Prompts de video.
+- Explicaciones del proceso.
+Solo incluir una descripción muy breve debajo de cada viñeta para identificar la acción.
+
+RESULTADO FINAL
+A partir de la historia, duración y estilo proporcionados:
+1. Calcula el número total de escenas (60 escenas).
+2. Cada escena debe durar 10 segundos.
+3. Divide las escenas en grupos de 6.
+4. Genera una imagen por cada grupo de 6 escenas.
+5. Cada imagen debe contener 6 viñetas claramente divididas.
+6. Añade debajo de cada viñeta una descripción de máximo 5–10 palabras.
+7. Mantén la continuidad absoluta de personajes y escenarios.
+8. Cuenta toda la historia visualmente de principio a fin.

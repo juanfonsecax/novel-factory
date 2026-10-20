@@ -22,8 +22,12 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 NF_ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(NF_ROOT))
+GENERATORS_DIR = Path(__file__).resolve().parent
+for _path in (NF_ROOT, GENERATORS_DIR):
+    if str(_path) not in sys.path:
+        sys.path.insert(0, str(_path))
 import nf_core as nf  # noqa: E402
+import master_prompts_library as mpl  # noqa: E402
 
 SUFFIX_MARKER = "35mm anamorphic glass"
 NO_TEXT_CLAUSE = ("No text, no letters, no logos, no watermarks, no captions inside the image. "
@@ -245,6 +249,34 @@ def write_thumbnail_prompts(
     return nf.write_text(out, "\n".join(lines))
 
 
+def write_master_image_prompt_files(
+    paths: Dict[str, Path],
+    master: Dict[str, Any],
+    style: Dict[str, Any],
+) -> Dict[str, Path]:
+    """Exporta PROMPT 001 (storyboards) y PROMPT 002 (hoja de personajes)."""
+    pack = mpl.build_prompt_pack(master, style)
+    by_key = {prompt["key"]: prompt for prompt in pack["prompts"]}
+    root = paths["root"]
+    ep = nf.episode_meta(master)
+    title = ep.get("title") or ep.get("slug") or "Episodio"
+
+    prompt_001 = paths.get("chatgpt_prompt_001") or (root / "chatgpt_prompt_001_storyboards.txt")
+    prompt_002 = paths.get("chatgpt_prompt_002") or (root / "chatgpt_prompt_002_characters.txt")
+
+    header_001 = (
+        f"NOVEL FACTORY — PROMPT 001 — GENERADOR DE STORYBOARD · {title}\n"
+        "Pega este prompt en ChatGPT/Muse AI junto con la historia y el estilo visual.\n\n"
+    )
+    header_002 = (
+        f"NOVEL FACTORY — PROMPT 002 — HOJA MAESTRA DE PERSONAJES · {title}\n"
+        "Adjunta el storyboard creado con PROMPT 001 antes de pegar este prompt.\n\n"
+    )
+    nf.write_text(prompt_001, header_001 + by_key["prompt_001"]["text"].strip() + "\n")
+    nf.write_text(prompt_002, header_002 + by_key["prompt_002"]["text"].strip() + "\n")
+    return {"prompt_001": prompt_001, "prompt_002": prompt_002}
+
+
 def run_check(
     paths: Dict[str, Path],
     entries: List[Dict[str, Any]],
@@ -312,11 +344,15 @@ def main(argv: Optional[List[str]] = None) -> int:
 
     if not args.check:
         write_queue_files(paths, master, entries)
+        image_prompts = write_master_image_prompt_files(paths, master, style)
         nf.log("")
         nf.ok(f"{len(entries)} prompts exportados:")
         nf.info(f"{paths['chatgpt_txt'].name}          (cola pura, 1 prompt por línea)")
         nf.info(f"chatgpt_image_prompts_queue_labeled.txt (con nombre de archivo por escena)")
         nf.info(f"{paths['chatgpt_json'].name}         (índice JSON)")
+        nf.ok("Prompts maestros de imagen:")
+        nf.info(f"{image_prompts['prompt_001'].name}  (PROMPT 001 — storyboards de 6 viñetas)")
+        nf.info(f"{image_prompts['prompt_002'].name}  (PROMPT 002 — hoja maestra de personajes)")
 
     if not args.check:
         if sheets:

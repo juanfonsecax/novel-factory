@@ -1,0 +1,54 @@
+🎬 PROMPT 003 — GENERADOR DE GUION CINEMATOGRÁFICO EN INGLÉS + CAMBIOS DE CÁMARA + SONIDO (OPTIMIZADO PARA MUSE AI Y GOOGLE FLOW)
+Actúa como guionista de Hollywood, director de fotografía y diseñador sonoro.
+Ya tenemos creado el storyboard de la historia y la hoja maestra de personajes. Ahora debes convertir ese storyboard en un guion cinematográfico y técnico completo en texto, respetando exactamente las escenas que aparecen en el storyboard, con todos los diálogos hablados en INGLÉS (English) para monetización internacional.
+
+DATOS DEL PROYECTO
+Storyboard:
+[ADJUNTAR EL STORYBOARD CREADO EN EL PASO 1]
+Duración del bloque:
+1 minuto = 6 escenas de 10 segundos (o el total de escenas del storyboard adjunto).
+
+REGLA PRINCIPAL
+Cada escena dura exactamente 10 segundos.
+Debes mantener exactamente el mismo número y orden de escenas del storyboard.
+NO debes agregar ni eliminar escenas.
+Cada escena debe corresponder directamente a su respectiva viñeta del storyboard.
+
+DIÁLOGOS EN INGLÉS (REGLA DE ORO DE 7–8 SEGUNDOS)
+Todos los diálogos hablados deben estar en INGLÉS natural, dramático y emocional.
+Los diálogos deben estar diseñados para poder decirse completamente dentro de los 10 segundos de duración de cada escena.
+Como regla estricta de seguridad:
+- El diálogo hablado NO debe superar 7–8 segundos (máximo entre 15 y 20 palabras en inglés por escena).
+- Esto deja entre 2 y 3 segundos obligatorios para: pausas dramáticas, expresiones faciales, gestos, movimientos, miradas y reacciones visuales.
+- Nunca cortes una frase simplemente porque terminó el tiempo. El diálogo de cada escena debe tener inicio y final completo dentro de esos 7–8 segundos. Si una idea necesita más tiempo, divídela entre diferentes escenas de forma natural.
+- NO TODAS LAS ESCENAS NECESITAN DIÁLOGO: Si una escena funciona mejor visualmente (un beso, una mirada de impacto, descubrir una prueba), déjala como “Dialogue: No dialogue (Pure visual & sound tension).”
+
+DIRECCIÓN DE CÁMARA MULTI-PLANO Y SONIDO (DENTRO DE CADA ESCENA DE 10s)
+Para que el video generado en Muse AI / Google Flow sea dinámico como una serie real y nunca sea una toma estática aburrida, en cada escena de 10 segundos debes especificar:
+1. CAMBIOS DE CÁMARA INTERNOS (2 a 3 cortes dentro del mismo lugar de la viñeta):
+   - [00s–03s] Plano inicial (ej. Medium/Wide Shot estableciendo la acción de la viñeta).
+   - [03s–07s] Corte a Primer Plano (Close-Up / Over-the-Shoulder del personaje hablando con lip-sync claro).
+   - [07s–10s] Corte a Plano de Reacción (Extreme Close-Up de los ojos, manos temblando o impacto emocional del otro personaje).
+2. DISEÑO SONORO (SFX & AMBIENCE) Y VOZ:
+   - Especifica el timbre de voz constante de quien habla (ej. "Warm emotional young female voice" / "Deep authoritative male baritone voice").
+   - Especifica los efectos de sonido realistas del entorno (ej. "Rain on window, footsteps on gravel, tense dramatic silence").
+
+ESTRUCTURA OBLIGATORIA DE CADA ESCENA
+Para cada escena utiliza exactamente esta estructura:
+
+ESCENA [N] (Viñeta #[N] del Storyboard) — [MM:SS–MM:SS]
+- Location: [Lugar exacto de la viñeta]
+- Characters Present: [Nombres exactos según la Hoja de Personajes]
+- Camera Cuts & Visual Action (10s):
+  * [00s–03s]: [Encuadre + acción inicial]
+  * [03s–07s]: [Corte de cámara + gesto mientras habla]
+  * [07s–10s]: [Corte de cámara + reacción emocional final]
+- Sound Design (SFX & Voice Tone): [Efectos de sonido del ambiente + tono de voz fijo del personaje]
+- Dialogue (English, 6–8 sec max):
+  [NOMBRE DEL PERSONAJE]: “[Diálogo en inglés breve, potente y 100% completo, máx. 18-20 palabras]”
+
+RESULTADO FINAL
+Entrega únicamente el bloque de escenas con la estructura anterior y, al final de las escenas, incluye este comando exacto listo para copiar y pegar junto con el guion en MUSE AI:
+
+COMANDO FINAL PARA PEGAR EN MUSE AI (JUNTO CON EL STORYBOARD Y LA HOJA DE PERSONAJES ADJUNTOS):
+"Usando estrictamente la apariencia y vestuario de los personajes en la Hoja de Personajes adjunta y recreando en orden cada viñeta del Storyboard adjunto: Haz un video cinematográfico realista de 10 segundos por cada escena respetando los cambios de cámara ([00s-03s], [03s-07s], [07s-10s]), el diseño sonoro y los diálogos hablados en INGLÉS con la misma voz para cada personaje, y luego únelos todos para que quede un solo video continuo en formato 16:9."

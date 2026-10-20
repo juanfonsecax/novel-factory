@@ -47,6 +47,12 @@ def _load_generator(module_name: str, filename: str):
 
 GEN02 = _load_generator("nf_dashboard_gen02", "02_export_chatgpt_queue.py")
 GEN03 = _load_generator("nf_dashboard_gen03", "03_export_omni_queue.py")
+MPL = _load_generator("nf_dashboard_mpl", "master_prompts_library.py")
+VIDEO_PLATFORMS = [
+    {"id": "omni", "label": "Omni 1.1 Flash"},
+    {"id": "muse", "label": "Muse AI"},
+    {"id": "flow", "label": "Google Flow (Veo)"},
+]
 
 
 def _relative(path: Path, root: Path) -> str:
@@ -147,7 +153,11 @@ def _scene_entry(
         "duration_s": float(scene.get("duration_s") or nf.SCENE_SECONDS),
         "teaser_cover": sid in covers,
         "image_prompt": str(image_entry.get("prompt") or ""),
-        "video_prompt": GEN03.compose_video_prompt(master, scene, paths, style),
+        "video_prompt": GEN03.compose_video_prompt(master, scene, paths, style, "omni"),
+        "video_prompts": {
+            platform["id"]: GEN03.compose_video_prompt(master, scene, paths, style, platform["id"])
+            for platform in VIDEO_PLATFORMS
+        },
         "frame_file": _relative(frame, root) if frame else "",
         "frame_exists": bool(frame),
         "clip_file": _relative(clip, root) if clip else "",
@@ -170,6 +180,18 @@ def build_state(project: str | Path, paths: Optional[Dict[str, Path]] = None) ->
         _scene_entry(master, scene, paths, root, style, image_entries.get(int(scene.get("scene_id") or 0), {}), covers)
         for scene in nf.ordered_scenes(master)
     ]
+    brief_path = root / "story_brief.md"
+    brief_text = ""
+    if brief_path.exists():
+        try:
+            brief_text = brief_path.read_text(encoding="utf-8", errors="replace")
+        except OSError:
+            brief_text = ""
+    prompt_pack = MPL.build_prompt_pack(master, style, brief_text)
+    try:
+        muse_batches = MPL.build_muse_batches(master, style)
+    except Exception:
+        muse_batches = []
 
     output = paths["output"]
     teasers: List[str] = []
@@ -188,8 +210,15 @@ def build_state(project: str | Path, paths: Optional[Dict[str, Path]] = None) ->
         "genre": str(ep.get("genre") or ""),
         "setting": str(ep.get("setting") or ""),
         "project_dir": str(root),
+        "platforms": VIDEO_PLATFORMS,
         "references": references,
         "scenes": scenes,
+        "master_prompts": {
+            "generated_at": prompt_pack["generated_at"],
+            "values": prompt_pack["values"],
+            "items": prompt_pack["prompts"],
+        },
+        "muse_batches": muse_batches,
         "assembly": {
             "teasers": teasers,
             "masters": masters,
@@ -197,6 +226,8 @@ def build_state(project: str | Path, paths: Optional[Dict[str, Path]] = None) ->
         },
         "totals": {
             "scenes": len(scenes),
+            "master_prompts": len(prompt_pack["prompts"]),
+            "muse_batches": len(muse_batches),
             "references": len(references),
             "references_disk": sum(1 for r in references if r["exists"]),
             "frames_disk": sum(1 for s in scenes if s["frame_exists"]),
@@ -314,6 +345,13 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .cast { display: flex; flex-wrap: wrap; gap: 4px; }
   .chip { font-size: 11px; color: #cbd5e1; background: #162133; border: 1px solid var(--border); border-radius: 999px; padding: 2px 8px; }
   .prompt { background: #040810; border: 1px solid var(--border-soft); border-radius: 10px; padding: 11px; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 11px; line-height: 1.5; color: #b9c6dc; white-space: pre-wrap; word-break: break-word; max-height: 190px; overflow: auto; }
+  .prompt.huge { max-height: 560px; }
+  .master-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+  .master-head h2 { font-size: 18px; }
+  .master-head p { color: var(--muted); font-size: 12px; max-width: 760px; margin-top: 4px; }
+  .master-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+  .quick-access { display: flex; gap: 8px; flex-wrap: wrap; margin: 0 0 18px; }
+  .quick-access .btn { flex: 0 1 auto; }
   .actions { display: flex; gap: 8px; margin-top: auto; flex-wrap: wrap; }
   .actions .btn { flex: 1; }
   .actions .btn.ghost { flex: 0 0 auto; }
@@ -329,8 +367,9 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .toast { position: fixed; right: 20px; bottom: 20px; background: #065f46; border: 1px solid #10b981; color: #d1fae5; padding: 12px 18px; border-radius: 10px; font-weight: 700; box-shadow: 0 10px 30px rgba(0,0,0,0.45); opacity: 0; pointer-events: none; transition: opacity 0.2s; z-index: 200; }
   .toast.show { opacity: 1; }
   .toast.error { background: #7f1d1d; border-color: #ef4444; color: #fee2e2; }
-  body[data-tab="references"] .scene-only { display: none; }
-  body[data-tab="frames"] .ref-only, body[data-tab="clips"] .ref-only, body[data-tab="script"] .ref-only { display: none; }
+  body[data-tab="references"] .scene-only, body[data-tab="prompts"] .scene-only { display: none; }
+  body[data-tab="prompts"] #copy-next { display: none; }
+  body[data-tab="frames"] .ref-only, body[data-tab="clips"] .ref-only, body[data-tab="script"] .ref-only, body[data-tab="prompts"] .ref-only { display: none; }
   @media (max-width: 620px) {
     body { padding: 14px 10px 40px; }
     .grid { grid-template-columns: 1fr; }
@@ -371,6 +410,11 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     <option value="copied">Copiados sin marcar</option>
     <option value="done">Hechos</option>
   </select>
+  <select id="platform-filter" class="scene-only" title="Plataforma de video">
+    <option value="omni">Omni 1.1 Flash</option>
+    <option value="muse">Muse AI</option>
+    <option value="flow">Google Flow (Veo)</option>
+  </select>
   <select id="act-filter" class="scene-only">
     <option value="all">Todos los actos</option>
     <option value="1">Acto 1</option>
@@ -395,6 +439,7 @@ const LOCAL_KEY = "novelfactory_tracking_" + (STATE.slug || "episode");
 let state = STATE;
 let tracking = normalizeTracking(TRACKING_SEED);
 let activeTab = "frames";
+let platform = "omni";
 let filters = { state: "all", act: "all", q: "", teaser: false, hideDone: false };
 let saveTimer = null;
 
@@ -421,6 +466,13 @@ function refTrack(id) {
   return tracking.references[key];
 }
 function refData(id) { return tracking.references[String(id)] || {}; }
+function platformLabel(id) {
+  const found = (state.platforms || []).find((item) => item.id === id);
+  return found ? found.label : id;
+}
+function sceneVideoPrompt(scene) {
+  return (scene.video_prompts && scene.video_prompts[platform]) || scene.video_prompt || "";
+}
 function frameDone(scene) { return !!scene.frame_exists || !!sceneData(scene.scene_id).image_done; }
 function clipDone(scene) { return !!scene.clip_exists || !!sceneData(scene.scene_id).video_done; }
 function refDone(ref) { return !!ref.exists || !!refData(ref.id).done; }
@@ -499,6 +551,7 @@ function renderProgress() {
     ["Marcados frame", markedFrames, total],
     ["Marcados clip", markedClips, total],
     ["Referencias", refs, state.references.length || 1],
+    ["Prompts maestros", (state.master_prompts && state.master_prompts.items ? state.master_prompts.items.length : 0), 4],
     ["Teasers", state.assembly.teasers.length, 3],
   ];
   $("#progress").innerHTML = bars.map(([label, value, max]) => {
@@ -512,11 +565,13 @@ function renderProgress() {
 }
 
 function renderTabs() {
+  const masterCount = state.master_prompts && state.master_prompts.items ? state.master_prompts.items.length : 0;
   const tabs = [
     ["references", "Referencias", state.references.length],
     ["frames", "Frames (imagen)", state.scenes.length],
-    ["clips", "Clips (Omni)", state.scenes.length],
+    ["clips", "Clips (video)", state.scenes.length],
     ["script", "Guion", state.scenes.length],
+    ["prompts", "Prompts maestros", masterCount],
   ];
   $("#tabs").innerHTML = tabs.map(([id, label, count]) => `<button class="tab ${activeTab === id ? "active" : ""}" data-tab="${id}">${label} (${count})</button>`).join("");
 }
@@ -577,7 +632,7 @@ function thumb(scene) {
 function sceneCard(scene, kind) {
   const done = isDone(kind, scene);
   const file = kind === "frames" ? scene.frame_exists : scene.clip_exists;
-  const prompt = kind === "frames" ? scene.image_prompt : scene.video_prompt;
+  const prompt = kind === "frames" ? scene.image_prompt : sceneVideoPrompt(scene);
   const markButton = file
     ? `<span class="btn green small" style="text-align:center;cursor:default">✓ En disco</span>`
     : `<button class="btn ${done ? "green" : ""}" data-action="mark" data-kind="${kind}" data-id="${scene.scene_id}">${done ? "✓ Hecho" : "Marcar hecho"}</button>`;
@@ -592,7 +647,7 @@ function sceneCard(scene, kind) {
     ${thumb(scene)}
     ${scene.hook ? `<div class="hook">${esc(scene.hook)}</div>` : ""}
     ${scene.cast.length ? `<div class="cast">${scene.cast.map((name) => `<span class="chip">${esc(name)}</span>`).join("")}</div>` : ""}
-    ${kind === "frames" ? `<div class="detail"><b>Frame:</b> ${esc(scene.frame_file || `frames/frame_${String(scene.scene_id).padStart(3, "0")}.png`)}</div>` : `<div class="detail"><b>Clip:</b> ${esc(scene.clip_file || `raw_clips/scene_${String(scene.scene_id).padStart(3, "0")}.mp4`)}</div>`}
+    ${kind === "frames" ? `<div class="detail"><b>Frame:</b> ${esc(scene.frame_file || `frames/frame_${String(scene.scene_id).padStart(3, "0")}.png`)}</div>` : `<div class="detail"><b>Clip:</b> ${esc(scene.clip_file || `raw_clips/scene_${String(scene.scene_id).padStart(3, "0")}.mp4`)} · <b>Plataforma:</b> ${esc(platformLabel(platform))}</div>`}
     <pre class="prompt">${esc(prompt)}</pre>
     <div class="actions">
       <button class="btn primary" data-action="copy" data-kind="${kind}" data-id="${scene.scene_id}">Copiar prompt</button>
@@ -654,8 +709,122 @@ function referenceCard(ref) {
   </article>`;
 }
 
+function masterItems() {
+  return (state.master_prompts && state.master_prompts.items) || [];
+}
+
+function museBatches() {
+  return Array.isArray(state.muse_batches) ? state.muse_batches : [];
+}
+
+function quickPromptButtons() {
+  return masterItems().map((prompt) => `<button class="btn" data-action="copy-master" data-id="${esc(prompt.key)}">${esc(prompt.code)} · ${esc(prompt.title)}</button>`).join("");
+}
+
+function museBatchCard(batch) {
+  const first = batch.scenes && batch.scenes.length ? batch.scenes[0] : "?";
+  const last = batch.scenes && batch.scenes.length ? batch.scenes[batch.scenes.length - 1] : "?";
+  return `<article class="card">
+    <div class="card-top">
+      <div class="scene-id">${String(batch.batch_id || 0).padStart(2, "0")}</div>
+      <div style="flex:1">
+        <div class="card-title">Bloque ${batch.batch_id} · Minuto ${batch.minute}</div>
+        <div class="meta">
+          <span class="badge">Escenas ${first}–${last}</span>
+          <span class="badge">${esc(batch.start_timecode)}–${esc(batch.end_timecode)}</span>
+          <span class="badge">${esc(batch.aspect_ratio || "16:9")}</span>
+        </div>
+      </div>
+    </div>
+    <pre class="prompt huge">${esc(batch.prompt)}</pre>
+    <div class="actions">
+      <button class="btn primary" data-action="copy-muse-batch" data-id="${esc(batch.batch_id)}">Copiar lote</button>
+      <button class="btn" data-action="download-muse-batch" data-id="${esc(batch.batch_id)}">Descargar .txt</button>
+    </div>
+  </article>`;
+}
+
+function matchesMaster(prompt) {
+  if (!filters.q) return true;
+  const hay = [prompt.code, prompt.title, prompt.purpose, prompt.text].join(" ").toLowerCase();
+  return hay.includes(filters.q);
+}
+
+function downloadText(filename, text, mime) {
+  const blob = new Blob([text], { type: mime || "text/plain;charset=utf-8" });
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = filename;
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  setTimeout(() => URL.revokeObjectURL(link.href), 1000);
+}
+
+function masterPromptCard(prompt) {
+  const missing = prompt.unfilled && prompt.unfilled.length
+    ? `<span class="badge hook">Sin rellenar: ${esc(prompt.unfilled.join(", "))}</span>`
+    : `<span class="badge ok">Completo</span>`;
+  return `<article class="card">
+    <div class="card-top">
+      <div class="scene-id">${esc(String(prompt.code || "").replace("PROMPT ", ""))}</div>
+      <div style="flex:1">
+        <div class="card-title">${esc(prompt.title)}</div>
+        <div class="meta">
+          <span class="badge">${esc(prompt.code)}</span>
+          <span class="badge">${prompt.chars.toLocaleString()} chars</span>
+          <span class="badge">${prompt.words.toLocaleString()} palabras</span>
+          ${missing}
+        </div>
+      </div>
+    </div>
+    <div class="detail">${esc(prompt.purpose || "")}</div>
+    <pre class="prompt huge">${esc(prompt.text)}</pre>
+    <div class="actions">
+      <button class="btn primary" data-action="copy-master" data-id="${esc(prompt.key)}">Copiar prompt</button>
+      <button class="btn" data-action="download-master" data-id="${esc(prompt.key)}">Descargar .txt</button>
+    </div>
+  </article>`;
+}
+
 function renderContent() {
   const holder = $("#content");
+  if (activeTab === "prompts") {
+    const items = masterItems().filter(matchesMaster);
+    if (!items.length) {
+      holder.innerHTML = `<div class="empty">No hay prompts maestros que coincidan con el filtro.</div>`;
+      return;
+    }
+    const values = (state.master_prompts && state.master_prompts.values) || {};
+    const batches = museBatches();
+    const head = `<div class="master-head">
+      <div>
+        <h2>Prompts maestros 000–003</h2>
+        <p>Rellenados con los valores del proyecto: <b>${esc(values.duration_minutes || "?")} min</b> · <b>${esc(values.total_scenes || "?")} escenas</b> · <b>${esc(values.total_grid_images || "?")} grids</b> · <b>${esc(values.aspect_ratio || "16:9")}</b>. Acceso rápido a cada prompt y a los lotes de Muse AI.</p>
+      </div>
+      <div class="master-actions">
+        <button class="btn primary" data-action="copy-master-all">Copiar los 4</button>
+        <button class="btn" data-action="download-master-all">Descargar JSON</button>
+        ${batches.length ? `<button class="btn green" data-action="copy-muse-batches">Copiar lotes Muse AI</button>` : ""}
+        ${batches.length ? `<button class="btn" data-action="download-muse-batches">Descargar lotes .txt</button>` : ""}
+      </div>
+    </div>
+    <div class="quick-access">${quickPromptButtons()}</div>`;
+    const batchSection = batches.length
+      ? `<div class="master-head">
+          <div>
+            <h2>Lotes Muse AI — 1 minuto / 6 escenas</h2>
+            <p>Cada bloque incluye los cortes [00s–03s], [03s–07s], [07s–10s], SFX, diálogo en inglés y el comando final para Muse AI.</p>
+          </div>
+        </div>
+        <div class="grid">${batches.map(museBatchCard).join("")}</div>
+        <div class="master-head" style="margin-top:22px">
+          <div><h2>Prompts individuales</h2></div>
+        </div>`
+      : "";
+    holder.innerHTML = `${head}${batchSection}<div class="grid">${items.map(masterPromptCard).join("")}</div>`;
+    return;
+  }
   if (activeTab === "references") {
     const refs = state.references.filter(matchesRef);
     holder.innerHTML = refs.length ? `<div class="grid">${refs.map(referenceCard).join("")}</div>` : `<div class="empty">No hay referencias que coincidan con el filtro.</div>`;
@@ -685,6 +854,51 @@ async function handleAction(button) {
   const action = button.dataset.action;
   const kind = button.dataset.kind;
   const id = button.dataset.id;
+  if (action === "copy-master" || action === "download-master") {
+    const prompt = masterItems().find((item) => item.key === id);
+    if (!prompt) return;
+    if (action === "copy-master") {
+      await copyText(prompt.text, `${prompt.code} copiado completo`);
+    } else {
+      downloadText(`${prompt.signature || prompt.key}.txt`, prompt.text);
+      toast(`${prompt.code} descargado`);
+    }
+    return;
+  }
+  if (action === "copy-master-all") {
+    const text = masterItems().map((item) => `${item.code} — ${item.title}\n\n${item.text}`).join("\n\n\n");
+    await copyText(text, "Los 4 prompts maestros copiados");
+    return;
+  }
+  if (action === "download-master-all") {
+    downloadText(`master_prompts_${state.slug || "episode"}.json`, JSON.stringify(state.master_prompts, null, 2), "application/json");
+    toast("Manifiesto de prompts descargado");
+    return;
+  }
+  if (action === "copy-muse-batch") {
+    const batch = museBatches().find((item) => String(item.batch_id) === String(id));
+    if (!batch) return;
+    await copyText(batch.prompt, `Lote ${batch.batch_id} copiado (minuto ${batch.minute})`);
+    return;
+  }
+  if (action === "download-muse-batch") {
+    const batch = museBatches().find((item) => String(item.batch_id) === String(id));
+    if (!batch) return;
+    downloadText(`muse_ai_batch_${String(batch.batch_id).padStart(2, "0")}.txt`, batch.prompt);
+    toast(`Lote ${batch.batch_id} descargado`);
+    return;
+  }
+  if (action === "copy-muse-batches") {
+    const text = museBatches().map((batch) => `BLOQUE ${batch.batch_id} — MINUTO ${batch.minute}\n\n${batch.prompt}`).join("\n\n\n");
+    await copyText(text, `${museBatches().length} lotes de Muse AI copiados`);
+    return;
+  }
+  if (action === "download-muse-batches") {
+    const text = museBatches().map((batch) => `BLOQUE ${batch.batch_id} — MINUTO ${batch.minute}\n\n${batch.prompt}`).join("\n\n\n");
+    downloadText(`muse_ai_batches_${state.slug || "episode"}.txt`, text);
+    toast("Lotes de Muse AI descargados");
+    return;
+  }
   if (action === "copy") {
     if (kind === "references") {
       const ref = findRef(id);
@@ -698,7 +912,7 @@ async function handleAction(button) {
       const field = kind === "frames" ? "image_copied" : "video_copied";
       sceneTrack(id)[field] = new Date().toISOString();
       touchTracking();
-      await copyText(kind === "frames" ? scene.image_prompt : scene.video_prompt, "Prompt copiado");
+      await copyText(kind === "frames" ? scene.image_prompt : sceneVideoPrompt(scene), kind === "frames" ? "Prompt de imagen copiado" : `Prompt de ${platformLabel(platform)} copiado`);
     }
     renderContent();
     return;
@@ -731,6 +945,12 @@ async function handleAction(button) {
 }
 
 function copyNextPending() {
+  if (activeTab === "prompts") {
+    const prompt = masterItems()[0];
+    if (!prompt) return toast("No hay prompts maestros exportados");
+    copyText(prompt.text, `${prompt.code} copiado`);
+    return;
+  }
   if (activeTab === "references") {
     const ref = state.references.find((item) => !refDone(item));
     if (!ref) return toast("No quedan referencias pendientes");
@@ -746,7 +966,7 @@ function copyNextPending() {
   if (!scene) return toast("No quedan escenas pendientes");
   sceneTrack(scene.scene_id)[field] = new Date().toISOString();
   touchTracking();
-  copyText(kind === "frames" ? scene.image_prompt : scene.video_prompt, `Escena ${scene.scene_id} copiada`);
+  copyText(kind === "frames" ? scene.image_prompt : sceneVideoPrompt(scene), `Escena ${scene.scene_id} copiada (${kind === "frames" ? "imagen" : platformLabel(platform)})`);
   renderContent();
 }
 
@@ -821,6 +1041,7 @@ document.addEventListener("click", (event) => {
 
 $("#q").addEventListener("input", (event) => { filters.q = event.target.value.trim().toLowerCase(); renderContent(); });
 $("#state-filter").addEventListener("change", (event) => { filters.state = event.target.value; renderContent(); });
+$("#platform-filter").addEventListener("change", (event) => { platform = event.target.value; renderContent(); });
 $("#act-filter").addEventListener("change", (event) => { filters.act = event.target.value; renderContent(); });
 $("#teaser-filter").addEventListener("change", (event) => { filters.teaser = event.target.checked; renderContent(); });
 $("#hide-done").addEventListener("change", (event) => { filters.hideDone = event.target.checked; renderContent(); });
