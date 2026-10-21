@@ -189,171 +189,141 @@ ESCENA 060 | Acto 6 | mansion study desk, night | night | Hook: THE WILL NAMES A
 ==============================================================================
 
 === REF_GRID_MIN_01.png ===
-STORYBOARD IMAGE 01/10 — MINUTE 1 (Scenes 1–6)
+Usando los personajes de REF_CAST_MASTER.png como referencia fija de rostros, edades, cuerpos y vestuarios, genera UNA IMAGEN horizontal 16:9 de Storyboard dividida en una cuadrícula limpia de 3x2 (6 viñetas numeradas del 1 al 6) que represente el MINUTO 1 (Escenas 1 a 6) de la historia en estilo Cinematográfico Realista 35mm:
 
-Genera UNA SOLA IMAGEN 16:9 con una cuadrícula de storyboard de 3 columnas x 2 filas (6 viñetas), en orden de lectura izquierda a derecha y de arriba abajo.
-Usa exactamente los mismos personajes, rostros, edades y vestuarios que REF_CAST_MASTER.png (Hoja de Personajes adjunta). Mantén continuidad de vestuario, props y locaciones entre viñetas.
-Estilo visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
-Cada viñeta es un plano cinematográfico 16:9 con encuadre claro y acción legible.
-Sin texto, sin letras, sin globos de diálogo, sin logos, sin marcas de agua, sin bordes.
+Look visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
 
-VIÑETAS EXACTAS:
-Viñeta 1: Escena 1 — In the grand foyer, the maid in the denim work… (Blackwell mansion foyer, storm dusk).
-Viñeta 2: Escena 2 — The barn aisle at night: the maid stands small between… (Silver Creek barn aisle, night).
-Viñeta 3: Escena 3 — In the foyer, the maid holds open her saddle bag… (Blackwell mansion foyer, night).
-Viñeta 4: Escena 4 — In the stable aisle, the maid tightens a saddle girth… (Silver Creek stable aisle, morning).
-Viñeta 5: Escena 5 — In the timber great room, the woman in emerald silk… (Blackwell great room, morning).
-Viñeta 6: Escena 6 — At the barn door, the maid works a curry comb… (Silver Creek barn doorway, late afternoon).
+Viñeta 1 — Escena 1 (Blackwell mansion foyer, storm dusk): Acción visual: In the grand foyer, the maid in the denim work shirt freezes beside the shattered decanter while the woman in emerald silk towers over… Descripción: In the grand foyer, the maid in the denim work….
+Viñeta 2 — Escena 2 (Silver Creek barn aisle, night): Acción visual: The barn aisle at night: the maid stands small between the stalls, the housekeeper a silhouette in the doorway, rain drumming on the tin… Descripción: The barn aisle at night: the maid stands small between….
+Viñeta 3 — Escena 3 (Blackwell mansion foyer, night): Acción visual: In the foyer, the maid holds open her saddle bag while the woman in emerald silk points at it like evidence. Descripción: In the foyer, the maid holds open her saddle bag….
+Viñeta 4 — Escena 4 (Silver Creek stable aisle, morning): Acción visual: In the stable aisle, the maid tightens a saddle girth while the heir behind her lifts the silver watch from her open bag. Descripción: In the stable aisle, the maid tightens a saddle girth….
+Viñeta 5 — Escena 5 (Blackwell great room, morning): Acción visual: In the timber great room, the woman in emerald silk gestures to a chair; the maid in the denim work shirt stays standing. Descripción: In the timber great room, the woman in emerald silk….
+Viñeta 6 — Escena 6 (Silver Creek barn doorway, late afternoon): Acción visual: At the barn door, the maid works a curry comb in slow circles while the foreman leans on the stall, speaking low. Descripción: At the barn door, the maid works a curry comb….
+
+Mantén continuidad exacta de rostros, cuerpos, vestuario, props, locaciones, luz y hora del día entre las 6 viñetas. Cada viñeta es un plano cinematográfico 16:9 con acción legible. No incluyas diálogos, párrafos largos, subtítulos, globos de texto, logos ni marcas de agua; solo la cuadrícula, la numeración y la descripción breve de cada viñeta.
 
 === REF_GRID_MIN_02.png ===
-STORYBOARD IMAGE 02/10 — MINUTE 2 (Scenes 7–12)
+Usando los personajes de REF_CAST_MASTER.png como referencia fija de rostros, edades, cuerpos y vestuarios, genera UNA IMAGEN horizontal 16:9 de Storyboard dividida en una cuadrícula limpia de 3x2 (6 viñetas numeradas del 1 al 6) que represente el MINUTO 2 (Escenas 7 a 12) de la historia en estilo Cinematográfico Realista 35mm:
 
-Genera UNA SOLA IMAGEN 16:9 con una cuadrícula de storyboard de 3 columnas x 2 filas (6 viñetas), en orden de lectura izquierda a derecha y de arriba abajo.
-Usa exactamente los mismos personajes, rostros, edades y vestuarios que REF_CAST_MASTER.png (Hoja de Personajes adjunta). Mantén continuidad de vestuario, props y locaciones entre viñetas.
-Estilo visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
-Cada viñeta es un plano cinematográfico 16:9 con encuadre claro y acción legible.
-Sin texto, sin letras, sin globos de diálogo, sin logos, sin marcas de agua, sin bordes.
+Look visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
 
-VIÑETAS EXACTAS:
-Viñeta 1: Escena 7 — In the lamplit study, the mistress sits behind the desk… (Blackwell study, late afternoon).
-Viñeta 2: Escena 8 — In the small stone cottage, the maid kneels with the… (gatehouse cottage, dusk).
-Viñeta 3: Escena 9 — In the barn aisle at night, the maid holds up… (Silver Creek barn aisle, night).
-Viñeta 4: Escena 10 — Inside the tack room, the maid kneels over an open… (Silver Creek sealed tack room, night).
-Viñeta 5: Escena 11 — At the oak counter, the maid lays the old deed… (Silver Creek county records office, morning).
-Viñeta 6: Escena 12 — On the stone steps, the maid holds a folder to… (county records steps, grey morning).
+Viñeta 1 — Escena 7 (Blackwell study, late afternoon): Acción visual: In the lamplit study, the mistress sits behind the desk with one finger on a closed file; the maid stands before it. Descripción: In the lamplit study, the mistress sits behind the desk….
+Viñeta 2 — Escena 8 (gatehouse cottage, dusk): Acción visual: In the small stone cottage, the maid kneels with the old saddle across her knees and works the leather lining open. Descripción: In the small stone cottage, the maid kneels with the….
+Viñeta 3 — Escena 9 (Silver Creek barn aisle, night): Acción visual: In the barn aisle at night, the maid holds up the brass key while the foreman studies the whitewashed tack-room door behind them. Descripción: In the barn aisle at night, the maid holds up….
+Viñeta 4 — Escena 10 (Silver Creek sealed tack room, night): Acción visual: Inside the tack room, the maid kneels over an open tin box while the foreman stands in the doorway with bolt cutters. Descripción: Inside the tack room, the maid kneels over an open….
+Viñeta 5 — Escena 11 (Silver Creek county records office, morning): Acción visual: At the oak counter, the maid lays the old deed down while the clerk turns a heavy ledger toward her. Descripción: At the oak counter, the maid lays the old deed….
+Viñeta 6 — Escena 12 (county records steps, grey morning): Acción visual: On the stone steps, the maid holds a folder to her chest while the foreman waits a step below, hat in hand. Descripción: On the stone steps, the maid holds a folder to….
+
+Mantén continuidad exacta de rostros, cuerpos, vestuario, props, locaciones, luz y hora del día entre las 6 viñetas. Cada viñeta es un plano cinematográfico 16:9 con acción legible. No incluyas diálogos, párrafos largos, subtítulos, globos de texto, logos ni marcas de agua; solo la cuadrícula, la numeración y la descripción breve de cada viñeta.
 
 === REF_GRID_MIN_03.png ===
-STORYBOARD IMAGE 03/10 — MINUTE 3 (Scenes 13–18)
+Usando los personajes de REF_CAST_MASTER.png como referencia fija de rostros, edades, cuerpos y vestuarios, genera UNA IMAGEN horizontal 16:9 de Storyboard dividida en una cuadrícula limpia de 3x2 (6 viñetas numeradas del 1 al 6) que represente el MINUTO 3 (Escenas 13 a 18) de la historia en estilo Cinematográfico Realista 35mm:
 
-Genera UNA SOLA IMAGEN 16:9 con una cuadrícula de storyboard de 3 columnas x 2 filas (6 viñetas), en orden de lectura izquierda a derecha y de arriba abajo.
-Usa exactamente los mismos personajes, rostros, edades y vestuarios que REF_CAST_MASTER.png (Hoja de Personajes adjunta). Mantén continuidad de vestuario, props y locaciones entre viñetas.
-Estilo visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
-Cada viñeta es un plano cinematográfico 16:9 con encuadre claro y acción legible.
-Sin texto, sin letras, sin globos de diálogo, sin logos, sin marcas de agua, sin bordes.
+Look visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
 
-VIÑETAS EXACTAS:
-Viñeta 1: Escena 13 — In the paneled office, the maid holds a single sheet… (Blackwell paneled office, afternoon).
-Viñeta 2: Escena 14 — In the dark-paneled hallway, the heir speaks low to the… (Blackwell dark-paneled hallway, afternoon).
-Viñeta 3: Escena 15 — At the oilcloth table, the maid and the housekeeper sit… (gatehouse cottage, dusk).
-Viñeta 4: Escena 16 — In the barn aisle, the maid and the foreman stand… (Silver Creek barn aisle, night).
-Viñeta 5: Escena 17 — In the lamplit study, the mistress stands over the desk… (Blackwell study, night).
-Viñeta 6: Escena 18 — At the counter, the clerk shakes her head over a… (Silver Creek county records office, morning).
+Viñeta 1 — Escena 13 (Blackwell paneled office, afternoon): Acción visual: In the paneled office, the maid holds a single sheet of paper while the woman in black cashmere stands by the window, gloves in… Descripción: In the paneled office, the maid holds a single sheet….
+Viñeta 2 — Escena 14 (Blackwell dark-paneled hallway, afternoon): Acción visual: In the dark-paneled hallway, the heir speaks low to the maid, hands open, while she holds her folder like a shield. Descripción: In the dark-paneled hallway, the heir speaks low to the….
+Viñeta 3 — Escena 15 (gatehouse cottage, dusk): Acción visual: At the oilcloth table, the maid and the housekeeper sit across a covered pie neither has touched. Descripción: At the oilcloth table, the maid and the housekeeper sit….
+Viñeta 4 — Escena 16 (Silver Creek barn aisle, night): Acción visual: In the barn aisle, the maid and the foreman stand on either side of a lantern, rain crossing the doorway behind him. Descripción: In the barn aisle, the maid and the foreman stand….
+Viñeta 5 — Escena 17 (Blackwell study, night): Acción visual: In the lamplit study, the mistress stands over the desk while the heir paces and loosens his collar. Descripción: In the lamplit study, the mistress stands over the desk….
+Viñeta 6 — Escena 18 (Silver Creek county records office, morning): Acción visual: At the counter, the clerk shakes her head over a sealed drawer while the maid's open folder waits untouched. Descripción: At the counter, the clerk shakes her head over a….
+
+Mantén continuidad exacta de rostros, cuerpos, vestuario, props, locaciones, luz y hora del día entre las 6 viñetas. Cada viñeta es un plano cinematográfico 16:9 con acción legible. No incluyas diálogos, párrafos largos, subtítulos, globos de texto, logos ni marcas de agua; solo la cuadrícula, la numeración y la descripción breve de cada viñeta.
 
 === REF_GRID_MIN_04.png ===
-STORYBOARD IMAGE 04/10 — MINUTE 4 (Scenes 19–24)
+Usando los personajes de REF_CAST_MASTER.png como referencia fija de rostros, edades, cuerpos y vestuarios, genera UNA IMAGEN horizontal 16:9 de Storyboard dividida en una cuadrícula limpia de 3x2 (6 viñetas numeradas del 1 al 6) que represente el MINUTO 4 (Escenas 19 a 24) de la historia en estilo Cinematográfico Realista 35mm:
 
-Genera UNA SOLA IMAGEN 16:9 con una cuadrícula de storyboard de 3 columnas x 2 filas (6 viñetas), en orden de lectura izquierda a derecha y de arriba abajo.
-Usa exactamente los mismos personajes, rostros, edades y vestuarios que REF_CAST_MASTER.png (Hoja de Personajes adjunta). Mantén continuidad de vestuario, props y locaciones entre viñetas.
-Estilo visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
-Cada viñeta es un plano cinematográfico 16:9 con encuadre claro y acción legible.
-Sin texto, sin letras, sin globos de diálogo, sin logos, sin marcas de agua, sin bordes.
+Look visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
 
-VIÑETAS EXACTAS:
-Viñeta 1: Escena 19 — In the candlelit great room, the mistress rises with a… (Blackwell great room, dinner, night).
-Viñeta 2: Escena 20 — In the gravel yard at night, a steel barrel burns… (Blackwell gravel yard, night).
-Viñeta 3: Escena 21 — In the cottage lamplight, the maid unrolls the old county… (gatehouse cottage, night).
-Viñeta 4: Escena 22 — In the shadowy tack room, the maid kneels beside the… (Blackwell tack room, night).
-Viñeta 5: Escena 23 — In the moonlight, the foreman gently binds the maid's bruised… (Silver Creek barn hayloft, night).
-Viñeta 6: Escena 24 — Behind the desk, the maid freezes with the open ledger… (Blackwell study archives, night).
+Viñeta 1 — Escena 19 (Blackwell great room, dinner, night): Acción visual: In the candlelit great room, the mistress rises with a glass while the maid stands at the edge of the tables, napkin in hand. Descripción: In the candlelit great room, the mistress rises with a….
+Viñeta 2 — Escena 20 (Blackwell gravel yard, night): Acción visual: In the gravel yard at night, a steel barrel burns while the mistress holds out a folded paper and the maid watches the flames. Descripción: In the gravel yard at night, a steel barrel burns….
+Viñeta 3 — Escena 21 (gatehouse cottage, night): Acción visual: In the cottage lamplight, the maid unrolls the old county survey map while the foreman anchors the curling corners with heavy iron horseshoes. Descripción: In the cottage lamplight, the maid unrolls the old county….
+Viñeta 4 — Escena 22 (Blackwell tack room, night): Acción visual: In the shadowy tack room, the maid kneels beside the wall timber and slides a cylindrical tin case from the hollow cavity. Descripción: In the shadowy tack room, the maid kneels beside the….
+Viñeta 5 — Escena 23 (Silver Creek barn hayloft, night): Acción visual: In the moonlight, the foreman gently binds the maid's bruised palm with white tape, his touch slow and deliberate. Descripción: In the moonlight, the foreman gently binds the maid's bruised….
+Viñeta 6 — Escena 24 (Blackwell study archives, night): Acción visual: Behind the desk, the maid freezes with the open ledger as the heir steps over the threshold into the room. Descripción: Behind the desk, the maid freezes with the open ledger….
+
+Mantén continuidad exacta de rostros, cuerpos, vestuario, props, locaciones, luz y hora del día entre las 6 viñetas. Cada viñeta es un plano cinematográfico 16:9 con acción legible. No incluyas diálogos, párrafos largos, subtítulos, globos de texto, logos ni marcas de agua; solo la cuadrícula, la numeración y la descripción breve de cada viñeta.
 
 === REF_GRID_MIN_05.png ===
-STORYBOARD IMAGE 05/10 — MINUTE 5 (Scenes 25–30)
+Usando los personajes de REF_CAST_MASTER.png como referencia fija de rostros, edades, cuerpos y vestuarios, genera UNA IMAGEN horizontal 16:9 de Storyboard dividida en una cuadrícula limpia de 3x2 (6 viñetas numeradas del 1 al 6) que represente el MINUTO 5 (Escenas 25 a 30) de la historia en estilo Cinematográfico Realista 35mm:
 
-Genera UNA SOLA IMAGEN 16:9 con una cuadrícula de storyboard de 3 columnas x 2 filas (6 viñetas), en orden de lectura izquierda a derecha y de arriba abajo.
-Usa exactamente los mismos personajes, rostros, edades y vestuarios que REF_CAST_MASTER.png (Hoja de Personajes adjunta). Mantén continuidad de vestuario, props y locaciones entre viñetas.
-Estilo visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
-Cada viñeta es un plano cinematográfico 16:9 con encuadre claro y acción legible.
-Sin texto, sin letras, sin globos de diálogo, sin logos, sin marcas de agua, sin bordes.
+Look visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
 
-VIÑETAS EXACTAS:
-Viñeta 1: Escena 25 — In the vast room, the mistress dangles a small brass… (Blackwell mansion great room, night).
-Viñeta 2: Escena 26 — Under harsh halogen yard lights, the foreman plants his boots… (Blackwell mansion gravel drive, night).
-Viñeta 3: Escena 27 — On the rain-slick porch steps, the heir reaches out with… (gatehouse cottage porch, night).
-Viñeta 4: Escena 28 — In the barn aisle, the housekeeper rushes to the maid… (Silver Creek barn aisle, night).
-Viñeta 5: Escena 29 — By the iron gates, the mistress steps out of the… (Blackwell estate gates, midnight).
-Viñeta 6: Escena 30 — Under the headlights, the mistress thrusts the certified check into… (Blackwell estate gates, midnight).
+Viñeta 1 — Escena 25 (Blackwell mansion great room, night): Acción visual: In the vast room, the mistress dangles a small brass ribboned key while the maid stands rigid near the cold hearth. Descripción: In the vast room, the mistress dangles a small brass….
+Viñeta 2 — Escena 26 (Blackwell mansion gravel drive, night): Acción visual: Under harsh halogen yard lights, the foreman plants his boots in front of the heir, refusing to yield the driveway. Descripción: Under harsh halogen yard lights, the foreman plants his boots….
+Viñeta 3 — Escena 27 (gatehouse cottage porch, night): Acción visual: On the rain-slick porch steps, the heir reaches out with a cream envelope while the maid refuses to accept it. Descripción: On the rain-slick porch steps, the heir reaches out with….
+Viñeta 4 — Escena 28 (Silver Creek barn aisle, night): Acción visual: In the barn aisle, the housekeeper rushes to the maid and grabs both of her elbows with trembling hands. Descripción: In the barn aisle, the housekeeper rushes to the maid….
+Viñeta 5 — Escena 29 (Blackwell estate gates, midnight): Acción visual: By the iron gates, the mistress steps out of the luxury car into the headlights, holding a checkbook open. Descripción: By the iron gates, the mistress steps out of the….
+Viñeta 6 — Escena 30 (Blackwell estate gates, midnight): Acción visual: Under the headlights, the mistress thrusts the certified check into the maid's face like an execution order. Descripción: Under the headlights, the mistress thrusts the certified check into….
+
+Mantén continuidad exacta de rostros, cuerpos, vestuario, props, locaciones, luz y hora del día entre las 6 viñetas. Cada viñeta es un plano cinematográfico 16:9 con acción legible. No incluyas diálogos, párrafos largos, subtítulos, globos de texto, logos ni marcas de agua; solo la cuadrícula, la numeración y la descripción breve de cada viñeta.
 
 === REF_GRID_MIN_06.png ===
-STORYBOARD IMAGE 06/10 — MINUTE 6 (Scenes 31–36)
+Usando los personajes de REF_CAST_MASTER.png como referencia fija de rostros, edades, cuerpos y vestuarios, genera UNA IMAGEN horizontal 16:9 de Storyboard dividida en una cuadrícula limpia de 3x2 (6 viñetas numeradas del 1 al 6) que represente el MINUTO 6 (Escenas 31 a 36) de la historia en estilo Cinematográfico Realista 35mm:
 
-Genera UNA SOLA IMAGEN 16:9 con una cuadrícula de storyboard de 3 columnas x 2 filas (6 viñetas), en orden de lectura izquierda a derecha y de arriba abajo.
-Usa exactamente los mismos personajes, rostros, edades y vestuarios que REF_CAST_MASTER.png (Hoja de Personajes adjunta). Mantén continuidad de vestuario, props y locaciones entre viñetas.
-Estilo visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
-Cada viñeta es un plano cinematográfico 16:9 con encuadre claro y acción legible.
-Sin texto, sin letras, sin globos de diálogo, sin logos, sin marcas de agua, sin bordes.
+Look visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
 
-VIÑETAS EXACTAS:
-Viñeta 1: Escena 31 — Inside the ransacked cottage, the storm sweeps through shattered windows… (gatehouse cottage, storm night).
-Viñeta 2: Escena 32 — In the swirling red and blue emergency light, the maid… (gatehouse cottage yard, storm night).
-Viñeta 3: Escena 33 — In the drafty shelter, the maid wraps her own dry… (Silver Creek hay shed, storm night).
-Viñeta 4: Escena 34 — Inside the glowing library, the mistress feeds the ancient deed… (Blackwell mansion rear terrace, storm night).
-Viñeta 5: Escena 35 — In a sudden flash of lightning, the maid appears like… (Silver Creek stable tack room, storm night).
-Viñeta 6: Escena 36 — On the high ridge, the small figure of the maid… (ranch ridge overlook, storm dawn).
+Viñeta 1 — Escena 31 (gatehouse cottage, storm night): Acción visual: Inside the ransacked cottage, the storm sweeps through shattered windows, scattering torn clothes and broken crockery across wet stones. Descripción: Inside the ransacked cottage, the storm sweeps through shattered windows….
+Viñeta 2 — Escena 32 (gatehouse cottage yard, storm night): Acción visual: In the swirling red and blue emergency light, the maid faces the padlocked gate as rain washes mud over her boots. Descripción: In the swirling red and blue emergency light, the maid….
+Viñeta 3 — Escena 33 (Silver Creek hay shed, storm night): Acción visual: In the drafty shelter, the maid wraps her own dry flannel scarf around the weeping housekeeper's neck. Descripción: In the drafty shelter, the maid wraps her own dry….
+Viñeta 4 — Escena 34 (Blackwell mansion rear terrace, storm night): Acción visual: Inside the glowing library, the mistress feeds the ancient deed into the fireplace flames while rain streaks the window. Descripción: Inside the glowing library, the mistress feeds the ancient deed….
+Viñeta 5 — Escena 35 (Silver Creek stable tack room, storm night): Acción visual: In a sudden flash of lightning, the maid appears like a ghost in the stable door, blocking the heir's retreat. Descripción: In a sudden flash of lightning, the maid appears like….
+Viñeta 6 — Escena 36 (ranch ridge overlook, storm dawn): Acción visual: On the high ridge, the small figure of the maid stands against the vast Montana valley as dawn breaks slate grey. Descripción: On the high ridge, the small figure of the maid….
+
+Mantén continuidad exacta de rostros, cuerpos, vestuario, props, locaciones, luz y hora del día entre las 6 viñetas. Cada viñeta es un plano cinematográfico 16:9 con acción legible. No incluyas diálogos, párrafos largos, subtítulos, globos de texto, logos ni marcas de agua; solo la cuadrícula, la numeración y la descripción breve de cada viñeta.
 
 === REF_GRID_MIN_07.png ===
-STORYBOARD IMAGE 07/10 — MINUTE 7 (Scenes 37–42)
+Usando los personajes de REF_CAST_MASTER.png como referencia fija de rostros, edades, cuerpos y vestuarios, genera UNA IMAGEN horizontal 16:9 de Storyboard dividida en una cuadrícula limpia de 3x2 (6 viñetas numeradas del 1 al 6) que represente el MINUTO 7 (Escenas 37 a 42) de la historia en estilo Cinematográfico Realista 35mm:
 
-Genera UNA SOLA IMAGEN 16:9 con una cuadrícula de storyboard de 3 columnas x 2 filas (6 viñetas), en orden de lectura izquierda a derecha y de arriba abajo.
-Usa exactamente los mismos personajes, rostros, edades y vestuarios que REF_CAST_MASTER.png (Hoja de Personajes adjunta). Mantén continuidad de vestuario, props y locaciones entre viñetas.
-Estilo visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
-Cada viñeta es un plano cinematográfico 16:9 con encuadre claro y acción legible.
-Sin texto, sin letras, sin globos de diálogo, sin logos, sin marcas de agua, sin bordes.
+Look visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
 
-VIÑETAS EXACTAS:
-Viñeta 1: Escena 37 — On the muddy road, the foreman wraps his dry wool… (ranch ridge road, dawn).
-Viñeta 2: Escena 38 — Inside the bouncing truck cab, the maid turns the brass… (green truck cab, dawn).
-Viñeta 3: Escena 39 — On the bank steps, the maid and foreman turn together… (town bank exterior, morning).
-Viñeta 4: Escena 40 — Inside the gleaming vault, the maid turns the brass key… (First Valley Trust vault corridor, morning).
-Viñeta 5: Escena 41 — In the sunlit bank office, the maid stands tall as… (First Valley Trust manager office, morning).
-Viñeta 6: Escena 42 — On the stone steps, the foreman stands immovable between the… (town bank steps, morning).
+Viñeta 1 — Escena 37 (ranch ridge road, dawn): Acción visual: On the muddy road, the foreman wraps his dry wool jacket around her, pulling the collar up against the wind. Descripción: On the muddy road, the foreman wraps his dry wool….
+Viñeta 2 — Escena 38 (green truck cab, dawn): Acción visual: Inside the bouncing truck cab, the maid turns the brass key in the dashboard light, scraping away years of verdigris. Descripción: Inside the bouncing truck cab, the maid turns the brass….
+Viñeta 3 — Escena 39 (town bank exterior, morning): Acción visual: On the bank steps, the maid and foreman turn together as the limousine door opens across the street. Descripción: On the bank steps, the maid and foreman turn together….
+Viñeta 4 — Escena 40 (First Valley Trust vault corridor, morning): Acción visual: Inside the gleaming vault, the maid turns the brass key into Lock 14; the heavy tumbler clicks open with a hollow ring. Descripción: Inside the gleaming vault, the maid turns the brass key….
+Viñeta 5 — Escena 41 (First Valley Trust manager office, morning): Acción visual: In the sunlit bank office, the maid stands tall as the grey-haired bank manager examines the embossed blue notary seal through his bifocals. Descripción: In the sunlit bank office, the maid stands tall as….
+Viñeta 6 — Escena 42 (town bank steps, morning): Acción visual: On the stone steps, the foreman stands immovable between the mistress and the bank doors, ignoring the sheriff's warning stance. Descripción: On the stone steps, the foreman stands immovable between the….
+
+Mantén continuidad exacta de rostros, cuerpos, vestuario, props, locaciones, luz y hora del día entre las 6 viñetas. Cada viñeta es un plano cinematográfico 16:9 con acción legible. No incluyas diálogos, párrafos largos, subtítulos, globos de texto, logos ni marcas de agua; solo la cuadrícula, la numeración y la descripción breve de cada viñeta.
 
 === REF_GRID_MIN_08.png ===
-STORYBOARD IMAGE 08/10 — MINUTE 8 (Scenes 43–48)
+Usando los personajes de REF_CAST_MASTER.png como referencia fija de rostros, edades, cuerpos y vestuarios, genera UNA IMAGEN horizontal 16:9 de Storyboard dividida en una cuadrícula limpia de 3x2 (6 viñetas numeradas del 1 al 6) que represente el MINUTO 8 (Escenas 43 a 48) de la historia en estilo Cinematográfico Realista 35mm:
 
-Genera UNA SOLA IMAGEN 16:9 con una cuadrícula de storyboard de 3 columnas x 2 filas (6 viñetas), en orden de lectura izquierda a derecha y de arriba abajo.
-Usa exactamente los mismos personajes, rostros, edades y vestuarios que REF_CAST_MASTER.png (Hoja de Personajes adjunta). Mantén continuidad de vestuario, props y locaciones entre viñetas.
-Estilo visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
-Cada viñeta es un plano cinematográfico 16:9 con encuadre claro y acción legible.
-Sin texto, sin letras, sin globos de diálogo, sin logos, sin marcas de agua, sin bordes.
+Look visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
 
-VIÑETAS EXACTAS:
-Viñeta 1: Escena 43 — The maid emerges onto the sunlit steps, lifting the stamped… (town bank steps, morning).
-Viñeta 2: Escena 44 — Inside the town car, the mistress grabs her son's lapel… (Blackwell town car, morning).
-Viñeta 3: Escena 45 — In the brick alleyway, the housekeeper presses an aged leather… (county civic hall back alley, noon).
-Viñeta 4: Escena 46 — Before the towering carved oak doors, the maid pauses, adjusting… (Silver Creek civic hall foyer, afternoon).
-Viñeta 5: Escena 47 — The grand ballroom falls utterly silent as the ranch maid… (civic hall grand ballroom, afternoon).
-Viñeta 6: Escena 48 — Under the blinding stage lights, the mistress steps right into… (civic hall auction stage, afternoon).
+Viñeta 1 — Escena 43 (town bank steps, morning): Acción visual: The maid emerges onto the sunlit steps, lifting the stamped court-certified envelope for the entire sidewalk to see. Descripción: The maid emerges onto the sunlit steps, lifting the stamped….
+Viñeta 2 — Escena 44 (Blackwell town car, morning): Acción visual: Inside the town car, the mistress grabs her son's lapel as he pulls himself back against the passenger door. Descripción: Inside the town car, the mistress grabs her son's lapel….
+Viñeta 3 — Escena 45 (county civic hall back alley, noon): Acción visual: In the brick alleyway, the housekeeper presses an aged leather journal into the maid's hands, tears in her eyes. Descripción: In the brick alleyway, the housekeeper presses an aged leather….
+Viñeta 4 — Escena 46 (Silver Creek civic hall foyer, afternoon): Acción visual: Before the towering carved oak doors, the maid pauses, adjusting her mother's silver belt buckle. Descripción: Before the towering carved oak doors, the maid pauses, adjusting….
+Viñeta 5 — Escena 47 (civic hall grand ballroom, afternoon): Acción visual: The grand ballroom falls utterly silent as the ranch maid in her simple white shirt strides down the red carpet toward the stage. Descripción: The grand ballroom falls utterly silent as the ranch maid….
+Viñeta 6 — Escena 48 (civic hall auction stage, afternoon): Acción visual: Under the blinding stage lights, the mistress steps right into the maid's face, abandoning all high-society poise. Descripción: Under the blinding stage lights, the mistress steps right into….
+
+Mantén continuidad exacta de rostros, cuerpos, vestuario, props, locaciones, luz y hora del día entre las 6 viñetas. Cada viñeta es un plano cinematográfico 16:9 con acción legible. No incluyas diálogos, párrafos largos, subtítulos, globos de texto, logos ni marcas de agua; solo la cuadrícula, la numeración y la descripción breve de cada viñeta.
 
 === REF_GRID_MIN_09.png ===
-STORYBOARD IMAGE 09/10 — MINUTE 9 (Scenes 49–54)
+Usando los personajes de REF_CAST_MASTER.png como referencia fija de rostros, edades, cuerpos y vestuarios, genera UNA IMAGEN horizontal 16:9 de Storyboard dividida en una cuadrícula limpia de 3x2 (6 viñetas numeradas del 1 al 6) que represente el MINUTO 9 (Escenas 49 a 54) de la historia en estilo Cinematográfico Realista 35mm:
 
-Genera UNA SOLA IMAGEN 16:9 con una cuadrícula de storyboard de 3 columnas x 2 filas (6 viñetas), en orden de lectura izquierda a derecha y de arriba abajo.
-Usa exactamente los mismos personajes, rostros, edades y vestuarios que REF_CAST_MASTER.png (Hoja de Personajes adjunta). Mantén continuidad de vestuario, props y locaciones entre viñetas.
-Estilo visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
-Cada viñeta es un plano cinematográfico 16:9 con encuadre claro y acción legible.
-Sin texto, sin letras, sin globos de diálogo, sin logos, sin marcas de agua, sin bordes.
+Look visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
 
-VIÑETAS EXACTAS:
-Viñeta 1: Escena 49 — At the edge of the stage, the maid hands the… (civic hall auction stage, afternoon).
-Viñeta 2: Escena 50 — In the red velvet backstage shadows, the mistress corners the… (civic hall stage wings, afternoon).
-Viñeta 3: Escena 51 — The maid sprints through the barn gates as the foreman… (Silver Creek barn exterior, dusk).
-Viñeta 4: Escena 52 — At the witness stand, the heir raises his right hand… (civic hall courtroom chamber, evening).
-Viñeta 5: Escena 53 — The housekeeper stands tall at the microphone, looking directly at… (civic hall courtroom chamber, evening).
-Viñeta 6: Escena 54 — At the plaintiff's table, the maid stands erect as the… (civic hall courtroom chamber, evening).
+Viñeta 1 — Escena 49 (civic hall auction stage, afternoon): Acción visual: At the edge of the stage, the maid hands the heavy blue legal dossier down to the seated county probate judge. Descripción: At the edge of the stage, the maid hands the….
+Viñeta 2 — Escena 50 (civic hall stage wings, afternoon): Acción visual: In the red velvet backstage shadows, the mistress corners the maid against the rope rigging, eyes feverish with malice. Descripción: In the red velvet backstage shadows, the mistress corners the….
+Viñeta 3 — Escena 51 (Silver Creek barn exterior, dusk): Acción visual: The maid sprints through the barn gates as the foreman yanks a lit flare from a captured trespasser's hand. Descripción: The maid sprints through the barn gates as the foreman….
+Viñeta 4 — Escena 52 (civic hall courtroom chamber, evening): Acción visual: At the witness stand, the heir raises his right hand before the court clerk, his voice echoing across the silent gallery. Descripción: At the witness stand, the heir raises his right hand….
+Viñeta 5 — Escena 53 (civic hall courtroom chamber, evening): Acción visual: The housekeeper stands tall at the microphone, looking directly at the district attorney with tearful dignity. Descripción: The housekeeper stands tall at the microphone, looking directly at….
+Viñeta 6 — Escena 54 (civic hall courtroom chamber, evening): Acción visual: At the plaintiff's table, the maid stands erect as the judge brings the wooden gavel down with final authority. Descripción: At the plaintiff's table, the maid stands erect as the….
+
+Mantén continuidad exacta de rostros, cuerpos, vestuario, props, locaciones, luz y hora del día entre las 6 viñetas. Cada viñeta es un plano cinematográfico 16:9 con acción legible. No incluyas diálogos, párrafos largos, subtítulos, globos de texto, logos ni marcas de agua; solo la cuadrícula, la numeración y la descripción breve de cada viñeta.
 
 === REF_GRID_MIN_10.png ===
-STORYBOARD IMAGE 10/10 — MINUTE 10 (Scenes 55–60)
+Usando los personajes de REF_CAST_MASTER.png como referencia fija de rostros, edades, cuerpos y vestuarios, genera UNA IMAGEN horizontal 16:9 de Storyboard dividida en una cuadrícula limpia de 3x2 (6 viñetas numeradas del 1 al 6) que represente el MINUTO 10 (Escenas 55 a 60) de la historia en estilo Cinematográfico Realista 35mm:
 
-Genera UNA SOLA IMAGEN 16:9 con una cuadrícula de storyboard de 3 columnas x 2 filas (6 viñetas), en orden de lectura izquierda a derecha y de arriba abajo.
-Usa exactamente los mismos personajes, rostros, edades y vestuarios que REF_CAST_MASTER.png (Hoja de Personajes adjunta). Mantén continuidad de vestuario, props y locaciones entre viñetas.
-Estilo visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
-Cada viñeta es un plano cinematográfico 16:9 con encuadre claro y acción legible.
-Sin texto, sin letras, sin globos de diálogo, sin logos, sin marcas de agua, sin bordes.
+Look visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
 
-VIÑETAS EXACTAS:
-Viñeta 1: Escena 55 — Under the flashing blue lights of state police cruisers, the… (civic hall grand steps, night).
-Viñeta 2: Escena 56 — On the wet steps, the handcuffed mistress collapses forward onto… (civic hall grand steps, night).
-Viñeta 3: Escena 57 — The grand foyer is warm with lamplight; the maid stands… (Silver Creek mansion foyer, night).
-Viñeta 4: Escena 58 — At the corral gate, the foreman turns to the maid… (Silver Creek barn gate, moonlight).
-Viñeta 5: Escena 59 — Before the roaring stone hearth, the maid steps back as… (Blackwell great room mantelpiece, night).
-Viñeta 6: Escena 60 — At the quiet study desk, the maid notices a sealed… (mansion study desk, night).
+Viñeta 1 — Escena 55 (civic hall grand steps, night): Acción visual: Under the flashing blue lights of state police cruisers, the troopers secure handcuffs behind the mistress's back. Descripción: Under the flashing blue lights of state police cruisers, the….
+Viñeta 2 — Escena 56 (civic hall grand steps, night): Acción visual: On the wet steps, the handcuffed mistress collapses forward onto her knees before the maid she once tormented. Descripción: On the wet steps, the handcuffed mistress collapses forward onto….
+Viñeta 3 — Escena 57 (Silver Creek mansion foyer, night): Acción visual: The grand foyer is warm with lamplight; the maid stands where she was once humiliated, now as the estate's mistress. Descripción: The grand foyer is warm with lamplight; the maid stands….
+Viñeta 4 — Escena 58 (Silver Creek barn gate, moonlight): Acción visual: At the corral gate, the foreman turns to the maid, nervously rolling the brim of his felt hat in both hands. Descripción: At the corral gate, the foreman turns to the maid….
+Viñeta 5 — Escena 59 (Blackwell great room mantelpiece, night): Acción visual: Before the roaring stone hearth, the maid steps back as June Vance's smiling photograph occupies the place of honor. Descripción: Before the roaring stone hearth, the maid steps back as….
+Viñeta 6 — Escena 60 (mansion study desk, night): Acción visual: At the quiet study desk, the maid notices a sealed wax envelope attached to the back of the will parchment. Descripción: At the quiet study desk, the maid notices a sealed….
+
+Mantén continuidad exacta de rostros, cuerpos, vestuario, props, locaciones, luz y hora del día entre las 6 viñetas. Cada viñeta es un plano cinematográfico 16:9 con acción legible. No incluyas diálogos, párrafos largos, subtítulos, globos de texto, logos ni marcas de agua; solo la cuadrícula, la numeración y la descripción breve de cada viñeta.

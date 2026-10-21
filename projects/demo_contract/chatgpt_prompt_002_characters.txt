@@ -8,8 +8,7 @@ Ahora analiza ese storyboard e identifica los personajes principales y secundari
 Tu tarea es generar UNA SOLA IMAGEN que muestre juntos a todos los personajes identificados.
 
 REFERENCIA
-Storyboard:
-[ADJUNTAR EL STORYBOARD CREADO ANTERIORMENTE]
+Storyboard: el storyboard completo creado en el paso anterior. La hoja debe mantener exactamente los rostros, edades, etnias, vestuarios y accesorios que aparecen en ese storyboard.
 
 REGLA PRINCIPAL
 Los personajes deben basarse directamente en el storyboard.

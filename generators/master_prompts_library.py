@@ -808,7 +808,7 @@ MUSE_FINAL_COMMAND_TEMPLATE = (
     "10 segundos por cada escena respetando los cambios de cámara ([00s-03s], [03s-07s], [07s-10s]), "
     "el diseño sonoro y los diálogos hablados en INGLÉS con la misma voz para cada personaje, y luego "
     "únelos todos para que quede un solo video continuo en formato {orientation} {aspect_ratio} "
-    "(guardar como raw_clips/{filename})."
+    "{destination}."
 )
 MUSE_FINAL_COMMAND = MUSE_FINAL_COMMAND_TEMPLATE
 MUSE_ATTACH_LINE = (
@@ -817,12 +817,116 @@ MUSE_ATTACH_LINE = (
 )
 
 
-def _muse_final_command(batch_number: int, orientation: str, aspect: str) -> str:
+def _muse_final_command(batch_number: int, orientation: str, aspect: str, destination: str = "") -> str:
     return MUSE_FINAL_COMMAND_TEMPLATE.format(
         orientation=orientation,
         aspect_ratio=aspect,
-        filename=f"minute_{batch_number:02d}.mp4",
+        destination=destination.strip(),
     )
+
+
+ROLE_LABELS = {
+    "protagonist": "Protagonista",
+    "love_interest": "Interés romántico",
+    "antagonist": "Antagonista",
+    "antagonist_heir": "Heredero antagonista",
+    "ally": "Aliada",
+    "mentor": "Mentor",
+    "supporting": "Secundario",
+}
+
+
+def project_characters(master: Optional[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    master = master if isinstance(master, dict) else {}
+    raw = master.get("characters_locked") or master.get("characters") or []
+    if isinstance(raw, dict):
+        raw = list(raw.values())
+    return [character for character in raw if isinstance(character, dict)]
+
+
+def _character_role(character: Dict[str, Any]) -> str:
+    role = str(character.get("role") or character.get("archetype") or "principal").strip().lower()
+    return ROLE_LABELS.get(role, role or "principal")
+
+
+def _character_age(character: Dict[str, Any]) -> str:
+    explicit = str(character.get("age") or character.get("age_range") or character.get("apparent_age") or "").strip()
+    if explicit:
+        return explicit
+    text = " ".join(str(character.get(key) or "") for key in (
+        "visual_reference", "description", "appearance",
+    ))
+    patterns = (
+        r"\b(?:in (?:her|his) )?((?:early|mid|late)[- ](?:twenties|thirties|forties|fifties|sixties|seventies))\b",
+        r"\b(?:in (?:her|his) )?(twenties|thirties|forties|fifties|sixties|seventies)\b",
+        r"\baround (thirty|forty|fifty|sixty|seventy)\b",
+    )
+    for pattern in patterns:
+        match = re.search(pattern, text, flags=re.IGNORECASE)
+        if match:
+            return match.group(1).lower().replace(" ", "-")
+    return "adulto"
+
+
+def _character_visual(character: Dict[str, Any]) -> str:
+    visual = str(
+        character.get("visual_reference")
+        or character.get("description")
+        or character.get("appearance")
+        or ""
+    ).strip()
+    return visual or "rasgos y complexión definidos por su ficha de casting"
+
+
+def _character_wardrobe(character: Dict[str, Any]) -> str:
+    for key in ("wardrobe_lock", "wardrobe", "signature_wardrobe", "outfit_lock"):
+        value = character.get(key)
+        if isinstance(value, list):
+            value = next((str(item).strip() for item in value if str(item).strip()), "")
+        if str(value or "").strip():
+            return str(value).strip()
+    wardrobes = character.get("wardrobe_by_act") or []
+    if isinstance(wardrobes, list):
+        for item in wardrobes:
+            if str(item or "").strip():
+                return str(item).strip()
+    match = re.search(r"signature\s+(.+?)(?:\.|$)", _character_visual(character), flags=re.IGNORECASE)
+    if match:
+        return match.group(1).strip()
+    return "el vestuario principal descrito en su ficha de casting"
+
+
+def build_cast_sheet_prompt(master: Optional[Dict[str, Any]]) -> str:
+    """Prompt 100% copiable para REF_CAST_MASTER.png, sin adjuntos ni corchetes."""
+    characters = project_characters(master)
+    lines = [
+        "Actúa como director de casting y diseñador de personajes. Genera UNA SOLA IMAGEN horizontal 16:9 "
+        "que muestre juntos, de cuerpo completo, de pie, mirando al frente sobre un fondo gris neutro de "
+        "estudio (#808080) y sin tocarse entre sí, a los siguientes personajes de nuestra novela en estilo "
+        "Cinematográfico Realista 35mm:",
+        "",
+    ]
+    for index, character in enumerate(characters, start=1):
+        name = str(character.get("name") or character.get("id") or "PERSONAJE").strip().upper()
+        lines.append(
+            f"{index}. {name} — Rol: {_character_role(character)}. "
+            f"Edad: {_character_age(character)}. "
+            f"Rasgos físicos: {_character_visual(character)}. "
+            f"Vestuario fijo: {_character_wardrobe(character)}."
+        )
+    if not characters:
+        lines.append(
+            "1. LOS PERSONAJES PRINCIPALES DEL PROYECTO — usa exactamente los nombres, roles, "
+            "edades y vestuarios definidos en story_brief.md y master_episode.json."
+        )
+    lines += [
+        "",
+        "Coloca únicamente debajo de cada personaje su nombre en mayúsculas. Mantén exactamente los "
+        "mismos rostros, peinados y vestuarios en todas las imágenes del storyboard y de los lotes de "
+        "Muse AI. Sin texto adicional, sin títulos, sin frases, sin logos, sin marcas de agua; solo la "
+        "imagen de los personajes y sus nombres.",
+    ]
+    return "\n".join(lines)
 
 
 def _muse_timecode(seconds: float) -> str:
@@ -986,8 +1090,13 @@ def build_muse_batches(
             first=first_id,
             last=last_id,
         )
-        command_169 = _muse_final_command(batch_number, "horizontal", "16:9")
-        command_916 = _muse_final_command(batch_number, "vertical", "9:16")
+        save_as = f"raw_clips/minute_{batch_number:02d}.mp4"
+        command_169 = _muse_final_command(
+            batch_number, "horizontal", "16:9", "para YouTube"
+        )
+        command_916 = _muse_final_command(
+            batch_number, "vertical", "9:16", "para Reels, TikTok y Shorts"
+        )
         script = "\n\n".join(blocks)
         prompt_169 = "\n\n".join([
             script,
@@ -1010,7 +1119,11 @@ def build_muse_batches(
             "aspect_ratio": aspect,
             "aspect_ratio_vertical": "9:16",
             "attach": attach,
+            "attach_instruction": attach,
             "reference_images": ["REF_CAST_MASTER.png", f"REF_GRID_MIN_{batch_number:02d}.png"],
+            "save_as": save_as,
+            "save_as_16x9": save_as,
+            "save_as_9x16": f"raw_clips/minute_{batch_number:02d}_vertical.mp4",
             "prompt": prompt_169,
             "prompt_16x9_youtube": prompt_169,
             "prompt_9x16_vertical": prompt_916,

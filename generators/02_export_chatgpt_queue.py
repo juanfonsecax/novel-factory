@@ -357,29 +357,7 @@ def scene_breakdown_lines(master: Dict[str, Any]) -> List[str]:
 
 
 def _cast_sheet_prompt(master: Dict[str, Any], prompt_002_text: str = "") -> str:
-    characters = _project_characters(master)
-    lines = [
-        "Actúa como director de casting y diseñador de personajes. Genera UNA SOLA IMAGEN horizontal 16:9 que muestre juntos, de cuerpo completo, de pie, mirando al frente sobre un fondo gris neutro de estudio (#808080) y sin tocarse entre sí, a los siguientes personajes de nuestra novela en estilo Cinematográfico Realista 35mm:",
-        "",
-    ]
-    for index, character in enumerate(characters, start=1):
-        name = str(character.get("name") or character.get("id") or "PERSONAJE").strip().upper()
-        lines.append(
-            f"{index}. {name} — Rol: {_character_role(character)}. "
-            f"Edad: {_character_age(character)}. "
-            f"Rasgos físicos: {_character_visual(character)}. "
-            f"Vestuario fijo: {_character_wardrobe(character)}."
-        )
-    if not characters:
-        lines.append(
-            "1. LOS PERSONAJES PRINCIPALES DEL PROYECTO — usa exactamente los nombres, roles, "
-            "edades y vestuarios definidos en story_brief.md y master_episode.json."
-        )
-    lines += [
-        "",
-        "Coloca únicamente debajo de cada personaje su nombre en mayúsculas. Mantén exactamente los mismos rostros, peinados y vestuarios en todas las imágenes del storyboard y de los lotes de Muse AI. Sin texto adicional, sin títulos, sin frases, sin logos, sin marcas de agua; solo la imagen de los personajes y sus nombres.",
-    ]
-    return "\n".join(lines)
+    return mpl.build_cast_sheet_prompt(master)
 
 
 def _storyboard_grid_prompt(
@@ -393,7 +371,7 @@ def _storyboard_grid_prompt(
     last = int(group[-1].get("scene_id") or first)
     visual = str((style.get("visual_style_lock") or {}).get("look") or "").strip()
     lines = [
-        f"Usando exactamente los mismos rostros, edades, cuerpos y vestuarios de los personajes creados en la Hoja Maestra de Personajes (REF_CAST_MASTER.png), genera UNA IMAGEN horizontal 16:9 de Storyboard dividida en una cuadrícula limpia de 3x2 (6 viñetas numeradas del 1 al 6) que represente el MINUTO {batch_number} (Escenas {first} a {last}) de la historia en estilo Cinematográfico Realista 35mm:",
+        f"Usando los personajes de REF_CAST_MASTER.png como referencia fija de rostros, edades, cuerpos y vestuarios, genera UNA IMAGEN horizontal 16:9 de Storyboard dividida en una cuadrícula limpia de 3x2 (6 viñetas numeradas del 1 al 6) que represente el MINUTO {batch_number} (Escenas {first} a {last}) de la historia en estilo Cinematográfico Realista 35mm:",
         "",
     ]
     if visual:

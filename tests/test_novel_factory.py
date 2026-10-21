@@ -408,6 +408,67 @@ class MusePackTests(unittest.TestCase):
         self.assertIsNotNone(script)
         self.assertTrue(script.exists())
 
+    def test_cast_prompt_has_no_attachment_placeholders_and_real_names(self):
+        prompt = self.pack["cast_master"]["prompt"]
+        self.assertNotIn("[ADJUNTAR", prompt)
+        for name in ("NORA HALE", "SAM CALLOWAY", "MARGARET KELLER", "ADRIAN KELLER", "CLAIRE BOONE"):
+            self.assertIn(name, prompt)
+
+    def test_storyboard_queue_cast_prompt_is_clean(self):
+        grids = GEN02.build_storyboard_grid_items(self.master, self.style)
+        cast_prompt = grids[0]["prompt"]
+        self.assertNotIn("[ADJUNTAR", cast_prompt)
+        for name in ("NORA HALE", "SAM CALLOWAY", "MARGARET KELLER"):
+            self.assertIn(name, cast_prompt)
+
+    def test_muse_prompts_are_split_by_format_without_attachment_headers(self):
+        first = self.pack["batches"][0]
+        self.assertIn("formato horizontal 16:9", first["prompt_16x9_youtube"])
+        self.assertIn("formato vertical 9:16", first["prompt_9x16_vertical"])
+        self.assertNotIn("[ADJUNTAR", first["prompt_16x9_youtube"])
+        self.assertNotIn("[ADJUNTAR", first["prompt_9x16_vertical"])
+        self.assertNotIn("📎 ADJUNTAR", first["prompt_16x9_youtube"])
+        self.assertNotIn("📎 ADJUNTAR", first["prompt_9x16_vertical"])
+        self.assertEqual(first["save_as_16x9"], "raw_clips/minute_01.mp4")
+        self.assertEqual(first["save_as_9x16"], "raw_clips/minute_01_vertical.mp4")
+        self.assertEqual(first["attach_instruction"], first["attach"])
+
+
+class ViralLatamTests(unittest.TestCase):
+    def test_catalog_has_the_six_proven_structures(self):
+        rules = nf.load_showrunner()
+        templates = rules.get("viral_latam_to_usa_templates") or []
+        expected = [
+            ("ranch_laundress_stolen_heirloom", "@novelasaa7", "831K"),
+            ("humiliated_vagabond_is_billionaire_owner", "@Mini_Dramas07", "658K"),
+            ("hidden_will_secret_daughter", "@Mini_Dramas07 & @TIEMPOCONLASABUELAS", "578K"),
+            ("contract_marriage_proud_foreman", "@Mini_Dramas07", "185K"),
+            ("untamable_champion_horse", "@Mini_Dramas07", "122K"),
+            ("grandmas_buried_secret_betrayal", "@TIEMPOCONLASABUELAS & @Dramasquetocanelalma", "+500K"),
+        ]
+        self.assertEqual([(t["id"], t["source"], t["views"]) for t in templates], expected)
+        for template in templates:
+            self.assertEqual(len(template["structure"]), 6, msg=template["id"])
+
+    def test_story_prompt_injects_catalog_and_selected_structure(self):
+        rules = nf.load_showrunner()
+        style = nf.load_style_locks()
+        prompt = GEN01.build_llm_prompt(
+            slug="demo",
+            title="Demo",
+            brief_md="A brief.",
+            rules=rules,
+            style=style,
+            personaje="emma_hayes",
+            episode_number=1,
+            viral_template="ranch_laundress_stolen_heirloom",
+        )
+        self.assertIn("VIRAL STRUCTURE CATALOG (LATAM -> USA)", prompt)
+        for template in rules["viral_latam_to_usa_templates"]:
+            self.assertIn(template["id"], prompt)
+        self.assertIn("SELECTED VIRAL STRUCTURE (MANDATORY)", prompt)
+        self.assertIn("ranch_laundress_stolen_heirloom", prompt)
+
 
 class AssemblerTests(unittest.TestCase):
     def test_write_srt(self):
@@ -781,6 +842,29 @@ class DashboardTests(unittest.TestCase):
             grid = state["storyboard_grids"]["items"][0]
             self.assertTrue(grid["exists"])
             self.assertEqual(grid["disk_file"], "REF_CAST_MASTER.png")
+
+    def test_state_has_projects_and_latam_templates(self):
+        state = DASH.build_state(DEMO_DIR)
+        self.assertTrue(state["projects"])
+        self.assertIn(state["slug"], [item["slug"] for item in state["projects"]])
+        latam = state["viral_latam_templates"]
+        self.assertEqual(len(latam), 6)
+        self.assertEqual(latam[0]["id"], "ranch_laundress_stolen_heirloom")
+        first = state["muse_batches"][0]
+        for field in ("video_exists_16x9", "video_exists_9x16", "save_as_16x9", "save_as_9x16"):
+            self.assertIn(field, first)
+
+    def test_dashboard_has_four_step_guide_and_selectors(self):
+        state = DASH.build_state(DEMO_DIR)
+        html = DASH.render_dashboard(state, {"scenes": {}, "references": {}})
+        for token in (
+            "PASO 1", "PASO 2", "PASO 3", "PASO 4",
+            "project-select", "format-select", "16:9 · YouTube", "9:16 · Reels / TikTok / Shorts",
+            "references/REF_CAST_MASTER.png", "storyboards/REF_GRID_MIN_01.png",
+            "raw_clips/minute_0X.mp4", "viral-template-select", "copy-storyboard-grids-10",
+            "prompt_16x9_youtube", "prompt_9x16_vertical", "legacy-details",
+        ):
+            self.assertIn(token, html)
 
     def test_render_escapes_script_tags(self):
         state = DASH.build_state(DEMO_DIR)

@@ -1,6 +1,6 @@
 # MASTER WORKFLOW PROMPTS READY — The Silent Contract
 
-- Generado: 2026-10-19T22:26:38-05:00
+- Generado: 2026-10-20T22:42:33-05:00
 - Historia fuente: story_brief.md
 - Duración: 10 minuto(s)
 - Escenas: 60 (10 s cada una)
@@ -28,7 +28,7 @@ Lotes de 1 minuto listos: `muse_ai_minute_batches_queue.txt` (10 bloques).
 
 _Convierte la idea base en una arquitectura de alta retención con elenco, locaciones y sinopsis bloque por bloque._
 
-**4,387 caracteres · 701 palabras**
+**11,036 caracteres · 1,748 palabras**
 
 ````text
 🧠 PROMPT 000 — ARQUITECTO DE HISTORIAS VIRALES (CHINA / USA MICRO-DRAMA SHOWRUNNER)
@@ -75,6 +75,43 @@ REGLAS DE ORO DE DRAMATURGIA Y RETENCIÓN QUE DEBES APLICAR:
 3. CLIFFHANGER AL FINAL DE CADA MINUTO (ESCENAS 6, 12, 18...): La última escena de cada bloque de 6 escenas debe terminar en máxima tensión dramática.
 4. PERSONAJES CON CONTRASTE VISUAL INMEDIATO (MÁXIMO 3 A 5 PERSONAJES PRINCIPALES): Diseña personajes cuyo estatus social y personalidad se entiendan en 1 segundo solo por su vestuario (ej. multimillonario arrogante vs. trabajadora humilde con dignidad de hierro; heredera secreta vs. villana elitista).
 5. ECONOMÍA DE ESCENARIOS (MÁXIMO 3 A 5 LOCACIONES): Concentra la acción en locaciones visualmente ricas y contrastantes para mantener continuidad perfecta.
+6. CATÁLOGO DE 6 ESTRUCTURAS VIRALES PROBADAS (LATAM → USA, +500,000 VISTAS): Usa este catálogo como banco de estructuras. Elige UNA sola como columna vertebral de la historia y adáptala al mercado estadounidense en inglés. No copies nombres, marcas ni diálogos: conserva la mecánica emocional y el orden de beats.
+1. The Ranch Laundress and the Stolen Heirloom (`ranch_laundress_stolen_heirloom`)
+   Inspiración: @novelasaa7 · 831K vistas · Ranch / Class Revenge.
+   Premisa: A humble ranch laundress is publicly accused of stealing the family heirloom. The real thief is a wealthy family member, and the heir she loves is the only one willing to prove her innocence.
+   Gancho: They accused the help. The thief wore the family name.
+   Beats: Public humiliation: the heirloom disappears during a family gathering and the laundress is accused. -> A physical detail contradicts the accusation: mud on the wrong boots, a broken clasp, a locked room. -> The heir investigates and discovers the planted evidence and the family cover-up. -> The laundress is forced to leave; the heir stops her at the gate with proof. -> Public reveal before the family and the town: the real thief is exposed. -> Payoff: the laundress is vindicated, the heir chooses her, and a new family secret opens.
+   Adaptación USA: Texas or Montana ranch, county fair or ranch anniversary party, US English, land and class stakes, conservative family dynasty.
+2. The Humiliated Vagabond Is the Billionaire Owner (`humiliated_vagabond_is_billionaire_owner`)
+   Inspiración: @Mini_Dramas07 · 658K vistas · Hidden Billionaire / Revenge.
+   Premisa: A humble ranch hand arrives at the property and is humiliated by the corrupt foreman and the family, never suspecting that he is the new billionaire owner who bought the entire ranch.
+   Gancho: They threw out the man who owns the land.
+   Beats: Humiliation: the drifter is mocked, underpaid and thrown out of the ranch house. -> The heroine defends him and loses her job for it. -> The drifter returns as the anonymous billionaire owner and quietly changes the power dynamic. -> The corrupt foreman tries to cover up the abuse and frames the heroine. -> Public reveal: the owner identifies himself and exposes the foreman's fraud. -> Payoff: the heroine is chosen, the foreman faces the consequences, and a new threat appears.
+   Adaptación USA: Texas or Montana cattle ranch, US English, ranch-hand class conflict, land ownership and public status reversal.
+3. The Hidden Will and the Secret Daughter (`hidden_will_secret_daughter`)
+   Inspiración: @Mini_Dramas07 & @TIEMPOCONLASABUELAS · 578K vistas · Family Secret / Inheritance.
+   Premisa: A young woman enters the ranch as a maid to find the true will hidden under the floorboards or in a secret drawer by the ambitious widow and the family lawyer.
+   Gancho: The will named a daughter no one had ever met.
+   Beats: The maid arrives at the ranch and is treated as invisible by the widow and the lawyer. -> A loose floorboard or locked drawer reveals a second, older will. -> The widow accuses the maid of theft and forgery before the family. -> The maid finds a birth record, photograph or letter proving she is the secret daughter. -> Public hearing: the lawyer's forgery is exposed and the widow loses control. -> Payoff: the maid claims her name and inheritance, and a new family secret opens.
+   Adaptación USA: Texas or Montana ranch estate, US English, probate hearing, legitimacy and family-dynasty stakes.
+4. Contract Marriage with the Proud Foreman (`contract_marriage_proud_foreman`)
+   Inspiración: @Mini_Dramas07 · 185K vistas · Contract Marriage / Romance.
+   Premisa: To save her late father's ranch from bank ruin, the protagonist must marry her proud rival by contract. In secret, he protects her from an internal betrayal that wants to take the land.
+   Gancho: She bought a husband for one year. He wanted the truth.
+   Beats: The bank deadline forces the contract marriage to be signed in public. -> Forced proximity reveals the foreman's secret debt and the heroine's collapsing ranch. -> Sabotage at the ranch puts the heroine in danger and the foreman protects her. -> The antagonist exposes the contract to humiliate them; the couple turns it into a real commitment. -> Public confrontation: the sabotage is traced to the antagonist. -> Payoff: the contract is torn up, a real proposal lands, and a new threat appears.
+   Adaptación USA: Texas or Wyoming ranch, US English, bank foreclosure, blue-collar vs. landowner class tension.
+5. The Untamable Champion Horse (`untamable_champion_horse`)
+   Inspiración: @Mini_Dramas07 · 122K vistas · Horse Ranch / Forbidden Love.
+   Premisa: A champion horse that nobody on the ranch can ride is tamed by the humblest worker on the property. The feat saves the ranch from ruin and awakens a forbidden love.
+   Gancho: The horse that broke every rider chose the one nobody saw.
+   Beats: The untamable champion injures another rider and the ranch is threatened with foreclosure. -> The humblest worker is blamed and forbidden from entering the stable. -> A hidden injury or doped feed reveals the rival stable's sabotage. -> The worker bonds with the horse and proves the method works before the championship. -> Public race: the sabotage is exposed and the rival stable is disqualified. -> Payoff: the horse wins, the forbidden love is chosen, and a new race or threat opens.
+   Adaptación USA: Kentucky or Texas horse country, US English, championship race, forbidden romance and animal stakes.
+6. Grandma's Buried Secret and the Family Betrayal (`grandmas_buried_secret_betrayal`)
+   Inspiración: @TIEMPOCONLASABUELAS & @Dramasquetocanelalma · +500K vistas · Family Betrayal / Mystery.
+   Premisa: A grandmother despised by her ambitious children reveals a secret buried for decades and gives the inheritance to the only person who cared for her with nobility.
+   Gancho: Grandma left a box in the ground and a warning on the lid.
+   Beats: At the family gathering, the despised grandmother announces a buried secret. -> The ambitious children deny it and threaten the protagonist's inheritance. -> A buried box, land deed or photograph proves the fortune was stolen from another branch. -> The family destroys evidence and tries to run the protagonist out of town. -> Public reveal at the family business or town meeting: the betrayal is exposed. -> Payoff: the inheritance goes to the noble caregiver, and a second grave or name opens the next mystery.
+   Adaptación USA: Texas ranch or Louisiana family estate, US English, funeral and land-deed stakes, matriarch inheritance and family-business betrayal.
 
 ENTREGA EL RESULTADO EN ESTE FORMATO EXACTO (LISTO PARA COPIAR AL PROMPT 001):
 1. TÍTULO VIRAL EN INGLÉS (3 opciones de alto CTR).
@@ -220,7 +257,7 @@ A partir de la historia, duración y estilo proporcionados:
 
 _Extrae del storyboard una hoja maestra con todos los personajes relevantes y su vestuario principal._
 
-**4,217 caracteres · 644 palabras**
+**4,341 caracteres · 664 palabras**
 
 ````text
 👤 PROMPT 002 — GENERADOR DE PERSONAJES (HOJA MAESTRA EN UNA SOLA IMAGEN)
@@ -230,8 +267,7 @@ Ahora analiza ese storyboard e identifica los personajes principales y secundari
 Tu tarea es generar UNA SOLA IMAGEN que muestre juntos a todos los personajes identificados.
 
 REFERENCIA
-Storyboard:
-[ADJUNTAR EL STORYBOARD CREADO ANTERIORMENTE]
+Storyboard: el storyboard completo creado en el paso anterior. La hoja debe mantener exactamente los rostros, edades, etnias, vestuarios y accesorios que aparecen en ese storyboard.
 
 REGLA PRINCIPAL
 Los personajes deben basarse directamente en el storyboard.
@@ -309,7 +345,7 @@ Entrega solamente la imagen de los personajes.
 
 _Convierte el storyboard en escenas de 10 s con cortes internos, SFX, diálogo en inglés y comando final para Muse AI._
 
-**4,367 caracteres · 693 palabras**
+**4,463 caracteres · 709 palabras**
 
 ````text
 🎬 PROMPT 003 — GENERADOR DE GUION CINEMATOGRÁFICO EN INGLÉS + CAMBIOS DE CÁMARA + SONIDO (OPTIMIZADO PARA MUSE AI Y GOOGLE FLOW)
@@ -318,7 +354,7 @@ Ya tenemos creado el storyboard de la historia y la hoja maestra de personajes. 
 
 DATOS DEL PROYECTO
 Storyboard:
-[ADJUNTAR EL STORYBOARD CREADO EN EL PASO 1]
+El storyboard completo creado en el paso 1: 10 imágenes de 6 viñetas, una por minuto. Cada escena debe corresponder exactamente a su viñeta.
 Duración del bloque:
 1 minuto = 6 escenas de 10 segundos (o el total de escenas del storyboard adjunto).
 
@@ -379,7 +415,7 @@ Ya tenemos creado el storyboard de la historia y la hoja maestra de personajes. 
 
 DATOS DEL PROYECTO
 Storyboard:
-[ADJUNTAR EL STORYBOARD CREADO EN EL PASO 1]
+El storyboard completo creado en el paso 1: 10 imágenes de 6 viñetas, una por minuto. Cada escena debe corresponder exactamente a su viñeta.
 Duración del bloque:
 1 minuto = 6 escenas de 10 segundos (o el total de escenas del storyboard adjunto).
 

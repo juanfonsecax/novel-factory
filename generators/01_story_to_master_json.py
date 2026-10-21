@@ -127,6 +127,50 @@ def _retention_block(rules: Dict[str, Any]) -> str:
     )
 
 
+def _viral_latam_block(rules: Dict[str, Any]) -> str:
+    templates = [t for t in (rules.get("viral_latam_to_usa_templates") or []) if isinstance(t, dict)]
+    if not templates:
+        return ""
+    lines = [
+        "Use one of these six PROVEN LATAM -> USA structures as the skeleton of the episode.",
+        "Keep the structure, stakes and hook type; adapt names, locations and dialogue to the brief.",
+        "",
+    ]
+    for index, template in enumerate(templates, start=1):
+        beats = template.get("structure") or []
+        lines += [
+            f"### {index}. {template.get('id')} — {template.get('name')} "
+            f"({template.get('source')}, {template.get('views')} views)",
+            f"Genre: {template.get('genre')} | Setting: {template.get('setting')}",
+            f"Premise: {template.get('premise')}",
+            f"Hook: {template.get('hook')}",
+            "Structure: " + " -> ".join(str(beat) for beat in beats),
+            f"USA adaptation: {template.get('usa_adaptation')}",
+            "",
+        ]
+    return "\n".join(lines)
+
+
+def _selected_viral_template_block(rules: Dict[str, Any], template_id: str) -> str:
+    wanted = str(template_id or "").strip().lower()
+    if not wanted:
+        return ""
+    for template in rules.get("viral_latam_to_usa_templates") or []:
+        if not isinstance(template, dict):
+            continue
+        if str(template.get("id") or "").strip().lower() == wanted:
+            return (
+                f"## SELECTED VIRAL STRUCTURE (MANDATORY)\n\n"
+                f"Build the whole episode on `{template.get('id')}` — {template.get('name')}.\n"
+                f"Follow its six-beat structure in order and keep its hook promise.\n"
+            )
+    return (
+        f"## SELECTED VIRAL STRUCTURE (MANDATORY)\n\n"
+        f"The requested template `{template_id}` does not exist. Choose the closest one from the catalog above "
+        f"and state its id in the episode logline.\n"
+    )
+
+
 def _part_plan(part: str) -> Dict[str, Any]:
     """Traduce --part a rango de escenas + reglas de prompts/teasers.
 
@@ -213,6 +257,7 @@ def build_llm_prompt(
     episode_number: int,
     part: str = "full",
     context_text: str = "",
+    viral_template: str = "",
 ) -> str:
     fmt = rules.get("format") or {}
     identity = style.get("identity_lock") or {}
@@ -325,6 +370,12 @@ Write the complete episode as ONE valid JSON object that follows the schema belo
 ## ACT MAP
 
 {_acts_block(rules)}
+
+## VIRAL STRUCTURE CATALOG (LATAM -> USA)
+
+{_viral_latam_block(rules)}
+
+{_selected_viral_template_block(rules, viral_template)}
 
 ## FIRST-FRAME / VISUAL RULES
 
@@ -936,6 +987,8 @@ def main(argv: Optional[List[str]] = None) -> int:
                         help="Divide el guion: full, 1of2/2of2 o 1of3/2of3/3of3 (por tandas de 20).")
     parser.add_argument("--context", type=str, default="",
                         help="Archivo de la parte anterior para continuidad (modo --part por tandas).")
+    parser.add_argument("--viral-template", default="",
+                        help="ID de una de las 6 estructuras LATAM->USA (config/showrunner_rules.json).")
     parser.add_argument("--brief", action="store_true", help="Genera story_brief.md + llm_prompt.md (default).")
     parser.add_argument("--template", action="store_true", help="Episodio demo de calibración, sin LLM.")
     parser.add_argument("--ingest", nargs="+", default=None, metavar="JSON",
@@ -1056,6 +1109,7 @@ def main(argv: Optional[List[str]] = None) -> int:
         episode_number=args.episode_number,
         part=args.part,
         context_text=context_text,
+        viral_template=args.viral_template,
     )
     prompt_path = nf.write_text(paths["root"] / "llm_prompt.md", prompt)
 

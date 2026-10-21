@@ -189,171 +189,141 @@ ESCENA 060 | Acto 6 | Town hall hearing room, day, hard window light | day, hard
 ==============================================================================
 
 === REF_GRID_MIN_01.png ===
-STORYBOARD IMAGE 01/10 — MINUTE 1 (Scenes 1–6)
+Usando los personajes de REF_CAST_MASTER.png como referencia fija de rostros, edades, cuerpos y vestuarios, genera UNA IMAGEN horizontal 16:9 de Storyboard dividida en una cuadrícula limpia de 3x2 (6 viñetas numeradas del 1 al 6) que represente el MINUTO 1 (Escenas 1 a 6) de la historia en estilo Cinematográfico Realista 35mm:
 
-Genera UNA SOLA IMAGEN 16:9 con una cuadrícula de storyboard de 3 columnas x 2 filas (6 viñetas), en orden de lectura izquierda a derecha y de arriba abajo.
-Usa exactamente los mismos personajes, rostros, edades y vestuarios que REF_CAST_MASTER.png (Hoja de Personajes adjunta). Mantén continuidad de vestuario, props y locaciones entre viñetas.
-Estilo visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
-Cada viñeta es un plano cinematográfico 16:9 con encuadre claro y acción legible.
-Sin texto, sin letras, sin globos de diálogo, sin logos, sin marcas de agua, sin bordes.
+Look visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
 
-VIÑETAS EXACTAS:
-Viñeta 1: Escena 1 — Nora stands at the cliff edge, the lighthouse dark behind… (Hale lighthouse cliff edge, storm dusk, wind and salt spray).
-Viñeta 2: Escena 2 — Nora steps off the ferry with one duffel bag, the… (Keller harbor boardwalk, blue hour, wet planks and dock lights).
-Viñeta 3: Escena 3 — Sam leans against a harbor truck with his arms crossed… (Hale lighthouse kitchen, night, one warm lamp and a cold stove).
-Viñeta 4: Escena 4 — Nora sets a brass key on the lighthouse kitchen table… (Hale lighthouse cliff edge, storm dusk, wind and salt spray).
-Viñeta 5: Escena 5 — Sam points through the rain at fresh survey stakes driven… (Keller harbor boardwalk, blue hour, wet planks and dock lights).
-Viñeta 6: Escena 6 — Margaret waits under the dry awning of the Keller estate… (Hale lighthouse kitchen, night, one warm lamp and a cold stove).
+Viñeta 1 — Escena 1 (Hale lighthouse cliff edge, storm dusk, wind and salt spray): Acción visual: Nora stands at the cliff edge, the lighthouse dark behind her, salt wind whipping her coat. Descripción: Nora stands at the cliff edge, the lighthouse dark behind….
+Viñeta 2 — Escena 2 (Keller harbor boardwalk, blue hour, wet planks and dock lights): Acción visual: Nora steps off the ferry with one duffel bag, the town sign behind her. Descripción: Nora steps off the ferry with one duffel bag, the….
+Viñeta 3 — Escena 3 (Hale lighthouse kitchen, night, one warm lamp and a cold stove): Acción visual: Sam leans against a harbor truck with his arms crossed, trying not to smile. Descripción: Sam leans against a harbor truck with his arms crossed….
+Viñeta 4 — Escena 4 (Hale lighthouse cliff edge, storm dusk, wind and salt spray): Acción visual: Nora sets a brass key on the lighthouse kitchen table between them. Descripción: Nora sets a brass key on the lighthouse kitchen table….
+Viñeta 5 — Escena 5 (Keller harbor boardwalk, blue hour, wet planks and dock lights): Acción visual: Sam points through the rain at fresh survey stakes driven into the cliff. Descripción: Sam points through the rain at fresh survey stakes driven….
+Viñeta 6 — Escena 6 (Hale lighthouse kitchen, night, one warm lamp and a cold stove): Acción visual: Margaret waits under the dry awning of the Keller estate, gloves folded. Descripción: Margaret waits under the dry awning of the Keller estate….
+
+Mantén continuidad exacta de rostros, cuerpos, vestuario, props, locaciones, luz y hora del día entre las 6 viñetas. Cada viñeta es un plano cinematográfico 16:9 con acción legible. No incluyas diálogos, párrafos largos, subtítulos, globos de texto, logos ni marcas de agua; solo la cuadrícula, la numeración y la descripción breve de cada viñeta.
 
 === REF_GRID_MIN_02.png ===
-STORYBOARD IMAGE 02/10 — MINUTE 2 (Scenes 7–12)
+Usando los personajes de REF_CAST_MASTER.png como referencia fija de rostros, edades, cuerpos y vestuarios, genera UNA IMAGEN horizontal 16:9 de Storyboard dividida en una cuadrícula limpia de 3x2 (6 viñetas numeradas del 1 al 6) que represente el MINUTO 2 (Escenas 7 a 12) de la historia en estilo Cinematográfico Realista 35mm:
 
-Genera UNA SOLA IMAGEN 16:9 con una cuadrícula de storyboard de 3 columnas x 2 filas (6 viñetas), en orden de lectura izquierda a derecha y de arriba abajo.
-Usa exactamente los mismos personajes, rostros, edades y vestuarios que REF_CAST_MASTER.png (Hoja de Personajes adjunta). Mantén continuidad de vestuario, props y locaciones entre viñetas.
-Estilo visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
-Cada viñeta es un plano cinematográfico 16:9 con encuadre claro y acción legible.
-Sin texto, sin letras, sin globos de diálogo, sin logos, sin marcas de agua, sin bordes.
+Look visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
 
-VIÑETAS EXACTAS:
-Viñeta 1: Escena 7 — Nora reads the deed by a single warm lamp, jaw… (Hale lighthouse cliff edge, storm dusk, wind and salt spray).
-Viñeta 2: Escena 8 — Adrian blocks the lighthouse door with a folder under his… (Keller harbor boardwalk, blue hour, wet planks and dock lights).
-Viñeta 3: Escena 9 — Nora stands alone on the point, the town lights small… (Hale lighthouse kitchen, night, one warm lamp and a cold stove).
-Viñeta 4: Escena 10 — Nora crouches at the lighthouse base, finding a keyhole hidden… (Hale lighthouse cliff edge, storm dusk, wind and salt spray).
-Viñeta 5: Escena 11 — Claire slides a sealed envelope across the lawyer's desk (Claire Boone's law office, grey morning, rain on the windows).
-Viñeta 6: Escena 12 — Nora reads the witness signature and looks up slowly (Keller boathouse, night, one hanging bulb and a flashlight).
+Viñeta 1 — Escena 7 (Hale lighthouse cliff edge, storm dusk, wind and salt spray): Acción visual: Nora reads the deed by a single warm lamp, jaw tight. Descripción: Nora reads the deed by a single warm lamp, jaw….
+Viñeta 2 — Escena 8 (Keller harbor boardwalk, blue hour, wet planks and dock lights): Acción visual: Adrian blocks the lighthouse door with a folder under his arm. Descripción: Adrian blocks the lighthouse door with a folder under his….
+Viñeta 3 — Escena 9 (Hale lighthouse kitchen, night, one warm lamp and a cold stove): Acción visual: Nora stands alone on the point, the town lights small below her. Descripción: Nora stands alone on the point, the town lights small….
+Viñeta 4 — Escena 10 (Hale lighthouse cliff edge, storm dusk, wind and salt spray): Acción visual: Nora crouches at the lighthouse base, finding a keyhole hidden under peeling paint. Descripción: Nora crouches at the lighthouse base, finding a keyhole hidden….
+Viñeta 5 — Escena 11 (Claire Boone's law office, grey morning, rain on the windows): Acción visual: Claire slides a sealed envelope across the lawyer's desk. Descripción: Claire slides a sealed envelope across the lawyer's desk.
+Viñeta 6 — Escena 12 (Keller boathouse, night, one hanging bulb and a flashlight): Acción visual: Nora reads the witness signature and looks up slowly. Descripción: Nora reads the witness signature and looks up slowly.
+
+Mantén continuidad exacta de rostros, cuerpos, vestuario, props, locaciones, luz y hora del día entre las 6 viñetas. Cada viñeta es un plano cinematográfico 16:9 con acción legible. No incluyas diálogos, párrafos largos, subtítulos, globos de texto, logos ni marcas de agua; solo la cuadrícula, la numeración y la descripción breve de cada viñeta.
 
 === REF_GRID_MIN_03.png ===
-STORYBOARD IMAGE 03/10 — MINUTE 3 (Scenes 13–18)
+Usando los personajes de REF_CAST_MASTER.png como referencia fija de rostros, edades, cuerpos y vestuarios, genera UNA IMAGEN horizontal 16:9 de Storyboard dividida en una cuadrícula limpia de 3x2 (6 viñetas numeradas del 1 al 6) que represente el MINUTO 3 (Escenas 13 a 18) de la historia en estilo Cinematográfico Realista 35mm:
 
-Genera UNA SOLA IMAGEN 16:9 con una cuadrícula de storyboard de 3 columnas x 2 filas (6 viñetas), en orden de lectura izquierda a derecha y de arriba abajo.
-Usa exactamente los mismos personajes, rostros, edades y vestuarios que REF_CAST_MASTER.png (Hoja de Personajes adjunta). Mantén continuidad de vestuario, props y locaciones entre viñetas.
-Estilo visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
-Cada viñeta es un plano cinematográfico 16:9 con encuadre claro y acción legible.
-Sin texto, sin letras, sin globos de diálogo, sin logos, sin marcas de agua, sin bordes.
+Look visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
 
-VIÑETAS EXACTAS:
-Viñeta 1: Escena 13 — Sam stands in the boathouse doorway, rain behind him (Keller estate, dusk, warm interior against blue windows).
-Viñeta 2: Escena 14 — Nora sweeps a flashlight over scorched beams (Claire Boone's law office, grey morning, rain on the windows).
-Viñeta 3: Escena 15 — Margaret pours tea without offering a cup (Keller boathouse, night, one hanging bulb and a flashlight).
-Viñeta 4: Escena 16 — Nora stands in the town hall doorway as every head… (Keller estate, dusk, warm interior against blue windows).
-Viñeta 5: Escena 17 — Adrian corners Nora by the harbor railing (Claire Boone's law office, grey morning, rain on the windows).
-Viñeta 6: Escena 18 — Nora stares at a survey map pinned to the boathouse… (Keller boathouse, night, one hanging bulb and a flashlight).
+Viñeta 1 — Escena 13 (Keller estate, dusk, warm interior against blue windows): Acción visual: Sam stands in the boathouse doorway, rain behind him. Descripción: Sam stands in the boathouse doorway, rain behind him.
+Viñeta 2 — Escena 14 (Claire Boone's law office, grey morning, rain on the windows): Acción visual: Nora sweeps a flashlight over scorched beams. Descripción: Nora sweeps a flashlight over scorched beams.
+Viñeta 3 — Escena 15 (Keller boathouse, night, one hanging bulb and a flashlight): Acción visual: Margaret pours tea without offering a cup. Descripción: Margaret pours tea without offering a cup.
+Viñeta 4 — Escena 16 (Keller estate, dusk, warm interior against blue windows): Acción visual: Nora stands in the town hall doorway as every head turns. Descripción: Nora stands in the town hall doorway as every head….
+Viñeta 5 — Escena 17 (Claire Boone's law office, grey morning, rain on the windows): Acción visual: Adrian corners Nora by the harbor railing. Descripción: Adrian corners Nora by the harbor railing.
+Viñeta 6 — Escena 18 (Keller boathouse, night, one hanging bulb and a flashlight): Acción visual: Nora stares at a survey map pinned to the boathouse wall. Descripción: Nora stares at a survey map pinned to the boathouse….
+
+Mantén continuidad exacta de rostros, cuerpos, vestuario, props, locaciones, luz y hora del día entre las 6 viñetas. Cada viñeta es un plano cinematográfico 16:9 con acción legible. No incluyas diálogos, párrafos largos, subtítulos, globos de texto, logos ni marcas de agua; solo la cuadrícula, la numeración y la descripción breve de cada viñeta.
 
 === REF_GRID_MIN_04.png ===
-STORYBOARD IMAGE 04/10 — MINUTE 4 (Scenes 19–24)
+Usando los personajes de REF_CAST_MASTER.png como referencia fija de rostros, edades, cuerpos y vestuarios, genera UNA IMAGEN horizontal 16:9 de Storyboard dividida en una cuadrícula limpia de 3x2 (6 viñetas numeradas del 1 al 6) que represente el MINUTO 4 (Escenas 19 a 24) de la historia en estilo Cinematográfico Realista 35mm:
 
-Genera UNA SOLA IMAGEN 16:9 con una cuadrícula de storyboard de 3 columnas x 2 filas (6 viñetas), en orden de lectura izquierda a derecha y de arriba abajo.
-Usa exactamente los mismos personajes, rostros, edades y vestuarios que REF_CAST_MASTER.png (Hoja de Personajes adjunta). Mantén continuidad de vestuario, props y locaciones entre viñetas.
-Estilo visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
-Cada viñeta es un plano cinematográfico 16:9 con encuadre claro y acción legible.
-Sin texto, sin letras, sin globos de diálogo, sin logos, sin marcas de agua, sin bordes.
+Look visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
 
-VIÑETAS EXACTAS:
-Viñeta 1: Escena 19 — Sam watches Nora from across the dock, unable to speak (Keller estate, dusk, warm interior against blue windows).
-Viñeta 2: Escena 20 — Adrian holds the lighthouse door open, waiting (Claire Boone's law office, grey morning, rain on the windows).
-Viñeta 3: Escena 21 — Nora spreads water-stained survey files across the lighthouse floor (Keller boathouse, night, flashlight and dust).
-Viñeta 4: Escena 22 — Sam jimmies the boathouse lock with a pry bar (Hale lighthouse archive room, night, a single desk lamp).
-Viñeta 5: Escena 23 — Nora's flashlight beam catches a metal box under the floorboards (Harbor diner, dawn, cold fluorescent light and steam).
-Viñeta 6: Escena 24 — Sam watches Nora read the permits, his face falling (Keller boathouse, night, flashlight and dust).
+Viñeta 1 — Escena 19 (Keller estate, dusk, warm interior against blue windows): Acción visual: Sam watches Nora from across the dock, unable to speak. Descripción: Sam watches Nora from across the dock, unable to speak.
+Viñeta 2 — Escena 20 (Claire Boone's law office, grey morning, rain on the windows): Acción visual: Adrian holds the lighthouse door open, waiting. Descripción: Adrian holds the lighthouse door open, waiting.
+Viñeta 3 — Escena 21 (Keller boathouse, night, flashlight and dust): Acción visual: Nora spreads water-stained survey files across the lighthouse floor. Descripción: Nora spreads water-stained survey files across the lighthouse floor.
+Viñeta 4 — Escena 22 (Hale lighthouse archive room, night, a single desk lamp): Acción visual: Sam jimmies the boathouse lock with a pry bar. Descripción: Sam jimmies the boathouse lock with a pry bar.
+Viñeta 5 — Escena 23 (Harbor diner, dawn, cold fluorescent light and steam): Acción visual: Nora's flashlight beam catches a metal box under the floorboards. Descripción: Nora's flashlight beam catches a metal box under the floorboards.
+Viñeta 6 — Escena 24 (Keller boathouse, night, flashlight and dust): Acción visual: Sam watches Nora read the permits, his face falling. Descripción: Sam watches Nora read the permits, his face falling.
+
+Mantén continuidad exacta de rostros, cuerpos, vestuario, props, locaciones, luz y hora del día entre las 6 viñetas. Cada viñeta es un plano cinematográfico 16:9 con acción legible. No incluyas diálogos, párrafos largos, subtítulos, globos de texto, logos ni marcas de agua; solo la cuadrícula, la numeración y la descripción breve de cada viñeta.
 
 === REF_GRID_MIN_05.png ===
-STORYBOARD IMAGE 05/10 — MINUTE 5 (Scenes 25–30)
+Usando los personajes de REF_CAST_MASTER.png como referencia fija de rostros, edades, cuerpos y vestuarios, genera UNA IMAGEN horizontal 16:9 de Storyboard dividida en una cuadrícula limpia de 3x2 (6 viñetas numeradas del 1 al 6) que represente el MINUTO 5 (Escenas 25 a 30) de la historia en estilo Cinematográfico Realista 35mm:
 
-Genera UNA SOLA IMAGEN 16:9 con una cuadrícula de storyboard de 3 columnas x 2 filas (6 viñetas), en orden de lectura izquierda a derecha y de arriba abajo.
-Usa exactamente los mismos personajes, rostros, edades y vestuarios que REF_CAST_MASTER.png (Hoja de Personajes adjunta). Mantén continuidad de vestuario, props y locaciones entre viñetas.
-Estilo visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
-Cada viñeta es un plano cinematográfico 16:9 con encuadre claro y acción legible.
-Sin texto, sin letras, sin globos de diálogo, sin logos, sin marcas de agua, sin bordes.
+Look visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
 
-VIÑETAS EXACTAS:
-Viñeta 1: Escena 25 — Nora holds a permit signed by Margaret, dated before the… (Hale lighthouse archive room, night, a single desk lamp).
-Viñeta 2: Escena 26 — Nora and Sam stand close in the archive, the file… (Harbor diner, dawn, cold fluorescent light and steam).
-Viñeta 3: Escena 27 — Adrian waits in a diner booth across from Nora (Keller boathouse, night, flashlight and dust).
-Viñeta 4: Escena 28 — Nora slides the file across the table, keeping one page… (Hale lighthouse archive room, night, a single desk lamp).
-Viñeta 5: Escena 29 — Adrian leans in, his hand covering hers (Harbor diner, dawn, cold fluorescent light and steam).
-Viñeta 6: Escena 30 — Nora stands alone in the lamp room, the file in… (Keller boathouse, night, flashlight and dust).
+Viñeta 1 — Escena 25 (Hale lighthouse archive room, night, a single desk lamp): Acción visual: Nora holds a permit signed by Margaret, dated before the fire. Descripción: Nora holds a permit signed by Margaret, dated before the….
+Viñeta 2 — Escena 26 (Harbor diner, dawn, cold fluorescent light and steam): Acción visual: Nora and Sam stand close in the archive, the file between them. Descripción: Nora and Sam stand close in the archive, the file….
+Viñeta 3 — Escena 27 (Keller boathouse, night, flashlight and dust): Acción visual: Adrian waits in a diner booth across from Nora. Descripción: Adrian waits in a diner booth across from Nora.
+Viñeta 4 — Escena 28 (Hale lighthouse archive room, night, a single desk lamp): Acción visual: Nora slides the file across the table, keeping one page back. Descripción: Nora slides the file across the table, keeping one page….
+Viñeta 5 — Escena 29 (Harbor diner, dawn, cold fluorescent light and steam): Acción visual: Adrian leans in, his hand covering hers. Descripción: Adrian leans in, his hand covering hers.
+Viñeta 6 — Escena 30 (Keller boathouse, night, flashlight and dust): Acción visual: Nora stands alone in the lamp room, the file in her hands. Descripción: Nora stands alone in the lamp room, the file in….
+
+Mantén continuidad exacta de rostros, cuerpos, vestuario, props, locaciones, luz y hora del día entre las 6 viñetas. Cada viñeta es un plano cinematográfico 16:9 con acción legible. No incluyas diálogos, párrafos largos, subtítulos, globos de texto, logos ni marcas de agua; solo la cuadrícula, la numeración y la descripción breve de cada viñeta.
 
 === REF_GRID_MIN_06.png ===
-STORYBOARD IMAGE 06/10 — MINUTE 6 (Scenes 31–36)
+Usando los personajes de REF_CAST_MASTER.png como referencia fija de rostros, edades, cuerpos y vestuarios, genera UNA IMAGEN horizontal 16:9 de Storyboard dividida en una cuadrícula limpia de 3x2 (6 viñetas numeradas del 1 al 6) que represente el MINUTO 6 (Escenas 31 a 36) de la historia en estilo Cinematográfico Realista 35mm:
 
-Genera UNA SOLA IMAGEN 16:9 con una cuadrícula de storyboard de 3 columnas x 2 filas (6 viñetas), en orden de lectura izquierda a derecha y de arriba abajo.
-Usa exactamente los mismos personajes, rostros, edades y vestuarios que REF_CAST_MASTER.png (Hoja de Personajes adjunta). Mantén continuidad de vestuario, props y locaciones entre viñetas.
-Estilo visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
-Cada viñeta es un plano cinematográfico 16:9 con encuadre claro y acción legible.
-Sin texto, sin letras, sin globos de diálogo, sin logos, sin marcas de agua, sin bordes.
+Look visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
 
-VIÑETAS EXACTAS:
-Viñeta 1: Escena 31 — Rain hammers the town hall windows as Nora faces the… (Town hall hearing room, grey morning, rain streaking the windows).
-Viñeta 2: Escena 32 — Margaret sits perfectly still in the front row (Hale lighthouse, storm night, lightning through the glass).
-Viñeta 3: Escena 33 — Claire reads the emergency petition aloud (Hale lighthouse kitchen, night, one lamp, rain outside).
-Viñeta 4: Escena 34 — Nora stands in the empty lighthouse, the lamp cold above… (Town hall hearing room, grey morning, rain streaking the windows).
-Viñeta 5: Escena 35 — Sam signs a statement at the harbor office, hand shaking (Hale lighthouse, storm night, lightning through the glass).
-Viñeta 6: Escena 36 — Nora listens through a half-open door, unseen (Hale lighthouse kitchen, night, one lamp, rain outside).
+Viñeta 1 — Escena 31 (Town hall hearing room, grey morning, rain streaking the windows): Acción visual: Rain hammers the town hall windows as Nora faces the panel. Descripción: Rain hammers the town hall windows as Nora faces the….
+Viñeta 2 — Escena 32 (Hale lighthouse, storm night, lightning through the glass): Acción visual: Margaret sits perfectly still in the front row. Descripción: Margaret sits perfectly still in the front row.
+Viñeta 3 — Escena 33 (Hale lighthouse kitchen, night, one lamp, rain outside): Acción visual: Claire reads the emergency petition aloud. Descripción: Claire reads the emergency petition aloud.
+Viñeta 4 — Escena 34 (Town hall hearing room, grey morning, rain streaking the windows): Acción visual: Nora stands in the empty lighthouse, the lamp cold above her. Descripción: Nora stands in the empty lighthouse, the lamp cold above….
+Viñeta 5 — Escena 35 (Hale lighthouse, storm night, lightning through the glass): Acción visual: Sam signs a statement at the harbor office, hand shaking. Descripción: Sam signs a statement at the harbor office, hand shaking.
+Viñeta 6 — Escena 36 (Hale lighthouse kitchen, night, one lamp, rain outside): Acción visual: Nora listens through a half-open door, unseen. Descripción: Nora listens through a half-open door, unseen.
+
+Mantén continuidad exacta de rostros, cuerpos, vestuario, props, locaciones, luz y hora del día entre las 6 viñetas. Cada viñeta es un plano cinematográfico 16:9 con acción legible. No incluyas diálogos, párrafos largos, subtítulos, globos de texto, logos ni marcas de agua; solo la cuadrícula, la numeración y la descripción breve de cada viñeta.
 
 === REF_GRID_MIN_07.png ===
-STORYBOARD IMAGE 07/10 — MINUTE 7 (Scenes 37–42)
+Usando los personajes de REF_CAST_MASTER.png como referencia fija de rostros, edades, cuerpos y vestuarios, genera UNA IMAGEN horizontal 16:9 de Storyboard dividida en una cuadrícula limpia de 3x2 (6 viñetas numeradas del 1 al 6) que represente el MINUTO 7 (Escenas 37 a 42) de la historia en estilo Cinematográfico Realista 35mm:
 
-Genera UNA SOLA IMAGEN 16:9 con una cuadrícula de storyboard de 3 columnas x 2 filas (6 viñetas), en orden de lectura izquierda a derecha y de arriba abajo.
-Usa exactamente los mismos personajes, rostros, edades y vestuarios que REF_CAST_MASTER.png (Hoja de Personajes adjunta). Mantén continuidad de vestuario, props y locaciones entre viñetas.
-Estilo visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
-Cada viñeta es un plano cinematográfico 16:9 con encuadre claro y acción legible.
-Sin texto, sin letras, sin globos de diálogo, sin logos, sin marcas de agua, sin bordes.
+Look visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
 
-VIÑETAS EXACTAS:
-Viñeta 1: Escena 37 — Nora walks the storm beach alone, hair plastered to her… (Town hall hearing room, grey morning, rain streaking the windows).
-Viñeta 2: Escena 38 — Adrian waits in her kitchen with the sale papers (Hale lighthouse, storm night, lightning through the glass).
-Viñeta 3: Escena 39 — Nora stares into the lighthouse lens, thinking (Hale lighthouse kitchen, night, one lamp, rain outside).
-Viñeta 4: Escena 40 — Nora finds an old harbor logbook behind the lens housing (Town hall hearing room, grey morning, rain streaking the windows).
-Viñeta 5: Escena 41 — Nora opens the logbook on the lighthouse table, pages brittle (Hale lighthouse archive room, dawn, cold blue light).
-Viñeta 6: Escena 42 — Nora and Sam compare timestamps under a desk lamp (Harbor pier, morning, flat silver water).
+Viñeta 1 — Escena 37 (Town hall hearing room, grey morning, rain streaking the windows): Acción visual: Nora walks the storm beach alone, hair plastered to her face. Descripción: Nora walks the storm beach alone, hair plastered to her….
+Viñeta 2 — Escena 38 (Hale lighthouse, storm night, lightning through the glass): Acción visual: Adrian waits in her kitchen with the sale papers. Descripción: Adrian waits in her kitchen with the sale papers.
+Viñeta 3 — Escena 39 (Hale lighthouse kitchen, night, one lamp, rain outside): Acción visual: Nora stares into the lighthouse lens, thinking. Descripción: Nora stares into the lighthouse lens, thinking.
+Viñeta 4 — Escena 40 (Town hall hearing room, grey morning, rain streaking the windows): Acción visual: Nora finds an old harbor logbook behind the lens housing. Descripción: Nora finds an old harbor logbook behind the lens housing.
+Viñeta 5 — Escena 41 (Hale lighthouse archive room, dawn, cold blue light): Acción visual: Nora opens the logbook on the lighthouse table, pages brittle. Descripción: Nora opens the logbook on the lighthouse table, pages brittle.
+Viñeta 6 — Escena 42 (Harbor pier, morning, flat silver water): Acción visual: Nora and Sam compare timestamps under a desk lamp. Descripción: Nora and Sam compare timestamps under a desk lamp.
+
+Mantén continuidad exacta de rostros, cuerpos, vestuario, props, locaciones, luz y hora del día entre las 6 viñetas. Cada viñeta es un plano cinematográfico 16:9 con acción legible. No incluyas diálogos, párrafos largos, subtítulos, globos de texto, logos ni marcas de agua; solo la cuadrícula, la numeración y la descripción breve de cada viñeta.
 
 === REF_GRID_MIN_08.png ===
-STORYBOARD IMAGE 08/10 — MINUTE 8 (Scenes 43–48)
+Usando los personajes de REF_CAST_MASTER.png como referencia fija de rostros, edades, cuerpos y vestuarios, genera UNA IMAGEN horizontal 16:9 de Storyboard dividida en una cuadrícula limpia de 3x2 (6 viñetas numeradas del 1 al 6) que represente el MINUTO 8 (Escenas 43 a 48) de la historia en estilo Cinematográfico Realista 35mm:
 
-Genera UNA SOLA IMAGEN 16:9 con una cuadrícula de storyboard de 3 columnas x 2 filas (6 viñetas), en orden de lectura izquierda a derecha y de arriba abajo.
-Usa exactamente los mismos personajes, rostros, edades y vestuarios que REF_CAST_MASTER.png (Hoja de Personajes adjunta). Mantén continuidad de vestuario, props y locaciones entre viñetas.
-Estilo visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
-Cada viñeta es un plano cinematográfico 16:9 con encuadre claro y acción legible.
-Sin texto, sin letras, sin globos de diálogo, sin logos, sin marcas de agua, sin bordes.
+Look visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
 
-VIÑETAS EXACTAS:
-Viñeta 1: Escena 43 — Nora traces a line in the log with her finger (Town hall steps, dusk, wet stone).
-Viñeta 2: Escena 44 — Sam reads over her shoulder, close enough to touch (Hale lighthouse archive room, dawn, cold blue light).
-Viñeta 3: Escena 45 — Nora looks up at Sam, a decision forming (Harbor pier, morning, flat silver water).
-Viñeta 4: Escena 46 — Adrian stands on the town hall steps, trying to smile (Town hall steps, dusk, wet stone).
-Viñeta 5: Escena 47 — Nora walks past him without stopping (Hale lighthouse archive room, dawn, cold blue light).
-Viñeta 6: Escena 48 — Margaret waits in the hall, gloves in hand (Harbor pier, morning, flat silver water).
+Viñeta 1 — Escena 43 (Town hall steps, dusk, wet stone): Acción visual: Nora traces a line in the log with her finger. Descripción: Nora traces a line in the log with her finger.
+Viñeta 2 — Escena 44 (Hale lighthouse archive room, dawn, cold blue light): Acción visual: Sam reads over her shoulder, close enough to touch. Descripción: Sam reads over her shoulder, close enough to touch.
+Viñeta 3 — Escena 45 (Harbor pier, morning, flat silver water): Acción visual: Nora looks up at Sam, a decision forming. Descripción: Nora looks up at Sam, a decision forming.
+Viñeta 4 — Escena 46 (Town hall steps, dusk, wet stone): Acción visual: Adrian stands on the town hall steps, trying to smile. Descripción: Adrian stands on the town hall steps, trying to smile.
+Viñeta 5 — Escena 47 (Hale lighthouse archive room, dawn, cold blue light): Acción visual: Nora walks past him without stopping. Descripción: Nora walks past him without stopping.
+Viñeta 6 — Escena 48 (Harbor pier, morning, flat silver water): Acción visual: Margaret waits in the hall, gloves in hand. Descripción: Margaret waits in the hall, gloves in hand.
+
+Mantén continuidad exacta de rostros, cuerpos, vestuario, props, locaciones, luz y hora del día entre las 6 viñetas. Cada viñeta es un plano cinematográfico 16:9 con acción legible. No incluyas diálogos, párrafos largos, subtítulos, globos de texto, logos ni marcas de agua; solo la cuadrícula, la numeración y la descripción breve de cada viñeta.
 
 === REF_GRID_MIN_09.png ===
-STORYBOARD IMAGE 09/10 — MINUTE 9 (Scenes 49–54)
+Usando los personajes de REF_CAST_MASTER.png como referencia fija de rostros, edades, cuerpos y vestuarios, genera UNA IMAGEN horizontal 16:9 de Storyboard dividida en una cuadrícula limpia de 3x2 (6 viñetas numeradas del 1 al 6) que represente el MINUTO 9 (Escenas 49 a 54) de la historia en estilo Cinematográfico Realista 35mm:
 
-Genera UNA SOLA IMAGEN 16:9 con una cuadrícula de storyboard de 3 columnas x 2 filas (6 viñetas), en orden de lectura izquierda a derecha y de arriba abajo.
-Usa exactamente los mismos personajes, rostros, edades y vestuarios que REF_CAST_MASTER.png (Hoja de Personajes adjunta). Mantén continuidad de vestuario, props y locaciones entre viñetas.
-Estilo visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
-Cada viñeta es un plano cinematográfico 16:9 con encuadre claro y acción legible.
-Sin texto, sin letras, sin globos de diálogo, sin logos, sin marcas de agua, sin bordes.
+Look visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
 
-VIÑETAS EXACTAS:
-Viñeta 1: Escena 49 — Nora faces Margaret on the empty hearing floor (Town hall steps, dusk, wet stone).
-Viñeta 2: Escena 50 — Nora stands at the lighthouse door as the town lights… (Hale lighthouse archive room, dawn, cold blue light).
-Viñeta 3: Escena 51 — The hearing room fills; Nora stands alone at the table (Town hall hearing room, day, hard window light).
-Viñeta 4: Escena 52 — Sam steps to the microphone, the room silent (Hale lighthouse point, golden hour, wind down).
-Viñeta 5: Escena 53 — Margaret's smile falters for the first time (Harbor, golden hour, calm water).
-Viñeta 6: Escena 54 — Nora holds up the harbor log, open to the page (Town hall hearing room, day, hard window light).
+Viñeta 1 — Escena 49 (Town hall steps, dusk, wet stone): Acción visual: Nora faces Margaret on the empty hearing floor. Descripción: Nora faces Margaret on the empty hearing floor.
+Viñeta 2 — Escena 50 (Hale lighthouse archive room, dawn, cold blue light): Acción visual: Nora stands at the lighthouse door as the town lights come on. Descripción: Nora stands at the lighthouse door as the town lights….
+Viñeta 3 — Escena 51 (Town hall hearing room, day, hard window light): Acción visual: The hearing room fills; Nora stands alone at the table. Descripción: The hearing room fills; Nora stands alone at the table.
+Viñeta 4 — Escena 52 (Hale lighthouse point, golden hour, wind down): Acción visual: Sam steps to the microphone, the room silent. Descripción: Sam steps to the microphone, the room silent.
+Viñeta 5 — Escena 53 (Harbor, golden hour, calm water): Acción visual: Margaret's smile falters for the first time. Descripción: Margaret's smile falters for the first time.
+Viñeta 6 — Escena 54 (Town hall hearing room, day, hard window light): Acción visual: Nora holds up the harbor log, open to the page. Descripción: Nora holds up the harbor log, open to the page.
+
+Mantén continuidad exacta de rostros, cuerpos, vestuario, props, locaciones, luz y hora del día entre las 6 viñetas. Cada viñeta es un plano cinematográfico 16:9 con acción legible. No incluyas diálogos, párrafos largos, subtítulos, globos de texto, logos ni marcas de agua; solo la cuadrícula, la numeración y la descripción breve de cada viñeta.
 
 === REF_GRID_MIN_10.png ===
-STORYBOARD IMAGE 10/10 — MINUTE 10 (Scenes 55–60)
+Usando los personajes de REF_CAST_MASTER.png como referencia fija de rostros, edades, cuerpos y vestuarios, genera UNA IMAGEN horizontal 16:9 de Storyboard dividida en una cuadrícula limpia de 3x2 (6 viñetas numeradas del 1 al 6) que represente el MINUTO 10 (Escenas 55 a 60) de la historia en estilo Cinematográfico Realista 35mm:
 
-Genera UNA SOLA IMAGEN 16:9 con una cuadrícula de storyboard de 3 columnas x 2 filas (6 viñetas), en orden de lectura izquierda a derecha y de arriba abajo.
-Usa exactamente los mismos personajes, rostros, edades y vestuarios que REF_CAST_MASTER.png (Hoja de Personajes adjunta). Mantén continuidad de vestuario, props y locaciones entre viñetas.
-Estilo visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
-Cada viñeta es un plano cinematográfico 16:9 con encuadre claro y acción legible.
-Sin texto, sin letras, sin globos de diálogo, sin logos, sin marcas de agua, sin bordes.
+Look visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
 
-VIÑETAS EXACTAS:
-Viñeta 1: Escena 55 — Adrian half-rises from his chair (Hale lighthouse point, golden hour, wind down).
-Viñeta 2: Escena 56 — Nora sets the log on the clerk's desk (Harbor, golden hour, calm water).
-Viñeta 3: Escena 57 — Margaret reaches for the log; Nora slides it away (Town hall hearing room, day, hard window light).
-Viñeta 4: Escena 58 — Sam takes Nora's hand under the table (Hale lighthouse point, golden hour, wind down).
-Viñeta 5: Escena 59 — Nora walks out of the town hall into the light (Harbor, golden hour, calm water).
-Viñeta 6: Escena 60 — Nora and Sam stand on the lighthouse point at dusk… (Town hall hearing room, day, hard window light).
+Viñeta 1 — Escena 55 (Hale lighthouse point, golden hour, wind down): Acción visual: Adrian half-rises from his chair. Descripción: Adrian half-rises from his chair.
+Viñeta 2 — Escena 56 (Harbor, golden hour, calm water): Acción visual: Nora sets the log on the clerk's desk. Descripción: Nora sets the log on the clerk's desk.
+Viñeta 3 — Escena 57 (Town hall hearing room, day, hard window light): Acción visual: Margaret reaches for the log; Nora slides it away. Descripción: Margaret reaches for the log; Nora slides it away.
+Viñeta 4 — Escena 58 (Hale lighthouse point, golden hour, wind down): Acción visual: Sam takes Nora's hand under the table. Descripción: Sam takes Nora's hand under the table.
+Viñeta 5 — Escena 59 (Harbor, golden hour, calm water): Acción visual: Nora walks out of the town hall into the light. Descripción: Nora walks out of the town hall into the light.
+Viñeta 6 — Escena 60 (Town hall hearing room, day, hard window light): Acción visual: Nora and Sam stand on the lighthouse point at dusk, an older ledger in Nora's hands. Descripción: Nora and Sam stand on the lighthouse point at dusk….
+
+Mantén continuidad exacta de rostros, cuerpos, vestuario, props, locaciones, luz y hora del día entre las 6 viñetas. Cada viñeta es un plano cinematográfico 16:9 con acción legible. No incluyas diálogos, párrafos largos, subtítulos, globos de texto, logos ni marcas de agua; solo la cuadrícula, la numeración y la descripción breve de cada viñeta.
