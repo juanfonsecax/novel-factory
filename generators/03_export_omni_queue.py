@@ -37,6 +37,8 @@ for _path in (NF_ROOT, GENERATORS_DIR):
 import nf_core as nf  # noqa: E402
 import master_prompts_library as mpl  # noqa: E402
 
+format_character_anchors = nf.format_character_anchors
+
 
 class _SafeDict(dict):
     def __missing__(self, key: str) -> str:  # deja el marcador si falta una clave
@@ -69,7 +71,7 @@ PLATFORM_SPECS: Dict[str, Dict[str, Any]] = {
         "notes": [
             "Sube el frame_XXX.png como primer fotograma y pega el prompt completo.",
             "Solicita 10 s, 16:9 y audio nativo en inglés.",
-            "Verifica los 2-4 cortes internos y descarga como scene_XXX.mp4 en raw_clips/.",
+            "Verifica los 3 cortes exactos (0/3/7 s) y descarga como scene_XXX.mp4 en raw_clips/.",
         ],
     },
     "flow": {
@@ -83,7 +85,7 @@ PLATFORM_SPECS: Dict[str, Dict[str, Any]] = {
         "notes": [
             "Usa 'Frames to Video' con frame_XXX.png como ingrediente/primer fotograma.",
             "Si Flow limita a 8 s, genera 8 s: la postproducción extiende a 10 s.",
-            "El diálogo debe terminar antes de 7.5 s. Descarga como scene_XXX.mp4.",
+            "El diálogo debe terminar antes de 8.5 s. Descarga como scene_XXX.mp4.",
         ],
     },
 }
@@ -120,14 +122,15 @@ def _shot_block(scene: Dict[str, Any], templates: Dict[str, Any]) -> str:
     for idx, cut in enumerate(cuts):
         at = float(cut.get("at") or 0.0)
         framing = str(cut.get("framing") or "medium shot").strip()
-        action = str(cut.get("action") or "").strip() or "Hold the moment with minimal movement."
+        action = str(cut.get("action") or "").strip() or "the subject continues the motion from the previous beat."
+        shot_range = str(cut.get("range") or (nf.SHOT_RANGES[idx] if idx < len(nf.SHOT_RANGES) else "")).strip()
         if idx == 0:
             end = float(cuts[1].get("at") or 10.0) if len(cuts) > 1 else 10.0
             line = str(templates.get("shot_first_template") or "").format_map(_SafeDict(
-                n=idx + 1, end=end, framing=framing, action=action))
+                n=idx + 1, end=end, framing=framing, action=action, range=shot_range))
         else:
             line = str(templates.get("shot_cut_template") or "").format_map(_SafeDict(
-                n=idx + 1, at=at, framing=framing, action=action))
+                n=idx + 1, at=at, framing=framing, action=action, range=shot_range))
         lines.append(line)
     suffix = str(templates.get("shot_last_suffix") or "").strip()
     if suffix:
@@ -148,7 +151,7 @@ def _timeline_block(scene: Dict[str, Any], templates: Dict[str, Any]) -> str:
         a = float(cut.get("at") or 0.0)
         b = float(cuts[idx + 1].get("at")) if idx + 1 < len(cuts) else total
         framing = str(cut.get("framing") or "medium shot").strip()
-        action = str(cut.get("action") or "").strip() or "Hold the moment."
+        action = str(cut.get("action") or "").strip() or "the subject continues moving from the previous beat."
         lines.append(line_tpl.format(a=a, b=b, framing=framing, action=action))
         if idx:
             marks.append(a)
@@ -182,19 +185,23 @@ def _dialogue_block(scene: Dict[str, Any], characters: Dict[str, Dict[str, Any]]
 
 def _continuity_block(scene: Dict[str, Any], master: Dict[str, Any], characters: Dict[str, Dict[str, Any]]) -> str:
     parts: List[str] = []
-    explicit = str(scene.get("continuity") or "").strip()
+    explicit = str(scene.get("continuity_present") or "").strip()
+    if not explicit:
+        raw = str(scene.get("continuity") or "").strip()
+        explicit, _removed = nf.strip_future_refs(raw)
     if explicit:
-        present, _removed = nf.strip_future_refs(explicit)
-        if present:
-            parts.append(present)
+        parts.append(explicit)
     act = int(scene.get("act") or 0)
-    for key in scene.get("characters") or []:
+    for key in scene.get("characters_present") or scene.get("characters") or []:
         character = characters.get(str(key).strip().upper())
         if not character:
             continue
         wardrobes = character.get("wardrobe_by_act") or []
         if isinstance(wardrobes, list) and 1 <= act <= len(wardrobes) and str(wardrobes[act - 1]).strip():
             parts.append(f"{character.get('name') or key} wardrobe (act {act}): {str(wardrobes[act - 1]).strip()}")
+    key_object = nf.extract_key_object(scene)
+    if key_object:
+        parts.append(f"Key object in frame: {key_object}.")
     if not parts:
         parts.append("Keep the same faces, wardrobe, props and location as the provided first frame.")
     return " ".join(parts)
@@ -227,6 +234,12 @@ def compose_video_prompt(
         shot_block=_shot_block(scene, templates),
         timeline_block=_timeline_block(scene, templates),
         dialogue_block=_dialogue_block(scene, characters, style),
+        storyboard_panel=str(scene.get("storyboard_panel") or nf.build_storyboard_panel_description(scene, master)),
+        character_anchors=str(
+            scene.get("character_anchors")
+            or format_character_anchors(scene, master.get("characters_locked") or master.get("characters") or [])
+        ),
+        key_object=nf.extract_key_object(scene),
         ambience=str(scene.get("sfx_ambience") or "").strip() or "natural room tone, cloth movement, footfalls",
         camera_block=str(scene.get("camera") or "").strip()
         or str(templates.get("camera_block_default") or "Handheld but controlled, subtle drift."),

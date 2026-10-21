@@ -109,9 +109,9 @@ def _acts_block(rules: Dict[str, Any]) -> str:
 def _retention_block(rules: Dict[str, Any]) -> str:
     eng = rules.get("retention_engine") or {}
     fmt = rules.get("format") or {}
-    max_words = fmt.get("max_scene_words", 22)
-    max_line = fmt.get("max_line_words", 16)
-    max_speech = fmt.get("max_scene_speech_seconds", 9.0)
+    max_words = fmt.get("max_scene_words", 15)
+    max_line = fmt.get("max_line_words", 15)
+    max_speech = fmt.get("max_scene_speech_seconds", 8.5)
     wps = fmt.get("speech_words_per_second", 2.5)
     return (
         f"- Total scenes: {fmt.get('total_scenes')} x {fmt.get('scene_seconds')} s = {fmt.get('total_seconds')} s.\n"
@@ -119,7 +119,11 @@ def _retention_block(rules: Dict[str, Any]) -> str:
         f"Target {fmt.get('words_per_scene_dialogue')}. Never exceed {max_words}.\n"
         f"- Max {max_line} words per single line. At ~{wps} words/second that is <= {max_speech} s of speech "
         f"in a {fmt.get('scene_seconds')} s scene, leaving room for pauses.\n"
-        f"- Internal cuts per scene: {fmt.get('internal_cuts_per_scene')}, first at 0.0 s, separated by 2.5-4 s.\n"
+        f"- Internal cuts per scene: exactly 3 shots at 0/3/7 s, ranges 00s-03s, 03s-07s and 07s-10s. "
+        "Shot 1 starts in motion from the storyboard panel, Shot 2 is close-up/OTS dialogue/action, "
+        "Shot 3 is tight close-up/reaction/insert.\n"
+        "- Causal order is strict: consequences never precede their cause, clues are revealed once, and every "
+        "location change needs a visible transition. Group 3-6 consecutive scenes per dramatic situation/location block.\n"
         f"- Open-loop types allowed: " + "; ".join(eng.get("open_loop_types") or []) + ".\n"
         f"- Dopamine cadence: {eng.get('dopamine_cadence')}\n"
         f"- Cliffhanger types allowed: " + "; ".join(eng.get("cliffhanger_types") or []) + ".\n"
@@ -309,11 +313,11 @@ def build_llm_prompt(
       "time_of_day": "storm dusk",
       "characters": ["nora"],
       "on_screen_hook": "5-10 word teaser headline (only for scenes 1, 10, 20, 30, 40, 50, 60; empty elsewhere)",
-      "first_frame_prompt": "Cinematic still of Nora Hale (the character in reference_nora.png), wide establishing shot, at the Hale lighthouse cliff edge, storm dusk. Nora stands with her coat snapping in the wind, jaw set, eyes bright with contained anger. Wardrobe: charcoal wool coat over a dark sweater, dark jeans, rain-wet hair. Keep Nora Hale's face and wardrobe identical to reference_nora.png. Framing keeps the face unobstructed and centered for a 9:16 crop. 45-80 words, no style suffix (it is appended automatically), no text or logos.",
+      "first_frame_prompt": "Cinematic still of Nora Hale (the character in reference_nora.png), wide establishing shot, at the Hale lighthouse cliff edge, storm dusk. Nora strides along the cliff edge, coat snapping in the wind, jaw set, eyes bright with contained anger. Wardrobe: charcoal wool coat over a dark sweater, dark jeans, rain-wet hair. Keep Nora Hale's face and wardrobe identical to reference_nora.png. Framing keeps the face unobstructed and centered for a 9:16 crop. 45-80 words, no style suffix (it is appended automatically), no text or logos.",
       "internal_cuts": [
-        {"at": 0.0, "framing": "wide establishing shot", "action": "Nora stands at the cliff edge, the lighthouse dark behind her, salt wind whipping her coat."},
-        {"at": 3.6, "framing": "tight close-up", "action": "Her hand closes around a brass key in her pocket; her jaw tightens."},
-        {"at": 7.0, "framing": "over-the-shoulder shot", "action": "Headlights sweep the road below; she turns toward them."}
+        {"at": 0.0, "range": "00s-03s", "framing": "wide establishing shot", "action": "Nora strides along the cliff edge, the lighthouse dark behind her, salt wind whipping her coat."},
+        {"at": 3.0, "range": "03s-07s", "framing": "close-up", "action": "Her hand closes around a brass key in her pocket; her jaw tightens."},
+        {"at": 7.0, "range": "07s-10s", "framing": "tight close-up", "action": "Headlights sweep across her eyes; she turns toward the road."}
       ],
       "dialogue": [
         {"speaker": "NORA", "line": "They said the lighthouse was empty for ten years. So who left the light on?", "delivery": "cold, quiet"}
@@ -395,7 +399,7 @@ Write the complete episode as ONE valid JSON object that follows the schema belo
 ## AUDIO / VOICE RULES
 
 - Native US English only. Conversational pace (~2.5 words/second).
-- 14-22 words of dialogue TOTAL per scene across all speakers (hard cap 22). 1-3 lines, max 16 words each. Silence is allowed but rare.
+- 6-15 words of dialogue TOTAL per scene across all speakers (hard cap 15). 1-2 lines, max 15 words each. Finish before 8.5 s. Silence is allowed but rare.
 - Every "speaker" MUST be the exact name of a character declared in "characters[].name". Never invent speakers (no CLERK, no NARRATOR, no unnamed roles).
 - Subtext over exposition. Concrete nouns. No therapy-speak, no lectures, no villain monologues.
 - The clip contains dialogue + diegetic ambience only. NO music, NO narrator, NO subtitles.
@@ -424,10 +428,12 @@ Do not promise DMs, downloads or links that do not exist.
 
 Rules for the JSON:
 - "scenes" must contain exactly the scene range requested for this part, in order, with all required fields.
-- "internal_cuts": 2-4 items. The first "at" is 0.0. Later cuts must be 2.5-4 s apart. Each cut changes framing and/or blocking.
+- "internal_cuts": exactly 3 items at 0.0, 3.0 and 7.0 s with ranges 00s-03s, 03s-07s and 07s-10s. Shot 1 starts in motion from the exact storyboard panel; Shot 2 is close-up/OTS dialogue/action; Shot 3 is tight close-up/reaction/insert.
 - "internal_cuts[].action" is VISUAL ONLY (no dialogue in it). "dialogue" is separate.
+- Shot 1 (at 0.0) defines the storyboard panel: its framing and action MUST describe the literal first frame, already in motion, with the location, key object and every character present matching "first_frame_prompt".
 - "teasers[].scenes" must reference real scene_id values from this episode and be consecutive.
-- Keep the cast to 3-5 characters and 3-4 primary locations. Every scene "location" must reuse one of the declared locations (same wording), never a brand-new place.
+- Keep the cast to 3-5 characters and 3-5 primary locations. Every scene "location" must reuse one of the declared locations (same wording), never a brand-new place. Group 3-6 consecutive scenes per location block whenever the story allows it.
+- Causal order: never show a consequence before its cause, never reveal the same clue twice, and never jump location without a transition.
 - Every dialogue "speaker" and every entry in scene "characters" must match a character declared in "characters[].name".
 - Scene 1 must open with a question or contradiction, not a slow establishing montage.
 - Scenes 10, 20, 30, 40 and 50 must end on a cliffhanger. Scene 59 pays off. Scene 60 opens the next episode.
@@ -595,18 +601,34 @@ DEMO_ACTS: List[Dict[str, Any]] = [
             ("Hale lighthouse", "storm night, lightning through the glass"),
             ("Hale lighthouse kitchen", "night, one lamp, rain outside"),
         ],
+        "scene_locations": [
+            ("Town hall hearing room", "grey morning, rain streaking the windows"),
+            ("Town hall hearing room", "grey morning, rain streaking the windows"),
+            ("Town hall hearing room", "grey morning, rain streaking the windows"),
+            ("Town hall hearing room", "grey morning, rain streaking the windows"),
+            ("Town hall hearing room", "grey morning, rain streaking the windows"),
+            ("Town hall hearing room", "grey morning, rain streaking the windows"),
+            ("Hale lighthouse", "storm night, lightning through the glass"),
+            ("Hale lighthouse kitchen", "night, one lamp, rain outside"),
+            ("Hale lighthouse", "storm night, lightning through the glass"),
+            ("Hale lighthouse", "storm night, lightning through the glass"),
+        ],
         "wardrobe": "storm-soaked shirt and trousers, no coat, hair plastered down",
-        "props": ["the emergency petition", "a statement form", "the harbor logbook", "the cold lamp"],
+        "props": [
+            "the emergency petition", "the emergency petition", "a statement form",
+            "a statement form", "the petition ruling", "the petition ruling",
+            "the eviction notice", "the sale papers", "the cold lamp", "the harbor logbook",
+        ],
         "actions": [
             "Rain hammers the town hall windows as Nora faces the panel.",
-            "Margaret sits perfectly still in the front row.",
-            "Claire reads the emergency petition aloud.",
-            "Nora stands in the empty lighthouse, the lamp cold above her.",
-            "Sam signs a statement at the harbor office, hand shaking.",
-            "Nora listens through a half-open door, unseen.",
-            "Nora walks the storm beach alone, hair plastered to her face.",
-            "Adrian waits in her kitchen with the sale papers.",
-            "Nora stares into the lighthouse lens, thinking.",
+            "The hearing room is packed; Claire leans close to Nora.",
+            "Sam catches Nora in the hearing room before she takes her seat.",
+            "Sam stands before the panel; Margaret watches from the front row.",
+            "Nora faces Adrian across the hearing room.",
+            "The clerk stamps the petition; the room goes silent.",
+            "At the lighthouse door, Margaret holds out the eviction notice.",
+            "Adrian waits in the lighthouse kitchen with the sale papers.",
+            "Nora stands alone in the dark lighthouse, the cold lens above her.",
             "Nora finds an old harbor logbook behind the lens housing.",
         ],
         "sfx": "storm wind, rain on glass, a gavel, a chair scraping",
@@ -733,21 +755,151 @@ DEMO_ACTS: List[Dict[str, Any]] = [
     },
 ]
 
+DEMO_DIALOGUES: List[List[Tuple[str, str, str]]] = [
+    [("NORA", "They said the lighthouse was empty for ten years. So who left the light on?", "cold, quiet")],
+    [("SAM", "Nora Hale. Ten years, and you still drive like a storm.", "dry, warm")],
+    [("NORA", "I inherited a lighthouse, Sam. Not a welcome party.", "guarded"),
+     ("SAM", "I'm not happy. I'm careful.", "low")],
+    [("SAM", "The Kellers already had surveyors on your land.", "flat"),
+     ("NORA", "Then explain it to the state.", "steady")],
+    [("MARGARET", "Your father was a liar. The deed stands.", "silk over steel"),
+     ("NORA", "Then you won't mind me reading it.", "quiet")],
+    [("ADRIAN", "Sell us the point. Name your price.", "reasonable, rehearsed"),
+     ("NORA", "You only ask me to leave the past.", "cold")],
+    [("NORA", "Ten years. Why wait until I came back?", "suspicious"),
+     ("MARGARET", "A deed is cleaner than a funeral.", "pleasant")],
+    [("CLAIRE", "Your father changed his will three days before he died.", "careful"),
+     ("NORA", "Who witnessed it?", "sharp")],
+    [("CLAIRE", "Margaret's attorney. And a man named Sam.", "quiet"),
+     ("NORA", "Sam was there that night?", "low")],
+    [("NORA", "Dad, what did you lock in the lighthouse?", "hushed"),
+     ("NORA", "And why leave me the key?", "breaking")],
+    [("CLAIRE", "The petition calls you unfit. They want a guardian by Friday.", "clinical"),
+     ("NORA", "On what grounds?", "flat")],
+    [("NORA", "Who signed the statement?", "sharp"),
+     ("CLAIRE", "Half the harbor. And Sam.", "quiet")],
+    [("SAM", "I signed a paper. I was twenty-two and scared.", "ashamed"),
+     ("NORA", "Scared of being poor? Or her?", "cutting")],
+    [("SAM", "The fire started in the boathouse, not the cliffs.", "low"),
+     ("NORA", "Why did the town blame me?", "raw")],
+    [("MARGARET", "Reopen it, and the town remembers the match.", "pleasant threat"),
+     ("NORA", "I've played your villain ten years.", "tired")],
+    [("NORA", "A debt doesn't transfer with land. Fraud does.", "precise"),
+     ("ADRIAN", "Big words for someone with no lawyer.", "smiling")],
+    [("SAM", "The old survey files are in the boathouse.", "urgent"),
+     ("NORA", "Tonight, before the hearing.", "decided")],
+    [("SAM", "You always liked bad ideas with good lighting.", "dry"),
+     ("NORA", "You coming? Bring the pry bar.", "impatient")],
+    [("NORA", "Seawall permits. Signed by Margaret, before the fire.", "shaking"),
+     ("SAM", "That's not a permit. That's a motive.", "quiet")],
+    [("ADRIAN", "Give me the file. I'll call the fire an accident.", "reasonable"),
+     ("NORA", "In exchange for what?", "wary")],
+    [("ADRIAN", "You'd rather be the arsonist than my alibi?", "incredulous"),
+     ("NORA", "I'd rather be alone than owned. Move.", "flat")],
+    [("MARGARET", "The trust is frozen. Emergency petition, effective this morning.", "satisfied"),
+     ("NORA", "On what grounds?", "steady")],
+    [("CLAIRE", "One of the statements is from Sam.", "gentle"),
+     ("NORA", "Tell me that's a lie. To my face.", "low")],
+    [("SAM", "They threatened my sister's job. I'm sorry.", "broken"),
+     ("NORA", "Don't apologize. Fix it.", "hard")],
+    [("ADRIAN", "Sign the sale. I'll make the petition disappear.", "reasonable"),
+     ("NORA", "And if I don't?", "quiet")],
+    [("NORA", "Lighthouses keep logs. Every ship, every storm.", "realizing"),
+     ("SAM", "Your father logged the harbor for thirty years.", "nodding")],
+    [("NORA", "Including the night of the fire. And the boat at two.", "urgent"),
+     ("SAM", "That's the Keller launch.", "cold")],
+    [("NORA", "No. Margaret's launch. Adrian at the helm.", "quiet"),
+     ("SAM", "Nora, are you sure?", "careful")],
+    [("ADRIAN", "A notebook beats a town of witnesses?", "amused"),
+     ("NORA", "It beats you. You know it.", "calm")],
+    [("MARGARET", "Name your price, Nora. One last time.", "tired"),
+     ("NORA", "The hearing. Tomorrow. Public. All of it.", "final")],
+    [("NORA", "I'd rather lose the house than his name.", "steady"),
+     ("MARGARET", "You lost it ten years ago.", "soft")],
+    [("CLAIRE", "The hearing is packed. Half the town came.", "nervous"),
+     ("NORA", "Good. This time, I want witnesses.", "resolved")],
+    [("SAM", "I should have told you ten years ago.", "low"),
+     ("NORA", "Tell it now. Loud enough for everyone.", "fierce")],
+    [("SAM", "I signed a false statement. Margaret wrote it.", "public, shaking"),
+     ("MARGARET", "He's a firefighter with a grudge.", "dismissive")],
+    [("NORA", "Then hear someone who can't be bought.", "calm"),
+     ("ADRIAN", "You're bluffing.", "uneasy"),
+     ("NORA", "I document.", "flat")],
+    [("MARGARET", "The petition is granted. The trust is frozen.", "controlled"),
+     ("NORA", "On mental incompetence? That's a lie.", "raw")],
+    [("MARGARET", "You have until midnight to leave the lighthouse.", "cold"),
+     ("NORA", "She bought the county. Not me.", "flat")],
+    [("ADRIAN", "Sign the sale. I'll make the eviction disappear.", "reasonable"),
+     ("NORA", "And if I don't?", "quiet")],
+    [("NORA", "He left me a key. There has to be something.", "hushed")],
+    [("NORA", "The harbor log. Every boat, every night.", "precise"),
+     ("NORA", "Dad, what did you see?", "breaking")],
+    [("NORA", "Every keeper signs the log. Date, time, weather.", "focused"),
+     ("SAM", "Your father never missed a night.", "quiet")],
+    [("SAM", "The page is torn out.", "grim"),
+     ("NORA", "No. Folded. He hid it behind the lens.", "triumphant whisper")],
+    [("NORA", "2:14 a.m. Keller launch. Two passengers, not one.", "urgent"),
+     ("SAM", "Who's the second?", "low")],
+    [("SAM", "Your mother's name.", "stunned"),
+     ("NORA", "She died when I was eleven. I watched them bury her.", "flat")],
+    [("NORA", "Every year, in cash, under her maiden name.", "shaking"),
+     ("SAM", "Nora, we can still stop this.", "gentle")],
+    [("ADRIAN", "The hearing is tomorrow. Change your mind tonight.", "reasonable"),
+     ("NORA", "I've had ten years. I'm not changing.", "calm")],
+    [("MARGARET", "You've made your point. Name a number.", "controlled"),
+     ("NORA", "Zero. You leave with nothing.", "final")],
+    [("CLAIRE", "Present that log, and the town turns on your mother.", "worried"),
+     ("NORA", "Then they'll tell the truth.", "steady")],
+    [("NORA", "Whatever they say tomorrow, hear it from me first.", "vulnerable"),
+     ("SAM", "I'm not going anywhere.", "low")],
+    [("MARGARET", "You'll lose the only home you have left.", "cold"),
+     ("NORA", "Not for the house. For his name.", "fierce")],
+    [("CLAIRE", "Emergency hearing. Every seat is full.", "nervous"),
+     ("NORA", "Good. Let them watch. Let them remember.", "resolved")],
+    [("SAM", "If I do this, I lose the department.", "steady"),
+     ("NORA", "Then do it for the right reason.", "gentle")],
+    [("NORA", "Just tell them the truth.", "quiet"),
+     ("SAM", "The truth is I let them bury your father.", "breaking")],
+    [("SAM", "I signed a false statement. Margaret paid me.", "public, clear"),
+     ("MARGARET", "He's a firefighter with a grudge.", "dismissive")],
+    [("NORA", "Then hear someone who can't be bought. The log.", "calm"),
+     ("ADRIAN", "That's a piece of paper.", "uneasy")],
+    [("NORA", "2:14. Keller launch. Two aboard. Adrian steering.", "precise"),
+     ("MARGARET", "That log is weather and guesswork.", "sharp")],
+    [("NORA", "Margaret. And the man who signed the fire report.", "quiet"),
+     ("CLAIRE", "The fire marshal.", "stunned")],
+    [("ADRIAN", "An accident. We meant to scare him.", "breaking"),
+     ("NORA", "You burned it and buried my father.", "raw")],
+    [("NORA", "That's not an accident. That's a choice.", "fierce"),
+     ("MARGARET", "You'll regret this.", "quiet")],
+    [("NORA", "Wait. This ledger is older. Her name is on every page.", "hushed"),
+     ("SAM", "Nora... she's alive?", "stunned")],
+]
+
 DEMO_CHARACTERS = [
     {"id": "nora", "name": "Nora Hale", "role": "protagonist", "archetype": "protagonist",
      "pronoun": "she", "voice_lock": "warm mid-range American English, controlled, slightly breathy under pressure",
+     "identity_anchor": "early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin",
      "visual_reference": "early thirties coastal New England woman, wiry build, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, charcoal wool coat over a dark sweater"},
     {"id": "sam", "name": "Sam Calloway", "role": "love_interest", "archetype": "love_interest",
      "pronoun": "he", "voice_lock": "quiet, low American English, careful diction, warmth under restraint",
+     "identity_anchor": "mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin",
+     "wardrobe_lock": "faded canvas work jacket, dark trousers, worn boots",
      "visual_reference": "mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin with salt creases, faded canvas work jacket"},
     {"id": "margaret", "name": "Margaret Keller", "role": "antagonist", "archetype": "antagonist",
      "pronoun": "she", "voice_lock": "low, polished, unhurried American English, never shouts",
+     "identity_anchor": "late sixties matriarch, tall and straight-backed, silver chignon, pale blue eyes, porcelain skin",
+     "wardrobe_lock": "tailored dove-grey suit, pearls, low-heeled shoes",
      "visual_reference": "late sixties matriarch, tall and straight-backed, silver hair in a low chignon, pale blue eyes, porcelain skin, tailored dove-grey suit and pearls"},
     {"id": "adrian", "name": "Adrian Keller", "role": "antagonist_heir", "archetype": "antagonist",
      "pronoun": "he", "voice_lock": "smooth mid-range American English, reasonable tone that never quite reaches sincerity",
+     "identity_anchor": "late thirties lean groomed heir, ash-blond hair swept back, cold grey eyes, even features",
+     "wardrobe_lock": "navy blazer, open-collared white shirt, dark trousers",
      "visual_reference": "late thirties heir, lean and groomed, ash-blond hair swept back, cold grey eyes, even features, navy blazer over an open collar"},
     {"id": "claire", "name": "Claire Boone", "role": "ally", "archetype": "ally",
      "pronoun": "she", "voice_lock": "grounded, plainspoken American English with a slight coastal New England softness",
+     "identity_anchor": "forties compact small-town lawyer, brown blunt bob, warm brown eyes, reading glasses on a cord",
+     "wardrobe_lock": "forest-green cardigan, cream blouse, dark trousers",
      "visual_reference": "forties small-town lawyer, compact and practical, brown hair in a blunt bob, warm brown eyes, reading glasses on a cord, forest-green cardigan"},
 ]
 
@@ -788,19 +940,21 @@ def build_demo_payload(slug: str, title: str, personaje: str, episode_number: in
         act_idx = (idx - 1) // 10
         local = (idx - 1) % 10
         act = DEMO_ACTS[act_idx]
-        loc_name, light = act["locations"][local % len(act["locations"])]
-        lines = act["lines"][local]
+        explicit_locations = act.get("scene_locations") or []
+        if isinstance(explicit_locations, list) and len(explicit_locations) == 10:
+            loc_name, light = explicit_locations[local]
+        else:
+            loc_name, light = act["locations"][local % len(act["locations"])]
+        lines = DEMO_DIALOGUES[idx - 1] if idx - 1 < len(DEMO_DIALOGUES) else act["lines"][local]
         primary_speaker = lines[0][0]
         character = by_speaker.get(primary_speaker.upper(), DEMO_CHARACTERS[0])
         reference = f"reference_{character['id']}.png"
 
         shot1 = rotation[(local + act_idx) % len(rotation)]
-        shot2 = "tight close-up"
-        if shot1 == shot2:
-            shot2 = "medium shot"
-        shot3 = ["over-the-shoulder shot", "low-angle hero shot", "medium shot", "wide establishing shot"][local % 4]
-        if shot3 in (shot1, shot2):
-            shot3 = "insert shot of the evidence object"
+        shot2 = "close-up"
+        if str(shot1).strip().lower() == "close-up":
+            shot2 = "over-the-shoulder shot"
+        shot3 = ["tight close-up", "insert shot of the evidence object"][local % 2]
 
         prop = act["props"][local % len(act["props"])]
         expression = DEMO_EXPRESSIONS[(idx - 1) % len(DEMO_EXPRESSIONS)]
@@ -841,12 +995,13 @@ def build_demo_payload(slug: str, title: str, personaje: str, episode_number: in
             "location": f"{loc_name}, {light}",
             "time_of_day": light,
             "characters": on_screen,
+            "wardrobe": act["wardrobe"],
             "on_screen_hook": DEMO_HOOKS.get(idx, ""),
             "first_frame_prompt": body,
             "internal_cuts": [
                 {"at": 0.0, "framing": shot1, "action": act["actions"][local]},
-                {"at": 3.5, "framing": shot2, "action": f"Close detail on {prop}; the room falls quiet around it."},
-                {"at": 6.9, "framing": shot3, "action": f"{character['name']} reacts, holding the moment before the next line."},
+                {"at": 3.0, "framing": shot2, "action": f"Close detail on {prop}; the room falls quiet around it."},
+                {"at": 7.0, "framing": shot3, "action": f"{character['name']} reacts as the line lands, no static hold."},
             ],
             "dialogue": dialogue,
             "sfx_ambience": act["sfx"],

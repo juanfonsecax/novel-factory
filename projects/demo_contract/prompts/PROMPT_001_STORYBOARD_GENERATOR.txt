@@ -15,16 +15,18 @@ EPISODE:
 - Setting: (not specified)
 
 CAST:
-- Nora Hale (protagonist) | voice: warm mid-range American English, controlled, slightly breathy under pressure
-- Sam Calloway (love_interest) | voice: quiet, low American English, careful diction, warmth under restraint
-- Margaret Keller (antagonist) | voice: low, polished, unhurried American English, never shouts
-- Adrian Keller (antagonist) | voice: smooth mid-range American English, reasonable tone that never quite reaches sincerity
-- Claire Boone (ally) | voice: grounded, plainspoken American English with a slight coastal New England softness
+- Nora Hale (protagonist): early thirties coastal New England woman, wiry build, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, charcoal wool coat over a dark sweater | voice: warm mid-range American English, controlled, slightly breathy under pressure
+- Sam Calloway (love_interest): mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin with salt creases, faded canvas work jacket | voice: quiet, low American English, careful diction, warmth under restraint
+- Margaret Keller (antagonist): late sixties matriarch, tall and straight-backed, silver hair in a low chignon, pale blue eyes, porcelain skin, tailored dove-grey suit and pearls | voice: low, polished, unhurried American English, never shouts
+- Adrian Keller (antagonist): late thirties heir, lean and groomed, ash-blond hair swept back, cold grey eyes, even features, navy blazer over an open collar | voice: smooth mid-range American English, reasonable tone that never quite reaches sincerity
+- Claire Boone (ally): forties small-town lawyer, compact and practical, brown hair in a blunt bob, warm brown eyes, reading glasses on a cord, forest-green cardigan | voice: grounded, plainspoken American English with a slight coastal New England softness
 
 LOCATIONS:
-- Hale lighthouse
-- Keller harbor
-- Town hall
+- Hale lighthouse cliff edge
+- Keller harbor boardwalk
+- Hale lighthouse kitchen
+- Claire Boone's law office
+- Keller boathouse
 - Keller estate
 
 ACT MAP:
@@ -57,11 +59,13 @@ Cada imagen representa exactamente 1 minuto de historia.
 
 CADA VIÑETA
 Cada viñeta debe mostrar visualmente el momento correspondiente de la historia con encuadre de cine profesional (alternando planos generales establecedores, planos medios dramáticos y primeros planos emocionales).
+Cada viñeta es el PRIMER FRAME literal de la Toma 1 de su escena: mismo encuadre, misma posición de cámara, mismo blocking, mismo vestuario, misma luz y mismo objeto clave. La Toma 1 arranca en movimiento desde esa imagen; nunca es un frame congelado.
 Debe incluir:
-- Personajes.
+- Todos los personajes presentes en la escena, con su posición fija de la Hoja de Personajes.
 - Lugar.
-- Acción física clara.
+- Acción física clara ya en movimiento.
 - Emoción intensa en los rostros.
+- El objeto clave de la escena visible o claramente implicado.
 - Composición e iluminación cinematográfica.
 Debajo de cada viñeta puede aparecer una descripción extremadamente breve de la escena, de aproximadamente 5 a 10 palabras.
 Ejemplo:

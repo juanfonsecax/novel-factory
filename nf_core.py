@@ -63,13 +63,16 @@ SUBCOMMANDS: Dict[str, str] = {
 
 # --- Contrato de contenido (P0): ritmo de habla y presupuesto por escena ---
 SPEECH_WORDS_PER_SECOND = 2.5    # ritmo conversacional US English (~150 wpm)
-MAX_SCENE_WORDS = 22             # tope real para 10 s escénicos (22/2.5 = 8.8 s)
-MAX_LINE_WORDS = 16              # tope por intervención
-MIN_SCENE_WORDS = 12             # mínimo para que la escena no quede vacía
-MAX_SCENE_SPEECH_SECONDS = 9.0   # deja aire para pausas/acción dentro de 10 s
-CUT_MIN_GAP = 2.5
+MAX_SCENE_WORDS = 15             # tope global por escena de 10 s
+MAX_LINE_WORDS = 15              # tope por intervenci�n
+MIN_SCENE_WORDS = 6              # m�nimo para que la escena no quede vac�a
+MAX_SCENE_SPEECH_SECONDS = 8.5   # la voz debe terminar antes de 8.5 s
+CUT_MIN_GAP = 3.0
 CUT_MAX_GAP = 4.0
 DURATION_TOLERANCE_SEC = 0.05
+SHOT_CUT_TIMES = (0.0, 3.0, 7.0)
+SHOT_RANGES = ("00s-03s", "03s-07s", "07s-10s")
+DIALOGUE_END_DEADLINE_SEC = 8.5
 
 
 class NFError(RuntimeError):
@@ -546,16 +549,194 @@ def character_by_key(master: Dict[str, Any]) -> Dict[str, Dict[str, Any]]:
 
 
 def reference_stem(character: Dict[str, Any]) -> str:
-    """Nombre de archivo canónico de la hoja de referencia: reference_<id>.png."""
+    """Nombre de archivo can�nico de la hoja de referencia: reference_<id>.png."""
     cid = slugify(str(character.get("id") or character.get("name") or "character")) or "character"
     return f"reference_{cid}.png"
+
+
+def _character_id(character: Dict[str, Any]) -> str:
+    return str(character.get("id") or character.get("name") or "").strip()
+
+
+def character_position_map(master: Dict[str, Any]) -> Dict[str, int]:
+    """Posición 1-based de cada personaje en el orden de la hoja de reparto."""
+    positions: Dict[str, int] = {}
+    for idx, character in enumerate(master.get("characters") or [], start=1):
+        if isinstance(character, dict):
+            cid = _character_id(character)
+            if cid:
+                positions[cid] = idx
+    return positions
+
+
+def _character_descriptor(character: Dict[str, Any]) -> str:
+    for key in ("identity_anchor", "descriptor", "visual_reference"):
+        text = re.sub(r"\s+", " ", str(character.get(key) or "")).strip().rstrip(".")
+        if text:
+            return text
+    return "distinctive face and build"
+
+
+def _character_wardrobe(character: Dict[str, Any], act: int, scene: Optional[Dict[str, Any]] = None) -> str:
+    locked = re.sub(r"\s+", " ", str(character.get("wardrobe_lock") or "")).strip().rstrip(".")
+    if locked:
+        return locked
+    wardrobe_by_act = character.get("wardrobe_by_act")
+    if isinstance(wardrobe_by_act, list) and wardrobe_by_act:
+        idx = max(0, min(len(wardrobe_by_act) - 1, int(act or 1) - 1))
+        text = re.sub(r"\s+", " ", str(wardrobe_by_act[idx] or "")).strip().rstrip(".")
+        if text:
+            return text
+    if isinstance(scene, dict):
+        text = re.sub(r"\s+", " ", str(scene.get("wardrobe") or "")).strip().rstrip(".")
+        if text:
+            return text
+    text = re.sub(r"\s+", " ", str(character.get("wardrobe") or character.get("costume") or "")).strip().rstrip(".")
+    return text or "current act wardrobe"
+
+
+def _resolve_cast_entry(text: str, master: Dict[str, Any]) -> Optional[Dict[str, Any]]:
+    index = canonical_cast(master)
+    key = str(text or "").strip().lower()
+    if not key:
+        return None
+    return (
+        index.get(key)
+        or index.get(re.sub(r"[^a-z0-9]+", " ", key).strip())
+        or index.get(re.sub(r"[^a-z0-9]+", "_", key).strip("_"))
+        or index.get(key.split()[0] if key.split() else key)
+    )
+
+
+def mentioned_character_ids(text: str, master: Dict[str, Any]) -> List[str]:
+    """IDs de personajes nombrados en un texto, en orden de reparto."""
+    raw = str(text or "")
+    if not raw.strip():
+        return []
+    found: List[str] = []
+    for character in master.get("characters") or []:
+        if not isinstance(character, dict):
+            continue
+        cid = _character_id(character)
+        if not cid:
+            continue
+        keys = {
+            str(character.get("name") or "").strip(),
+            str(character.get("name") or "").strip().split(" ")[0],
+            cid,
+        }
+        for key in keys:
+            if len(key) < 3:
+                continue
+            if re.search(rf"(?<![A-Za-z0-9]){re.escape(key)}(?![A-Za-z0-9])", raw, re.IGNORECASE):
+                found.append(cid)
+                break
+    return found
+
+
+def scene_characters_present(scene: Dict[str, Any], master: Dict[str, Any]) -> List[str]:
+    """Unión ordenada de reparto visible, hablantes y personajes nombrados."""
+    present: List[str] = []
+
+    def add(text: str) -> None:
+        character = _resolve_cast_entry(text, master)
+        cid = _character_id(character or {}) or str(text or "").strip()
+        if cid and cid not in present:
+            present.append(cid)
+
+    for item in scene.get("characters") or []:
+        add(str(item or ""))
+    for entry in scene_dialogue_lines(scene):
+        add(entry.get("speaker") or "")
+    cuts = scene.get("internal_cuts") or []
+    first_action = str((cuts[0] or {}).get("action") or "") if cuts else ""
+    text = " ".join([
+        str(scene.get("first_frame_prompt") or ""),
+        str(scene.get("action") or ""),
+        first_action,
+    ]).strip()
+    for cid in mentioned_character_ids(text, master):
+        if cid not in present:
+            present.append(cid)
+    order = character_position_map(master)
+    return sorted(present, key=lambda cid: order.get(cid, 999))
+
+
+def extract_key_object(scene: Dict[str, Any]) -> str:
+    explicit = re.sub(r"\s+", " ", str(scene.get("key_object") or "")).strip().rstrip(".")
+    if explicit:
+        return explicit
+    for prop in scene.get("props") or []:
+        text = re.sub(r"\s+", " ", str(prop or "")).strip().rstrip(".")
+        if text:
+            return text
+    match = re.search(
+        r"Evidence object in play:\s*([^.;]+)",
+        str(scene.get("continuity") or ""),
+        re.IGNORECASE,
+    )
+    if match:
+        return re.sub(r"\s+", " ", match.group(1)).strip().rstrip(".")
+    return ""
+
+
+def format_character_anchors(scene: Dict[str, Any], characters_locked: Any) -> str:
+    """Lista de anclas de identidad para todos los presentes en la escena.
+
+    ``characters_locked`` puede ser el maestro completo o la lista de personajes.
+    Cada ancla fija posición en la hoja de reparto, descriptor estable y vestuario.
+    """
+    if isinstance(characters_locked, dict):
+        cast = characters_locked.get("characters_locked") or characters_locked.get("characters") or []
+    else:
+        cast = list(characters_locked or [])
+    cast = [c for c in cast if isinstance(c, dict)]
+    if not cast:
+        return ""
+    by_id: Dict[str, Tuple[int, Dict[str, Any]]] = {}
+    for idx, character in enumerate(cast, start=1):
+        cid = _character_id(character)
+        if cid:
+            by_id[cid] = (idx, character)
+    present = [str(x) for x in (scene.get("characters_present") or scene.get("characters") or []) if str(x).strip()]
+    act = int(scene.get("act") or 1)
+    anchors: List[str] = []
+    for cid, (pos, character) in by_id.items():
+        if cid not in present:
+            continue
+        name = str(character.get("name") or cid)
+        descriptor = _character_descriptor(character)
+        wardrobe = _character_wardrobe(character, act, scene)
+        anchors.append(f"{name} (Cast Sheet Pos #{pos}: {descriptor}, wearing {wardrobe})")
+    return "; ".join(anchors)
+
+
+def build_storyboard_panel_description(scene: Dict[str, Any], master: Dict[str, Any]) -> str:
+    """Describe la viñeta que DEBE ser el primer frame de la Toma 1."""
+    cuts = scene.get("internal_cuts") or []
+    first = cuts[0] if cuts and isinstance(cuts[0], dict) else {}
+    framing = str(first.get("framing") or "cinematic shot").strip()
+    action = re.sub(r"\s+", " ", str(first.get("action") or "the subject is already in motion")).strip()
+    action = action.rstrip(".")
+    location = re.sub(r"\s+", " ", str(scene.get("location") or "the scene location")).strip().rstrip(".")
+    key_object = extract_key_object(scene) or "the scene's central visual detail"
+    cast_index = canonical_cast(master)
+    names = [
+        str((cast_index.get(cid) or {}).get("name") or cid)
+        for cid in (scene.get("characters_present") or scene.get("characters") or [])
+    ]
+    present = ", ".join(names) if names else "the protagonist"
+    return (
+        f"[00s-03s] {framing}: {action}. "
+        f"Location: {location}. Key object: {key_object}. Characters present: {present}."
+    )
 
 
 def scene_cast(master: Dict[str, Any], scene: Dict[str, Any]) -> List[Dict[str, Any]]:
     """Personajes canónicos presentes en una escena (sin duplicados, en orden)."""
     index = character_by_key(master)
     out: List[Dict[str, Any]] = []
-    for item in scene.get("characters") or []:
+    for item in scene.get("characters_present") or scene.get("characters") or []:
         text = str(item or "").strip().lower()
         if not text:
             continue
@@ -642,40 +823,63 @@ def _coerce_dialogue(value: Any) -> List[Dict[str, str]]:
     return out
 
 
+CLOSEUP_RE = re.compile(r"close[\s-]?up|over[\s-]?the[\s-]?shoulder|\bOTS\b|medium close", re.IGNORECASE)
+REACTION_RE = re.compile(r"tight close|close[\s-]?up|extreme close|insert|reaction|detail|\bPOV\b|point of view", re.IGNORECASE)
+STATIC_RE = re.compile(
+    r"\bstatic\b|\bposed\b|\bnot moving\b|\bhold(?:ing)? still\b|\bmotionless\b|"
+    r"\bfreezes?\b|\bgo(?:es)? still\b|\bstands? (?:still|rigid|erect|immobile|frozen)\b",
+    re.IGNORECASE,
+)
+
+
 def _coerce_cuts(value: Any, rotation: Sequence[str]) -> List[Dict[str, Any]]:
-    cuts: List[Dict[str, Any]] = []
+    """Fuerza exactamente 3 tomas: 00s-03s, 03s-07s y 07s-10s.
+
+    Toma 1 conserva el encuadre de la viñeta y arranca en movimiento. Toma 2 se
+    corrige a close-up/OTS si el dato no pertenece a esa familia. Toma 3 se
+    corrige a reacción/insert si el dato no pertenece a esa familia.
+    """
+    provided: List[Dict[str, str]] = []
     if isinstance(value, list):
         for item in value:
             if isinstance(item, dict):
-                at = item.get("at", item.get("time", item.get("t", 0)))
-                try:
-                    at_f = float(at)
-                except (TypeError, ValueError):
-                    at_f = 0.0
-                cuts.append({
-                    "at": max(0.0, min(9.5, at_f)),
-                    "framing": str(item.get("framing") or item.get("shot") or "medium shot").strip(),
+                provided.append({
+                    "framing": str(item.get("framing") or item.get("shot") or "").strip(),
                     "action": str(item.get("action") or item.get("description") or "").strip(),
                 })
             elif isinstance(item, str) and item.strip():
-                cuts.append({"at": 0.0, "framing": item.strip(), "action": ""})
-    cuts.sort(key=lambda c: c["at"])
-    if not cuts:
-        cuts = [
-            {"at": 0.0, "framing": rotation[0] if rotation else "wide establishing shot", "action": ""},
-            {"at": 3.3, "framing": rotation[1] if len(rotation) > 1 else "medium shot", "action": ""},
-            {"at": 6.6, "framing": rotation[2] if len(rotation) > 2 else "tight close-up", "action": ""},
-        ]
-    elif len(cuts) == 1:
-        cuts.append({"at": min(9.5, cuts[0]["at"] + 5.0), "framing": "tight close-up", "action": ""})
-    cuts[0]["at"] = 0.0
-    # Evita dos cortes en el mismo instante
-    fixed: List[Dict[str, Any]] = []
-    for cut in cuts:
-        if fixed and abs(float(cut["at"]) - float(fixed[-1]["at"])) < 0.35:
-            continue
-        fixed.append(cut)
-    return fixed[:4]
+                provided.append({"framing": item.strip(), "action": ""})
+
+    shot1_fallback = rotation[0] if rotation else "wide establishing shot"
+    shot2_fallback = "close-up"
+    shot3_fallback = "tight close-up"
+    actions = [
+        "the subject is already moving inside the storyboard framing",
+        "hard cut into the dialogue beat with the speaker mid-line",
+        "hard cut to the reaction as the line lands",
+    ]
+    framings = [
+        provided[0]["framing"] if len(provided) > 0 and provided[0]["framing"] else shot1_fallback,
+        provided[1]["framing"] if len(provided) > 1 and provided[1]["framing"] else shot2_fallback,
+        provided[2]["framing"] if len(provided) > 2 and provided[2]["framing"] else shot3_fallback,
+    ]
+    if not CLOSEUP_RE.search(framings[1]):
+        framings[1] = shot2_fallback
+    if not REACTION_RE.search(framings[2]):
+        framings[2] = shot3_fallback
+
+    cuts: List[Dict[str, Any]] = []
+    for i, at in enumerate(SHOT_CUT_TIMES):
+        raw_action = provided[i]["action"] if len(provided) > i else ""
+        if not raw_action or STATIC_RE.search(raw_action):
+            raw_action = actions[i]
+        cuts.append({
+            "at": at,
+            "range": SHOT_RANGES[i],
+            "framing": framings[i],
+            "action": raw_action,
+        })
+    return cuts
 
 
 def _normalize_teasers(payload: Dict[str, Any], scenes: List[Dict[str, Any]], warnings: List[str]) -> List[Dict[str, Any]]:
@@ -789,7 +993,8 @@ def normalize_master(
     if not str(ep.get("logline") or "").strip():
         warnings.append("episode.logline vacío: se recomienda una frase de 1-2 líneas para el pack de publicación.")
 
-    cast_index = canonical_cast({"characters": payload.get("characters") or []})
+    cast_ctx = {"characters": payload.get("characters") or []}
+    cast_index = canonical_cast(cast_ctx)
 
     scenes: List[Dict[str, Any]] = []
     for idx, raw in enumerate(raw_scenes, start=1):
@@ -841,6 +1046,8 @@ def normalize_master(
             if cid not in normalized_chars:
                 normalized_chars.append(cid)
         scene["characters"] = normalized_chars
+        scene["key_object"] = extract_key_object(scene)
+        scene["characters_present"] = scene_characters_present(scene, cast_ctx)
         if not scene["first_frame_prompt"]:
             warnings.append(f"Escena {sid}: first_frame_prompt vacío (el frame no se podrá generar).")
         if not scene["dialogue"]:
@@ -857,7 +1064,15 @@ def normalize_master(
     master["characters"] = master.get("characters") if isinstance(master.get("characters"), list) else []
     master["locations"] = master.get("locations") if isinstance(master.get("locations"), list) else []
     master["acts"] = master.get("acts") if isinstance(master.get("acts"), list) else []
+    master["characters_locked"] = (
+        master.get("characters_locked")
+        if isinstance(master.get("characters_locked"), list) and master.get("characters_locked")
+        else master["characters"]
+    )
     master["scenes"] = scenes
+    for scene in scenes:
+        scene["character_anchors"] = format_character_anchors(scene, master["characters_locked"])
+        scene["storyboard_panel"] = build_storyboard_panel_description(scene, master)
     master["partial"] = len(scenes) != SCENE_COUNT
     master["teasers"] = _normalize_teasers(payload, scenes, warnings)
 
@@ -955,33 +1170,44 @@ def validate_master(
         else:
             prompts += 1
         cuts = scene.get("internal_cuts")
-        if not isinstance(cuts, list) or len(cuts) < 2:
-            errors.append(f"Escena {sid}: se requieren 2-4 cortes internos.")
+        if not isinstance(cuts, list) or len(cuts) != 3:
+            errors.append(f"Escena {sid}: se requieren exactamente 3 tomas (00s-03s, 03s-07s, 07s-10s).")
         else:
-            if len(cuts) > 4:
-                strict(f"Escena {sid}: {len(cuts)} cortes (máximo 4).")
             ats = [float(c.get("at") or 0.0) for c in cuts]
-            if ats and ats[0] != 0.0:
-                warnings.append(f"Escena {sid}: el primer corte debería empezar en 0.0 s.")
-            for a, b in zip(ats, ats[1:]):
-                gap = b - a
-                if gap < CUT_MIN_GAP - 1e-6 or gap > CUT_MAX_GAP + 1e-6:
-                    strict(f"Escena {sid}: separación de cortes {gap:.2f}s fuera de {CUT_MIN_GAP}-{CUT_MAX_GAP}s.")
+            if any(abs(a - e) > 1e-6 for a, e in zip(ats, SHOT_CUT_TIMES)):
+                errors.append(f"Escena {sid}: cortes en {ats}; se esperan {list(SHOT_CUT_TIMES)}.")
+            first = cuts[0] if isinstance(cuts[0], dict) else {}
+            second = cuts[1] if isinstance(cuts[1], dict) else {}
+            third = cuts[2] if isinstance(cuts[2], dict) else {}
+            if not str(first.get("action") or "").strip():
+                errors.append(f"Escena {sid}: Toma 1 sin acción de arranque en movimiento.")
+            if STATIC_RE.search(str(first.get("action") or "")):
+                errors.append(f"Escena {sid}: Toma 1 describe un frame estático; debe arrancar en movimiento.")
+            if not CLOSEUP_RE.search(str(second.get("framing") or "")):
+                errors.append(f"Escena {sid}: Toma 2 debe ser close-up u over-the-shoulder.")
+            if not REACTION_RE.search(str(third.get("framing") or "")):
+                errors.append(f"Escena {sid}: Toma 3 debe ser tight close-up, reacción o insert.")
+            if not str(second.get("action") or "").strip():
+                errors.append(f"Escena {sid}: Toma 2 sin acción de diálogo/acción.")
+            if not str(third.get("action") or "").strip():
+                errors.append(f"Escena {sid}: Toma 3 sin acción de reacción.")
         words = scene_words(scene)
+        dialogue_cap = int(fmt.get("max_dialogue_words_per_10s_scene") or max_scene_words)
         if words == 0:
             silent += 1
             warnings.append(f"Escena {sid}: sin diálogo.")
         else:
-            if words > max_scene_words:
-                strict(f"Escena {sid}: {words} palabras de diálogo > {max_scene_words} (no cabe en {scene_seconds:.0f}s).")
+            if words > dialogue_cap:
+                errors.append(f"Escena {sid}: {words} palabras de diálogo > {dialogue_cap} (regla global).")
             elif words < min_scene_words:
-                strict(f"Escena {sid}: solo {words} palabras de diálogo (<{min_scene_words}).")
+                warnings.append(f"Escena {sid}: solo {words} palabras de diálogo (<{min_scene_words}).")
         for line_no, count in enumerate(scene_line_words(scene), start=1):
             if count > max_line_words:
-                strict(f"Escena {sid}: línea {line_no} con {count} palabras > {max_line_words}.")
+                errors.append(f"Escena {sid}: línea {line_no} con {count} palabras > {max_line_words}.")
         speech = scene_speech_seconds(scene, wps)
-        if speech > MAX_SCENE_SPEECH_SECONDS:
-            strict(f"Escena {sid}: {speech:.1f}s de habla > {MAX_SCENE_SPEECH_SECONDS:.1f}s.")
+        deadline = float(fmt.get("max_scene_speech_seconds") or MAX_SCENE_SPEECH_SECONDS)
+        if speech > deadline:
+            errors.append(f"Escena {sid}: {speech:.1f}s de habla > {deadline:.1f}s.")
         if not scene.get("beat"):
             warnings.append(f"Escena {sid}: sin beat dramático.")
         if not str(scene.get("sfx_ambience") or "").strip():
@@ -989,6 +1215,18 @@ def validate_master(
         for item in scene.get("characters") or []:
             if str(item or "").strip() and resolve_speaker(str(item), master) is None:
                 unknown_chars.add((sid, str(item)))
+        present = [str(x) for x in (scene.get("characters_present") or []) if str(x).strip()]
+        present_set = set(present)
+        for item in present:
+            if resolve_speaker(item, master) is None:
+                unknown_chars.add((sid, item))
+        for item in scene.get("characters") or []:
+            text = str(item or "").strip()
+            if not text:
+                continue
+            resolved = resolve_speaker(text, master) or text
+            if resolved not in present_set:
+                errors.append(f"Escena {sid}: '{item}' está en characters[] pero no en characters_present[].")
         for entry in scene_dialogue_lines(scene):
             speaker = entry["speaker"]
             if not speaker:
@@ -996,10 +1234,40 @@ def validate_master(
                     strict(f"Escena {sid}: línea sin hablante.")
             elif resolve_speaker(speaker, master) is None:
                 unknown_speakers.add((sid, speaker))
+            else:
+                resolved = resolve_speaker(speaker, master)
+                if resolved not in present_set:
+                    errors.append(f"Escena {sid}: hablante '{speaker}' no está en characters_present[].")
+        key_object = extract_key_object(scene)
+        if not key_object:
+            warnings.append(f"Escena {sid}: sin key_object explícito (la viñeta queda genérica).")
+        panel = str(scene.get("storyboard_panel") or "").strip()
+        panel_flat = re.sub(r"\s+", " ", panel)
+        first_cut = (scene.get("internal_cuts") or [{}])[0]
+        first_framing = str(first_cut.get("framing") or "").strip()
+        first_action = re.sub(r"\s+", " ", str(first_cut.get("action") or "")).strip().rstrip(".")
+        if not panel.startswith("[00s-03s]"):
+            errors.append(f"Escena {sid}: storyboard_panel ausente o sin rango [00s-03s].")
+        if first_framing and first_framing not in panel_flat:
+            errors.append(f"Escena {sid}: storyboard_panel no coincide con el encuadre de Toma 1.")
+        if first_action and first_action not in panel_flat:
+            errors.append(f"Escena {sid}: storyboard_panel no coincide con la acción de Toma 1.")
+        scene_location = str(scene.get("location") or "").strip()
+        if scene_location and scene_location not in panel_flat:
+            errors.append(f"Escena {sid}: storyboard_panel no incluye la ubicación de la escena.")
+        if key_object and key_object not in panel_flat:
+            errors.append(f"Escena {sid}: storyboard_panel no incluye el key_object.")
+        anchors = str(scene.get("character_anchors") or "").strip()
+        cast_index = canonical_cast(master)
+        for cid in present:
+            name = str((cast_index.get(cid) or {}).get("name") or cid)
+            if name not in panel:
+                errors.append(f"Escena {sid}: storyboard_panel no incluye a {name}.")
+            if name not in anchors:
+                errors.append(f"Escena {sid}: character_anchors no incluye a {name}.")
         future = scene.get("continuity_future_refs") or []
         if future:
-            strict(f"Escena {sid}: continuidad con spoiler futuro: {future[0][:70]}")
-        scene_location = str(scene.get("location") or "").strip()
+            errors.append(f"Escena {sid}: continuidad con spoiler futuro: {future[0][:70]}")
         if scene_location and not location_keyword_match(scene_location, master):
             strict(f"Escena {sid}: ubicación '{scene_location}' fuera de la taxonomía declarada.")
 
@@ -1007,6 +1275,28 @@ def validate_master(
         strict(f"Escena {sid}: personaje desconocido '{name}' (no está en characters[]).")
     for sid, speaker in sorted(unknown_speakers):
         strict(f"Escena {sid}: hablante desconocido '{speaker}' (no está en characters[]).")
+
+    ordered = sorted(scenes, key=lambda s: int(s.get("scene_id") or 0))
+    acts = [int(s.get("act") or 0) for s in ordered]
+    if acts != sorted(acts):
+        errors.append("Orden causal roto: los actos retroceden entre escenas consecutivas.")
+    bases: List[str] = []
+    for scene in ordered:
+        base = str(scene.get("location") or "").split(",")[0].strip()
+        bases.append(base)
+    runs: List[int] = []
+    previous = None
+    for base in bases:
+        if base == previous:
+            runs[-1] += 1
+        else:
+            runs.append(1)
+            previous = base
+    if runs and max(runs) < 3:
+        warnings.append(
+            f"Ubicaciones: {len(runs)} bloques con máximo {max(runs)} escena(s) seguida(s); "
+            "la regla recomienda 3-6 escenas por bloque dramático."
+        )
 
     if scenes:
         required = {int(k): v for k, v in (rules.get("required_beats") or {}).items() if str(k).isdigit()}

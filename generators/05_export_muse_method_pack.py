@@ -33,6 +33,8 @@ for _path in (NF_ROOT, GENERATORS_DIR):
 import nf_core as nf  # noqa: E402
 import master_prompts_library as mpl  # noqa: E402
 
+format_character_anchors = nf.format_character_anchors
+
 
 def _load_gen02():
     path = GENERATORS_DIR / "02_export_chatgpt_queue.py"

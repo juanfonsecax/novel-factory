@@ -12,17 +12,21 @@
     "teaser_seconds": 60,
     "scenes_per_act": 10,
     "acts": 6,
-    "words_per_scene_dialogue": [14, 22],
+    "words_per_scene_dialogue": [6, 15],
     "speech_words_per_second": 2.5,
-    "max_scene_words": 22,
-    "max_line_words": 16,
-    "min_scene_words": 12,
-    "max_scene_speech_seconds": 9.0,
+    "max_scene_words": 15,
+    "max_line_words": 15,
+    "min_scene_words": 6,
+    "max_scene_speech_seconds": 8.5,
     "max_scene_seconds": 10,
     "duration_tolerance_sec": 0.05,
     "max_characters": 5,
-    "max_primary_locations": 4,
-    "internal_cuts_per_scene": [2, 4]
+    "max_primary_locations": 5,
+    "internal_cuts_per_scene": [3, 3],
+    "internal_cut_times": [0.0, 3.0, 7.0],
+    "internal_cut_ranges": ["00s-03s", "03s-07s", "07s-10s"],
+    "max_dialogue_words_per_10s_scene": 15,
+    "dialogue_deadline_seconds": 8.5
   },
   "required_beats": {
     "1": "cold_open_hook",
@@ -288,26 +292,44 @@
   },
   "scene_contract": {
     "duration_seconds": 10,
-    "dialogue": "18-30 spoken words total per scene (about 7-9 seconds of speech), native US English, subtext over exposition. Optional second line from another character.",
-    "internal_cuts": "2-4 hard cuts inside the 10 seconds. First cut starts at 0.0. Cut times must be 2.5-4 seconds apart. Every cut changes framing and/or blocking: wide -> medium -> close-up, over-the-shoulder, low angle, insert shot.",
-    "first_frame": "One cinematic 16:9 still per scene. It must be the literal first frame of the clip: same wardrobe, same location, same light, same pose the video starts on. Center-weight the subject so a 9:16 crop still works.",
+    "dialogue": "6-15 spoken words total per scene, hard max 15. Native US English, subtext over exposition. Dialogue must finish before 8.5 seconds. Optional second line from another character.",
+    "internal_cuts": "Exactly 3 shots inside the 10 seconds. Shot 1 runs 00s-03s and starts in motion from the storyboard panel framing. Hard cut at 3.0s to a close-up or over-the-shoulder dialogue/action shot. Hard cut at 7.0s to a tight close-up, reaction or insert. No static first frame and no extra cuts.",
+    "first_frame": "The storyboard panel is the literal first frame of shot 1: same framing, same camera position, same wardrobe, same location, same light and same blocking. Shot 1 begins in motion from that frame. Center-weight the subject so a 9:16 crop still works.",
     "audio": "Native audio only: dialogue, breath, cloth, footsteps, wind, rain, room tone, diegetic SFX. No music in the generated clip (the soundtrack is mixed in post).",
     "no_text": "No subtitles, captions, logos, watermarks, UI or readable text rendered inside the image or video.",
-    "continuity": "Track wardrobe, hair, injuries, props and time of day per act. A scene may not teleport to a new location without a line or a visual transition."
+    "continuity": "Track wardrobe, hair, injuries, props and time of day per act. A scene may not teleport to a new location without a line or a visual transition. Continuity notes describe only the present state of the scene; never reference future scenes."
   },
   "continuity_rules": {
     "wardrobe": "Lock one outfit per character per act; change it only at an act break with a story reason.",
     "props": "The evidence object must be visible or referenced in at least 4 scenes across different acts.",
     "time_of_day": "Acts 1-2 late afternoon to night; act 3 night; act 4 storm night; acts 5-6 next morning to dusk.",
-    "locations": "Reuse 3-4 locations maximum so the audience learns the geography: the lighthouse, the harbor/boathouse, the town hall, the antagonist's house.",
-    "identity": "Reference images define faces. Never describe age, eye color or base hair color in prompts; describe only transient state (hair style, wet hair, flush, sweat, expression, wardrobe)."
+    "locations": "Reuse 3-5 primary locations maximum so the audience learns the geography. Group 3-6 consecutive scenes in the same dramatic situation before changing location, and bridge every location change with a line, a visual transition or a travel beat.",
+    "identity": "Reference images define faces. Every character in a scene must carry a cast-sheet position and a visible identity anchor: name, position number, stable descriptor and wardrobe. Never describe age, eye color or base hair color in prompts; describe only transient state (hair style, wet hair, flush, sweat, expression, wardrobe)."
   },
   "dialogue_rules": {
     "language": "Native US English only. No translated-sounding lines.",
     "style": "Short sentences. Concrete nouns. One subtext line per scene. No therapy-speak, no lecture, no exposition dumps.",
     "profanity": "None. Use implication and silence.",
     "tone": "Restrained, adult, cinematic. Fear and desire are shown through what characters refuse to say.",
-    "per_scene_max_lines": 3
+    "per_scene_max_lines": 3,
+    "max_words_per_scene": 15,
+    "deadline_seconds": 8.5
+  },
+  "story_system": {
+    "causal_order": "Scenes must advance in strict cause-and-effect order. A consequence may never appear before its cause, and no clue may be revealed twice. Every act ends on a decision that forces the next act.",
+    "location_blocks": "Plan 3-6 consecutive scenes inside one continuous dramatic situation before changing location. A location change needs a visible or spoken transition; no teleporting.",
+    "storyboard_sync": "Each scene has exactly one storyboard panel. That panel is the literal first frame of shot 1: same framing, camera position, blocking, wardrobe, light and key object. Shot 1 begins in motion from that exact image.",
+    "identity_anchor": "Every scene prompt lists each present character as: Name (Cast Sheet Pos #N: stable descriptor wearing act wardrobe). The cast sheet uses fixed left-to-right positions and uppercase names.",
+    "shot_plan": "Shot 1 00s-03s: storyboard framing, subject already moving. Shot 2 03s-07s: hard cut to close-up or over-the-shoulder dialogue/action. Shot 3 07s-10s: hard cut to tight close-up, reaction or insert for the turn.",
+    "dialogue_budget": "Maximum 15 spoken words per scene and dialogue must end before 8.5 seconds. Short lines, concrete nouns, no exposition dumps.",
+    "forbidden": [
+      "consequence shown before its cause",
+      "clue revealed in an earlier act and discovered again later",
+      "location teleport without a bridge",
+      "future-scene references inside continuity notes",
+      "static first frame",
+      "inserting the reference sheet between scenes"
+    ]
   },
   "viral_story_templates": {
     "language": "en-US",

@@ -119,12 +119,15 @@ def compose_image_prompt(body: str, style: Dict[str, Any]) -> str:
 
 
 def scene_cast_entries(master: Dict[str, Any], scene: Dict[str, Any]) -> List[Dict[str, Any]]:
-    """Reparto canónico de la escena con el nombre de archivo de su hoja de referencia."""
+    """Reparto canónico de la escena con posición fija y hoja de referencia."""
+    positions = nf.character_position_map(master)
     out: List[Dict[str, Any]] = []
     for character in nf.scene_cast(master, scene):
+        cid = str(character.get("id") or nf.slugify(str(character.get("name") or "")))
         out.append({
-            "id": str(character.get("id") or nf.slugify(str(character.get("name") or ""))),
+            "id": cid,
             "name": str(character.get("name") or character.get("id") or ""),
+            "position": int(positions.get(cid, 0)),
             "reference": nf.reference_stem(character),
         })
     return out
@@ -133,8 +136,11 @@ def scene_cast_entries(master: Dict[str, Any], scene: Dict[str, Any]) -> List[Di
 def _identity_anchor(cast: List[Dict[str, Any]]) -> str:
     if not cast:
         return ""
-    names = ", ".join(f"{c['name']} ({c['reference']})" for c in cast)
-    return f"On screen: {names}. Keep every face and wardrobe identical to the attached reference sheets."
+    names = ", ".join(
+        f"{c['name']} (Cast Sheet Pos #{c.get('position') or '?'}; {c['reference']})"
+        for c in cast
+    )
+    return f"On screen: {names}. Keep every face, cast position and wardrobe identical to the attached reference sheets."
 
 
 def teaser_cover_scenes(master: Dict[str, Any]) -> List[int]:
@@ -156,6 +162,15 @@ def build_queue(master: Dict[str, Any], style: Dict[str, Any]) -> List[Dict[str,
         sid = int(scene.get("scene_id") or 0)
         cast = scene_cast_entries(master, scene)
         body = str(scene.get("first_frame_prompt") or "")
+        panel = str(scene.get("storyboard_panel") or nf.build_storyboard_panel_description(scene, master)).strip()
+        anchors = str(
+            scene.get("character_anchors")
+            or nf.format_character_anchors(scene, master.get("characters_locked") or master.get("characters") or [])
+        ).strip()
+        if panel:
+            body = (body.rstrip(" .") + ". Storyboard panel (exact first frame of Shot 1): " + panel).strip()
+        if anchors:
+            body = (body.rstrip(" .") + ". Identity anchors: " + anchors).strip()
         if cast and "reference_" not in body.lower():
             body = (body.rstrip(" .") + ". " + _identity_anchor(cast)).strip()
         entries.append({
@@ -195,7 +210,9 @@ def write_queue_files(paths: Dict[str, Path], master: Dict[str, Any], entries: L
         "",
     ]
     for entry in entries:
-        cast_note = ", ".join(c["name"] for c in entry["cast"]) or "—"
+        cast_note = ", ".join(
+            f"{c['name']} (Pos #{c.get('position') or '?'})" for c in entry["cast"]
+        ) or "—"
         cover = "  [9:16 PORTADA]" if entry["teaser_cover"] else ""
         labeled_lines += [
             f"=== SCENE {entry['scene_id']:03d} | {entry['filename']} | {entry['shot']} | "
@@ -379,17 +396,19 @@ def _storyboard_grid_prompt(
     for idx, scene in enumerate(group, start=1):
         sid = int(scene.get("scene_id") or 0)
         location = str(scene.get("location") or "").strip()
-        cuts = [cut for cut in (scene.get("internal_cuts") or []) if isinstance(cut, dict)]
-        action = str((cuts[0].get("action") if cuts else "") or scene.get("first_frame_prompt") or "").strip()
-        action = " ".join(action.split())
-        if len(action.split()) > 24:
-            action = " ".join(action.split()[:24]).rstrip(".,;:") + "…"
-        brief = short_scene_brief(scene)
+        panel = str(scene.get("storyboard_panel") or nf.build_storyboard_panel_description(scene, master)).strip()
+        anchors = str(
+            scene.get("character_anchors")
+            or nf.format_character_anchors(scene, master.get("characters_locked") or master.get("characters") or [])
+        ).strip()
         place = f" ({location})" if location else ""
-        lines.append(f"Viñeta {idx} — Escena {sid}{place}: Acción visual: {action} Descripción: {brief}.")
+        lines.append(
+            f"Viñeta {idx} — Escena {sid}{place}: {panel} "
+            f"Identity anchors: {anchors or 'use the cast sheet positions exactly as attached'}."
+        )
     lines += [
         "",
-        "Mantén continuidad exacta de rostros, cuerpos, vestuario, props, locaciones, luz y hora del día entre las 6 viñetas. Cada viñeta es un plano cinematográfico 16:9 con acción legible. No incluyas diálogos, párrafos largos, subtítulos, globos de texto, logos ni marcas de agua; solo la cuadrícula, la numeración y la descripción breve de cada viñeta.",
+        "Mantén continuidad exacta de posiciones, rostros, cuerpos, vestuario, props, locaciones, luz y hora del día entre las 6 viñetas. Cada viñeta es el PRIMER FRAME literal de la Toma 1 de su escena: mismo encuadre, misma cámara, mismo blocking y mismo objeto clave; la acción ya está en movimiento, nunca congelada. Cada viñeta es un plano cinematográfico 16:9 con acción legible. No incluyas diálogos, párrafos largos, subtítulos, globos de texto, logos ni marcas de agua; solo la cuadrícula, la numeración y la descripción breve de cada viñeta.",
     ]
     return "\n".join(lines)
 

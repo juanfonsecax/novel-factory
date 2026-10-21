@@ -19,7 +19,7 @@ listos para el publicador multicanal existente (`USA WHITE/cola/pendientes`).
 
 Cada escena se genera como **un único clip de 10 s** a partir de **un único
 primer fotograma** (First Frame), pero **dentro** de esos 10 s el guion define
-**2-4 cortes de cámara internos** (wide → medium → close-up...). Resultado:
+**3 cortes de cámara exactos** (00s-03s → 03s-07s → 07s-10s). Resultado:
 
 | Ventaja | Por qué importa |
 |---|---|
@@ -179,7 +179,7 @@ novel_factory/
 - `--only-missing` re-exporta solo escenas sin clip; `--show 1-2` imprime prompts.
 - `--platform omni|muse|flow|all`: mismo maestro, tres plantillas de prompt nativas.
   `muse` pide 10 s exactos con audio nativo; `flow` (Veo) asume el tope de 8 s, cierra
-  el diálogo antes de 7.5 s y deja que la postproducción extienda a 10 s.
+  el diálogo antes de 8.5 s y deja que la postproducción extienda a 10 s.
 - **Runner** (`automation/omni_flow_runner.py`):
   - `status`: tabla escena a escena (frame/clip/duración) + `queue_state.json`.
   - `queue`: imprime el prompt de la siguiente escena pendiente (scripting).
@@ -426,9 +426,9 @@ aquí el runner es asistido, no automatizado).
 
 ### `config/showrunner_rules.json` (reglas dramáticas)
 
-- Formato: 60 escenas × 10 s, 6 actos de 10, 3 teasers de 6 escenas, 18-30 palabras
-  de diálogo por escena, 2-4 cortes internos (a 2.5-4 s), máx. 5 personajes y 4
-  localizaciones.
+- Formato: 60 escenas × 10 s, 6 actos de 10, 3 teasers de 6 escenas, 6-15 palabras
+  de diálogo por escena, 3 cortes exactos (0/3/7 s), máx. 5 personajes y 5
+  localizaciones, con bloques de 3-6 escenas por situación dramática.
 - `required_beats`: escenas 1 (hook), 2 (mundo/herida), 10/20/30/40/50 (cliffhangers
   de acto) y 60 (payoff + nuevo hook).
 - Cada acto define objetivo, "must_happen", device de retención y punto de dopamina.

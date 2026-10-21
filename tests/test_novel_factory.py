@@ -106,13 +106,25 @@ class MasterSchemaTests(unittest.TestCase):
         self.assertEqual(len(master["scenes"]), 60)
         first = master["scenes"][0]
         self.assertEqual(first["dialogue"][0]["line"], "Line number 1 spoken by someone at the table.")
-        self.assertGreaterEqual(len(first["internal_cuts"]), 2)
-        self.assertEqual(first["internal_cuts"][0]["at"], 0.0)
+        self.assertEqual([cut["at"] for cut in first["internal_cuts"]], [0.0, 3.0, 7.0])
+        self.assertEqual([cut["range"] for cut in first["internal_cuts"]], ["00s-03s", "03s-07s", "07s-10s"])
+        self.assertTrue(nf.CLOSEUP_RE.search(first["internal_cuts"][1]["framing"]))
+        self.assertTrue(nf.REACTION_RE.search(first["internal_cuts"][2]["framing"]))
+        self.assertTrue(first["storyboard_panel"].startswith("[00s-03s]"))
         self.assertEqual(len(master["teasers"]), 3)
         for teaser in master["teasers"]:
             self.assertEqual(len(teaser["scenes"]), 6)
             self.assertTrue(teaser["hook_text"])
         self.assertIsInstance(warnings, list)
+
+    def test_dialogue_over_fifteen_words_is_an_error(self):
+        payload = minimal_payload()
+        payload["scenes"][0]["dialogue"] = (
+            "One two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen."
+        )
+        master, _ = nf.normalize_master(payload, "unit_slug", "Unit Title")
+        result = nf.validate_master(master)
+        self.assertTrue(any("16 palabras" in error for error in result["errors"]))
 
     def test_partial_rejected_without_flag(self):
         with self.assertRaises(nf.NFError):
@@ -152,7 +164,7 @@ class GeneratorTests(unittest.TestCase):
         rows = GEN03.build_rows(self.master, self.paths, self.style)
         self.assertEqual(len(rows), 60)
         prompt = rows[0]["prompt"]
-        self.assertIn("Begin exactly on the provided first frame", prompt)
+        self.assertIn("The storyboard panel is the exact first frame of Shot 1", prompt)
         self.assertIn("DIALOGUE", prompt)
         self.assertEqual(rows[0]["duration_seconds"], 10)
 
@@ -207,7 +219,7 @@ class MasterPromptTests(unittest.TestCase):
         self.assertTrue(muse[0]["prompt"].startswith("MUSE AI"))
         self.assertIn("10 SECONDS", muse[0]["prompt"])
         self.assertTrue(flow[0]["prompt"].startswith("GOOGLE FLOW"))
-        self.assertIn("7.5 s", flow[0]["prompt"])
+        self.assertIn("8.5 s", flow[0]["prompt"])
         self.assertEqual(muse[0]["platform"], "muse")
         self.assertEqual(flow[0]["platform"], "flow")
 
@@ -268,8 +280,8 @@ class MasterPromptTests(unittest.TestCase):
             self.assertIn("📎 ADJUNTAR EN MUSE AI", batches_text)
             self.assertIn("REF_CAST_MASTER.png", batches_text)
             self.assertIn("REF_GRID_MIN_01.png", batches_text)
-            self.assertIn("formato horizontal 16:9", batches_text)
-            self.assertIn("formato vertical 9:16", batches_text)
+            self.assertIn("Formato: horizontal 16:9", batches_text)
+            self.assertIn("Formato: vertical 9:16", batches_text)
 
     def test_viral_templates_catalog_has_six_us_meganiches(self):
         templates = MPL.list_viral_templates()
@@ -329,8 +341,8 @@ class MasterPromptTests(unittest.TestCase):
             self.assertEqual(data["items"][0]["scenes"], [1, 2, 3, 4, 5, 6])
             first = data["items"][0]
             self.assertEqual(first["reference_images"], ["REF_CAST_MASTER.png", "REF_GRID_MIN_01.png"])
-            self.assertIn("formato horizontal 16:9", first["muse_command"])
-            self.assertIn("formato vertical 9:16", first["muse_command_916"])
+            self.assertIn("Formato: horizontal 16:9", first["muse_command"])
+            self.assertIn("Formato: vertical 9:16", first["muse_command_916"])
 
     def test_storyboard_prompt_includes_all_60_scenes(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -423,8 +435,8 @@ class MusePackTests(unittest.TestCase):
 
     def test_muse_prompts_are_split_by_format_without_attachment_headers(self):
         first = self.pack["batches"][0]
-        self.assertIn("formato horizontal 16:9", first["prompt_16x9_youtube"])
-        self.assertIn("formato vertical 9:16", first["prompt_9x16_vertical"])
+        self.assertIn("Formato: horizontal 16:9", first["prompt_16x9_youtube"])
+        self.assertIn("Formato: vertical 9:16", first["prompt_9x16_vertical"])
         self.assertNotIn("[ADJUNTAR", first["prompt_16x9_youtube"])
         self.assertNotIn("[ADJUNTAR", first["prompt_9x16_vertical"])
         self.assertNotIn("📎 ADJUNTAR", first["prompt_16x9_youtube"])

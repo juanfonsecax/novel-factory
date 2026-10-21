@@ -1,6 +1,6 @@
 # MASTER WORKFLOW PROMPTS READY — The Silent Contract
 
-- Generado: 2026-10-20T22:42:33-05:00
+- Generado: 2026-10-20T23:59:52-05:00
 - Historia fuente: story_brief.md
 - Duración: 10 minuto(s)
 - Escenas: 60 (10 s cada una)
@@ -28,7 +28,7 @@ Lotes de 1 minuto listos: `muse_ai_minute_batches_queue.txt` (10 bloques).
 
 _Convierte la idea base en una arquitectura de alta retención con elenco, locaciones y sinopsis bloque por bloque._
 
-**11,036 caracteres · 1,748 palabras**
+**12,266 caracteres · 1,936 palabras**
 
 ````text
 🧠 PROMPT 000 — ARQUITECTO DE HISTORIAS VIRALES (CHINA / USA MICRO-DRAMA SHOWRUNNER)
@@ -49,16 +49,18 @@ EPISODE:
 - Setting: (not specified)
 
 CAST:
-- Nora Hale (protagonist) | voice: warm mid-range American English, controlled, slightly breathy under pressure
-- Sam Calloway (love_interest) | voice: quiet, low American English, careful diction, warmth under restraint
-- Margaret Keller (antagonist) | voice: low, polished, unhurried American English, never shouts
-- Adrian Keller (antagonist) | voice: smooth mid-range American English, reasonable tone that never quite reaches sincerity
-- Claire Boone (ally) | voice: grounded, plainspoken American English with a slight coastal New England softness
+- Nora Hale (protagonist): early thirties coastal New England woman, wiry build, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, charcoal wool coat over a dark sweater | voice: warm mid-range American English, controlled, slightly breathy under pressure
+- Sam Calloway (love_interest): mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin with salt creases, faded canvas work jacket | voice: quiet, low American English, careful diction, warmth under restraint
+- Margaret Keller (antagonist): late sixties matriarch, tall and straight-backed, silver hair in a low chignon, pale blue eyes, porcelain skin, tailored dove-grey suit and pearls | voice: low, polished, unhurried American English, never shouts
+- Adrian Keller (antagonist): late thirties heir, lean and groomed, ash-blond hair swept back, cold grey eyes, even features, navy blazer over an open collar | voice: smooth mid-range American English, reasonable tone that never quite reaches sincerity
+- Claire Boone (ally): forties small-town lawyer, compact and practical, brown hair in a blunt bob, warm brown eyes, reading glasses on a cord, forest-green cardigan | voice: grounded, plainspoken American English with a slight coastal New England softness
 
 LOCATIONS:
-- Hale lighthouse
-- Keller harbor
-- Town hall
+- Hale lighthouse cliff edge
+- Keller harbor boardwalk
+- Hale lighthouse kitchen
+- Claire Boone's law office
+- Keller boathouse
 - Keller estate
 
 ACT MAP:
@@ -74,8 +76,9 @@ REGLAS DE ORO DE DRAMATURGIA Y RETENCIÓN QUE DEBES APLICAR:
 2. MICRO-GIROS CADA 30 SEGUNDOS (CADA 3 ESCENAS): Cada 3 escenas debe ocurrir una revelación, un conflicto emocional, una mirada prohibida, una confrontación o un obstáculo que impida que el espectador cierre el video.
 3. CLIFFHANGER AL FINAL DE CADA MINUTO (ESCENAS 6, 12, 18...): La última escena de cada bloque de 6 escenas debe terminar en máxima tensión dramática.
 4. PERSONAJES CON CONTRASTE VISUAL INMEDIATO (MÁXIMO 3 A 5 PERSONAJES PRINCIPALES): Diseña personajes cuyo estatus social y personalidad se entiendan en 1 segundo solo por su vestuario (ej. multimillonario arrogante vs. trabajadora humilde con dignidad de hierro; heredera secreta vs. villana elitista).
-5. ECONOMÍA DE ESCENARIOS (MÁXIMO 3 A 5 LOCACIONES): Concentra la acción en locaciones visualmente ricas y contrastantes para mantener continuidad perfecta.
-6. CATÁLOGO DE 6 ESTRUCTURAS VIRALES PROBADAS (LATAM → USA, +500,000 VISTAS): Usa este catálogo como banco de estructuras. Elige UNA sola como columna vertebral de la historia y adáptala al mercado estadounidense en inglés. No copies nombres, marcas ni diálogos: conserva la mecánica emocional y el orden de beats.
+5. ECONOMÍA DE ESCENARIOS (MÁXIMO 3 A 5 LOCACIONES): Concentra la acción en locaciones visualmente ricas y contrastantes para mantener continuidad perfecta. Agrupa 3 a 6 escenas consecutivas en la misma situación dramática antes de cambiar de lugar.
+6. CAUSALIDAD ESTRICTA Y ORDEN CRONOLÓGICO: Cada escena debe ser consecuencia de la anterior y causa de la siguiente. Prohibido mostrar una consecuencia antes de su causa, revelar la misma pista dos veces o teletransportar personajes sin una transición visible o hablada. Cada acto termina en una decisión que obliga al siguiente.
+7. CATÁLOGO DE 6 ESTRUCTURAS VIRALES PROBADAS (LATAM → USA, +500,000 VISTAS): Usa este catálogo como banco de estructuras. Elige UNA sola como columna vertebral de la historia y adáptala al mercado estadounidense en inglés. No copies nombres, marcas ni diálogos: conserva la mecánica emocional y el orden de beats.
 1. The Ranch Laundress and the Stolen Heirloom (`ranch_laundress_stolen_heirloom`)
    Inspiración: @novelasaa7 · 831K vistas · Ranch / Class Revenge.
    Premisa: A humble ranch laundress is publicly accused of stealing the family heirloom. The real thief is a wealthy family member, and the heir she loves is the only one willing to prove her innocence.
@@ -125,7 +128,7 @@ ENTREGA EL RESULTADO EN ESTE FORMATO EXACTO (LISTO PARA COPIAR AL PROMPT 001):
 
 _Crea un storyboard visual en cuadrículas de 6 viñetas (3x2), una imagen por minuto de historia._
 
-**6,659 caracteres · 1,046 palabras**
+**7,877 caracteres · 1,239 palabras**
 
 ````text
 🎬 PROMPT 001 — GENERADOR DE STORYBOARD CINEMATOGRÁFICO (6 ESCENAS POR IMAGEN)
@@ -145,16 +148,18 @@ EPISODE:
 - Setting: (not specified)
 
 CAST:
-- Nora Hale (protagonist) | voice: warm mid-range American English, controlled, slightly breathy under pressure
-- Sam Calloway (love_interest) | voice: quiet, low American English, careful diction, warmth under restraint
-- Margaret Keller (antagonist) | voice: low, polished, unhurried American English, never shouts
-- Adrian Keller (antagonist) | voice: smooth mid-range American English, reasonable tone that never quite reaches sincerity
-- Claire Boone (ally) | voice: grounded, plainspoken American English with a slight coastal New England softness
+- Nora Hale (protagonist): early thirties coastal New England woman, wiry build, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, charcoal wool coat over a dark sweater | voice: warm mid-range American English, controlled, slightly breathy under pressure
+- Sam Calloway (love_interest): mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin with salt creases, faded canvas work jacket | voice: quiet, low American English, careful diction, warmth under restraint
+- Margaret Keller (antagonist): late sixties matriarch, tall and straight-backed, silver hair in a low chignon, pale blue eyes, porcelain skin, tailored dove-grey suit and pearls | voice: low, polished, unhurried American English, never shouts
+- Adrian Keller (antagonist): late thirties heir, lean and groomed, ash-blond hair swept back, cold grey eyes, even features, navy blazer over an open collar | voice: smooth mid-range American English, reasonable tone that never quite reaches sincerity
+- Claire Boone (ally): forties small-town lawyer, compact and practical, brown hair in a blunt bob, warm brown eyes, reading glasses on a cord, forest-green cardigan | voice: grounded, plainspoken American English with a slight coastal New England softness
 
 LOCATIONS:
-- Hale lighthouse
-- Keller harbor
-- Town hall
+- Hale lighthouse cliff edge
+- Keller harbor boardwalk
+- Hale lighthouse kitchen
+- Claire Boone's law office
+- Keller boathouse
 - Keller estate
 
 ACT MAP:
@@ -187,11 +192,13 @@ Cada imagen representa exactamente 1 minuto de historia.
 
 CADA VIÑETA
 Cada viñeta debe mostrar visualmente el momento correspondiente de la historia con encuadre de cine profesional (alternando planos generales establecedores, planos medios dramáticos y primeros planos emocionales).
+Cada viñeta es el PRIMER FRAME literal de la Toma 1 de su escena: mismo encuadre, misma posición de cámara, mismo blocking, mismo vestuario, misma luz y mismo objeto clave. La Toma 1 arranca en movimiento desde esa imagen; nunca es un frame congelado.
 Debe incluir:
-- Personajes.
+- Todos los personajes presentes en la escena, con su posición fija de la Hoja de Personajes.
 - Lugar.
-- Acción física clara.
+- Acción física clara ya en movimiento.
 - Emoción intensa en los rostros.
+- El objeto clave de la escena visible o claramente implicado.
 - Composición e iluminación cinematográfica.
 Debajo de cada viñeta puede aparecer una descripción extremadamente breve de la escena, de aproximadamente 5 a 10 palabras.
 Ejemplo:
@@ -257,7 +264,7 @@ A partir de la historia, duración y estilo proporcionados:
 
 _Extrae del storyboard una hoja maestra con todos los personajes relevantes y su vestuario principal._
 
-**4,341 caracteres · 664 palabras**
+**4,568 caracteres · 707 palabras**
 
 ````text
 👤 PROMPT 002 — GENERADOR DE PERSONAJES (HOJA MAESTRA EN UNA SOLA IMAGEN)
@@ -319,12 +326,14 @@ Utiliza para cada personaje su vestuario más representativo o principal dentro 
 El vestuario debe ayudar a identificar inmediatamente quién es cada personaje.
 
 TEXTO
-Coloca debajo de cada personaje únicamente:
-Nombre del personaje y su rol corto.
+Ordena a los personajes de izquierda a derecha y coloca debajo de cada uno únicamente:
+Position #N — NOMBRE DEL PERSONAJE EN MAYÚSCULAS
 Ejemplo:
-ELENA — Protagonist
-COLTON — Gardener
-VICTORIA — Mother
+Position #1 (Far Left) — ELENA
+Position #2 — SAM
+Position #3 — MARGARET
+Position #4 (Far Right) — ADRIAN
+Cada personaje conserva siempre la misma posición, el mismo rostro y el mismo vestuario en la hoja y en todas las escenas.
 No incluir:
 - Descripciones largas.
 - Diálogos.
@@ -345,7 +354,7 @@ Entrega solamente la imagen de los personajes.
 
 _Convierte el storyboard en escenas de 10 s con cortes internos, SFX, diálogo en inglés y comando final para Muse AI._
 
-**4,463 caracteres · 709 palabras**
+**4,790 caracteres · 763 palabras**
 
 ````text
 🎬 PROMPT 003 — GENERADOR DE GUION CINEMATOGRÁFICO EN INGLÉS + CAMBIOS DE CÁMARA + SONIDO (OPTIMIZADO PARA MUSE AI Y GOOGLE FLOW)
@@ -364,44 +373,49 @@ Debes mantener exactamente el mismo número y orden de escenas del storyboard.
 NO debes agregar ni eliminar escenas.
 Cada escena debe corresponder directamente a su respectiva viñeta del storyboard.
 
-DIÁLOGOS EN INGLÉS (REGLA DE ORO DE 7–8 SEGUNDOS)
+DIÁLOGOS EN INGLÉS (REGLA DURA: MÁXIMO 15 PALABRAS POR ESCENA)
 Todos los diálogos hablados deben estar en INGLÉS natural, dramático y emocional.
-Los diálogos deben estar diseñados para poder decirse completamente dentro de los 10 segundos de duración de cada escena.
-Como regla estricta de seguridad:
-- El diálogo hablado NO debe superar 7–8 segundos (máximo entre 15 y 20 palabras en inglés por escena).
-- Esto deja entre 2 y 3 segundos obligatorios para: pausas dramáticas, expresiones faciales, gestos, movimientos, miradas y reacciones visuales.
-- Nunca cortes una frase simplemente porque terminó el tiempo. El diálogo de cada escena debe tener inicio y final completo dentro de esos 7–8 segundos. Si una idea necesita más tiempo, divídela entre diferentes escenas de forma natural.
-- NO TODAS LAS ESCENAS NECESITAN DIÁLOGO: Si una escena funciona mejor visualmente (un beso, una mirada de impacto, descubrir una prueba), déjala como “Dialogue: No dialogue (Pure visual & sound tension).”
+- Máximo 15 palabras por escena y máximo 15 por intervención.
+- La voz debe terminar antes de 8.5 segundos; deja el resto para pausas, miradas y reacciones.
+- Nunca cortes una frase por tiempo: si una idea necesita más, divídela entre escenas.
+- No todas las escenas necesitan diálogo: usa "No dialogue (Pure visual & sound tension)." cuando la imagen hable mejor.
 
-DIRECCIÓN DE CÁMARA MULTI-PLANO Y SONIDO (DENTRO DE CADA ESCENA DE 10s)
-Para que el video generado en Muse AI / Google Flow sea dinámico como una serie real y nunca sea una toma estática aburrida, en cada escena de 10 segundos debes especificar:
-1. CAMBIOS DE CÁMARA INTERNOS (2 a 3 cortes dentro del mismo lugar de la viñeta):
-   - [00s–03s] Plano inicial (ej. Medium/Wide Shot estableciendo la acción de la viñeta).
-   - [03s–07s] Corte a Primer Plano (Close-Up / Over-the-Shoulder del personaje hablando con lip-sync claro).
-   - [07s–10s] Corte a Plano de Reacción (Extreme Close-Up de los ojos, manos temblando o impacto emocional del otro personaje).
-2. DISEÑO SONORO (SFX & AMBIENCE) Y VOZ:
+DIRECCIÓN DE CÁMARA: EXACTAMENTE 3 TOMAS POR ESCENA DE 10s
+1. TRES TOMAS OBLIGATORIAS:
+   - [00s–03s] Toma 1: arranca EN MOVIMIENTO desde el frame exacto de la viñeta. Mismo encuadre, misma posición de cámara, mismo blocking, mismo vestuario, misma luz y mismo objeto clave. Prohibido abrir con un frame estático.
+   - [03s–07s] Corte duro a close-up u over-the-shoulder del personaje que habla o actúa, con lip-sync claro.
+   - [07s–10s] Corte duro a tight close-up, reacción o insert del objeto clave.
+2. IDENTIDAD Y POSICIONES:
+   - Cada personaje presente se nombra como Nombre (Cast Sheet Pos #N: descriptor estable, wearing vestuario del acto).
+   - La Hoja de Personajes fija posiciones de izquierda a derecha; nunca insertes esa hoja como plano entre escenas.
+3. DISEÑO SONORO (SFX & AMBIENCE) Y VOZ:
    - Especifica el timbre de voz constante de quien habla (ej. "Warm emotional young female voice" / "Deep authoritative male baritone voice").
    - Especifica los efectos de sonido realistas del entorno (ej. "Rain on window, footsteps on gravel, tense dramatic silence").
+4. CAUSALIDAD Y LOCACIÓN:
+   - Cada escena es consecuencia de la anterior y causa de la siguiente. Prohibido revelar una consecuencia antes de su causa o repetir la misma pista.
+   - Agrupa 3 a 6 escenas consecutivas en la misma situación dramática antes de cambiar de lugar. Todo cambio de lugar necesita una transición visible o hablada.
 
 ESTRUCTURA OBLIGATORIA DE CADA ESCENA
 Para cada escena utiliza exactamente esta estructura:
 
 ESCENA [N] (Viñeta #[N] del Storyboard) — [MM:SS–MM:SS]
 - Location: [Lugar exacto de la viñeta]
-- Characters Present: [Nombres exactos según la Hoja de Personajes]
+- Characters Present: [Nombre (Cast Sheet Pos #N), ...]
+- Storyboard Panel (Shot 1 exact framing): [ encuadre + acción de la viñeta + objeto clave + todos los presentes ]
+- Identity Anchors: [Nombre (Cast Sheet Pos #N: descriptor, wearing vestuario), ...]
 - Camera Cuts & Visual Action (10s):
-  * [00s–03s]: [Encuadre + acción inicial]
-  * [03s–07s]: [Corte de cámara + gesto mientras habla]
-  * [07s–10s]: [Corte de cámara + reacción emocional final]
+  * [00s–03s]: [Encuadre exacto de la viñeta + acción ya en movimiento]
+  * [03s–07s]: [Corte duro a close-up/OTS + gesto mientras habla]
+  * [07s–10s]: [Corte duro a tight close-up/reacción/insert del objeto]
 - Sound Design (SFX & Voice Tone): [Efectos de sonido del ambiente + tono de voz fijo del personaje]
-- Dialogue (English, 6–8 sec max):
-  [NOMBRE DEL PERSONAJE]: “[Diálogo en inglés breve, potente y 100% completo, máx. 18-20 palabras]”
+- Dialogue (English, max 15 words, finish before 8.5 s):
+  [NOMBRE DEL PERSONAJE]: "[Diálogo en inglés breve, concreto y completo, máx. 15 palabras]"
 
 RESULTADO FINAL
 Entrega únicamente el bloque de escenas con la estructura anterior y, al final de las escenas, incluye este comando exacto listo para copiar y pegar junto con el guion en MUSE AI:
 
 COMANDO FINAL PARA PEGAR EN MUSE AI (JUNTO CON EL STORYBOARD Y LA HOJA DE PERSONAJES ADJUNTOS):
-"Usando estrictamente la apariencia y vestuario de los personajes en la Hoja de Personajes adjunta y recreando en orden cada viñeta del Storyboard adjunto: Haz un video cinematográfico realista de 10 segundos por cada escena respetando los cambios de cámara ([00s-03s], [03s-07s], [07s-10s]), el diseño sonoro y los diálogos hablados en INGLÉS con la misma voz para cada personaje, y luego únelos todos para que quede un solo video continuo en formato 16:9."
+"Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando los 3 cambios de cámara ([00s-03s] arrancando directamente en movimiento desde el encuadre exacto de la viñeta correspondiente sin frames estáticos, [03s-07s] corte a plano de diálogo/acción, y [07s-10s] corte a plano de reacción), manteniendo estrictamente la misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre escenas. Formato: 16:9."
 ````
 
 ## PROMPT 003 — Variante 9:16 (teasers / Reels / Shorts)
@@ -425,42 +439,47 @@ Debes mantener exactamente el mismo número y orden de escenas del storyboard.
 NO debes agregar ni eliminar escenas.
 Cada escena debe corresponder directamente a su respectiva viñeta del storyboard.
 
-DIÁLOGOS EN INGLÉS (REGLA DE ORO DE 7–8 SEGUNDOS)
+DIÁLOGOS EN INGLÉS (REGLA DURA: MÁXIMO 15 PALABRAS POR ESCENA)
 Todos los diálogos hablados deben estar en INGLÉS natural, dramático y emocional.
-Los diálogos deben estar diseñados para poder decirse completamente dentro de los 10 segundos de duración de cada escena.
-Como regla estricta de seguridad:
-- El diálogo hablado NO debe superar 7–8 segundos (máximo entre 15 y 20 palabras en inglés por escena).
-- Esto deja entre 2 y 3 segundos obligatorios para: pausas dramáticas, expresiones faciales, gestos, movimientos, miradas y reacciones visuales.
-- Nunca cortes una frase simplemente porque terminó el tiempo. El diálogo de cada escena debe tener inicio y final completo dentro de esos 7–8 segundos. Si una idea necesita más tiempo, divídela entre diferentes escenas de forma natural.
-- NO TODAS LAS ESCENAS NECESITAN DIÁLOGO: Si una escena funciona mejor visualmente (un beso, una mirada de impacto, descubrir una prueba), déjala como “Dialogue: No dialogue (Pure visual & sound tension).”
+- Máximo 15 palabras por escena y máximo 15 por intervención.
+- La voz debe terminar antes de 8.5 segundos; deja el resto para pausas, miradas y reacciones.
+- Nunca cortes una frase por tiempo: si una idea necesita más, divídela entre escenas.
+- No todas las escenas necesitan diálogo: usa "No dialogue (Pure visual & sound tension)." cuando la imagen hable mejor.
 
-DIRECCIÓN DE CÁMARA MULTI-PLANO Y SONIDO (DENTRO DE CADA ESCENA DE 10s)
-Para que el video generado en Muse AI / Google Flow sea dinámico como una serie real y nunca sea una toma estática aburrida, en cada escena de 10 segundos debes especificar:
-1. CAMBIOS DE CÁMARA INTERNOS (2 a 3 cortes dentro del mismo lugar de la viñeta):
-   - [00s–03s] Plano inicial (ej. Medium/Wide Shot estableciendo la acción de la viñeta).
-   - [03s–07s] Corte a Primer Plano (Close-Up / Over-the-Shoulder del personaje hablando con lip-sync claro).
-   - [07s–10s] Corte a Plano de Reacción (Extreme Close-Up de los ojos, manos temblando o impacto emocional del otro personaje).
-2. DISEÑO SONORO (SFX & AMBIENCE) Y VOZ:
+DIRECCIÓN DE CÁMARA: EXACTAMENTE 3 TOMAS POR ESCENA DE 10s
+1. TRES TOMAS OBLIGATORIAS:
+   - [00s–03s] Toma 1: arranca EN MOVIMIENTO desde el frame exacto de la viñeta. Mismo encuadre, misma posición de cámara, mismo blocking, mismo vestuario, misma luz y mismo objeto clave. Prohibido abrir con un frame estático.
+   - [03s–07s] Corte duro a close-up u over-the-shoulder del personaje que habla o actúa, con lip-sync claro.
+   - [07s–10s] Corte duro a tight close-up, reacción o insert del objeto clave.
+2. IDENTIDAD Y POSICIONES:
+   - Cada personaje presente se nombra como Nombre (Cast Sheet Pos #N: descriptor estable, wearing vestuario del acto).
+   - La Hoja de Personajes fija posiciones de izquierda a derecha; nunca insertes esa hoja como plano entre escenas.
+3. DISEÑO SONORO (SFX & AMBIENCE) Y VOZ:
    - Especifica el timbre de voz constante de quien habla (ej. "Warm emotional young female voice" / "Deep authoritative male baritone voice").
    - Especifica los efectos de sonido realistas del entorno (ej. "Rain on window, footsteps on gravel, tense dramatic silence").
+4. CAUSALIDAD Y LOCACIÓN:
+   - Cada escena es consecuencia de la anterior y causa de la siguiente. Prohibido revelar una consecuencia antes de su causa o repetir la misma pista.
+   - Agrupa 3 a 6 escenas consecutivas en la misma situación dramática antes de cambiar de lugar. Todo cambio de lugar necesita una transición visible o hablada.
 
 ESTRUCTURA OBLIGATORIA DE CADA ESCENA
 Para cada escena utiliza exactamente esta estructura:
 
 ESCENA [N] (Viñeta #[N] del Storyboard) — [MM:SS–MM:SS]
 - Location: [Lugar exacto de la viñeta]
-- Characters Present: [Nombres exactos según la Hoja de Personajes]
+- Characters Present: [Nombre (Cast Sheet Pos #N), ...]
+- Storyboard Panel (Shot 1 exact framing): [ encuadre + acción de la viñeta + objeto clave + todos los presentes ]
+- Identity Anchors: [Nombre (Cast Sheet Pos #N: descriptor, wearing vestuario), ...]
 - Camera Cuts & Visual Action (10s):
-  * [00s–03s]: [Encuadre + acción inicial]
-  * [03s–07s]: [Corte de cámara + gesto mientras habla]
-  * [07s–10s]: [Corte de cámara + reacción emocional final]
+  * [00s–03s]: [Encuadre exacto de la viñeta + acción ya en movimiento]
+  * [03s–07s]: [Corte duro a close-up/OTS + gesto mientras habla]
+  * [07s–10s]: [Corte duro a tight close-up/reacción/insert del objeto]
 - Sound Design (SFX & Voice Tone): [Efectos de sonido del ambiente + tono de voz fijo del personaje]
-- Dialogue (English, 6–8 sec max):
-  [NOMBRE DEL PERSONAJE]: “[Diálogo en inglés breve, potente y 100% completo, máx. 18-20 palabras]”
+- Dialogue (English, max 15 words, finish before 8.5 s):
+  [NOMBRE DEL PERSONAJE]: "[Diálogo en inglés breve, concreto y completo, máx. 15 palabras]"
 
 RESULTADO FINAL
 Entrega únicamente el bloque de escenas con la estructura anterior y, al final de las escenas, incluye este comando exacto listo para copiar y pegar junto con el guion en MUSE AI:
 
 COMANDO FINAL PARA PEGAR EN MUSE AI (JUNTO CON EL STORYBOARD Y LA HOJA DE PERSONAJES ADJUNTOS):
-"Usando estrictamente la apariencia y vestuario de los personajes en la Hoja de Personajes adjunta y recreando en orden cada viñeta del Storyboard adjunto: Haz un video cinematográfico realista de 10 segundos por cada escena respetando los cambios de cámara ([00s-03s], [03s-07s], [07s-10s]), el diseño sonoro y los diálogos hablados en INGLÉS con la misma voz para cada personaje, y luego únelos todos para que quede un solo video continuo en formato 9:16."
+"Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando los 3 cambios de cámara ([00s-03s] arrancando directamente en movimiento desde el encuadre exacto de la viñeta correspondiente sin frames estáticos, [03s-07s] corte a plano de diálogo/acción, y [07s-10s] corte a plano de reacción), manteniendo estrictamente la misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre escenas. Formato: 9:16."
 ````
