@@ -48,7 +48,7 @@ regenerates projects, runs `pytest -v` and commits.
 - [x] T5 Dashboard: 4 numbered steps, project selector, format selector, 10+10 cards, legacy accordion.
 - [x] T6 Tests: prompt cleanliness, split prompts, six templates, dashboard guide.
 - [x] T7 Regenerate `demo_contract` and `the_ranch_maid_heiress`; run `pytest -v`.
-- [ ] T8 Commit the verified change.
+- [x] T8 Commit the verified change.
 
 ## Acceptance criteria
 - `MUSE_PRODUCTION_PACK.json` and `chatgpt_storyboard_grids_queue.json` contain no `[ADJUNTAR`
@@ -70,7 +70,7 @@ regenerates projects, runs `pytest -v` and commits.
 - T5: dashboard renders PASO 1–4, project and format selectors, 10 storyboard mini-cards, 10 batch cards, dual save paths/status, assembly command and the closed legacy accordion.
 - T6: new tests cover cast prompt cleanliness, split format prompts, six templates, generator 01 catalog injection and dashboard tokens.
 - T7: regenerated both projects; `python -m compileall -q automation generators nf_core.py` OK; `pytest -v` -> 78 passed. Server smoke test: `/`, `/p/<slug>/` and a project asset return HTTP 200; inline JS passes `node --check`.
-- T8: pending commit.
+- T8: commit `3131c77` (`feat(dashboard): add four-step viral production guide`).
 
 ## Next step
-- Commit the verified change and record the commit identity here.
+- Generate the real assets (cast master, 10 storyboards, 10 Muse batches) and assemble the first episode.
