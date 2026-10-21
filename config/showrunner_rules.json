@@ -124,6 +124,140 @@
       "dopamine_point": "Scene 56-59: public humiliation of the antagonist and the protagonist's final refusal."
     }
   ],
+  "viral_latam_to_usa_templates": [
+    {
+      "id": "ranch_laundress_stolen_heirloom",
+      "name": "The Ranch Laundress and the Stolen Heirloom",
+      "source": "@novelasaa7",
+      "views": "831K",
+      "genre": "Ranch / Class Revenge",
+      "setting": "Texas or Montana ranch",
+      "premise": "A humble ranch laundress is publicly accused of stealing the family heirloom. The real thief is a wealthy family member, and the heir she loves is the only one willing to prove her innocence.",
+      "protagonist": "A proud ranch laundress who is humiliated in front of the whole family.",
+      "antagonist": "The entitled relative who planted the heirloom and the matriarch who protects the family name.",
+      "love_interest": "The heir who risks his inheritance to defend her.",
+      "hook": "They accused the help. The thief wore the family name.",
+      "structure": [
+        "Public humiliation: the heirloom disappears during a family gathering and the laundress is accused.",
+        "A physical detail contradicts the accusation: mud on the wrong boots, a broken clasp, a locked room.",
+        "The heir investigates and discovers the planted evidence and the family cover-up.",
+        "The laundress is forced to leave; the heir stops her at the gate with proof.",
+        "Public reveal before the family and the town: the real thief is exposed.",
+        "Payoff: the laundress is vindicated, the heir chooses her, and a new family secret opens."
+      ],
+      "usa_adaptation": "Texas or Montana ranch, county fair or ranch anniversary party, US English, land and class stakes, conservative family dynasty."
+    },
+    {
+      "id": "humiliated_vagabond_is_billionaire_owner",
+      "name": "The Humiliated Vagabond Is the Billionaire Owner",
+      "source": "@Mini_Dramas07",
+      "views": "658K",
+      "genre": "Hidden Billionaire / Revenge",
+      "setting": "Miami luxury hotel or New York penthouse",
+      "premise": "A shabbily dressed man is thrown out of a luxury hotel by staff who mock him. He is the anonymous new owner, and the woman who defended him becomes the only person he trusts.",
+      "protagonist": "A quiet, underestimated man disguised as a vagabond.",
+      "antagonist": "The arrogant hotel manager and the socialite who humiliates him.",
+      "love_interest": "The receptionist or maid who treats him with dignity.",
+      "hook": "They threw out the man who owns the building.",
+      "structure": [
+        "Humiliation: staff mock and physically remove the vagabond from the lobby.",
+        "The heroine defends him and loses her job for it.",
+        "The vagabond returns as the anonymous owner and quietly changes the power dynamic.",
+        "The manager tries to cover up the abuse and frames the heroine.",
+        "Public reveal: the owner identifies himself and exposes the manager's fraud.",
+        "Payoff: the heroine is promoted or chosen, and the manager faces the consequences."
+      ],
+      "usa_adaptation": "Miami or New York luxury property, US English, service-industry class conflict, public status reversal."
+    },
+    {
+      "id": "hidden_will_secret_daughter",
+      "name": "The Hidden Will and the Secret Daughter",
+      "source": "@DramaReelsUSA",
+      "views": "712K",
+      "genre": "Family Secret / Inheritance",
+      "setting": "New England estate or Southern plantation house",
+      "premise": "A dying patriarch leaves everything to an unknown daughter. The legitimate heirs challenge the will, and the caregiver who witnessed the signing becomes the target.",
+      "protagonist": "The secret daughter or the caregiver who knows the truth.",
+      "antagonist": "The eldest legitimate heir who will lose everything.",
+      "love_interest": "The family lawyer or the heir who chooses the truth over the inheritance.",
+      "hook": "The will named a daughter no one had ever met.",
+      "structure": [
+        "The reading of the will reveals an unknown daughter and freezes the family.",
+        "The legitimate heirs accuse the caregiver or lawyer of forgery.",
+        "A hidden letter, photograph or birth record proves the secret daughter exists.",
+        "The family offers money to bury the truth; the protagonist refuses.",
+        "Public hearing: the eldest heir's fraud is exposed.",
+        "Payoff: the secret daughter claims her name, and a second will opens a new mystery."
+      ],
+      "usa_adaptation": "New England or Southern estate, US English, probate hearing, family dynasty and legitimacy stakes."
+    },
+    {
+      "id": "contract_marriage_proud_foreman",
+      "name": "Contract Marriage with the Proud Foreman",
+      "source": "@LoveDramaLatam",
+      "views": "594K",
+      "genre": "Contract Marriage / Romance",
+      "setting": "Wyoming ranch or Pacific Northwest construction site",
+      "premise": "A desperate woman agrees to a one-year contract marriage with a proud foreman to save her family business. He thinks she is spoiled; she thinks he is cold. A shared enemy forces them to choose each other.",
+      "protagonist": "A determined businesswoman hiding her family's bankruptcy.",
+      "antagonist": "The rival contractor or the ex who wants the business.",
+      "love_interest": "The proud foreman who signs the contract for his own secret reason.",
+      "hook": "She bought a husband for one year. He wanted the truth.",
+      "structure": [
+        "The contract marriage is signed under public pressure.",
+        "Forced proximity reveals the foreman's secret debt and the heroine's collapsing business.",
+        "A sabotage at the worksite puts the heroine in danger and the foreman protects her.",
+        "The antagonist exposes the contract to humiliate them; the couple turns it into a real commitment.",
+        "Public confrontation: the sabotage is traced to the antagonist.",
+        "Payoff: the contract is torn up, a real proposal lands, and a new threat appears."
+      ],
+      "usa_adaptation": "Wyoming ranch or Pacific Northwest construction, US English, blue-collar vs. family-business class tension."
+    },
+    {
+      "id": "untamable_champion_horse",
+      "name": "The Untamable Horse and the Champion",
+      "source": "@RanchDramaEN",
+      "views": "487K",
+      "genre": "Horse Ranch / Second Chance",
+      "setting": "Kentucky horse farm or Texas ranch",
+      "premise": "A disgraced horse trainer returns to save an untamable champion horse. The owner who fired her is the man who broke her heart, and a rival stable wants the horse destroyed.",
+      "protagonist": "A disgraced trainer with a gift for difficult horses.",
+      "antagonist": "The rival stable owner and the vet who is secretly in debt to him.",
+      "love_interest": "The farm owner who once chose his family over her.",
+      "hook": "The horse that killed her career is the only one who trusts her.",
+      "structure": [
+        "The trainer is publicly blamed for a horse's injury and banned from the circuit.",
+        "She returns to save the untamable champion and confronts the owner who fired her.",
+        "A hidden injury or doped feed reveals the rival stable's sabotage.",
+        "The horse bonds with her, proving her method works before the championship.",
+        "Public race: the sabotage is exposed and the rival stable is disqualified.",
+        "Payoff: the owner chooses her, the horse wins, and a new race or threat opens."
+      ],
+      "usa_adaptation": "Kentucky or Texas horse country, US English, championship race, second-chance romance and animal stakes."
+    },
+    {
+      "id": "grandmas_buried_secret_betrayal",
+      "name": "Grandma's Buried Secret and the Family Betrayal",
+      "source": "@NovelasUSA",
+      "views": "902K",
+      "genre": "Family Betrayal / Mystery",
+      "setting": "Louisiana bayou or Appalachian family home",
+      "premise": "At a grandmother's funeral, a granddaughter finds a buried box that proves the family fortune was stolen from another branch of the family. The relatives who built their lives on the lie will do anything to keep it buried.",
+      "protagonist": "A granddaughter returning home with nothing left to lose.",
+      "antagonist": "The uncle or aunt who controls the family business and the local sheriff.",
+      "love_interest": "The childhood friend or outsider who helps her dig for the truth.",
+      "hook": "Grandma left a box in the ground and a warning on the lid.",
+      "structure": [
+        "At the funeral, the granddaughter finds a buried box with a name no one recognizes.",
+        "The family denies the name; the uncle threatens her inheritance.",
+        "She uncovers an old land deed, a photograph and a witness who was paid to stay quiet.",
+        "The uncle destroys evidence and has her arrested or run out of town.",
+        "Public reveal at the family business or town meeting: the stolen fortune is exposed.",
+        "Payoff: the rightful branch is restored, and a second grave or name opens the next mystery."
+      ],
+      "usa_adaptation": "Louisiana bayou or Appalachian town, US English, funeral and land deed stakes, family-business betrayal."
+    }
+  ],
   "retention_engine": {
     "open_loop_types": [
       "unanswered question in the first line",
@@ -174,6 +308,170 @@
     "profanity": "None. Use implication and silence.",
     "tone": "Restrained, adult, cinematic. Fear and desire are shown through what characters refuse to say.",
     "per_scene_max_lines": 3
+  },
+  "viral_story_templates": {
+    "language": "en-US",
+    "market": "United States",
+    "selection_mode": "single",
+    "items": [
+      {
+        "id": "usa_01_secret_billionaire_divorce",
+        "label": "The Secret Billionaire Divorce",
+        "category": "Corporate / CEO",
+        "rpm_rank": 1,
+        "description": "Esposa o esposo humilde es despreciado y divorciado sin que sepan que es el magnate dueño del grupo empresarial.",
+        "protagonist": "Maya Reed, the overlooked spouse who secretly controls Hartwell Global",
+        "antagonist": "Diana Hartwell, the family matriarch who built her social power on erasing Maya",
+        "ally": "Noah Price, the family lawyer who kept Maya's original trust documents",
+        "premise_seed": "For six years, Maya Reed has been the invisible spouse of the Hartwell family: mocked at dinners, erased from the company directory, and finally handed divorce papers by her husband, Grant. No one knows that the 'temp' they humiliate owns the controlling shares of Hartwell Global, the group Grant's mother is desperate to save. When the board meets to strip her of everything, Maya walks in with the original trust documents and the one signature that can end their empire before lunch.",
+        "opening_hook": "Grant slides the divorce papers across a boardroom table while his mother tells Maya she was never family; Maya calmly signs — then asks the board to read the ownership clause.",
+        "must_include": [
+          "public humiliation by the spouse's family",
+          "secret ownership proof revealed at a board meeting",
+          "one ally who preserved the documents",
+          "a public reversal where the powerful family must ask for mercy"
+        ],
+        "primary_locations": [
+          "glass corporate boardroom",
+          "Hartwell family penthouse",
+          "underground parking garage",
+          "company gala ballroom"
+        ],
+        "visual_signature": "cold blue glass and marble against Maya's warm neutral tailoring; expensive suits, restrained jewelry, power expressed through silence and documents",
+        "series_hook": "Maya does not want the company back. She wants the name of the person who erased her mother from the shareholder registry."
+      },
+      {
+        "id": "usa_02_heartland_ranch_heiress",
+        "label": "The Heartland Ranch Heiress",
+        "category": "Texas / Montana Ranch",
+        "rpm_rank": 2,
+        "description": "Trabajadora o peón humillado en un rancho resulta ser el heredero legítimo o comprador multimillonario.",
+        "protagonist": "Jessie Mae Carter, a stable hand who has worked the Double Spur for nine years",
+        "antagonist": "Harlan Caldwell Jr., the eldest son who fires her and accuses her of stealing",
+        "ally": "Ada Bell, the county lawyer who arrives with the sealed will",
+        "premise_seed": "At the Double Spur Ranch in Montana, Jessie Mae Carter works dawn to dark for the Caldwell family, sleeping above the tack room and eating with the hands. The morning after old man Caldwell dies, his eldest son fires her, accuses her of stealing the herd, and has her truck searched in front of the bunkhouse. The will that arrives with the county lawyer names Jessie as the sole heir of the twelve-thousand-acre spread — and the silent buyer who has been circling the ranch is her own land trust.",
+        "opening_hook": "Jessie is ordered out of the bunkhouse in the rain while the Caldwell sons toast their inheritance; the county lawyer's car turns up the drive with a sealed envelope.",
+        "must_include": [
+          "public humiliation of a ranch worker",
+          "sealed will naming the worker as sole heir",
+          "a land trust or billionaire buyer reveal",
+          "the family forced to ask the heir for mercy"
+        ],
+        "primary_locations": [
+          "Montana ranch bunkhouse",
+          "snow-fenced pasture",
+          "Caldwell ranch house kitchen",
+          "county courthouse steps"
+        ],
+        "visual_signature": "wide Big Sky landscapes, dust and frost, worn denim and leather against the Caldwells' polished boots and new trucks",
+        "series_hook": "The deed carries a second name Jessie has never seen: her mother's maiden name, dated the week she disappeared."
+      },
+      {
+        "id": "usa_03_instant_karma_vip_humiliation",
+        "label": "First Class Karma",
+        "category": "VIP Karma",
+        "rpm_rank": 3,
+        "description": "Gerente o persona clasista humilla en Primera Clase, concesionario de lujo u hospital a alguien vestido sencillo que resulta ser el dueño o cirujano eminencia.",
+        "protagonist": "Dr. Ava Sinclair, chief of surgery and the hidden owner of the dealership group",
+        "antagonist": "Trevor Hale, the showroom manager who judges her by her work clothes",
+        "ally": "Nora Kim, the general manager who answers to the board",
+        "premise_seed": "At a Dallas luxury dealership, manager Trevor Hale refuses to let a woman in worn scrubs and no makeup sit inside the showroom car. He mocks her in front of the staff, calls security, and tells her the service entrance is around back. The woman is Dr. Ava Sinclair, chief of surgery at St. Jude's and the sole owner of the dealership's parent group. She leaves without a word. Ninety minutes later she returns with the purchase agreement, the board, and the one customer Trevor cannot afford to lose.",
+        "opening_hook": "A security guard puts a hand on Ava's arm while Trevor laughs with a customer; Ava looks at the camera, then at the dealership name on the glass.",
+        "must_include": [
+          "classist humiliation in a public luxury space",
+          "quiet identity reveal",
+          "institutional reversal with board or hospital authority",
+          "the humiliated person refuses revenge that would hurt innocent staff"
+        ],
+        "primary_locations": [
+          "luxury car showroom",
+          "hospital executive corridor",
+          "dealership back office",
+          "charity gala valet"
+        ],
+        "visual_signature": "polished chrome and glass against hospital whites; Ava's plain scrubs become the most powerful uniform in the room",
+        "series_hook": "Ava buys the dealership for one reason: the previous owner was the surgeon who covered up her sister's death."
+      },
+      {
+        "id": "usa_04_silver_hair_grandma_inheritance",
+        "label": "The Silver-Hair Inheritance",
+        "category": "Family Justice",
+        "rpm_rank": 4,
+        "description": "Madre o abuela despreciada por hijos ambiciosos revela su fortuna oculta y la entrega en el testamento a quien la cuidó con nobleza.",
+        "protagonist": "Anna Whitaker, the granddaughter who stayed",
+        "co_protagonist": "Rose Whitaker, the grandmother everyone underestimated",
+        "antagonist": "Claire Whitaker, the eldest daughter who wants the lake house sold",
+        "ally": "Mr. Ellis, the estate lawyer",
+        "premise_seed": "For twenty years, Rose Whitaker has been treated like a burden by her three successful children, shuffled between guest rooms and forgotten on holidays. Only her granddaughter, Anna, stayed: cooking, driving her to appointments, and never asking for a cent. When the family gathers to move Rose into a care home and sell her lake house, the estate lawyer arrives with a sealed trust. Rose owns half the town's waterfront, and her will leaves every share to the one person who treated her like family.",
+        "opening_hook": "Rose's daughter tells her to sign the care-home papers while Anna is in the kitchen washing dishes; Rose quietly asks the lawyer to wait in the car.",
+        "must_include": [
+          "family gathering that treats the elder as a burden",
+          "hidden fortune revealed by an estate lawyer",
+          "will read that rewards the caregiver",
+          "greedy relatives forced to face their own behavior"
+        ],
+        "primary_locations": [
+          "lakeside family house",
+          "hospital corridor",
+          "estate lawyer's office",
+          "family dining room"
+        ],
+        "visual_signature": "warm wood, lake light, and silver hair; the family's expensive watches and cold manners contrast with Anna's flourishes of care",
+        "series_hook": "The trust has a condition: Anna must live in the lake house for one year, or the fortune returns to the family that abandoned Rose."
+      },
+      {
+        "id": "usa_05_wrongful_sacrifice_gala_revenge",
+        "label": "The Gala Reckoning",
+        "category": "High-Society Revenge",
+        "rpm_rank": 5,
+        "description": "Traicionada por su prometido y hermanastra tras sacrificarse por él, regresa en una gala de alta sociedad con su verdadera identidad poderosa.",
+        "protagonist": "Clara Bennett, the fiancée who funded Julian's rise",
+        "antagonist": "Julian Cross, the ambitious lawyer, and Vivian Bennett, the stepsister",
+        "ally": "Mara Quinn, a society reporter who kept the receipts",
+        "premise_seed": "Clara Bennett sold her apartment, her car, and her name to put her fiancé, Julian Cross, through law school and launch his political career. The night before the governor's gala, she finds him in the arms of her stepsister, Vivian, and is thrown out of the family home as a gold digger. Three years later, Clara returns to the same gala as the managing partner of the firm auditing Julian's campaign — and as the daughter of the man whose name the city never stopped honoring.",
+        "opening_hook": "Clara stands in the rain outside the gala she paid for, holding a torn invitation; inside, Julian toasts Vivian as the woman who 'saved' him.",
+        "must_include": [
+          "sacrifice documented in receipts, loans, or a ledger",
+          "public betrayal by fiancé and stepsister",
+          "gala return with a powerful true identity",
+          "restrained revenge that exposes the truth without violence"
+        ],
+        "primary_locations": [
+          "high-society gala ballroom",
+          "rain-soaked mansion steps",
+          "campaign office",
+          "old family apartment"
+        ],
+        "visual_signature": "black-tie glamour, crystal chandeliers, rain on glass; Clara's return look is precise, expensive, and almost unrecognizable",
+        "series_hook": "The audit file contains one line Clara cannot explain: a payment signed by her own mother, dated after her funeral."
+      },
+      {
+        "id": "usa_06_decorated_veteran_homecoming",
+        "label": "The Quiet Hero",
+        "category": "American Hero",
+        "rpm_rank": 6,
+        "description": "Veterano militar regresa a casa de incógnito, descubre abusos contra su familia y restaura el honor con su verdadero rango y recursos.",
+        "protagonist": "Staff Sergeant Marcus Hale, home after eight years and three deployments",
+        "antagonist": "Mayor Dale Kessler and his son, Brandt",
+        "ally": "Lena Hale, his sister, who kept the family diner open",
+        "premise_seed": "Staff Sergeant Marcus Hale comes home to a small Ohio town after eight years and three deployments, wearing a cheap jacket and saying nothing about the medal in his bag. He finds his sister's diner on the edge of foreclosure, his mother's medical bills sold to a collection agency, and the mayor's son bragging about the charity that is dragging his family under. When the mayor tries to use the veterans' parade as a campaign photo op, Marcus steps to the microphone with his real rank, his service record, and a federal grant the town cannot refuse.",
+        "opening_hook": "Marcus steps off a Greyhound bus in the rain and sees his sister's diner window boarded up; a parade banner with the mayor's face hangs across the street.",
+        "must_include": [
+          "undercover homecoming",
+          "abuse against the veteran's family",
+          "public restoration of honor",
+          "resources used to protect the town, not just to punish"
+        ],
+        "primary_locations": [
+          "small-town diner",
+          "VFW hall",
+          "mayor's campaign stage",
+          "family house porch"
+        ],
+        "visual_signature": "flat Ohio winter light, worn work jacket and duffel bag, American flags and campaign bunting, quiet dignity instead of spectacle",
+        "series_hook": "The federal grant was written for a soldier who died on Marcus's last mission. Marcus has to decide whether to use it in that soldier's name."
+      }
+    ]
   },
   "compliance": {
     "no_real_celebrities": true,

@@ -189,6 +189,30 @@ def build_state(project: str | Path, paths: Optional[Dict[str, Path]] = None) ->
             brief_text = ""
     prompt_pack = MPL.build_prompt_pack(master, style, brief_text)
     try:
+        viral_catalog = MPL.list_viral_templates()
+    except Exception:
+        viral_catalog = []
+    base_prompt_000 = ""
+    for prompt in prompt_pack.get("prompts") or []:
+        if prompt.get("key") == "prompt_000":
+            base_prompt_000 = str(prompt.get("text") or "")
+            break
+    viral_items: List[Dict[str, Any]] = []
+    for template in viral_catalog:
+        try:
+            prompt_text = base_prompt_000.rstrip() + "\n\n" + MPL.render_viral_niche_block(template)
+        except Exception:
+            prompt_text = base_prompt_000
+        viral_items.append({
+            "id": str(template.get("id") or ""),
+            "label": str(template.get("label") or ""),
+            "category": str(template.get("category") or ""),
+            "rpm_rank": template.get("rpm_rank"),
+            "description": str(template.get("description") or ""),
+            "prompt": prompt_text,
+        })
+    viral_templates = {"default": "", "count": len(viral_items), "items": viral_items}
+    try:
         muse_batches = MPL.build_muse_batches(master, style)
     except Exception:
         muse_batches = []
@@ -258,6 +282,7 @@ def build_state(project: str | Path, paths: Optional[Dict[str, Path]] = None) ->
             "values": prompt_pack["values"],
             "items": prompt_pack["prompts"],
         },
+        "viral_templates": viral_templates,
         "muse_batches": muse_batches,
         "storyboard_grids": {
             "count": len(storyboard_grids),
@@ -406,6 +431,14 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .master-head h2 { font-size: 18px; }
   .master-head p { color: var(--muted); font-size: 12px; max-width: 760px; margin-top: 4px; }
   .master-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+  .niche-picker { background: linear-gradient(135deg, #071a2b, #0b1424 55%); border: 1px solid #164e63; border-radius: 16px; padding: 16px 18px; margin-bottom: 18px; display: flex; flex-direction: column; gap: 10px; }
+  .niche-picker-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .niche-picker-head b { color: #fff; font-size: 15px; }
+  .niche-picker-head p { color: var(--muted); font-size: 12px; margin-top: 4px; max-width: 900px; }
+  .niche-picker label { color: var(--muted); font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.6px; }
+  .niche-picker select { background: var(--panel); border: 1px solid var(--border); border-radius: 9px; padding: 9px 12px; color: var(--text); outline: none; max-width: 680px; }
+  .niche-picker select:focus { border-color: var(--accent); }
+  .badge.niche { color: #ddd6fe; border-color: #6d28d9; background: #1e1238; }
   .quick-access { display: flex; gap: 8px; flex-wrap: wrap; margin: 0 0 18px; }
   .quick-access .btn { flex: 0 1 auto; }
   .method { background: linear-gradient(135deg, #071a2b, #0b1424 55%); border: 1px solid #164e63; border-radius: 16px; padding: 18px; margin-bottom: 20px; }
@@ -505,11 +538,14 @@ const STATE = __STATE_JSON__;
 const TRACKING_SEED = __TRACKING_JSON__;
 const MODE = "__MODE__";
 const LOCAL_KEY = "novelfactory_tracking_" + (STATE.slug || "episode");
+const NICHE_KEY = "novelfactory_niche_" + (STATE.slug || "episode");
 let state = STATE;
 let tracking = normalizeTracking(TRACKING_SEED);
 let activeTab = "prompts";
 let legacyMode = false;
 let platform = "omni";
+let selectedNiche = "";
+try { selectedNiche = localStorage.getItem(NICHE_KEY) || ""; } catch (e) {}
 let filters = { state: "all", act: "all", q: "", teaser: false, hideDone: false };
 let saveTimer = null;
 
@@ -809,6 +845,55 @@ function masterItems() {
   return (state.master_prompts && state.master_prompts.items) || [];
 }
 
+function nicheCatalog() {
+  return (state.viral_templates && Array.isArray(state.viral_templates.items)) ? state.viral_templates.items : [];
+}
+
+function currentNiche() {
+  if (!selectedNiche) return null;
+  return nicheCatalog().find((item) => item.id === selectedNiche) || null;
+}
+
+function effectiveMasterPrompt(prompt) {
+  if (!prompt || prompt.key !== "prompt_000") return prompt;
+  const niche = currentNiche();
+  if (!niche || !niche.prompt) return prompt;
+  const text = niche.prompt;
+  return Object.assign({}, prompt, {
+    text: text,
+    chars: text.length,
+    words: (text.match(/\S+/g) || []).length,
+  });
+}
+
+function validateNiche() {
+  const fallback = (state.viral_templates && state.viral_templates.default) || "";
+  const ids = nicheCatalog().map((item) => item.id);
+  if (selectedNiche && ids.includes(selectedNiche)) return;
+  selectedNiche = fallback && ids.includes(fallback) ? fallback : "";
+}
+
+function nichePicker() {
+  const catalog = nicheCatalog();
+  if (!catalog.length) return "";
+  const niche = currentNiche();
+  const options = catalog.map((item) => `<option value="${esc(item.id)}"${niche && niche.id === item.id ? " selected" : ""}>${esc(item.category)} · ${esc(item.label)}</option>`).join("");
+  return `<section class="niche-picker">
+    <div class="niche-picker-head">
+      <div>
+        <b>Mega-nicho USA para PROMPT 000</b>
+        <p>${niche ? esc(niche.description) : "Sin mega-nicho: el PROMPT 000 usa la idea base libre del proyecto."}</p>
+      </div>
+      ${niche ? `<button class="btn primary" data-action="copy-master" data-id="prompt_000">Copiar PROMPT 000 con este nicho</button>` : ""}
+    </div>
+    <label for="niche-select">Arquetipo</label>
+    <select id="niche-select">
+      <option value=""${niche ? "" : " selected"}>Sin mega-nicho (libre)</option>
+      ${options}
+    </select>
+  </section>`;
+}
+
 function museBatches() {
   return Array.isArray(state.muse_batches) ? state.muse_batches : [];
 }
@@ -976,6 +1061,7 @@ function downloadText(filename, text, mime) {
 }
 
 function masterPromptCard(prompt) {
+  const activeNiche = prompt.key === "prompt_000" ? currentNiche() : null;
   const missing = prompt.unfilled && prompt.unfilled.length
     ? `<span class="badge hook">Sin rellenar: ${esc(prompt.unfilled.join(", "))}</span>`
     : `<span class="badge ok">Completo</span>`;
@@ -986,6 +1072,7 @@ function masterPromptCard(prompt) {
         <div class="card-title">${esc(prompt.title)}</div>
         <div class="meta">
           <span class="badge">${esc(prompt.code)}</span>
+          ${activeNiche ? `<span class="badge niche">Nicho USA</span>` : ""}
           <span class="badge">${prompt.chars.toLocaleString()} chars</span>
           <span class="badge">${prompt.words.toLocaleString()} palabras</span>
           ${missing}
@@ -1056,9 +1143,9 @@ function renderContent() {
         </div>` : ""}`
       : "";
     if (legacyMode) {
-      holder.innerHTML = `${methodPanel()}${head}${gridSection}${batchSection}<div class="grid">${items.map(masterPromptCard).join("")}</div>`;
+      holder.innerHTML = `${methodPanel()}${nichePicker()}${head}${gridSection}${batchSection}<div class="grid">${items.map((item) => masterPromptCard(effectiveMasterPrompt(item))).join("")}</div>`;
     } else {
-      holder.innerHTML = `${methodPanel()}${gridSection}${batchSection}`;
+      holder.innerHTML = `${methodPanel()}${nichePicker()}${gridSection}${batchSection}`;
     }
     return;
   }
@@ -1098,7 +1185,7 @@ async function handleAction(button) {
     return;
   }
   if (action === "copy-master" || action === "download-master") {
-    const prompt = masterItems().find((item) => item.key === id);
+    const prompt = effectiveMasterPrompt(masterItems().find((item) => item.key === id));
     if (!prompt) return;
     if (action === "copy-master") {
       await copyText(prompt.text, `${prompt.code} copiado completo`);
@@ -1109,12 +1196,15 @@ async function handleAction(button) {
     return;
   }
   if (action === "copy-master-all") {
-    const text = masterItems().map((item) => `${item.code} — ${item.title}\n\n${item.text}`).join("\n\n\n");
+    const text = masterItems().map(effectiveMasterPrompt).map((item) => `${item.code} — ${item.title}\n\n${item.text}`).join("\n\n\n");
     await copyText(text, "Los 4 prompts maestros copiados");
     return;
   }
   if (action === "download-master-all") {
-    downloadText(`master_prompts_${state.slug || "episode"}.json`, JSON.stringify(state.master_prompts, null, 2), "application/json");
+    const manifest = Object.assign({}, state.master_prompts, {
+      items: masterItems().map(effectiveMasterPrompt),
+    });
+    downloadText(`master_prompts_${state.slug || "episode"}.json`, JSON.stringify(manifest, null, 2), "application/json");
     toast("Manifiesto de prompts descargado");
     return;
   }
@@ -1227,7 +1317,7 @@ async function handleAction(button) {
 
 function copyNextPending() {
   if (activeTab === "prompts") {
-    const prompt = masterItems()[0];
+    const prompt = effectiveMasterPrompt(masterItems()[0]);
     if (!prompt) return toast("No hay prompts maestros exportados");
     copyText(prompt.text, `${prompt.code} copiado`);
     return;
@@ -1320,6 +1410,16 @@ document.addEventListener("click", (event) => {
   }
 });
 
+document.addEventListener("change", (event) => {
+  if (!event.target || event.target.id !== "niche-select") return;
+  const value = event.target.value || "";
+  selectedNiche = nicheCatalog().some((item) => item.id === value) ? value : "";
+  try { localStorage.setItem(NICHE_KEY, selectedNiche); } catch (e) {}
+  renderContent();
+  const niche = currentNiche();
+  toast(niche ? `Mega-nicho activo: ${niche.label}` : "Sin mega-nicho");
+});
+
 $("#q").addEventListener("input", (event) => { filters.q = event.target.value.trim().toLowerCase(); renderContent(); });
 $("#state-filter").addEventListener("change", (event) => { filters.state = event.target.value; renderContent(); });
 $("#platform-filter").addEventListener("change", (event) => { platform = event.target.value; renderContent(); });
@@ -1359,6 +1459,7 @@ async function boot() {
       tracking = normalizeTracking(local);
     }
   }
+  validateNiche();
   render();
 }
 

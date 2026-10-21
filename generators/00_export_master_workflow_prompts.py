@@ -75,6 +75,7 @@ def render_workflow_markdown(
 ) -> str:
     project = pack.get("project") or {}
     values = pack.get("values") or {}
+    viral = pack.get("viral_template") or {}
     title = project.get("title") or project.get("slug") or "Episodio"
     lines: List[str] = [
         f"# MASTER WORKFLOW PROMPTS READY — {title}",
@@ -87,6 +88,13 @@ def render_workflow_markdown(
         f"- Formato máster: 16:9",
         f"- Formato teasers/Reels: 9:16",
         f"- Estilo visual: {values.get('visual_style')}",
+    ]
+    if viral:
+        lines += [
+            f"- Mega-nicho USA: {viral.get('label')} ({viral.get('id')})",
+            f"- Categoría: {viral.get('category')}",
+        ]
+    lines += [
         "",
         "> Los cuatro prompts ya están rellenados con los datos de este proyecto.",
         "> Copia cada bloque completo y úsalo en el orden 000 → 001 → 002 → 003.",
@@ -142,7 +150,7 @@ def render_workflow_markdown(
     return "\n".join(lines)
 
 
-def export_workflow(project: str | Path, out_dir: Optional[Path] = None) -> Dict[str, Any]:
+def export_workflow(project: str | Path, out_dir: Optional[Path] = None, niche: str = "") -> Dict[str, Any]:
     paths = nf.resolve_project(project, must_exist=False)
     root = paths["root"]
     if not root.exists() or not root.is_dir():
@@ -162,7 +170,7 @@ def export_workflow(project: str | Path, out_dir: Optional[Path] = None) -> Dict
             "aspect_ratio": str(style.get("master_aspect") or "16:9"),
         }
 
-    pack = mpl.build_prompt_pack(master, style, brief_text, overrides=overrides)
+    pack = mpl.build_prompt_pack(master, style, brief_text, overrides=overrides, niche=niche)
     values_916 = dict(pack.get("values") or {})
     values_916["aspect_ratio"] = str(style.get("teaser_aspect") or "9:16")
     prompt_003_916 = mpl.render_prompt("prompt_003", values_916)
@@ -211,18 +219,38 @@ def main(argv: Optional[List[str]] = None) -> int:
     parser = argparse.ArgumentParser(
         description="00 — Exporta PROMPT 000/001/002/003 y los lotes de Muse AI listos para usar.",
     )
-    parser.add_argument("project", help="Slug del episodio o ruta a su carpeta.")
+    parser.add_argument("project", nargs="?", default="", help="Slug del episodio o ruta a su carpeta.")
     parser.add_argument("--out-dir", default="", help="Carpeta de salida (por defecto, la del proyecto).")
     parser.add_argument("--show", default="", help="Imprime un prompt: prompt_000..prompt_003 o all.")
     parser.add_argument("--quiet", action="store_true", help="No imprime el resumen.")
+    parser.add_argument("--niche", "--archetype", dest="niche", default="",
+                        help="ID del mega-nicho USA que se añade al PROMPT 000.")
+    parser.add_argument("--list-niches", action="store_true",
+                        help="Lista los mega-nichos USA disponibles y termina.")
     args = parser.parse_args(argv)
+
+    if args.list_niches:
+        for template in mpl.list_viral_templates():
+            nf.log(f"{template.get('id')} · {template.get('category')} · {template.get('label')}")
+        return 0
+    if not args.project:
+        parser.error("Debes indicar un proyecto (o usa --list-niches).")
+
+    niche = str(args.niche or "").strip()
+    selected_niche: Optional[Dict[str, Any]] = None
+    if niche:
+        try:
+            selected_niche = mpl.get_viral_template(niche)
+        except KeyError as exc:
+            nf.err(str(exc))
+            return 1
 
     nf.log("")
     nf.log("=" * 70)
     nf.log("  NOVEL FACTORY — 00 · Workflow maestro (000/001/002/003 + lotes Muse AI)")
     nf.log("=" * 70)
 
-    result = export_workflow(args.project, Path(args.out_dir) if args.out_dir else None)
+    result = export_workflow(args.project, Path(args.out_dir) if args.out_dir else None, niche=niche)
     pack = result["pack"]
     written = result["written"]
     target_root = result["target_root"]
@@ -240,6 +268,8 @@ def main(argv: Optional[List[str]] = None) -> int:
             nf.warn("Sin master_episode.json: no se generaron lotes de Muse AI.")
         if result["story_path"]:
             nf.info(f"Historia fuente: {result['story_path'].name}")
+        if selected_niche:
+            nf.info(f"Mega-nicho USA: {selected_niche.get('label')} ({selected_niche.get('id')})")
         nf.log("")
         for prompt in pack["prompts"]:
             nf.info(f"{prompt['code']}: {prompt['chars']:,} chars · {prompt['words']:,} palabras")

@@ -263,12 +263,49 @@ class MasterPromptTests(unittest.TestCase):
             self.assertIn("[00s–03s]", batches_text)
             self.assertIn("[03s–07s]", batches_text)
             self.assertIn("[07s–10s]", batches_text)
-            self.assertIn("COMANDOS FINALES PARA PEGAR EN MUSE AI", batches_text)
+            self.assertIn("=== COPIA 16:9 (YouTube) ===", batches_text)
+            self.assertIn("=== COPIA 9:16 (Reels / TikTok / Shorts) ===", batches_text)
             self.assertIn("📎 ADJUNTAR EN MUSE AI", batches_text)
             self.assertIn("REF_CAST_MASTER.png", batches_text)
             self.assertIn("REF_GRID_MIN_01.png", batches_text)
             self.assertIn("formato horizontal 16:9", batches_text)
             self.assertIn("formato vertical 9:16", batches_text)
+
+    def test_viral_templates_catalog_has_six_us_meganiches(self):
+        templates = MPL.list_viral_templates()
+        expected = [
+            "usa_01_secret_billionaire_divorce",
+            "usa_02_heartland_ranch_heiress",
+            "usa_03_instant_karma_vip_humiliation",
+            "usa_04_silver_hair_grandma_inheritance",
+            "usa_05_wrongful_sacrifice_gala_revenge",
+            "usa_06_decorated_veteran_homecoming",
+        ]
+        self.assertEqual([template["id"] for template in templates], expected)
+        for template in templates:
+            for field in ("label", "category", "premise_seed", "must_include"):
+                self.assertTrue(template.get(field), msg=f"{template.get('id')}: {field}")
+
+    def test_prompt_000_with_niche_appends_us_archetype(self):
+        niche_id = "usa_03_instant_karma_vip_humiliation"
+        pack = MPL.build_prompt_pack(self.master, self.style, niche=niche_id)
+        prompts = {prompt["key"]: prompt for prompt in pack["prompts"]}
+        text = prompts["prompt_000"]["text"]
+        self.assertTrue(text.startswith("🧠 PROMPT 000"))
+        self.assertIn("USA MEGA-NICHE ARCHETYPE", text)
+        self.assertIn(niche_id, text)
+        self.assertEqual(MPL.unfilled_placeholders(text), [])
+        self.assertNotIn("USA MEGA-NICHE ARCHETYPE", prompts["prompt_001"]["text"])
+        self.assertEqual(pack["viral_template"]["id"], niche_id)
+        with self.assertRaises(KeyError):
+            MPL.build_prompt_pack(self.master, self.style, niche="no_existe")
+
+    def test_workflow_export_with_niche(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            GEN00.export_workflow(DEMO_DIR, Path(tmp), niche="usa_06_decorated_veteran_homecoming")
+            text = (Path(tmp) / "MASTER_WORKFLOW_PROMPTS_READY.md").read_text(encoding="utf-8")
+            self.assertIn("usa_06_decorated_veteran_homecoming", text)
+            self.assertIn("USA MEGA-NICHE ARCHETYPE", text)
 
     def test_chatgpt_prompt_exports(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -303,8 +340,8 @@ class MasterPromptTests(unittest.TestCase):
             self.assertIn("ESCENA 024", storyboard)
             self.assertIn("ESCENA 025", storyboard)
             self.assertIn("ESCENA 060", storyboard)
-            self.assertIn("STORYBOARD IMAGE 01/10 — MINUTE 1 (Scenes 1–6)", storyboard)
-            self.assertIn("STORYBOARD IMAGE 10/10 — MINUTE 10 (Scenes 55–60)", storyboard)
+            self.assertIn("MINUTO 1 (Escenas 1 a 6)", storyboard)
+            self.assertIn("MINUTO 10 (Escenas 55 a 60)", storyboard)
             self.assertGreaterEqual(storyboard.count("ESCENA "), 60)
 
     def test_storyboard_grids_queue_has_11_prompts(self):
@@ -322,8 +359,8 @@ class MasterPromptTests(unittest.TestCase):
             )
             self.assertEqual(data["items"][1]["scenes"], [1, 2, 3, 4, 5, 6])
             self.assertEqual(data["items"][10]["scenes"], [55, 56, 57, 58, 59, 60])
-            self.assertIn("Viñeta 1: Escena 1", data["items"][1]["prompt"])
-            self.assertIn("Viñeta 6: Escena 6", data["items"][1]["prompt"])
+            self.assertIn("Viñeta 1 — Escena 1", data["items"][1]["prompt"])
+            self.assertIn("Viñeta 6 — Escena 6", data["items"][1]["prompt"])
             self.assertIn("REF_CAST_MASTER.png", data["items"][1]["prompt"])
             lines = written["txt"].read_text(encoding="utf-8").strip().splitlines()
             self.assertEqual(len(lines), 11)
@@ -761,6 +798,26 @@ class DashboardTests(unittest.TestCase):
         self.assertIn("Prompts maestros", html)
         self.assertIn("platform-filter", html)
         self.assertIn("Copiar prompt", html)
+
+    def test_build_state_exposes_viral_template_selector(self):
+        state = DASH.build_state(DEMO_DIR)
+        catalog = state["viral_templates"]
+        self.assertEqual(catalog["count"], 6)
+        expected = [
+            "usa_01_secret_billionaire_divorce",
+            "usa_02_heartland_ranch_heiress",
+            "usa_03_instant_karma_vip_humiliation",
+            "usa_04_silver_hair_grandma_inheritance",
+            "usa_05_wrongful_sacrifice_gala_revenge",
+            "usa_06_decorated_veteran_homecoming",
+        ]
+        self.assertEqual([item["id"] for item in catalog["items"]], expected)
+        for item in catalog["items"]:
+            self.assertIn(item["id"], item["prompt"])
+            self.assertIn("USA MEGA-NICHE ARCHETYPE", item["prompt"])
+        html = DASH.render_dashboard(state, {"scenes": {}, "references": {}})
+        for token in ("niche-select", "viral_templates", "usa_01_secret_billionaire_divorce", "Sin mega-nicho"):
+            self.assertIn(token, html)
 
     def test_tracking_roundtrip(self):
         with tempfile.TemporaryDirectory() as tmp:

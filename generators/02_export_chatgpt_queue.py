@@ -17,6 +17,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
 from pathlib import Path
 from typing import Any, Dict, List, Optional
@@ -249,6 +250,76 @@ def write_thumbnail_prompts(
     return nf.write_text(out, "\n".join(lines))
 
 
+ROLE_LABELS = {
+    "protagonist": "Protagonista",
+    "love_interest": "Interés romántico",
+    "antagonist": "Antagonista",
+    "antagonist_heir": "Heredero antagonista",
+    "ally": "Aliada",
+    "mentor": "Mentor",
+    "supporting": "Secundario",
+}
+
+
+def _project_characters(master: Dict[str, Any]) -> List[Dict[str, Any]]:
+    raw = master.get("characters_locked") or master.get("characters") or []
+    if isinstance(raw, dict):
+        raw = list(raw.values())
+    return [character for character in raw if isinstance(character, dict)]
+
+
+def _character_role(character: Dict[str, Any]) -> str:
+    role = str(character.get("role") or character.get("archetype") or "principal").strip().lower()
+    return ROLE_LABELS.get(role, role or "principal")
+
+
+def _character_age(character: Dict[str, Any]) -> str:
+    explicit = str(character.get("age") or character.get("age_range") or character.get("apparent_age") or "").strip()
+    if explicit:
+        return explicit
+    text = " ".join(str(character.get(key) or "") for key in (
+        "visual_reference", "description", "appearance",
+    ))
+    patterns = (
+        r"\b(?:in (?:her|his) )?((?:early|mid|late)[- ](?:twenties|thirties|forties|fifties|sixties|seventies))\b",
+        r"\b(?:in (?:her|his) )?(twenties|thirties|forties|fifties|sixties|seventies)\b",
+        r"\baround (thirty|forty|fifty|sixty|seventy)\b",
+    )
+    for pattern in patterns:
+        match = re.search(pattern, text, flags=re.IGNORECASE)
+        if match:
+            return match.group(1).lower().replace(" ", "-")
+    return "adulto"
+
+
+def _character_visual(character: Dict[str, Any]) -> str:
+    visual = str(
+        character.get("visual_reference")
+        or character.get("description")
+        or character.get("appearance")
+        or ""
+    ).strip()
+    return visual or "rasgos y complexion definidos por su ficha de casting"
+
+
+def _character_wardrobe(character: Dict[str, Any]) -> str:
+    for key in ("wardrobe_lock", "wardrobe", "signature_wardrobe", "outfit_lock"):
+        value = character.get(key)
+        if isinstance(value, list):
+            value = next((str(item).strip() for item in value if str(item).strip()), "")
+        if str(value or "").strip():
+            return str(value).strip()
+    wardrobes = character.get("wardrobe_by_act") or []
+    if isinstance(wardrobes, list):
+        for item in wardrobes:
+            if str(item or "").strip():
+                return str(item).strip()
+    match = re.search(r"signature\s+(.+?)(?:\.|$)", _character_visual(character), flags=re.IGNORECASE)
+    if match:
+        return match.group(1).strip()
+    return "el vestuario principal descrito en su ficha de casting"
+
+
 def short_scene_brief(scene: Dict[str, Any], max_words: int = 10) -> str:
     """Resumen de 5–10 palabras para una viñeta del storyboard."""
     cuts = [c for c in (scene.get("internal_cuts") or []) if isinstance(c, dict)]
@@ -260,6 +331,10 @@ def short_scene_brief(scene: Dict[str, Any], max_words: int = 10) -> str:
     text = next((c for c in candidates if c.strip()), "key story beat")
     words = " ".join(text.split()).split()
     brief = " ".join(words[:max_words]).rstrip(".,;:")
+    if len(brief.split()) < 5:
+        location = " ".join(str(scene.get("location") or "").split()[:4]).strip(" ,")
+        if location:
+            brief = f"{brief} — {location}".strip(" —")
     return brief + ("…" if len(words) > max_words else "")
 
 
@@ -281,43 +356,28 @@ def scene_breakdown_lines(master: Dict[str, Any]) -> List[str]:
     return lines
 
 
-def _cast_sheet_prompt(master: Dict[str, Any], prompt_002_text: str) -> str:
+def _cast_sheet_prompt(master: Dict[str, Any], prompt_002_text: str = "") -> str:
+    characters = _project_characters(master)
     lines = [
-        "REF_CAST_MASTER.png — HOJA MAESTRA DE PERSONAJES",
+        "Actúa como director de casting y diseñador de personajes. Genera UNA SOLA IMAGEN horizontal 16:9 que muestre juntos, de cuerpo completo, de pie, mirando al frente sobre un fondo gris neutro de estudio (#808080) y sin tocarse entre sí, a los siguientes personajes de nuestra novela en estilo Cinematográfico Realista 35mm:",
         "",
-        "Genera UNA SOLA IMAGEN 16:9 sobre fondo gris neutro uniforme, con todos los personajes "
-        "principales del proyecto en una hoja de casting limpia y profesional.",
-        "",
-        prompt_002_text.strip(),
-        "",
-        "PERSONAJES DEL PROYECTO — nombres, rostros y vestuarios fijos:",
     ]
-    for character in master.get("characters") or []:
-        if not isinstance(character, dict):
-            continue
-        name = str(character.get("name") or character.get("id") or "Character").strip()
-        visual = str(
-            character.get("visual_reference")
-            or character.get("description")
-            or character.get("appearance")
-            or ""
-        ).strip()
-        if not visual:
-            visual = f"{str(character.get('role') or character.get('archetype') or 'principal').strip()} del proyecto"
-        wardrobe = ""
-        for item in character.get("wardrobe_by_act") or []:
-            if str(item or "").strip():
-                wardrobe = str(item).strip()
-                break
-        line = f"- {name}: {visual}"
-        if wardrobe:
-            line += f" Vestuario fijo: {wardrobe}."
-        lines.append(line)
+    for index, character in enumerate(characters, start=1):
+        name = str(character.get("name") or character.get("id") or "PERSONAJE").strip().upper()
+        lines.append(
+            f"{index}. {name} — Rol: {_character_role(character)}. "
+            f"Edad: {_character_age(character)}. "
+            f"Rasgos físicos: {_character_visual(character)}. "
+            f"Vestuario fijo: {_character_wardrobe(character)}."
+        )
+    if not characters:
+        lines.append(
+            "1. LOS PERSONAJES PRINCIPALES DEL PROYECTO — usa exactamente los nombres, roles, "
+            "edades y vestuarios definidos en story_brief.md y master_episode.json."
+        )
     lines += [
         "",
-        "Mantén exactamente los mismos rostros, peinados y vestuarios en todas las imágenes del "
-        "storyboard y de los lotes de Muse AI. Sin texto, sin letras, sin etiquetas, sin logos, "
-        "sin marcas de agua. Fondo gris neutro, luz suave y pareja, sin otros elementos.",
+        "Coloca únicamente debajo de cada personaje su nombre en mayúsculas. Mantén exactamente los mismos rostros, peinados y vestuarios en todas las imágenes del storyboard y de los lotes de Muse AI. Sin texto adicional, sin títulos, sin frases, sin logos, sin marcas de agua; solo la imagen de los personajes y sus nombres.",
     ]
     return "\n".join(lines)
 
@@ -333,29 +393,26 @@ def _storyboard_grid_prompt(
     last = int(group[-1].get("scene_id") or first)
     visual = str((style.get("visual_style_lock") or {}).get("look") or "").strip()
     lines = [
-        f"STORYBOARD IMAGE {batch_number:02d}/{total_batches:02d} — "
-        f"MINUTE {batch_number} (Scenes {first}–{last})",
+        f"Usando exactamente los mismos rostros, edades, cuerpos y vestuarios de los personajes creados en la Hoja Maestra de Personajes (REF_CAST_MASTER.png), genera UNA IMAGEN horizontal 16:9 de Storyboard dividida en una cuadrícula limpia de 3x2 (6 viñetas numeradas del 1 al 6) que represente el MINUTO {batch_number} (Escenas {first} a {last}) de la historia en estilo Cinematográfico Realista 35mm:",
         "",
-        "Genera UNA SOLA IMAGEN 16:9 con una cuadrícula de storyboard de 3 columnas x 2 filas "
-        "(6 viñetas), en orden de lectura izquierda a derecha y de arriba abajo.",
-        "Usa exactamente los mismos personajes, rostros, edades y vestuarios que "
-        "REF_CAST_MASTER.png (Hoja de Personajes adjunta). Mantén continuidad de vestuario, "
-        "props y locaciones entre viñetas.",
     ]
     if visual:
-        lines.append(f"Estilo visual: {visual}.")
-    lines += [
-        "Cada viñeta es un plano cinematográfico 16:9 con encuadre claro y acción legible.",
-        "Sin texto, sin letras, sin globos de diálogo, sin logos, sin marcas de agua, sin bordes.",
-        "",
-        "VIÑETAS EXACTAS:",
-    ]
+        lines += [f"Look visual: {visual}.", ""]
     for idx, scene in enumerate(group, start=1):
         sid = int(scene.get("scene_id") or 0)
         location = str(scene.get("location") or "").strip()
+        cuts = [cut for cut in (scene.get("internal_cuts") or []) if isinstance(cut, dict)]
+        action = str((cuts[0].get("action") if cuts else "") or scene.get("first_frame_prompt") or "").strip()
+        action = " ".join(action.split())
+        if len(action.split()) > 24:
+            action = " ".join(action.split()[:24]).rstrip(".,;:") + "…"
         brief = short_scene_brief(scene)
-        suffix = f" ({location})" if location else ""
-        lines.append(f"Viñeta {idx}: Escena {sid} — {brief}{suffix}.")
+        place = f" ({location})" if location else ""
+        lines.append(f"Viñeta {idx} — Escena {sid}{place}: Acción visual: {action} Descripción: {brief}.")
+    lines += [
+        "",
+        "Mantén continuidad exacta de rostros, cuerpos, vestuario, props, locaciones, luz y hora del día entre las 6 viñetas. Cada viñeta es un plano cinematográfico 16:9 con acción legible. No incluyas diálogos, párrafos largos, subtítulos, globos de texto, logos ni marcas de agua; solo la cuadrícula, la numeración y la descripción breve de cada viñeta.",
+    ]
     return "\n".join(lines)
 
 
@@ -366,14 +423,13 @@ def build_storyboard_grid_items(
 ) -> List[Dict[str, Any]]:
     """Cola de 11 imágenes: 1 hoja de casting + 10 storyboards de 6 viñetas."""
     pack = pack or mpl.build_prompt_pack(master, style)
-    by_key = {prompt["key"]: prompt for prompt in pack["prompts"]}
     ep = nf.episode_meta(master)
     title = str(ep.get("title") or ep.get("slug") or "Episodio")
     scenes = nf.ordered_scenes(master)
     groups = [scenes[i:i + 6] for i in range(0, len(scenes), 6)]
     total_batches = len(groups)
 
-    cast_prompt = _cast_sheet_prompt(master, by_key["prompt_002"]["text"])
+    cast_prompt = _cast_sheet_prompt(master)
     items: List[Dict[str, Any]] = [{
         "index": 1,
         "filename": "REF_CAST_MASTER.png",

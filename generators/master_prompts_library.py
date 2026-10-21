@@ -44,6 +44,7 @@ PLACEHOLDERS = (
 )
 
 PROMPT_ORDER = ("prompt_000", "prompt_001", "prompt_002", "prompt_003")
+VIRAL_TEMPLATES_TOKEN = "<<<VIRAL_TEMPLATES>>>"
 
 
 # ---------------------------------------------------------------------------
@@ -63,6 +64,8 @@ REGLAS DE ORO DE DRAMATURGIA Y RETENCIÓN QUE DEBES APLICAR:
 3. CLIFFHANGER AL FINAL DE CADA MINUTO (ESCENAS 6, 12, 18...): La última escena de cada bloque de 6 escenas debe terminar en máxima tensión dramática.
 4. PERSONAJES CON CONTRASTE VISUAL INMEDIATO (MÁXIMO 3 A 5 PERSONAJES PRINCIPALES): Diseña personajes cuyo estatus social y personalidad se entiendan en 1 segundo solo por su vestuario (ej. multimillonario arrogante vs. trabajadora humilde con dignidad de hierro; heredera secreta vs. villana elitista).
 5. ECONOMÍA DE ESCENARIOS (MÁXIMO 3 A 5 LOCACIONES): Concentra la acción en locaciones visualmente ricas y contrastantes para mantener continuidad perfecta.
+6. CATÁLOGO DE 6 ESTRUCTURAS VIRALES PROBADAS (LATAM → USA, +500,000 VISTAS): Usa este catálogo como banco de estructuras. Elige UNA sola como columna vertebral de la historia y adáptala al mercado estadounidense en inglés. No copies nombres, marcas ni diálogos: conserva la mecánica emocional y el orden de beats.
+<<<VIRAL_TEMPLATES>>>
 
 ENTREGA EL RESULTADO EN ESTE FORMATO EXACTO (LISTO PARA COPIAR AL PROMPT 001):
 1. TÍTULO VIRAL EN INGLÉS (3 opciones de alto CTR).
@@ -176,8 +179,7 @@ Ahora analiza ese storyboard e identifica los personajes principales y secundari
 Tu tarea es generar UNA SOLA IMAGEN que muestre juntos a todos los personajes identificados.
 
 REFERENCIA
-Storyboard:
-[ADJUNTAR EL STORYBOARD CREADO ANTERIORMENTE]
+Storyboard: el storyboard completo creado en el paso anterior. La hoja debe mantener exactamente los rostros, edades, etnias, vestuarios y accesorios que aparecen en ese storyboard.
 
 REGLA PRINCIPAL
 Los personajes deben basarse directamente en el storyboard.
@@ -258,7 +260,7 @@ Ya tenemos creado el storyboard de la historia y la hoja maestra de personajes. 
 
 DATOS DEL PROYECTO
 Storyboard:
-[ADJUNTAR EL STORYBOARD CREADO EN EL PASO 1]
+El storyboard completo creado en el paso 1: 10 imágenes de 6 viñetas, una por minuto. Cada escena debe corresponder exactamente a su viñeta.
 Duración del bloque:
 1 minuto = 6 escenas de 10 segundos (o el total de escenas del storyboard adjunto).
 
@@ -516,7 +518,123 @@ def values_from_master(
 # ---------------------------------------------------------------------------
 # Render y exportación
 # ---------------------------------------------------------------------------
-def render_prompt(key: str, values: Dict[str, Any]) -> str:
+def list_viral_templates() -> List[Dict[str, Any]]:
+    import copy
+
+    import nf_core as nf
+
+    try:
+        rules = nf.load_showrunner()
+    except Exception:
+        return []
+    catalog = rules.get("viral_story_templates") if isinstance(rules, dict) else None
+    items = catalog.get("items") if isinstance(catalog, dict) else None
+    if not isinstance(items, list):
+        return []
+    return [copy.deepcopy(item) for item in items if isinstance(item, dict)]
+
+
+def get_viral_template(template_id: str) -> Dict[str, Any]:
+    templates = list_viral_templates()
+    wanted = str(template_id or "").strip()
+    for item in templates:
+        if str(item.get("id") or "") == wanted:
+            return item
+    valid = ", ".join(str(item.get("id") or "") for item in templates) or "(ninguno)"
+    raise KeyError(f"Plantilla viral desconocida: {template_id}. Válidas: {valid}")
+
+
+def render_viral_niche_block(template: Dict[str, Any]) -> str:
+    template = template if isinstance(template, dict) else {}
+
+    def text(key: str) -> str:
+        return str(template.get(key) or "").strip()
+
+    def bullets(key: str) -> List[str]:
+        return [str(value).strip() for value in (template.get(key) or []) if str(value).strip()]
+
+    lines: List[str] = [
+        "USA MEGA-NICHE ARCHETYPE — SELECCIÓN DEL USUARIO",
+        "",
+        f"- ID: {text('id')}",
+        f"- Arquetipo: {text('label')}",
+        f"- Categoría: {text('category')}",
+        f"- Descripción del nicho (ES): {text('description')}",
+    ]
+    audience = text("audience")
+    if audience:
+        lines.append(f"- Audiencia: {audience}")
+    lines += [
+        "",
+        "SEMILLA EN INGLÉS (US MARKET, en-US):",
+        f"- Premise seed: {text('premise_seed')}",
+        f"- Opening hook: {text('opening_hook')}",
+        "",
+        "BEATS OBLIGATORIOS:",
+    ]
+    lines += [f"- {item}" for item in bullets("must_include")] or ["- (sin beats definidos)"]
+    lines += ["", "LOCACIONES PRIMARIAS:"]
+    lines += [f"- {item}" for item in bullets("primary_locations")] or ["- (sin locaciones definidas)"]
+    lines += ["", f"FIRMA VISUAL: {text('visual_signature')}"]
+    series_hook = text("series_hook")
+    if series_hook:
+        lines.append(f"SERIES HOOK: {series_hook}")
+    lines += [
+        "",
+        "REGLAS DE USO DEL ARQUETIPO:",
+        "- Usa este arquetipo como el único motor de la historia; no mezcles nichos ni tramas de otros arquetipos.",
+        "- Escribe títulos, elenco y sinopsis en inglés nativo de Estados Unidos (en-US).",
+        "- Mantén de 3 a 5 personajes principales y de 3 a 5 locaciones.",
+        "- Conserva 60 escenas / 10 minutos y un cliffhanger al final de cada minuto.",
+        "- La semilla en inglés es el material canónico; esta selección manda sobre la idea base.",
+    ]
+    return "\n".join(lines).strip()
+
+
+def viral_latam_templates(rules: Optional[Dict[str, Any]] = None) -> List[Dict[str, Any]]:
+    if rules is None:
+        try:
+            import nf_core as nf
+            rules = nf.load_showrunner()
+        except Exception:
+            rules = {}
+    items = rules.get("viral_latam_to_usa_templates") if isinstance(rules, dict) else None
+    if not isinstance(items, list):
+        return []
+    return [dict(item) for item in items if isinstance(item, dict)]
+
+
+def find_viral_latam_template(template_id: str, rules: Optional[Dict[str, Any]] = None) -> Optional[Dict[str, Any]]:
+    wanted = str(template_id or "").strip().lower()
+    if not wanted:
+        return None
+    for item in viral_latam_templates(rules):
+        if str(item.get("id") or "").strip().lower() == wanted:
+            return item
+    return None
+
+
+def render_viral_latam_block(templates: Optional[List[Dict[str, Any]]] = None) -> str:
+    items = templates if templates is not None else viral_latam_templates()
+    if not items:
+        return ("(Catálogo no disponible: usa una estructura de micro-drama LATAM -> USA con "
+                "gancho público, secreto familiar y status reversal.)")
+    lines: List[str] = []
+    for index, item in enumerate(items, start=1):
+        beats = " -> ".join(str(beat).strip() for beat in (item.get("structure") or []) if str(beat).strip())
+        lines.extend([
+            f"{index}. {item.get('name') or item.get('id')} (`{item.get('id')}`)",
+            f"   Inspiración: {item.get('source') or 'LATAM viral'} · {item.get('views') or '+500K'} vistas · "
+            f"{item.get('genre') or 'micro-drama'}.",
+            f"   Premisa: {item.get('premise') or ''}",
+            f"   Gancho: {item.get('hook') or ''}",
+            f"   Beats: {beats}",
+            f"   Adaptación USA: {item.get('usa_adaptation') or ''}",
+        ])
+    return "\n".join(lines).strip()
+
+
+def render_prompt(key: str, values: Dict[str, Any], niche: str = "") -> str:
     template = TEMPLATES.get(str(key))
     if not template:
         raise KeyError(f"Plantilla desconocida: {key}. Usa: {', '.join(PROMPT_ORDER)}")
@@ -524,6 +642,11 @@ def render_prompt(key: str, values: Dict[str, Any]) -> str:
     for placeholder in PLACEHOLDERS:
         token = "{" + placeholder + "}"
         text = text.replace(token, str(values.get(placeholder, token)))
+    if str(key) == "prompt_000" and VIRAL_TEMPLATES_TOKEN in text:
+        text = text.replace(VIRAL_TEMPLATES_TOKEN, render_viral_latam_block())
+    if str(key) == "prompt_000" and str(niche or "").strip():
+        selected = get_viral_template(niche)
+        text = text.rstrip() + "\n\n" + render_viral_niche_block(selected)
     return text
 
 
@@ -531,11 +654,11 @@ def unfilled_placeholders(text: str) -> List[str]:
     return [name for name in PLACEHOLDERS if "{" + name + "}" in str(text or "")]
 
 
-def render_all(values: Dict[str, Any]) -> List[Dict[str, Any]]:
+def render_all(values: Dict[str, Any], niche: str = "") -> List[Dict[str, Any]]:
     prompts: List[Dict[str, Any]] = []
     for key in PROMPT_ORDER:
         meta = TEMPLATES[key]
-        text = render_prompt(key, values)
+        text = render_prompt(key, values, niche=niche)
         prompts.append({
             "key": key,
             "code": meta["code"],
@@ -555,9 +678,11 @@ def build_prompt_pack(
     style: Optional[Dict[str, Any]] = None,
     brief_text: str = "",
     overrides: Optional[Dict[str, Any]] = None,
+    niche: str = "",
 ) -> Dict[str, Any]:
     values = values_from_master(master, style, brief_text, **(overrides or {}))
-    prompts = render_all(values)
+    prompts = render_all(values, niche=niche)
+    selected = get_viral_template(niche) if str(niche or "").strip() else None
     episode = (master or {}).get("episode") if isinstance((master or {}).get("episode"), dict) else {}
     return {
         "schema_version": "1.0",
@@ -572,6 +697,13 @@ def build_prompt_pack(
         },
         "values": values,
         "prompts": prompts,
+        "viral_template": ({
+            "id": str(selected.get("id") or ""),
+            "label": str(selected.get("label") or ""),
+            "category": str(selected.get("category") or ""),
+            "rpm_rank": selected.get("rpm_rank"),
+            "description": str(selected.get("description") or ""),
+        } if selected else None),
     }
 
 
@@ -680,8 +812,8 @@ MUSE_FINAL_COMMAND_TEMPLATE = (
 )
 MUSE_FINAL_COMMAND = MUSE_FINAL_COMMAND_TEMPLATE
 MUSE_ATTACH_LINE = (
-    "📎 ADJUNTAR EN MUSE AI: [1] REF_CAST_MASTER.png (Hoja de Personajes) + "
-    "[2] REF_GRID_MIN_{batch:02d}.png (Storyboard Minuto {minute}: Escenas {first}–{last})"
+    "📎 ADJUNTAR EN MUSE AI: REF_CAST_MASTER.png (Hoja de Personajes) + "
+    "REF_GRID_MIN_{batch:02d}.png (Storyboard Minuto {minute}: Escenas {first}–{last})"
 )
 
 
@@ -856,13 +988,15 @@ def build_muse_batches(
         )
         command_169 = _muse_final_command(batch_number, "horizontal", "16:9")
         command_916 = _muse_final_command(batch_number, "vertical", "9:16")
-        prompt = "\n\n".join([
-            attach,
-            *blocks,
-            MUSE_FINAL_COMMAND_HEADER,
-            "**Opción YouTube Monetización Long-Form (16:9 Horizontal):**",
+        script = "\n\n".join(blocks)
+        prompt_169 = "\n\n".join([
+            script,
+            "COMANDO FINAL (16:9 YouTube):",
             f"\"{command_169}\"",
-            "**Opción Reels / TikTok / Shorts (9:16 Vertical):**",
+        ])
+        prompt_916 = "\n\n".join([
+            script,
+            "COMANDO FINAL (9:16 Reels/TikTok/Shorts):",
             f"\"{command_916}\"",
         ])
         batches.append({
@@ -877,7 +1011,9 @@ def build_muse_batches(
             "aspect_ratio_vertical": "9:16",
             "attach": attach,
             "reference_images": ["REF_CAST_MASTER.png", f"REF_GRID_MIN_{batch_number:02d}.png"],
-            "prompt": prompt,
+            "prompt": prompt_169,
+            "prompt_16x9_youtube": prompt_169,
+            "prompt_9x16_vertical": prompt_916,
             "muse_command": command_169,
             "muse_command_916": command_916,
         })
@@ -906,7 +1042,13 @@ def render_muse_batches_text(master: Dict[str, Any], batches: List[Dict[str, Any
             f"ESCENAS {first}–{last} — {batch['start_timecode']}–{batch['end_timecode']}",
             "=" * 78,
             "",
-            batch["prompt"],
+            batch["attach"],
+            "",
+            "=== COPIA 16:9 (YouTube) ===",
+            batch["prompt_16x9_youtube"],
+            "",
+            "=== COPIA 9:16 (Reels / TikTok / Shorts) ===",
+            batch["prompt_9x16_vertical"],
             "",
         ]
     return "\n".join(lines)
