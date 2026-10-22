@@ -46,8 +46,8 @@ ESCENA [N] (Viñeta #[N] del Storyboard) — [MM:SS–MM:SS]
 - Identity Anchors: [Nombre (Cast Sheet Pos #N: descriptor, wearing vestuario), ...]
 - Camera Cuts & Visual Action (10s):
   * [00s–03s]: [Encuadre exacto de la viñeta + acción ya en movimiento]
-  * [03s–07s]: [Corte duro a close-up/OTS + gesto mientras habla]
-  * [07s–10s]: [Corte duro a tight close-up/reacción/insert del objeto]
+  * [03s–07s]: [Corte a plano cerrado frontal o tres cuartos del hablante o del objeto clave, nunca desde detrás del personaje]
+  * [07s–10s]: [Corte a plano cerrado del segundo personaje reaccionando o respondiendo]
 - Sound Design (SFX & Voice Tone): [Efectos de sonido del ambiente + tono de voz fijo del personaje]
 - Dialogue (English, max 15 words, finish before 8.5 s):
   [NOMBRE DEL PERSONAJE]: "[Diálogo en inglés breve, concreto y completo, máx. 15 palabras]"
@@ -56,4 +56,11 @@ RESULTADO FINAL
 Entrega únicamente el bloque de escenas con la estructura anterior y, al final de las escenas, incluye este comando exacto listo para copiar y pegar junto con el guion en MUSE AI:
 
 COMANDO FINAL PARA PEGAR EN MUSE AI (JUNTO CON EL STORYBOARD Y LA HOJA DE PERSONAJES ADJUNTOS):
-"Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando los 3 cambios de cámara ([00s-03s] arrancando directamente en movimiento desde el encuadre exacto de la viñeta correspondiente sin frames estáticos, [03s-07s] corte a plano de diálogo/acción, y [07s-10s] corte a plano de reacción), manteniendo estrictamente la misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre escenas. Formato: 16:9."
+"Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando los 3 cambios de cámara ([00s-03s] arrancando directamente en movimiento desde el encuadre exacto de la viñeta correspondiente sin frames estáticos, [03s-07s] corte a plano cerrado frontal o tres cuartos del hablante o del objeto clave, nunca desde detrás del personaje, y [07s-10s] corte a plano cerrado del segundo personaje reaccionando o respondiendo), manteniendo estrictamente la misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre escenas. Formato: 16:9. Reglas negativas estrictas: no subtitles, no captions, no on-screen text, no watermark, no background music, no groans or mouth noises before dialogue."
+
+REGLA DE CONTINUIDAD NARRATIVA (Hilo Conductor Único + Cadena Causa y Efecto + Ledger de Estado Arrastrado + Prohibición de Ping-Pong de Locaciones + Un Solo Nombre por Objeto Clave + Prueba de Desorden):
+1. UNA SOLA PREGUNTA MOTRIZ POR BLOQUE DE 6 ESCENAS: cada minuto tiene una única pregunta dramática; ninguna escena abre una pregunta nueva.
+2. CADENA CAUSA-EFECTO OBLIGATORIA: de la escena 2 a la 60, cada escena declara `because_previous_ended_with` (copia literal del cambio final de la escena anterior), `this_scene_starts_with` (acción concreta ya en movimiento que continúa esa consecuencia) y `single_change_at_end` (un único cambio de estado irreversible).
+3. PROHIBIDO EL PING-PONG DE LOCACIONES: agrupa de 3 a 5 escenas consecutivas en la misma locación; el patrón A-B-A está prohibido.
+4. UN SOLO NOMBRE POR OBJETO CLAVE: el mismo `key_object` exacto aparece en el panel de storyboard, en la acción de la Toma 1 y en la lista Key Object; nunca uses alias.
+5. PRUEBA DE DESORDEN: si al desordenar el bloque la cadena de consecuencias deja de tener sentido, reescríbelo. El validador rechaza placeholders mecánicos (`hard cut into the dialogue beat`, `hard cut to the reaction as the line lands`) y saltos de locación sin transición.

@@ -131,6 +131,37 @@ def _retention_block(rules: Dict[str, Any]) -> str:
     )
 
 
+def _narrative_continuity_block(rules: Dict[str, Any]) -> str:
+    engine = rules.get("narrative_continuity_engine") or {}
+    if not engine or not engine.get("enabled", True):
+        return ""
+    per_block = int(engine.get("scenes_per_block") or 6)
+    blocks = int(engine.get("minute_blocks") or 10)
+    return f"""## NARRATIVE CONTINUITY ENGINE (MANDATORY)
+
+The episode is {blocks} minute-blocks of {per_block} scenes. These rules are checked by the validator.
+
+1. SINGLE DRIVING QUESTION PER BLOCK: every {per_block}-scene block carries exactly ONE
+   `driving_question` in the top-level `narrative_continuity.minute_blocks` array. No scene may
+   open a second question inside the block; the block answers or complicates that one question.
+2. STRICT CAUSE AND EFFECT CHAIN: every scene declares three strings:
+   - `because_previous_ended_with`: copy VERBATIM the previous scene's `single_change_at_end`.
+   - `this_scene_starts_with`: the concrete action already in motion that follows from it.
+   - `single_change_at_end`: the ONE irreversible state change produced by this scene.
+   Scene 1 uses `"The episode opens cold; there is no prior beat."` for the first field.
+3. NO LOCATION PING-PONG: group 3-5 consecutive scenes in the same location. A-B-A is forbidden.
+4. CANONICAL OBJECT LOCK: use one exact `key_object` name in the storyboard panel, in the
+   Shot 1 action and in the Key Object list. Never switch to an alias.
+5. DISORDER TEST: if the block is shuffled and the chain of consequences no longer makes sense,
+   rewrite it. Mechanical placeholders (`hard cut...`, `the room falls quiet...`,
+   `reacts as the line lands...`) are rejected by validation.
+
+The three per-scene fields are mandatory from scene 2 to scene 60; scene 1 declares its opening
+state and first change. Never repeat the same sentence in `this_scene_starts_with` and
+`single_change_at_end`.
+"""
+
+
 def _viral_latam_block(rules: Dict[str, Any]) -> str:
     templates = [t for t in (rules.get("viral_latam_to_usa_templates") or []) if isinstance(t, dict)]
     if not templates:
@@ -323,9 +354,19 @@ def build_llm_prompt(
         {"speaker": "NORA", "line": "They said the lighthouse was empty for ten years. So who left the light on?", "delivery": "cold, quiet"}
       ],
       "sfx_ambience": "wind, distant surf, a gull, wet gravel underfoot",
-      "continuity": "Act 1 wardrobe. She is holding the brass key; salt wind, wet gravel, cold hands. Present state only."
+      "continuity": "Act 1 wardrobe. She is holding the brass key; salt wind, wet gravel, cold hands. Present state only.",
+      "because_previous_ended_with": "The episode opens cold; there is no prior beat.",
+      "this_scene_starts_with": "Nora strides along the cliff edge, the brass key already closed in her fist.",
+      "single_change_at_end": "Headlights find Nora on the cliff road, and she turns toward whoever is coming.",
+      "block_driving_question": "Why did the lighthouse light turn on after ten years?"
     }
   ],
+  "narrative_continuity": {
+    "engine": "narrative_continuity_engine",
+    "minute_blocks": [
+      {"block": 1, "scenes": [1, 2, 3, 4, 5, 6], "driving_question": "Why did the lighthouse light turn on after ten years?"}
+    ]
+  },
   "teasers": [
     {"id": 1, "title": "Official Teaser", "hook_text": "THE LIGHT WAS NEVER OFF", "scenes": [1, 2, 3, 4, 5, 6], "caption": "2-4 short lines, one question, honest CTA."}
   ],
@@ -380,6 +421,8 @@ Write the complete episode as ONE valid JSON object that follows the schema belo
 {_viral_latam_block(rules)}
 
 {_selected_viral_template_block(rules, viral_template)}
+
+{_narrative_continuity_block(rules)}
 
 ## FIRST-FRAME / VISUAL RULES
 

@@ -5,8 +5,7 @@ Ahora analiza ese storyboard e identifica los personajes principales y secundari
 Tu tarea es generar UNA SOLA IMAGEN que muestre juntos a todos los personajes identificados.
 
 REFERENCIA
-Storyboard:
-[ADJUNTAR EL STORYBOARD CREADO ANTERIORMENTE]
+Storyboard: el storyboard completo creado en el paso anterior. La hoja debe mantener exactamente los rostros, edades, etnias, vestuarios y accesorios que aparecen en ese storyboard.
 
 REGLA PRINCIPAL
 Los personajes deben basarse directamente en el storyboard.
@@ -58,12 +57,14 @@ Utiliza para cada personaje su vestuario más representativo o principal dentro 
 El vestuario debe ayudar a identificar inmediatamente quién es cada personaje.
 
 TEXTO
-Coloca debajo de cada personaje únicamente:
-Nombre del personaje y su rol corto.
+Ordena a los personajes de izquierda a derecha y coloca debajo de cada uno únicamente:
+Position #N — NOMBRE DEL PERSONAJE EN MAYÚSCULAS
 Ejemplo:
-ELENA — Protagonist
-COLTON — Gardener
-VICTORIA — Mother
+Position #1 (Far Left) — ELENA
+Position #2 — SAM
+Position #3 — MARGARET
+Position #4 (Far Right) — ADRIAN
+Cada personaje conserva siempre la misma posición, el mismo rostro y el mismo vestuario en la hoja y en todas las escenas.
 No incluir:
 - Descripciones largas.
 - Diálogos.

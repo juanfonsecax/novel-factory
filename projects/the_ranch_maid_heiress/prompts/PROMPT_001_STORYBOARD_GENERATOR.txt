@@ -15,7 +15,7 @@ EPISODE:
 - Setting: (not specified)
 
 CAST:
-- Elena Vance (protagonist): Casting sheet for the character reference image: woman in her mid-twenties, sun-weathered gently angular face, long chestnut hair worn in a single low braid, calm dark-brown eyes, light freckling across the nose, a faint old scar through one eyebrow, slender but strong ranch build, signature faded blue denim work shirt and dark riding jeans. | voice: warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical
+- Elena Vance (protagonist): Casting sheet for the character reference image: woman in her mid-twenties, sun-weathered gently angular face, long chestnut hair worn in a single low braid, calm dark-brown eyes, clear sun-kissed skin with light natural freckles, slender but strong ranch build, signature faded blue denim work shirt and dark riding jeans. | voice: warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical
 - Victoria Blackwell (antagonist): Casting sheet for the character reference image: woman in her mid-forties, sleek platinum-blonde bob, sharp cheekbones, cool grey eyes, immaculate posture, dark red lipstick, pearl earrings, signature emerald silk blouse over tailored black trousers. | voice: low, polished, unhurried American English, smiles through threats, never shouts
 - Richard Blackwell (antagonist): Casting sheet for the character reference image: man around thirty, clean-cut, sandy hair combed back, pale blue eyes, a practiced easy smile, tall athletic build, signature pressed white shirt under a charcoal blazer. | voice: smooth mid-range American English, reasonable tone that never quite reaches sincerity
 - Cole Barrett (love_interest): Casting sheet for the character reference image: man in his early thirties, weathered rancher hands, dark hair a little long under a dust-worn felt hat, steady hazel eyes, quiet jaw, broad shoulders, signature oiled tan canvas chore jacket over a grey henley. | voice: quiet, low American English, careful diction, warmth held under restraint
@@ -26,6 +26,7 @@ LOCATIONS:
 - Silver Creek barn and stables
 - the gatehouse cottage
 - Silver Creek county records and civic hall
+- First Valley Trust bank, town bank steps and ranch ridge road
 
 ACT MAP:
 - Act 1 — The Bait : Open on the public humiliation, ground Elena's place in the household and her mother's death, then detonate the sealed tack room and the deed with June Vance's name.
@@ -57,26 +58,18 @@ Cada imagen representa exactamente 1 minuto de historia.
 
 CADA VIÑETA
 Cada viñeta debe mostrar visualmente el momento correspondiente de la historia con encuadre de cine profesional (alternando planos generales establecedores, planos medios dramáticos y primeros planos emocionales).
+Cada viñeta es el PRIMER FRAME literal de la Toma 1 de su escena: mismo encuadre, misma posición de cámara, mismo blocking, mismo vestuario, misma luz y mismo objeto clave. La Toma 1 arranca en movimiento desde esa imagen; nunca es un frame congelado.
 Debe incluir:
-- Personajes.
+- Todos los personajes presentes en la escena, con su posición fija de la Hoja de Personajes.
 - Lugar.
-- Acción física clara.
+- Acción física clara ya en movimiento.
 - Emoción intensa en los rostros.
+- El objeto clave de la escena visible o claramente implicado.
 - Composición e iluminación cinematográfica.
-Debajo de cada viñeta puede aparecer una descripción extremadamente breve de la escena, de aproximadamente 5 a 10 palabras.
-Ejemplo:
-“1. Elena meets the billionaire in the rain.”
-“4. The father discovers the secret romance.”
-La descripción debe ser únicamente una referencia rápida de lo que ocurre.
+FORMATO DE VIÑETAS 100% VISUAL (SIN CAJAS DE TEXTO): Las 6 viñetas fotográficas en cuadrícula 3x2 deben ocupar el 100% del lienzo 16:9 separadas únicamente por líneas divisorias finas. Coloca SOLO el número pequeño [1], [2], [3], [4], [5], [6] en la esquina superior izquierda de cada viñeta. PROHIBIDO dibujar barras inferiores oscuras, subtítulos, cajas de texto o descripciones escritas dentro de la imagen.
 
 IMPORTANTE:
 No escribir diálogos ni párrafos dentro del storyboard.
-Las descripciones deben ser:
-- Muy breves (5 a 10 palabras).
-- Claras.
-- Fáciles de leer.
-- Sin saturar la imagen.
-- Máximo una línea cuando sea posible.
 
 CONTINUIDAD
 Mantén la misma apariencia exacta de los personajes durante todo el storyboard.
@@ -107,7 +100,7 @@ No incluir:
 - Párrafos.
 - Prompts de video.
 - Explicaciones del proceso.
-Solo incluir una descripción muy breve debajo de cada viñeta para identificar la acción.
+- Descripciones escritas, cajas de texto o barras inferiores dentro de la imagen.
 
 RESULTADO FINAL
 A partir de la historia, duración y estilo proporcionados:
@@ -116,6 +109,13 @@ A partir de la historia, duración y estilo proporcionados:
 3. Divide las escenas en grupos de 6.
 4. Genera una imagen por cada grupo de 6 escenas.
 5. Cada imagen debe contener 6 viñetas claramente divididas.
-6. Añade debajo de cada viñeta una descripción de máximo 5–10 palabras.
+6. Mantén la numeración [1]-[6] en la esquina superior izquierda, sin texto adicional.
 7. Mantén la continuidad absoluta de personajes y escenarios.
 8. Cuenta toda la historia visualmente de principio a fin.
+
+REGLA DE CONTINUIDAD NARRATIVA (Hilo Conductor Único + Cadena Causa y Efecto + Ledger de Estado Arrastrado + Prohibición de Ping-Pong de Locaciones + Un Solo Nombre por Objeto Clave + Prueba de Desorden):
+1. UNA SOLA PREGUNTA MOTRIZ POR BLOQUE DE 6 ESCENAS: cada minuto tiene una única pregunta dramática; ninguna escena abre una pregunta nueva.
+2. CADENA CAUSA-EFECTO OBLIGATORIA: de la escena 2 a la 60, cada escena declara `because_previous_ended_with` (copia literal del cambio final de la escena anterior), `this_scene_starts_with` (acción concreta ya en movimiento que continúa esa consecuencia) y `single_change_at_end` (un único cambio de estado irreversible).
+3. PROHIBIDO EL PING-PONG DE LOCACIONES: agrupa de 3 a 5 escenas consecutivas en la misma locación; el patrón A-B-A está prohibido.
+4. UN SOLO NOMBRE POR OBJETO CLAVE: el mismo `key_object` exacto aparece en el panel de storyboard, en la acción de la Toma 1 y en la lista Key Object; nunca uses alias.
+5. PRUEBA DE DESORDEN: si al desordenar el bloque la cadena de consecuencias deja de tener sentido, reescríbelo. El validador rechaza placeholders mecánicos (`hard cut into the dialogue beat`, `hard cut to the reaction as the line lands`) y saltos de locación sin transición.

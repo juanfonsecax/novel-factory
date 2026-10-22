@@ -67,20 +67,10 @@ Debe incluir:
 - Emoción intensa en los rostros.
 - El objeto clave de la escena visible o claramente implicado.
 - Composición e iluminación cinematográfica.
-Debajo de cada viñeta puede aparecer una descripción extremadamente breve de la escena, de aproximadamente 5 a 10 palabras.
-Ejemplo:
-“1. Elena meets the billionaire in the rain.”
-“4. The father discovers the secret romance.”
-La descripción debe ser únicamente una referencia rápida de lo que ocurre.
+FORMATO DE VIÑETAS 100% VISUAL (SIN CAJAS DE TEXTO): Las 6 viñetas fotográficas en cuadrícula 3x2 deben ocupar el 100% del lienzo 16:9 separadas únicamente por líneas divisorias finas. Coloca SOLO el número pequeño [1], [2], [3], [4], [5], [6] en la esquina superior izquierda de cada viñeta. PROHIBIDO dibujar barras inferiores oscuras, subtítulos, cajas de texto o descripciones escritas dentro de la imagen.
 
 IMPORTANTE:
 No escribir diálogos ni párrafos dentro del storyboard.
-Las descripciones deben ser:
-- Muy breves (5 a 10 palabras).
-- Claras.
-- Fáciles de leer.
-- Sin saturar la imagen.
-- Máximo una línea cuando sea posible.
 
 CONTINUIDAD
 Mantén la misma apariencia exacta de los personajes durante todo el storyboard.
@@ -111,7 +101,7 @@ No incluir:
 - Párrafos.
 - Prompts de video.
 - Explicaciones del proceso.
-Solo incluir una descripción muy breve debajo de cada viñeta para identificar la acción.
+- Descripciones escritas, cajas de texto o barras inferiores dentro de la imagen.
 
 RESULTADO FINAL
 A partir de la historia, duración y estilo proporcionados:
@@ -120,6 +110,13 @@ A partir de la historia, duración y estilo proporcionados:
 3. Divide las escenas en grupos de 6.
 4. Genera una imagen por cada grupo de 6 escenas.
 5. Cada imagen debe contener 6 viñetas claramente divididas.
-6. Añade debajo de cada viñeta una descripción de máximo 5–10 palabras.
+6. Mantén la numeración [1]-[6] en la esquina superior izquierda, sin texto adicional.
 7. Mantén la continuidad absoluta de personajes y escenarios.
 8. Cuenta toda la historia visualmente de principio a fin.
+
+REGLA DE CONTINUIDAD NARRATIVA (Hilo Conductor Único + Cadena Causa y Efecto + Ledger de Estado Arrastrado + Prohibición de Ping-Pong de Locaciones + Un Solo Nombre por Objeto Clave + Prueba de Desorden):
+1. UNA SOLA PREGUNTA MOTRIZ POR BLOQUE DE 6 ESCENAS: cada minuto tiene una única pregunta dramática; ninguna escena abre una pregunta nueva.
+2. CADENA CAUSA-EFECTO OBLIGATORIA: de la escena 2 a la 60, cada escena declara `because_previous_ended_with` (copia literal del cambio final de la escena anterior), `this_scene_starts_with` (acción concreta ya en movimiento que continúa esa consecuencia) y `single_change_at_end` (un único cambio de estado irreversible).
+3. PROHIBIDO EL PING-PONG DE LOCACIONES: agrupa de 3 a 5 escenas consecutivas en la misma locación; el patrón A-B-A está prohibido.
+4. UN SOLO NOMBRE POR OBJETO CLAVE: el mismo `key_object` exacto aparece en el panel de storyboard, en la acción de la Toma 1 y en la lista Key Object; nunca uses alias.
+5. PRUEBA DE DESORDEN: si al desordenar el bloque la cadena de consecuencias deja de tener sentido, reescríbelo. El validador rechaza placeholders mecánicos (`hard cut into the dialogue beat`, `hard cut to the reaction as the line lands`) y saltos de locación sin transición.

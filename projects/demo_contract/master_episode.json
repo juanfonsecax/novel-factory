@@ -203,19 +203,19 @@
           "at": 0.0,
           "range": "00s-03s",
           "framing": "wide establishing shot",
-          "action": "Nora stands at the cliff edge, the lighthouse dark behind her, salt wind whipping her coat."
+          "action": "Nora stands at the cliff edge, the lighthouse dark behind her, salt wind whipping her coat. Key object in frame: a brass key."
         },
         {
           "at": 3.0,
           "range": "03s-07s",
           "framing": "close-up",
-          "action": "Close detail on a brass key; the room falls quiet around it."
+          "action": "NORA speaks as the camera holds tight on their face, with a brass key in the foreground."
         },
         {
           "at": 7.0,
           "range": "07s-10s",
           "framing": "tight close-up",
-          "action": "hard cut to the reaction as the line lands"
+          "action": "The silence after \"They said the lighthouse was empty for ten years. So who left the light on?\" hangs, a brass key sharp in the foreground."
         }
       ],
       "dialogue": [
@@ -235,7 +235,11 @@
         "nora"
       ],
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing charcoal wool coat over a dark sweater, dark jeans, rain-wet hair)",
-      "storyboard_panel": "[00s-03s] wide establishing shot: Nora stands at the cliff edge, the lighthouse dark behind her, salt wind whipping her coat. Location: Hale lighthouse cliff edge, storm dusk, wind and salt spray. Key object: a brass key. Characters present: Nora Hale."
+      "storyboard_panel": "[00s-03s] wide establishing shot: Nora stands at the cliff edge, the lighthouse dark behind her, salt wind whipping her coat. Key object in frame: a brass key. Location: Hale lighthouse cliff edge, storm dusk, wind and salt spray. Key object: a brass key. Characters present: Nora Hale.",
+      "block_driving_question": "Why did the lighthouse light switch on the night Nora returned?",
+      "because_previous_ended_with": "The episode opens cold; there is no prior beat.",
+      "this_scene_starts_with": "Nora stands at the cliff edge, the lighthouse dark behind her, salt wind whipping her coat. Key object in frame: a brass key",
+      "single_change_at_end": "The cold open hook leaves a brass key exposed, and there is no way back."
     },
     {
       "scene_id": 2,
@@ -255,19 +259,19 @@
           "at": 0.0,
           "range": "00s-03s",
           "framing": "medium shot",
-          "action": "Nora steps off the ferry with one duffel bag, the town sign behind her."
+          "action": "Nora steps off the ferry with one duffel bag, the town sign behind her. Key object in frame: the deed."
         },
         {
           "at": 3.0,
           "range": "03s-07s",
           "framing": "close-up",
-          "action": "Close detail on the deed; the room falls quiet around it."
+          "action": "SAM speaks as the camera holds tight on their face, with the deed in the foreground."
         },
         {
           "at": 7.0,
           "range": "07s-10s",
           "framing": "insert shot of the evidence object",
-          "action": "hard cut to the reaction as the line lands"
+          "action": "Nora Hale holds the silence after \"Nora Hale. Ten years, and you still drive like a storm\", the deed sharp in the foreground."
         }
       ],
       "dialogue": [
@@ -288,7 +292,10 @@
         "sam"
       ],
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing charcoal wool coat over a dark sweater, dark jeans, rain-wet hair); Sam Calloway (Cast Sheet Pos #2: mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin, wearing faded canvas work jacket, dark trousers, worn boots)",
-      "storyboard_panel": "[00s-03s] medium shot: Nora steps off the ferry with one duffel bag, the town sign behind her. Location: Keller harbor boardwalk, blue hour, wet planks and dock lights. Key object: the deed. Characters present: Nora Hale, Sam Calloway."
+      "storyboard_panel": "[00s-03s] medium shot: Nora steps off the ferry with one duffel bag, the town sign behind her. Key object in frame: the deed. Location: Keller harbor boardwalk, blue hour, wet planks and dock lights. Key object: the deed. Characters present: Nora Hale, Sam Calloway.",
+      "because_previous_ended_with": "The cold open hook leaves a brass key exposed, and there is no way back.",
+      "this_scene_starts_with": "Nora steps off the ferry with one duffel bag, the town sign behind her. Key object in frame: the deed",
+      "single_change_at_end": "The world and wound leaves the deed exposed, and there is no way back."
     },
     {
       "scene_id": 3,
@@ -308,19 +315,19 @@
           "at": 0.0,
           "range": "00s-03s",
           "framing": "tight close-up",
-          "action": "Sam leans against a harbor truck with his arms crossed, trying not to smile."
+          "action": "Sam leans against a harbor truck with his arms crossed, trying not to smile. Key object in frame: fresh survey stakes."
         },
         {
           "at": 3.0,
           "range": "03s-07s",
           "framing": "close-up",
-          "action": "Close detail on fresh survey stakes; the room falls quiet around it."
+          "action": "NORA speaks as the camera holds tight on their face, with fresh survey stakes in the foreground."
         },
         {
           "at": 7.0,
           "range": "07s-10s",
           "framing": "tight close-up",
-          "action": "hard cut to the reaction as the line lands"
+          "action": "Nora Hale holds the silence after \"I'm not happy. I'm careful\", fresh survey stakes sharp in the foreground."
         }
       ],
       "dialogue": [
@@ -346,7 +353,10 @@
         "sam"
       ],
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing charcoal wool coat over a dark sweater, dark jeans, rain-wet hair); Sam Calloway (Cast Sheet Pos #2: mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin, wearing faded canvas work jacket, dark trousers, worn boots)",
-      "storyboard_panel": "[00s-03s] tight close-up: Sam leans against a harbor truck with his arms crossed, trying not to smile. Location: Hale lighthouse kitchen, night, one warm lamp and a cold stove. Key object: fresh survey stakes. Characters present: Nora Hale, Sam Calloway."
+      "storyboard_panel": "[00s-03s] tight close-up: Sam leans against a harbor truck with his arms crossed, trying not to smile. Key object in frame: fresh survey stakes. Location: Hale lighthouse kitchen, night, one warm lamp and a cold stove. Key object: fresh survey stakes. Characters present: Nora Hale, Sam Calloway.",
+      "because_previous_ended_with": "The world and wound leaves the deed exposed, and there is no way back.",
+      "this_scene_starts_with": "Sam leans against a harbor truck with his arms crossed, trying not to smile. Key object in frame: fresh survey stakes",
+      "single_change_at_end": "The escalation leaves fresh survey stakes exposed, and there is no way back."
     },
     {
       "scene_id": 4,
@@ -366,19 +376,19 @@
           "at": 0.0,
           "range": "00s-03s",
           "framing": "over-the-shoulder shot",
-          "action": "Nora sets a brass key on the lighthouse kitchen table between them."
+          "action": "Nora sets a brass key on the lighthouse kitchen table between them. Key object in frame: the dead lighthouse lamp."
         },
         {
           "at": 3.0,
           "range": "03s-07s",
           "framing": "close-up",
-          "action": "Close detail on the dead lighthouse lamp; the room falls quiet around it."
+          "action": "SAM speaks as the camera holds tight on their face, with the dead lighthouse lamp in the foreground."
         },
         {
           "at": 7.0,
           "range": "07s-10s",
           "framing": "insert shot of the evidence object",
-          "action": "hard cut to the reaction as the line lands"
+          "action": "Sam Calloway holds the silence after \"Then explain it to the state\", the dead lighthouse lamp sharp in the foreground."
         }
       ],
       "dialogue": [
@@ -404,7 +414,10 @@
         "sam"
       ],
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing charcoal wool coat over a dark sweater, dark jeans, rain-wet hair); Sam Calloway (Cast Sheet Pos #2: mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin, wearing faded canvas work jacket, dark trousers, worn boots)",
-      "storyboard_panel": "[00s-03s] over-the-shoulder shot: Nora sets a brass key on the lighthouse kitchen table between them. Location: Hale lighthouse cliff edge, storm dusk, wind and salt spray. Key object: the dead lighthouse lamp. Characters present: Nora Hale, Sam Calloway."
+      "storyboard_panel": "[00s-03s] over-the-shoulder shot: Nora sets a brass key on the lighthouse kitchen table between them. Key object in frame: the dead lighthouse lamp. Location: Hale lighthouse cliff edge, storm dusk, wind and salt spray. Key object: the dead lighthouse lamp. Characters present: Nora Hale, Sam Calloway.",
+      "because_previous_ended_with": "The escalation leaves fresh survey stakes exposed, and there is no way back.",
+      "this_scene_starts_with": "Nora sets a brass key on the lighthouse kitchen table between them. Key object in frame: the dead lighthouse lamp",
+      "single_change_at_end": "The escalation leaves the dead lighthouse lamp exposed, and there is no way back."
     },
     {
       "scene_id": 5,
@@ -425,19 +438,19 @@
           "at": 0.0,
           "range": "00s-03s",
           "framing": "low-angle hero shot",
-          "action": "Sam points through the rain at fresh survey stakes driven into the cliff."
+          "action": "Sam points through the rain at fresh survey stakes driven into the cliff. Key object in frame: a brass key."
         },
         {
           "at": 3.0,
           "range": "03s-07s",
           "framing": "close-up",
-          "action": "Close detail on a brass key; the room falls quiet around it."
+          "action": "MARGARET speaks as the camera holds tight on their face, with a brass key in the foreground."
         },
         {
           "at": 7.0,
           "range": "07s-10s",
           "framing": "tight close-up",
-          "action": "hard cut to the reaction as the line lands"
+          "action": "Margaret Keller holds the silence after \"Then you won't mind me reading it\", a brass key sharp in the foreground."
         }
       ],
       "dialogue": [
@@ -464,7 +477,10 @@
         "margaret"
       ],
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing charcoal wool coat over a dark sweater, dark jeans, rain-wet hair); Sam Calloway (Cast Sheet Pos #2: mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin, wearing faded canvas work jacket, dark trousers, worn boots); Margaret Keller (Cast Sheet Pos #3: late sixties matriarch, tall and straight-backed, silver chignon, pale blue eyes, porcelain skin, wearing tailored dove-grey suit, pearls, low-heeled shoes)",
-      "storyboard_panel": "[00s-03s] low-angle hero shot: Sam points through the rain at fresh survey stakes driven into the cliff. Location: Keller harbor boardwalk, blue hour, wet planks and dock lights. Key object: a brass key. Characters present: Nora Hale, Sam Calloway, Margaret Keller."
+      "storyboard_panel": "[00s-03s] low-angle hero shot: Sam points through the rain at fresh survey stakes driven into the cliff. Key object in frame: a brass key. Location: Keller harbor boardwalk, blue hour, wet planks and dock lights. Key object: a brass key. Characters present: Nora Hale, Sam Calloway, Margaret Keller.",
+      "because_previous_ended_with": "The escalation leaves the dead lighthouse lamp exposed, and there is no way back.",
+      "this_scene_starts_with": "Sam points through the rain at fresh survey stakes driven into the cliff. Key object in frame: a brass key",
+      "single_change_at_end": "The escalation leaves a brass key exposed, and there is no way back."
     },
     {
       "scene_id": 6,
@@ -485,19 +501,19 @@
           "at": 0.0,
           "range": "00s-03s",
           "framing": "wide establishing shot",
-          "action": "Margaret waits under the dry awning of the Keller estate, gloves folded."
+          "action": "Margaret waits under the dry awning of the Keller estate, gloves folded. Key object in frame: the deed."
         },
         {
           "at": 3.0,
           "range": "03s-07s",
           "framing": "close-up",
-          "action": "Close detail on the deed; the room falls quiet around it."
+          "action": "ADRIAN speaks as the camera holds tight on their face, with the deed in the foreground."
         },
         {
           "at": 7.0,
           "range": "07s-10s",
           "framing": "insert shot of the evidence object",
-          "action": "hard cut to the reaction as the line lands"
+          "action": "Adrian Keller holds the silence after \"You only ask me to leave the past\", the deed sharp in the foreground."
         }
       ],
       "dialogue": [
@@ -524,7 +540,10 @@
         "adrian"
       ],
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing charcoal wool coat over a dark sweater, dark jeans, rain-wet hair); Margaret Keller (Cast Sheet Pos #3: late sixties matriarch, tall and straight-backed, silver chignon, pale blue eyes, porcelain skin, wearing tailored dove-grey suit, pearls, low-heeled shoes); Adrian Keller (Cast Sheet Pos #4: late thirties lean groomed heir, ash-blond hair swept back, cold grey eyes, even features, wearing navy blazer, open-collared white shirt, dark trousers)",
-      "storyboard_panel": "[00s-03s] wide establishing shot: Margaret waits under the dry awning of the Keller estate, gloves folded. Location: Hale lighthouse kitchen, night, one warm lamp and a cold stove. Key object: the deed. Characters present: Nora Hale, Margaret Keller, Adrian Keller."
+      "storyboard_panel": "[00s-03s] wide establishing shot: Margaret waits under the dry awning of the Keller estate, gloves folded. Key object in frame: the deed. Location: Hale lighthouse kitchen, night, one warm lamp and a cold stove. Key object: the deed. Characters present: Nora Hale, Margaret Keller, Adrian Keller.",
+      "because_previous_ended_with": "The escalation leaves a brass key exposed, and there is no way back.",
+      "this_scene_starts_with": "Margaret waits under the dry awning of the Keller estate, gloves folded. Key object in frame: the deed",
+      "single_change_at_end": "The escalation leaves the deed exposed, and there is no way back."
     },
     {
       "scene_id": 7,
@@ -544,19 +563,19 @@
           "at": 0.0,
           "range": "00s-03s",
           "framing": "medium shot",
-          "action": "Nora reads the deed by a single warm lamp, jaw tight."
+          "action": "Nora reads the deed by a single warm lamp, jaw tight. Key object in frame: fresh survey stakes."
         },
         {
           "at": 3.0,
           "range": "03s-07s",
           "framing": "close-up",
-          "action": "Close detail on fresh survey stakes; the room falls quiet around it."
+          "action": "NORA speaks as the camera holds tight on their face, with fresh survey stakes in the foreground."
         },
         {
           "at": 7.0,
           "range": "07s-10s",
           "framing": "tight close-up",
-          "action": "hard cut to the reaction as the line lands"
+          "action": "Nora Hale holds the silence after \"A deed is cleaner than a funeral\", fresh survey stakes sharp in the foreground."
         }
       ],
       "dialogue": [
@@ -582,7 +601,11 @@
         "margaret"
       ],
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing charcoal wool coat over a dark sweater, dark jeans, rain-wet hair); Margaret Keller (Cast Sheet Pos #3: late sixties matriarch, tall and straight-backed, silver chignon, pale blue eyes, porcelain skin, wearing tailored dove-grey suit, pearls, low-heeled shoes)",
-      "storyboard_panel": "[00s-03s] medium shot: Nora reads the deed by a single warm lamp, jaw tight. Location: Hale lighthouse cliff edge, storm dusk, wind and salt spray. Key object: fresh survey stakes. Characters present: Nora Hale, Margaret Keller."
+      "storyboard_panel": "[00s-03s] medium shot: Nora reads the deed by a single warm lamp, jaw tight. Key object in frame: fresh survey stakes. Location: Hale lighthouse cliff edge, storm dusk, wind and salt spray. Key object: fresh survey stakes. Characters present: Nora Hale, Margaret Keller.",
+      "block_driving_question": "Who is buying the lighthouse land before the town hearing?",
+      "because_previous_ended_with": "The escalation leaves the deed exposed, and there is no way back.",
+      "this_scene_starts_with": "Nora reads the deed by a single warm lamp, jaw tight. Key object in frame: fresh survey stakes",
+      "single_change_at_end": "The escalation leaves fresh survey stakes exposed, and there is no way back."
     },
     {
       "scene_id": 8,
@@ -603,19 +626,19 @@
           "at": 0.0,
           "range": "00s-03s",
           "framing": "tight close-up",
-          "action": "Adrian blocks the lighthouse door with a folder under his arm."
+          "action": "Adrian blocks the lighthouse door with a folder under his arm. Key object in frame: the dead lighthouse lamp."
         },
         {
           "at": 3.0,
           "range": "03s-07s",
           "framing": "close-up",
-          "action": "Close detail on the dead lighthouse lamp; the room falls quiet around it."
+          "action": "CLAIRE speaks as the camera holds tight on their face, with the dead lighthouse lamp in the foreground."
         },
         {
           "at": 7.0,
           "range": "07s-10s",
           "framing": "insert shot of the evidence object",
-          "action": "hard cut to the reaction as the line lands"
+          "action": "Claire Boone holds the silence after \"Who witnessed it?\", the dead lighthouse lamp sharp in the foreground."
         }
       ],
       "dialogue": [
@@ -642,7 +665,10 @@
         "claire"
       ],
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing charcoal wool coat over a dark sweater, dark jeans, rain-wet hair); Adrian Keller (Cast Sheet Pos #4: late thirties lean groomed heir, ash-blond hair swept back, cold grey eyes, even features, wearing navy blazer, open-collared white shirt, dark trousers); Claire Boone (Cast Sheet Pos #5: forties compact small-town lawyer, brown blunt bob, warm brown eyes, reading glasses on a cord, wearing forest-green cardigan, cream blouse, dark trousers)",
-      "storyboard_panel": "[00s-03s] tight close-up: Adrian blocks the lighthouse door with a folder under his arm. Location: Keller harbor boardwalk, blue hour, wet planks and dock lights. Key object: the dead lighthouse lamp. Characters present: Nora Hale, Adrian Keller, Claire Boone."
+      "storyboard_panel": "[00s-03s] tight close-up: Adrian blocks the lighthouse door with a folder under his arm. Key object in frame: the dead lighthouse lamp. Location: Keller harbor boardwalk, blue hour, wet planks and dock lights. Key object: the dead lighthouse lamp. Characters present: Nora Hale, Adrian Keller, Claire Boone.",
+      "because_previous_ended_with": "The escalation leaves fresh survey stakes exposed, and there is no way back.",
+      "this_scene_starts_with": "Adrian blocks the lighthouse door with a folder under his arm. Key object in frame: the dead lighthouse lamp",
+      "single_change_at_end": "The escalation leaves the dead lighthouse lamp exposed, and there is no way back."
     },
     {
       "scene_id": 9,
@@ -662,19 +688,19 @@
           "at": 0.0,
           "range": "00s-03s",
           "framing": "over-the-shoulder shot",
-          "action": "Nora stands alone on the point, the town lights small below her."
+          "action": "Nora stands alone on the point, the town lights small below her. Key object in frame: a brass key."
         },
         {
           "at": 3.0,
           "range": "03s-07s",
           "framing": "close-up",
-          "action": "Close detail on a brass key; the room falls quiet around it."
+          "action": "CLAIRE speaks as the camera holds tight on their face, with a brass key in the foreground."
         },
         {
           "at": 7.0,
           "range": "07s-10s",
           "framing": "tight close-up",
-          "action": "hard cut to the reaction as the line lands"
+          "action": "Claire Boone holds the silence after \"Sam was there that night?\", a brass key sharp in the foreground."
         }
       ],
       "dialogue": [
@@ -700,7 +726,10 @@
         "claire"
       ],
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing charcoal wool coat over a dark sweater, dark jeans, rain-wet hair); Claire Boone (Cast Sheet Pos #5: forties compact small-town lawyer, brown blunt bob, warm brown eyes, reading glasses on a cord, wearing forest-green cardigan, cream blouse, dark trousers)",
-      "storyboard_panel": "[00s-03s] over-the-shoulder shot: Nora stands alone on the point, the town lights small below her. Location: Hale lighthouse kitchen, night, one warm lamp and a cold stove. Key object: a brass key. Characters present: Nora Hale, Claire Boone."
+      "storyboard_panel": "[00s-03s] over-the-shoulder shot: Nora stands alone on the point, the town lights small below her. Key object in frame: a brass key. Location: Hale lighthouse kitchen, night, one warm lamp and a cold stove. Key object: a brass key. Characters present: Nora Hale, Claire Boone.",
+      "because_previous_ended_with": "The escalation leaves the dead lighthouse lamp exposed, and there is no way back.",
+      "this_scene_starts_with": "Nora stands alone on the point, the town lights small below her. Key object in frame: a brass key",
+      "single_change_at_end": "The escalation leaves a brass key exposed, and there is no way back."
     },
     {
       "scene_id": 10,
@@ -719,19 +748,19 @@
           "at": 0.0,
           "range": "00s-03s",
           "framing": "low-angle hero shot",
-          "action": "Nora crouches at the lighthouse base, finding a keyhole hidden under peeling paint."
+          "action": "Nora crouches at the lighthouse base, finding a keyhole hidden under peeling paint. Key object in frame: the deed."
         },
         {
           "at": 3.0,
           "range": "03s-07s",
           "framing": "close-up",
-          "action": "Close detail on the deed; the room falls quiet around it."
+          "action": "NORA speaks as the camera holds tight on their face, with the deed in the foreground."
         },
         {
           "at": 7.0,
           "range": "07s-10s",
           "framing": "insert shot of the evidence object",
-          "action": "hard cut to the reaction as the line lands"
+          "action": "The silence after \"And why leave me the key?\" hangs, the deed sharp in the foreground."
         }
       ],
       "dialogue": [
@@ -756,7 +785,10 @@
         "nora"
       ],
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing charcoal wool coat over a dark sweater, dark jeans, rain-wet hair)",
-      "storyboard_panel": "[00s-03s] low-angle hero shot: Nora crouches at the lighthouse base, finding a keyhole hidden under peeling paint. Location: Hale lighthouse cliff edge, storm dusk, wind and salt spray. Key object: the deed. Characters present: Nora Hale."
+      "storyboard_panel": "[00s-03s] low-angle hero shot: Nora crouches at the lighthouse base, finding a keyhole hidden under peeling paint. Key object in frame: the deed. Location: Hale lighthouse cliff edge, storm dusk, wind and salt spray. Key object: the deed. Characters present: Nora Hale.",
+      "because_previous_ended_with": "The escalation leaves a brass key exposed, and there is no way back.",
+      "this_scene_starts_with": "Nora crouches at the lighthouse base, finding a keyhole hidden under peeling paint. Key object in frame: the deed",
+      "single_change_at_end": "The act cliffhanger leaves the deed exposed, and there is no way back."
     },
     {
       "scene_id": 11,
@@ -776,19 +808,19 @@
           "at": 0.0,
           "range": "00s-03s",
           "framing": "medium shot",
-          "action": "Claire slides a sealed envelope across the lawyer's desk."
+          "action": "Claire slides a sealed envelope across the lawyer's desk. Key object in frame: the sealed petition."
         },
         {
           "at": 3.0,
           "range": "03s-07s",
           "framing": "close-up",
-          "action": "Close detail on the sealed petition; the room falls quiet around it."
+          "action": "CLAIRE speaks as the camera holds tight on their face, with the sealed petition in the foreground."
         },
         {
           "at": 7.0,
           "range": "07s-10s",
           "framing": "tight close-up",
-          "action": "hard cut to the reaction as the line lands"
+          "action": "Claire Boone holds the silence after \"On what grounds?\", the sealed petition sharp in the foreground."
         }
       ],
       "dialogue": [
@@ -814,7 +846,10 @@
         "claire"
       ],
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing charcoal wool coat, dark jeans, hair dry now, no umbrella); Claire Boone (Cast Sheet Pos #5: forties compact small-town lawyer, brown blunt bob, warm brown eyes, reading glasses on a cord, wearing forest-green cardigan, cream blouse, dark trousers)",
-      "storyboard_panel": "[00s-03s] medium shot: Claire slides a sealed envelope across the lawyer's desk. Location: Claire Boone's law office, grey morning, rain on the windows. Key object: the sealed petition. Characters present: Nora Hale, Claire Boone."
+      "storyboard_panel": "[00s-03s] medium shot: Claire slides a sealed envelope across the lawyer's desk. Key object in frame: the sealed petition. Location: Claire Boone's law office, grey morning, rain on the windows. Key object: the sealed petition. Characters present: Nora Hale, Claire Boone.",
+      "because_previous_ended_with": "The act cliffhanger leaves the deed exposed, and there is no way back.",
+      "this_scene_starts_with": "Claire slides a sealed envelope across the lawyer's desk. Key object in frame: the sealed petition",
+      "single_change_at_end": "The escalation leaves the sealed petition exposed, and there is no way back."
     },
     {
       "scene_id": 12,
@@ -834,19 +869,19 @@
           "at": 0.0,
           "range": "00s-03s",
           "framing": "tight close-up",
-          "action": "Nora reads the witness signature and looks up slowly."
+          "action": "Nora reads the witness signature and looks up slowly. Key object in frame: a witness signature."
         },
         {
           "at": 3.0,
           "range": "03s-07s",
           "framing": "close-up",
-          "action": "Close detail on a witness signature; the room falls quiet around it."
+          "action": "NORA speaks as the camera holds tight on their face, with a witness signature in the foreground."
         },
         {
           "at": 7.0,
           "range": "07s-10s",
           "framing": "insert shot of the evidence object",
-          "action": "hard cut to the reaction as the line lands"
+          "action": "Nora Hale holds the silence after \"Half the harbor. And Sam\", a witness signature sharp in the foreground."
         }
       ],
       "dialogue": [
@@ -872,7 +907,10 @@
         "claire"
       ],
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing charcoal wool coat, dark jeans, hair dry now, no umbrella); Claire Boone (Cast Sheet Pos #5: forties compact small-town lawyer, brown blunt bob, warm brown eyes, reading glasses on a cord, wearing forest-green cardigan, cream blouse, dark trousers)",
-      "storyboard_panel": "[00s-03s] tight close-up: Nora reads the witness signature and looks up slowly. Location: Keller boathouse, night, one hanging bulb and a flashlight. Key object: a witness signature. Characters present: Nora Hale, Claire Boone."
+      "storyboard_panel": "[00s-03s] tight close-up: Nora reads the witness signature and looks up slowly. Key object in frame: a witness signature. Location: Keller boathouse, night, one hanging bulb and a flashlight. Key object: a witness signature. Characters present: Nora Hale, Claire Boone.",
+      "because_previous_ended_with": "The escalation leaves the sealed petition exposed, and there is no way back.",
+      "this_scene_starts_with": "Nora reads the witness signature and looks up slowly. Key object in frame: a witness signature",
+      "single_change_at_end": "The escalation leaves a witness signature exposed, and there is no way back."
     },
     {
       "scene_id": 13,
@@ -892,19 +930,19 @@
           "at": 0.0,
           "range": "00s-03s",
           "framing": "over-the-shoulder shot",
-          "action": "Sam stands in the boathouse doorway, rain behind him."
+          "action": "Sam stands in the boathouse doorway, rain behind him. Key object in frame: a scorched beam."
         },
         {
           "at": 3.0,
           "range": "03s-07s",
           "framing": "close-up",
-          "action": "Close detail on a scorched beam; the room falls quiet around it."
+          "action": "SAM speaks as the camera holds tight on their face, with a scorched beam in the foreground."
         },
         {
           "at": 7.0,
           "range": "07s-10s",
           "framing": "tight close-up",
-          "action": "hard cut to the reaction as the line lands"
+          "action": "Sam Calloway holds the silence after \"Scared of being poor? Or her?\", a scorched beam sharp in the foreground."
         }
       ],
       "dialogue": [
@@ -930,7 +968,11 @@
         "sam"
       ],
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing charcoal wool coat, dark jeans, hair dry now, no umbrella); Sam Calloway (Cast Sheet Pos #2: mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin, wearing faded canvas work jacket, dark trousers, worn boots)",
-      "storyboard_panel": "[00s-03s] over-the-shoulder shot: Sam stands in the boathouse doorway, rain behind him. Location: Keller estate, dusk, warm interior against blue windows. Key object: a scorched beam. Characters present: Nora Hale, Sam Calloway."
+      "storyboard_panel": "[00s-03s] over-the-shoulder shot: Sam stands in the boathouse doorway, rain behind him. Key object in frame: a scorched beam. Location: Keller estate, dusk, warm interior against blue windows. Key object: a scorched beam. Characters present: Nora Hale, Sam Calloway.",
+      "block_driving_question": "What does the scorched beam prove about the night of the fire?",
+      "because_previous_ended_with": "The escalation leaves a witness signature exposed, and there is no way back.",
+      "this_scene_starts_with": "Sam stands in the boathouse doorway, rain behind him. Key object in frame: a scorched beam",
+      "single_change_at_end": "The escalation leaves a scorched beam exposed, and there is no way back."
     },
     {
       "scene_id": 14,
@@ -950,19 +992,19 @@
           "at": 0.0,
           "range": "00s-03s",
           "framing": "low-angle hero shot",
-          "action": "Nora sweeps a flashlight over scorched beams."
+          "action": "Nora sweeps a flashlight over scorched beams. Key object in frame: the survey map."
         },
         {
           "at": 3.0,
           "range": "03s-07s",
           "framing": "close-up",
-          "action": "Close detail on the survey map; the room falls quiet around it."
+          "action": "SAM speaks as the camera holds tight on their face, with the survey map in the foreground."
         },
         {
           "at": 7.0,
           "range": "07s-10s",
           "framing": "insert shot of the evidence object",
-          "action": "hard cut to the reaction as the line lands"
+          "action": "Sam Calloway holds the silence after \"Why did the town blame me?\", the survey map sharp in the foreground."
         }
       ],
       "dialogue": [
@@ -989,7 +1031,10 @@
         "claire"
       ],
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing charcoal wool coat, dark jeans, hair dry now, no umbrella); Sam Calloway (Cast Sheet Pos #2: mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin, wearing faded canvas work jacket, dark trousers, worn boots); Claire Boone (Cast Sheet Pos #5: forties compact small-town lawyer, brown blunt bob, warm brown eyes, reading glasses on a cord, wearing forest-green cardigan, cream blouse, dark trousers)",
-      "storyboard_panel": "[00s-03s] low-angle hero shot: Nora sweeps a flashlight over scorched beams. Location: Claire Boone's law office, grey morning, rain on the windows. Key object: the survey map. Characters present: Nora Hale, Sam Calloway, Claire Boone."
+      "storyboard_panel": "[00s-03s] low-angle hero shot: Nora sweeps a flashlight over scorched beams. Key object in frame: the survey map. Location: Claire Boone's law office, grey morning, rain on the windows. Key object: the survey map. Characters present: Nora Hale, Sam Calloway, Claire Boone.",
+      "because_previous_ended_with": "The escalation leaves a scorched beam exposed, and there is no way back.",
+      "this_scene_starts_with": "Nora sweeps a flashlight over scorched beams. Key object in frame: the survey map",
+      "single_change_at_end": "The escalation leaves the survey map exposed, and there is no way back."
     },
     {
       "scene_id": 15,
@@ -1009,19 +1054,19 @@
           "at": 0.0,
           "range": "00s-03s",
           "framing": "wide establishing shot",
-          "action": "Margaret pours tea without offering a cup."
+          "action": "Margaret pours tea without offering a cup. Key object in frame: the sealed petition."
         },
         {
           "at": 3.0,
           "range": "03s-07s",
           "framing": "close-up",
-          "action": "Close detail on the sealed petition; the room falls quiet around it."
+          "action": "MARGARET speaks as the camera holds tight on their face, with the sealed petition in the foreground."
         },
         {
           "at": 7.0,
           "range": "07s-10s",
           "framing": "tight close-up",
-          "action": "hard cut to the reaction as the line lands"
+          "action": "Margaret Keller holds the silence after \"I've played your villain ten years\", the sealed petition sharp in the foreground."
         }
       ],
       "dialogue": [
@@ -1047,7 +1092,10 @@
         "margaret"
       ],
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing charcoal wool coat, dark jeans, hair dry now, no umbrella); Margaret Keller (Cast Sheet Pos #3: late sixties matriarch, tall and straight-backed, silver chignon, pale blue eyes, porcelain skin, wearing tailored dove-grey suit, pearls, low-heeled shoes)",
-      "storyboard_panel": "[00s-03s] wide establishing shot: Margaret pours tea without offering a cup. Location: Keller boathouse, night, one hanging bulb and a flashlight. Key object: the sealed petition. Characters present: Nora Hale, Margaret Keller."
+      "storyboard_panel": "[00s-03s] wide establishing shot: Margaret pours tea without offering a cup. Key object in frame: the sealed petition. Location: Keller boathouse, night, one hanging bulb and a flashlight. Key object: the sealed petition. Characters present: Nora Hale, Margaret Keller.",
+      "because_previous_ended_with": "The escalation leaves the survey map exposed, and there is no way back.",
+      "this_scene_starts_with": "Margaret pours tea without offering a cup. Key object in frame: the sealed petition",
+      "single_change_at_end": "The escalation leaves the sealed petition exposed, and there is no way back."
     },
     {
       "scene_id": 16,
@@ -1067,19 +1115,19 @@
           "at": 0.0,
           "range": "00s-03s",
           "framing": "medium shot",
-          "action": "Nora stands in the town hall doorway as every head turns."
+          "action": "Nora stands in the town hall doorway as every head turns. Key object in frame: a witness signature."
         },
         {
           "at": 3.0,
           "range": "03s-07s",
           "framing": "close-up",
-          "action": "Close detail on a witness signature; the room falls quiet around it."
+          "action": "NORA speaks as the camera holds tight on their face, with a witness signature in the foreground."
         },
         {
           "at": 7.0,
           "range": "07s-10s",
           "framing": "insert shot of the evidence object",
-          "action": "hard cut to the reaction as the line lands"
+          "action": "Nora Hale holds the silence after \"Big words for someone with no lawyer\", a witness signature sharp in the foreground."
         }
       ],
       "dialogue": [
@@ -1105,7 +1153,10 @@
         "adrian"
       ],
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing charcoal wool coat, dark jeans, hair dry now, no umbrella); Adrian Keller (Cast Sheet Pos #4: late thirties lean groomed heir, ash-blond hair swept back, cold grey eyes, even features, wearing navy blazer, open-collared white shirt, dark trousers)",
-      "storyboard_panel": "[00s-03s] medium shot: Nora stands in the town hall doorway as every head turns. Location: Keller estate, dusk, warm interior against blue windows. Key object: a witness signature. Characters present: Nora Hale, Adrian Keller."
+      "storyboard_panel": "[00s-03s] medium shot: Nora stands in the town hall doorway as every head turns. Key object in frame: a witness signature. Location: Keller estate, dusk, warm interior against blue windows. Key object: a witness signature. Characters present: Nora Hale, Adrian Keller.",
+      "because_previous_ended_with": "The escalation leaves the sealed petition exposed, and there is no way back.",
+      "this_scene_starts_with": "Nora stands in the town hall doorway as every head turns. Key object in frame: a witness signature",
+      "single_change_at_end": "The escalation leaves a witness signature exposed, and there is no way back."
     },
     {
       "scene_id": 17,
@@ -1126,19 +1177,19 @@
           "at": 0.0,
           "range": "00s-03s",
           "framing": "tight close-up",
-          "action": "Adrian corners Nora by the harbor railing."
+          "action": "Adrian corners Nora by the harbor railing. Key object in frame: a scorched beam."
         },
         {
           "at": 3.0,
           "range": "03s-07s",
           "framing": "close-up",
-          "action": "Close detail on a scorched beam; the room falls quiet around it."
+          "action": "SAM speaks as the camera holds tight on their face, with a scorched beam in the foreground."
         },
         {
           "at": 7.0,
           "range": "07s-10s",
           "framing": "tight close-up",
-          "action": "hard cut to the reaction as the line lands"
+          "action": "Sam Calloway holds the silence after \"Tonight, before the hearing\", a scorched beam sharp in the foreground."
         }
       ],
       "dialogue": [
@@ -1166,7 +1217,10 @@
         "claire"
       ],
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing charcoal wool coat, dark jeans, hair dry now, no umbrella); Sam Calloway (Cast Sheet Pos #2: mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin, wearing faded canvas work jacket, dark trousers, worn boots); Adrian Keller (Cast Sheet Pos #4: late thirties lean groomed heir, ash-blond hair swept back, cold grey eyes, even features, wearing navy blazer, open-collared white shirt, dark trousers); Claire Boone (Cast Sheet Pos #5: forties compact small-town lawyer, brown blunt bob, warm brown eyes, reading glasses on a cord, wearing forest-green cardigan, cream blouse, dark trousers)",
-      "storyboard_panel": "[00s-03s] tight close-up: Adrian corners Nora by the harbor railing. Location: Claire Boone's law office, grey morning, rain on the windows. Key object: a scorched beam. Characters present: Nora Hale, Sam Calloway, Adrian Keller, Claire Boone."
+      "storyboard_panel": "[00s-03s] tight close-up: Adrian corners Nora by the harbor railing. Key object in frame: a scorched beam. Location: Claire Boone's law office, grey morning, rain on the windows. Key object: a scorched beam. Characters present: Nora Hale, Sam Calloway, Adrian Keller, Claire Boone.",
+      "because_previous_ended_with": "The escalation leaves a witness signature exposed, and there is no way back.",
+      "this_scene_starts_with": "Adrian corners Nora by the harbor railing. Key object in frame: a scorched beam",
+      "single_change_at_end": "The escalation leaves a scorched beam exposed, and there is no way back."
     },
     {
       "scene_id": 18,
@@ -1186,19 +1240,19 @@
           "at": 0.0,
           "range": "00s-03s",
           "framing": "over-the-shoulder shot",
-          "action": "Nora stares at a survey map pinned to the boathouse wall."
+          "action": "Nora stares at a survey map pinned to the boathouse wall. Key object in frame: the survey map."
         },
         {
           "at": 3.0,
           "range": "03s-07s",
           "framing": "close-up",
-          "action": "Close detail on the survey map; the room falls quiet around it."
+          "action": "SAM speaks as the camera holds tight on their face, with the survey map in the foreground."
         },
         {
           "at": 7.0,
           "range": "07s-10s",
           "framing": "insert shot of the evidence object",
-          "action": "hard cut to the reaction as the line lands"
+          "action": "Sam Calloway holds the silence after \"You coming? Bring the pry bar\", the survey map sharp in the foreground."
         }
       ],
       "dialogue": [
@@ -1224,7 +1278,10 @@
         "sam"
       ],
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing charcoal wool coat, dark jeans, hair dry now, no umbrella); Sam Calloway (Cast Sheet Pos #2: mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin, wearing faded canvas work jacket, dark trousers, worn boots)",
-      "storyboard_panel": "[00s-03s] over-the-shoulder shot: Nora stares at a survey map pinned to the boathouse wall. Location: Keller boathouse, night, one hanging bulb and a flashlight. Key object: the survey map. Characters present: Nora Hale, Sam Calloway."
+      "storyboard_panel": "[00s-03s] over-the-shoulder shot: Nora stares at a survey map pinned to the boathouse wall. Key object in frame: the survey map. Location: Keller boathouse, night, one hanging bulb and a flashlight. Key object: the survey map. Characters present: Nora Hale, Sam Calloway.",
+      "because_previous_ended_with": "The escalation leaves a scorched beam exposed, and there is no way back.",
+      "this_scene_starts_with": "Nora stares at a survey map pinned to the boathouse wall. Key object in frame: the survey map",
+      "single_change_at_end": "The escalation leaves the survey map exposed, and there is no way back."
     },
     {
       "scene_id": 19,
@@ -1244,19 +1301,19 @@
           "at": 0.0,
           "range": "00s-03s",
           "framing": "low-angle hero shot",
-          "action": "Sam watches Nora from across the dock, unable to speak."
+          "action": "Sam watches Nora from across the dock, unable to speak. Key object in frame: the sealed petition."
         },
         {
           "at": 3.0,
           "range": "03s-07s",
           "framing": "close-up",
-          "action": "Close detail on the sealed petition; the room falls quiet around it."
+          "action": "NORA speaks as the camera holds tight on their face, with the sealed petition in the foreground."
         },
         {
           "at": 7.0,
           "range": "07s-10s",
           "framing": "tight close-up",
-          "action": "hard cut to the reaction as the line lands"
+          "action": "Nora Hale holds the silence after \"That's not a permit. That's a motive\", the sealed petition sharp in the foreground."
         }
       ],
       "dialogue": [
@@ -1282,7 +1339,11 @@
         "sam"
       ],
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing charcoal wool coat, dark jeans, hair dry now, no umbrella); Sam Calloway (Cast Sheet Pos #2: mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin, wearing faded canvas work jacket, dark trousers, worn boots)",
-      "storyboard_panel": "[00s-03s] low-angle hero shot: Sam watches Nora from across the dock, unable to speak. Location: Keller estate, dusk, warm interior against blue windows. Key object: the sealed petition. Characters present: Nora Hale, Sam Calloway."
+      "storyboard_panel": "[00s-03s] low-angle hero shot: Sam watches Nora from across the dock, unable to speak. Key object in frame: the sealed petition. Location: Keller estate, dusk, warm interior against blue windows. Key object: the sealed petition. Characters present: Nora Hale, Sam Calloway.",
+      "block_driving_question": "Can Nora open the sealed petition before the town votes?",
+      "because_previous_ended_with": "The escalation leaves the survey map exposed, and there is no way back.",
+      "this_scene_starts_with": "Sam watches Nora from across the dock, unable to speak. Key object in frame: the sealed petition",
+      "single_change_at_end": "The escalation leaves the sealed petition exposed, and there is no way back."
     },
     {
       "scene_id": 20,
@@ -1302,19 +1363,19 @@
           "at": 0.0,
           "range": "00s-03s",
           "framing": "wide establishing shot",
-          "action": "Adrian holds the lighthouse door open, waiting."
+          "action": "Adrian holds the lighthouse door open, waiting. Key object in frame: a witness signature."
         },
         {
           "at": 3.0,
           "range": "03s-07s",
           "framing": "close-up",
-          "action": "Close detail on a witness signature; the room falls quiet around it."
+          "action": "ADRIAN speaks as the camera holds tight on their face, with a witness signature in the foreground."
         },
         {
           "at": 7.0,
           "range": "07s-10s",
           "framing": "insert shot of the evidence object",
-          "action": "hard cut to the reaction as the line lands"
+          "action": "Adrian Keller holds the silence after \"In exchange for what?\", a witness signature sharp in the foreground."
         }
       ],
       "dialogue": [
@@ -1341,7 +1402,10 @@
         "claire"
       ],
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing charcoal wool coat, dark jeans, hair dry now, no umbrella); Adrian Keller (Cast Sheet Pos #4: late thirties lean groomed heir, ash-blond hair swept back, cold grey eyes, even features, wearing navy blazer, open-collared white shirt, dark trousers); Claire Boone (Cast Sheet Pos #5: forties compact small-town lawyer, brown blunt bob, warm brown eyes, reading glasses on a cord, wearing forest-green cardigan, cream blouse, dark trousers)",
-      "storyboard_panel": "[00s-03s] wide establishing shot: Adrian holds the lighthouse door open, waiting. Location: Claire Boone's law office, grey morning, rain on the windows. Key object: a witness signature. Characters present: Nora Hale, Adrian Keller, Claire Boone."
+      "storyboard_panel": "[00s-03s] wide establishing shot: Adrian holds the lighthouse door open, waiting. Key object in frame: a witness signature. Location: Claire Boone's law office, grey morning, rain on the windows. Key object: a witness signature. Characters present: Nora Hale, Adrian Keller, Claire Boone.",
+      "because_previous_ended_with": "The escalation leaves the sealed petition exposed, and there is no way back.",
+      "this_scene_starts_with": "Adrian holds the lighthouse door open, waiting. Key object in frame: a witness signature",
+      "single_change_at_end": "The act cliffhanger leaves a witness signature exposed, and there is no way back."
     },
     {
       "scene_id": 21,
@@ -1361,19 +1425,19 @@
           "at": 0.0,
           "range": "00s-03s",
           "framing": "tight close-up",
-          "action": "Nora spreads water-stained survey files across the lighthouse floor."
+          "action": "Nora spreads water-stained survey files across the lighthouse floor. Key object in frame: the metal evidence box."
         },
         {
           "at": 3.0,
           "range": "03s-07s",
           "framing": "close-up",
-          "action": "Close detail on the metal evidence box; the room falls quiet around it."
+          "action": "ADRIAN speaks as the camera holds tight on their face, with the metal evidence box in the foreground."
         },
         {
           "at": 7.0,
           "range": "07s-10s",
           "framing": "tight close-up",
-          "action": "hard cut to the reaction as the line lands"
+          "action": "Adrian Keller holds the silence after \"I'd rather be alone than owned. Move\", the metal evidence box sharp in the foreground."
         }
       ],
       "dialogue": [
@@ -1399,7 +1463,10 @@
         "adrian"
       ],
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing cream knit sweater under the charcoal coat, hair loose); Adrian Keller (Cast Sheet Pos #4: late thirties lean groomed heir, ash-blond hair swept back, cold grey eyes, even features, wearing navy blazer, open-collared white shirt, dark trousers)",
-      "storyboard_panel": "[00s-03s] tight close-up: Nora spreads water-stained survey files across the lighthouse floor. Location: Keller boathouse, night, flashlight and dust. Key object: the metal evidence box. Characters present: Nora Hale, Adrian Keller."
+      "storyboard_panel": "[00s-03s] tight close-up: Nora spreads water-stained survey files across the lighthouse floor. Key object in frame: the metal evidence box. Location: Keller boathouse, night, flashlight and dust. Key object: the metal evidence box. Characters present: Nora Hale, Adrian Keller.",
+      "because_previous_ended_with": "The act cliffhanger leaves a witness signature exposed, and there is no way back.",
+      "this_scene_starts_with": "Nora spreads water-stained survey files across the lighthouse floor. Key object in frame: the metal evidence box",
+      "single_change_at_end": "The escalation leaves the metal evidence box exposed, and there is no way back."
     },
     {
       "scene_id": 22,
@@ -1420,19 +1487,19 @@
           "at": 0.0,
           "range": "00s-03s",
           "framing": "over-the-shoulder shot",
-          "action": "Sam jimmies the boathouse lock with a pry bar."
+          "action": "Sam jimmies the boathouse lock with a pry bar. Key object in frame: the seawall permit."
         },
         {
           "at": 3.0,
           "range": "03s-07s",
           "framing": "close-up",
-          "action": "Close detail on the seawall permit; the room falls quiet around it."
+          "action": "MARGARET speaks as the camera holds tight on their face, with the seawall permit in the foreground."
         },
         {
           "at": 7.0,
           "range": "07s-10s",
           "framing": "insert shot of the evidence object",
-          "action": "hard cut to the reaction as the line lands"
+          "action": "Margaret Keller holds the silence after \"On what grounds?\", the seawall permit sharp in the foreground."
         }
       ],
       "dialogue": [
@@ -1459,7 +1526,10 @@
         "margaret"
       ],
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing cream knit sweater under the charcoal coat, hair loose); Sam Calloway (Cast Sheet Pos #2: mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin, wearing faded canvas work jacket, dark trousers, worn boots); Margaret Keller (Cast Sheet Pos #3: late sixties matriarch, tall and straight-backed, silver chignon, pale blue eyes, porcelain skin, wearing tailored dove-grey suit, pearls, low-heeled shoes)",
-      "storyboard_panel": "[00s-03s] over-the-shoulder shot: Sam jimmies the boathouse lock with a pry bar. Location: Hale lighthouse archive room, night, a single desk lamp. Key object: the seawall permit. Characters present: Nora Hale, Sam Calloway, Margaret Keller."
+      "storyboard_panel": "[00s-03s] over-the-shoulder shot: Sam jimmies the boathouse lock with a pry bar. Key object in frame: the seawall permit. Location: Hale lighthouse archive room, night, a single desk lamp. Key object: the seawall permit. Characters present: Nora Hale, Sam Calloway, Margaret Keller.",
+      "because_previous_ended_with": "The escalation leaves the metal evidence box exposed, and there is no way back.",
+      "this_scene_starts_with": "Sam jimmies the boathouse lock with a pry bar. Key object in frame: the seawall permit",
+      "single_change_at_end": "The escalation leaves the seawall permit exposed, and there is no way back."
     },
     {
       "scene_id": 23,
@@ -1479,19 +1549,19 @@
           "at": 0.0,
           "range": "00s-03s",
           "framing": "low-angle hero shot",
-          "action": "Nora's flashlight beam catches a metal box under the floorboards."
+          "action": "Nora's flashlight beam catches a metal box under the floorboards. Key object in frame: a folded page."
         },
         {
           "at": 3.0,
           "range": "03s-07s",
           "framing": "close-up",
-          "action": "Close detail on a folded page; the room falls quiet around it."
+          "action": "CLAIRE speaks as the camera holds tight on their face, with a folded page in the foreground."
         },
         {
           "at": 7.0,
           "range": "07s-10s",
           "framing": "tight close-up",
-          "action": "hard cut to the reaction as the line lands"
+          "action": "Claire Boone holds the silence after \"Tell me that's a lie. To my face\", a folded page sharp in the foreground."
         }
       ],
       "dialogue": [
@@ -1517,7 +1587,10 @@
         "claire"
       ],
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing cream knit sweater under the charcoal coat, hair loose); Claire Boone (Cast Sheet Pos #5: forties compact small-town lawyer, brown blunt bob, warm brown eyes, reading glasses on a cord, wearing forest-green cardigan, cream blouse, dark trousers)",
-      "storyboard_panel": "[00s-03s] low-angle hero shot: Nora's flashlight beam catches a metal box under the floorboards. Location: Harbor diner, dawn, cold fluorescent light and steam. Key object: a folded page. Characters present: Nora Hale, Claire Boone."
+      "storyboard_panel": "[00s-03s] low-angle hero shot: Nora's flashlight beam catches a metal box under the floorboards. Key object in frame: a folded page. Location: Harbor diner, dawn, cold fluorescent light and steam. Key object: a folded page. Characters present: Nora Hale, Claire Boone.",
+      "because_previous_ended_with": "The escalation leaves the seawall permit exposed, and there is no way back.",
+      "this_scene_starts_with": "Nora's flashlight beam catches a metal box under the floorboards. Key object in frame: a folded page",
+      "single_change_at_end": "The escalation leaves a folded page exposed, and there is no way back."
     },
     {
       "scene_id": 24,
@@ -1537,19 +1610,19 @@
           "at": 0.0,
           "range": "00s-03s",
           "framing": "wide establishing shot",
-          "action": "Sam watches Nora read the permits, his face falling."
+          "action": "Sam watches Nora read the permits, his face falling. Key object in frame: a diner coffee cup."
         },
         {
           "at": 3.0,
           "range": "03s-07s",
           "framing": "close-up",
-          "action": "Close detail on a diner coffee cup; the room falls quiet around it."
+          "action": "SAM speaks as the camera holds tight on their face, with a diner coffee cup in the foreground."
         },
         {
           "at": 7.0,
           "range": "07s-10s",
           "framing": "insert shot of the evidence object",
-          "action": "hard cut to the reaction as the line lands"
+          "action": "Sam Calloway holds the silence after \"Don't apologize. Fix it\", a diner coffee cup sharp in the foreground."
         }
       ],
       "dialogue": [
@@ -1575,7 +1648,10 @@
         "sam"
       ],
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing cream knit sweater under the charcoal coat, hair loose); Sam Calloway (Cast Sheet Pos #2: mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin, wearing faded canvas work jacket, dark trousers, worn boots)",
-      "storyboard_panel": "[00s-03s] wide establishing shot: Sam watches Nora read the permits, his face falling. Location: Keller boathouse, night, flashlight and dust. Key object: a diner coffee cup. Characters present: Nora Hale, Sam Calloway."
+      "storyboard_panel": "[00s-03s] wide establishing shot: Sam watches Nora read the permits, his face falling. Key object in frame: a diner coffee cup. Location: Keller boathouse, night, flashlight and dust. Key object: a diner coffee cup. Characters present: Nora Hale, Sam Calloway.",
+      "because_previous_ended_with": "The escalation leaves a folded page exposed, and there is no way back.",
+      "this_scene_starts_with": "Sam watches Nora read the permits, his face falling. Key object in frame: a diner coffee cup",
+      "single_change_at_end": "The escalation leaves a diner coffee cup exposed, and there is no way back."
     },
     {
       "scene_id": 25,
@@ -1595,19 +1671,19 @@
           "at": 0.0,
           "range": "00s-03s",
           "framing": "medium shot",
-          "action": "Nora holds a permit signed by Margaret, dated before the fire."
+          "action": "Nora holds a permit signed by Margaret, dated before the fire. Key object in frame: the metal evidence box."
         },
         {
           "at": 3.0,
           "range": "03s-07s",
           "framing": "close-up",
-          "action": "Close detail on the metal evidence box; the room falls quiet around it."
+          "action": "ADRIAN speaks as the camera holds tight on their face, with the metal evidence box in the foreground."
         },
         {
           "at": 7.0,
           "range": "07s-10s",
           "framing": "tight close-up",
-          "action": "hard cut to the reaction as the line lands"
+          "action": "Adrian Keller holds the silence after \"And if I don't?\", the metal evidence box sharp in the foreground."
         }
       ],
       "dialogue": [
@@ -1634,7 +1710,11 @@
         "adrian"
       ],
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing cream knit sweater under the charcoal coat, hair loose); Margaret Keller (Cast Sheet Pos #3: late sixties matriarch, tall and straight-backed, silver chignon, pale blue eyes, porcelain skin, wearing tailored dove-grey suit, pearls, low-heeled shoes); Adrian Keller (Cast Sheet Pos #4: late thirties lean groomed heir, ash-blond hair swept back, cold grey eyes, even features, wearing navy blazer, open-collared white shirt, dark trousers)",
-      "storyboard_panel": "[00s-03s] medium shot: Nora holds a permit signed by Margaret, dated before the fire. Location: Hale lighthouse archive room, night, a single desk lamp. Key object: the metal evidence box. Characters present: Nora Hale, Margaret Keller, Adrian Keller."
+      "storyboard_panel": "[00s-03s] medium shot: Nora holds a permit signed by Margaret, dated before the fire. Key object in frame: the metal evidence box. Location: Hale lighthouse archive room, night, a single desk lamp. Key object: the metal evidence box. Characters present: Nora Hale, Margaret Keller, Adrian Keller.",
+      "block_driving_question": "What is hidden inside the metal evidence box?",
+      "because_previous_ended_with": "The escalation leaves a diner coffee cup exposed, and there is no way back.",
+      "this_scene_starts_with": "Nora holds a permit signed by Margaret, dated before the fire. Key object in frame: the metal evidence box",
+      "single_change_at_end": "The escalation leaves the metal evidence box exposed, and there is no way back."
     },
     {
       "scene_id": 26,
@@ -1654,19 +1734,19 @@
           "at": 0.0,
           "range": "00s-03s",
           "framing": "tight close-up",
-          "action": "Nora and Sam stand close in the archive, the file between them."
+          "action": "Nora and Sam stand close in the archive, the file between them. Key object in frame: the seawall permit."
         },
         {
           "at": 3.0,
           "range": "03s-07s",
           "framing": "close-up",
-          "action": "Close detail on the seawall permit; the room falls quiet around it."
+          "action": "NORA speaks as the camera holds tight on their face, with the seawall permit in the foreground."
         },
         {
           "at": 7.0,
           "range": "07s-10s",
           "framing": "insert shot of the evidence object",
-          "action": "hard cut to the reaction as the line lands"
+          "action": "Nora Hale holds the silence after \"Your father logged the harbor for thirty years\", the seawall permit sharp in the foreground."
         }
       ],
       "dialogue": [
@@ -1692,7 +1772,10 @@
         "sam"
       ],
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing cream knit sweater under the charcoal coat, hair loose); Sam Calloway (Cast Sheet Pos #2: mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin, wearing faded canvas work jacket, dark trousers, worn boots)",
-      "storyboard_panel": "[00s-03s] tight close-up: Nora and Sam stand close in the archive, the file between them. Location: Harbor diner, dawn, cold fluorescent light and steam. Key object: the seawall permit. Characters present: Nora Hale, Sam Calloway."
+      "storyboard_panel": "[00s-03s] tight close-up: Nora and Sam stand close in the archive, the file between them. Key object in frame: the seawall permit. Location: Harbor diner, dawn, cold fluorescent light and steam. Key object: the seawall permit. Characters present: Nora Hale, Sam Calloway.",
+      "because_previous_ended_with": "The escalation leaves the metal evidence box exposed, and there is no way back.",
+      "this_scene_starts_with": "Nora and Sam stand close in the archive, the file between them. Key object in frame: the seawall permit",
+      "single_change_at_end": "The escalation leaves the seawall permit exposed, and there is no way back."
     },
     {
       "scene_id": 27,
@@ -1713,19 +1796,19 @@
           "at": 0.0,
           "range": "00s-03s",
           "framing": "over-the-shoulder shot",
-          "action": "Adrian waits in a diner booth across from Nora."
+          "action": "Adrian waits in a diner booth across from Nora. Key object in frame: a folded page."
         },
         {
           "at": 3.0,
           "range": "03s-07s",
           "framing": "close-up",
-          "action": "Close detail on a folded page; the room falls quiet around it."
+          "action": "NORA speaks as the camera holds tight on their face, with a folded page in the foreground."
         },
         {
           "at": 7.0,
           "range": "07s-10s",
           "framing": "tight close-up",
-          "action": "hard cut to the reaction as the line lands"
+          "action": "Nora Hale holds the silence after \"That's the Keller launch\", a folded page sharp in the foreground."
         }
       ],
       "dialogue": [
@@ -1752,7 +1835,10 @@
         "adrian"
       ],
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing cream knit sweater under the charcoal coat, hair loose); Sam Calloway (Cast Sheet Pos #2: mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin, wearing faded canvas work jacket, dark trousers, worn boots); Adrian Keller (Cast Sheet Pos #4: late thirties lean groomed heir, ash-blond hair swept back, cold grey eyes, even features, wearing navy blazer, open-collared white shirt, dark trousers)",
-      "storyboard_panel": "[00s-03s] over-the-shoulder shot: Adrian waits in a diner booth across from Nora. Location: Keller boathouse, night, flashlight and dust. Key object: a folded page. Characters present: Nora Hale, Sam Calloway, Adrian Keller."
+      "storyboard_panel": "[00s-03s] over-the-shoulder shot: Adrian waits in a diner booth across from Nora. Key object in frame: a folded page. Location: Keller boathouse, night, flashlight and dust. Key object: a folded page. Characters present: Nora Hale, Sam Calloway, Adrian Keller.",
+      "because_previous_ended_with": "The escalation leaves the seawall permit exposed, and there is no way back.",
+      "this_scene_starts_with": "Adrian waits in a diner booth across from Nora. Key object in frame: a folded page",
+      "single_change_at_end": "The escalation leaves a folded page exposed, and there is no way back."
     },
     {
       "scene_id": 28,
@@ -1772,19 +1858,19 @@
           "at": 0.0,
           "range": "00s-03s",
           "framing": "low-angle hero shot",
-          "action": "Nora slides the file across the table, keeping one page back."
+          "action": "Nora slides the file across the table, keeping one page back. Key object in frame: a diner coffee cup."
         },
         {
           "at": 3.0,
           "range": "03s-07s",
           "framing": "close-up",
-          "action": "Close detail on a diner coffee cup; the room falls quiet around it."
+          "action": "NORA speaks as the camera holds tight on their face, with a diner coffee cup in the foreground."
         },
         {
           "at": 7.0,
           "range": "07s-10s",
           "framing": "insert shot of the evidence object",
-          "action": "hard cut to the reaction as the line lands"
+          "action": "Nora Hale holds the silence after \"Nora, are you sure?\", a diner coffee cup sharp in the foreground."
         }
       ],
       "dialogue": [
@@ -1810,7 +1896,10 @@
         "sam"
       ],
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing cream knit sweater under the charcoal coat, hair loose); Sam Calloway (Cast Sheet Pos #2: mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin, wearing faded canvas work jacket, dark trousers, worn boots)",
-      "storyboard_panel": "[00s-03s] low-angle hero shot: Nora slides the file across the table, keeping one page back. Location: Hale lighthouse archive room, night, a single desk lamp. Key object: a diner coffee cup. Characters present: Nora Hale, Sam Calloway."
+      "storyboard_panel": "[00s-03s] low-angle hero shot: Nora slides the file across the table, keeping one page back. Key object in frame: a diner coffee cup. Location: Hale lighthouse archive room, night, a single desk lamp. Key object: a diner coffee cup. Characters present: Nora Hale, Sam Calloway.",
+      "because_previous_ended_with": "The escalation leaves a folded page exposed, and there is no way back.",
+      "this_scene_starts_with": "Nora slides the file across the table, keeping one page back. Key object in frame: a diner coffee cup",
+      "single_change_at_end": "The escalation leaves a diner coffee cup exposed, and there is no way back."
     },
     {
       "scene_id": 29,
@@ -1830,19 +1919,19 @@
           "at": 0.0,
           "range": "00s-03s",
           "framing": "wide establishing shot",
-          "action": "Adrian leans in, his hand covering hers."
+          "action": "Adrian leans in, his hand covering hers. Key object in frame: the metal evidence box."
         },
         {
           "at": 3.0,
           "range": "03s-07s",
           "framing": "close-up",
-          "action": "Close detail on the metal evidence box; the room falls quiet around it."
+          "action": "ADRIAN speaks as the camera holds tight on their face, with the metal evidence box in the foreground."
         },
         {
           "at": 7.0,
           "range": "07s-10s",
           "framing": "tight close-up",
-          "action": "hard cut to the reaction as the line lands"
+          "action": "Adrian Keller holds the silence after \"It beats you. You know it\", the metal evidence box sharp in the foreground."
         }
       ],
       "dialogue": [
@@ -1868,7 +1957,10 @@
         "adrian"
       ],
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing cream knit sweater under the charcoal coat, hair loose); Adrian Keller (Cast Sheet Pos #4: late thirties lean groomed heir, ash-blond hair swept back, cold grey eyes, even features, wearing navy blazer, open-collared white shirt, dark trousers)",
-      "storyboard_panel": "[00s-03s] wide establishing shot: Adrian leans in, his hand covering hers. Location: Harbor diner, dawn, cold fluorescent light and steam. Key object: the metal evidence box. Characters present: Nora Hale, Adrian Keller."
+      "storyboard_panel": "[00s-03s] wide establishing shot: Adrian leans in, his hand covering hers. Key object in frame: the metal evidence box. Location: Harbor diner, dawn, cold fluorescent light and steam. Key object: the metal evidence box. Characters present: Nora Hale, Adrian Keller.",
+      "because_previous_ended_with": "The escalation leaves a diner coffee cup exposed, and there is no way back.",
+      "this_scene_starts_with": "Adrian leans in, his hand covering hers. Key object in frame: the metal evidence box",
+      "single_change_at_end": "The escalation leaves the metal evidence box exposed, and there is no way back."
     },
     {
       "scene_id": 30,
@@ -1888,19 +1980,19 @@
           "at": 0.0,
           "range": "00s-03s",
           "framing": "medium shot",
-          "action": "Nora stands alone in the lamp room, the file in her hands."
+          "action": "Nora stands alone in the lamp room, the file in her hands. Key object in frame: the seawall permit."
         },
         {
           "at": 3.0,
           "range": "03s-07s",
           "framing": "close-up",
-          "action": "Close detail on the seawall permit; the room falls quiet around it."
+          "action": "MARGARET speaks as the camera holds tight on their face, with the seawall permit in the foreground."
         },
         {
           "at": 7.0,
           "range": "07s-10s",
           "framing": "insert shot of the evidence object",
-          "action": "hard cut to the reaction as the line lands"
+          "action": "Margaret Keller holds the silence after \"The hearing. Tomorrow. Public. All of it\", the seawall permit sharp in the foreground."
         }
       ],
       "dialogue": [
@@ -1926,7 +2018,10 @@
         "margaret"
       ],
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing cream knit sweater under the charcoal coat, hair loose); Margaret Keller (Cast Sheet Pos #3: late sixties matriarch, tall and straight-backed, silver chignon, pale blue eyes, porcelain skin, wearing tailored dove-grey suit, pearls, low-heeled shoes)",
-      "storyboard_panel": "[00s-03s] medium shot: Nora stands alone in the lamp room, the file in her hands. Location: Keller boathouse, night, flashlight and dust. Key object: the seawall permit. Characters present: Nora Hale, Margaret Keller."
+      "storyboard_panel": "[00s-03s] medium shot: Nora stands alone in the lamp room, the file in her hands. Key object in frame: the seawall permit. Location: Keller boathouse, night, flashlight and dust. Key object: the seawall permit. Characters present: Nora Hale, Margaret Keller.",
+      "because_previous_ended_with": "The escalation leaves the metal evidence box exposed, and there is no way back.",
+      "this_scene_starts_with": "Nora stands alone in the lamp room, the file in her hands. Key object in frame: the seawall permit",
+      "single_change_at_end": "The act cliffhanger leaves the seawall permit exposed, and there is no way back."
     },
     {
       "scene_id": 31,
@@ -1946,19 +2041,19 @@
           "at": 0.0,
           "range": "00s-03s",
           "framing": "over-the-shoulder shot",
-          "action": "Rain hammers the town hall windows as Nora faces the panel."
+          "action": "Rain hammers the town hall windows as Nora faces the panel. Key object in frame: the emergency petition."
         },
         {
           "at": 3.0,
           "range": "03s-07s",
           "framing": "close-up",
-          "action": "Close detail on the emergency petition; the room falls quiet around it."
+          "action": "NORA speaks as the camera holds tight on their face, with the emergency petition in the foreground."
         },
         {
           "at": 7.0,
           "range": "07s-10s",
           "framing": "tight close-up",
-          "action": "hard cut to the reaction as the line lands"
+          "action": "Nora Hale holds the silence after \"You lost it ten years ago\", the emergency petition sharp in the foreground."
         }
       ],
       "dialogue": [
@@ -1984,7 +2079,11 @@
         "margaret"
       ],
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing storm-soaked shirt and trousers, no coat, hair plastered down); Margaret Keller (Cast Sheet Pos #3: late sixties matriarch, tall and straight-backed, silver chignon, pale blue eyes, porcelain skin, wearing tailored dove-grey suit, pearls, low-heeled shoes)",
-      "storyboard_panel": "[00s-03s] over-the-shoulder shot: Rain hammers the town hall windows as Nora faces the panel. Location: Town hall hearing room, grey morning, rain streaking the windows. Key object: the emergency petition. Characters present: Nora Hale, Margaret Keller."
+      "storyboard_panel": "[00s-03s] over-the-shoulder shot: Rain hammers the town hall windows as Nora faces the panel. Key object in frame: the emergency petition. Location: Town hall hearing room, grey morning, rain streaking the windows. Key object: the emergency petition. Characters present: Nora Hale, Margaret Keller.",
+      "block_driving_question": "Will the emergency petition survive Margaret's counterattack?",
+      "because_previous_ended_with": "The act cliffhanger leaves the seawall permit exposed, and there is no way back.",
+      "this_scene_starts_with": "Rain hammers the town hall windows as Nora faces the panel. Key object in frame: the emergency petition",
+      "single_change_at_end": "The escalation leaves the emergency petition exposed, and there is no way back."
     },
     {
       "scene_id": 32,
@@ -2004,19 +2103,19 @@
           "at": 0.0,
           "range": "00s-03s",
           "framing": "low-angle hero shot",
-          "action": "The hearing room is packed; Claire leans close to Nora."
+          "action": "The hearing room is packed; Claire leans close to Nora. Key object in frame: the emergency petition."
         },
         {
           "at": 3.0,
           "range": "03s-07s",
           "framing": "close-up",
-          "action": "Close detail on the emergency petition; the room falls quiet around it."
+          "action": "CLAIRE speaks as the camera holds tight on their face, with the emergency petition in the foreground."
         },
         {
           "at": 7.0,
           "range": "07s-10s",
           "framing": "insert shot of the evidence object",
-          "action": "hard cut to the reaction as the line lands"
+          "action": "Claire Boone holds the silence after \"Good. This time, I want witnesses\", the emergency petition sharp in the foreground."
         }
       ],
       "dialogue": [
@@ -2042,7 +2141,10 @@
         "claire"
       ],
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing storm-soaked shirt and trousers, no coat, hair plastered down); Claire Boone (Cast Sheet Pos #5: forties compact small-town lawyer, brown blunt bob, warm brown eyes, reading glasses on a cord, wearing forest-green cardigan, cream blouse, dark trousers)",
-      "storyboard_panel": "[00s-03s] low-angle hero shot: The hearing room is packed; Claire leans close to Nora. Location: Town hall hearing room, grey morning, rain streaking the windows. Key object: the emergency petition. Characters present: Nora Hale, Claire Boone."
+      "storyboard_panel": "[00s-03s] low-angle hero shot: The hearing room is packed; Claire leans close to Nora. Key object in frame: the emergency petition. Location: Town hall hearing room, grey morning, rain streaking the windows. Key object: the emergency petition. Characters present: Nora Hale, Claire Boone.",
+      "because_previous_ended_with": "The escalation leaves the emergency petition exposed, and there is no way back.",
+      "this_scene_starts_with": "The hearing room is packed; Claire leans close to Nora. Key object in frame: the emergency petition",
+      "single_change_at_end": "The escalation leaves the emergency petition exposed, and there is no way back."
     },
     {
       "scene_id": 33,
@@ -2062,19 +2164,19 @@
           "at": 0.0,
           "range": "00s-03s",
           "framing": "wide establishing shot",
-          "action": "Sam catches Nora in the hearing room before she takes her seat."
+          "action": "Sam catches Nora in the hearing room before she takes her seat. Key object in frame: a statement form."
         },
         {
           "at": 3.0,
           "range": "03s-07s",
           "framing": "close-up",
-          "action": "Close detail on a statement form; the room falls quiet around it."
+          "action": "SAM speaks as the camera holds tight on their face, with a statement form in the foreground."
         },
         {
           "at": 7.0,
           "range": "07s-10s",
           "framing": "tight close-up",
-          "action": "hard cut to the reaction as the line lands"
+          "action": "Sam Calloway holds the silence after \"Tell it now. Loud enough for everyone\", a statement form sharp in the foreground."
         }
       ],
       "dialogue": [
@@ -2100,7 +2202,10 @@
         "sam"
       ],
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing storm-soaked shirt and trousers, no coat, hair plastered down); Sam Calloway (Cast Sheet Pos #2: mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin, wearing faded canvas work jacket, dark trousers, worn boots)",
-      "storyboard_panel": "[00s-03s] wide establishing shot: Sam catches Nora in the hearing room before she takes her seat. Location: Town hall hearing room, grey morning, rain streaking the windows. Key object: a statement form. Characters present: Nora Hale, Sam Calloway."
+      "storyboard_panel": "[00s-03s] wide establishing shot: Sam catches Nora in the hearing room before she takes her seat. Key object in frame: a statement form. Location: Town hall hearing room, grey morning, rain streaking the windows. Key object: a statement form. Characters present: Nora Hale, Sam Calloway.",
+      "because_previous_ended_with": "The escalation leaves the emergency petition exposed, and there is no way back.",
+      "this_scene_starts_with": "Sam catches Nora in the hearing room before she takes her seat. Key object in frame: a statement form",
+      "single_change_at_end": "The escalation leaves a statement form exposed, and there is no way back."
     },
     {
       "scene_id": 34,
@@ -2120,19 +2225,19 @@
           "at": 0.0,
           "range": "00s-03s",
           "framing": "medium shot",
-          "action": "Sam stands before the panel; Margaret watches from the front row."
+          "action": "Sam stands before the panel; Margaret watches from the front row. Key object in frame: a statement form."
         },
         {
           "at": 3.0,
           "range": "03s-07s",
           "framing": "close-up",
-          "action": "Close detail on a statement form; the room falls quiet around it."
+          "action": "SAM speaks as the camera holds tight on their face, with a statement form in the foreground."
         },
         {
           "at": 7.0,
           "range": "07s-10s",
           "framing": "insert shot of the evidence object",
-          "action": "hard cut to the reaction as the line lands"
+          "action": "Sam Calloway holds the silence after \"He's a firefighter with a grudge\", a statement form sharp in the foreground."
         }
       ],
       "dialogue": [
@@ -2158,7 +2263,10 @@
         "margaret"
       ],
       "character_anchors": "Sam Calloway (Cast Sheet Pos #2: mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin, wearing faded canvas work jacket, dark trousers, worn boots); Margaret Keller (Cast Sheet Pos #3: late sixties matriarch, tall and straight-backed, silver chignon, pale blue eyes, porcelain skin, wearing tailored dove-grey suit, pearls, low-heeled shoes)",
-      "storyboard_panel": "[00s-03s] medium shot: Sam stands before the panel; Margaret watches from the front row. Location: Town hall hearing room, grey morning, rain streaking the windows. Key object: a statement form. Characters present: Sam Calloway, Margaret Keller."
+      "storyboard_panel": "[00s-03s] medium shot: Sam stands before the panel; Margaret watches from the front row. Key object in frame: a statement form. Location: Town hall hearing room, grey morning, rain streaking the windows. Key object: a statement form. Characters present: Sam Calloway, Margaret Keller.",
+      "because_previous_ended_with": "The escalation leaves a statement form exposed, and there is no way back.",
+      "this_scene_starts_with": "Sam stands before the panel; Margaret watches from the front row. Key object in frame: a statement form",
+      "single_change_at_end": "The escalation leaves a statement form exposed, and there is no way back."
     },
     {
       "scene_id": 35,
@@ -2178,19 +2286,19 @@
           "at": 0.0,
           "range": "00s-03s",
           "framing": "tight close-up",
-          "action": "Nora faces Adrian across the hearing room."
+          "action": "Nora faces Adrian across the hearing room. Key object in frame: the petition ruling."
         },
         {
           "at": 3.0,
           "range": "03s-07s",
           "framing": "close-up",
-          "action": "Close detail on the petition ruling; the room falls quiet around it."
+          "action": "NORA speaks as the camera holds tight on their face, with the petition ruling in the foreground."
         },
         {
           "at": 7.0,
           "range": "07s-10s",
           "framing": "tight close-up",
-          "action": "hard cut to the reaction as the line lands"
+          "action": "Adrian Keller holds the silence after \"I document\", the petition ruling sharp in the foreground."
         }
       ],
       "dialogue": [
@@ -2221,7 +2329,10 @@
         "adrian"
       ],
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing storm-soaked shirt and trousers, no coat, hair plastered down); Adrian Keller (Cast Sheet Pos #4: late thirties lean groomed heir, ash-blond hair swept back, cold grey eyes, even features, wearing navy blazer, open-collared white shirt, dark trousers)",
-      "storyboard_panel": "[00s-03s] tight close-up: Nora faces Adrian across the hearing room. Location: Town hall hearing room, grey morning, rain streaking the windows. Key object: the petition ruling. Characters present: Nora Hale, Adrian Keller."
+      "storyboard_panel": "[00s-03s] tight close-up: Nora faces Adrian across the hearing room. Key object in frame: the petition ruling. Location: Town hall hearing room, grey morning, rain streaking the windows. Key object: the petition ruling. Characters present: Nora Hale, Adrian Keller.",
+      "because_previous_ended_with": "The escalation leaves a statement form exposed, and there is no way back.",
+      "this_scene_starts_with": "Nora faces Adrian across the hearing room. Key object in frame: the petition ruling",
+      "single_change_at_end": "The escalation leaves the petition ruling exposed, and there is no way back."
     },
     {
       "scene_id": 36,
@@ -2241,19 +2352,19 @@
           "at": 0.0,
           "range": "00s-03s",
           "framing": "over-the-shoulder shot",
-          "action": "The clerk stamps the petition; the room goes silent."
+          "action": "The clerk stamps the petition; the room goes silent. Key object in frame: the petition ruling."
         },
         {
           "at": 3.0,
           "range": "03s-07s",
           "framing": "close-up",
-          "action": "Close detail on the petition ruling; the room falls quiet around it."
+          "action": "MARGARET speaks as the camera holds tight on their face, with the petition ruling in the foreground."
         },
         {
           "at": 7.0,
           "range": "07s-10s",
           "framing": "insert shot of the evidence object",
-          "action": "hard cut to the reaction as the line lands"
+          "action": "Margaret Keller holds the silence after \"On mental incompetence? That's a lie\", the petition ruling sharp in the foreground."
         }
       ],
       "dialogue": [
@@ -2279,7 +2390,10 @@
         "margaret"
       ],
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing storm-soaked shirt and trousers, no coat, hair plastered down); Margaret Keller (Cast Sheet Pos #3: late sixties matriarch, tall and straight-backed, silver chignon, pale blue eyes, porcelain skin, wearing tailored dove-grey suit, pearls, low-heeled shoes)",
-      "storyboard_panel": "[00s-03s] over-the-shoulder shot: The clerk stamps the petition; the room goes silent. Location: Town hall hearing room, grey morning, rain streaking the windows. Key object: the petition ruling. Characters present: Nora Hale, Margaret Keller."
+      "storyboard_panel": "[00s-03s] over-the-shoulder shot: The clerk stamps the petition; the room goes silent. Key object in frame: the petition ruling. Location: Town hall hearing room, grey morning, rain streaking the windows. Key object: the petition ruling. Characters present: Nora Hale, Margaret Keller.",
+      "because_previous_ended_with": "The escalation leaves the petition ruling exposed, and there is no way back.",
+      "this_scene_starts_with": "The clerk stamps the petition; the room goes silent. Key object in frame: the petition ruling",
+      "single_change_at_end": "The escalation leaves the petition ruling exposed, and there is no way back."
     },
     {
       "scene_id": 37,
@@ -2305,13 +2419,13 @@
           "at": 3.0,
           "range": "03s-07s",
           "framing": "close-up",
-          "action": "Close detail on the eviction notice; the room falls quiet around it."
+          "action": "MARGARET speaks as the camera holds tight on their face, with the eviction notice in the foreground."
         },
         {
           "at": 7.0,
           "range": "07s-10s",
           "framing": "tight close-up",
-          "action": "hard cut to the reaction as the line lands"
+          "action": "Margaret Keller holds the silence after \"She bought the county. Not me\", the eviction notice sharp in the foreground."
         }
       ],
       "dialogue": [
@@ -2337,7 +2451,11 @@
         "margaret"
       ],
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing storm-soaked shirt and trousers, no coat, hair plastered down); Margaret Keller (Cast Sheet Pos #3: late sixties matriarch, tall and straight-backed, silver chignon, pale blue eyes, porcelain skin, wearing tailored dove-grey suit, pearls, low-heeled shoes)",
-      "storyboard_panel": "[00s-03s] low-angle hero shot: At the lighthouse door, Margaret holds out the eviction notice. Location: Hale lighthouse, storm night, lightning through the glass. Key object: the eviction notice. Characters present: Nora Hale, Margaret Keller."
+      "storyboard_panel": "[00s-03s] low-angle hero shot: At the lighthouse door, Margaret holds out the eviction notice. Location: Hale lighthouse, storm night, lightning through the glass. Key object: the eviction notice. Characters present: Nora Hale, Margaret Keller.",
+      "block_driving_question": "Can Nora stop the eviction before the storm cuts the road?",
+      "because_previous_ended_with": "The escalation leaves the petition ruling exposed, and there is no way back.",
+      "this_scene_starts_with": "At the lighthouse door, Margaret holds out the eviction notice",
+      "single_change_at_end": "The escalation leaves the eviction notice exposed, and there is no way back."
     },
     {
       "scene_id": 38,
@@ -2363,13 +2481,13 @@
           "at": 3.0,
           "range": "03s-07s",
           "framing": "close-up",
-          "action": "Close detail on the sale papers; the room falls quiet around it."
+          "action": "ADRIAN speaks as the camera holds tight on their face, with the sale papers in the foreground."
         },
         {
           "at": 7.0,
           "range": "07s-10s",
           "framing": "insert shot of the evidence object",
-          "action": "hard cut to the reaction as the line lands"
+          "action": "Adrian Keller holds the silence after \"And if I don't?\", the sale papers sharp in the foreground."
         }
       ],
       "dialogue": [
@@ -2395,7 +2513,10 @@
         "adrian"
       ],
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing storm-soaked shirt and trousers, no coat, hair plastered down); Adrian Keller (Cast Sheet Pos #4: late thirties lean groomed heir, ash-blond hair swept back, cold grey eyes, even features, wearing navy blazer, open-collared white shirt, dark trousers)",
-      "storyboard_panel": "[00s-03s] wide establishing shot: Adrian waits in the lighthouse kitchen with the sale papers. Location: Hale lighthouse kitchen, night, one lamp, rain outside. Key object: the sale papers. Characters present: Nora Hale, Adrian Keller."
+      "storyboard_panel": "[00s-03s] wide establishing shot: Adrian waits in the lighthouse kitchen with the sale papers. Location: Hale lighthouse kitchen, night, one lamp, rain outside. Key object: the sale papers. Characters present: Nora Hale, Adrian Keller.",
+      "because_previous_ended_with": "The escalation leaves the eviction notice exposed, and there is no way back.",
+      "this_scene_starts_with": "Adrian waits in the lighthouse kitchen with the sale papers",
+      "single_change_at_end": "The escalation leaves the sale papers exposed, and there is no way back."
     },
     {
       "scene_id": 39,
@@ -2414,19 +2535,19 @@
           "at": 0.0,
           "range": "00s-03s",
           "framing": "medium shot",
-          "action": "Nora stands alone in the dark lighthouse, the cold lens above her."
+          "action": "Nora stands alone in the dark lighthouse, the cold lens above her. Key object in frame: the cold lamp."
         },
         {
           "at": 3.0,
           "range": "03s-07s",
           "framing": "close-up",
-          "action": "Close detail on the cold lamp; the room falls quiet around it."
+          "action": "NORA speaks as the camera holds tight on their face, with the cold lamp in the foreground."
         },
         {
           "at": 7.0,
           "range": "07s-10s",
           "framing": "tight close-up",
-          "action": "hard cut to the reaction as the line lands"
+          "action": "The silence after \"He left me a key. There has to be something\" hangs, the cold lamp sharp in the foreground."
         }
       ],
       "dialogue": [
@@ -2446,7 +2567,10 @@
         "nora"
       ],
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing storm-soaked shirt and trousers, no coat, hair plastered down)",
-      "storyboard_panel": "[00s-03s] medium shot: Nora stands alone in the dark lighthouse, the cold lens above her. Location: Hale lighthouse, storm night, lightning through the glass. Key object: the cold lamp. Characters present: Nora Hale."
+      "storyboard_panel": "[00s-03s] medium shot: Nora stands alone in the dark lighthouse, the cold lens above her. Key object in frame: the cold lamp. Location: Hale lighthouse, storm night, lightning through the glass. Key object: the cold lamp. Characters present: Nora Hale.",
+      "because_previous_ended_with": "The escalation leaves the sale papers exposed, and there is no way back.",
+      "this_scene_starts_with": "Nora stands alone in the dark lighthouse, the cold lens above her. Key object in frame: the cold lamp",
+      "single_change_at_end": "The escalation leaves the cold lamp exposed, and there is no way back."
     },
     {
       "scene_id": 40,
@@ -2465,19 +2589,19 @@
           "at": 0.0,
           "range": "00s-03s",
           "framing": "tight close-up",
-          "action": "Nora finds an old harbor logbook behind the lens housing."
+          "action": "Nora finds an old harbor logbook behind the lens housing. Key object in frame: the harbor logbook."
         },
         {
           "at": 3.0,
           "range": "03s-07s",
           "framing": "close-up",
-          "action": "Close detail on the harbor logbook; the room falls quiet around it."
+          "action": "NORA speaks as the camera holds tight on their face, with the harbor logbook in the foreground."
         },
         {
           "at": 7.0,
           "range": "07s-10s",
           "framing": "insert shot of the evidence object",
-          "action": "hard cut to the reaction as the line lands"
+          "action": "The silence after \"Dad, what did you see?\" hangs, the harbor logbook sharp in the foreground."
         }
       ],
       "dialogue": [
@@ -2502,7 +2626,10 @@
         "nora"
       ],
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing storm-soaked shirt and trousers, no coat, hair plastered down)",
-      "storyboard_panel": "[00s-03s] tight close-up: Nora finds an old harbor logbook behind the lens housing. Location: Hale lighthouse, storm night, lightning through the glass. Key object: the harbor logbook. Characters present: Nora Hale."
+      "storyboard_panel": "[00s-03s] tight close-up: Nora finds an old harbor logbook behind the lens housing. Key object in frame: the harbor logbook. Location: Hale lighthouse, storm night, lightning through the glass. Key object: the harbor logbook. Characters present: Nora Hale.",
+      "because_previous_ended_with": "The escalation leaves the cold lamp exposed, and there is no way back.",
+      "this_scene_starts_with": "Nora finds an old harbor logbook behind the lens housing. Key object in frame: the harbor logbook",
+      "single_change_at_end": "The act cliffhanger leaves the harbor logbook exposed, and there is no way back."
     },
     {
       "scene_id": 41,
@@ -2522,19 +2649,19 @@
           "at": 0.0,
           "range": "00s-03s",
           "framing": "low-angle hero shot",
-          "action": "Nora opens the logbook on the lighthouse table, pages brittle."
+          "action": "Nora opens the logbook on the lighthouse table, pages brittle. Key object in frame: the harbor log."
         },
         {
           "at": 3.0,
           "range": "03s-07s",
           "framing": "close-up",
-          "action": "Close detail on the harbor log; the room falls quiet around it."
+          "action": "NORA speaks as the camera holds tight on their face, with the harbor log in the foreground."
         },
         {
           "at": 7.0,
           "range": "07s-10s",
           "framing": "tight close-up",
-          "action": "hard cut to the reaction as the line lands"
+          "action": "Nora Hale holds the silence after \"Your father never missed a night\", the harbor log sharp in the foreground."
         }
       ],
       "dialogue": [
@@ -2560,7 +2687,10 @@
         "sam"
       ],
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing dark blazer over a black shirt, hair tied back); Sam Calloway (Cast Sheet Pos #2: mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin, wearing faded canvas work jacket, dark trousers, worn boots)",
-      "storyboard_panel": "[00s-03s] low-angle hero shot: Nora opens the logbook on the lighthouse table, pages brittle. Location: Hale lighthouse archive room, dawn, cold blue light. Key object: the harbor log. Characters present: Nora Hale, Sam Calloway."
+      "storyboard_panel": "[00s-03s] low-angle hero shot: Nora opens the logbook on the lighthouse table, pages brittle. Key object in frame: the harbor log. Location: Hale lighthouse archive room, dawn, cold blue light. Key object: the harbor log. Characters present: Nora Hale, Sam Calloway.",
+      "because_previous_ended_with": "The act cliffhanger leaves the harbor logbook exposed, and there is no way back.",
+      "this_scene_starts_with": "Nora opens the logbook on the lighthouse table, pages brittle. Key object in frame: the harbor log",
+      "single_change_at_end": "The escalation leaves the harbor log exposed, and there is no way back."
     },
     {
       "scene_id": 42,
@@ -2580,19 +2710,19 @@
           "at": 0.0,
           "range": "00s-03s",
           "framing": "wide establishing shot",
-          "action": "Nora and Sam compare timestamps under a desk lamp."
+          "action": "Nora and Sam compare timestamps under a desk lamp. Key object in frame: a torn page."
         },
         {
           "at": 3.0,
           "range": "03s-07s",
           "framing": "close-up",
-          "action": "Close detail on a torn page; the room falls quiet around it."
+          "action": "SAM speaks as the camera holds tight on their face, with a torn page in the foreground."
         },
         {
           "at": 7.0,
           "range": "07s-10s",
           "framing": "insert shot of the evidence object",
-          "action": "hard cut to the reaction as the line lands"
+          "action": "Sam Calloway holds the silence after \"No. Folded. He hid it behind the lens\", a torn page sharp in the foreground."
         }
       ],
       "dialogue": [
@@ -2618,7 +2748,10 @@
         "sam"
       ],
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing dark blazer over a black shirt, hair tied back); Sam Calloway (Cast Sheet Pos #2: mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin, wearing faded canvas work jacket, dark trousers, worn boots)",
-      "storyboard_panel": "[00s-03s] wide establishing shot: Nora and Sam compare timestamps under a desk lamp. Location: Harbor pier, morning, flat silver water. Key object: a torn page. Characters present: Nora Hale, Sam Calloway."
+      "storyboard_panel": "[00s-03s] wide establishing shot: Nora and Sam compare timestamps under a desk lamp. Key object in frame: a torn page. Location: Harbor pier, morning, flat silver water. Key object: a torn page. Characters present: Nora Hale, Sam Calloway.",
+      "because_previous_ended_with": "The escalation leaves the harbor log exposed, and there is no way back.",
+      "this_scene_starts_with": "Nora and Sam compare timestamps under a desk lamp. Key object in frame: a torn page",
+      "single_change_at_end": "The escalation leaves a torn page exposed, and there is no way back."
     },
     {
       "scene_id": 43,
@@ -2638,19 +2771,19 @@
           "at": 0.0,
           "range": "00s-03s",
           "framing": "medium shot",
-          "action": "Nora traces a line in the log with her finger."
+          "action": "Nora traces a line in the log with her finger. Key object in frame: a timestamp."
         },
         {
           "at": 3.0,
           "range": "03s-07s",
           "framing": "close-up",
-          "action": "Close detail on a timestamp; the room falls quiet around it."
+          "action": "NORA speaks as the camera holds tight on their face, with a timestamp in the foreground."
         },
         {
           "at": 7.0,
           "range": "07s-10s",
           "framing": "tight close-up",
-          "action": "hard cut to the reaction as the line lands"
+          "action": "Nora Hale holds the silence after \"Who's the second?\", a timestamp sharp in the foreground."
         }
       ],
       "dialogue": [
@@ -2676,7 +2809,11 @@
         "sam"
       ],
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing dark blazer over a black shirt, hair tied back); Sam Calloway (Cast Sheet Pos #2: mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin, wearing faded canvas work jacket, dark trousers, worn boots)",
-      "storyboard_panel": "[00s-03s] medium shot: Nora traces a line in the log with her finger. Location: Town hall steps, dusk, wet stone. Key object: a timestamp. Characters present: Nora Hale, Sam Calloway."
+      "storyboard_panel": "[00s-03s] medium shot: Nora traces a line in the log with her finger. Key object in frame: a timestamp. Location: Town hall steps, dusk, wet stone. Key object: a timestamp. Characters present: Nora Hale, Sam Calloway.",
+      "block_driving_question": "Whose timestamp proves the Keller alibi is false?",
+      "because_previous_ended_with": "The escalation leaves a torn page exposed, and there is no way back.",
+      "this_scene_starts_with": "Nora traces a line in the log with her finger. Key object in frame: a timestamp",
+      "single_change_at_end": "The escalation leaves a timestamp exposed, and there is no way back."
     },
     {
       "scene_id": 44,
@@ -2696,19 +2833,19 @@
           "at": 0.0,
           "range": "00s-03s",
           "framing": "tight close-up",
-          "action": "Sam reads over her shoulder, close enough to touch."
+          "action": "Sam reads over her shoulder, close enough to touch. Key object in frame: the town hall steps."
         },
         {
           "at": 3.0,
           "range": "03s-07s",
           "framing": "close-up",
-          "action": "Close detail on the town hall steps; the room falls quiet around it."
+          "action": "SAM speaks as the camera holds tight on their face, with the town hall steps in the foreground."
         },
         {
           "at": 7.0,
           "range": "07s-10s",
           "framing": "insert shot of the evidence object",
-          "action": "hard cut to the reaction as the line lands"
+          "action": "Sam Calloway holds the silence after \"She died when I was eleven. I watched them bury her\", the town hall steps sharp in the foreground."
         }
       ],
       "dialogue": [
@@ -2734,7 +2871,10 @@
         "sam"
       ],
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing dark blazer over a black shirt, hair tied back); Sam Calloway (Cast Sheet Pos #2: mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin, wearing faded canvas work jacket, dark trousers, worn boots)",
-      "storyboard_panel": "[00s-03s] tight close-up: Sam reads over her shoulder, close enough to touch. Location: Hale lighthouse archive room, dawn, cold blue light. Key object: the town hall steps. Characters present: Nora Hale, Sam Calloway."
+      "storyboard_panel": "[00s-03s] tight close-up: Sam reads over her shoulder, close enough to touch. Key object in frame: the town hall steps. Location: Hale lighthouse archive room, dawn, cold blue light. Key object: the town hall steps. Characters present: Nora Hale, Sam Calloway.",
+      "because_previous_ended_with": "The escalation leaves a timestamp exposed, and there is no way back.",
+      "this_scene_starts_with": "Sam reads over her shoulder, close enough to touch. Key object in frame: the town hall steps",
+      "single_change_at_end": "The escalation leaves the town hall steps exposed, and there is no way back."
     },
     {
       "scene_id": 45,
@@ -2754,19 +2894,19 @@
           "at": 0.0,
           "range": "00s-03s",
           "framing": "over-the-shoulder shot",
-          "action": "Nora looks up at Sam, a decision forming."
+          "action": "Nora looks up at Sam, a decision forming. Key object in frame: the harbor log."
         },
         {
           "at": 3.0,
           "range": "03s-07s",
           "framing": "close-up",
-          "action": "Close detail on the harbor log; the room falls quiet around it."
+          "action": "NORA speaks as the camera holds tight on their face, with the harbor log in the foreground."
         },
         {
           "at": 7.0,
           "range": "07s-10s",
           "framing": "tight close-up",
-          "action": "hard cut to the reaction as the line lands"
+          "action": "Nora Hale holds the silence after \"Nora, we can still stop this\", the harbor log sharp in the foreground."
         }
       ],
       "dialogue": [
@@ -2792,7 +2932,10 @@
         "sam"
       ],
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing dark blazer over a black shirt, hair tied back); Sam Calloway (Cast Sheet Pos #2: mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin, wearing faded canvas work jacket, dark trousers, worn boots)",
-      "storyboard_panel": "[00s-03s] over-the-shoulder shot: Nora looks up at Sam, a decision forming. Location: Harbor pier, morning, flat silver water. Key object: the harbor log. Characters present: Nora Hale, Sam Calloway."
+      "storyboard_panel": "[00s-03s] over-the-shoulder shot: Nora looks up at Sam, a decision forming. Key object in frame: the harbor log. Location: Harbor pier, morning, flat silver water. Key object: the harbor log. Characters present: Nora Hale, Sam Calloway.",
+      "because_previous_ended_with": "The escalation leaves the town hall steps exposed, and there is no way back.",
+      "this_scene_starts_with": "Nora looks up at Sam, a decision forming. Key object in frame: the harbor log",
+      "single_change_at_end": "The escalation leaves the harbor log exposed, and there is no way back."
     },
     {
       "scene_id": 46,
@@ -2812,19 +2955,19 @@
           "at": 0.0,
           "range": "00s-03s",
           "framing": "low-angle hero shot",
-          "action": "Adrian stands on the town hall steps, trying to smile."
+          "action": "Adrian stands on the town hall steps, trying to smile. Key object in frame: a torn page."
         },
         {
           "at": 3.0,
           "range": "03s-07s",
           "framing": "close-up",
-          "action": "Close detail on a torn page; the room falls quiet around it."
+          "action": "ADRIAN speaks as the camera holds tight on their face, with a torn page in the foreground."
         },
         {
           "at": 7.0,
           "range": "07s-10s",
           "framing": "insert shot of the evidence object",
-          "action": "hard cut to the reaction as the line lands"
+          "action": "Adrian Keller holds the silence after \"I've had ten years. I'm not changing\", a torn page sharp in the foreground."
         }
       ],
       "dialogue": [
@@ -2850,7 +2993,10 @@
         "adrian"
       ],
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing dark blazer over a black shirt, hair tied back); Adrian Keller (Cast Sheet Pos #4: late thirties lean groomed heir, ash-blond hair swept back, cold grey eyes, even features, wearing navy blazer, open-collared white shirt, dark trousers)",
-      "storyboard_panel": "[00s-03s] low-angle hero shot: Adrian stands on the town hall steps, trying to smile. Location: Town hall steps, dusk, wet stone. Key object: a torn page. Characters present: Nora Hale, Adrian Keller."
+      "storyboard_panel": "[00s-03s] low-angle hero shot: Adrian stands on the town hall steps, trying to smile. Key object in frame: a torn page. Location: Town hall steps, dusk, wet stone. Key object: a torn page. Characters present: Nora Hale, Adrian Keller.",
+      "because_previous_ended_with": "The escalation leaves the harbor log exposed, and there is no way back.",
+      "this_scene_starts_with": "Adrian stands on the town hall steps, trying to smile. Key object in frame: a torn page",
+      "single_change_at_end": "The escalation leaves a torn page exposed, and there is no way back."
     },
     {
       "scene_id": 47,
@@ -2870,19 +3016,19 @@
           "at": 0.0,
           "range": "00s-03s",
           "framing": "wide establishing shot",
-          "action": "Nora walks past him without stopping."
+          "action": "Nora walks past him without stopping. Key object in frame: a timestamp."
         },
         {
           "at": 3.0,
           "range": "03s-07s",
           "framing": "close-up",
-          "action": "Close detail on a timestamp; the room falls quiet around it."
+          "action": "MARGARET speaks as the camera holds tight on their face, with a timestamp in the foreground."
         },
         {
           "at": 7.0,
           "range": "07s-10s",
           "framing": "tight close-up",
-          "action": "hard cut to the reaction as the line lands"
+          "action": "Margaret Keller holds the silence after \"Zero. You leave with nothing\", a timestamp sharp in the foreground."
         }
       ],
       "dialogue": [
@@ -2908,7 +3054,10 @@
         "margaret"
       ],
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing dark blazer over a black shirt, hair tied back); Margaret Keller (Cast Sheet Pos #3: late sixties matriarch, tall and straight-backed, silver chignon, pale blue eyes, porcelain skin, wearing tailored dove-grey suit, pearls, low-heeled shoes)",
-      "storyboard_panel": "[00s-03s] wide establishing shot: Nora walks past him without stopping. Location: Hale lighthouse archive room, dawn, cold blue light. Key object: a timestamp. Characters present: Nora Hale, Margaret Keller."
+      "storyboard_panel": "[00s-03s] wide establishing shot: Nora walks past him without stopping. Key object in frame: a timestamp. Location: Hale lighthouse archive room, dawn, cold blue light. Key object: a timestamp. Characters present: Nora Hale, Margaret Keller.",
+      "because_previous_ended_with": "The escalation leaves a torn page exposed, and there is no way back.",
+      "this_scene_starts_with": "Nora walks past him without stopping. Key object in frame: a timestamp",
+      "single_change_at_end": "The escalation leaves a timestamp exposed, and there is no way back."
     },
     {
       "scene_id": 48,
@@ -2929,19 +3078,19 @@
           "at": 0.0,
           "range": "00s-03s",
           "framing": "medium shot",
-          "action": "Margaret waits in the hall, gloves in hand."
+          "action": "Margaret waits in the hall, gloves in hand. Key object in frame: the town hall steps."
         },
         {
           "at": 3.0,
           "range": "03s-07s",
           "framing": "close-up",
-          "action": "Close detail on the town hall steps; the room falls quiet around it."
+          "action": "CLAIRE speaks as the camera holds tight on their face, with the town hall steps in the foreground."
         },
         {
           "at": 7.0,
           "range": "07s-10s",
           "framing": "insert shot of the evidence object",
-          "action": "hard cut to the reaction as the line lands"
+          "action": "Claire Boone holds the silence after \"Then they'll tell the truth\", the town hall steps sharp in the foreground."
         }
       ],
       "dialogue": [
@@ -2968,7 +3117,10 @@
         "claire"
       ],
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing dark blazer over a black shirt, hair tied back); Margaret Keller (Cast Sheet Pos #3: late sixties matriarch, tall and straight-backed, silver chignon, pale blue eyes, porcelain skin, wearing tailored dove-grey suit, pearls, low-heeled shoes); Claire Boone (Cast Sheet Pos #5: forties compact small-town lawyer, brown blunt bob, warm brown eyes, reading glasses on a cord, wearing forest-green cardigan, cream blouse, dark trousers)",
-      "storyboard_panel": "[00s-03s] medium shot: Margaret waits in the hall, gloves in hand. Location: Harbor pier, morning, flat silver water. Key object: the town hall steps. Characters present: Nora Hale, Margaret Keller, Claire Boone."
+      "storyboard_panel": "[00s-03s] medium shot: Margaret waits in the hall, gloves in hand. Key object in frame: the town hall steps. Location: Harbor pier, morning, flat silver water. Key object: the town hall steps. Characters present: Nora Hale, Margaret Keller, Claire Boone.",
+      "because_previous_ended_with": "The escalation leaves a timestamp exposed, and there is no way back.",
+      "this_scene_starts_with": "Margaret waits in the hall, gloves in hand. Key object in frame: the town hall steps",
+      "single_change_at_end": "The escalation leaves the town hall steps exposed, and there is no way back."
     },
     {
       "scene_id": 49,
@@ -2988,19 +3140,19 @@
           "at": 0.0,
           "range": "00s-03s",
           "framing": "tight close-up",
-          "action": "Nora faces Margaret on the empty hearing floor."
+          "action": "Nora faces Margaret on the empty hearing floor. Key object in frame: the harbor log."
         },
         {
           "at": 3.0,
           "range": "03s-07s",
           "framing": "close-up",
-          "action": "Close detail on the harbor log; the room falls quiet around it."
+          "action": "NORA speaks as the camera holds tight on their face, with the harbor log in the foreground."
         },
         {
           "at": 7.0,
           "range": "07s-10s",
           "framing": "tight close-up",
-          "action": "hard cut to the reaction as the line lands"
+          "action": "Nora Hale holds the silence after \"I'm not going anywhere\", the harbor log sharp in the foreground."
         }
       ],
       "dialogue": [
@@ -3027,7 +3179,11 @@
         "margaret"
       ],
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing dark blazer over a black shirt, hair tied back); Sam Calloway (Cast Sheet Pos #2: mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin, wearing faded canvas work jacket, dark trousers, worn boots); Margaret Keller (Cast Sheet Pos #3: late sixties matriarch, tall and straight-backed, silver chignon, pale blue eyes, porcelain skin, wearing tailored dove-grey suit, pearls, low-heeled shoes)",
-      "storyboard_panel": "[00s-03s] tight close-up: Nora faces Margaret on the empty hearing floor. Location: Town hall steps, dusk, wet stone. Key object: the harbor log. Characters present: Nora Hale, Sam Calloway, Margaret Keller."
+      "storyboard_panel": "[00s-03s] tight close-up: Nora faces Margaret on the empty hearing floor. Key object in frame: the harbor log. Location: Town hall steps, dusk, wet stone. Key object: the harbor log. Characters present: Nora Hale, Sam Calloway, Margaret Keller.",
+      "block_driving_question": "What does the harbor log reveal about the night of the fire?",
+      "because_previous_ended_with": "The escalation leaves the town hall steps exposed, and there is no way back.",
+      "this_scene_starts_with": "Nora faces Margaret on the empty hearing floor. Key object in frame: the harbor log",
+      "single_change_at_end": "The escalation leaves the harbor log exposed, and there is no way back."
     },
     {
       "scene_id": 50,
@@ -3047,19 +3203,19 @@
           "at": 0.0,
           "range": "00s-03s",
           "framing": "over-the-shoulder shot",
-          "action": "Nora stands at the lighthouse door as the town lights come on."
+          "action": "Nora stands at the lighthouse door as the town lights come on. Key object in frame: a torn page."
         },
         {
           "at": 3.0,
           "range": "03s-07s",
           "framing": "close-up",
-          "action": "Close detail on a torn page; the room falls quiet around it."
+          "action": "MARGARET speaks as the camera holds tight on their face, with a torn page in the foreground."
         },
         {
           "at": 7.0,
           "range": "07s-10s",
           "framing": "insert shot of the evidence object",
-          "action": "hard cut to the reaction as the line lands"
+          "action": "Margaret Keller holds the silence after \"Not for the house. For his name\", a torn page sharp in the foreground."
         }
       ],
       "dialogue": [
@@ -3085,7 +3241,10 @@
         "margaret"
       ],
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing dark blazer over a black shirt, hair tied back); Margaret Keller (Cast Sheet Pos #3: late sixties matriarch, tall and straight-backed, silver chignon, pale blue eyes, porcelain skin, wearing tailored dove-grey suit, pearls, low-heeled shoes)",
-      "storyboard_panel": "[00s-03s] over-the-shoulder shot: Nora stands at the lighthouse door as the town lights come on. Location: Hale lighthouse archive room, dawn, cold blue light. Key object: a torn page. Characters present: Nora Hale, Margaret Keller."
+      "storyboard_panel": "[00s-03s] over-the-shoulder shot: Nora stands at the lighthouse door as the town lights come on. Key object in frame: a torn page. Location: Hale lighthouse archive room, dawn, cold blue light. Key object: a torn page. Characters present: Nora Hale, Margaret Keller.",
+      "because_previous_ended_with": "The escalation leaves the harbor log exposed, and there is no way back.",
+      "this_scene_starts_with": "Nora stands at the lighthouse door as the town lights come on. Key object in frame: a torn page",
+      "single_change_at_end": "The act cliffhanger leaves a torn page exposed, and there is no way back."
     },
     {
       "scene_id": 51,
@@ -3105,19 +3264,19 @@
           "at": 0.0,
           "range": "00s-03s",
           "framing": "wide establishing shot",
-          "action": "The hearing room fills; Nora stands alone at the table."
+          "action": "The hearing room fills; Nora stands alone at the table. Key object in frame: the harbor log."
         },
         {
           "at": 3.0,
           "range": "03s-07s",
           "framing": "close-up",
-          "action": "Close detail on the harbor log; the room falls quiet around it."
+          "action": "CLAIRE speaks as the camera holds tight on their face, with the harbor log in the foreground."
         },
         {
           "at": 7.0,
           "range": "07s-10s",
           "framing": "tight close-up",
-          "action": "hard cut to the reaction as the line lands"
+          "action": "Claire Boone holds the silence after \"Good. Let them watch. Let them remember\", the harbor log sharp in the foreground."
         }
       ],
       "dialogue": [
@@ -3143,7 +3302,10 @@
         "claire"
       ],
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing dark blazer, hair down, salt wind in it); Claire Boone (Cast Sheet Pos #5: forties compact small-town lawyer, brown blunt bob, warm brown eyes, reading glasses on a cord, wearing forest-green cardigan, cream blouse, dark trousers)",
-      "storyboard_panel": "[00s-03s] wide establishing shot: The hearing room fills; Nora stands alone at the table. Location: Town hall hearing room, day, hard window light. Key object: the harbor log. Characters present: Nora Hale, Claire Boone."
+      "storyboard_panel": "[00s-03s] wide establishing shot: The hearing room fills; Nora stands alone at the table. Key object in frame: the harbor log. Location: Town hall hearing room, day, hard window light. Key object: the harbor log. Characters present: Nora Hale, Claire Boone.",
+      "because_previous_ended_with": "The act cliffhanger leaves a torn page exposed, and there is no way back.",
+      "this_scene_starts_with": "The hearing room fills; Nora stands alone at the table. Key object in frame: the harbor log",
+      "single_change_at_end": "The escalation leaves the harbor log exposed, and there is no way back."
     },
     {
       "scene_id": 52,
@@ -3163,19 +3325,19 @@
           "at": 0.0,
           "range": "00s-03s",
           "framing": "medium shot",
-          "action": "Sam steps to the microphone, the room silent."
+          "action": "Sam steps to the microphone, the room silent. Key object in frame: the clerk's desk."
         },
         {
           "at": 3.0,
           "range": "03s-07s",
           "framing": "close-up",
-          "action": "Close detail on the clerk's desk; the room falls quiet around it."
+          "action": "SAM speaks as the camera holds tight on their face, with the clerk's desk in the foreground."
         },
         {
           "at": 7.0,
           "range": "07s-10s",
           "framing": "insert shot of the evidence object",
-          "action": "hard cut to the reaction as the line lands"
+          "action": "Sam Calloway holds the silence after \"Then do it for the right reason\", the clerk's desk sharp in the foreground."
         }
       ],
       "dialogue": [
@@ -3201,7 +3363,10 @@
         "sam"
       ],
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing dark blazer, hair down, salt wind in it); Sam Calloway (Cast Sheet Pos #2: mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin, wearing faded canvas work jacket, dark trousers, worn boots)",
-      "storyboard_panel": "[00s-03s] medium shot: Sam steps to the microphone, the room silent. Location: Hale lighthouse point, golden hour, wind down. Key object: the clerk's desk. Characters present: Nora Hale, Sam Calloway."
+      "storyboard_panel": "[00s-03s] medium shot: Sam steps to the microphone, the room silent. Key object in frame: the clerk's desk. Location: Hale lighthouse point, golden hour, wind down. Key object: the clerk's desk. Characters present: Nora Hale, Sam Calloway.",
+      "because_previous_ended_with": "The escalation leaves the harbor log exposed, and there is no way back.",
+      "this_scene_starts_with": "Sam steps to the microphone, the room silent. Key object in frame: the clerk's desk",
+      "single_change_at_end": "The escalation leaves the clerk's desk exposed, and there is no way back."
     },
     {
       "scene_id": 53,
@@ -3221,19 +3386,19 @@
           "at": 0.0,
           "range": "00s-03s",
           "framing": "tight close-up",
-          "action": "Margaret's smile falters for the first time."
+          "action": "Margaret's smile falters for the first time. Key object in frame: a second ledger."
         },
         {
           "at": 3.0,
           "range": "03s-07s",
           "framing": "close-up",
-          "action": "Close detail on a second ledger; the room falls quiet around it."
+          "action": "NORA speaks as the camera holds tight on their face, with a second ledger in the foreground."
         },
         {
           "at": 7.0,
           "range": "07s-10s",
           "framing": "tight close-up",
-          "action": "hard cut to the reaction as the line lands"
+          "action": "Nora Hale holds the silence after \"The truth is I let them bury your father\", a second ledger sharp in the foreground."
         }
       ],
       "dialogue": [
@@ -3260,7 +3425,10 @@
         "margaret"
       ],
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing dark blazer, hair down, salt wind in it); Sam Calloway (Cast Sheet Pos #2: mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin, wearing faded canvas work jacket, dark trousers, worn boots); Margaret Keller (Cast Sheet Pos #3: late sixties matriarch, tall and straight-backed, silver chignon, pale blue eyes, porcelain skin, wearing tailored dove-grey suit, pearls, low-heeled shoes)",
-      "storyboard_panel": "[00s-03s] tight close-up: Margaret's smile falters for the first time. Location: Harbor, golden hour, calm water. Key object: a second ledger. Characters present: Nora Hale, Sam Calloway, Margaret Keller."
+      "storyboard_panel": "[00s-03s] tight close-up: Margaret's smile falters for the first time. Key object in frame: a second ledger. Location: Harbor, golden hour, calm water. Key object: a second ledger. Characters present: Nora Hale, Sam Calloway, Margaret Keller.",
+      "because_previous_ended_with": "The escalation leaves the clerk's desk exposed, and there is no way back.",
+      "this_scene_starts_with": "Margaret's smile falters for the first time. Key object in frame: a second ledger",
+      "single_change_at_end": "The escalation leaves a second ledger exposed, and there is no way back."
     },
     {
       "scene_id": 54,
@@ -3281,19 +3449,19 @@
           "at": 0.0,
           "range": "00s-03s",
           "framing": "over-the-shoulder shot",
-          "action": "Nora holds up the harbor log, open to the page."
+          "action": "Nora holds up the harbor log, open to the page. Key object in frame: Sam's hand."
         },
         {
           "at": 3.0,
           "range": "03s-07s",
           "framing": "close-up",
-          "action": "Close detail on Sam's hand; the room falls quiet around it."
+          "action": "SAM speaks as the camera holds tight on their face, with Sam's hand in the foreground."
         },
         {
           "at": 7.0,
           "range": "07s-10s",
           "framing": "insert shot of the evidence object",
-          "action": "hard cut to the reaction as the line lands"
+          "action": "Sam Calloway holds the silence after \"He's a firefighter with a grudge\", Sam's hand sharp in the foreground."
         }
       ],
       "dialogue": [
@@ -3320,7 +3488,10 @@
         "margaret"
       ],
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing dark blazer, hair down, salt wind in it); Sam Calloway (Cast Sheet Pos #2: mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin, wearing faded canvas work jacket, dark trousers, worn boots); Margaret Keller (Cast Sheet Pos #3: late sixties matriarch, tall and straight-backed, silver chignon, pale blue eyes, porcelain skin, wearing tailored dove-grey suit, pearls, low-heeled shoes)",
-      "storyboard_panel": "[00s-03s] over-the-shoulder shot: Nora holds up the harbor log, open to the page. Location: Town hall hearing room, day, hard window light. Key object: Sam's hand. Characters present: Nora Hale, Sam Calloway, Margaret Keller."
+      "storyboard_panel": "[00s-03s] over-the-shoulder shot: Nora holds up the harbor log, open to the page. Key object in frame: Sam's hand. Location: Town hall hearing room, day, hard window light. Key object: Sam's hand. Characters present: Nora Hale, Sam Calloway, Margaret Keller.",
+      "because_previous_ended_with": "The escalation leaves a second ledger exposed, and there is no way back.",
+      "this_scene_starts_with": "Nora holds up the harbor log, open to the page. Key object in frame: Sam's hand",
+      "single_change_at_end": "The escalation leaves Sam's hand exposed, and there is no way back."
     },
     {
       "scene_id": 55,
@@ -3340,19 +3511,19 @@
           "at": 0.0,
           "range": "00s-03s",
           "framing": "low-angle hero shot",
-          "action": "Adrian half-rises from his chair."
+          "action": "Adrian half-rises from his chair. Key object in frame: the harbor log."
         },
         {
           "at": 3.0,
           "range": "03s-07s",
           "framing": "close-up",
-          "action": "Close detail on the harbor log; the room falls quiet around it."
+          "action": "NORA speaks as the camera holds tight on their face, with the harbor log in the foreground."
         },
         {
           "at": 7.0,
           "range": "07s-10s",
           "framing": "tight close-up",
-          "action": "hard cut to the reaction as the line lands"
+          "action": "Nora Hale holds the silence after \"That's a piece of paper\", the harbor log sharp in the foreground."
         }
       ],
       "dialogue": [
@@ -3378,7 +3549,11 @@
         "adrian"
       ],
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing dark blazer, hair down, salt wind in it); Adrian Keller (Cast Sheet Pos #4: late thirties lean groomed heir, ash-blond hair swept back, cold grey eyes, even features, wearing navy blazer, open-collared white shirt, dark trousers)",
-      "storyboard_panel": "[00s-03s] low-angle hero shot: Adrian half-rises from his chair. Location: Hale lighthouse point, golden hour, wind down. Key object: the harbor log. Characters present: Nora Hale, Adrian Keller."
+      "storyboard_panel": "[00s-03s] low-angle hero shot: Adrian half-rises from his chair. Key object in frame: the harbor log. Location: Hale lighthouse point, golden hour, wind down. Key object: the harbor log. Characters present: Nora Hale, Adrian Keller.",
+      "block_driving_question": "Will the town honor the truth before the next high tide?",
+      "because_previous_ended_with": "The escalation leaves Sam's hand exposed, and there is no way back.",
+      "this_scene_starts_with": "Adrian half-rises from his chair. Key object in frame: the harbor log",
+      "single_change_at_end": "The escalation leaves the harbor log exposed, and there is no way back."
     },
     {
       "scene_id": 56,
@@ -3404,13 +3579,13 @@
           "at": 3.0,
           "range": "03s-07s",
           "framing": "close-up",
-          "action": "Close detail on the clerk's desk; the room falls quiet around it."
+          "action": "NORA speaks as the camera holds tight on their face, with the clerk's desk in the foreground."
         },
         {
           "at": 7.0,
           "range": "07s-10s",
           "framing": "insert shot of the evidence object",
-          "action": "hard cut to the reaction as the line lands"
+          "action": "Nora Hale holds the silence after \"That log is weather and guesswork\", the clerk's desk sharp in the foreground."
         }
       ],
       "dialogue": [
@@ -3436,7 +3611,10 @@
         "margaret"
       ],
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing dark blazer, hair down, salt wind in it); Margaret Keller (Cast Sheet Pos #3: late sixties matriarch, tall and straight-backed, silver chignon, pale blue eyes, porcelain skin, wearing tailored dove-grey suit, pearls, low-heeled shoes)",
-      "storyboard_panel": "[00s-03s] wide establishing shot: Nora sets the log on the clerk's desk. Location: Harbor, golden hour, calm water. Key object: the clerk's desk. Characters present: Nora Hale, Margaret Keller."
+      "storyboard_panel": "[00s-03s] wide establishing shot: Nora sets the log on the clerk's desk. Location: Harbor, golden hour, calm water. Key object: the clerk's desk. Characters present: Nora Hale, Margaret Keller.",
+      "because_previous_ended_with": "The escalation leaves the harbor log exposed, and there is no way back.",
+      "this_scene_starts_with": "Nora sets the log on the clerk's desk",
+      "single_change_at_end": "The escalation leaves the clerk's desk exposed, and there is no way back."
     },
     {
       "scene_id": 57,
@@ -3457,19 +3635,19 @@
           "at": 0.0,
           "range": "00s-03s",
           "framing": "medium shot",
-          "action": "Margaret reaches for the log; Nora slides it away."
+          "action": "Margaret reaches for the log; Nora slides it away. Key object in frame: a second ledger."
         },
         {
           "at": 3.0,
           "range": "03s-07s",
           "framing": "close-up",
-          "action": "Close detail on a second ledger; the room falls quiet around it."
+          "action": "NORA speaks as the camera holds tight on their face, with a second ledger in the foreground."
         },
         {
           "at": 7.0,
           "range": "07s-10s",
           "framing": "tight close-up",
-          "action": "hard cut to the reaction as the line lands"
+          "action": "Nora Hale holds the silence after \"The fire marshal\", a second ledger sharp in the foreground."
         }
       ],
       "dialogue": [
@@ -3496,7 +3674,10 @@
         "claire"
       ],
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing dark blazer, hair down, salt wind in it); Margaret Keller (Cast Sheet Pos #3: late sixties matriarch, tall and straight-backed, silver chignon, pale blue eyes, porcelain skin, wearing tailored dove-grey suit, pearls, low-heeled shoes); Claire Boone (Cast Sheet Pos #5: forties compact small-town lawyer, brown blunt bob, warm brown eyes, reading glasses on a cord, wearing forest-green cardigan, cream blouse, dark trousers)",
-      "storyboard_panel": "[00s-03s] medium shot: Margaret reaches for the log; Nora slides it away. Location: Town hall hearing room, day, hard window light. Key object: a second ledger. Characters present: Nora Hale, Margaret Keller, Claire Boone."
+      "storyboard_panel": "[00s-03s] medium shot: Margaret reaches for the log; Nora slides it away. Key object in frame: a second ledger. Location: Town hall hearing room, day, hard window light. Key object: a second ledger. Characters present: Nora Hale, Margaret Keller, Claire Boone.",
+      "because_previous_ended_with": "The escalation leaves the clerk's desk exposed, and there is no way back.",
+      "this_scene_starts_with": "Margaret reaches for the log; Nora slides it away. Key object in frame: a second ledger",
+      "single_change_at_end": "The escalation leaves a second ledger exposed, and there is no way back."
     },
     {
       "scene_id": 58,
@@ -3517,19 +3698,19 @@
           "at": 0.0,
           "range": "00s-03s",
           "framing": "tight close-up",
-          "action": "Sam takes Nora's hand under the table."
+          "action": "Sam takes Nora's hand under the table. Key object in frame: Sam's hand."
         },
         {
           "at": 3.0,
           "range": "03s-07s",
           "framing": "close-up",
-          "action": "Close detail on Sam's hand; the room falls quiet around it."
+          "action": "ADRIAN speaks as the camera holds tight on their face, with Sam's hand in the foreground."
         },
         {
           "at": 7.0,
           "range": "07s-10s",
           "framing": "insert shot of the evidence object",
-          "action": "hard cut to the reaction as the line lands"
+          "action": "Adrian Keller holds the silence after \"You burned it and buried my father\", Sam's hand sharp in the foreground."
         }
       ],
       "dialogue": [
@@ -3556,7 +3737,10 @@
         "adrian"
       ],
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing dark blazer, hair down, salt wind in it); Sam Calloway (Cast Sheet Pos #2: mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin, wearing faded canvas work jacket, dark trousers, worn boots); Adrian Keller (Cast Sheet Pos #4: late thirties lean groomed heir, ash-blond hair swept back, cold grey eyes, even features, wearing navy blazer, open-collared white shirt, dark trousers)",
-      "storyboard_panel": "[00s-03s] tight close-up: Sam takes Nora's hand under the table. Location: Hale lighthouse point, golden hour, wind down. Key object: Sam's hand. Characters present: Nora Hale, Sam Calloway, Adrian Keller."
+      "storyboard_panel": "[00s-03s] tight close-up: Sam takes Nora's hand under the table. Key object in frame: Sam's hand. Location: Hale lighthouse point, golden hour, wind down. Key object: Sam's hand. Characters present: Nora Hale, Sam Calloway, Adrian Keller.",
+      "because_previous_ended_with": "The escalation leaves a second ledger exposed, and there is no way back.",
+      "this_scene_starts_with": "Sam takes Nora's hand under the table. Key object in frame: Sam's hand",
+      "single_change_at_end": "The escalation leaves Sam's hand exposed, and there is no way back."
     },
     {
       "scene_id": 59,
@@ -3576,19 +3760,19 @@
           "at": 0.0,
           "range": "00s-03s",
           "framing": "over-the-shoulder shot",
-          "action": "Nora walks out of the town hall into the light."
+          "action": "Nora walks out of the town hall into the light. Key object in frame: the harbor log."
         },
         {
           "at": 3.0,
           "range": "03s-07s",
           "framing": "close-up",
-          "action": "Close detail on the harbor log; the room falls quiet around it."
+          "action": "NORA speaks as the camera holds tight on their face, with the harbor log in the foreground."
         },
         {
           "at": 7.0,
           "range": "07s-10s",
           "framing": "tight close-up",
-          "action": "hard cut to the reaction as the line lands"
+          "action": "Nora Hale holds the silence after \"You'll regret this\", the harbor log sharp in the foreground."
         }
       ],
       "dialogue": [
@@ -3614,7 +3798,10 @@
         "margaret"
       ],
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing dark blazer, hair down, salt wind in it); Margaret Keller (Cast Sheet Pos #3: late sixties matriarch, tall and straight-backed, silver chignon, pale blue eyes, porcelain skin, wearing tailored dove-grey suit, pearls, low-heeled shoes)",
-      "storyboard_panel": "[00s-03s] over-the-shoulder shot: Nora walks out of the town hall into the light. Location: Harbor, golden hour, calm water. Key object: the harbor log. Characters present: Nora Hale, Margaret Keller."
+      "storyboard_panel": "[00s-03s] over-the-shoulder shot: Nora walks out of the town hall into the light. Key object in frame: the harbor log. Location: Harbor, golden hour, calm water. Key object: the harbor log. Characters present: Nora Hale, Margaret Keller.",
+      "because_previous_ended_with": "The escalation leaves Sam's hand exposed, and there is no way back.",
+      "this_scene_starts_with": "Nora walks out of the town hall into the light. Key object in frame: the harbor log",
+      "single_change_at_end": "The escalation leaves the harbor log exposed, and there is no way back."
     },
     {
       "scene_id": 60,
@@ -3634,19 +3821,19 @@
           "at": 0.0,
           "range": "00s-03s",
           "framing": "low-angle hero shot",
-          "action": "Nora and Sam stand on the lighthouse point at dusk, an older ledger in Nora's hands."
+          "action": "Nora and Sam stand on the lighthouse point at dusk, an older ledger in Nora's hands. Key object in frame: the clerk's desk."
         },
         {
           "at": 3.0,
           "range": "03s-07s",
           "framing": "close-up",
-          "action": "Close detail on the clerk's desk; the room falls quiet around it."
+          "action": "NORA speaks as the camera holds tight on their face, with the clerk's desk in the foreground."
         },
         {
           "at": 7.0,
           "range": "07s-10s",
           "framing": "insert shot of the evidence object",
-          "action": "hard cut to the reaction as the line lands"
+          "action": "Nora Hale holds the silence after \"Nora... she's alive?\", the clerk's desk sharp in the foreground."
         }
       ],
       "dialogue": [
@@ -3672,7 +3859,10 @@
         "sam"
       ],
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing dark blazer, hair down, salt wind in it); Sam Calloway (Cast Sheet Pos #2: mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin, wearing faded canvas work jacket, dark trousers, worn boots)",
-      "storyboard_panel": "[00s-03s] low-angle hero shot: Nora and Sam stand on the lighthouse point at dusk, an older ledger in Nora's hands. Location: Town hall hearing room, day, hard window light. Key object: the clerk's desk. Characters present: Nora Hale, Sam Calloway."
+      "storyboard_panel": "[00s-03s] low-angle hero shot: Nora and Sam stand on the lighthouse point at dusk, an older ledger in Nora's hands. Key object in frame: the clerk's desk. Location: Town hall hearing room, day, hard window light. Key object: the clerk's desk. Characters present: Nora Hale, Sam Calloway.",
+      "because_previous_ended_with": "The escalation leaves the harbor log exposed, and there is no way back.",
+      "this_scene_starts_with": "Nora and Sam stand on the lighthouse point at dusk, an older ledger in Nora's hands. Key object in frame: the clerk's desk",
+      "single_change_at_end": "The payoff next hook leaves the clerk's desk exposed, and there is no way back."
     }
   ],
   "teasers": [
@@ -3794,5 +3984,131 @@
       "visual_reference": "forties small-town lawyer, compact and practical, brown hair in a blunt bob, warm brown eyes, reading glasses on a cord, forest-green cardigan"
     }
   ],
-  "partial": false
+  "partial": false,
+  "narrative_continuity": {
+    "schema_version": 1,
+    "engine": "narrative_continuity_engine",
+    "minute_blocks": [
+      {
+        "block": 1,
+        "scenes": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "driving_question": "Why did the lighthouse light switch on the night Nora returned?"
+      },
+      {
+        "block": 2,
+        "scenes": [
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "driving_question": "Who is buying the lighthouse land before the town hearing?"
+      },
+      {
+        "block": 3,
+        "scenes": [
+          13,
+          14,
+          15,
+          16,
+          17,
+          18
+        ],
+        "driving_question": "What does the scorched beam prove about the night of the fire?"
+      },
+      {
+        "block": 4,
+        "scenes": [
+          19,
+          20,
+          21,
+          22,
+          23,
+          24
+        ],
+        "driving_question": "Can Nora open the sealed petition before the town votes?"
+      },
+      {
+        "block": 5,
+        "scenes": [
+          25,
+          26,
+          27,
+          28,
+          29,
+          30
+        ],
+        "driving_question": "What is hidden inside the metal evidence box?"
+      },
+      {
+        "block": 6,
+        "scenes": [
+          31,
+          32,
+          33,
+          34,
+          35,
+          36
+        ],
+        "driving_question": "Will the emergency petition survive Margaret's counterattack?"
+      },
+      {
+        "block": 7,
+        "scenes": [
+          37,
+          38,
+          39,
+          40,
+          41,
+          42
+        ],
+        "driving_question": "Can Nora stop the eviction before the storm cuts the road?"
+      },
+      {
+        "block": 8,
+        "scenes": [
+          43,
+          44,
+          45,
+          46,
+          47,
+          48
+        ],
+        "driving_question": "Whose timestamp proves the Keller alibi is false?"
+      },
+      {
+        "block": 9,
+        "scenes": [
+          49,
+          50,
+          51,
+          52,
+          53,
+          54
+        ],
+        "driving_question": "What does the harbor log reveal about the night of the fire?"
+      },
+      {
+        "block": 10,
+        "scenes": [
+          55,
+          56,
+          57,
+          58,
+          59,
+          60
+        ],
+        "driving_question": "Will the town honor the truth before the next high tide?"
+      }
+    ]
+  }
 }

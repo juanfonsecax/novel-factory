@@ -12,9 +12,9 @@
     "teaser_seconds": 60,
     "scenes_per_act": 10,
     "acts": 6,
-    "words_per_scene_dialogue": [6, 15],
+    "words_per_scene_dialogue": [6, 20],
     "speech_words_per_second": 2.5,
-    "max_scene_words": 15,
+    "max_scene_words": 20,
     "max_line_words": 15,
     "min_scene_words": 6,
     "max_scene_speech_seconds": 8.5,
@@ -25,8 +25,60 @@
     "internal_cuts_per_scene": [3, 3],
     "internal_cut_times": [0.0, 3.0, 7.0],
     "internal_cut_ranges": ["00s-03s", "03s-07s", "07s-10s"],
-    "max_dialogue_words_per_10s_scene": 15,
+    "max_dialogue_words_per_10s_scene": 20,
     "dialogue_deadline_seconds": 8.5
+  },
+  "narrative_continuity_engine": {
+    "schema_version": 1,
+    "enabled": true,
+    "minute_blocks": 10,
+    "scenes_per_block": 6,
+    "scene_fields": [
+      "because_previous_ended_with",
+      "this_scene_starts_with",
+      "single_change_at_end"
+    ],
+    "block_field": "block_driving_question",
+    "placeholder_patterns": [
+      "hard cut into the dialogue beat with the speaker mid-line",
+      "hard cut to the reaction as the line lands",
+      "the subject is already moving inside the storyboard framing",
+      "the room falls quiet around it",
+      "reacts as the line lands, no static hold"
+    ],
+    "rules": {
+      "1_single_driving_question_per_block": {
+        "description": "Cada bloque de 6 escenas (1 minuto) tiene UNA sola pregunta dramática que lo impulsa; ninguna escena del bloque puede abrir una pregunta nueva.",
+        "required_fields": ["block", "scenes", "driving_question"],
+        "question_max_words": 24
+      },
+      "2_strict_cause_and_effect_chain": {
+        "description": "De la escena 2 a la 60, cada escena declara la consecuencia de la anterior, la acción concreta con la que arranca y el único cambio de estado con el que termina.",
+        "required_fields": [
+          "because_previous_ended_with",
+          "this_scene_starts_with",
+          "single_change_at_end"
+        ],
+        "min_chars_per_field": 24
+      },
+      "3_no_location_ping_pong": {
+        "description": "Agrupa de 3 a 5 escenas consecutivas en la misma locación. Prohibido volver a una locación tras una sola escena en otra (patrón A-B-A).",
+        "min_consecutive_scenes": 3,
+        "max_consecutive_scenes": 5,
+        "forbidden_pattern": "A-B-A"
+      },
+      "4_canonical_object_lock": {
+        "description": "Cada escena usa un único nombre exacto de key_object en el panel de storyboard, en la acción de la Toma 1 y en la lista Key Object. No se admiten alias ni variantes.",
+        "fields": ["key_object", "storyboard_panel", "internal_cuts[0].action"],
+        "require_same_spelling": true
+      },
+      "5_disorder_test_validation": {
+        "description": "Si se desordena el bloque y la cadena causal deja de tener sentido, el validador lo rechaza. También rechaza placeholders de cámara y ping-pong de locaciones.",
+        "reject_placeholders": true,
+        "reject_location_ping_pong": true,
+        "reject_unmotivated_location_reset": true
+      }
+    }
   },
   "required_beats": {
     "1": "cold_open_hook",

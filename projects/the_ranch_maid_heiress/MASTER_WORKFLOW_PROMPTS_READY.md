@@ -1,6 +1,6 @@
 # MASTER WORKFLOW PROMPTS READY — The Stable Girl
 
-- Generado: 2026-10-20T23:59:43-05:00
+- Generado: 2026-10-22T00:26:27-05:00
 - Historia fuente: story_brief.md
 - Duración: 10 minuto(s)
 - Escenas: 60 (10 s cada una)
@@ -28,7 +28,7 @@ Lotes de 1 minuto listos: `muse_ai_minute_batches_queue.txt` (10 bloques).
 
 _Convierte la idea base en una arquitectura de alta retención con elenco, locaciones y sinopsis bloque por bloque._
 
-**12,989 caracteres · 2,078 palabras**
+**14,218 caracteres · 2,271 palabras**
 
 ````text
 🧠 PROMPT 000 — ARQUITECTO DE HISTORIAS VIRALES (CHINA / USA MICRO-DRAMA SHOWRUNNER)
@@ -49,7 +49,7 @@ EPISODE:
 - Setting: (not specified)
 
 CAST:
-- Elena Vance (protagonist): Casting sheet for the character reference image: woman in her mid-twenties, sun-weathered gently angular face, long chestnut hair worn in a single low braid, calm dark-brown eyes, light freckling across the nose, a faint old scar through one eyebrow, slender but strong ranch build, signature faded blue denim work shirt and dark riding jeans. | voice: warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical
+- Elena Vance (protagonist): Casting sheet for the character reference image: woman in her mid-twenties, sun-weathered gently angular face, long chestnut hair worn in a single low braid, calm dark-brown eyes, clear sun-kissed skin with light natural freckles, slender but strong ranch build, signature faded blue denim work shirt and dark riding jeans. | voice: warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical
 - Victoria Blackwell (antagonist): Casting sheet for the character reference image: woman in her mid-forties, sleek platinum-blonde bob, sharp cheekbones, cool grey eyes, immaculate posture, dark red lipstick, pearl earrings, signature emerald silk blouse over tailored black trousers. | voice: low, polished, unhurried American English, smiles through threats, never shouts
 - Richard Blackwell (antagonist): Casting sheet for the character reference image: man around thirty, clean-cut, sandy hair combed back, pale blue eyes, a practiced easy smile, tall athletic build, signature pressed white shirt under a charcoal blazer. | voice: smooth mid-range American English, reasonable tone that never quite reaches sincerity
 - Cole Barrett (love_interest): Casting sheet for the character reference image: man in his early thirties, weathered rancher hands, dark hair a little long under a dust-worn felt hat, steady hazel eyes, quiet jaw, broad shoulders, signature oiled tan canvas chore jacket over a grey henley. | voice: quiet, low American English, careful diction, warmth held under restraint
@@ -119,6 +119,14 @@ ENTREGA EL RESULTADO EN ESTE FORMATO EXACTO (LISTO PARA COPIAR AL PROMPT 001):
 1. TÍTULO VIRAL EN INGLÉS (3 opciones de alto CTR).
 2. ELENCO PRINCIPAL (3 a 5 personajes: Nombre, Edad, Apariencia Física exacta, Vestuario característico fijo y Timbre de Voz en inglés).
 3. SINOPSIS NARRATIVA INTENSA BLOQUE POR BLOQUE (1 párrafo por cada minuto de historia = 6 escenas por minuto, describiendo inicio, conflicto, giros y desenlace/cliffhanger).
+
+REGLA DE CONTINUIDAD NARRATIVA (Hilo Conductor Único + Cadena Causa y Efecto + Ledger de Estado Arrastrado + Prohibición de Ping-Pong de Locaciones + Un Solo Nombre por Objeto Clave + Prueba de Desorden):
+1. UNA SOLA PREGUNTA MOTRIZ POR BLOQUE DE 6 ESCENAS: cada minuto tiene una única pregunta dramática; ninguna escena abre una pregunta nueva.
+2. CADENA CAUSA-EFECTO OBLIGATORIA: de la escena 2 a la 60, cada escena declara `because_previous_ended_with` (copia literal del cambio final de la escena anterior), `this_scene_starts_with` (acción concreta ya en movimiento que continúa esa consecuencia) y `single_change_at_end` (un único cambio de estado irreversible).
+3. PROHIBIDO EL PING-PONG DE LOCACIONES: agrupa de 3 a 5 escenas consecutivas en la misma locación; el patrón A-B-A está prohibido.
+4. UN SOLO NOMBRE POR OBJETO CLAVE: el mismo `key_object` exacto aparece en el panel de storyboard, en la acción de la Toma 1 y en la lista Key Object; nunca uses alias.
+5. PRUEBA DE DESORDEN: si al desordenar el bloque la cadena de consecuencias deja de tener sentido, reescríbelo. El validador rechaza placeholders mecánicos (`hard cut into the dialogue beat`, `hard cut to the reaction as the line lands`) y saltos de locación sin transición.
+
 ````
 
 ---
@@ -127,7 +135,7 @@ ENTREGA EL RESULTADO EN ESTE FORMATO EXACTO (LISTO PARA COPIAR AL PROMPT 001):
 
 _Crea un storyboard visual en cuadrículas de 6 viñetas (3x2), una imagen por minuto de historia._
 
-**8,600 caracteres · 1,381 palabras**
+**9,794 caracteres · 1,562 palabras**
 
 ````text
 🎬 PROMPT 001 — GENERADOR DE STORYBOARD CINEMATOGRÁFICO (6 ESCENAS POR IMAGEN)
@@ -147,7 +155,7 @@ EPISODE:
 - Setting: (not specified)
 
 CAST:
-- Elena Vance (protagonist): Casting sheet for the character reference image: woman in her mid-twenties, sun-weathered gently angular face, long chestnut hair worn in a single low braid, calm dark-brown eyes, light freckling across the nose, a faint old scar through one eyebrow, slender but strong ranch build, signature faded blue denim work shirt and dark riding jeans. | voice: warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical
+- Elena Vance (protagonist): Casting sheet for the character reference image: woman in her mid-twenties, sun-weathered gently angular face, long chestnut hair worn in a single low braid, calm dark-brown eyes, clear sun-kissed skin with light natural freckles, slender but strong ranch build, signature faded blue denim work shirt and dark riding jeans. | voice: warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical
 - Victoria Blackwell (antagonist): Casting sheet for the character reference image: woman in her mid-forties, sleek platinum-blonde bob, sharp cheekbones, cool grey eyes, immaculate posture, dark red lipstick, pearl earrings, signature emerald silk blouse over tailored black trousers. | voice: low, polished, unhurried American English, smiles through threats, never shouts
 - Richard Blackwell (antagonist): Casting sheet for the character reference image: man around thirty, clean-cut, sandy hair combed back, pale blue eyes, a practiced easy smile, tall athletic build, signature pressed white shirt under a charcoal blazer. | voice: smooth mid-range American English, reasonable tone that never quite reaches sincerity
 - Cole Barrett (love_interest): Casting sheet for the character reference image: man in his early thirties, weathered rancher hands, dark hair a little long under a dust-worn felt hat, steady hazel eyes, quiet jaw, broad shoulders, signature oiled tan canvas chore jacket over a grey henley. | voice: quiet, low American English, careful diction, warmth held under restraint
@@ -198,20 +206,10 @@ Debe incluir:
 - Emoción intensa en los rostros.
 - El objeto clave de la escena visible o claramente implicado.
 - Composición e iluminación cinematográfica.
-Debajo de cada viñeta puede aparecer una descripción extremadamente breve de la escena, de aproximadamente 5 a 10 palabras.
-Ejemplo:
-“1. Elena meets the billionaire in the rain.”
-“4. The father discovers the secret romance.”
-La descripción debe ser únicamente una referencia rápida de lo que ocurre.
+FORMATO DE VIÑETAS 100% VISUAL (SIN CAJAS DE TEXTO): Las 6 viñetas fotográficas en cuadrícula 3x2 deben ocupar el 100% del lienzo 16:9 separadas únicamente por líneas divisorias finas. Coloca SOLO el número pequeño [1], [2], [3], [4], [5], [6] en la esquina superior izquierda de cada viñeta. PROHIBIDO dibujar barras inferiores oscuras, subtítulos, cajas de texto o descripciones escritas dentro de la imagen.
 
 IMPORTANTE:
 No escribir diálogos ni párrafos dentro del storyboard.
-Las descripciones deben ser:
-- Muy breves (5 a 10 palabras).
-- Claras.
-- Fáciles de leer.
-- Sin saturar la imagen.
-- Máximo una línea cuando sea posible.
 
 CONTINUIDAD
 Mantén la misma apariencia exacta de los personajes durante todo el storyboard.
@@ -242,7 +240,7 @@ No incluir:
 - Párrafos.
 - Prompts de video.
 - Explicaciones del proceso.
-Solo incluir una descripción muy breve debajo de cada viñeta para identificar la acción.
+- Descripciones escritas, cajas de texto o barras inferiores dentro de la imagen.
 
 RESULTADO FINAL
 A partir de la historia, duración y estilo proporcionados:
@@ -251,9 +249,17 @@ A partir de la historia, duración y estilo proporcionados:
 3. Divide las escenas en grupos de 6.
 4. Genera una imagen por cada grupo de 6 escenas.
 5. Cada imagen debe contener 6 viñetas claramente divididas.
-6. Añade debajo de cada viñeta una descripción de máximo 5–10 palabras.
+6. Mantén la numeración [1]-[6] en la esquina superior izquierda, sin texto adicional.
 7. Mantén la continuidad absoluta de personajes y escenarios.
 8. Cuenta toda la historia visualmente de principio a fin.
+
+REGLA DE CONTINUIDAD NARRATIVA (Hilo Conductor Único + Cadena Causa y Efecto + Ledger de Estado Arrastrado + Prohibición de Ping-Pong de Locaciones + Un Solo Nombre por Objeto Clave + Prueba de Desorden):
+1. UNA SOLA PREGUNTA MOTRIZ POR BLOQUE DE 6 ESCENAS: cada minuto tiene una única pregunta dramática; ninguna escena abre una pregunta nueva.
+2. CADENA CAUSA-EFECTO OBLIGATORIA: de la escena 2 a la 60, cada escena declara `because_previous_ended_with` (copia literal del cambio final de la escena anterior), `this_scene_starts_with` (acción concreta ya en movimiento que continúa esa consecuencia) y `single_change_at_end` (un único cambio de estado irreversible).
+3. PROHIBIDO EL PING-PONG DE LOCACIONES: agrupa de 3 a 5 escenas consecutivas en la misma locación; el patrón A-B-A está prohibido.
+4. UN SOLO NOMBRE POR OBJETO CLAVE: el mismo `key_object` exacto aparece en el panel de storyboard, en la acción de la Toma 1 y en la lista Key Object; nunca uses alias.
+5. PRUEBA DE DESORDEN: si al desordenar el bloque la cadena de consecuencias deja de tener sentido, reescríbelo. El validador rechaza placeholders mecánicos (`hard cut into the dialogue beat`, `hard cut to the reaction as the line lands`) y saltos de locación sin transición.
+
 ````
 
 ---
@@ -352,7 +358,7 @@ Entrega solamente la imagen de los personajes.
 
 _Convierte el storyboard en escenas de 10 s con cortes internos, SFX, diálogo en inglés y comando final para Muse AI._
 
-**4,790 caracteres · 763 palabras**
+**6,395 caracteres · 1,016 palabras**
 
 ````text
 🎬 PROMPT 003 — GENERADOR DE GUION CINEMATOGRÁFICO EN INGLÉS + CAMBIOS DE CÁMARA + SONIDO (OPTIMIZADO PARA MUSE AI Y GOOGLE FLOW)
@@ -403,8 +409,8 @@ ESCENA [N] (Viñeta #[N] del Storyboard) — [MM:SS–MM:SS]
 - Identity Anchors: [Nombre (Cast Sheet Pos #N: descriptor, wearing vestuario), ...]
 - Camera Cuts & Visual Action (10s):
   * [00s–03s]: [Encuadre exacto de la viñeta + acción ya en movimiento]
-  * [03s–07s]: [Corte duro a close-up/OTS + gesto mientras habla]
-  * [07s–10s]: [Corte duro a tight close-up/reacción/insert del objeto]
+  * [03s–07s]: [Corte a plano cerrado frontal o tres cuartos del hablante o del objeto clave, nunca desde detrás del personaje]
+  * [07s–10s]: [Corte a plano cerrado del segundo personaje reaccionando o respondiendo]
 - Sound Design (SFX & Voice Tone): [Efectos de sonido del ambiente + tono de voz fijo del personaje]
 - Dialogue (English, max 15 words, finish before 8.5 s):
   [NOMBRE DEL PERSONAJE]: "[Diálogo en inglés breve, concreto y completo, máx. 15 palabras]"
@@ -413,7 +419,15 @@ RESULTADO FINAL
 Entrega únicamente el bloque de escenas con la estructura anterior y, al final de las escenas, incluye este comando exacto listo para copiar y pegar junto con el guion en MUSE AI:
 
 COMANDO FINAL PARA PEGAR EN MUSE AI (JUNTO CON EL STORYBOARD Y LA HOJA DE PERSONAJES ADJUNTOS):
-"Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando los 3 cambios de cámara ([00s-03s] arrancando directamente en movimiento desde el encuadre exacto de la viñeta correspondiente sin frames estáticos, [03s-07s] corte a plano de diálogo/acción, y [07s-10s] corte a plano de reacción), manteniendo estrictamente la misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre escenas. Formato: 16:9."
+"Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando los 3 cambios de cámara ([00s-03s] arrancando directamente en movimiento desde el encuadre exacto de la viñeta correspondiente sin frames estáticos, [03s-07s] corte a plano cerrado frontal o tres cuartos del hablante o del objeto clave, nunca desde detrás del personaje, y [07s-10s] corte a plano cerrado del segundo personaje reaccionando o respondiendo), manteniendo estrictamente la misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre escenas. Formato: 16:9. Reglas negativas estrictas: no subtitles, no captions, no on-screen text, no watermark, no background music, no groans or mouth noises before dialogue."
+
+REGLA DE CONTINUIDAD NARRATIVA (Hilo Conductor Único + Cadena Causa y Efecto + Ledger de Estado Arrastrado + Prohibición de Ping-Pong de Locaciones + Un Solo Nombre por Objeto Clave + Prueba de Desorden):
+1. UNA SOLA PREGUNTA MOTRIZ POR BLOQUE DE 6 ESCENAS: cada minuto tiene una única pregunta dramática; ninguna escena abre una pregunta nueva.
+2. CADENA CAUSA-EFECTO OBLIGATORIA: de la escena 2 a la 60, cada escena declara `because_previous_ended_with` (copia literal del cambio final de la escena anterior), `this_scene_starts_with` (acción concreta ya en movimiento que continúa esa consecuencia) y `single_change_at_end` (un único cambio de estado irreversible).
+3. PROHIBIDO EL PING-PONG DE LOCACIONES: agrupa de 3 a 5 escenas consecutivas en la misma locación; el patrón A-B-A está prohibido.
+4. UN SOLO NOMBRE POR OBJETO CLAVE: el mismo `key_object` exacto aparece en el panel de storyboard, en la acción de la Toma 1 y en la lista Key Object; nunca uses alias.
+5. PRUEBA DE DESORDEN: si al desordenar el bloque la cadena de consecuencias deja de tener sentido, reescríbelo. El validador rechaza placeholders mecánicos (`hard cut into the dialogue beat`, `hard cut to the reaction as the line lands`) y saltos de locación sin transición.
+
 ````
 
 ## PROMPT 003 — Variante 9:16 (teasers / Reels / Shorts)
@@ -469,8 +483,8 @@ ESCENA [N] (Viñeta #[N] del Storyboard) — [MM:SS–MM:SS]
 - Identity Anchors: [Nombre (Cast Sheet Pos #N: descriptor, wearing vestuario), ...]
 - Camera Cuts & Visual Action (10s):
   * [00s–03s]: [Encuadre exacto de la viñeta + acción ya en movimiento]
-  * [03s–07s]: [Corte duro a close-up/OTS + gesto mientras habla]
-  * [07s–10s]: [Corte duro a tight close-up/reacción/insert del objeto]
+  * [03s–07s]: [Corte a plano cerrado frontal o tres cuartos del hablante o del objeto clave, nunca desde detrás del personaje]
+  * [07s–10s]: [Corte a plano cerrado del segundo personaje reaccionando o respondiendo]
 - Sound Design (SFX & Voice Tone): [Efectos de sonido del ambiente + tono de voz fijo del personaje]
 - Dialogue (English, max 15 words, finish before 8.5 s):
   [NOMBRE DEL PERSONAJE]: "[Diálogo en inglés breve, concreto y completo, máx. 15 palabras]"
@@ -479,5 +493,13 @@ RESULTADO FINAL
 Entrega únicamente el bloque de escenas con la estructura anterior y, al final de las escenas, incluye este comando exacto listo para copiar y pegar junto con el guion en MUSE AI:
 
 COMANDO FINAL PARA PEGAR EN MUSE AI (JUNTO CON EL STORYBOARD Y LA HOJA DE PERSONAJES ADJUNTOS):
-"Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando los 3 cambios de cámara ([00s-03s] arrancando directamente en movimiento desde el encuadre exacto de la viñeta correspondiente sin frames estáticos, [03s-07s] corte a plano de diálogo/acción, y [07s-10s] corte a plano de reacción), manteniendo estrictamente la misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre escenas. Formato: 9:16."
+"Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando los 3 cambios de cámara ([00s-03s] arrancando directamente en movimiento desde el encuadre exacto de la viñeta correspondiente sin frames estáticos, [03s-07s] corte a plano cerrado frontal o tres cuartos del hablante o del objeto clave, nunca desde detrás del personaje, y [07s-10s] corte a plano cerrado del segundo personaje reaccionando o respondiendo), manteniendo estrictamente la misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre escenas. Formato: 9:16. Reglas negativas estrictas: no subtitles, no captions, no on-screen text, no watermark, no background music, no groans or mouth noises before dialogue."
+
+REGLA DE CONTINUIDAD NARRATIVA (Hilo Conductor Único + Cadena Causa y Efecto + Ledger de Estado Arrastrado + Prohibición de Ping-Pong de Locaciones + Un Solo Nombre por Objeto Clave + Prueba de Desorden):
+1. UNA SOLA PREGUNTA MOTRIZ POR BLOQUE DE 6 ESCENAS: cada minuto tiene una única pregunta dramática; ninguna escena abre una pregunta nueva.
+2. CADENA CAUSA-EFECTO OBLIGATORIA: de la escena 2 a la 60, cada escena declara `because_previous_ended_with` (copia literal del cambio final de la escena anterior), `this_scene_starts_with` (acción concreta ya en movimiento que continúa esa consecuencia) y `single_change_at_end` (un único cambio de estado irreversible).
+3. PROHIBIDO EL PING-PONG DE LOCACIONES: agrupa de 3 a 5 escenas consecutivas en la misma locación; el patrón A-B-A está prohibido.
+4. UN SOLO NOMBRE POR OBJETO CLAVE: el mismo `key_object` exacto aparece en el panel de storyboard, en la acción de la Toma 1 y en la lista Key Object; nunca uses alias.
+5. PRUEBA DE DESORDEN: si al desordenar el bloque la cadena de consecuencias deja de tener sentido, reescríbelo. El validador rechaza placeholders mecánicos (`hard cut into the dialogue beat`, `hard cut to the reaction as the line lands`) y saltos de locación sin transición.
+
 ````

@@ -48,6 +48,14 @@ PLACEHOLDERS = (
 PROMPT_ORDER = ("prompt_000", "prompt_001", "prompt_002", "prompt_003")
 VIRAL_TEMPLATES_TOKEN = "<<<VIRAL_TEMPLATES>>>"
 
+NARRATIVE_CONTINUITY_RULE = """REGLA DE CONTINUIDAD NARRATIVA (Hilo Conductor Único + Cadena Causa y Efecto + Ledger de Estado Arrastrado + Prohibición de Ping-Pong de Locaciones + Un Solo Nombre por Objeto Clave + Prueba de Desorden):
+1. UNA SOLA PREGUNTA MOTRIZ POR BLOQUE DE 6 ESCENAS: cada minuto tiene una única pregunta dramática; ninguna escena abre una pregunta nueva.
+2. CADENA CAUSA-EFECTO OBLIGATORIA: de la escena 2 a la 60, cada escena declara `because_previous_ended_with` (copia literal del cambio final de la escena anterior), `this_scene_starts_with` (acción concreta ya en movimiento que continúa esa consecuencia) y `single_change_at_end` (un único cambio de estado irreversible).
+3. PROHIBIDO EL PING-PONG DE LOCACIONES: agrupa de 3 a 5 escenas consecutivas en la misma locación; el patrón A-B-A está prohibido.
+4. UN SOLO NOMBRE POR OBJETO CLAVE: el mismo `key_object` exacto aparece en el panel de storyboard, en la acción de la Toma 1 y en la lista Key Object; nunca uses alias.
+5. PRUEBA DE DESORDEN: si al desordenar el bloque la cadena de consecuencias deja de tener sentido, reescríbelo. El validador rechaza placeholders mecánicos (`hard cut into the dialogue beat`, `hard cut to the reaction as the line lands`) y saltos de locación sin transición.
+"""
+
 
 # ---------------------------------------------------------------------------
 # PROMPT 000 — texto literal solicitado (no modificar)
@@ -116,20 +124,10 @@ Debe incluir:
 - Emoción intensa en los rostros.
 - El objeto clave de la escena visible o claramente implicado.
 - Composición e iluminación cinematográfica.
-Debajo de cada viñeta puede aparecer una descripción extremadamente breve de la escena, de aproximadamente 5 a 10 palabras.
-Ejemplo:
-“1. Elena meets the billionaire in the rain.”
-“4. The father discovers the secret romance.”
-La descripción debe ser únicamente una referencia rápida de lo que ocurre.
+FORMATO DE VIÑETAS 100% VISUAL (SIN CAJAS DE TEXTO): Las 6 viñetas fotográficas en cuadrícula 3x2 deben ocupar el 100% del lienzo 16:9 separadas únicamente por líneas divisorias finas. Coloca SOLO el número pequeño [1], [2], [3], [4], [5], [6] en la esquina superior izquierda de cada viñeta. PROHIBIDO dibujar barras inferiores oscuras, subtítulos, cajas de texto o descripciones escritas dentro de la imagen.
 
 IMPORTANTE:
 No escribir diálogos ni párrafos dentro del storyboard.
-Las descripciones deben ser:
-- Muy breves (5 a 10 palabras).
-- Claras.
-- Fáciles de leer.
-- Sin saturar la imagen.
-- Máximo una línea cuando sea posible.
 
 CONTINUIDAD
 Mantén la misma apariencia exacta de los personajes durante todo el storyboard.
@@ -160,7 +158,7 @@ No incluir:
 - Párrafos.
 - Prompts de video.
 - Explicaciones del proceso.
-Solo incluir una descripción muy breve debajo de cada viñeta para identificar la acción.
+- Descripciones escritas, cajas de texto o barras inferiores dentro de la imagen.
 
 RESULTADO FINAL
 A partir de la historia, duración y estilo proporcionados:
@@ -169,7 +167,7 @@ A partir de la historia, duración y estilo proporcionados:
 3. Divide las escenas en grupos de 6.
 4. Genera una imagen por cada grupo de 6 escenas.
 5. Cada imagen debe contener 6 viñetas claramente divididas.
-6. Añade debajo de cada viñeta una descripción de máximo 5–10 palabras.
+6. Mantén la numeración [1]-[6] en la esquina superior izquierda, sin texto adicional.
 7. Mantén la continuidad absoluta de personajes y escenarios.
 8. Cuenta toda la historia visualmente de principio a fin."""
 
@@ -309,8 +307,8 @@ ESCENA [N] (Viñeta #[N] del Storyboard) — [MM:SS–MM:SS]
 - Identity Anchors: [Nombre (Cast Sheet Pos #N: descriptor, wearing vestuario), ...]
 - Camera Cuts & Visual Action (10s):
   * [00s–03s]: [Encuadre exacto de la viñeta + acción ya en movimiento]
-  * [03s–07s]: [Corte duro a close-up/OTS + gesto mientras habla]
-  * [07s–10s]: [Corte duro a tight close-up/reacción/insert del objeto]
+  * [03s–07s]: [Corte a plano cerrado frontal o tres cuartos del hablante o del objeto clave, nunca desde detrás del personaje]
+  * [07s–10s]: [Corte a plano cerrado del segundo personaje reaccionando o respondiendo]
 - Sound Design (SFX & Voice Tone): [Efectos de sonido del ambiente + tono de voz fijo del personaje]
 - Dialogue (English, max 15 words, finish before 8.5 s):
   [NOMBRE DEL PERSONAJE]: "[Diálogo en inglés breve, concreto y completo, máx. 15 palabras]"
@@ -319,7 +317,7 @@ RESULTADO FINAL
 Entrega únicamente el bloque de escenas con la estructura anterior y, al final de las escenas, incluye este comando exacto listo para copiar y pegar junto con el guion en MUSE AI:
 
 COMANDO FINAL PARA PEGAR EN MUSE AI (JUNTO CON EL STORYBOARD Y LA HOJA DE PERSONAJES ADJUNTOS):
-"Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando los 3 cambios de cámara ([00s-03s] arrancando directamente en movimiento desde el encuadre exacto de la viñeta correspondiente sin frames estáticos, [03s-07s] corte a plano de diálogo/acción, y [07s-10s] corte a plano de reacción), manteniendo estrictamente la misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre escenas. Formato: {aspect_ratio}.\""""
+"Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando los 3 cambios de cámara ([00s-03s] arrancando directamente en movimiento desde el encuadre exacto de la viñeta correspondiente sin frames estáticos, [03s-07s] corte a plano cerrado frontal o tres cuartos del hablante o del objeto clave, nunca desde detrás del personaje, y [07s-10s] corte a plano cerrado del segundo personaje reaccionando o respondiendo), manteniendo estrictamente la misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre escenas. Formato: {aspect_ratio}. Reglas negativas estrictas: no subtitles, no captions, no on-screen text, no watermark, no background music, no groans or mouth noises before dialogue.\""""
 
 
 TEMPLATES: Dict[str, Dict[str, str]] = {
@@ -659,6 +657,8 @@ def render_prompt(key: str, values: Dict[str, Any], niche: str = "") -> str:
     if str(key) == "prompt_000" and str(niche or "").strip():
         selected = get_viral_template(niche)
         text = text.rstrip() + "\n\n" + render_viral_niche_block(selected)
+    if str(key) in ("prompt_000", "prompt_001", "prompt_003"):
+        text = text.rstrip() + "\n\n" + NARRATIVE_CONTINUITY_RULE
     return text
 
 
@@ -783,7 +783,7 @@ def render_plain(pack: Dict[str, Any]) -> str:
             prompt["purpose"],
             "=" * 78,
             "",
-            prompt["text"],
+            str(prompt["text"]).rstrip(),
             "",
         ]
     return "\n".join(lines)
@@ -817,11 +817,14 @@ MUSE_FINAL_COMMAND_HEADER = (
 MUSE_FINAL_COMMAND_TEMPLATE = (
     "Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando los 3 cambios "
     "de cámara ([00s-03s] arrancando directamente en movimiento desde el encuadre exacto de la "
-    "viñeta correspondiente sin frames estáticos, [03s-07s] corte a plano de diálogo/acción, y "
-    "[07s-10s] corte a plano de reacción), manteniendo estrictamente la misma raza, rostro y "
-    "vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en "
-    "un solo video continuo sin insertar jamás la imagen de referencia entre escenas. "
-    "Formato: {orientation} {aspect_ratio} {destination}."
+    "viñeta correspondiente sin frames estáticos, [03s-07s] corte a plano cerrado frontal o tres "
+    "cuartos del hablante o del objeto clave, nunca desde detrás del personaje, y [07s-10s] corte a "
+    "plano cerrado del segundo personaje reaccionando o respondiendo), manteniendo estrictamente la "
+    "misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes "
+    "adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre "
+    "escenas. Formato: {orientation} {aspect_ratio} {destination}. "
+    "Reglas negativas estrictas: no subtitles, no captions, no on-screen text, no watermark, "
+    "no background music, no groans or mouth noises before dialogue."
 )
 MUSE_FINAL_COMMAND = MUSE_FINAL_COMMAND_TEMPLATE
 MUSE_ATTACH_LINE = (

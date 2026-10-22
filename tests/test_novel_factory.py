@@ -145,6 +145,75 @@ class MasterSchemaTests(unittest.TestCase):
         result = nf.validate_master(master)
         self.assertEqual(result["errors"], [], msg=f"errores: {result['errors']}")
 
+    def test_narrative_continuity_fields_and_blocks(self):
+        master, _ = nf.normalize_master(minimal_payload(), "unit_slug", "Unit Title")
+        blocks = master["narrative_continuity"]["minute_blocks"]
+        self.assertEqual(len(blocks), 10)
+        self.assertEqual([block["scenes"] for block in blocks][0], [1, 2, 3, 4, 5, 6])
+        self.assertEqual([block["scenes"] for block in blocks][-1], [55, 56, 57, 58, 59, 60])
+        for block in blocks:
+            self.assertTrue(block["driving_question"].endswith("?"))
+        for previous, scene in zip(master["scenes"], master["scenes"][1:]):
+            self.assertEqual(
+                scene["because_previous_ended_with"],
+                previous["single_change_at_end"],
+            )
+            self.assertNotEqual(scene["this_scene_starts_with"], scene["single_change_at_end"])
+
+    def test_missing_continuity_field_is_an_error(self):
+        master, _ = nf.normalize_master(minimal_payload(), "unit_slug", "Unit Title")
+        del master["scenes"][3]["because_previous_ended_with"]
+        result = nf.validate_master(master)
+        self.assertTrue(any("because_previous_ended_with" in error for error in result["errors"]))
+
+    def test_placeholder_cut_is_an_error(self):
+        master, _ = nf.normalize_master(minimal_payload(), "unit_slug", "Unit Title")
+        master["scenes"][0]["internal_cuts"][2]["action"] = "hard cut to the reaction as the line lands"
+        result = nf.validate_master(master)
+        self.assertTrue(any("placeholder" in error.lower() for error in result["errors"]))
+
+    def test_location_ping_pong_is_flagged(self):
+        master, _ = nf.normalize_master(minimal_payload(), "unit_slug", "Unit Title")
+        master["scenes"][0]["location"] = "Alpha ranch, day"
+        master["scenes"][1]["location"] = "Beta office, day"
+        master["scenes"][2]["location"] = "Alpha ranch, day"
+        result = nf.validate_master(master)
+        self.assertTrue(any("ping-pong" in warning for warning in result["warnings"]))
+        strict_result = nf.validate_master(master, production=True)
+        self.assertTrue(any("ping-pong" in error for error in strict_result["errors"]))
+
+
+class PromptRuleTests(unittest.TestCase):
+    def test_continuity_rule_in_master_prompts(self):
+        values = {placeholder: "X" for placeholder in MPL.PLACEHOLDERS}
+        for key in ("prompt_000", "prompt_001", "prompt_003"):
+            text = MPL.render_prompt(key, values)
+            self.assertIn("REGLA DE CONTINUIDAD NARRATIVA", text)
+            self.assertIn("PROHIBIDO EL PING-PONG DE LOCACIONES", text)
+            self.assertIn("PRUEBA DE DESORDEN", text)
+
+    def test_muse_command_has_negative_rules(self):
+        command = MPL._muse_final_command(1, "horizontal", "16:9", "YouTube")
+        self.assertIn("no subtitles, no captions, no on-screen text, no watermark", command)
+        self.assertIn("no background music", command)
+        self.assertIn("no groans or mouth noises before dialogue", command)
+
+    @unittest.skipUnless(DEMO_DIR.exists(), "no existe projects/demo_contract")
+    def test_grid_prompt_is_fully_visual(self):
+        master = nf.load_master(DEMO_DIR)
+        style = nf.load_style_locks()
+        prompt = GEN02._storyboard_grid_prompt(master, style, 1, master["scenes"][:6], 10)
+        self.assertIn("FORMATO DE VIÑETAS 100% VISUAL", prompt)
+        self.assertIn("barras inferiores oscuras", prompt)
+        self.assertNotIn("descripción breve", prompt)
+
+    @unittest.skipUnless(DEMO_DIR.exists(), "no existe projects/demo_contract")
+    def test_demo_master_has_no_placeholder_cuts(self):
+        master = nf.load_master(DEMO_DIR)
+        for scene in master["scenes"]:
+            for cut in scene["internal_cuts"]:
+                self.assertFalse(nf.is_placeholder_text(cut["action"]), msg=cut["action"])
+
 
 @unittest.skipUnless(DEMO_DIR.exists(), "no existe projects/demo_contract")
 class GeneratorTests(unittest.TestCase):

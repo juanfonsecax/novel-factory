@@ -832,13 +832,139 @@ STATIC_RE = re.compile(
 )
 
 
-def _coerce_cuts(value: Any, rotation: Sequence[str]) -> List[Dict[str, Any]]:
+PLACEHOLDER_ACTION_PATTERNS = (
+    "hard cut into the dialogue beat with the speaker mid-line",
+    "hard cut to the reaction as the line lands",
+    "the subject is already moving inside the storyboard framing",
+    "reacts as the line lands, no static hold",
+    "the room falls quiet around it",
+    "as the cost of the line lands",
+    "absorbs the line, jaw tight",
+)
+
+CONTINUITY_NOTE_RE = re.compile(
+    r"\b(?:hard cut|the room falls quiet|no static hold|speaker mid-line|placeholder)\b",
+    re.IGNORECASE,
+)
+CAMERA_NOTE_RE = re.compile(
+    r"^(?:close(?:-up)? on|low angle|high angle|wide|medium|tight|insert\s*:|cut to|"
+    r"over (?:her|his|the|their) shoulder|angle on|camera)\b",
+    re.IGNORECASE,
+)
+
+
+def is_placeholder_text(text: str) -> bool:
+    """True si el texto es un relleno mecánico de cámara o continuidad."""
+    flat = re.sub(r"\s+", " ", str(text or "")).strip().lower()
+    if not flat:
+        return False
+    return any(pattern in flat for pattern in PLACEHOLDER_ACTION_PATTERNS) or bool(
+        CONTINUITY_NOTE_RE.search(flat)
+    )
+
+
+def _scene_display_names(scene: Dict[str, Any], cast_index: Dict[str, Dict[str, Any]]) -> List[str]:
+    names: List[str] = []
+    for raw in scene.get("characters_present") or scene.get("characters") or []:
+        text = str(raw or "").strip()
+        if not text:
+            continue
+        character = (
+            cast_index.get(text.lower())
+            or cast_index.get(re.sub(r"[^a-z0-9]+", " ", text.lower()).strip())
+            or cast_index.get(re.sub(r"[^a-z0-9]+", "_", text.lower()).strip("_"))
+        )
+        name = str((character or {}).get("name") or text).strip()
+        if name and name not in names:
+            names.append(name)
+    return names
+
+
+def _concrete_cut_action(
+    index: int,
+    scene: Dict[str, Any],
+    cast_index: Dict[str, Dict[str, Any]],
+) -> str:
+    """Acción visual concreta cuando el LLM no la entregó."""
+    names = _scene_display_names(scene, cast_index)
+    first = names[0] if names else "The protagonist"
+    second = names[1] if len(names) > 1 else first
+    location = str(scene.get("location") or "the scene location").strip().rstrip(".")
+    key_object = extract_key_object(scene) or "the central visual detail"
+    speaker = ""
+    last_speaker = ""
+    listener = second
+    lines = scene.get("dialogue") if isinstance(scene.get("dialogue"), list) else []
+    line_text = ""
+
+    def _speaker_name(raw: Any) -> str:
+        value = str(raw or "").strip()
+        return next(
+            (
+                name
+                for name in names
+                if value
+                and (
+                    name.lower().startswith(value.lower())
+                    or value.lower() in name.lower()
+                )
+            ),
+            value,
+        )
+
+    dialogue_names: List[str] = []
+    for item in lines:
+        if not isinstance(item, dict):
+            continue
+        name = _speaker_name(item.get("speaker"))
+        if name and name not in dialogue_names:
+            dialogue_names.append(name)
+    if lines and isinstance(lines[0], dict):
+        speaker = _speaker_name(lines[0].get("speaker"))
+    if lines and isinstance(lines[-1], dict):
+        last_speaker = _speaker_name(lines[-1].get("speaker"))
+        line_text = str(lines[-1].get("line") or "").strip().rstrip(".")
+    if last_speaker:
+        listener = next(
+            (name for name in reversed(dialogue_names) if name != last_speaker),
+            "",
+        )
+        if not listener:
+            listener = next((name for name in names if name != last_speaker), last_speaker)
+    if index == 0:
+        return (
+            f"{first} is already moving through {location}, the action carrying over "
+            "from the exact storyboard framing."
+        )
+    if index == 1:
+        return (
+            f"{speaker or first} speaks as the camera holds close on their face, "
+            f"{key_object} catching the light between them."
+        )
+    if line_text and listener != last_speaker:
+        return f'{listener} holds the silence after "{line_text}", {key_object} sharp in the foreground.'
+    if line_text:
+        return f'The silence after "{line_text}" hangs, {key_object} sharp in the foreground.'
+    if listener != first:
+        return f"{listener} holds {first}'s gaze while the words settle between them."
+    return f"{first} takes the line without flinching, one hand closing around {key_object}."
+
+
+def _coerce_cuts(
+    value: Any,
+    rotation: Sequence[str],
+    scene: Optional[Dict[str, Any]] = None,
+    cast_index: Optional[Dict[str, Dict[str, Any]]] = None,
+) -> List[Dict[str, Any]]:
     """Fuerza exactamente 3 tomas: 00s-03s, 03s-07s y 07s-10s.
 
     Toma 1 conserva el encuadre de la viñeta y arranca en movimiento. Toma 2 se
     corrige a close-up/OTS si el dato no pertenece a esa familia. Toma 3 se
-    corrige a reacción/insert si el dato no pertenece a esa familia.
+    corrige a reacción/insert si el dato no pertenece a esa familia. Los
+    placeholders mecánicos se sustituyen por acciones concretas de la escena.
     """
+    scene = scene or {}
+    cast_index = cast_index or {}
     provided: List[Dict[str, str]] = []
     if isinstance(value, list):
         for item in value:
@@ -853,11 +979,6 @@ def _coerce_cuts(value: Any, rotation: Sequence[str]) -> List[Dict[str, Any]]:
     shot1_fallback = rotation[0] if rotation else "wide establishing shot"
     shot2_fallback = "close-up"
     shot3_fallback = "tight close-up"
-    actions = [
-        "the subject is already moving inside the storyboard framing",
-        "hard cut into the dialogue beat with the speaker mid-line",
-        "hard cut to the reaction as the line lands",
-    ]
     framings = [
         provided[0]["framing"] if len(provided) > 0 and provided[0]["framing"] else shot1_fallback,
         provided[1]["framing"] if len(provided) > 1 and provided[1]["framing"] else shot2_fallback,
@@ -871,8 +992,12 @@ def _coerce_cuts(value: Any, rotation: Sequence[str]) -> List[Dict[str, Any]]:
     cuts: List[Dict[str, Any]] = []
     for i, at in enumerate(SHOT_CUT_TIMES):
         raw_action = provided[i]["action"] if len(provided) > i else ""
-        if not raw_action or STATIC_RE.search(raw_action):
-            raw_action = actions[i]
+        if (
+            not raw_action
+            or is_placeholder_text(raw_action)
+            or (i == 0 and STATIC_RE.search(raw_action))
+        ):
+            raw_action = _concrete_cut_action(i, scene, cast_index)
         cuts.append({
             "at": at,
             "range": SHOT_RANGES[i],
@@ -880,6 +1005,126 @@ def _coerce_cuts(value: Any, rotation: Sequence[str]) -> List[Dict[str, Any]]:
             "action": raw_action,
         })
     return cuts
+
+
+def _cut_action(cut: Dict[str, Any]) -> str:
+    return re.sub(r"\s+", " ", str((cut or {}).get("action") or "")).strip().rstrip(".")
+
+
+def _ensure_key_object_in_first_cut(scene: Dict[str, Any]) -> None:
+    """Regla 4: el nombre exacto del key_object también vive en la Toma 1."""
+    key_object = extract_key_object(scene)
+    cuts = scene.get("internal_cuts") or []
+    if not key_object or not isinstance(cuts, list) or not cuts or not isinstance(cuts[0], dict):
+        return
+    action = str(cuts[0].get("action") or "")
+    if key_object.lower() in action.lower():
+        return
+    cuts[0]["action"] = f"{action.rstrip(' .')}. Key object in frame: {key_object}."
+
+
+def _coerce_narrative_continuity(
+    scene: Dict[str, Any],
+    previous: Optional[Dict[str, Any]],
+) -> None:
+    """Rellena la cadena causal de una escena cuando el LLM no la entregó.
+
+    ``because_previous_ended_with`` se ancla SIEMPRE al cambio de estado de la
+    escena anterior para que la cadena sea verificable y no una paráfrasis.
+    """
+    first_action = _cut_action((scene.get("internal_cuts") or [{}])[0])
+    last_action = _cut_action((scene.get("internal_cuts") or [{}])[-1])
+    previous_change = _cut_action((previous.get("internal_cuts") or [{}])[-1]) if previous else ""
+    previous_change = str((previous or {}).get("single_change_at_end") or previous_change).strip()
+
+    if previous:
+        because = previous_change or "the previous beat left the conflict unresolved"
+    else:
+        because = "The episode opens cold; there is no prior beat."
+    beat = re.sub(r"^the\s+", "", str(scene.get("beat") or "beat").replace("_", " ").strip(), flags=re.IGNORECASE)
+    key_object = extract_key_object(scene) or "the evidence"
+    synthesized_change = f"The {beat} leaves {key_object} exposed, and there is no way back."
+    started = str(scene.get("this_scene_starts_with") or "").strip()
+    if not started or is_placeholder_text(started) or CAMERA_NOTE_RE.search(started):
+        started = (
+            first_action
+            if first_action and not CAMERA_NOTE_RE.search(first_action)
+            else f"The {beat} opens with {key_object} already in play."
+        )
+    changed = str(scene.get("single_change_at_end") or "").strip()
+    if (
+        not changed
+        or is_placeholder_text(changed)
+        or CAMERA_NOTE_RE.search(changed)
+        or re.match(r"^the\s+the\b", changed, re.IGNORECASE)
+        or re.sub(r"\s+", " ", changed).strip().rstrip(".") == last_action
+    ):
+        changed = synthesized_change
+
+    scene["because_previous_ended_with"] = because
+    scene["this_scene_starts_with"] = started
+    scene["single_change_at_end"] = changed
+
+
+def _auto_block_question(
+    group: Sequence[Dict[str, Any]],
+    protagonist: str,
+    block_number: int,
+) -> str:
+    first = group[0] if group else {}
+    beat = str(first.get("beat") or "new complication").replace("_", " ")
+    key_object = extract_key_object(first) or "the evidence"
+    first_id = int(first.get("scene_id") or 1)
+    last_id = int((group[-1] if group else first).get("scene_id") or first_id)
+    return (
+        f"How does {protagonist} turn the {beat} around {key_object} "
+        f"in scenes {first_id}-{last_id}?"
+    )
+
+
+def build_narrative_continuity(
+    master: Dict[str, Any],
+    rules: Optional[Dict[str, Any]] = None,
+) -> Dict[str, Any]:
+    """Construye los 10 bloques de 1 minuto con su única pregunta motriz."""
+    rules = rules if isinstance(rules, dict) else load_showrunner()
+    engine = rules.get("narrative_continuity_engine") or {}
+    if not engine or not engine.get("enabled", True):
+        return {}
+    scenes = ordered_scenes(master)
+    per_block = int(engine.get("scenes_per_block") or 6)
+    total_blocks = int(engine.get("minute_blocks") or 10)
+    characters = [c for c in (master.get("characters") or []) if isinstance(c, dict)]
+    protagonist = next(
+        (str(c.get("name") or c.get("id") or "") for c in characters if str(c.get("role") or "") == "protagonist"),
+        "",
+    )
+    if not protagonist and characters:
+        protagonist = str(characters[0].get("name") or characters[0].get("id") or "the protagonist")
+    protagonist = protagonist or "the protagonist"
+
+    blocks: List[Dict[str, Any]] = []
+    for block_number in range(1, total_blocks + 1):
+        group = scenes[(block_number - 1) * per_block:block_number * per_block]
+        if not group:
+            continue
+        question = ""
+        for scene in group:
+            question = str(scene.get("block_driving_question") or "").strip()
+            if question:
+                break
+        if not question:
+            question = _auto_block_question(group, protagonist, block_number)
+        blocks.append({
+            "block": block_number,
+            "scenes": [int(scene.get("scene_id") or 0) for scene in group],
+            "driving_question": question,
+        })
+    return {
+        "schema_version": int(engine.get("schema_version") or 1),
+        "engine": "narrative_continuity_engine",
+        "minute_blocks": blocks,
+    }
 
 
 def _normalize_teasers(payload: Dict[str, Any], scenes: List[Dict[str, Any]], warnings: List[str]) -> List[Dict[str, Any]]:
@@ -1016,7 +1261,12 @@ def normalize_master(
         scene["act"] = act if 1 <= act <= 6 else ((max(1, sid) - 1) // 10 + 1)
         scene["beat"] = str(scene.get("beat") or required_beats.get(sid) or "").strip()
         scene["dialogue"] = _coerce_dialogue(scene.get("dialogue"))
-        scene["internal_cuts"] = _coerce_cuts(scene.get("internal_cuts"), rotation)
+        scene["internal_cuts"] = _coerce_cuts(
+            scene.get("internal_cuts"),
+            rotation,
+            scene=scene,
+            cast_index=cast_index,
+        )
         scene["first_frame_prompt"] = str(
             scene.get("first_frame_prompt") or scene.get("image_prompt") or scene.get("frame_prompt") or ""
         ).strip()
@@ -1047,6 +1297,8 @@ def normalize_master(
                 normalized_chars.append(cid)
         scene["characters"] = normalized_chars
         scene["key_object"] = extract_key_object(scene)
+        _ensure_key_object_in_first_cut(scene)
+        _coerce_narrative_continuity(scene, scenes[-1] if scenes else None)
         scene["characters_present"] = scene_characters_present(scene, cast_ctx)
         if not scene["first_frame_prompt"]:
             warnings.append(f"Escena {sid}: first_frame_prompt vacío (el frame no se podrá generar).")
@@ -1075,6 +1327,7 @@ def normalize_master(
         scene["storyboard_panel"] = build_storyboard_panel_description(scene, master)
     master["partial"] = len(scenes) != SCENE_COUNT
     master["teasers"] = _normalize_teasers(payload, scenes, warnings)
+    master["narrative_continuity"] = build_narrative_continuity(master, rules)
 
     pub = dict(master.get("publisher") or {}) if isinstance(master.get("publisher"), dict) else {}
     pub.setdefault("personaje_id", "emma_hayes")
@@ -1149,6 +1402,9 @@ def validate_master(
         warnings.append("IDs parciales desordenados: ordénalos antes de fusionar.")
 
     rules = load_showrunner()
+    engine = rules.get("narrative_continuity_engine") or {}
+    engine_rules = engine.get("rules") or {}
+    chain_rule = engine_rules.get("2_strict_cause_and_effect_chain") or {}
     fmt = rules.get("format") or {}
     wps = float(fmt.get("speech_words_per_second") or SPEECH_WORDS_PER_SECOND)
     max_scene_words = int(fmt.get("max_scene_words") or MAX_SCENE_WORDS)
@@ -1191,6 +1447,11 @@ def validate_master(
                 errors.append(f"Escena {sid}: Toma 2 sin acción de diálogo/acción.")
             if not str(third.get("action") or "").strip():
                 errors.append(f"Escena {sid}: Toma 3 sin acción de reacción.")
+            for cut_no, cut in enumerate(cuts, start=1):
+                if is_placeholder_text(str((cut or {}).get("action") or "")):
+                    errors.append(
+                        f"Escena {sid}: Toma {cut_no} usa un placeholder mecánico de cámara."
+                    )
         words = scene_words(scene)
         dialogue_cap = int(fmt.get("max_dialogue_words_per_10s_scene") or max_scene_words)
         if words == 0:
@@ -1257,6 +1518,8 @@ def validate_master(
             errors.append(f"Escena {sid}: storyboard_panel no incluye la ubicación de la escena.")
         if key_object and key_object not in panel_flat:
             errors.append(f"Escena {sid}: storyboard_panel no incluye el key_object.")
+        if key_object and key_object.lower() not in first_action.lower():
+            errors.append(f"Escena {sid}: la acción de Toma 1 no usa el key_object canónico.")
         anchors = str(scene.get("character_anchors") or "").strip()
         cast_index = canonical_cast(master)
         for cid in present:
@@ -1270,6 +1533,15 @@ def validate_master(
             errors.append(f"Escena {sid}: continuidad con spoiler futuro: {future[0][:70]}")
         if scene_location and not location_keyword_match(scene_location, master):
             strict(f"Escena {sid}: ubicación '{scene_location}' fuera de la taxonomía declarada.")
+        if engine:
+            for field in ("because_previous_ended_with", "this_scene_starts_with", "single_change_at_end"):
+                value = str(scene.get(field) or "").strip()
+                if not value:
+                    errors.append(f"Escena {sid}: falta el campo de continuidad '{field}'.")
+                elif len(value) < int(chain_rule.get("min_chars_per_field") or 24):
+                    errors.append(f"Escena {sid}: '{field}' es demasiado corto para probar causalidad.")
+                elif is_placeholder_text(value):
+                    errors.append(f"Escena {sid}: '{field}' contiene un placeholder mecánico.")
 
     for sid, name in sorted(unknown_chars):
         strict(f"Escena {sid}: personaje desconocido '{name}' (no está en characters[]).")
@@ -1280,6 +1552,22 @@ def validate_master(
     acts = [int(s.get("act") or 0) for s in ordered]
     if acts != sorted(acts):
         errors.append("Orden causal roto: los actos retroceden entre escenas consecutivas.")
+    for index, scene in enumerate(ordered):
+        sid = int(scene.get("scene_id") or 0)
+        if index == 0:
+            continue
+        previous = ordered[index - 1]
+        expected = str(previous.get("single_change_at_end") or "").strip()
+        actual = str(scene.get("because_previous_ended_with") or "").strip()
+        if engine and expected and actual != expected:
+            errors.append(
+                f"Escena {sid}: 'because_previous_ended_with' no coincide con el cambio "
+                f"final de la escena {previous.get('scene_id')}."
+            )
+        if str(scene.get("this_scene_starts_with") or "").strip() == str(
+            scene.get("single_change_at_end") or ""
+        ).strip():
+            errors.append(f"Escena {sid}: la escena empieza y termina en el mismo estado.")
     bases: List[str] = []
     for scene in ordered:
         base = str(scene.get("location") or "").split(",")[0].strip()
@@ -1292,6 +1580,39 @@ def validate_master(
         else:
             runs.append(1)
             previous = base
+    for index in range(2, len(bases)):
+        if bases[index] == bases[index - 2] and bases[index] != bases[index - 1]:
+            strict(
+                f"Escenas {index - 1}-{index + 1}: ping-pong de locaciones "
+                f"({bases[index]} -> {bases[index - 1]} -> {bases[index]})."
+            )
+    if engine:
+        nc = master.get("narrative_continuity") if isinstance(master.get("narrative_continuity"), dict) else {}
+        blocks = nc.get("minute_blocks") if isinstance(nc.get("minute_blocks"), list) else []
+        expected_blocks = int(engine.get("minute_blocks") or 10)
+        if len(blocks) != expected_blocks:
+            errors.append(
+                f"Continuidad: se esperaban {expected_blocks} bloques de 1 minuto y hay {len(blocks)}."
+            )
+        for block in blocks:
+            if not isinstance(block, dict):
+                errors.append("Continuidad: bloque de 1 minuto con formato inválido.")
+                continue
+            question = str(block.get("driving_question") or "").strip()
+            if not question:
+                errors.append(f"Continuidad: bloque {block.get('block')} sin driving_question.")
+            elif is_placeholder_text(question):
+                errors.append(f"Continuidad: bloque {block.get('block')} usa una pregunta de relleno.")
+            elif len(question.split()) > int(
+                ((engine_rules.get("1_single_driving_question_per_block") or {}).get("question_max_words")) or 24
+            ):
+                errors.append(f"Continuidad: la pregunta del bloque {block.get('block')} excede el máximo de palabras.")
+            ids = [int(i) for i in (block.get("scenes") or []) if str(i).isdigit()]
+            if len(ids) != int(engine.get("scenes_per_block") or 6):
+                errors.append(
+                    f"Continuidad: bloque {block.get('block')} no cubre "
+                    f"{engine.get('scenes_per_block') or 6} escenas."
+                )
     if runs and max(runs) < 3:
         warnings.append(
             f"Ubicaciones: {len(runs)} bloques con máximo {max(runs)} escena(s) seguida(s); "

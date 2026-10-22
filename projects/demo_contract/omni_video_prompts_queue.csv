@@ -1,20 +1,20 @@
 "scene_id","platform","frame_file","output_file","duration_seconds","dialogue_words","speech_seconds","status","prompt"
 "1","omni","frame_001.png","scene_001.mp4","10","15","6.0","done","The storyboard panel is the exact first frame of Shot 1 (frame_001.png). Do not freeze it: Shot 1 begins already in motion from that framing, with the same faces, wardrobe, props, location, light and color grade.
 
-STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] wide establishing shot: Nora stands at the cliff edge, the lighthouse dark behind her, salt wind whipping her coat. Location: Hale lighthouse cliff edge, storm dusk, wind and salt spray. Key object: a brass key. Characters present: Nora Hale.
+STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] wide establishing shot: Nora stands at the cliff edge, the lighthouse dark behind her, salt wind whipping her coat. Key object in frame: a brass key. Location: Hale lighthouse cliff edge, storm dusk, wind and salt spray. Key object: a brass key. Characters present: Nora Hale.
 
 IDENTITY ANCHORS (all present, fixed cast positions): Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing charcoal wool coat over a dark sweater, dark jeans, rain-wet hair)
 
 SHOT PLAN:
-SHOT 1 [00s-03s] — 0.0 s to 3.0 s — wide establishing shot: Nora stands at the cliff edge, the lighthouse dark behind her, salt wind whipping her coat.
-HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: Close detail on a brass key; the room falls quiet around it.
-HARD CUT at 7.0 s [07s-10s] — SHOT 3 — tight close-up: hard cut to the reaction as the line lands
+SHOT 1 [00s-03s] — 0.0 s to 3.0 s — wide establishing shot: Nora stands at the cliff edge, the lighthouse dark behind her, salt wind whipping her coat. Key object in frame: a brass key.
+HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: NORA speaks as the camera holds tight on their face, with a brass key in the foreground.
+HARD CUT at 7.0 s [07s-10s] — SHOT 3 — tight close-up: The silence after ""They said the lighthouse was empty for ten years. So who left the light on?"" hangs, a brass key sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
-  0.0s to 3.0s  [wide establishing shot] Nora stands at the cliff edge, the lighthouse dark behind her, salt wind whipping her coat.
-  3.0s to 7.0s  [close-up] Close detail on a brass key; the room falls quiet around it.
-  7.0s to 10.0s  [tight close-up] hard cut to the reaction as the line lands
+  0.0s to 3.0s  [wide establishing shot] Nora stands at the cliff edge, the lighthouse dark behind her, salt wind whipping her coat. Key object in frame: a brass key.
+  3.0s to 7.0s  [close-up] NORA speaks as the camera holds tight on their face, with a brass key in the foreground.
+  7.0s to 10.0s  [tight close-up] The silence after ""They said the lighthouse was empty for ten years. So who left the light on?"" hangs, a brass key sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact; maximum 15 words; finish before 8.5 s):
@@ -47,20 +47,20 @@ NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
 "2","omni","frame_002.png","scene_002.mp4","10","11","4.4","done","The storyboard panel is the exact first frame of Shot 1 (frame_002.png). Do not freeze it: Shot 1 begins already in motion from that framing, with the same faces, wardrobe, props, location, light and color grade.
 
-STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] medium shot: Nora steps off the ferry with one duffel bag, the town sign behind her. Location: Keller harbor boardwalk, blue hour, wet planks and dock lights. Key object: the deed. Characters present: Nora Hale, Sam Calloway.
+STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] medium shot: Nora steps off the ferry with one duffel bag, the town sign behind her. Key object in frame: the deed. Location: Keller harbor boardwalk, blue hour, wet planks and dock lights. Key object: the deed. Characters present: Nora Hale, Sam Calloway.
 
 IDENTITY ANCHORS (all present, fixed cast positions): Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing charcoal wool coat over a dark sweater, dark jeans, rain-wet hair); Sam Calloway (Cast Sheet Pos #2: mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin, wearing faded canvas work jacket, dark trousers, worn boots)
 
 SHOT PLAN:
-SHOT 1 [00s-03s] — 0.0 s to 3.0 s — medium shot: Nora steps off the ferry with one duffel bag, the town sign behind her.
-HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: Close detail on the deed; the room falls quiet around it.
-HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: hard cut to the reaction as the line lands
+SHOT 1 [00s-03s] — 0.0 s to 3.0 s — medium shot: Nora steps off the ferry with one duffel bag, the town sign behind her. Key object in frame: the deed.
+HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: SAM speaks as the camera holds tight on their face, with the deed in the foreground.
+HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: Nora Hale holds the silence after ""Nora Hale. Ten years, and you still drive like a storm"", the deed sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
-  0.0s to 3.0s  [medium shot] Nora steps off the ferry with one duffel bag, the town sign behind her.
-  3.0s to 7.0s  [close-up] Close detail on the deed; the room falls quiet around it.
-  7.0s to 10.0s  [insert shot of the evidence object] hard cut to the reaction as the line lands
+  0.0s to 3.0s  [medium shot] Nora steps off the ferry with one duffel bag, the town sign behind her. Key object in frame: the deed.
+  3.0s to 7.0s  [close-up] SAM speaks as the camera holds tight on their face, with the deed in the foreground.
+  7.0s to 10.0s  [insert shot of the evidence object] Nora Hale holds the silence after ""Nora Hale. Ten years, and you still drive like a storm"", the deed sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact; maximum 15 words; finish before 8.5 s):
@@ -93,20 +93,20 @@ NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
 "3","omni","frame_003.png","scene_003.mp4","10","14","5.6","done","The storyboard panel is the exact first frame of Shot 1 (frame_003.png). Do not freeze it: Shot 1 begins already in motion from that framing, with the same faces, wardrobe, props, location, light and color grade.
 
-STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] tight close-up: Sam leans against a harbor truck with his arms crossed, trying not to smile. Location: Hale lighthouse kitchen, night, one warm lamp and a cold stove. Key object: fresh survey stakes. Characters present: Nora Hale, Sam Calloway.
+STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] tight close-up: Sam leans against a harbor truck with his arms crossed, trying not to smile. Key object in frame: fresh survey stakes. Location: Hale lighthouse kitchen, night, one warm lamp and a cold stove. Key object: fresh survey stakes. Characters present: Nora Hale, Sam Calloway.
 
 IDENTITY ANCHORS (all present, fixed cast positions): Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing charcoal wool coat over a dark sweater, dark jeans, rain-wet hair); Sam Calloway (Cast Sheet Pos #2: mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin, wearing faded canvas work jacket, dark trousers, worn boots)
 
 SHOT PLAN:
-SHOT 1 [00s-03s] — 0.0 s to 3.0 s — tight close-up: Sam leans against a harbor truck with his arms crossed, trying not to smile.
-HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: Close detail on fresh survey stakes; the room falls quiet around it.
-HARD CUT at 7.0 s [07s-10s] — SHOT 3 — tight close-up: hard cut to the reaction as the line lands
+SHOT 1 [00s-03s] — 0.0 s to 3.0 s — tight close-up: Sam leans against a harbor truck with his arms crossed, trying not to smile. Key object in frame: fresh survey stakes.
+HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: NORA speaks as the camera holds tight on their face, with fresh survey stakes in the foreground.
+HARD CUT at 7.0 s [07s-10s] — SHOT 3 — tight close-up: Nora Hale holds the silence after ""I'm not happy. I'm careful"", fresh survey stakes sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
-  0.0s to 3.0s  [tight close-up] Sam leans against a harbor truck with his arms crossed, trying not to smile.
-  3.0s to 7.0s  [close-up] Close detail on fresh survey stakes; the room falls quiet around it.
-  7.0s to 10.0s  [tight close-up] hard cut to the reaction as the line lands
+  0.0s to 3.0s  [tight close-up] Sam leans against a harbor truck with his arms crossed, trying not to smile. Key object in frame: fresh survey stakes.
+  3.0s to 7.0s  [close-up] NORA speaks as the camera holds tight on their face, with fresh survey stakes in the foreground.
+  7.0s to 10.0s  [tight close-up] Nora Hale holds the silence after ""I'm not happy. I'm careful"", fresh survey stakes sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact; maximum 15 words; finish before 8.5 s):
@@ -140,20 +140,20 @@ NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
 "4","omni","frame_004.png","scene_004.mp4","10","14","5.6","done","The storyboard panel is the exact first frame of Shot 1 (frame_004.png). Do not freeze it: Shot 1 begins already in motion from that framing, with the same faces, wardrobe, props, location, light and color grade.
 
-STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] over-the-shoulder shot: Nora sets a brass key on the lighthouse kitchen table between them. Location: Hale lighthouse cliff edge, storm dusk, wind and salt spray. Key object: the dead lighthouse lamp. Characters present: Nora Hale, Sam Calloway.
+STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] over-the-shoulder shot: Nora sets a brass key on the lighthouse kitchen table between them. Key object in frame: the dead lighthouse lamp. Location: Hale lighthouse cliff edge, storm dusk, wind and salt spray. Key object: the dead lighthouse lamp. Characters present: Nora Hale, Sam Calloway.
 
 IDENTITY ANCHORS (all present, fixed cast positions): Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing charcoal wool coat over a dark sweater, dark jeans, rain-wet hair); Sam Calloway (Cast Sheet Pos #2: mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin, wearing faded canvas work jacket, dark trousers, worn boots)
 
 SHOT PLAN:
-SHOT 1 [00s-03s] — 0.0 s to 3.0 s — over-the-shoulder shot: Nora sets a brass key on the lighthouse kitchen table between them.
-HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: Close detail on the dead lighthouse lamp; the room falls quiet around it.
-HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: hard cut to the reaction as the line lands
+SHOT 1 [00s-03s] — 0.0 s to 3.0 s — over-the-shoulder shot: Nora sets a brass key on the lighthouse kitchen table between them. Key object in frame: the dead lighthouse lamp.
+HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: SAM speaks as the camera holds tight on their face, with the dead lighthouse lamp in the foreground.
+HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: Sam Calloway holds the silence after ""Then explain it to the state"", the dead lighthouse lamp sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
-  0.0s to 3.0s  [over-the-shoulder shot] Nora sets a brass key on the lighthouse kitchen table between them.
-  3.0s to 7.0s  [close-up] Close detail on the dead lighthouse lamp; the room falls quiet around it.
-  7.0s to 10.0s  [insert shot of the evidence object] hard cut to the reaction as the line lands
+  0.0s to 3.0s  [over-the-shoulder shot] Nora sets a brass key on the lighthouse kitchen table between them. Key object in frame: the dead lighthouse lamp.
+  3.0s to 7.0s  [close-up] SAM speaks as the camera holds tight on their face, with the dead lighthouse lamp in the foreground.
+  7.0s to 10.0s  [insert shot of the evidence object] Sam Calloway holds the silence after ""Then explain it to the state"", the dead lighthouse lamp sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact; maximum 15 words; finish before 8.5 s):
@@ -187,20 +187,20 @@ NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
 "5","omni","frame_005.png","scene_005.mp4","10","15","6.0","done","The storyboard panel is the exact first frame of Shot 1 (frame_005.png). Do not freeze it: Shot 1 begins already in motion from that framing, with the same faces, wardrobe, props, location, light and color grade.
 
-STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] low-angle hero shot: Sam points through the rain at fresh survey stakes driven into the cliff. Location: Keller harbor boardwalk, blue hour, wet planks and dock lights. Key object: a brass key. Characters present: Nora Hale, Sam Calloway, Margaret Keller.
+STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] low-angle hero shot: Sam points through the rain at fresh survey stakes driven into the cliff. Key object in frame: a brass key. Location: Keller harbor boardwalk, blue hour, wet planks and dock lights. Key object: a brass key. Characters present: Nora Hale, Sam Calloway, Margaret Keller.
 
 IDENTITY ANCHORS (all present, fixed cast positions): Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing charcoal wool coat over a dark sweater, dark jeans, rain-wet hair); Sam Calloway (Cast Sheet Pos #2: mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin, wearing faded canvas work jacket, dark trousers, worn boots); Margaret Keller (Cast Sheet Pos #3: late sixties matriarch, tall and straight-backed, silver chignon, pale blue eyes, porcelain skin, wearing tailored dove-grey suit, pearls, low-heeled shoes)
 
 SHOT PLAN:
-SHOT 1 [00s-03s] — 0.0 s to 3.0 s — low-angle hero shot: Sam points through the rain at fresh survey stakes driven into the cliff.
-HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: Close detail on a brass key; the room falls quiet around it.
-HARD CUT at 7.0 s [07s-10s] — SHOT 3 — tight close-up: hard cut to the reaction as the line lands
+SHOT 1 [00s-03s] — 0.0 s to 3.0 s — low-angle hero shot: Sam points through the rain at fresh survey stakes driven into the cliff. Key object in frame: a brass key.
+HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: MARGARET speaks as the camera holds tight on their face, with a brass key in the foreground.
+HARD CUT at 7.0 s [07s-10s] — SHOT 3 — tight close-up: Margaret Keller holds the silence after ""Then you won't mind me reading it"", a brass key sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
-  0.0s to 3.0s  [low-angle hero shot] Sam points through the rain at fresh survey stakes driven into the cliff.
-  3.0s to 7.0s  [close-up] Close detail on a brass key; the room falls quiet around it.
-  7.0s to 10.0s  [tight close-up] hard cut to the reaction as the line lands
+  0.0s to 3.0s  [low-angle hero shot] Sam points through the rain at fresh survey stakes driven into the cliff. Key object in frame: a brass key.
+  3.0s to 7.0s  [close-up] MARGARET speaks as the camera holds tight on their face, with a brass key in the foreground.
+  7.0s to 10.0s  [tight close-up] Margaret Keller holds the silence after ""Then you won't mind me reading it"", a brass key sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact; maximum 15 words; finish before 8.5 s):
@@ -234,20 +234,20 @@ NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
 "6","omni","frame_006.png","scene_006.mp4","10","15","6.0","done","The storyboard panel is the exact first frame of Shot 1 (frame_006.png). Do not freeze it: Shot 1 begins already in motion from that framing, with the same faces, wardrobe, props, location, light and color grade.
 
-STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] wide establishing shot: Margaret waits under the dry awning of the Keller estate, gloves folded. Location: Hale lighthouse kitchen, night, one warm lamp and a cold stove. Key object: the deed. Characters present: Nora Hale, Margaret Keller, Adrian Keller.
+STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] wide establishing shot: Margaret waits under the dry awning of the Keller estate, gloves folded. Key object in frame: the deed. Location: Hale lighthouse kitchen, night, one warm lamp and a cold stove. Key object: the deed. Characters present: Nora Hale, Margaret Keller, Adrian Keller.
 
 IDENTITY ANCHORS (all present, fixed cast positions): Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing charcoal wool coat over a dark sweater, dark jeans, rain-wet hair); Margaret Keller (Cast Sheet Pos #3: late sixties matriarch, tall and straight-backed, silver chignon, pale blue eyes, porcelain skin, wearing tailored dove-grey suit, pearls, low-heeled shoes); Adrian Keller (Cast Sheet Pos #4: late thirties lean groomed heir, ash-blond hair swept back, cold grey eyes, even features, wearing navy blazer, open-collared white shirt, dark trousers)
 
 SHOT PLAN:
-SHOT 1 [00s-03s] — 0.0 s to 3.0 s — wide establishing shot: Margaret waits under the dry awning of the Keller estate, gloves folded.
-HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: Close detail on the deed; the room falls quiet around it.
-HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: hard cut to the reaction as the line lands
+SHOT 1 [00s-03s] — 0.0 s to 3.0 s — wide establishing shot: Margaret waits under the dry awning of the Keller estate, gloves folded. Key object in frame: the deed.
+HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: ADRIAN speaks as the camera holds tight on their face, with the deed in the foreground.
+HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: Adrian Keller holds the silence after ""You only ask me to leave the past"", the deed sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
-  0.0s to 3.0s  [wide establishing shot] Margaret waits under the dry awning of the Keller estate, gloves folded.
-  3.0s to 7.0s  [close-up] Close detail on the deed; the room falls quiet around it.
-  7.0s to 10.0s  [insert shot of the evidence object] hard cut to the reaction as the line lands
+  0.0s to 3.0s  [wide establishing shot] Margaret waits under the dry awning of the Keller estate, gloves folded. Key object in frame: the deed.
+  3.0s to 7.0s  [close-up] ADRIAN speaks as the camera holds tight on their face, with the deed in the foreground.
+  7.0s to 10.0s  [insert shot of the evidence object] Adrian Keller holds the silence after ""You only ask me to leave the past"", the deed sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact; maximum 15 words; finish before 8.5 s):
@@ -281,20 +281,20 @@ NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
 "7","omni","frame_007.png","scene_007.mp4","10","15","6.0","done","The storyboard panel is the exact first frame of Shot 1 (frame_007.png). Do not freeze it: Shot 1 begins already in motion from that framing, with the same faces, wardrobe, props, location, light and color grade.
 
-STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] medium shot: Nora reads the deed by a single warm lamp, jaw tight. Location: Hale lighthouse cliff edge, storm dusk, wind and salt spray. Key object: fresh survey stakes. Characters present: Nora Hale, Margaret Keller.
+STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] medium shot: Nora reads the deed by a single warm lamp, jaw tight. Key object in frame: fresh survey stakes. Location: Hale lighthouse cliff edge, storm dusk, wind and salt spray. Key object: fresh survey stakes. Characters present: Nora Hale, Margaret Keller.
 
 IDENTITY ANCHORS (all present, fixed cast positions): Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing charcoal wool coat over a dark sweater, dark jeans, rain-wet hair); Margaret Keller (Cast Sheet Pos #3: late sixties matriarch, tall and straight-backed, silver chignon, pale blue eyes, porcelain skin, wearing tailored dove-grey suit, pearls, low-heeled shoes)
 
 SHOT PLAN:
-SHOT 1 [00s-03s] — 0.0 s to 3.0 s — medium shot: Nora reads the deed by a single warm lamp, jaw tight.
-HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: Close detail on fresh survey stakes; the room falls quiet around it.
-HARD CUT at 7.0 s [07s-10s] — SHOT 3 — tight close-up: hard cut to the reaction as the line lands
+SHOT 1 [00s-03s] — 0.0 s to 3.0 s — medium shot: Nora reads the deed by a single warm lamp, jaw tight. Key object in frame: fresh survey stakes.
+HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: NORA speaks as the camera holds tight on their face, with fresh survey stakes in the foreground.
+HARD CUT at 7.0 s [07s-10s] — SHOT 3 — tight close-up: Nora Hale holds the silence after ""A deed is cleaner than a funeral"", fresh survey stakes sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
-  0.0s to 3.0s  [medium shot] Nora reads the deed by a single warm lamp, jaw tight.
-  3.0s to 7.0s  [close-up] Close detail on fresh survey stakes; the room falls quiet around it.
-  7.0s to 10.0s  [tight close-up] hard cut to the reaction as the line lands
+  0.0s to 3.0s  [medium shot] Nora reads the deed by a single warm lamp, jaw tight. Key object in frame: fresh survey stakes.
+  3.0s to 7.0s  [close-up] NORA speaks as the camera holds tight on their face, with fresh survey stakes in the foreground.
+  7.0s to 10.0s  [tight close-up] Nora Hale holds the silence after ""A deed is cleaner than a funeral"", fresh survey stakes sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact; maximum 15 words; finish before 8.5 s):
@@ -328,20 +328,20 @@ NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
 "8","omni","frame_008.png","scene_008.mp4","10","13","5.2","done","The storyboard panel is the exact first frame of Shot 1 (frame_008.png). Do not freeze it: Shot 1 begins already in motion from that framing, with the same faces, wardrobe, props, location, light and color grade.
 
-STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] tight close-up: Adrian blocks the lighthouse door with a folder under his arm. Location: Keller harbor boardwalk, blue hour, wet planks and dock lights. Key object: the dead lighthouse lamp. Characters present: Nora Hale, Adrian Keller, Claire Boone.
+STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] tight close-up: Adrian blocks the lighthouse door with a folder under his arm. Key object in frame: the dead lighthouse lamp. Location: Keller harbor boardwalk, blue hour, wet planks and dock lights. Key object: the dead lighthouse lamp. Characters present: Nora Hale, Adrian Keller, Claire Boone.
 
 IDENTITY ANCHORS (all present, fixed cast positions): Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing charcoal wool coat over a dark sweater, dark jeans, rain-wet hair); Adrian Keller (Cast Sheet Pos #4: late thirties lean groomed heir, ash-blond hair swept back, cold grey eyes, even features, wearing navy blazer, open-collared white shirt, dark trousers); Claire Boone (Cast Sheet Pos #5: forties compact small-town lawyer, brown blunt bob, warm brown eyes, reading glasses on a cord, wearing forest-green cardigan, cream blouse, dark trousers)
 
 SHOT PLAN:
-SHOT 1 [00s-03s] — 0.0 s to 3.0 s — tight close-up: Adrian blocks the lighthouse door with a folder under his arm.
-HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: Close detail on the dead lighthouse lamp; the room falls quiet around it.
-HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: hard cut to the reaction as the line lands
+SHOT 1 [00s-03s] — 0.0 s to 3.0 s — tight close-up: Adrian blocks the lighthouse door with a folder under his arm. Key object in frame: the dead lighthouse lamp.
+HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: CLAIRE speaks as the camera holds tight on their face, with the dead lighthouse lamp in the foreground.
+HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: Claire Boone holds the silence after ""Who witnessed it?"", the dead lighthouse lamp sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
-  0.0s to 3.0s  [tight close-up] Adrian blocks the lighthouse door with a folder under his arm.
-  3.0s to 7.0s  [close-up] Close detail on the dead lighthouse lamp; the room falls quiet around it.
-  7.0s to 10.0s  [insert shot of the evidence object] hard cut to the reaction as the line lands
+  0.0s to 3.0s  [tight close-up] Adrian blocks the lighthouse door with a folder under his arm. Key object in frame: the dead lighthouse lamp.
+  3.0s to 7.0s  [close-up] CLAIRE speaks as the camera holds tight on their face, with the dead lighthouse lamp in the foreground.
+  7.0s to 10.0s  [insert shot of the evidence object] Claire Boone holds the silence after ""Who witnessed it?"", the dead lighthouse lamp sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact; maximum 15 words; finish before 8.5 s):
@@ -375,20 +375,20 @@ NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
 "9","omni","frame_009.png","scene_009.mp4","10","12","4.8","done","The storyboard panel is the exact first frame of Shot 1 (frame_009.png). Do not freeze it: Shot 1 begins already in motion from that framing, with the same faces, wardrobe, props, location, light and color grade.
 
-STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] over-the-shoulder shot: Nora stands alone on the point, the town lights small below her. Location: Hale lighthouse kitchen, night, one warm lamp and a cold stove. Key object: a brass key. Characters present: Nora Hale, Claire Boone.
+STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] over-the-shoulder shot: Nora stands alone on the point, the town lights small below her. Key object in frame: a brass key. Location: Hale lighthouse kitchen, night, one warm lamp and a cold stove. Key object: a brass key. Characters present: Nora Hale, Claire Boone.
 
 IDENTITY ANCHORS (all present, fixed cast positions): Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing charcoal wool coat over a dark sweater, dark jeans, rain-wet hair); Claire Boone (Cast Sheet Pos #5: forties compact small-town lawyer, brown blunt bob, warm brown eyes, reading glasses on a cord, wearing forest-green cardigan, cream blouse, dark trousers)
 
 SHOT PLAN:
-SHOT 1 [00s-03s] — 0.0 s to 3.0 s — over-the-shoulder shot: Nora stands alone on the point, the town lights small below her.
-HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: Close detail on a brass key; the room falls quiet around it.
-HARD CUT at 7.0 s [07s-10s] — SHOT 3 — tight close-up: hard cut to the reaction as the line lands
+SHOT 1 [00s-03s] — 0.0 s to 3.0 s — over-the-shoulder shot: Nora stands alone on the point, the town lights small below her. Key object in frame: a brass key.
+HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: CLAIRE speaks as the camera holds tight on their face, with a brass key in the foreground.
+HARD CUT at 7.0 s [07s-10s] — SHOT 3 — tight close-up: Claire Boone holds the silence after ""Sam was there that night?"", a brass key sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
-  0.0s to 3.0s  [over-the-shoulder shot] Nora stands alone on the point, the town lights small below her.
-  3.0s to 7.0s  [close-up] Close detail on a brass key; the room falls quiet around it.
-  7.0s to 10.0s  [tight close-up] hard cut to the reaction as the line lands
+  0.0s to 3.0s  [over-the-shoulder shot] Nora stands alone on the point, the town lights small below her. Key object in frame: a brass key.
+  3.0s to 7.0s  [close-up] CLAIRE speaks as the camera holds tight on their face, with a brass key in the foreground.
+  7.0s to 10.0s  [tight close-up] Claire Boone holds the silence after ""Sam was there that night?"", a brass key sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact; maximum 15 words; finish before 8.5 s):
@@ -422,20 +422,20 @@ NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
 "10","omni","frame_010.png","scene_010.mp4","10","14","5.6","done","The storyboard panel is the exact first frame of Shot 1 (frame_010.png). Do not freeze it: Shot 1 begins already in motion from that framing, with the same faces, wardrobe, props, location, light and color grade.
 
-STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] low-angle hero shot: Nora crouches at the lighthouse base, finding a keyhole hidden under peeling paint. Location: Hale lighthouse cliff edge, storm dusk, wind and salt spray. Key object: the deed. Characters present: Nora Hale.
+STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] low-angle hero shot: Nora crouches at the lighthouse base, finding a keyhole hidden under peeling paint. Key object in frame: the deed. Location: Hale lighthouse cliff edge, storm dusk, wind and salt spray. Key object: the deed. Characters present: Nora Hale.
 
 IDENTITY ANCHORS (all present, fixed cast positions): Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing charcoal wool coat over a dark sweater, dark jeans, rain-wet hair)
 
 SHOT PLAN:
-SHOT 1 [00s-03s] — 0.0 s to 3.0 s — low-angle hero shot: Nora crouches at the lighthouse base, finding a keyhole hidden under peeling paint.
-HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: Close detail on the deed; the room falls quiet around it.
-HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: hard cut to the reaction as the line lands
+SHOT 1 [00s-03s] — 0.0 s to 3.0 s — low-angle hero shot: Nora crouches at the lighthouse base, finding a keyhole hidden under peeling paint. Key object in frame: the deed.
+HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: NORA speaks as the camera holds tight on their face, with the deed in the foreground.
+HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: The silence after ""And why leave me the key?"" hangs, the deed sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
-  0.0s to 3.0s  [low-angle hero shot] Nora crouches at the lighthouse base, finding a keyhole hidden under peeling paint.
-  3.0s to 7.0s  [close-up] Close detail on the deed; the room falls quiet around it.
-  7.0s to 10.0s  [insert shot of the evidence object] hard cut to the reaction as the line lands
+  0.0s to 3.0s  [low-angle hero shot] Nora crouches at the lighthouse base, finding a keyhole hidden under peeling paint. Key object in frame: the deed.
+  3.0s to 7.0s  [close-up] NORA speaks as the camera holds tight on their face, with the deed in the foreground.
+  7.0s to 10.0s  [insert shot of the evidence object] The silence after ""And why leave me the key?"" hangs, the deed sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact; maximum 15 words; finish before 8.5 s):
@@ -469,20 +469,20 @@ NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
 "11","omni","frame_011.png","scene_011.mp4","10","14","5.6","done","The storyboard panel is the exact first frame of Shot 1 (frame_011.png). Do not freeze it: Shot 1 begins already in motion from that framing, with the same faces, wardrobe, props, location, light and color grade.
 
-STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] medium shot: Claire slides a sealed envelope across the lawyer's desk. Location: Claire Boone's law office, grey morning, rain on the windows. Key object: the sealed petition. Characters present: Nora Hale, Claire Boone.
+STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] medium shot: Claire slides a sealed envelope across the lawyer's desk. Key object in frame: the sealed petition. Location: Claire Boone's law office, grey morning, rain on the windows. Key object: the sealed petition. Characters present: Nora Hale, Claire Boone.
 
 IDENTITY ANCHORS (all present, fixed cast positions): Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing charcoal wool coat, dark jeans, hair dry now, no umbrella); Claire Boone (Cast Sheet Pos #5: forties compact small-town lawyer, brown blunt bob, warm brown eyes, reading glasses on a cord, wearing forest-green cardigan, cream blouse, dark trousers)
 
 SHOT PLAN:
-SHOT 1 [00s-03s] — 0.0 s to 3.0 s — medium shot: Claire slides a sealed envelope across the lawyer's desk.
-HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: Close detail on the sealed petition; the room falls quiet around it.
-HARD CUT at 7.0 s [07s-10s] — SHOT 3 — tight close-up: hard cut to the reaction as the line lands
+SHOT 1 [00s-03s] — 0.0 s to 3.0 s — medium shot: Claire slides a sealed envelope across the lawyer's desk. Key object in frame: the sealed petition.
+HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: CLAIRE speaks as the camera holds tight on their face, with the sealed petition in the foreground.
+HARD CUT at 7.0 s [07s-10s] — SHOT 3 — tight close-up: Claire Boone holds the silence after ""On what grounds?"", the sealed petition sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
-  0.0s to 3.0s  [medium shot] Claire slides a sealed envelope across the lawyer's desk.
-  3.0s to 7.0s  [close-up] Close detail on the sealed petition; the room falls quiet around it.
-  7.0s to 10.0s  [tight close-up] hard cut to the reaction as the line lands
+  0.0s to 3.0s  [medium shot] Claire slides a sealed envelope across the lawyer's desk. Key object in frame: the sealed petition.
+  3.0s to 7.0s  [close-up] CLAIRE speaks as the camera holds tight on their face, with the sealed petition in the foreground.
+  7.0s to 10.0s  [tight close-up] Claire Boone holds the silence after ""On what grounds?"", the sealed petition sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact; maximum 15 words; finish before 8.5 s):
@@ -516,20 +516,20 @@ NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
 "12","omni","frame_012.png","scene_012.mp4","10","9","3.6","done","The storyboard panel is the exact first frame of Shot 1 (frame_012.png). Do not freeze it: Shot 1 begins already in motion from that framing, with the same faces, wardrobe, props, location, light and color grade.
 
-STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] tight close-up: Nora reads the witness signature and looks up slowly. Location: Keller boathouse, night, one hanging bulb and a flashlight. Key object: a witness signature. Characters present: Nora Hale, Claire Boone.
+STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] tight close-up: Nora reads the witness signature and looks up slowly. Key object in frame: a witness signature. Location: Keller boathouse, night, one hanging bulb and a flashlight. Key object: a witness signature. Characters present: Nora Hale, Claire Boone.
 
 IDENTITY ANCHORS (all present, fixed cast positions): Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing charcoal wool coat, dark jeans, hair dry now, no umbrella); Claire Boone (Cast Sheet Pos #5: forties compact small-town lawyer, brown blunt bob, warm brown eyes, reading glasses on a cord, wearing forest-green cardigan, cream blouse, dark trousers)
 
 SHOT PLAN:
-SHOT 1 [00s-03s] — 0.0 s to 3.0 s — tight close-up: Nora reads the witness signature and looks up slowly.
-HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: Close detail on a witness signature; the room falls quiet around it.
-HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: hard cut to the reaction as the line lands
+SHOT 1 [00s-03s] — 0.0 s to 3.0 s — tight close-up: Nora reads the witness signature and looks up slowly. Key object in frame: a witness signature.
+HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: NORA speaks as the camera holds tight on their face, with a witness signature in the foreground.
+HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: Nora Hale holds the silence after ""Half the harbor. And Sam"", a witness signature sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
-  0.0s to 3.0s  [tight close-up] Nora reads the witness signature and looks up slowly.
-  3.0s to 7.0s  [close-up] Close detail on a witness signature; the room falls quiet around it.
-  7.0s to 10.0s  [insert shot of the evidence object] hard cut to the reaction as the line lands
+  0.0s to 3.0s  [tight close-up] Nora reads the witness signature and looks up slowly. Key object in frame: a witness signature.
+  3.0s to 7.0s  [close-up] NORA speaks as the camera holds tight on their face, with a witness signature in the foreground.
+  7.0s to 10.0s  [insert shot of the evidence object] Nora Hale holds the silence after ""Half the harbor. And Sam"", a witness signature sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact; maximum 15 words; finish before 8.5 s):
@@ -563,20 +563,20 @@ NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
 "13","omni","frame_013.png","scene_013.mp4","10","15","6.0","pending","The storyboard panel is the exact first frame of Shot 1 (frame_013.png). Do not freeze it: Shot 1 begins already in motion from that framing, with the same faces, wardrobe, props, location, light and color grade.
 
-STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] over-the-shoulder shot: Sam stands in the boathouse doorway, rain behind him. Location: Keller estate, dusk, warm interior against blue windows. Key object: a scorched beam. Characters present: Nora Hale, Sam Calloway.
+STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] over-the-shoulder shot: Sam stands in the boathouse doorway, rain behind him. Key object in frame: a scorched beam. Location: Keller estate, dusk, warm interior against blue windows. Key object: a scorched beam. Characters present: Nora Hale, Sam Calloway.
 
 IDENTITY ANCHORS (all present, fixed cast positions): Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing charcoal wool coat, dark jeans, hair dry now, no umbrella); Sam Calloway (Cast Sheet Pos #2: mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin, wearing faded canvas work jacket, dark trousers, worn boots)
 
 SHOT PLAN:
-SHOT 1 [00s-03s] — 0.0 s to 3.0 s — over-the-shoulder shot: Sam stands in the boathouse doorway, rain behind him.
-HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: Close detail on a scorched beam; the room falls quiet around it.
-HARD CUT at 7.0 s [07s-10s] — SHOT 3 — tight close-up: hard cut to the reaction as the line lands
+SHOT 1 [00s-03s] — 0.0 s to 3.0 s — over-the-shoulder shot: Sam stands in the boathouse doorway, rain behind him. Key object in frame: a scorched beam.
+HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: SAM speaks as the camera holds tight on their face, with a scorched beam in the foreground.
+HARD CUT at 7.0 s [07s-10s] — SHOT 3 — tight close-up: Sam Calloway holds the silence after ""Scared of being poor? Or her?"", a scorched beam sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
-  0.0s to 3.0s  [over-the-shoulder shot] Sam stands in the boathouse doorway, rain behind him.
-  3.0s to 7.0s  [close-up] Close detail on a scorched beam; the room falls quiet around it.
-  7.0s to 10.0s  [tight close-up] hard cut to the reaction as the line lands
+  0.0s to 3.0s  [over-the-shoulder shot] Sam stands in the boathouse doorway, rain behind him. Key object in frame: a scorched beam.
+  3.0s to 7.0s  [close-up] SAM speaks as the camera holds tight on their face, with a scorched beam in the foreground.
+  7.0s to 10.0s  [tight close-up] Sam Calloway holds the silence after ""Scared of being poor? Or her?"", a scorched beam sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact; maximum 15 words; finish before 8.5 s):
@@ -610,20 +610,20 @@ NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
 "14","omni","frame_014.png","scene_014.mp4","10","15","6.0","pending","The storyboard panel is the exact first frame of Shot 1 (frame_014.png). Do not freeze it: Shot 1 begins already in motion from that framing, with the same faces, wardrobe, props, location, light and color grade.
 
-STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] low-angle hero shot: Nora sweeps a flashlight over scorched beams. Location: Claire Boone's law office, grey morning, rain on the windows. Key object: the survey map. Characters present: Nora Hale, Sam Calloway, Claire Boone.
+STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] low-angle hero shot: Nora sweeps a flashlight over scorched beams. Key object in frame: the survey map. Location: Claire Boone's law office, grey morning, rain on the windows. Key object: the survey map. Characters present: Nora Hale, Sam Calloway, Claire Boone.
 
 IDENTITY ANCHORS (all present, fixed cast positions): Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing charcoal wool coat, dark jeans, hair dry now, no umbrella); Sam Calloway (Cast Sheet Pos #2: mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin, wearing faded canvas work jacket, dark trousers, worn boots); Claire Boone (Cast Sheet Pos #5: forties compact small-town lawyer, brown blunt bob, warm brown eyes, reading glasses on a cord, wearing forest-green cardigan, cream blouse, dark trousers)
 
 SHOT PLAN:
-SHOT 1 [00s-03s] — 0.0 s to 3.0 s — low-angle hero shot: Nora sweeps a flashlight over scorched beams.
-HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: Close detail on the survey map; the room falls quiet around it.
-HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: hard cut to the reaction as the line lands
+SHOT 1 [00s-03s] — 0.0 s to 3.0 s — low-angle hero shot: Nora sweeps a flashlight over scorched beams. Key object in frame: the survey map.
+HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: SAM speaks as the camera holds tight on their face, with the survey map in the foreground.
+HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: Sam Calloway holds the silence after ""Why did the town blame me?"", the survey map sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
-  0.0s to 3.0s  [low-angle hero shot] Nora sweeps a flashlight over scorched beams.
-  3.0s to 7.0s  [close-up] Close detail on the survey map; the room falls quiet around it.
-  7.0s to 10.0s  [insert shot of the evidence object] hard cut to the reaction as the line lands
+  0.0s to 3.0s  [low-angle hero shot] Nora sweeps a flashlight over scorched beams. Key object in frame: the survey map.
+  3.0s to 7.0s  [close-up] SAM speaks as the camera holds tight on their face, with the survey map in the foreground.
+  7.0s to 10.0s  [insert shot of the evidence object] Sam Calloway holds the silence after ""Why did the town blame me?"", the survey map sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact; maximum 15 words; finish before 8.5 s):
@@ -657,20 +657,20 @@ NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
 "15","omni","frame_015.png","scene_015.mp4","10","14","5.6","pending","The storyboard panel is the exact first frame of Shot 1 (frame_015.png). Do not freeze it: Shot 1 begins already in motion from that framing, with the same faces, wardrobe, props, location, light and color grade.
 
-STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] wide establishing shot: Margaret pours tea without offering a cup. Location: Keller boathouse, night, one hanging bulb and a flashlight. Key object: the sealed petition. Characters present: Nora Hale, Margaret Keller.
+STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] wide establishing shot: Margaret pours tea without offering a cup. Key object in frame: the sealed petition. Location: Keller boathouse, night, one hanging bulb and a flashlight. Key object: the sealed petition. Characters present: Nora Hale, Margaret Keller.
 
 IDENTITY ANCHORS (all present, fixed cast positions): Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing charcoal wool coat, dark jeans, hair dry now, no umbrella); Margaret Keller (Cast Sheet Pos #3: late sixties matriarch, tall and straight-backed, silver chignon, pale blue eyes, porcelain skin, wearing tailored dove-grey suit, pearls, low-heeled shoes)
 
 SHOT PLAN:
-SHOT 1 [00s-03s] — 0.0 s to 3.0 s — wide establishing shot: Margaret pours tea without offering a cup.
-HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: Close detail on the sealed petition; the room falls quiet around it.
-HARD CUT at 7.0 s [07s-10s] — SHOT 3 — tight close-up: hard cut to the reaction as the line lands
+SHOT 1 [00s-03s] — 0.0 s to 3.0 s — wide establishing shot: Margaret pours tea without offering a cup. Key object in frame: the sealed petition.
+HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: MARGARET speaks as the camera holds tight on their face, with the sealed petition in the foreground.
+HARD CUT at 7.0 s [07s-10s] — SHOT 3 — tight close-up: Margaret Keller holds the silence after ""I've played your villain ten years"", the sealed petition sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
-  0.0s to 3.0s  [wide establishing shot] Margaret pours tea without offering a cup.
-  3.0s to 7.0s  [close-up] Close detail on the sealed petition; the room falls quiet around it.
-  7.0s to 10.0s  [tight close-up] hard cut to the reaction as the line lands
+  0.0s to 3.0s  [wide establishing shot] Margaret pours tea without offering a cup. Key object in frame: the sealed petition.
+  3.0s to 7.0s  [close-up] MARGARET speaks as the camera holds tight on their face, with the sealed petition in the foreground.
+  7.0s to 10.0s  [tight close-up] Margaret Keller holds the silence after ""I've played your villain ten years"", the sealed petition sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact; maximum 15 words; finish before 8.5 s):
@@ -704,20 +704,20 @@ NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
 "16","omni","frame_016.png","scene_016.mp4","10","15","6.0","pending","The storyboard panel is the exact first frame of Shot 1 (frame_016.png). Do not freeze it: Shot 1 begins already in motion from that framing, with the same faces, wardrobe, props, location, light and color grade.
 
-STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] medium shot: Nora stands in the town hall doorway as every head turns. Location: Keller estate, dusk, warm interior against blue windows. Key object: a witness signature. Characters present: Nora Hale, Adrian Keller.
+STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] medium shot: Nora stands in the town hall doorway as every head turns. Key object in frame: a witness signature. Location: Keller estate, dusk, warm interior against blue windows. Key object: a witness signature. Characters present: Nora Hale, Adrian Keller.
 
 IDENTITY ANCHORS (all present, fixed cast positions): Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing charcoal wool coat, dark jeans, hair dry now, no umbrella); Adrian Keller (Cast Sheet Pos #4: late thirties lean groomed heir, ash-blond hair swept back, cold grey eyes, even features, wearing navy blazer, open-collared white shirt, dark trousers)
 
 SHOT PLAN:
-SHOT 1 [00s-03s] — 0.0 s to 3.0 s — medium shot: Nora stands in the town hall doorway as every head turns.
-HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: Close detail on a witness signature; the room falls quiet around it.
-HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: hard cut to the reaction as the line lands
+SHOT 1 [00s-03s] — 0.0 s to 3.0 s — medium shot: Nora stands in the town hall doorway as every head turns. Key object in frame: a witness signature.
+HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: NORA speaks as the camera holds tight on their face, with a witness signature in the foreground.
+HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: Nora Hale holds the silence after ""Big words for someone with no lawyer"", a witness signature sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
-  0.0s to 3.0s  [medium shot] Nora stands in the town hall doorway as every head turns.
-  3.0s to 7.0s  [close-up] Close detail on a witness signature; the room falls quiet around it.
-  7.0s to 10.0s  [insert shot of the evidence object] hard cut to the reaction as the line lands
+  0.0s to 3.0s  [medium shot] Nora stands in the town hall doorway as every head turns. Key object in frame: a witness signature.
+  3.0s to 7.0s  [close-up] NORA speaks as the camera holds tight on their face, with a witness signature in the foreground.
+  7.0s to 10.0s  [insert shot of the evidence object] Nora Hale holds the silence after ""Big words for someone with no lawyer"", a witness signature sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact; maximum 15 words; finish before 8.5 s):
@@ -751,20 +751,20 @@ NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
 "17","omni","frame_017.png","scene_017.mp4","10","12","4.8","pending","The storyboard panel is the exact first frame of Shot 1 (frame_017.png). Do not freeze it: Shot 1 begins already in motion from that framing, with the same faces, wardrobe, props, location, light and color grade.
 
-STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] tight close-up: Adrian corners Nora by the harbor railing. Location: Claire Boone's law office, grey morning, rain on the windows. Key object: a scorched beam. Characters present: Nora Hale, Sam Calloway, Adrian Keller, Claire Boone.
+STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] tight close-up: Adrian corners Nora by the harbor railing. Key object in frame: a scorched beam. Location: Claire Boone's law office, grey morning, rain on the windows. Key object: a scorched beam. Characters present: Nora Hale, Sam Calloway, Adrian Keller, Claire Boone.
 
 IDENTITY ANCHORS (all present, fixed cast positions): Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing charcoal wool coat, dark jeans, hair dry now, no umbrella); Sam Calloway (Cast Sheet Pos #2: mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin, wearing faded canvas work jacket, dark trousers, worn boots); Adrian Keller (Cast Sheet Pos #4: late thirties lean groomed heir, ash-blond hair swept back, cold grey eyes, even features, wearing navy blazer, open-collared white shirt, dark trousers); Claire Boone (Cast Sheet Pos #5: forties compact small-town lawyer, brown blunt bob, warm brown eyes, reading glasses on a cord, wearing forest-green cardigan, cream blouse, dark trousers)
 
 SHOT PLAN:
-SHOT 1 [00s-03s] — 0.0 s to 3.0 s — tight close-up: Adrian corners Nora by the harbor railing.
-HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: Close detail on a scorched beam; the room falls quiet around it.
-HARD CUT at 7.0 s [07s-10s] — SHOT 3 — tight close-up: hard cut to the reaction as the line lands
+SHOT 1 [00s-03s] — 0.0 s to 3.0 s — tight close-up: Adrian corners Nora by the harbor railing. Key object in frame: a scorched beam.
+HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: SAM speaks as the camera holds tight on their face, with a scorched beam in the foreground.
+HARD CUT at 7.0 s [07s-10s] — SHOT 3 — tight close-up: Sam Calloway holds the silence after ""Tonight, before the hearing"", a scorched beam sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
-  0.0s to 3.0s  [tight close-up] Adrian corners Nora by the harbor railing.
-  3.0s to 7.0s  [close-up] Close detail on a scorched beam; the room falls quiet around it.
-  7.0s to 10.0s  [tight close-up] hard cut to the reaction as the line lands
+  0.0s to 3.0s  [tight close-up] Adrian corners Nora by the harbor railing. Key object in frame: a scorched beam.
+  3.0s to 7.0s  [close-up] SAM speaks as the camera holds tight on their face, with a scorched beam in the foreground.
+  7.0s to 10.0s  [tight close-up] Sam Calloway holds the silence after ""Tonight, before the hearing"", a scorched beam sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact; maximum 15 words; finish before 8.5 s):
@@ -798,20 +798,20 @@ NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
 "18","omni","frame_018.png","scene_018.mp4","10","14","5.6","pending","The storyboard panel is the exact first frame of Shot 1 (frame_018.png). Do not freeze it: Shot 1 begins already in motion from that framing, with the same faces, wardrobe, props, location, light and color grade.
 
-STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] over-the-shoulder shot: Nora stares at a survey map pinned to the boathouse wall. Location: Keller boathouse, night, one hanging bulb and a flashlight. Key object: the survey map. Characters present: Nora Hale, Sam Calloway.
+STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] over-the-shoulder shot: Nora stares at a survey map pinned to the boathouse wall. Key object in frame: the survey map. Location: Keller boathouse, night, one hanging bulb and a flashlight. Key object: the survey map. Characters present: Nora Hale, Sam Calloway.
 
 IDENTITY ANCHORS (all present, fixed cast positions): Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing charcoal wool coat, dark jeans, hair dry now, no umbrella); Sam Calloway (Cast Sheet Pos #2: mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin, wearing faded canvas work jacket, dark trousers, worn boots)
 
 SHOT PLAN:
-SHOT 1 [00s-03s] — 0.0 s to 3.0 s — over-the-shoulder shot: Nora stares at a survey map pinned to the boathouse wall.
-HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: Close detail on the survey map; the room falls quiet around it.
-HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: hard cut to the reaction as the line lands
+SHOT 1 [00s-03s] — 0.0 s to 3.0 s — over-the-shoulder shot: Nora stares at a survey map pinned to the boathouse wall. Key object in frame: the survey map.
+HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: SAM speaks as the camera holds tight on their face, with the survey map in the foreground.
+HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: Sam Calloway holds the silence after ""You coming? Bring the pry bar"", the survey map sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
-  0.0s to 3.0s  [over-the-shoulder shot] Nora stares at a survey map pinned to the boathouse wall.
-  3.0s to 7.0s  [close-up] Close detail on the survey map; the room falls quiet around it.
-  7.0s to 10.0s  [insert shot of the evidence object] hard cut to the reaction as the line lands
+  0.0s to 3.0s  [over-the-shoulder shot] Nora stares at a survey map pinned to the boathouse wall. Key object in frame: the survey map.
+  3.0s to 7.0s  [close-up] SAM speaks as the camera holds tight on their face, with the survey map in the foreground.
+  7.0s to 10.0s  [insert shot of the evidence object] Sam Calloway holds the silence after ""You coming? Bring the pry bar"", the survey map sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact; maximum 15 words; finish before 8.5 s):
@@ -845,20 +845,20 @@ NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
 "19","omni","frame_019.png","scene_019.mp4","10","15","6.0","pending","The storyboard panel is the exact first frame of Shot 1 (frame_019.png). Do not freeze it: Shot 1 begins already in motion from that framing, with the same faces, wardrobe, props, location, light and color grade.
 
-STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] low-angle hero shot: Sam watches Nora from across the dock, unable to speak. Location: Keller estate, dusk, warm interior against blue windows. Key object: the sealed petition. Characters present: Nora Hale, Sam Calloway.
+STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] low-angle hero shot: Sam watches Nora from across the dock, unable to speak. Key object in frame: the sealed petition. Location: Keller estate, dusk, warm interior against blue windows. Key object: the sealed petition. Characters present: Nora Hale, Sam Calloway.
 
 IDENTITY ANCHORS (all present, fixed cast positions): Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing charcoal wool coat, dark jeans, hair dry now, no umbrella); Sam Calloway (Cast Sheet Pos #2: mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin, wearing faded canvas work jacket, dark trousers, worn boots)
 
 SHOT PLAN:
-SHOT 1 [00s-03s] — 0.0 s to 3.0 s — low-angle hero shot: Sam watches Nora from across the dock, unable to speak.
-HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: Close detail on the sealed petition; the room falls quiet around it.
-HARD CUT at 7.0 s [07s-10s] — SHOT 3 — tight close-up: hard cut to the reaction as the line lands
+SHOT 1 [00s-03s] — 0.0 s to 3.0 s — low-angle hero shot: Sam watches Nora from across the dock, unable to speak. Key object in frame: the sealed petition.
+HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: NORA speaks as the camera holds tight on their face, with the sealed petition in the foreground.
+HARD CUT at 7.0 s [07s-10s] — SHOT 3 — tight close-up: Nora Hale holds the silence after ""That's not a permit. That's a motive"", the sealed petition sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
-  0.0s to 3.0s  [low-angle hero shot] Sam watches Nora from across the dock, unable to speak.
-  3.0s to 7.0s  [close-up] Close detail on the sealed petition; the room falls quiet around it.
-  7.0s to 10.0s  [tight close-up] hard cut to the reaction as the line lands
+  0.0s to 3.0s  [low-angle hero shot] Sam watches Nora from across the dock, unable to speak. Key object in frame: the sealed petition.
+  3.0s to 7.0s  [close-up] NORA speaks as the camera holds tight on their face, with the sealed petition in the foreground.
+  7.0s to 10.0s  [tight close-up] Nora Hale holds the silence after ""That's not a permit. That's a motive"", the sealed petition sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact; maximum 15 words; finish before 8.5 s):
@@ -892,20 +892,20 @@ NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
 "20","omni","frame_020.png","scene_020.mp4","10","14","5.6","pending","The storyboard panel is the exact first frame of Shot 1 (frame_020.png). Do not freeze it: Shot 1 begins already in motion from that framing, with the same faces, wardrobe, props, location, light and color grade.
 
-STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] wide establishing shot: Adrian holds the lighthouse door open, waiting. Location: Claire Boone's law office, grey morning, rain on the windows. Key object: a witness signature. Characters present: Nora Hale, Adrian Keller, Claire Boone.
+STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] wide establishing shot: Adrian holds the lighthouse door open, waiting. Key object in frame: a witness signature. Location: Claire Boone's law office, grey morning, rain on the windows. Key object: a witness signature. Characters present: Nora Hale, Adrian Keller, Claire Boone.
 
 IDENTITY ANCHORS (all present, fixed cast positions): Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing charcoal wool coat, dark jeans, hair dry now, no umbrella); Adrian Keller (Cast Sheet Pos #4: late thirties lean groomed heir, ash-blond hair swept back, cold grey eyes, even features, wearing navy blazer, open-collared white shirt, dark trousers); Claire Boone (Cast Sheet Pos #5: forties compact small-town lawyer, brown blunt bob, warm brown eyes, reading glasses on a cord, wearing forest-green cardigan, cream blouse, dark trousers)
 
 SHOT PLAN:
-SHOT 1 [00s-03s] — 0.0 s to 3.0 s — wide establishing shot: Adrian holds the lighthouse door open, waiting.
-HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: Close detail on a witness signature; the room falls quiet around it.
-HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: hard cut to the reaction as the line lands
+SHOT 1 [00s-03s] — 0.0 s to 3.0 s — wide establishing shot: Adrian holds the lighthouse door open, waiting. Key object in frame: a witness signature.
+HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: ADRIAN speaks as the camera holds tight on their face, with a witness signature in the foreground.
+HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: Adrian Keller holds the silence after ""In exchange for what?"", a witness signature sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
-  0.0s to 3.0s  [wide establishing shot] Adrian holds the lighthouse door open, waiting.
-  3.0s to 7.0s  [close-up] Close detail on a witness signature; the room falls quiet around it.
-  7.0s to 10.0s  [insert shot of the evidence object] hard cut to the reaction as the line lands
+  0.0s to 3.0s  [wide establishing shot] Adrian holds the lighthouse door open, waiting. Key object in frame: a witness signature.
+  3.0s to 7.0s  [close-up] ADRIAN speaks as the camera holds tight on their face, with a witness signature in the foreground.
+  7.0s to 10.0s  [insert shot of the evidence object] Adrian Keller holds the silence after ""In exchange for what?"", a witness signature sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact; maximum 15 words; finish before 8.5 s):
@@ -939,20 +939,20 @@ NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
 "21","omni","frame_021.png","scene_021.mp4","10","15","6.0","pending","The storyboard panel is the exact first frame of Shot 1 (frame_021.png). Do not freeze it: Shot 1 begins already in motion from that framing, with the same faces, wardrobe, props, location, light and color grade.
 
-STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] tight close-up: Nora spreads water-stained survey files across the lighthouse floor. Location: Keller boathouse, night, flashlight and dust. Key object: the metal evidence box. Characters present: Nora Hale, Adrian Keller.
+STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] tight close-up: Nora spreads water-stained survey files across the lighthouse floor. Key object in frame: the metal evidence box. Location: Keller boathouse, night, flashlight and dust. Key object: the metal evidence box. Characters present: Nora Hale, Adrian Keller.
 
 IDENTITY ANCHORS (all present, fixed cast positions): Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing cream knit sweater under the charcoal coat, hair loose); Adrian Keller (Cast Sheet Pos #4: late thirties lean groomed heir, ash-blond hair swept back, cold grey eyes, even features, wearing navy blazer, open-collared white shirt, dark trousers)
 
 SHOT PLAN:
-SHOT 1 [00s-03s] — 0.0 s to 3.0 s — tight close-up: Nora spreads water-stained survey files across the lighthouse floor.
-HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: Close detail on the metal evidence box; the room falls quiet around it.
-HARD CUT at 7.0 s [07s-10s] — SHOT 3 — tight close-up: hard cut to the reaction as the line lands
+SHOT 1 [00s-03s] — 0.0 s to 3.0 s — tight close-up: Nora spreads water-stained survey files across the lighthouse floor. Key object in frame: the metal evidence box.
+HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: ADRIAN speaks as the camera holds tight on their face, with the metal evidence box in the foreground.
+HARD CUT at 7.0 s [07s-10s] — SHOT 3 — tight close-up: Adrian Keller holds the silence after ""I'd rather be alone than owned. Move"", the metal evidence box sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
-  0.0s to 3.0s  [tight close-up] Nora spreads water-stained survey files across the lighthouse floor.
-  3.0s to 7.0s  [close-up] Close detail on the metal evidence box; the room falls quiet around it.
-  7.0s to 10.0s  [tight close-up] hard cut to the reaction as the line lands
+  0.0s to 3.0s  [tight close-up] Nora spreads water-stained survey files across the lighthouse floor. Key object in frame: the metal evidence box.
+  3.0s to 7.0s  [close-up] ADRIAN speaks as the camera holds tight on their face, with the metal evidence box in the foreground.
+  7.0s to 10.0s  [tight close-up] Adrian Keller holds the silence after ""I'd rather be alone than owned. Move"", the metal evidence box sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact; maximum 15 words; finish before 8.5 s):
@@ -986,20 +986,20 @@ NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
 "22","omni","frame_022.png","scene_022.mp4","10","12","4.8","pending","The storyboard panel is the exact first frame of Shot 1 (frame_022.png). Do not freeze it: Shot 1 begins already in motion from that framing, with the same faces, wardrobe, props, location, light and color grade.
 
-STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] over-the-shoulder shot: Sam jimmies the boathouse lock with a pry bar. Location: Hale lighthouse archive room, night, a single desk lamp. Key object: the seawall permit. Characters present: Nora Hale, Sam Calloway, Margaret Keller.
+STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] over-the-shoulder shot: Sam jimmies the boathouse lock with a pry bar. Key object in frame: the seawall permit. Location: Hale lighthouse archive room, night, a single desk lamp. Key object: the seawall permit. Characters present: Nora Hale, Sam Calloway, Margaret Keller.
 
 IDENTITY ANCHORS (all present, fixed cast positions): Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing cream knit sweater under the charcoal coat, hair loose); Sam Calloway (Cast Sheet Pos #2: mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin, wearing faded canvas work jacket, dark trousers, worn boots); Margaret Keller (Cast Sheet Pos #3: late sixties matriarch, tall and straight-backed, silver chignon, pale blue eyes, porcelain skin, wearing tailored dove-grey suit, pearls, low-heeled shoes)
 
 SHOT PLAN:
-SHOT 1 [00s-03s] — 0.0 s to 3.0 s — over-the-shoulder shot: Sam jimmies the boathouse lock with a pry bar.
-HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: Close detail on the seawall permit; the room falls quiet around it.
-HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: hard cut to the reaction as the line lands
+SHOT 1 [00s-03s] — 0.0 s to 3.0 s — over-the-shoulder shot: Sam jimmies the boathouse lock with a pry bar. Key object in frame: the seawall permit.
+HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: MARGARET speaks as the camera holds tight on their face, with the seawall permit in the foreground.
+HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: Margaret Keller holds the silence after ""On what grounds?"", the seawall permit sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
-  0.0s to 3.0s  [over-the-shoulder shot] Sam jimmies the boathouse lock with a pry bar.
-  3.0s to 7.0s  [close-up] Close detail on the seawall permit; the room falls quiet around it.
-  7.0s to 10.0s  [insert shot of the evidence object] hard cut to the reaction as the line lands
+  0.0s to 3.0s  [over-the-shoulder shot] Sam jimmies the boathouse lock with a pry bar. Key object in frame: the seawall permit.
+  3.0s to 7.0s  [close-up] MARGARET speaks as the camera holds tight on their face, with the seawall permit in the foreground.
+  7.0s to 10.0s  [insert shot of the evidence object] Margaret Keller holds the silence after ""On what grounds?"", the seawall permit sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact; maximum 15 words; finish before 8.5 s):
@@ -1033,20 +1033,20 @@ NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
 "23","omni","frame_023.png","scene_023.mp4","10","15","6.0","pending","The storyboard panel is the exact first frame of Shot 1 (frame_023.png). Do not freeze it: Shot 1 begins already in motion from that framing, with the same faces, wardrobe, props, location, light and color grade.
 
-STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] low-angle hero shot: Nora's flashlight beam catches a metal box under the floorboards. Location: Harbor diner, dawn, cold fluorescent light and steam. Key object: a folded page. Characters present: Nora Hale, Claire Boone.
+STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] low-angle hero shot: Nora's flashlight beam catches a metal box under the floorboards. Key object in frame: a folded page. Location: Harbor diner, dawn, cold fluorescent light and steam. Key object: a folded page. Characters present: Nora Hale, Claire Boone.
 
 IDENTITY ANCHORS (all present, fixed cast positions): Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing cream knit sweater under the charcoal coat, hair loose); Claire Boone (Cast Sheet Pos #5: forties compact small-town lawyer, brown blunt bob, warm brown eyes, reading glasses on a cord, wearing forest-green cardigan, cream blouse, dark trousers)
 
 SHOT PLAN:
-SHOT 1 [00s-03s] — 0.0 s to 3.0 s — low-angle hero shot: Nora's flashlight beam catches a metal box under the floorboards.
-HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: Close detail on a folded page; the room falls quiet around it.
-HARD CUT at 7.0 s [07s-10s] — SHOT 3 — tight close-up: hard cut to the reaction as the line lands
+SHOT 1 [00s-03s] — 0.0 s to 3.0 s — low-angle hero shot: Nora's flashlight beam catches a metal box under the floorboards. Key object in frame: a folded page.
+HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: CLAIRE speaks as the camera holds tight on their face, with a folded page in the foreground.
+HARD CUT at 7.0 s [07s-10s] — SHOT 3 — tight close-up: Claire Boone holds the silence after ""Tell me that's a lie. To my face"", a folded page sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
-  0.0s to 3.0s  [low-angle hero shot] Nora's flashlight beam catches a metal box under the floorboards.
-  3.0s to 7.0s  [close-up] Close detail on a folded page; the room falls quiet around it.
-  7.0s to 10.0s  [tight close-up] hard cut to the reaction as the line lands
+  0.0s to 3.0s  [low-angle hero shot] Nora's flashlight beam catches a metal box under the floorboards. Key object in frame: a folded page.
+  3.0s to 7.0s  [close-up] CLAIRE speaks as the camera holds tight on their face, with a folded page in the foreground.
+  7.0s to 10.0s  [tight close-up] Claire Boone holds the silence after ""Tell me that's a lie. To my face"", a folded page sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact; maximum 15 words; finish before 8.5 s):
@@ -1080,20 +1080,20 @@ NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
 "24","omni","frame_024.png","scene_024.mp4","10","11","4.4","pending","The storyboard panel is the exact first frame of Shot 1 (frame_024.png). Do not freeze it: Shot 1 begins already in motion from that framing, with the same faces, wardrobe, props, location, light and color grade.
 
-STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] wide establishing shot: Sam watches Nora read the permits, his face falling. Location: Keller boathouse, night, flashlight and dust. Key object: a diner coffee cup. Characters present: Nora Hale, Sam Calloway.
+STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] wide establishing shot: Sam watches Nora read the permits, his face falling. Key object in frame: a diner coffee cup. Location: Keller boathouse, night, flashlight and dust. Key object: a diner coffee cup. Characters present: Nora Hale, Sam Calloway.
 
 IDENTITY ANCHORS (all present, fixed cast positions): Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing cream knit sweater under the charcoal coat, hair loose); Sam Calloway (Cast Sheet Pos #2: mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin, wearing faded canvas work jacket, dark trousers, worn boots)
 
 SHOT PLAN:
-SHOT 1 [00s-03s] — 0.0 s to 3.0 s — wide establishing shot: Sam watches Nora read the permits, his face falling.
-HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: Close detail on a diner coffee cup; the room falls quiet around it.
-HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: hard cut to the reaction as the line lands
+SHOT 1 [00s-03s] — 0.0 s to 3.0 s — wide establishing shot: Sam watches Nora read the permits, his face falling. Key object in frame: a diner coffee cup.
+HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: SAM speaks as the camera holds tight on their face, with a diner coffee cup in the foreground.
+HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: Sam Calloway holds the silence after ""Don't apologize. Fix it"", a diner coffee cup sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
-  0.0s to 3.0s  [wide establishing shot] Sam watches Nora read the permits, his face falling.
-  3.0s to 7.0s  [close-up] Close detail on a diner coffee cup; the room falls quiet around it.
-  7.0s to 10.0s  [insert shot of the evidence object] hard cut to the reaction as the line lands
+  0.0s to 3.0s  [wide establishing shot] Sam watches Nora read the permits, his face falling. Key object in frame: a diner coffee cup.
+  3.0s to 7.0s  [close-up] SAM speaks as the camera holds tight on their face, with a diner coffee cup in the foreground.
+  7.0s to 10.0s  [insert shot of the evidence object] Sam Calloway holds the silence after ""Don't apologize. Fix it"", a diner coffee cup sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact; maximum 15 words; finish before 8.5 s):
@@ -1127,20 +1127,20 @@ NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
 "25","omni","frame_025.png","scene_025.mp4","10","12","4.8","pending","The storyboard panel is the exact first frame of Shot 1 (frame_025.png). Do not freeze it: Shot 1 begins already in motion from that framing, with the same faces, wardrobe, props, location, light and color grade.
 
-STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] medium shot: Nora holds a permit signed by Margaret, dated before the fire. Location: Hale lighthouse archive room, night, a single desk lamp. Key object: the metal evidence box. Characters present: Nora Hale, Margaret Keller, Adrian Keller.
+STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] medium shot: Nora holds a permit signed by Margaret, dated before the fire. Key object in frame: the metal evidence box. Location: Hale lighthouse archive room, night, a single desk lamp. Key object: the metal evidence box. Characters present: Nora Hale, Margaret Keller, Adrian Keller.
 
 IDENTITY ANCHORS (all present, fixed cast positions): Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing cream knit sweater under the charcoal coat, hair loose); Margaret Keller (Cast Sheet Pos #3: late sixties matriarch, tall and straight-backed, silver chignon, pale blue eyes, porcelain skin, wearing tailored dove-grey suit, pearls, low-heeled shoes); Adrian Keller (Cast Sheet Pos #4: late thirties lean groomed heir, ash-blond hair swept back, cold grey eyes, even features, wearing navy blazer, open-collared white shirt, dark trousers)
 
 SHOT PLAN:
-SHOT 1 [00s-03s] — 0.0 s to 3.0 s — medium shot: Nora holds a permit signed by Margaret, dated before the fire.
-HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: Close detail on the metal evidence box; the room falls quiet around it.
-HARD CUT at 7.0 s [07s-10s] — SHOT 3 — tight close-up: hard cut to the reaction as the line lands
+SHOT 1 [00s-03s] — 0.0 s to 3.0 s — medium shot: Nora holds a permit signed by Margaret, dated before the fire. Key object in frame: the metal evidence box.
+HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: ADRIAN speaks as the camera holds tight on their face, with the metal evidence box in the foreground.
+HARD CUT at 7.0 s [07s-10s] — SHOT 3 — tight close-up: Adrian Keller holds the silence after ""And if I don't?"", the metal evidence box sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
-  0.0s to 3.0s  [medium shot] Nora holds a permit signed by Margaret, dated before the fire.
-  3.0s to 7.0s  [close-up] Close detail on the metal evidence box; the room falls quiet around it.
-  7.0s to 10.0s  [tight close-up] hard cut to the reaction as the line lands
+  0.0s to 3.0s  [medium shot] Nora holds a permit signed by Margaret, dated before the fire. Key object in frame: the metal evidence box.
+  3.0s to 7.0s  [close-up] ADRIAN speaks as the camera holds tight on their face, with the metal evidence box in the foreground.
+  7.0s to 10.0s  [tight close-up] Adrian Keller holds the silence after ""And if I don't?"", the metal evidence box sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact; maximum 15 words; finish before 8.5 s):
@@ -1174,20 +1174,20 @@ NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
 "26","omni","frame_026.png","scene_026.mp4","10","15","6.0","pending","The storyboard panel is the exact first frame of Shot 1 (frame_026.png). Do not freeze it: Shot 1 begins already in motion from that framing, with the same faces, wardrobe, props, location, light and color grade.
 
-STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] tight close-up: Nora and Sam stand close in the archive, the file between them. Location: Harbor diner, dawn, cold fluorescent light and steam. Key object: the seawall permit. Characters present: Nora Hale, Sam Calloway.
+STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] tight close-up: Nora and Sam stand close in the archive, the file between them. Key object in frame: the seawall permit. Location: Harbor diner, dawn, cold fluorescent light and steam. Key object: the seawall permit. Characters present: Nora Hale, Sam Calloway.
 
 IDENTITY ANCHORS (all present, fixed cast positions): Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing cream knit sweater under the charcoal coat, hair loose); Sam Calloway (Cast Sheet Pos #2: mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin, wearing faded canvas work jacket, dark trousers, worn boots)
 
 SHOT PLAN:
-SHOT 1 [00s-03s] — 0.0 s to 3.0 s — tight close-up: Nora and Sam stand close in the archive, the file between them.
-HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: Close detail on the seawall permit; the room falls quiet around it.
-HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: hard cut to the reaction as the line lands
+SHOT 1 [00s-03s] — 0.0 s to 3.0 s — tight close-up: Nora and Sam stand close in the archive, the file between them. Key object in frame: the seawall permit.
+HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: NORA speaks as the camera holds tight on their face, with the seawall permit in the foreground.
+HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: Nora Hale holds the silence after ""Your father logged the harbor for thirty years"", the seawall permit sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
-  0.0s to 3.0s  [tight close-up] Nora and Sam stand close in the archive, the file between them.
-  3.0s to 7.0s  [close-up] Close detail on the seawall permit; the room falls quiet around it.
-  7.0s to 10.0s  [insert shot of the evidence object] hard cut to the reaction as the line lands
+  0.0s to 3.0s  [tight close-up] Nora and Sam stand close in the archive, the file between them. Key object in frame: the seawall permit.
+  3.0s to 7.0s  [close-up] NORA speaks as the camera holds tight on their face, with the seawall permit in the foreground.
+  7.0s to 10.0s  [insert shot of the evidence object] Nora Hale holds the silence after ""Your father logged the harbor for thirty years"", the seawall permit sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact; maximum 15 words; finish before 8.5 s):
@@ -1221,20 +1221,20 @@ NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
 "27","omni","frame_027.png","scene_027.mp4","10","15","6.0","pending","The storyboard panel is the exact first frame of Shot 1 (frame_027.png). Do not freeze it: Shot 1 begins already in motion from that framing, with the same faces, wardrobe, props, location, light and color grade.
 
-STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] over-the-shoulder shot: Adrian waits in a diner booth across from Nora. Location: Keller boathouse, night, flashlight and dust. Key object: a folded page. Characters present: Nora Hale, Sam Calloway, Adrian Keller.
+STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] over-the-shoulder shot: Adrian waits in a diner booth across from Nora. Key object in frame: a folded page. Location: Keller boathouse, night, flashlight and dust. Key object: a folded page. Characters present: Nora Hale, Sam Calloway, Adrian Keller.
 
 IDENTITY ANCHORS (all present, fixed cast positions): Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing cream knit sweater under the charcoal coat, hair loose); Sam Calloway (Cast Sheet Pos #2: mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin, wearing faded canvas work jacket, dark trousers, worn boots); Adrian Keller (Cast Sheet Pos #4: late thirties lean groomed heir, ash-blond hair swept back, cold grey eyes, even features, wearing navy blazer, open-collared white shirt, dark trousers)
 
 SHOT PLAN:
-SHOT 1 [00s-03s] — 0.0 s to 3.0 s — over-the-shoulder shot: Adrian waits in a diner booth across from Nora.
-HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: Close detail on a folded page; the room falls quiet around it.
-HARD CUT at 7.0 s [07s-10s] — SHOT 3 — tight close-up: hard cut to the reaction as the line lands
+SHOT 1 [00s-03s] — 0.0 s to 3.0 s — over-the-shoulder shot: Adrian waits in a diner booth across from Nora. Key object in frame: a folded page.
+HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: NORA speaks as the camera holds tight on their face, with a folded page in the foreground.
+HARD CUT at 7.0 s [07s-10s] — SHOT 3 — tight close-up: Nora Hale holds the silence after ""That's the Keller launch"", a folded page sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
-  0.0s to 3.0s  [over-the-shoulder shot] Adrian waits in a diner booth across from Nora.
-  3.0s to 7.0s  [close-up] Close detail on a folded page; the room falls quiet around it.
-  7.0s to 10.0s  [tight close-up] hard cut to the reaction as the line lands
+  0.0s to 3.0s  [over-the-shoulder shot] Adrian waits in a diner booth across from Nora. Key object in frame: a folded page.
+  3.0s to 7.0s  [close-up] NORA speaks as the camera holds tight on their face, with a folded page in the foreground.
+  7.0s to 10.0s  [tight close-up] Nora Hale holds the silence after ""That's the Keller launch"", a folded page sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact; maximum 15 words; finish before 8.5 s):
@@ -1268,20 +1268,20 @@ NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
 "28","omni","frame_028.png","scene_028.mp4","10","11","4.4","pending","The storyboard panel is the exact first frame of Shot 1 (frame_028.png). Do not freeze it: Shot 1 begins already in motion from that framing, with the same faces, wardrobe, props, location, light and color grade.
 
-STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] low-angle hero shot: Nora slides the file across the table, keeping one page back. Location: Hale lighthouse archive room, night, a single desk lamp. Key object: a diner coffee cup. Characters present: Nora Hale, Sam Calloway.
+STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] low-angle hero shot: Nora slides the file across the table, keeping one page back. Key object in frame: a diner coffee cup. Location: Hale lighthouse archive room, night, a single desk lamp. Key object: a diner coffee cup. Characters present: Nora Hale, Sam Calloway.
 
 IDENTITY ANCHORS (all present, fixed cast positions): Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing cream knit sweater under the charcoal coat, hair loose); Sam Calloway (Cast Sheet Pos #2: mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin, wearing faded canvas work jacket, dark trousers, worn boots)
 
 SHOT PLAN:
-SHOT 1 [00s-03s] — 0.0 s to 3.0 s — low-angle hero shot: Nora slides the file across the table, keeping one page back.
-HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: Close detail on a diner coffee cup; the room falls quiet around it.
-HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: hard cut to the reaction as the line lands
+SHOT 1 [00s-03s] — 0.0 s to 3.0 s — low-angle hero shot: Nora slides the file across the table, keeping one page back. Key object in frame: a diner coffee cup.
+HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: NORA speaks as the camera holds tight on their face, with a diner coffee cup in the foreground.
+HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: Nora Hale holds the silence after ""Nora, are you sure?"", a diner coffee cup sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
-  0.0s to 3.0s  [low-angle hero shot] Nora slides the file across the table, keeping one page back.
-  3.0s to 7.0s  [close-up] Close detail on a diner coffee cup; the room falls quiet around it.
-  7.0s to 10.0s  [insert shot of the evidence object] hard cut to the reaction as the line lands
+  0.0s to 3.0s  [low-angle hero shot] Nora slides the file across the table, keeping one page back. Key object in frame: a diner coffee cup.
+  3.0s to 7.0s  [close-up] NORA speaks as the camera holds tight on their face, with a diner coffee cup in the foreground.
+  7.0s to 10.0s  [insert shot of the evidence object] Nora Hale holds the silence after ""Nora, are you sure?"", a diner coffee cup sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact; maximum 15 words; finish before 8.5 s):
@@ -1315,20 +1315,20 @@ NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
 "29","omni","frame_029.png","scene_029.mp4","10","13","5.2","pending","The storyboard panel is the exact first frame of Shot 1 (frame_029.png). Do not freeze it: Shot 1 begins already in motion from that framing, with the same faces, wardrobe, props, location, light and color grade.
 
-STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] wide establishing shot: Adrian leans in, his hand covering hers. Location: Harbor diner, dawn, cold fluorescent light and steam. Key object: the metal evidence box. Characters present: Nora Hale, Adrian Keller.
+STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] wide establishing shot: Adrian leans in, his hand covering hers. Key object in frame: the metal evidence box. Location: Harbor diner, dawn, cold fluorescent light and steam. Key object: the metal evidence box. Characters present: Nora Hale, Adrian Keller.
 
 IDENTITY ANCHORS (all present, fixed cast positions): Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing cream knit sweater under the charcoal coat, hair loose); Adrian Keller (Cast Sheet Pos #4: late thirties lean groomed heir, ash-blond hair swept back, cold grey eyes, even features, wearing navy blazer, open-collared white shirt, dark trousers)
 
 SHOT PLAN:
-SHOT 1 [00s-03s] — 0.0 s to 3.0 s — wide establishing shot: Adrian leans in, his hand covering hers.
-HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: Close detail on the metal evidence box; the room falls quiet around it.
-HARD CUT at 7.0 s [07s-10s] — SHOT 3 — tight close-up: hard cut to the reaction as the line lands
+SHOT 1 [00s-03s] — 0.0 s to 3.0 s — wide establishing shot: Adrian leans in, his hand covering hers. Key object in frame: the metal evidence box.
+HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: ADRIAN speaks as the camera holds tight on their face, with the metal evidence box in the foreground.
+HARD CUT at 7.0 s [07s-10s] — SHOT 3 — tight close-up: Adrian Keller holds the silence after ""It beats you. You know it"", the metal evidence box sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
-  0.0s to 3.0s  [wide establishing shot] Adrian leans in, his hand covering hers.
-  3.0s to 7.0s  [close-up] Close detail on the metal evidence box; the room falls quiet around it.
-  7.0s to 10.0s  [tight close-up] hard cut to the reaction as the line lands
+  0.0s to 3.0s  [wide establishing shot] Adrian leans in, his hand covering hers. Key object in frame: the metal evidence box.
+  3.0s to 7.0s  [close-up] ADRIAN speaks as the camera holds tight on their face, with the metal evidence box in the foreground.
+  7.0s to 10.0s  [tight close-up] Adrian Keller holds the silence after ""It beats you. You know it"", the metal evidence box sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact; maximum 15 words; finish before 8.5 s):
@@ -1362,20 +1362,20 @@ NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
 "30","omni","frame_030.png","scene_030.mp4","10","14","5.6","pending","The storyboard panel is the exact first frame of Shot 1 (frame_030.png). Do not freeze it: Shot 1 begins already in motion from that framing, with the same faces, wardrobe, props, location, light and color grade.
 
-STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] medium shot: Nora stands alone in the lamp room, the file in her hands. Location: Keller boathouse, night, flashlight and dust. Key object: the seawall permit. Characters present: Nora Hale, Margaret Keller.
+STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] medium shot: Nora stands alone in the lamp room, the file in her hands. Key object in frame: the seawall permit. Location: Keller boathouse, night, flashlight and dust. Key object: the seawall permit. Characters present: Nora Hale, Margaret Keller.
 
 IDENTITY ANCHORS (all present, fixed cast positions): Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing cream knit sweater under the charcoal coat, hair loose); Margaret Keller (Cast Sheet Pos #3: late sixties matriarch, tall and straight-backed, silver chignon, pale blue eyes, porcelain skin, wearing tailored dove-grey suit, pearls, low-heeled shoes)
 
 SHOT PLAN:
-SHOT 1 [00s-03s] — 0.0 s to 3.0 s — medium shot: Nora stands alone in the lamp room, the file in her hands.
-HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: Close detail on the seawall permit; the room falls quiet around it.
-HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: hard cut to the reaction as the line lands
+SHOT 1 [00s-03s] — 0.0 s to 3.0 s — medium shot: Nora stands alone in the lamp room, the file in her hands. Key object in frame: the seawall permit.
+HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: MARGARET speaks as the camera holds tight on their face, with the seawall permit in the foreground.
+HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: Margaret Keller holds the silence after ""The hearing. Tomorrow. Public. All of it"", the seawall permit sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
-  0.0s to 3.0s  [medium shot] Nora stands alone in the lamp room, the file in her hands.
-  3.0s to 7.0s  [close-up] Close detail on the seawall permit; the room falls quiet around it.
-  7.0s to 10.0s  [insert shot of the evidence object] hard cut to the reaction as the line lands
+  0.0s to 3.0s  [medium shot] Nora stands alone in the lamp room, the file in her hands. Key object in frame: the seawall permit.
+  3.0s to 7.0s  [close-up] MARGARET speaks as the camera holds tight on their face, with the seawall permit in the foreground.
+  7.0s to 10.0s  [insert shot of the evidence object] Margaret Keller holds the silence after ""The hearing. Tomorrow. Public. All of it"", the seawall permit sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact; maximum 15 words; finish before 8.5 s):
@@ -1409,20 +1409,20 @@ NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
 "31","omni","frame_031.png","scene_031.mp4","10","14","5.6","pending","The storyboard panel is the exact first frame of Shot 1 (frame_031.png). Do not freeze it: Shot 1 begins already in motion from that framing, with the same faces, wardrobe, props, location, light and color grade.
 
-STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] over-the-shoulder shot: Rain hammers the town hall windows as Nora faces the panel. Location: Town hall hearing room, grey morning, rain streaking the windows. Key object: the emergency petition. Characters present: Nora Hale, Margaret Keller.
+STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] over-the-shoulder shot: Rain hammers the town hall windows as Nora faces the panel. Key object in frame: the emergency petition. Location: Town hall hearing room, grey morning, rain streaking the windows. Key object: the emergency petition. Characters present: Nora Hale, Margaret Keller.
 
 IDENTITY ANCHORS (all present, fixed cast positions): Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing storm-soaked shirt and trousers, no coat, hair plastered down); Margaret Keller (Cast Sheet Pos #3: late sixties matriarch, tall and straight-backed, silver chignon, pale blue eyes, porcelain skin, wearing tailored dove-grey suit, pearls, low-heeled shoes)
 
 SHOT PLAN:
-SHOT 1 [00s-03s] — 0.0 s to 3.0 s — over-the-shoulder shot: Rain hammers the town hall windows as Nora faces the panel.
-HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: Close detail on the emergency petition; the room falls quiet around it.
-HARD CUT at 7.0 s [07s-10s] — SHOT 3 — tight close-up: hard cut to the reaction as the line lands
+SHOT 1 [00s-03s] — 0.0 s to 3.0 s — over-the-shoulder shot: Rain hammers the town hall windows as Nora faces the panel. Key object in frame: the emergency petition.
+HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: NORA speaks as the camera holds tight on their face, with the emergency petition in the foreground.
+HARD CUT at 7.0 s [07s-10s] — SHOT 3 — tight close-up: Nora Hale holds the silence after ""You lost it ten years ago"", the emergency petition sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
-  0.0s to 3.0s  [over-the-shoulder shot] Rain hammers the town hall windows as Nora faces the panel.
-  3.0s to 7.0s  [close-up] Close detail on the emergency petition; the room falls quiet around it.
-  7.0s to 10.0s  [tight close-up] hard cut to the reaction as the line lands
+  0.0s to 3.0s  [over-the-shoulder shot] Rain hammers the town hall windows as Nora faces the panel. Key object in frame: the emergency petition.
+  3.0s to 7.0s  [close-up] NORA speaks as the camera holds tight on their face, with the emergency petition in the foreground.
+  7.0s to 10.0s  [tight close-up] Nora Hale holds the silence after ""You lost it ten years ago"", the emergency petition sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact; maximum 15 words; finish before 8.5 s):
@@ -1456,20 +1456,20 @@ NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
 "32","omni","frame_032.png","scene_032.mp4","10","14","5.6","pending","The storyboard panel is the exact first frame of Shot 1 (frame_032.png). Do not freeze it: Shot 1 begins already in motion from that framing, with the same faces, wardrobe, props, location, light and color grade.
 
-STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] low-angle hero shot: The hearing room is packed; Claire leans close to Nora. Location: Town hall hearing room, grey morning, rain streaking the windows. Key object: the emergency petition. Characters present: Nora Hale, Claire Boone.
+STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] low-angle hero shot: The hearing room is packed; Claire leans close to Nora. Key object in frame: the emergency petition. Location: Town hall hearing room, grey morning, rain streaking the windows. Key object: the emergency petition. Characters present: Nora Hale, Claire Boone.
 
 IDENTITY ANCHORS (all present, fixed cast positions): Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing storm-soaked shirt and trousers, no coat, hair plastered down); Claire Boone (Cast Sheet Pos #5: forties compact small-town lawyer, brown blunt bob, warm brown eyes, reading glasses on a cord, wearing forest-green cardigan, cream blouse, dark trousers)
 
 SHOT PLAN:
-SHOT 1 [00s-03s] — 0.0 s to 3.0 s — low-angle hero shot: The hearing room is packed; Claire leans close to Nora.
-HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: Close detail on the emergency petition; the room falls quiet around it.
-HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: hard cut to the reaction as the line lands
+SHOT 1 [00s-03s] — 0.0 s to 3.0 s — low-angle hero shot: The hearing room is packed; Claire leans close to Nora. Key object in frame: the emergency petition.
+HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: CLAIRE speaks as the camera holds tight on their face, with the emergency petition in the foreground.
+HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: Claire Boone holds the silence after ""Good. This time, I want witnesses"", the emergency petition sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
-  0.0s to 3.0s  [low-angle hero shot] The hearing room is packed; Claire leans close to Nora.
-  3.0s to 7.0s  [close-up] Close detail on the emergency petition; the room falls quiet around it.
-  7.0s to 10.0s  [insert shot of the evidence object] hard cut to the reaction as the line lands
+  0.0s to 3.0s  [low-angle hero shot] The hearing room is packed; Claire leans close to Nora. Key object in frame: the emergency petition.
+  3.0s to 7.0s  [close-up] CLAIRE speaks as the camera holds tight on their face, with the emergency petition in the foreground.
+  7.0s to 10.0s  [insert shot of the evidence object] Claire Boone holds the silence after ""Good. This time, I want witnesses"", the emergency petition sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact; maximum 15 words; finish before 8.5 s):
@@ -1503,20 +1503,20 @@ NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
 "33","omni","frame_033.png","scene_033.mp4","10","15","6.0","pending","The storyboard panel is the exact first frame of Shot 1 (frame_033.png). Do not freeze it: Shot 1 begins already in motion from that framing, with the same faces, wardrobe, props, location, light and color grade.
 
-STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] wide establishing shot: Sam catches Nora in the hearing room before she takes her seat. Location: Town hall hearing room, grey morning, rain streaking the windows. Key object: a statement form. Characters present: Nora Hale, Sam Calloway.
+STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] wide establishing shot: Sam catches Nora in the hearing room before she takes her seat. Key object in frame: a statement form. Location: Town hall hearing room, grey morning, rain streaking the windows. Key object: a statement form. Characters present: Nora Hale, Sam Calloway.
 
 IDENTITY ANCHORS (all present, fixed cast positions): Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing storm-soaked shirt and trousers, no coat, hair plastered down); Sam Calloway (Cast Sheet Pos #2: mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin, wearing faded canvas work jacket, dark trousers, worn boots)
 
 SHOT PLAN:
-SHOT 1 [00s-03s] — 0.0 s to 3.0 s — wide establishing shot: Sam catches Nora in the hearing room before she takes her seat.
-HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: Close detail on a statement form; the room falls quiet around it.
-HARD CUT at 7.0 s [07s-10s] — SHOT 3 — tight close-up: hard cut to the reaction as the line lands
+SHOT 1 [00s-03s] — 0.0 s to 3.0 s — wide establishing shot: Sam catches Nora in the hearing room before she takes her seat. Key object in frame: a statement form.
+HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: SAM speaks as the camera holds tight on their face, with a statement form in the foreground.
+HARD CUT at 7.0 s [07s-10s] — SHOT 3 — tight close-up: Sam Calloway holds the silence after ""Tell it now. Loud enough for everyone"", a statement form sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
-  0.0s to 3.0s  [wide establishing shot] Sam catches Nora in the hearing room before she takes her seat.
-  3.0s to 7.0s  [close-up] Close detail on a statement form; the room falls quiet around it.
-  7.0s to 10.0s  [tight close-up] hard cut to the reaction as the line lands
+  0.0s to 3.0s  [wide establishing shot] Sam catches Nora in the hearing room before she takes her seat. Key object in frame: a statement form.
+  3.0s to 7.0s  [close-up] SAM speaks as the camera holds tight on their face, with a statement form in the foreground.
+  7.0s to 10.0s  [tight close-up] Sam Calloway holds the silence after ""Tell it now. Loud enough for everyone"", a statement form sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact; maximum 15 words; finish before 8.5 s):
@@ -1550,20 +1550,20 @@ NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
 "34","omni","frame_034.png","scene_034.mp4","10","14","5.6","pending","The storyboard panel is the exact first frame of Shot 1 (frame_034.png). Do not freeze it: Shot 1 begins already in motion from that framing, with the same faces, wardrobe, props, location, light and color grade.
 
-STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] medium shot: Sam stands before the panel; Margaret watches from the front row. Location: Town hall hearing room, grey morning, rain streaking the windows. Key object: a statement form. Characters present: Sam Calloway, Margaret Keller.
+STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] medium shot: Sam stands before the panel; Margaret watches from the front row. Key object in frame: a statement form. Location: Town hall hearing room, grey morning, rain streaking the windows. Key object: a statement form. Characters present: Sam Calloway, Margaret Keller.
 
 IDENTITY ANCHORS (all present, fixed cast positions): Sam Calloway (Cast Sheet Pos #2: mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin, wearing faded canvas work jacket, dark trousers, worn boots); Margaret Keller (Cast Sheet Pos #3: late sixties matriarch, tall and straight-backed, silver chignon, pale blue eyes, porcelain skin, wearing tailored dove-grey suit, pearls, low-heeled shoes)
 
 SHOT PLAN:
-SHOT 1 [00s-03s] — 0.0 s to 3.0 s — medium shot: Sam stands before the panel; Margaret watches from the front row.
-HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: Close detail on a statement form; the room falls quiet around it.
-HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: hard cut to the reaction as the line lands
+SHOT 1 [00s-03s] — 0.0 s to 3.0 s — medium shot: Sam stands before the panel; Margaret watches from the front row. Key object in frame: a statement form.
+HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: SAM speaks as the camera holds tight on their face, with a statement form in the foreground.
+HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: Sam Calloway holds the silence after ""He's a firefighter with a grudge"", a statement form sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
-  0.0s to 3.0s  [medium shot] Sam stands before the panel; Margaret watches from the front row.
-  3.0s to 7.0s  [close-up] Close detail on a statement form; the room falls quiet around it.
-  7.0s to 10.0s  [insert shot of the evidence object] hard cut to the reaction as the line lands
+  0.0s to 3.0s  [medium shot] Sam stands before the panel; Margaret watches from the front row. Key object in frame: a statement form.
+  3.0s to 7.0s  [close-up] SAM speaks as the camera holds tight on their face, with a statement form in the foreground.
+  7.0s to 10.0s  [insert shot of the evidence object] Sam Calloway holds the silence after ""He's a firefighter with a grudge"", a statement form sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact; maximum 15 words; finish before 8.5 s):
@@ -1597,20 +1597,20 @@ NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
 "35","omni","frame_035.png","scene_035.mp4","10","11","4.4","pending","The storyboard panel is the exact first frame of Shot 1 (frame_035.png). Do not freeze it: Shot 1 begins already in motion from that framing, with the same faces, wardrobe, props, location, light and color grade.
 
-STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] tight close-up: Nora faces Adrian across the hearing room. Location: Town hall hearing room, grey morning, rain streaking the windows. Key object: the petition ruling. Characters present: Nora Hale, Adrian Keller.
+STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] tight close-up: Nora faces Adrian across the hearing room. Key object in frame: the petition ruling. Location: Town hall hearing room, grey morning, rain streaking the windows. Key object: the petition ruling. Characters present: Nora Hale, Adrian Keller.
 
 IDENTITY ANCHORS (all present, fixed cast positions): Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing storm-soaked shirt and trousers, no coat, hair plastered down); Adrian Keller (Cast Sheet Pos #4: late thirties lean groomed heir, ash-blond hair swept back, cold grey eyes, even features, wearing navy blazer, open-collared white shirt, dark trousers)
 
 SHOT PLAN:
-SHOT 1 [00s-03s] — 0.0 s to 3.0 s — tight close-up: Nora faces Adrian across the hearing room.
-HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: Close detail on the petition ruling; the room falls quiet around it.
-HARD CUT at 7.0 s [07s-10s] — SHOT 3 — tight close-up: hard cut to the reaction as the line lands
+SHOT 1 [00s-03s] — 0.0 s to 3.0 s — tight close-up: Nora faces Adrian across the hearing room. Key object in frame: the petition ruling.
+HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: NORA speaks as the camera holds tight on their face, with the petition ruling in the foreground.
+HARD CUT at 7.0 s [07s-10s] — SHOT 3 — tight close-up: Adrian Keller holds the silence after ""I document"", the petition ruling sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
-  0.0s to 3.0s  [tight close-up] Nora faces Adrian across the hearing room.
-  3.0s to 7.0s  [close-up] Close detail on the petition ruling; the room falls quiet around it.
-  7.0s to 10.0s  [tight close-up] hard cut to the reaction as the line lands
+  0.0s to 3.0s  [tight close-up] Nora faces Adrian across the hearing room. Key object in frame: the petition ruling.
+  3.0s to 7.0s  [close-up] NORA speaks as the camera holds tight on their face, with the petition ruling in the foreground.
+  7.0s to 10.0s  [tight close-up] Adrian Keller holds the silence after ""I document"", the petition ruling sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact; maximum 15 words; finish before 8.5 s):
@@ -1645,20 +1645,20 @@ NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
 "36","omni","frame_036.png","scene_036.mp4","10","14","5.6","pending","The storyboard panel is the exact first frame of Shot 1 (frame_036.png). Do not freeze it: Shot 1 begins already in motion from that framing, with the same faces, wardrobe, props, location, light and color grade.
 
-STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] over-the-shoulder shot: The clerk stamps the petition; the room goes silent. Location: Town hall hearing room, grey morning, rain streaking the windows. Key object: the petition ruling. Characters present: Nora Hale, Margaret Keller.
+STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] over-the-shoulder shot: The clerk stamps the petition; the room goes silent. Key object in frame: the petition ruling. Location: Town hall hearing room, grey morning, rain streaking the windows. Key object: the petition ruling. Characters present: Nora Hale, Margaret Keller.
 
 IDENTITY ANCHORS (all present, fixed cast positions): Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing storm-soaked shirt and trousers, no coat, hair plastered down); Margaret Keller (Cast Sheet Pos #3: late sixties matriarch, tall and straight-backed, silver chignon, pale blue eyes, porcelain skin, wearing tailored dove-grey suit, pearls, low-heeled shoes)
 
 SHOT PLAN:
-SHOT 1 [00s-03s] — 0.0 s to 3.0 s — over-the-shoulder shot: The clerk stamps the petition; the room goes silent.
-HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: Close detail on the petition ruling; the room falls quiet around it.
-HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: hard cut to the reaction as the line lands
+SHOT 1 [00s-03s] — 0.0 s to 3.0 s — over-the-shoulder shot: The clerk stamps the petition; the room goes silent. Key object in frame: the petition ruling.
+HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: MARGARET speaks as the camera holds tight on their face, with the petition ruling in the foreground.
+HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: Margaret Keller holds the silence after ""On mental incompetence? That's a lie"", the petition ruling sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
-  0.0s to 3.0s  [over-the-shoulder shot] The clerk stamps the petition; the room goes silent.
-  3.0s to 7.0s  [close-up] Close detail on the petition ruling; the room falls quiet around it.
-  7.0s to 10.0s  [insert shot of the evidence object] hard cut to the reaction as the line lands
+  0.0s to 3.0s  [over-the-shoulder shot] The clerk stamps the petition; the room goes silent. Key object in frame: the petition ruling.
+  3.0s to 7.0s  [close-up] MARGARET speaks as the camera holds tight on their face, with the petition ruling in the foreground.
+  7.0s to 10.0s  [insert shot of the evidence object] Margaret Keller holds the silence after ""On mental incompetence? That's a lie"", the petition ruling sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact; maximum 15 words; finish before 8.5 s):
@@ -1698,14 +1698,14 @@ IDENTITY ANCHORS (all present, fixed cast positions): Nora Hale (Cast Sheet Pos 
 
 SHOT PLAN:
 SHOT 1 [00s-03s] — 0.0 s to 3.0 s — low-angle hero shot: At the lighthouse door, Margaret holds out the eviction notice.
-HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: Close detail on the eviction notice; the room falls quiet around it.
-HARD CUT at 7.0 s [07s-10s] — SHOT 3 — tight close-up: hard cut to the reaction as the line lands
+HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: MARGARET speaks as the camera holds tight on their face, with the eviction notice in the foreground.
+HARD CUT at 7.0 s [07s-10s] — SHOT 3 — tight close-up: Margaret Keller holds the silence after ""She bought the county. Not me"", the eviction notice sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
   0.0s to 3.0s  [low-angle hero shot] At the lighthouse door, Margaret holds out the eviction notice.
-  3.0s to 7.0s  [close-up] Close detail on the eviction notice; the room falls quiet around it.
-  7.0s to 10.0s  [tight close-up] hard cut to the reaction as the line lands
+  3.0s to 7.0s  [close-up] MARGARET speaks as the camera holds tight on their face, with the eviction notice in the foreground.
+  7.0s to 10.0s  [tight close-up] Margaret Keller holds the silence after ""She bought the county. Not me"", the eviction notice sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact; maximum 15 words; finish before 8.5 s):
@@ -1745,14 +1745,14 @@ IDENTITY ANCHORS (all present, fixed cast positions): Nora Hale (Cast Sheet Pos 
 
 SHOT PLAN:
 SHOT 1 [00s-03s] — 0.0 s to 3.0 s — wide establishing shot: Adrian waits in the lighthouse kitchen with the sale papers.
-HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: Close detail on the sale papers; the room falls quiet around it.
-HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: hard cut to the reaction as the line lands
+HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: ADRIAN speaks as the camera holds tight on their face, with the sale papers in the foreground.
+HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: Adrian Keller holds the silence after ""And if I don't?"", the sale papers sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
   0.0s to 3.0s  [wide establishing shot] Adrian waits in the lighthouse kitchen with the sale papers.
-  3.0s to 7.0s  [close-up] Close detail on the sale papers; the room falls quiet around it.
-  7.0s to 10.0s  [insert shot of the evidence object] hard cut to the reaction as the line lands
+  3.0s to 7.0s  [close-up] ADRIAN speaks as the camera holds tight on their face, with the sale papers in the foreground.
+  7.0s to 10.0s  [insert shot of the evidence object] Adrian Keller holds the silence after ""And if I don't?"", the sale papers sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact; maximum 15 words; finish before 8.5 s):
@@ -1786,20 +1786,20 @@ NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
 "39","omni","frame_039.png","scene_039.mp4","10","10","4.0","pending","The storyboard panel is the exact first frame of Shot 1 (frame_039.png). Do not freeze it: Shot 1 begins already in motion from that framing, with the same faces, wardrobe, props, location, light and color grade.
 
-STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] medium shot: Nora stands alone in the dark lighthouse, the cold lens above her. Location: Hale lighthouse, storm night, lightning through the glass. Key object: the cold lamp. Characters present: Nora Hale.
+STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] medium shot: Nora stands alone in the dark lighthouse, the cold lens above her. Key object in frame: the cold lamp. Location: Hale lighthouse, storm night, lightning through the glass. Key object: the cold lamp. Characters present: Nora Hale.
 
 IDENTITY ANCHORS (all present, fixed cast positions): Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing storm-soaked shirt and trousers, no coat, hair plastered down)
 
 SHOT PLAN:
-SHOT 1 [00s-03s] — 0.0 s to 3.0 s — medium shot: Nora stands alone in the dark lighthouse, the cold lens above her.
-HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: Close detail on the cold lamp; the room falls quiet around it.
-HARD CUT at 7.0 s [07s-10s] — SHOT 3 — tight close-up: hard cut to the reaction as the line lands
+SHOT 1 [00s-03s] — 0.0 s to 3.0 s — medium shot: Nora stands alone in the dark lighthouse, the cold lens above her. Key object in frame: the cold lamp.
+HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: NORA speaks as the camera holds tight on their face, with the cold lamp in the foreground.
+HARD CUT at 7.0 s [07s-10s] — SHOT 3 — tight close-up: The silence after ""He left me a key. There has to be something"" hangs, the cold lamp sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
-  0.0s to 3.0s  [medium shot] Nora stands alone in the dark lighthouse, the cold lens above her.
-  3.0s to 7.0s  [close-up] Close detail on the cold lamp; the room falls quiet around it.
-  7.0s to 10.0s  [tight close-up] hard cut to the reaction as the line lands
+  0.0s to 3.0s  [medium shot] Nora stands alone in the dark lighthouse, the cold lens above her. Key object in frame: the cold lamp.
+  3.0s to 7.0s  [close-up] NORA speaks as the camera holds tight on their face, with the cold lamp in the foreground.
+  7.0s to 10.0s  [tight close-up] The silence after ""He left me a key. There has to be something"" hangs, the cold lamp sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact; maximum 15 words; finish before 8.5 s):
@@ -1832,20 +1832,20 @@ NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
 "40","omni","frame_040.png","scene_040.mp4","10","12","4.8","pending","The storyboard panel is the exact first frame of Shot 1 (frame_040.png). Do not freeze it: Shot 1 begins already in motion from that framing, with the same faces, wardrobe, props, location, light and color grade.
 
-STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] tight close-up: Nora finds an old harbor logbook behind the lens housing. Location: Hale lighthouse, storm night, lightning through the glass. Key object: the harbor logbook. Characters present: Nora Hale.
+STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] tight close-up: Nora finds an old harbor logbook behind the lens housing. Key object in frame: the harbor logbook. Location: Hale lighthouse, storm night, lightning through the glass. Key object: the harbor logbook. Characters present: Nora Hale.
 
 IDENTITY ANCHORS (all present, fixed cast positions): Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing storm-soaked shirt and trousers, no coat, hair plastered down)
 
 SHOT PLAN:
-SHOT 1 [00s-03s] — 0.0 s to 3.0 s — tight close-up: Nora finds an old harbor logbook behind the lens housing.
-HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: Close detail on the harbor logbook; the room falls quiet around it.
-HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: hard cut to the reaction as the line lands
+SHOT 1 [00s-03s] — 0.0 s to 3.0 s — tight close-up: Nora finds an old harbor logbook behind the lens housing. Key object in frame: the harbor logbook.
+HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: NORA speaks as the camera holds tight on their face, with the harbor logbook in the foreground.
+HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: The silence after ""Dad, what did you see?"" hangs, the harbor logbook sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
-  0.0s to 3.0s  [tight close-up] Nora finds an old harbor logbook behind the lens housing.
-  3.0s to 7.0s  [close-up] Close detail on the harbor logbook; the room falls quiet around it.
-  7.0s to 10.0s  [insert shot of the evidence object] hard cut to the reaction as the line lands
+  0.0s to 3.0s  [tight close-up] Nora finds an old harbor logbook behind the lens housing. Key object in frame: the harbor logbook.
+  3.0s to 7.0s  [close-up] NORA speaks as the camera holds tight on their face, with the harbor logbook in the foreground.
+  7.0s to 10.0s  [insert shot of the evidence object] The silence after ""Dad, what did you see?"" hangs, the harbor logbook sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact; maximum 15 words; finish before 8.5 s):
@@ -1879,20 +1879,20 @@ NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
 "41","omni","frame_041.png","scene_041.mp4","10","14","5.6","pending","The storyboard panel is the exact first frame of Shot 1 (frame_041.png). Do not freeze it: Shot 1 begins already in motion from that framing, with the same faces, wardrobe, props, location, light and color grade.
 
-STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] low-angle hero shot: Nora opens the logbook on the lighthouse table, pages brittle. Location: Hale lighthouse archive room, dawn, cold blue light. Key object: the harbor log. Characters present: Nora Hale, Sam Calloway.
+STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] low-angle hero shot: Nora opens the logbook on the lighthouse table, pages brittle. Key object in frame: the harbor log. Location: Hale lighthouse archive room, dawn, cold blue light. Key object: the harbor log. Characters present: Nora Hale, Sam Calloway.
 
 IDENTITY ANCHORS (all present, fixed cast positions): Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing dark blazer over a black shirt, hair tied back); Sam Calloway (Cast Sheet Pos #2: mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin, wearing faded canvas work jacket, dark trousers, worn boots)
 
 SHOT PLAN:
-SHOT 1 [00s-03s] — 0.0 s to 3.0 s — low-angle hero shot: Nora opens the logbook on the lighthouse table, pages brittle.
-HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: Close detail on the harbor log; the room falls quiet around it.
-HARD CUT at 7.0 s [07s-10s] — SHOT 3 — tight close-up: hard cut to the reaction as the line lands
+SHOT 1 [00s-03s] — 0.0 s to 3.0 s — low-angle hero shot: Nora opens the logbook on the lighthouse table, pages brittle. Key object in frame: the harbor log.
+HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: NORA speaks as the camera holds tight on their face, with the harbor log in the foreground.
+HARD CUT at 7.0 s [07s-10s] — SHOT 3 — tight close-up: Nora Hale holds the silence after ""Your father never missed a night"", the harbor log sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
-  0.0s to 3.0s  [low-angle hero shot] Nora opens the logbook on the lighthouse table, pages brittle.
-  3.0s to 7.0s  [close-up] Close detail on the harbor log; the room falls quiet around it.
-  7.0s to 10.0s  [tight close-up] hard cut to the reaction as the line lands
+  0.0s to 3.0s  [low-angle hero shot] Nora opens the logbook on the lighthouse table, pages brittle. Key object in frame: the harbor log.
+  3.0s to 7.0s  [close-up] NORA speaks as the camera holds tight on their face, with the harbor log in the foreground.
+  7.0s to 10.0s  [tight close-up] Nora Hale holds the silence after ""Your father never missed a night"", the harbor log sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact; maximum 15 words; finish before 8.5 s):
@@ -1926,20 +1926,20 @@ NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
 "42","omni","frame_042.png","scene_042.mp4","10","13","5.2","pending","The storyboard panel is the exact first frame of Shot 1 (frame_042.png). Do not freeze it: Shot 1 begins already in motion from that framing, with the same faces, wardrobe, props, location, light and color grade.
 
-STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] wide establishing shot: Nora and Sam compare timestamps under a desk lamp. Location: Harbor pier, morning, flat silver water. Key object: a torn page. Characters present: Nora Hale, Sam Calloway.
+STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] wide establishing shot: Nora and Sam compare timestamps under a desk lamp. Key object in frame: a torn page. Location: Harbor pier, morning, flat silver water. Key object: a torn page. Characters present: Nora Hale, Sam Calloway.
 
 IDENTITY ANCHORS (all present, fixed cast positions): Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing dark blazer over a black shirt, hair tied back); Sam Calloway (Cast Sheet Pos #2: mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin, wearing faded canvas work jacket, dark trousers, worn boots)
 
 SHOT PLAN:
-SHOT 1 [00s-03s] — 0.0 s to 3.0 s — wide establishing shot: Nora and Sam compare timestamps under a desk lamp.
-HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: Close detail on a torn page; the room falls quiet around it.
-HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: hard cut to the reaction as the line lands
+SHOT 1 [00s-03s] — 0.0 s to 3.0 s — wide establishing shot: Nora and Sam compare timestamps under a desk lamp. Key object in frame: a torn page.
+HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: SAM speaks as the camera holds tight on their face, with a torn page in the foreground.
+HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: Sam Calloway holds the silence after ""No. Folded. He hid it behind the lens"", a torn page sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
-  0.0s to 3.0s  [wide establishing shot] Nora and Sam compare timestamps under a desk lamp.
-  3.0s to 7.0s  [close-up] Close detail on a torn page; the room falls quiet around it.
-  7.0s to 10.0s  [insert shot of the evidence object] hard cut to the reaction as the line lands
+  0.0s to 3.0s  [wide establishing shot] Nora and Sam compare timestamps under a desk lamp. Key object in frame: a torn page.
+  3.0s to 7.0s  [close-up] SAM speaks as the camera holds tight on their face, with a torn page in the foreground.
+  7.0s to 10.0s  [insert shot of the evidence object] Sam Calloway holds the silence after ""No. Folded. He hid it behind the lens"", a torn page sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact; maximum 15 words; finish before 8.5 s):
@@ -1973,20 +1973,20 @@ NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
 "43","omni","frame_043.png","scene_043.mp4","10","13","5.2","pending","The storyboard panel is the exact first frame of Shot 1 (frame_043.png). Do not freeze it: Shot 1 begins already in motion from that framing, with the same faces, wardrobe, props, location, light and color grade.
 
-STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] medium shot: Nora traces a line in the log with her finger. Location: Town hall steps, dusk, wet stone. Key object: a timestamp. Characters present: Nora Hale, Sam Calloway.
+STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] medium shot: Nora traces a line in the log with her finger. Key object in frame: a timestamp. Location: Town hall steps, dusk, wet stone. Key object: a timestamp. Characters present: Nora Hale, Sam Calloway.
 
 IDENTITY ANCHORS (all present, fixed cast positions): Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing dark blazer over a black shirt, hair tied back); Sam Calloway (Cast Sheet Pos #2: mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin, wearing faded canvas work jacket, dark trousers, worn boots)
 
 SHOT PLAN:
-SHOT 1 [00s-03s] — 0.0 s to 3.0 s — medium shot: Nora traces a line in the log with her finger.
-HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: Close detail on a timestamp; the room falls quiet around it.
-HARD CUT at 7.0 s [07s-10s] — SHOT 3 — tight close-up: hard cut to the reaction as the line lands
+SHOT 1 [00s-03s] — 0.0 s to 3.0 s — medium shot: Nora traces a line in the log with her finger. Key object in frame: a timestamp.
+HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: NORA speaks as the camera holds tight on their face, with a timestamp in the foreground.
+HARD CUT at 7.0 s [07s-10s] — SHOT 3 — tight close-up: Nora Hale holds the silence after ""Who's the second?"", a timestamp sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
-  0.0s to 3.0s  [medium shot] Nora traces a line in the log with her finger.
-  3.0s to 7.0s  [close-up] Close detail on a timestamp; the room falls quiet around it.
-  7.0s to 10.0s  [tight close-up] hard cut to the reaction as the line lands
+  0.0s to 3.0s  [medium shot] Nora traces a line in the log with her finger. Key object in frame: a timestamp.
+  3.0s to 7.0s  [close-up] NORA speaks as the camera holds tight on their face, with a timestamp in the foreground.
+  7.0s to 10.0s  [tight close-up] Nora Hale holds the silence after ""Who's the second?"", a timestamp sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact; maximum 15 words; finish before 8.5 s):
@@ -2020,20 +2020,20 @@ NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
 "44","omni","frame_044.png","scene_044.mp4","10","14","5.6","pending","The storyboard panel is the exact first frame of Shot 1 (frame_044.png). Do not freeze it: Shot 1 begins already in motion from that framing, with the same faces, wardrobe, props, location, light and color grade.
 
-STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] tight close-up: Sam reads over her shoulder, close enough to touch. Location: Hale lighthouse archive room, dawn, cold blue light. Key object: the town hall steps. Characters present: Nora Hale, Sam Calloway.
+STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] tight close-up: Sam reads over her shoulder, close enough to touch. Key object in frame: the town hall steps. Location: Hale lighthouse archive room, dawn, cold blue light. Key object: the town hall steps. Characters present: Nora Hale, Sam Calloway.
 
 IDENTITY ANCHORS (all present, fixed cast positions): Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing dark blazer over a black shirt, hair tied back); Sam Calloway (Cast Sheet Pos #2: mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin, wearing faded canvas work jacket, dark trousers, worn boots)
 
 SHOT PLAN:
-SHOT 1 [00s-03s] — 0.0 s to 3.0 s — tight close-up: Sam reads over her shoulder, close enough to touch.
-HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: Close detail on the town hall steps; the room falls quiet around it.
-HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: hard cut to the reaction as the line lands
+SHOT 1 [00s-03s] — 0.0 s to 3.0 s — tight close-up: Sam reads over her shoulder, close enough to touch. Key object in frame: the town hall steps.
+HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: SAM speaks as the camera holds tight on their face, with the town hall steps in the foreground.
+HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: Sam Calloway holds the silence after ""She died when I was eleven. I watched them bury her"", the town hall steps sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
-  0.0s to 3.0s  [tight close-up] Sam reads over her shoulder, close enough to touch.
-  3.0s to 7.0s  [close-up] Close detail on the town hall steps; the room falls quiet around it.
-  7.0s to 10.0s  [insert shot of the evidence object] hard cut to the reaction as the line lands
+  0.0s to 3.0s  [tight close-up] Sam reads over her shoulder, close enough to touch. Key object in frame: the town hall steps.
+  3.0s to 7.0s  [close-up] SAM speaks as the camera holds tight on their face, with the town hall steps in the foreground.
+  7.0s to 10.0s  [insert shot of the evidence object] Sam Calloway holds the silence after ""She died when I was eleven. I watched them bury her"", the town hall steps sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact; maximum 15 words; finish before 8.5 s):
@@ -2067,20 +2067,20 @@ NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
 "45","omni","frame_045.png","scene_045.mp4","10","14","5.6","pending","The storyboard panel is the exact first frame of Shot 1 (frame_045.png). Do not freeze it: Shot 1 begins already in motion from that framing, with the same faces, wardrobe, props, location, light and color grade.
 
-STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] over-the-shoulder shot: Nora looks up at Sam, a decision forming. Location: Harbor pier, morning, flat silver water. Key object: the harbor log. Characters present: Nora Hale, Sam Calloway.
+STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] over-the-shoulder shot: Nora looks up at Sam, a decision forming. Key object in frame: the harbor log. Location: Harbor pier, morning, flat silver water. Key object: the harbor log. Characters present: Nora Hale, Sam Calloway.
 
 IDENTITY ANCHORS (all present, fixed cast positions): Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing dark blazer over a black shirt, hair tied back); Sam Calloway (Cast Sheet Pos #2: mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin, wearing faded canvas work jacket, dark trousers, worn boots)
 
 SHOT PLAN:
-SHOT 1 [00s-03s] — 0.0 s to 3.0 s — over-the-shoulder shot: Nora looks up at Sam, a decision forming.
-HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: Close detail on the harbor log; the room falls quiet around it.
-HARD CUT at 7.0 s [07s-10s] — SHOT 3 — tight close-up: hard cut to the reaction as the line lands
+SHOT 1 [00s-03s] — 0.0 s to 3.0 s — over-the-shoulder shot: Nora looks up at Sam, a decision forming. Key object in frame: the harbor log.
+HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: NORA speaks as the camera holds tight on their face, with the harbor log in the foreground.
+HARD CUT at 7.0 s [07s-10s] — SHOT 3 — tight close-up: Nora Hale holds the silence after ""Nora, we can still stop this"", the harbor log sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
-  0.0s to 3.0s  [over-the-shoulder shot] Nora looks up at Sam, a decision forming.
-  3.0s to 7.0s  [close-up] Close detail on the harbor log; the room falls quiet around it.
-  7.0s to 10.0s  [tight close-up] hard cut to the reaction as the line lands
+  0.0s to 3.0s  [over-the-shoulder shot] Nora looks up at Sam, a decision forming. Key object in frame: the harbor log.
+  3.0s to 7.0s  [close-up] NORA speaks as the camera holds tight on their face, with the harbor log in the foreground.
+  7.0s to 10.0s  [tight close-up] Nora Hale holds the silence after ""Nora, we can still stop this"", the harbor log sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact; maximum 15 words; finish before 8.5 s):
@@ -2114,20 +2114,20 @@ NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
 "46","omni","frame_046.png","scene_046.mp4","10","15","6.0","pending","The storyboard panel is the exact first frame of Shot 1 (frame_046.png). Do not freeze it: Shot 1 begins already in motion from that framing, with the same faces, wardrobe, props, location, light and color grade.
 
-STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] low-angle hero shot: Adrian stands on the town hall steps, trying to smile. Location: Town hall steps, dusk, wet stone. Key object: a torn page. Characters present: Nora Hale, Adrian Keller.
+STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] low-angle hero shot: Adrian stands on the town hall steps, trying to smile. Key object in frame: a torn page. Location: Town hall steps, dusk, wet stone. Key object: a torn page. Characters present: Nora Hale, Adrian Keller.
 
 IDENTITY ANCHORS (all present, fixed cast positions): Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing dark blazer over a black shirt, hair tied back); Adrian Keller (Cast Sheet Pos #4: late thirties lean groomed heir, ash-blond hair swept back, cold grey eyes, even features, wearing navy blazer, open-collared white shirt, dark trousers)
 
 SHOT PLAN:
-SHOT 1 [00s-03s] — 0.0 s to 3.0 s — low-angle hero shot: Adrian stands on the town hall steps, trying to smile.
-HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: Close detail on a torn page; the room falls quiet around it.
-HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: hard cut to the reaction as the line lands
+SHOT 1 [00s-03s] — 0.0 s to 3.0 s — low-angle hero shot: Adrian stands on the town hall steps, trying to smile. Key object in frame: a torn page.
+HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: ADRIAN speaks as the camera holds tight on their face, with a torn page in the foreground.
+HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: Adrian Keller holds the silence after ""I've had ten years. I'm not changing"", a torn page sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
-  0.0s to 3.0s  [low-angle hero shot] Adrian stands on the town hall steps, trying to smile.
-  3.0s to 7.0s  [close-up] Close detail on a torn page; the room falls quiet around it.
-  7.0s to 10.0s  [insert shot of the evidence object] hard cut to the reaction as the line lands
+  0.0s to 3.0s  [low-angle hero shot] Adrian stands on the town hall steps, trying to smile. Key object in frame: a torn page.
+  3.0s to 7.0s  [close-up] ADRIAN speaks as the camera holds tight on their face, with a torn page in the foreground.
+  7.0s to 10.0s  [insert shot of the evidence object] Adrian Keller holds the silence after ""I've had ten years. I'm not changing"", a torn page sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact; maximum 15 words; finish before 8.5 s):
@@ -2161,20 +2161,20 @@ NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
 "47","omni","frame_047.png","scene_047.mp4","10","12","4.8","pending","The storyboard panel is the exact first frame of Shot 1 (frame_047.png). Do not freeze it: Shot 1 begins already in motion from that framing, with the same faces, wardrobe, props, location, light and color grade.
 
-STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] wide establishing shot: Nora walks past him without stopping. Location: Hale lighthouse archive room, dawn, cold blue light. Key object: a timestamp. Characters present: Nora Hale, Margaret Keller.
+STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] wide establishing shot: Nora walks past him without stopping. Key object in frame: a timestamp. Location: Hale lighthouse archive room, dawn, cold blue light. Key object: a timestamp. Characters present: Nora Hale, Margaret Keller.
 
 IDENTITY ANCHORS (all present, fixed cast positions): Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing dark blazer over a black shirt, hair tied back); Margaret Keller (Cast Sheet Pos #3: late sixties matriarch, tall and straight-backed, silver chignon, pale blue eyes, porcelain skin, wearing tailored dove-grey suit, pearls, low-heeled shoes)
 
 SHOT PLAN:
-SHOT 1 [00s-03s] — 0.0 s to 3.0 s — wide establishing shot: Nora walks past him without stopping.
-HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: Close detail on a timestamp; the room falls quiet around it.
-HARD CUT at 7.0 s [07s-10s] — SHOT 3 — tight close-up: hard cut to the reaction as the line lands
+SHOT 1 [00s-03s] — 0.0 s to 3.0 s — wide establishing shot: Nora walks past him without stopping. Key object in frame: a timestamp.
+HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: MARGARET speaks as the camera holds tight on their face, with a timestamp in the foreground.
+HARD CUT at 7.0 s [07s-10s] — SHOT 3 — tight close-up: Margaret Keller holds the silence after ""Zero. You leave with nothing"", a timestamp sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
-  0.0s to 3.0s  [wide establishing shot] Nora walks past him without stopping.
-  3.0s to 7.0s  [close-up] Close detail on a timestamp; the room falls quiet around it.
-  7.0s to 10.0s  [tight close-up] hard cut to the reaction as the line lands
+  0.0s to 3.0s  [wide establishing shot] Nora walks past him without stopping. Key object in frame: a timestamp.
+  3.0s to 7.0s  [close-up] MARGARET speaks as the camera holds tight on their face, with a timestamp in the foreground.
+  7.0s to 10.0s  [tight close-up] Margaret Keller holds the silence after ""Zero. You leave with nothing"", a timestamp sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact; maximum 15 words; finish before 8.5 s):
@@ -2208,20 +2208,20 @@ NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
 "48","omni","frame_048.png","scene_048.mp4","10","15","6.0","pending","The storyboard panel is the exact first frame of Shot 1 (frame_048.png). Do not freeze it: Shot 1 begins already in motion from that framing, with the same faces, wardrobe, props, location, light and color grade.
 
-STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] medium shot: Margaret waits in the hall, gloves in hand. Location: Harbor pier, morning, flat silver water. Key object: the town hall steps. Characters present: Nora Hale, Margaret Keller, Claire Boone.
+STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] medium shot: Margaret waits in the hall, gloves in hand. Key object in frame: the town hall steps. Location: Harbor pier, morning, flat silver water. Key object: the town hall steps. Characters present: Nora Hale, Margaret Keller, Claire Boone.
 
 IDENTITY ANCHORS (all present, fixed cast positions): Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing dark blazer over a black shirt, hair tied back); Margaret Keller (Cast Sheet Pos #3: late sixties matriarch, tall and straight-backed, silver chignon, pale blue eyes, porcelain skin, wearing tailored dove-grey suit, pearls, low-heeled shoes); Claire Boone (Cast Sheet Pos #5: forties compact small-town lawyer, brown blunt bob, warm brown eyes, reading glasses on a cord, wearing forest-green cardigan, cream blouse, dark trousers)
 
 SHOT PLAN:
-SHOT 1 [00s-03s] — 0.0 s to 3.0 s — medium shot: Margaret waits in the hall, gloves in hand.
-HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: Close detail on the town hall steps; the room falls quiet around it.
-HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: hard cut to the reaction as the line lands
+SHOT 1 [00s-03s] — 0.0 s to 3.0 s — medium shot: Margaret waits in the hall, gloves in hand. Key object in frame: the town hall steps.
+HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: CLAIRE speaks as the camera holds tight on their face, with the town hall steps in the foreground.
+HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: Claire Boone holds the silence after ""Then they'll tell the truth"", the town hall steps sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
-  0.0s to 3.0s  [medium shot] Margaret waits in the hall, gloves in hand.
-  3.0s to 7.0s  [close-up] Close detail on the town hall steps; the room falls quiet around it.
-  7.0s to 10.0s  [insert shot of the evidence object] hard cut to the reaction as the line lands
+  0.0s to 3.0s  [medium shot] Margaret waits in the hall, gloves in hand. Key object in frame: the town hall steps.
+  3.0s to 7.0s  [close-up] CLAIRE speaks as the camera holds tight on their face, with the town hall steps in the foreground.
+  7.0s to 10.0s  [insert shot of the evidence object] Claire Boone holds the silence after ""Then they'll tell the truth"", the town hall steps sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact; maximum 15 words; finish before 8.5 s):
@@ -2255,20 +2255,20 @@ NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
 "49","omni","frame_049.png","scene_049.mp4","10","13","5.2","pending","The storyboard panel is the exact first frame of Shot 1 (frame_049.png). Do not freeze it: Shot 1 begins already in motion from that framing, with the same faces, wardrobe, props, location, light and color grade.
 
-STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] tight close-up: Nora faces Margaret on the empty hearing floor. Location: Town hall steps, dusk, wet stone. Key object: the harbor log. Characters present: Nora Hale, Sam Calloway, Margaret Keller.
+STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] tight close-up: Nora faces Margaret on the empty hearing floor. Key object in frame: the harbor log. Location: Town hall steps, dusk, wet stone. Key object: the harbor log. Characters present: Nora Hale, Sam Calloway, Margaret Keller.
 
 IDENTITY ANCHORS (all present, fixed cast positions): Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing dark blazer over a black shirt, hair tied back); Sam Calloway (Cast Sheet Pos #2: mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin, wearing faded canvas work jacket, dark trousers, worn boots); Margaret Keller (Cast Sheet Pos #3: late sixties matriarch, tall and straight-backed, silver chignon, pale blue eyes, porcelain skin, wearing tailored dove-grey suit, pearls, low-heeled shoes)
 
 SHOT PLAN:
-SHOT 1 [00s-03s] — 0.0 s to 3.0 s — tight close-up: Nora faces Margaret on the empty hearing floor.
-HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: Close detail on the harbor log; the room falls quiet around it.
-HARD CUT at 7.0 s [07s-10s] — SHOT 3 — tight close-up: hard cut to the reaction as the line lands
+SHOT 1 [00s-03s] — 0.0 s to 3.0 s — tight close-up: Nora faces Margaret on the empty hearing floor. Key object in frame: the harbor log.
+HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: NORA speaks as the camera holds tight on their face, with the harbor log in the foreground.
+HARD CUT at 7.0 s [07s-10s] — SHOT 3 — tight close-up: Nora Hale holds the silence after ""I'm not going anywhere"", the harbor log sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
-  0.0s to 3.0s  [tight close-up] Nora faces Margaret on the empty hearing floor.
-  3.0s to 7.0s  [close-up] Close detail on the harbor log; the room falls quiet around it.
-  7.0s to 10.0s  [tight close-up] hard cut to the reaction as the line lands
+  0.0s to 3.0s  [tight close-up] Nora faces Margaret on the empty hearing floor. Key object in frame: the harbor log.
+  3.0s to 7.0s  [close-up] NORA speaks as the camera holds tight on their face, with the harbor log in the foreground.
+  7.0s to 10.0s  [tight close-up] Nora Hale holds the silence after ""I'm not going anywhere"", the harbor log sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact; maximum 15 words; finish before 8.5 s):
@@ -2302,20 +2302,20 @@ NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
 "50","omni","frame_050.png","scene_050.mp4","10","15","6.0","pending","The storyboard panel is the exact first frame of Shot 1 (frame_050.png). Do not freeze it: Shot 1 begins already in motion from that framing, with the same faces, wardrobe, props, location, light and color grade.
 
-STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] over-the-shoulder shot: Nora stands at the lighthouse door as the town lights come on. Location: Hale lighthouse archive room, dawn, cold blue light. Key object: a torn page. Characters present: Nora Hale, Margaret Keller.
+STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] over-the-shoulder shot: Nora stands at the lighthouse door as the town lights come on. Key object in frame: a torn page. Location: Hale lighthouse archive room, dawn, cold blue light. Key object: a torn page. Characters present: Nora Hale, Margaret Keller.
 
 IDENTITY ANCHORS (all present, fixed cast positions): Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing dark blazer over a black shirt, hair tied back); Margaret Keller (Cast Sheet Pos #3: late sixties matriarch, tall and straight-backed, silver chignon, pale blue eyes, porcelain skin, wearing tailored dove-grey suit, pearls, low-heeled shoes)
 
 SHOT PLAN:
-SHOT 1 [00s-03s] — 0.0 s to 3.0 s — over-the-shoulder shot: Nora stands at the lighthouse door as the town lights come on.
-HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: Close detail on a torn page; the room falls quiet around it.
-HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: hard cut to the reaction as the line lands
+SHOT 1 [00s-03s] — 0.0 s to 3.0 s — over-the-shoulder shot: Nora stands at the lighthouse door as the town lights come on. Key object in frame: a torn page.
+HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: MARGARET speaks as the camera holds tight on their face, with a torn page in the foreground.
+HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: Margaret Keller holds the silence after ""Not for the house. For his name"", a torn page sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
-  0.0s to 3.0s  [over-the-shoulder shot] Nora stands at the lighthouse door as the town lights come on.
-  3.0s to 7.0s  [close-up] Close detail on a torn page; the room falls quiet around it.
-  7.0s to 10.0s  [insert shot of the evidence object] hard cut to the reaction as the line lands
+  0.0s to 3.0s  [over-the-shoulder shot] Nora stands at the lighthouse door as the town lights come on. Key object in frame: a torn page.
+  3.0s to 7.0s  [close-up] MARGARET speaks as the camera holds tight on their face, with a torn page in the foreground.
+  7.0s to 10.0s  [insert shot of the evidence object] Margaret Keller holds the silence after ""Not for the house. For his name"", a torn page sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact; maximum 15 words; finish before 8.5 s):
@@ -2349,20 +2349,20 @@ NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
 "51","omni","frame_051.png","scene_051.mp4","10","13","5.2","pending","The storyboard panel is the exact first frame of Shot 1 (frame_051.png). Do not freeze it: Shot 1 begins already in motion from that framing, with the same faces, wardrobe, props, location, light and color grade.
 
-STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] wide establishing shot: The hearing room fills; Nora stands alone at the table. Location: Town hall hearing room, day, hard window light. Key object: the harbor log. Characters present: Nora Hale, Claire Boone.
+STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] wide establishing shot: The hearing room fills; Nora stands alone at the table. Key object in frame: the harbor log. Location: Town hall hearing room, day, hard window light. Key object: the harbor log. Characters present: Nora Hale, Claire Boone.
 
 IDENTITY ANCHORS (all present, fixed cast positions): Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing dark blazer, hair down, salt wind in it); Claire Boone (Cast Sheet Pos #5: forties compact small-town lawyer, brown blunt bob, warm brown eyes, reading glasses on a cord, wearing forest-green cardigan, cream blouse, dark trousers)
 
 SHOT PLAN:
-SHOT 1 [00s-03s] — 0.0 s to 3.0 s — wide establishing shot: The hearing room fills; Nora stands alone at the table.
-HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: Close detail on the harbor log; the room falls quiet around it.
-HARD CUT at 7.0 s [07s-10s] — SHOT 3 — tight close-up: hard cut to the reaction as the line lands
+SHOT 1 [00s-03s] — 0.0 s to 3.0 s — wide establishing shot: The hearing room fills; Nora stands alone at the table. Key object in frame: the harbor log.
+HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: CLAIRE speaks as the camera holds tight on their face, with the harbor log in the foreground.
+HARD CUT at 7.0 s [07s-10s] — SHOT 3 — tight close-up: Claire Boone holds the silence after ""Good. Let them watch. Let them remember"", the harbor log sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
-  0.0s to 3.0s  [wide establishing shot] The hearing room fills; Nora stands alone at the table.
-  3.0s to 7.0s  [close-up] Close detail on the harbor log; the room falls quiet around it.
-  7.0s to 10.0s  [tight close-up] hard cut to the reaction as the line lands
+  0.0s to 3.0s  [wide establishing shot] The hearing room fills; Nora stands alone at the table. Key object in frame: the harbor log.
+  3.0s to 7.0s  [close-up] CLAIRE speaks as the camera holds tight on their face, with the harbor log in the foreground.
+  7.0s to 10.0s  [tight close-up] Claire Boone holds the silence after ""Good. Let them watch. Let them remember"", the harbor log sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact; maximum 15 words; finish before 8.5 s):
@@ -2396,20 +2396,20 @@ NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
 "52","omni","frame_052.png","scene_052.mp4","10","15","6.0","pending","The storyboard panel is the exact first frame of Shot 1 (frame_052.png). Do not freeze it: Shot 1 begins already in motion from that framing, with the same faces, wardrobe, props, location, light and color grade.
 
-STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] medium shot: Sam steps to the microphone, the room silent. Location: Hale lighthouse point, golden hour, wind down. Key object: the clerk's desk. Characters present: Nora Hale, Sam Calloway.
+STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] medium shot: Sam steps to the microphone, the room silent. Key object in frame: the clerk's desk. Location: Hale lighthouse point, golden hour, wind down. Key object: the clerk's desk. Characters present: Nora Hale, Sam Calloway.
 
 IDENTITY ANCHORS (all present, fixed cast positions): Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing dark blazer, hair down, salt wind in it); Sam Calloway (Cast Sheet Pos #2: mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin, wearing faded canvas work jacket, dark trousers, worn boots)
 
 SHOT PLAN:
-SHOT 1 [00s-03s] — 0.0 s to 3.0 s — medium shot: Sam steps to the microphone, the room silent.
-HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: Close detail on the clerk's desk; the room falls quiet around it.
-HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: hard cut to the reaction as the line lands
+SHOT 1 [00s-03s] — 0.0 s to 3.0 s — medium shot: Sam steps to the microphone, the room silent. Key object in frame: the clerk's desk.
+HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: SAM speaks as the camera holds tight on their face, with the clerk's desk in the foreground.
+HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: Sam Calloway holds the silence after ""Then do it for the right reason"", the clerk's desk sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
-  0.0s to 3.0s  [medium shot] Sam steps to the microphone, the room silent.
-  3.0s to 7.0s  [close-up] Close detail on the clerk's desk; the room falls quiet around it.
-  7.0s to 10.0s  [insert shot of the evidence object] hard cut to the reaction as the line lands
+  0.0s to 3.0s  [medium shot] Sam steps to the microphone, the room silent. Key object in frame: the clerk's desk.
+  3.0s to 7.0s  [close-up] SAM speaks as the camera holds tight on their face, with the clerk's desk in the foreground.
+  7.0s to 10.0s  [insert shot of the evidence object] Sam Calloway holds the silence after ""Then do it for the right reason"", the clerk's desk sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact; maximum 15 words; finish before 8.5 s):
@@ -2443,20 +2443,20 @@ NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
 "53","omni","frame_053.png","scene_053.mp4","10","14","5.6","pending","The storyboard panel is the exact first frame of Shot 1 (frame_053.png). Do not freeze it: Shot 1 begins already in motion from that framing, with the same faces, wardrobe, props, location, light and color grade.
 
-STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] tight close-up: Margaret's smile falters for the first time. Location: Harbor, golden hour, calm water. Key object: a second ledger. Characters present: Nora Hale, Sam Calloway, Margaret Keller.
+STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] tight close-up: Margaret's smile falters for the first time. Key object in frame: a second ledger. Location: Harbor, golden hour, calm water. Key object: a second ledger. Characters present: Nora Hale, Sam Calloway, Margaret Keller.
 
 IDENTITY ANCHORS (all present, fixed cast positions): Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing dark blazer, hair down, salt wind in it); Sam Calloway (Cast Sheet Pos #2: mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin, wearing faded canvas work jacket, dark trousers, worn boots); Margaret Keller (Cast Sheet Pos #3: late sixties matriarch, tall and straight-backed, silver chignon, pale blue eyes, porcelain skin, wearing tailored dove-grey suit, pearls, low-heeled shoes)
 
 SHOT PLAN:
-SHOT 1 [00s-03s] — 0.0 s to 3.0 s — tight close-up: Margaret's smile falters for the first time.
-HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: Close detail on a second ledger; the room falls quiet around it.
-HARD CUT at 7.0 s [07s-10s] — SHOT 3 — tight close-up: hard cut to the reaction as the line lands
+SHOT 1 [00s-03s] — 0.0 s to 3.0 s — tight close-up: Margaret's smile falters for the first time. Key object in frame: a second ledger.
+HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: NORA speaks as the camera holds tight on their face, with a second ledger in the foreground.
+HARD CUT at 7.0 s [07s-10s] — SHOT 3 — tight close-up: Nora Hale holds the silence after ""The truth is I let them bury your father"", a second ledger sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
-  0.0s to 3.0s  [tight close-up] Margaret's smile falters for the first time.
-  3.0s to 7.0s  [close-up] Close detail on a second ledger; the room falls quiet around it.
-  7.0s to 10.0s  [tight close-up] hard cut to the reaction as the line lands
+  0.0s to 3.0s  [tight close-up] Margaret's smile falters for the first time. Key object in frame: a second ledger.
+  3.0s to 7.0s  [close-up] NORA speaks as the camera holds tight on their face, with a second ledger in the foreground.
+  7.0s to 10.0s  [tight close-up] Nora Hale holds the silence after ""The truth is I let them bury your father"", a second ledger sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact; maximum 15 words; finish before 8.5 s):
@@ -2490,20 +2490,20 @@ NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
 "54","omni","frame_054.png","scene_054.mp4","10","14","5.6","pending","The storyboard panel is the exact first frame of Shot 1 (frame_054.png). Do not freeze it: Shot 1 begins already in motion from that framing, with the same faces, wardrobe, props, location, light and color grade.
 
-STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] over-the-shoulder shot: Nora holds up the harbor log, open to the page. Location: Town hall hearing room, day, hard window light. Key object: Sam's hand. Characters present: Nora Hale, Sam Calloway, Margaret Keller.
+STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] over-the-shoulder shot: Nora holds up the harbor log, open to the page. Key object in frame: Sam's hand. Location: Town hall hearing room, day, hard window light. Key object: Sam's hand. Characters present: Nora Hale, Sam Calloway, Margaret Keller.
 
 IDENTITY ANCHORS (all present, fixed cast positions): Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing dark blazer, hair down, salt wind in it); Sam Calloway (Cast Sheet Pos #2: mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin, wearing faded canvas work jacket, dark trousers, worn boots); Margaret Keller (Cast Sheet Pos #3: late sixties matriarch, tall and straight-backed, silver chignon, pale blue eyes, porcelain skin, wearing tailored dove-grey suit, pearls, low-heeled shoes)
 
 SHOT PLAN:
-SHOT 1 [00s-03s] — 0.0 s to 3.0 s — over-the-shoulder shot: Nora holds up the harbor log, open to the page.
-HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: Close detail on Sam's hand; the room falls quiet around it.
-HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: hard cut to the reaction as the line lands
+SHOT 1 [00s-03s] — 0.0 s to 3.0 s — over-the-shoulder shot: Nora holds up the harbor log, open to the page. Key object in frame: Sam's hand.
+HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: SAM speaks as the camera holds tight on their face, with Sam's hand in the foreground.
+HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: Sam Calloway holds the silence after ""He's a firefighter with a grudge"", Sam's hand sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
-  0.0s to 3.0s  [over-the-shoulder shot] Nora holds up the harbor log, open to the page.
-  3.0s to 7.0s  [close-up] Close detail on Sam's hand; the room falls quiet around it.
-  7.0s to 10.0s  [insert shot of the evidence object] hard cut to the reaction as the line lands
+  0.0s to 3.0s  [over-the-shoulder shot] Nora holds up the harbor log, open to the page. Key object in frame: Sam's hand.
+  3.0s to 7.0s  [close-up] SAM speaks as the camera holds tight on their face, with Sam's hand in the foreground.
+  7.0s to 10.0s  [insert shot of the evidence object] Sam Calloway holds the silence after ""He's a firefighter with a grudge"", Sam's hand sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact; maximum 15 words; finish before 8.5 s):
@@ -2537,20 +2537,20 @@ NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
 "55","omni","frame_055.png","scene_055.mp4","10","14","5.6","pending","The storyboard panel is the exact first frame of Shot 1 (frame_055.png). Do not freeze it: Shot 1 begins already in motion from that framing, with the same faces, wardrobe, props, location, light and color grade.
 
-STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] low-angle hero shot: Adrian half-rises from his chair. Location: Hale lighthouse point, golden hour, wind down. Key object: the harbor log. Characters present: Nora Hale, Adrian Keller.
+STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] low-angle hero shot: Adrian half-rises from his chair. Key object in frame: the harbor log. Location: Hale lighthouse point, golden hour, wind down. Key object: the harbor log. Characters present: Nora Hale, Adrian Keller.
 
 IDENTITY ANCHORS (all present, fixed cast positions): Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing dark blazer, hair down, salt wind in it); Adrian Keller (Cast Sheet Pos #4: late thirties lean groomed heir, ash-blond hair swept back, cold grey eyes, even features, wearing navy blazer, open-collared white shirt, dark trousers)
 
 SHOT PLAN:
-SHOT 1 [00s-03s] — 0.0 s to 3.0 s — low-angle hero shot: Adrian half-rises from his chair.
-HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: Close detail on the harbor log; the room falls quiet around it.
-HARD CUT at 7.0 s [07s-10s] — SHOT 3 — tight close-up: hard cut to the reaction as the line lands
+SHOT 1 [00s-03s] — 0.0 s to 3.0 s — low-angle hero shot: Adrian half-rises from his chair. Key object in frame: the harbor log.
+HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: NORA speaks as the camera holds tight on their face, with the harbor log in the foreground.
+HARD CUT at 7.0 s [07s-10s] — SHOT 3 — tight close-up: Nora Hale holds the silence after ""That's a piece of paper"", the harbor log sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
-  0.0s to 3.0s  [low-angle hero shot] Adrian half-rises from his chair.
-  3.0s to 7.0s  [close-up] Close detail on the harbor log; the room falls quiet around it.
-  7.0s to 10.0s  [tight close-up] hard cut to the reaction as the line lands
+  0.0s to 3.0s  [low-angle hero shot] Adrian half-rises from his chair. Key object in frame: the harbor log.
+  3.0s to 7.0s  [close-up] NORA speaks as the camera holds tight on their face, with the harbor log in the foreground.
+  7.0s to 10.0s  [tight close-up] Nora Hale holds the silence after ""That's a piece of paper"", the harbor log sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact; maximum 15 words; finish before 8.5 s):
@@ -2590,14 +2590,14 @@ IDENTITY ANCHORS (all present, fixed cast positions): Nora Hale (Cast Sheet Pos 
 
 SHOT PLAN:
 SHOT 1 [00s-03s] — 0.0 s to 3.0 s — wide establishing shot: Nora sets the log on the clerk's desk.
-HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: Close detail on the clerk's desk; the room falls quiet around it.
-HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: hard cut to the reaction as the line lands
+HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: NORA speaks as the camera holds tight on their face, with the clerk's desk in the foreground.
+HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: Nora Hale holds the silence after ""That log is weather and guesswork"", the clerk's desk sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
   0.0s to 3.0s  [wide establishing shot] Nora sets the log on the clerk's desk.
-  3.0s to 7.0s  [close-up] Close detail on the clerk's desk; the room falls quiet around it.
-  7.0s to 10.0s  [insert shot of the evidence object] hard cut to the reaction as the line lands
+  3.0s to 7.0s  [close-up] NORA speaks as the camera holds tight on their face, with the clerk's desk in the foreground.
+  7.0s to 10.0s  [insert shot of the evidence object] Nora Hale holds the silence after ""That log is weather and guesswork"", the clerk's desk sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact; maximum 15 words; finish before 8.5 s):
@@ -2631,20 +2631,20 @@ NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
 "57","omni","frame_057.png","scene_057.mp4","10","12","4.8","pending","The storyboard panel is the exact first frame of Shot 1 (frame_057.png). Do not freeze it: Shot 1 begins already in motion from that framing, with the same faces, wardrobe, props, location, light and color grade.
 
-STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] medium shot: Margaret reaches for the log; Nora slides it away. Location: Town hall hearing room, day, hard window light. Key object: a second ledger. Characters present: Nora Hale, Margaret Keller, Claire Boone.
+STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] medium shot: Margaret reaches for the log; Nora slides it away. Key object in frame: a second ledger. Location: Town hall hearing room, day, hard window light. Key object: a second ledger. Characters present: Nora Hale, Margaret Keller, Claire Boone.
 
 IDENTITY ANCHORS (all present, fixed cast positions): Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing dark blazer, hair down, salt wind in it); Margaret Keller (Cast Sheet Pos #3: late sixties matriarch, tall and straight-backed, silver chignon, pale blue eyes, porcelain skin, wearing tailored dove-grey suit, pearls, low-heeled shoes); Claire Boone (Cast Sheet Pos #5: forties compact small-town lawyer, brown blunt bob, warm brown eyes, reading glasses on a cord, wearing forest-green cardigan, cream blouse, dark trousers)
 
 SHOT PLAN:
-SHOT 1 [00s-03s] — 0.0 s to 3.0 s — medium shot: Margaret reaches for the log; Nora slides it away.
-HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: Close detail on a second ledger; the room falls quiet around it.
-HARD CUT at 7.0 s [07s-10s] — SHOT 3 — tight close-up: hard cut to the reaction as the line lands
+SHOT 1 [00s-03s] — 0.0 s to 3.0 s — medium shot: Margaret reaches for the log; Nora slides it away. Key object in frame: a second ledger.
+HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: NORA speaks as the camera holds tight on their face, with a second ledger in the foreground.
+HARD CUT at 7.0 s [07s-10s] — SHOT 3 — tight close-up: Nora Hale holds the silence after ""The fire marshal"", a second ledger sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
-  0.0s to 3.0s  [medium shot] Margaret reaches for the log; Nora slides it away.
-  3.0s to 7.0s  [close-up] Close detail on a second ledger; the room falls quiet around it.
-  7.0s to 10.0s  [tight close-up] hard cut to the reaction as the line lands
+  0.0s to 3.0s  [medium shot] Margaret reaches for the log; Nora slides it away. Key object in frame: a second ledger.
+  3.0s to 7.0s  [close-up] NORA speaks as the camera holds tight on their face, with a second ledger in the foreground.
+  7.0s to 10.0s  [tight close-up] Nora Hale holds the silence after ""The fire marshal"", a second ledger sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact; maximum 15 words; finish before 8.5 s):
@@ -2678,20 +2678,20 @@ NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
 "58","omni","frame_058.png","scene_058.mp4","10","14","5.6","pending","The storyboard panel is the exact first frame of Shot 1 (frame_058.png). Do not freeze it: Shot 1 begins already in motion from that framing, with the same faces, wardrobe, props, location, light and color grade.
 
-STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] tight close-up: Sam takes Nora's hand under the table. Location: Hale lighthouse point, golden hour, wind down. Key object: Sam's hand. Characters present: Nora Hale, Sam Calloway, Adrian Keller.
+STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] tight close-up: Sam takes Nora's hand under the table. Key object in frame: Sam's hand. Location: Hale lighthouse point, golden hour, wind down. Key object: Sam's hand. Characters present: Nora Hale, Sam Calloway, Adrian Keller.
 
 IDENTITY ANCHORS (all present, fixed cast positions): Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing dark blazer, hair down, salt wind in it); Sam Calloway (Cast Sheet Pos #2: mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin, wearing faded canvas work jacket, dark trousers, worn boots); Adrian Keller (Cast Sheet Pos #4: late thirties lean groomed heir, ash-blond hair swept back, cold grey eyes, even features, wearing navy blazer, open-collared white shirt, dark trousers)
 
 SHOT PLAN:
-SHOT 1 [00s-03s] — 0.0 s to 3.0 s — tight close-up: Sam takes Nora's hand under the table.
-HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: Close detail on Sam's hand; the room falls quiet around it.
-HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: hard cut to the reaction as the line lands
+SHOT 1 [00s-03s] — 0.0 s to 3.0 s — tight close-up: Sam takes Nora's hand under the table. Key object in frame: Sam's hand.
+HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: ADRIAN speaks as the camera holds tight on their face, with Sam's hand in the foreground.
+HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: Adrian Keller holds the silence after ""You burned it and buried my father"", Sam's hand sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
-  0.0s to 3.0s  [tight close-up] Sam takes Nora's hand under the table.
-  3.0s to 7.0s  [close-up] Close detail on Sam's hand; the room falls quiet around it.
-  7.0s to 10.0s  [insert shot of the evidence object] hard cut to the reaction as the line lands
+  0.0s to 3.0s  [tight close-up] Sam takes Nora's hand under the table. Key object in frame: Sam's hand.
+  3.0s to 7.0s  [close-up] ADRIAN speaks as the camera holds tight on their face, with Sam's hand in the foreground.
+  7.0s to 10.0s  [insert shot of the evidence object] Adrian Keller holds the silence after ""You burned it and buried my father"", Sam's hand sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact; maximum 15 words; finish before 8.5 s):
@@ -2725,20 +2725,20 @@ NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
 "59","omni","frame_059.png","scene_059.mp4","10","10","4.0","pending","The storyboard panel is the exact first frame of Shot 1 (frame_059.png). Do not freeze it: Shot 1 begins already in motion from that framing, with the same faces, wardrobe, props, location, light and color grade.
 
-STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] over-the-shoulder shot: Nora walks out of the town hall into the light. Location: Harbor, golden hour, calm water. Key object: the harbor log. Characters present: Nora Hale, Margaret Keller.
+STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] over-the-shoulder shot: Nora walks out of the town hall into the light. Key object in frame: the harbor log. Location: Harbor, golden hour, calm water. Key object: the harbor log. Characters present: Nora Hale, Margaret Keller.
 
 IDENTITY ANCHORS (all present, fixed cast positions): Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing dark blazer, hair down, salt wind in it); Margaret Keller (Cast Sheet Pos #3: late sixties matriarch, tall and straight-backed, silver chignon, pale blue eyes, porcelain skin, wearing tailored dove-grey suit, pearls, low-heeled shoes)
 
 SHOT PLAN:
-SHOT 1 [00s-03s] — 0.0 s to 3.0 s — over-the-shoulder shot: Nora walks out of the town hall into the light.
-HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: Close detail on the harbor log; the room falls quiet around it.
-HARD CUT at 7.0 s [07s-10s] — SHOT 3 — tight close-up: hard cut to the reaction as the line lands
+SHOT 1 [00s-03s] — 0.0 s to 3.0 s — over-the-shoulder shot: Nora walks out of the town hall into the light. Key object in frame: the harbor log.
+HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: NORA speaks as the camera holds tight on their face, with the harbor log in the foreground.
+HARD CUT at 7.0 s [07s-10s] — SHOT 3 — tight close-up: Nora Hale holds the silence after ""You'll regret this"", the harbor log sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
-  0.0s to 3.0s  [over-the-shoulder shot] Nora walks out of the town hall into the light.
-  3.0s to 7.0s  [close-up] Close detail on the harbor log; the room falls quiet around it.
-  7.0s to 10.0s  [tight close-up] hard cut to the reaction as the line lands
+  0.0s to 3.0s  [over-the-shoulder shot] Nora walks out of the town hall into the light. Key object in frame: the harbor log.
+  3.0s to 7.0s  [close-up] NORA speaks as the camera holds tight on their face, with the harbor log in the foreground.
+  7.0s to 10.0s  [tight close-up] Nora Hale holds the silence after ""You'll regret this"", the harbor log sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact; maximum 15 words; finish before 8.5 s):
@@ -2772,20 +2772,20 @@ NEGATIVE: on-screen text, subtitles, captions, watermark, logo, UI, frame border
 DURATION: exactly 10.0 seconds. Aspect ratio 16:9."
 "60","omni","frame_060.png","scene_060.mp4","10","14","5.6","pending","The storyboard panel is the exact first frame of Shot 1 (frame_060.png). Do not freeze it: Shot 1 begins already in motion from that framing, with the same faces, wardrobe, props, location, light and color grade.
 
-STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] low-angle hero shot: Nora and Sam stand on the lighthouse point at dusk, an older ledger in Nora's hands. Location: Town hall hearing room, day, hard window light. Key object: the clerk's desk. Characters present: Nora Hale, Sam Calloway.
+STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] low-angle hero shot: Nora and Sam stand on the lighthouse point at dusk, an older ledger in Nora's hands. Key object in frame: the clerk's desk. Location: Town hall hearing room, day, hard window light. Key object: the clerk's desk. Characters present: Nora Hale, Sam Calloway.
 
 IDENTITY ANCHORS (all present, fixed cast positions): Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing dark blazer, hair down, salt wind in it); Sam Calloway (Cast Sheet Pos #2: mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin, wearing faded canvas work jacket, dark trousers, worn boots)
 
 SHOT PLAN:
-SHOT 1 [00s-03s] — 0.0 s to 3.0 s — low-angle hero shot: Nora and Sam stand on the lighthouse point at dusk, an older ledger in Nora's hands.
-HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: Close detail on the clerk's desk; the room falls quiet around it.
-HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: hard cut to the reaction as the line lands
+SHOT 1 [00s-03s] — 0.0 s to 3.0 s — low-angle hero shot: Nora and Sam stand on the lighthouse point at dusk, an older ledger in Nora's hands. Key object in frame: the clerk's desk.
+HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: NORA speaks as the camera holds tight on their face, with the clerk's desk in the foreground.
+HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: Nora Hale holds the silence after ""Nora... she's alive?"", the clerk's desk sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
-  0.0s to 3.0s  [low-angle hero shot] Nora and Sam stand on the lighthouse point at dusk, an older ledger in Nora's hands.
-  3.0s to 7.0s  [close-up] Close detail on the clerk's desk; the room falls quiet around it.
-  7.0s to 10.0s  [insert shot of the evidence object] hard cut to the reaction as the line lands
+  0.0s to 3.0s  [low-angle hero shot] Nora and Sam stand on the lighthouse point at dusk, an older ledger in Nora's hands. Key object in frame: the clerk's desk.
+  3.0s to 7.0s  [close-up] NORA speaks as the camera holds tight on their face, with the clerk's desk in the foreground.
+  7.0s to 10.0s  [insert shot of the evidence object] Nora Hale holds the silence after ""Nora... she's alive?"", the clerk's desk sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.
 
 DIALOGUE (native audio, US English, lip-sync exact; maximum 15 words; finish before 8.5 s):
