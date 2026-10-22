@@ -1854,18 +1854,18 @@ OUTPUT: 16:9, exactly 10.0 seconds, native audio ON. Save as scene_037.mp4.
 MUSE AI — SHORT-DRAMA SCENE 038 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_038.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.
 
-STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] wide establishing shot: Adrian waits in the lighthouse kitchen with the sale papers. Location: Hale lighthouse kitchen, night, one lamp, rain outside. Key object: the sale papers. Characters present: Nora Hale, Adrian Keller.
+STORYBOARD PANEL (Shot 1 must match this exactly): [00s-03s] wide establishing shot: Adrian waits in the dark lighthouse with the sale papers. Location: Hale lighthouse, night, one lamp, rain outside. Key object: the sale papers. Characters present: Nora Hale, Adrian Keller.
 
 IDENTITY ANCHORS (all present, fixed cast positions): Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing storm-soaked shirt and trousers, no coat, hair plastered down); Adrian Keller (Cast Sheet Pos #4: late thirties lean groomed heir, ash-blond hair swept back, cold grey eyes, even features, wearing navy blazer, open-collared white shirt, dark trousers)
 
 SHOT PLAN:
-SHOT 1 [00s-03s] — 0.0 s to 3.0 s — wide establishing shot: Adrian waits in the lighthouse kitchen with the sale papers.
+SHOT 1 [00s-03s] — 0.0 s to 3.0 s — wide establishing shot: Adrian waits in the dark lighthouse with the sale papers.
 HARD CUT at 3.0 s [03s-07s] — SHOT 2 — close-up: ADRIAN speaks as the camera holds tight on their face, with the sale papers in the foreground.
 HARD CUT at 7.0 s [07s-10s] — SHOT 3 — insert shot of the evidence object: Adrian Keller holds the silence after "And if I don't?", the sale papers sharp in the foreground.
 End on the reaction that motivates the next scene; no static hold, no reference sheet.
 
 TIMELINE (one continuous 10 s take; exactly 3 shots):
-  0.0s to 3.0s  [wide establishing shot] Adrian waits in the lighthouse kitchen with the sale papers.
+  0.0s to 3.0s  [wide establishing shot] Adrian waits in the dark lighthouse with the sale papers.
   3.0s to 7.0s  [close-up] ADRIAN speaks as the camera holds tight on their face, with the sale papers in the foreground.
   7.0s to 10.0s  [insert shot of the evidence object] Adrian Keller holds the silence after "And if I don't?", the sale papers sharp in the foreground.
 Hard cuts exactly at 3.0, 7.0 s. No dissolves, no fade, no camera reset.

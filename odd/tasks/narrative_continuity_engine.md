@@ -55,15 +55,17 @@ No delegation: edits are localized and the repository was mapped before implemen
 - [x] T9 Tests: continuity fields/blocks, missing-field error, placeholder error,
       ping-pong warning/strict error, prompt rule injection, Muse negatives, visual grids,
       demo placeholder-free master.
+- [x] T10 Demo scenes 37-39: unify the interior beat under `Hale lighthouse` so the
+      location sequence is A-A-A instead of A-B-A; regenerate the demo packs.
 
 ## Verification evidence
 - `python -m pytest -q` -> `87 passed`.
-- `nf.validate_master` -> ranch: 0 errors / 0 warnings; demo: 0 errors / 1 known
-  lighthouse-room ping-pong heuristic warning.
+- `nf.validate_master` -> ranch: 0 errors / 0 warnings; demo: 0 errors / 0 warnings.
+- `nf.validate_master(production=True)` -> ranch and demo: 0 errors / 0 warnings.
 - Ranch cuts: 180 unique actions, 0 placeholders. Demo cuts: 166 unique actions, 0 placeholders.
 - Generated Muse batches: 10 per project, both 16:9 and 9:16 commands carry the exact
   negative rule. Generated grid queues: 10 per project carry the 100% visual rule.
 - Generated scene 1 prompt uses the stable aisle, canvas work bag, and no scar.
 
 ## Next step
-No implementation pending. Commit and push the generated packs with the code changes.
+No implementation pending. Commit and push the demo location fix and regenerated packs.

@@ -2461,7 +2461,7 @@
       "scene_id": 38,
       "act": 4,
       "beat": "escalation",
-      "location": "Hale lighthouse kitchen, night, one lamp, rain outside",
+      "location": "Hale lighthouse, night, one lamp, rain outside",
       "time_of_day": "night, one lamp, rain outside",
       "characters": [
         "nora",
@@ -2469,13 +2469,13 @@
       ],
       "wardrobe": "storm-soaked shirt and trousers, no coat, hair plastered down",
       "on_screen_hook": "",
-      "first_frame_prompt": "Cinematic still of Adrian Keller (the character in reference_adrian.png), wide establishing shot, at Hale lighthouse kitchen, night, one lamp, rain outside. Adrian waits in the lighthouse kitchen with the sale papers. Expression: warmth breaking through fatigue. Wardrobe: storm-soaked shirt and trousers, no coat, hair plastered down. Keep Adrian Keller's face and wardrobe identical to reference_adrian.png. Framing keeps the face unobstructed and centered for a 9:16 crop.",
+      "first_frame_prompt": "Cinematic still of Adrian Keller (the character in reference_adrian.png), wide establishing shot, at Hale lighthouse, night, one lamp, rain outside. Adrian waits in the dark lighthouse with the sale papers. Expression: warmth breaking through fatigue. Wardrobe: storm-soaked shirt and trousers, no coat, hair plastered down. Keep Adrian Keller's face and wardrobe identical to reference_adrian.png. Framing keeps the face unobstructed and centered for a 9:16 crop.",
       "internal_cuts": [
         {
           "at": 0.0,
           "range": "00s-03s",
           "framing": "wide establishing shot",
-          "action": "Adrian waits in the lighthouse kitchen with the sale papers."
+          "action": "Adrian waits in the dark lighthouse with the sale papers."
         },
         {
           "at": 3.0,
@@ -2513,9 +2513,9 @@
         "adrian"
       ],
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties coastal New England woman, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, wearing storm-soaked shirt and trousers, no coat, hair plastered down); Adrian Keller (Cast Sheet Pos #4: late thirties lean groomed heir, ash-blond hair swept back, cold grey eyes, even features, wearing navy blazer, open-collared white shirt, dark trousers)",
-      "storyboard_panel": "[00s-03s] wide establishing shot: Adrian waits in the lighthouse kitchen with the sale papers. Location: Hale lighthouse kitchen, night, one lamp, rain outside. Key object: the sale papers. Characters present: Nora Hale, Adrian Keller.",
+      "storyboard_panel": "[00s-03s] wide establishing shot: Adrian waits in the dark lighthouse with the sale papers. Location: Hale lighthouse, night, one lamp, rain outside. Key object: the sale papers. Characters present: Nora Hale, Adrian Keller.",
       "because_previous_ended_with": "The escalation leaves the eviction notice exposed, and there is no way back.",
-      "this_scene_starts_with": "Adrian waits in the lighthouse kitchen with the sale papers",
+      "this_scene_starts_with": "Adrian waits in the dark lighthouse with the sale papers",
       "single_change_at_end": "The escalation leaves the sale papers exposed, and there is no way back."
     },
     {

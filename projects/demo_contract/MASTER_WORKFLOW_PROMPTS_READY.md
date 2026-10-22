@@ -1,6 +1,6 @@
 # MASTER WORKFLOW PROMPTS READY — The Silent Contract
 
-- Generado: 2026-10-22T00:26:32-05:00
+- Generado: 2026-10-22T14:24:54-05:00
 - Historia fuente: story_brief.md
 - Duración: 10 minuto(s)
 - Escenas: 60 (10 s cada una)
