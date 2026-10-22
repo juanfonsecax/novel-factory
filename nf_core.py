@@ -12,6 +12,7 @@ postproducción (04-05) mediante sys.path.insert(0, <novel_factory>).
 """
 from __future__ import annotations
 
+import copy
 import datetime as dt
 import json
 import os
@@ -64,8 +65,8 @@ SUBCOMMANDS: Dict[str, str] = {
 # --- Contrato de contenido (P0): ritmo de habla y presupuesto por escena ---
 SPEECH_WORDS_PER_SECOND = 2.5    # ritmo conversacional US English (~150 wpm)
 MAX_SCENE_WORDS = 15             # tope global por escena de 10 s
-MAX_LINE_WORDS = 15              # tope por intervenci�n
-MIN_SCENE_WORDS = 6              # m�nimo para que la escena no quede vac�a
+MAX_LINE_WORDS = 15              # tope por intervención
+MIN_SCENE_WORDS = 6              # mínimo para que la escena no quede vacía
 MAX_SCENE_SPEECH_SECONDS = 8.5   # la voz debe terminar antes de 8.5 s
 CUT_MIN_GAP = 3.0
 CUT_MAX_GAP = 4.0
@@ -73,6 +74,86 @@ DURATION_TOLERANCE_SEC = 0.05
 SHOT_CUT_TIMES = (0.0, 3.0, 7.0)
 SHOT_RANGES = ("00s-03s", "03s-07s", "07s-10s")
 DIALOGUE_END_DEADLINE_SEC = 8.5
+
+# --- Contrato v2: hablante por toma, objeto visible y texto diegético ---
+MAX_SCENE_CAST = 3               # personajes distintos por escena/prompt
+MAX_DIALOGUE_LINES_PER_SCENE = 2 # 2 líneas por clip de 10 s
+MAX_CUTS_PER_SCENE = 4
+OBJECT_FOCUS_MIN_SECONDS = 2.0   # insert del hallazgo, mínimo en cámara
+SPEECH_PAD_SECONDS = 0.45        # aire antes/después de una línea
+SPEECH_GAP_SECONDS = 0.35        # pausa entre dos líneas en el mismo plano
+SCENE_TEXT_SAFE_CLAUSE = (
+    "No subtitles, no captions, no overlay text, no watermark, no signage, no UI text."
+)
+SCENE_TEXT_HIDDEN_CLAUSE = (
+    "Any paper, document, letter or sign in frame must show no legible words; "
+    "do not invent readable text."
+)
+
+# --- Contrato v3: ReelShort/DramaBox (fuente probada, puentes, rotación, ritmo) ---
+DEFAULT_CLIFFHANGER_ROTATION = ("identity", "emotion", "revelation")
+PRODUCTION_ATTACH_NOTE = (
+    "ADJUNTA EN CADA ESCENA: la viñeta de esa escena + las referencias SOLO de los "
+    "personajes que salen en ESA escena + el prompt de esa escena. "
+    "No generes ninguna escena sin sus personajes adjuntos."
+)
+FORBIDDEN_TRANSLATION_RE = re.compile(
+    r"\b(?:you\s+dare|ceo\s+[A-Z][a-z]+|president\s+[A-Z][a-z]+)\b",
+    re.IGNORECASE,
+)
+NON_CONFRONTATIONAL_BEAT_PATTERNS = re.compile(
+    r"\b(?:decision|decisi[oó]n|solo|solitari[oa]|discovery|descubrimiento|plan|planning|"
+    r"tender|tierno|tierna|vulnerable|intimacy|intimidad|romance|rom[aá]ntic[oa]|wound|herida|"
+    r"revelation|revelaci[oó]n|hallazgo|investigat|reflec|alivio|curiosidad|esperanza|"
+    r"world_and_wound|setup[-_]stakes|setup)\b",
+    re.IGNORECASE,
+)
+CONFRONTATION_BEAT_PATTERNS = re.compile(
+    r"\b(?:confront|confrontaci[oó]n|face[-_]?slap|argument|fight|clash|crisis|brawl|standoff)\b",
+    re.IGNORECASE,
+)
+
+
+def is_non_confrontational_scene(scene: Dict[str, Any]) -> bool:
+    if scene.get("non_confrontational") is True or scene.get("is_confrontation") is False:
+        return True
+    beat = str(scene.get("beat") or "")
+    beat_fn = str(scene.get("beat_function") or "")
+    emotion = str(scene.get("emotion") or "")
+    for text in (beat, beat_fn, emotion):
+        if text and NON_CONFRONTATIONAL_BEAT_PATTERNS.search(text):
+            return True
+    return False
+
+
+def is_confrontation_scene(scene: Dict[str, Any]) -> bool:
+    if scene.get("is_confrontation") is True:
+        return True
+    beat = str(scene.get("beat") or "")
+    beat_fn = str(scene.get("beat_function") or "")
+    for text in (beat, beat_fn):
+        if text and CONFRONTATION_BEAT_PATTERNS.search(text):
+            return True
+    return False
+
+
+def build_scene_attachments(scene: Dict[str, Any], master: Dict[str, Any]) -> List[str]:
+    sid = int(scene.get("scene_id") or 0)
+    panel_ref = f"panel_{sid:03d}"
+    attachments = [panel_ref]
+    present = [
+        str(x).strip().lower()
+        for x in (scene.get("characters_present") or scene.get("characters") or [])
+        if str(x).strip()
+    ]
+    cast_index = canonical_cast(master)
+    for cid in present:
+        char_info = cast_index.get(cid) or {}
+        char_id = str(char_info.get("id") or cid).strip().lower().replace(" ", "_")
+        ref_name = f"ref_{char_id}"
+        if ref_name not in attachments:
+            attachments.append(ref_name)
+    return attachments
 
 
 class NFError(RuntimeError):
@@ -448,23 +529,29 @@ def ordered_scenes(master: Dict[str, Any]) -> List[Dict[str, Any]]:
     return sorted(scenes, key=lambda s: int(s.get("scene_id") or 0))
 
 
-def scene_dialogue_lines(scene: Dict[str, Any]) -> List[Dict[str, str]]:
-    """Normaliza la diálogo a [{speaker,line,delivery}] (tolera strings/legado)."""
-    out: List[Dict[str, str]] = []
+def scene_dialogue_lines(scene: Dict[str, Any]) -> List[Dict[str, Any]]:
+    """Normaliza el diálogo a [{speaker,line,delivery,shot,recipient}]."""
+    out: List[Dict[str, Any]] = []
     raw = scene.get("dialogue")
     if isinstance(raw, str):
         raw = [raw]
     for item in raw or []:
         if isinstance(item, str):
             if item.strip():
-                out.append({"speaker": "", "line": item.strip(), "delivery": ""})
+                out.append({"speaker": "", "line": item.strip(), "delivery": "", "shot": 0, "recipient": ""})
         elif isinstance(item, dict):
             line = str(item.get("line") or item.get("text") or "").strip()
             if line:
+                try:
+                    shot = int(item.get("shot") or 0)
+                except (TypeError, ValueError):
+                    shot = 0
                 out.append({
                     "speaker": str(item.get("speaker") or "").strip(),
                     "line": line,
                     "delivery": str(item.get("delivery") or "").strip(),
+                    "shot": shot,
+                    "recipient": str(item.get("recipient") or "").strip(),
                 })
     return out
 
@@ -549,7 +636,7 @@ def character_by_key(master: Dict[str, Any]) -> Dict[str, Dict[str, Any]]:
 
 
 def reference_stem(character: Dict[str, Any]) -> str:
-    """Nombre de archivo can�nico de la hoja de referencia: reference_<id>.png."""
+    """Nombre de archivo canónico de la hoja de referencia: reference_<id>.png."""
     cid = slugify(str(character.get("id") or character.get("name") or "character")) or "character"
     return f"reference_{cid}.png"
 
@@ -704,10 +791,7 @@ def format_character_anchors(scene: Dict[str, Any], characters_locked: Any) -> s
     for cid, (pos, character) in by_id.items():
         if cid not in present:
             continue
-        name = str(character.get("name") or cid)
-        descriptor = _character_descriptor(character)
-        wardrobe = _character_wardrobe(character, act, scene)
-        anchors.append(f"{name} (Cast Sheet Pos #{pos}: {descriptor}, wearing {wardrobe})")
+        anchors.append(_anchor_with_position(character, f"Cast Sheet Pos #{pos}:", act, scene))
     return "; ".join(anchors)
 
 
@@ -718,17 +802,22 @@ def build_storyboard_panel_description(scene: Dict[str, Any], master: Dict[str, 
     framing = str(first.get("framing") or "cinematic shot").strip()
     action = re.sub(r"\s+", " ", str(first.get("action") or "the subject is already in motion")).strip()
     action = action.rstrip(".")
+    range_label = str(first.get("range") or SHOT_RANGES[0]).strip()
     location = re.sub(r"\s+", " ", str(scene.get("location") or "the scene location")).strip().rstrip(".")
-    key_object = extract_key_object(scene) or "the scene's central visual detail"
+    key_object = str((scene.get("object_start") or {}).get("name") or "").strip() or (
+        extract_key_object(scene) or "the scene's central visual detail"
+    )
     cast_index = canonical_cast(master)
-    names = [
-        str((cast_index.get(cid) or {}).get("name") or cid)
-        for cid in (scene.get("characters_present") or scene.get("characters") or [])
-    ]
+    cast_ids = [str(cid) for cid in (scene.get("characters_present") or scene.get("characters") or [])]
+    if scene.get("shot_lock_version") == "2":
+        cast_ids = cast_ids[:MAX_SCENE_CAST]
+    names = [str((cast_index.get(cid) or {}).get("name") or cid) for cid in cast_ids]
     present = ", ".join(names) if names else "the protagonist"
+    extra = " No other characters appear." if scene.get("shot_lock_version") == "2" else ""
+    object_part = "" if "key object in frame:" in action.lower() else f" Key object: {key_object}."
     return (
-        f"[00s-03s] {framing}: {action}. "
-        f"Location: {location}. Key object: {key_object}. Characters present: {present}."
+        f"[{range_label}] {framing}: {action}. "
+        f"Location: {location}.{object_part} Characters present: {present}.{extra}"
     )
 
 
@@ -803,22 +892,28 @@ def location_keyword_match(location: str, master: Dict[str, Any]) -> bool:
 
 
 # --- Normalización y validación del JSON Maestro ---
-def _coerce_dialogue(value: Any) -> List[Dict[str, str]]:
+def _coerce_dialogue(value: Any) -> List[Dict[str, Any]]:
     if isinstance(value, str):
         value = [value]
     if not isinstance(value, list):
         return []
-    out: List[Dict[str, str]] = []
+    out: List[Dict[str, Any]] = []
     for item in value:
         if isinstance(item, str) and item.strip():
-            out.append({"speaker": "", "line": item.strip(), "delivery": ""})
+            out.append({"speaker": "", "line": item.strip(), "delivery": "", "shot": 0, "recipient": ""})
         elif isinstance(item, dict):
             line = str(item.get("line") or item.get("text") or "").strip()
             if line:
+                try:
+                    shot = int(item.get("shot") or 0)
+                except (TypeError, ValueError):
+                    shot = 0
                 out.append({
                     "speaker": str(item.get("speaker") or "").strip(),
                     "line": line,
                     "delivery": str(item.get("delivery") or "").strip(),
+                    "shot": shot,
+                    "recipient": str(item.get("recipient") or "").strip(),
                 })
     return out
 
@@ -1007,13 +1102,1061 @@ def _coerce_cuts(
     return cuts
 
 
+# ===========================================================================
+# Contrato v2: una línea = un plano con hablante visible + objeto asegurado
+# ===========================================================================
+FACE_BLOCKED_RE = re.compile(
+    r"\b(?:back(?:ed)? to (?:the )?camera|from behind|rear view|silhouette|"
+    r"out of focus|blurred|face hidden|off[- ]screen|only (?:his|her|their) hands?|"
+    r"hand insert|insert of (?:the|a|his|her) hand|empty (?:frame|shot)|"
+    r"object insert|detail insert|no face)\b",
+    re.IGNORECASE,
+)
+HAND_ONLY_RE = re.compile(
+    r"\b(?:his|her|their|[A-Z][a-z]+'s) (?:gloved )?hands?\b|\bhands? only\b|"
+    r"\bhand insert\b|\b(?:gloved )?fingers?\b|\bthumb\b|\bclasp\b",
+    re.IGNORECASE,
+)
+FACE_PRESENT_RE = re.compile(
+    r"\b(?:face|faces|eyes|mouth|lips|gaze|looks?|looking|stares?|staring|"
+    r"turns? (?:to|toward)|two-shot|over[- ]the[- ]shoulder|OTS)\b",
+    re.IGNORECASE,
+)
+INSERT_RE = re.compile(
+    r"\b(?:insert|macro|extreme close[- ]up (?:of|on) (?:the|a|his|her) "
+    r"(?:hand|object|watch|bag|paper|prop|detail))\b",
+    re.IGNORECASE,
+)
+REACTION_ONLY_RE = re.compile(
+    r"\b(?:reaction shot|says nothing|silent reaction|listens?|watches?|observes?|"
+    r"holds? (?:the|her|his) (?:gaze|silence))\b",
+    re.IGNORECASE,
+)
+AGE_RE = re.compile(
+    r"\b(?:early|mid|late)[\s-]?(?:twenties|thirties|forties|fifties|sixties|"
+    r"seventies)|\b(?:around|about)\s+(?:twenty|thirty|forty|fifty|sixty)|"
+    r"\b(?:teenage|young|middle[- ]aged|elderly)\b",
+    re.IGNORECASE,
+)
+HAIR_RE = re.compile(
+    r"\b(?:hair|braid|braided|bob|ponytail|bun|curls?|curly|wavy|straight|"
+    r"bald|shaved|beard|moustache|mustache|bangs|fringe)\b",
+    re.IGNORECASE,
+)
+PLANT_RE = re.compile(
+    r"(?P<by>\b[A-Z][a-zA-Z'-]+)?\s*"
+    r"(?P<verb>slips?|slides?|hides?|plants?|tucks?|drops?|puts?|places?|shoves?)\s+"
+    r"(?P<obj>(?:(?:the|a|an|his|her|their|its)\s+)?[^.;,]{2,70}?)\s+"
+    r"(?:inside|into|in)\s+(?P<container>[^.;,]{2,70})",
+    re.IGNORECASE,
+)
+REVEAL_RE = re.compile(
+    r"\b(?:finds?|reveals?|pulls? out|takes? out|lifts?|raises?|"
+    r"shows?|discovers?|uncovers?|draws? out|produces?)\b",
+    re.IGNORECASE,
+)
+SPEAKING_VERB_RE = re.compile(
+    r"\b(?:speaks?|says|whispers?|mutters?|shouts?|yells?|talks?)\b",
+    re.IGNORECASE,
+)
+HIDDEN_INTERIOR_RE = re.compile(
+    r"\b(?:interior|inside (?:the|her|his|their) (?:open )?(?:canvas |work )?bag|"
+    r"empty (?:canvas |work )?bag|empty|contents|leather tools?|drawstring open|"
+    r"open(?:ed)? (?:the )?(?:canvas |work )?bag|bag (?:is )?open)\b",
+    re.IGNORECASE,
+)
+
+
+def _flat(text: Any) -> str:
+    return re.sub(r"\s+", " ", str(text or "")).strip()
+
+
+def _display_name(cid: str, master: Dict[str, Any]) -> str:
+    resolved = resolve_speaker(str(cid or ""), master)
+    key = resolved or str(cid or "").strip()
+    for character in master.get("characters") or []:
+        if not isinstance(character, dict):
+            continue
+        if str(character.get("id") or "").strip() == key or str(character.get("name") or "").strip() == key:
+            return str(character.get("name") or character.get("id") or key).strip()
+    return key
+
+
+def _same_character(a: str, b: str, master: Dict[str, Any]) -> bool:
+    ra = resolve_speaker(str(a or ""), master) or str(a or "").strip().lower()
+    rb = resolve_speaker(str(b or ""), master) or str(b or "").strip().lower()
+    return bool(ra) and ra == rb
+
+
+def _contains_name(text: str, name: str) -> bool:
+    name = str(name or "").strip()
+    if len(name) < 3:
+        return False
+    return bool(re.search(rf"(?<![A-Za-z0-9]){re.escape(name)}(?![A-Za-z0-9])", str(text or ""), re.IGNORECASE))
+
+
+def _line_addressed_ids(line: str, master: Dict[str, Any]) -> List[str]:
+    """IDs nombrados o tratados en una línea (Mr. Blackwell -> los Blackwell)."""
+    text = str(line or "")
+    found: List[str] = []
+    for character in master.get("characters") or []:
+        if not isinstance(character, dict):
+            continue
+        cid = _character_id(character)
+        if not cid:
+            continue
+        full = str(character.get("name") or "").strip()
+        parts = full.split()
+        first = parts[0] if parts else ""
+        last = parts[-1] if len(parts) > 1 else ""
+        matched = False
+        if full and _contains_name(text, full):
+            matched = True
+        elif first and _contains_name(text, first):
+            matched = True
+        if not matched and last:
+            for title in ("Mr", "Mrs", "Ms", "Miss", "Sir", "Madam", "Dr"):
+                if re.search(
+                    rf"(?<![A-Za-z0-9]){re.escape(title)}\.?\s+{re.escape(last)}(?![A-Za-z0-9])",
+                    text,
+                    re.IGNORECASE,
+                ):
+                    matched = True
+                    break
+        if matched and cid not in found:
+            found.append(cid)
+    return found
+
+
+def line_ownership_error(line: str, speaker: str, master: Dict[str, Any]) -> Optional[str]:
+    """Una línea que nombra/trata a X no puede ser dicha por X (nadie se llama a sí mismo)."""
+    speaker_cid = resolve_speaker(str(speaker or ""), master) or str(speaker or "").strip()
+    if not speaker_cid:
+        return None
+    for cid in _line_addressed_ids(line, master):
+        if _same_character(cid, speaker_cid, master):
+            name = _display_name(cid, master)
+            return f'la línea "{line}" nombra a {name}; {name} no puede decirla.'
+    return None
+
+
+def character_prompt_anchor(character: Dict[str, Any], act: int, scene: Optional[Dict[str, Any]] = None) -> str:
+    """3 discriminadores que existen en la imagen: edad aprox., peinado y vestuario.
+
+    No inventa color de ojos, tono de piel, complexión ni calzado no visible.
+    """
+    name = str(character.get("name") or character.get("id") or "Character").strip()
+    descriptor = _character_descriptor(character)
+    segments = [s.strip() for s in re.split(r",\s*", descriptor) if s.strip()]
+    age = ""
+    hair = ""
+    for segment in segments:
+        match = AGE_RE.search(segment)
+        if match and not age:
+            age = match.group(0).strip()
+        if HAIR_RE.search(segment) and not hair:
+            hair = segment
+    if age and hair.lower().startswith(age.lower()):
+        hair = hair[len(age):].strip(" ,")
+    if not hair:
+        hair = "hair as shown in the reference sheet"
+    if not age:
+        age = "age as shown in the reference sheet"
+    wardrobe = _character_wardrobe(character, act, scene)
+    wardrobe_words = wardrobe.split()
+    if len(wardrobe_words) > 18:
+        wardrobe = " ".join(wardrobe_words[:18])
+    return f"{name} (Cast Sheet Pos #0: {age}; {hair}; wearing {wardrobe})"
+
+
+def _anchor_with_position(character: Dict[str, Any], prefix: str, act: int, scene: Optional[Dict[str, Any]]) -> str:
+    text = character_prompt_anchor(character, act, scene)
+    return text.replace("Cast Sheet Pos #0:", prefix.strip())
+
+
+def _cut_text(cut: Dict[str, Any]) -> str:
+    return _flat(f"{cut.get('framing') or ''} {cut.get('action') or ''}")
+
+
+def _cut_is_hand_or_insert(cut: Dict[str, Any]) -> bool:
+    text = _cut_text(cut)
+    if not text:
+        return False
+    if _flat(cut.get("kind") or "").lower() == "object":
+        return True
+    if INSERT_RE.search(text) and not FACE_PRESENT_RE.search(text):
+        return True
+    if HAND_ONLY_RE.search(text) and not FACE_PRESENT_RE.search(text):
+        return True
+    return False
+
+
+def face_visible_in_cut(cut: Dict[str, Any]) -> bool:
+    """True si el plano puede sostener una línea con labios visibles."""
+    text = _cut_text(cut)
+    if not text:
+        return False
+    if FACE_BLOCKED_RE.search(text):
+        return False
+    if _cut_is_hand_or_insert(cut):
+        return False
+    if REACTION_ONLY_RE.search(text) and not FACE_PRESENT_RE.search(text):
+        return False
+    return True
+
+
+def _cut_mention_ids(cut: Dict[str, Any], master: Dict[str, Any]) -> List[str]:
+    return mentioned_character_ids(_cut_text(cut), master)
+
+
+def _cut_mentions(cut: Dict[str, Any], cid: str, master: Dict[str, Any]) -> bool:
+    key = resolve_speaker(str(cid or ""), master) or str(cid or "")
+    mentioned = _cut_mention_ids(cut, master)
+    if key and key in mentioned:
+        return True
+    return _contains_name(_cut_text(cut), _display_name(key, master))
+
+
+def _strip_quotes(text: Any) -> str:
+    value = str(text or "")
+    value = re.sub(r'"[^"]*"', "", value)
+    value = re.sub(r"“[^”]*”", "", value)
+    return _flat(value).strip(" ,.;")
+
+
+def _spoken_action(speaker: str, recipient: str, base: str, two_shot_with: str = "") -> str:
+    speaker = speaker or "The speaker"
+    recipient_text = recipient or "the other person in frame"
+    base = _strip_quotes(base)
+    if two_shot_with:
+        first = (
+            f"{speaker} and {two_shot_with} face each other in a two-shot, "
+            "both faces and mouths fully visible, each oriented toward the other."
+        )
+    else:
+        first = (
+            f"{speaker} is on camera with face and mouth fully visible, "
+            f"looking at {recipient_text}."
+        )
+    return _flat(f"{first} {base}") if base else first
+
+
+def _dialogue_framing(framing: Any, speaker: str) -> str:
+    text = _flat(framing)
+    if not text or _cut_is_hand_or_insert({"framing": text, "action": ""}):
+        return f"medium close-up on {speaker}, face and mouth visible"
+    if text.lower().startswith("two-shot"):
+        return text
+    if FACE_PRESENT_RE.search(text):
+        return text
+    return f"{text}, face and mouth visible"
+
+
+def _recipient_for(
+    line: str,
+    speaker_cid: str,
+    speakers: Sequence[str],
+    present: Sequence[str],
+    master: Dict[str, Any],
+    explicit: str = "",
+) -> str:
+    if explicit:
+        resolved = resolve_speaker(explicit, master) or explicit
+        return _display_name(resolved, master)
+    addressed = [cid for cid in _line_addressed_ids(line, master) if not _same_character(cid, speaker_cid, master)]
+    for cid in addressed:
+        if cid in speakers:
+            return _display_name(cid, master)
+    if addressed:
+        return _display_name(addressed[0], master)
+    for cid in speakers:
+        if not _same_character(cid, speaker_cid, master):
+            return _display_name(cid, master)
+    for cid in present:
+        if not _same_character(cid, speaker_cid, master):
+            return _display_name(cid, master)
+    return "the other person in frame"
+
+
+def _cut_range(a: float, b: float) -> str:
+    return f"{int(round(a)):02d}s-{int(round(b)):02d}s"
+
+
+def _retime_cuts(
+    cuts: List[Dict[str, Any]],
+    total: float = SCENE_SECONDS,
+    lines: Optional[Sequence[Dict[str, Any]]] = None,
+) -> List[Dict[str, Any]]:
+    """Reparte 10 s entre tomas: cada línea conserva su tiempo de habla."""
+    if not cuts:
+        return cuts
+    wps = SPEECH_WORDS_PER_SECOND
+    lines = list(lines or [])
+    desired: List[float] = []
+    for cut in cuts:
+        indexes = cut.get("line_indexes") or []
+        if indexes:
+            speech = 0.0
+            for i in indexes:
+                text = str((lines[i] if 0 <= i < len(lines) else {}).get("line") or "")
+                speech += len(re.findall(r"\b[\w'-]+\b", text)) / wps
+            desired.append(max(1.2, speech + SPEECH_PAD_SECONDS + SPEECH_GAP_SECONDS * max(0, len(indexes) - 1)))
+        elif cut.get("kind") == "object":
+            desired.append(OBJECT_FOCUS_MIN_SECONDS + 0.2)
+        else:
+            desired.append(1.5)
+    if sum(desired) < total and any(cut.get("line_indexes") for cut in cuts):
+        remaining = total - sum(desired)
+        dialogue_count = sum(1 for cut in cuts if cut.get("line_indexes"))
+        share = remaining / max(1, dialogue_count)
+        for idx, cut in enumerate(cuts):
+            if cut.get("line_indexes"):
+                desired[idx] += share
+    elif sum(desired) > total:
+        for idx, cut in enumerate(cuts):
+            if not cut.get("line_indexes") and cut.get("kind") != "object":
+                desired[idx] = 1.0
+            elif cut.get("kind") == "object":
+                desired[idx] = OBJECT_FOCUS_MIN_SECONDS
+        if sum(desired) > total:
+            for idx, cut in enumerate(cuts):
+                if cut.get("line_indexes"):
+                    desired[idx] = max(1.0, desired[idx] - SPEECH_PAD_SECONDS)
+        if sum(desired) > total:
+            scale = total / sum(desired)
+            desired = [d * scale for d in desired]
+    at = 0.0
+    for idx, cut in enumerate(cuts):
+        duration = desired[idx] if idx < len(cuts) - 1 else max(0.5, total - at)
+        cut["at"] = round(at, 2)
+        cut["range"] = _cut_range(at, at + duration)
+        at += duration
+    cuts[-1]["range"] = _cut_range(float(cuts[-1]["at"]), total)
+    return cuts
+
+
+def _pick_spoken_cut(
+    cuts: List[Dict[str, Any]],
+    cid: str,
+    master: Dict[str, Any],
+    exclude: Optional[set] = None,
+) -> Optional[int]:
+    exclude = exclude or set()
+    for index, cut in enumerate(cuts):
+        if index in exclude:
+            continue
+        if not face_visible_in_cut(cut):
+            continue
+        if _cut_mentions(cut, cid, master):
+            return index
+    return None
+
+
+def _new_spoken_cut(cid: str, master: Dict[str, Any]) -> Dict[str, Any]:
+    name = _display_name(cid, master)
+    return {
+        "framing": f"medium close-up on {name}, face and mouth visible",
+        "action": f"{name} holds the moment before speaking.",
+        "dialogue": True,
+        "silent": False,
+        "kind": "dialogue",
+    }
+
+
+def _new_object_cut(scene: Dict[str, Any], master: Dict[str, Any]) -> Dict[str, Any]:
+    obj = str(scene.get("planted_object") or extract_key_object(scene) or "the story object").strip()
+    container = str(scene.get("planted_in") or "").strip()
+    if scene.get("object_focus") == "plant" and container:
+        action = f"A silent insert shows {obj} being placed inside {container}; no face in this shot."
+    else:
+        action = f"{obj} is revealed in a silent, centered close-up, clearly visible and unobstructed."
+    return {
+        "framing": "tight close-up of the story object, centered",
+        "action": action,
+        "dialogue": False,
+        "silent": True,
+        "kind": "object",
+    }
+
+
+def _find_object_cut(
+    cuts: List[Dict[str, Any]],
+    scene: Dict[str, Any],
+    master: Dict[str, Any],
+    exclude: Optional[set] = None,
+) -> Optional[Dict[str, Any]]:
+    exclude = exclude or set()
+    names = [
+        str(scene.get("planted_object") or "").strip(),
+        str(scene.get("planted_in") or "").strip(),
+        extract_key_object(scene),
+        str((scene.get("object_start") or {}).get("name") or "").strip(),
+        str((scene.get("object_end") or {}).get("name") or "").strip(),
+    ]
+    names = [name for name in dict.fromkeys(names) if name]
+    def speaking(cut: Dict[str, Any]) -> bool:
+        text = _cut_text(cut)
+        return bool(cut.get("dialogue") or SPEAKING_VERB_RE.search(text) or '"' in text or "“" in text)
+
+    for index, cut in enumerate(cuts):
+        if index in exclude or speaking(cut):
+            continue
+        text = _cut_text(cut)
+        if any(_contains_name(text, name) or name.lower() in text.lower() for name in names):
+            if _cut_is_hand_or_insert(cut) or cut.get("kind") == "object":
+                return cut
+    for index, cut in enumerate(cuts):
+        if index in exclude or speaking(cut):
+            continue
+        if any(_contains_name(_cut_text(cut), name) or name.lower() in _cut_text(cut).lower() for name in names):
+            return cut
+    return None
+
+
+def _silent_kind(cut: Dict[str, Any], scene: Dict[str, Any]) -> str:
+    text = _cut_text(cut)
+    if scene.get("object_hidden") and HIDDEN_INTERIOR_RE.search(text):
+        return "hidden"
+    if _cut_is_hand_or_insert(cut):
+        return "insert"
+    if REACTION_ONLY_RE.search(text):
+        return "reaction"
+    return "silent"
+
+
+def _subject_name(cut: Dict[str, Any], master: Dict[str, Any]) -> str:
+    mentioned = _cut_mention_ids(cut, master)
+    if mentioned:
+        return _display_name(mentioned[0], master)
+    return ""
+
+
+def _sanitize_hidden_text(text: str) -> str:
+    value = str(text or "")
+    value = re.sub(
+        r"\b(?:pulls?|tugs?|tears?) (?:the )?(?:drawstring )?open\b",
+        "loosens the drawstring without opening the bag",
+        value,
+        flags=re.IGNORECASE,
+    )
+    value = re.sub(
+        r"\bopens? (?:the )?(?:canvas |work )?bag\b",
+        "loosens the bag",
+        value,
+        flags=re.IGNORECASE,
+    )
+    value = re.sub(
+        r"\bopen (?:canvas |work )?bag\b",
+        "loosened bag",
+        value,
+        flags=re.IGNORECASE,
+    )
+    value = re.sub(
+        r"\b(?:the )?(?:canvas |work )?bag (?:is|stays) open\b",
+        "the bag stays loosened but never gaping",
+        value,
+        flags=re.IGNORECASE,
+    )
+    value = re.sub(r"\bleather tools?\b", "the bag's outer seam", value, flags=re.IGNORECASE)
+    value = re.sub(r"\b(?:empty|interior|contents)\b", "exterior", value, flags=re.IGNORECASE)
+    return _flat(value)
+
+
+def _sanitize_silent_speech(text: Any) -> str:
+    value = _strip_quotes(str(text or ""))
+    value = re.sub(
+        r"[,;]?\s*\b(?:as|while|when)\s+(?:she|he|they|the\s+[a-z]+|[A-Z][a-z]+)\s+"
+        r"(?:speaks?|says|whispers?|mutters?|shouts?|yells?|talks?)\b[^.;]*",
+        "",
+        value,
+        flags=re.IGNORECASE,
+    )
+    value = SPEAKING_VERB_RE.sub("stays silent", value)
+    value = re.sub(r"\bafter\s*,", "after the line,", value)
+    value = re.sub(r"\bThe silence after\b", "The silence", value)
+    return _flat(value)
+
+
+def _rewrite_hidden_object(cut: Dict[str, Any], scene: Dict[str, Any], master: Dict[str, Any]) -> None:
+    container = str(scene.get("planted_in") or "").strip()
+    if not container:
+        container = str((scene.get("object_start") or {}).get("name") or "").strip()
+    if not container:
+        container = "the bag"
+    text = _cut_text(cut)
+    if not HIDDEN_INTERIOR_RE.search(text):
+        return
+    safe = _sanitize_hidden_text(str(cut.get("action") or ""))
+    rule = (
+        "Its interior remains in shadow and out of frame; "
+        "never show it empty and never show a full interior."
+    )
+    if cut.get("dialogue"):
+        cut["action"] = _flat(f"{safe.rstrip('.')}. {rule}" if safe else rule)
+    else:
+        subject = _subject_name(cut, master) or "The camera"
+        cut["action"] = _flat(
+            f"{subject} stays on the outside of {container}, which stays loosened "
+            f"but never gaping. {rule}"
+        )
+
+
+def _plan_scene_shots(scene: Dict[str, Any], master: Dict[str, Any]) -> List[Dict[str, Any]]:
+    cuts = [copy.deepcopy(c) for c in (scene.get("internal_cuts") or []) if isinstance(c, dict)]
+    lines = [dict(entry) for entry in scene_dialogue_lines(scene)]
+    if not cuts:
+        cuts = [{"framing": "medium shot", "action": ""}]
+    for cut in cuts:
+        cut["dialogue"] = False
+        cut["silent"] = True
+        cut["kind"] = "silent"
+        cut["speakers"] = []
+        cut.pop("line_indexes", None)
+    if not lines:
+        for cut in cuts:
+            cut["kind"] = _silent_kind(cut, scene)
+            cut["action"] = _sanitize_silent_speech(cut.get("action") or "")
+        return _retime_cuts(cuts[:MAX_CUTS_PER_SCENE], lines=lines)
+
+    present = scene_characters_present(scene, master)
+    speaker_ids = [
+        resolve_speaker(str(line.get("speaker") or ""), master) or str(line.get("speaker") or "").strip()
+        for line in lines
+    ]
+    unique_speakers: List[str] = []
+    for cid in speaker_ids:
+        if cid and cid not in unique_speakers:
+            unique_speakers.append(cid)
+    object_focus = str(scene.get("object_focus") or "").strip()
+    reveal = object_focus == "reveal"
+    two_shot = len(lines) == 2 and len(unique_speakers) == 2 and not reveal
+    selection: Dict[int, int] = {}
+
+    if two_shot:
+        shared: Optional[int] = None
+        for index, cut in enumerate(cuts):
+            if not _cut_is_hand_or_insert(cut) and not REACTION_ONLY_RE.search(_cut_text(cut)):
+                shared = index
+                break
+        if shared is None:
+            cuts.insert(0, {"framing": "two-shot, medium shot", "action": ""})
+            shared = 0
+        if shared != 0:
+            cuts.insert(0, cuts.pop(shared))
+            shared = 0
+        first_name = _display_name(unique_speakers[0], master)
+        second_name = _display_name(unique_speakers[1], master)
+        base = _strip_quotes(cuts[shared].get("action") or "")
+        cuts[shared]["framing"] = f"two-shot, medium shot with {first_name} and {second_name}"
+        cuts[shared]["action"] = _spoken_action(first_name, second_name, base, two_shot_with=second_name)
+        cuts[shared]["dialogue"] = True
+        cuts[shared]["silent"] = False
+        cuts[shared]["kind"] = "dialogue"
+        cuts[shared]["speakers"] = [unique_speakers[0], unique_speakers[1]]
+        cuts[shared]["line_indexes"] = [0, 1]
+        selection[0] = shared
+        selection[1] = shared
+    elif reveal and len(lines) >= 2:
+        first = _pick_spoken_cut(cuts, speaker_ids[0], master)
+        if first is None:
+            cuts.insert(0, _new_spoken_cut(speaker_ids[0], master))
+            first = 0
+        selection[0] = first
+        second = _pick_spoken_cut(cuts, speaker_ids[1], master, exclude={first})
+        if second is None:
+            second = len(cuts)
+            cuts.append(_new_spoken_cut(speaker_ids[1], master))
+        selection[1] = second
+    else:
+        used: set = set()
+        for index, cid in enumerate(speaker_ids):
+            chosen = _pick_spoken_cut(cuts, cid, master, exclude=used)
+            if chosen is None:
+                chosen = len(cuts)
+                cuts.append(_new_spoken_cut(cid, master))
+            selection[index] = chosen
+            used.add(chosen)
+
+    groups: List[tuple] = []
+    for cut_index in sorted(set(selection.values())):
+        cut = cuts[cut_index]
+        indexes = [i for i in range(len(lines)) if selection.get(i) == cut_index]
+        groups.append((cut_index, cut, indexes))
+    groups.sort(key=lambda item: min(item[2]) if item[2] else 999)
+
+    for _cut_index, cut, indexes in groups:
+        cut["dialogue"] = True
+        cut["silent"] = False
+        cut["kind"] = "dialogue"
+        cut["line_indexes"] = indexes
+        cut["speakers"] = [speaker_ids[i] for i in indexes if speaker_ids[i]]
+        if not str(cut.get("framing") or "").lower().startswith("two-shot"):
+            speaker_id = cut["speakers"][0] if cut["speakers"] else ""
+            speaker = _display_name(speaker_id, master) if speaker_id else "The speaker"
+            recipient = _recipient_for(
+                lines[indexes[0]]["line"] if indexes else "",
+                speaker_id,
+                unique_speakers,
+                present,
+                master,
+                explicit=str(lines[indexes[0]].get("recipient") or "") if indexes else "",
+            )
+            cut["framing"] = _dialogue_framing(cut.get("framing"), speaker)
+            cut["action"] = _spoken_action(speaker, recipient, cut.get("action") or "")
+        cut["action"] = _strip_quotes(cut.get("action") or "")
+
+    object_cut: Optional[Dict[str, Any]] = None
+    if object_focus:
+        object_cut = _find_object_cut(cuts, scene, master, exclude=set(selection.values()))
+        if object_cut is None:
+            object_cut = _new_object_cut(scene, master)
+            cuts.append(object_cut)
+        object_cut["dialogue"] = False
+        object_cut["silent"] = True
+        object_cut["kind"] = "object"
+
+    used = set(selection.values())
+    if object_cut is not None:
+        used.add(cuts.index(object_cut))
+    silent_cuts: List[Dict[str, Any]] = []
+    for index, cut in enumerate(cuts):
+        if index in used:
+            continue
+        cut["dialogue"] = False
+        cut["silent"] = True
+        cut["kind"] = _silent_kind(cut, scene)
+        cut["action"] = _sanitize_silent_speech(cut.get("action") or "")
+        silent_cuts.append(cut)
+
+    if scene.get("object_hidden"):
+        for _cut_index, cut, _indexes in groups:
+            _rewrite_hidden_object(cut, scene, master)
+        for cut in silent_cuts:
+            _rewrite_hidden_object(cut, scene, master)
+
+    final: List[Dict[str, Any]] = []
+    if reveal and len(groups) >= 2:
+        final.append(groups[0][1])
+        if object_cut is not None:
+            final.append(object_cut)
+        final.append(groups[1][1])
+        final.extend(silent_cuts)
+    else:
+        final.extend(group[1] for group in groups)
+        if object_cut is not None:
+            final.append(object_cut)
+        final.extend(silent_cuts)
+    unique_final: List[Dict[str, Any]] = []
+    for cut in final:
+        if cut not in unique_final:
+            unique_final.append(cut)
+    if len(unique_final) > MAX_CUTS_PER_SCENE:
+        keep = [cut for cut in unique_final if cut.get("dialogue") or cut.get("kind") == "object"]
+        extra = [cut for cut in unique_final if cut not in keep]
+        unique_final = keep[:MAX_CUTS_PER_SCENE] + extra[:max(0, MAX_CUTS_PER_SCENE - len(keep))]
+    for cut in unique_final:
+        cut.pop("_lines", None)
+    return _retime_cuts(unique_final, lines=lines)
+
+
+def _apply_dialogue_shots(scene: Dict[str, Any], master: Dict[str, Any]) -> None:
+    cuts = [c for c in (scene.get("internal_cuts") or []) if isinstance(c, dict)]
+    lines = [dict(entry) for entry in scene_dialogue_lines(scene)]
+    if not lines:
+        scene["dialogue"] = []
+        return
+    present = [str(cid) for cid in (scene.get("characters_present") or [])]
+    speaker_ids = [
+        resolve_speaker(str(entry.get("speaker") or ""), master)
+        or str(entry.get("speaker") or "").strip()
+        for entry in lines
+    ]
+    unique_speakers: List[str] = []
+    for cid in speaker_ids:
+        if cid and cid not in unique_speakers:
+            unique_speakers.append(cid)
+    for index, entry in enumerate(lines):
+        shot = 1
+        for cut_index, cut in enumerate(cuts, start=1):
+            if index in (cut.get("line_indexes") or []):
+                shot = cut_index
+                break
+        entry["shot"] = shot
+        entry["recipient"] = _recipient_for(
+            entry.get("line") or "",
+            speaker_ids[index],
+            unique_speakers,
+            present,
+            master,
+            explicit=str(entry.get("recipient") or ""),
+        )
+    scene["dialogue"] = lines
+
+
+def _scene_lock_text(scene: Dict[str, Any]) -> str:
+    cuts = scene.get("internal_cuts") or []
+    actions = " ".join(str((cut or {}).get("action") or "") for cut in cuts if isinstance(cut, dict))
+    return _flat(" ".join([
+        str(scene.get("single_change_at_end") or ""),
+        str(scene.get("this_scene_starts_with") or ""),
+        str(scene.get("action") or ""),
+        str(scene.get("continuity") or ""),
+        actions,
+    ]))
+
+
+def _strip_article(text: str) -> str:
+    return re.sub(r"^(?:the|a|an|his|her|their|its)\s+", "", _flat(text), flags=re.IGNORECASE).strip()
+
+
+def _container_key(text: str) -> str:
+    value = _flat(text)
+    value = re.split(r"'s\s+", value, maxsplit=1)[-1]
+    return _strip_article(value).lower()
+
+
+def _planting_details(scene: Dict[str, Any]) -> Optional[Dict[str, str]]:
+    text = _scene_lock_text(scene)
+    match = PLANT_RE.search(text)
+    if not match:
+        return None
+    obj = _flat(match.group("obj")).strip(" ,.;")
+    container = _flat(match.group("container")).strip(" ,.;")
+    container = re.split(r"\s+(?:while|as|before|and then|and|with)\s+", container, maxsplit=1)[0].strip(" ,.;")
+    if not obj or not container or len(obj) < 3 or len(container) < 3:
+        return None
+    if re.search(
+        r"\bframe\b|\b(?:front|back|side|top|bottom|middle|center|centre|view|"
+        r"sight|place|public|air|light|dark|distance|motion|silence)\b",
+        container,
+        re.IGNORECASE,
+    ):
+        return None
+    if re.search(r"\b(?:is|was|are|were|be|been)\b", obj, re.IGNORECASE):
+        return None
+    by = _flat(match.group("by") or "")
+    return {
+        "object": obj,
+        "container": container,
+        "container_key": _container_key(container),
+        "object_key": _strip_article(obj).lower(),
+        "by": by,
+    }
+
+
+def diegetic_text_for_scene(scene: Dict[str, Any]) -> List[str]:
+    raw = scene.get("diegetic_text") or scene.get("on_object_text")
+    texts: List[str] = []
+    if isinstance(raw, str):
+        raw = [raw]
+    for item in raw or []:
+        text = _flat(item).upper()
+        if text and text not in texts:
+            texts.append(text)
+    if not texts:
+        key = _flat(extract_key_object(scene)).lower()
+        if "confession" in key:
+            texts = ["CONFESSION"]
+    scene["diegetic_text"] = texts
+    scene["on_object_text"] = texts
+    return texts
+
+
+def diegetic_text_clause(scene: Dict[str, Any]) -> str:
+    texts = [str(text) for text in (scene.get("diegetic_text") or []) if str(text).strip()]
+    if texts:
+        joined = ", ".join(f'"{text}"' for text in texts)
+        return (
+            "DIEGETIC TEXT EXCEPTION: the only legible text allowed is the exact word(s) "
+            f"printed on the story object: {joined}. No other text, letters, logos, "
+            "watermarks, captions or signage."
+        )
+    return f"{SCENE_TEXT_SAFE_CLAUSE} {SCENE_TEXT_HIDDEN_CLAUSE}"
+
+
+def _apply_object_ledger(scene: Dict[str, Any], ledger: Dict[str, Any], master: Dict[str, Any]) -> None:
+    text = _scene_lock_text(scene)
+    details = _planting_details(scene)
+    if details:
+        container = details["container"]
+        obj = details["object"]
+        scene["planted_object"] = obj
+        scene["planted_in"] = container
+        scene["planted_by"] = details["by"]
+        scene["key_object"] = obj
+        scene["object_focus"] = "plant"
+        scene["object_hidden"] = False
+        scene["object_start"] = {
+            "name": container,
+            "visible": "hanging open at the edge of frame, its interior out of focus",
+        }
+        scene["object_end"] = {
+            "name": obj,
+            "visible": f"inside {container} in a silent insert, placed by {details['by'] or 'the hand'}",
+        }
+        ledger[details["container_key"]] = {
+            "object": obj,
+            "object_key": details["object_key"],
+            "container": container,
+            "hidden": True,
+            "revealed": False,
+        }
+        diegetic_text_for_scene(scene)
+        return
+
+    entry: Optional[Dict[str, Any]] = None
+    for key, value in ledger.items():
+        if not key or not isinstance(value, dict):
+            continue
+        if _contains_name(text, key) or key.lower() in text.lower():
+            entry = value
+            break
+    if entry:
+        obj = str(entry.get("object") or "").strip()
+        obj_key = str(entry.get("object_key") or "").strip().lower()
+        container = str(entry.get("container") or "").strip()
+        reveals = bool(REVEAL_RE.search(text)) and (
+            obj_key in text.lower() or _contains_name(text, obj)
+        )
+        if reveals:
+            scene["object_focus"] = "reveal"
+            scene["object_hidden"] = False
+            scene["key_object"] = obj or extract_key_object(scene)
+            scene["object_start"] = {
+                "name": obj,
+                "visible": f"inside {container}, its chain catching the light at the frame edge",
+            }
+            scene["object_end"] = {
+                "name": obj,
+                "visible": "hanging in the hand, centered, at least 2 seconds on screen",
+            }
+            entry["hidden"] = False
+            entry["revealed"] = True
+        else:
+            scene["object_hidden"] = True
+            if not extract_key_object(scene):
+                scene["key_object"] = container
+            scene["object_start"] = {
+                "name": container,
+                "visible": "loosened, the interior in shadow and out of frame",
+                "contains": obj,
+            }
+            scene["object_end"] = {
+                "name": container,
+                "visible": "in frame at the end, its interior never shown",
+                "contains": obj,
+            }
+        diegetic_text_for_scene(scene)
+        return
+
+    scene["object_hidden"] = False
+    obj = extract_key_object(scene)
+    if obj:
+        scene["object_start"] = {"name": obj, "visible": "in frame at the start of the scene"}
+        scene["object_end"] = {"name": obj, "visible": "in frame at the end of the scene"}
+        if REVEAL_RE.search(text):
+            scene["object_focus"] = "reveal"
+    diegetic_text_for_scene(scene)
+
+
+def _dialogue_end_seconds(scene: Dict[str, Any]) -> float:
+    cuts = [c for c in (scene.get("internal_cuts") or []) if isinstance(c, dict)]
+    lines = scene_dialogue_lines(scene)
+    total = 0.0
+    for cut in cuts:
+        indexes = [int(i) for i in (cut.get("line_indexes") or [])]
+        if not indexes:
+            continue
+        speech = 0.0
+        for i in indexes:
+            if 0 <= i < len(lines):
+                speech += len(re.findall(r"\b[\w'-]+\b", lines[i]["line"])) / SPEECH_WORDS_PER_SECOND
+        end = float(cut.get("at") or 0.0) + 0.2 + speech + SPEECH_GAP_SECONDS * max(0, len(indexes) - 1)
+        total = max(total, end)
+    return round(min(SCENE_SECONDS, total), 1)
+
+
+def build_scene_first_frame_prompt(
+    scene: Dict[str, Any],
+    master: Dict[str, Any],
+    style: Optional[Dict[str, Any]] = None,
+) -> str:
+    style = style if isinstance(style, dict) else load_style_locks()
+    cuts = [c for c in (scene.get("internal_cuts") or []) if isinstance(c, dict)]
+    first = cuts[0] if cuts else {}
+    names = [
+        _display_name(str(cid), master)
+        for cid in (scene.get("characters_present") or [])[:MAX_SCENE_CAST]
+    ]
+    subject = ", ".join(name for name in names if name) or "the scene"
+    location = _flat(scene.get("location") or "the scene location")
+    action = _cut_action(first) or "the scene opens already in motion"
+    object_name = str((scene.get("object_start") or {}).get("name") or extract_key_object(scene) or "").strip()
+    if not object_name:
+        object_clause = " Key object in frame: the scene central prop."
+    elif re.search(r"key object in frame", action, re.IGNORECASE):
+        object_clause = ""
+    else:
+        object_clause = f" Key object in frame: {object_name}."
+    anchors = str(scene.get("character_anchors") or format_character_anchors(
+        scene, master.get("characters_locked") or master.get("characters") or []
+    )).strip()
+    suffix = _flat((style.get("visual_style_lock") or {}).get("image_prompt_suffix") or "")
+    suffix = re.sub(r"No text[^.]*\.", "", suffix).strip()
+    clause = diegetic_text_clause(scene)
+    return _flat(
+        f"Cinematic still of {subject}, {first.get('framing') or 'medium shot'}, at {location}. "
+        f"{action.rstrip(' .')}.{object_clause} "
+        f"Identity anchors: {anchors or 'use the reference sheets exactly as attached'}. "
+        f"{suffix} {clause} Keep the first frame exactly the same framing as Shot 1."
+    )
+
+
+def _first_frame_prompt_needs_repair(
+    scene: Dict[str, Any],
+    master: Dict[str, Any],
+    orig_first: Optional[tuple],
+) -> bool:
+    prompt = _flat(scene.get("first_frame_prompt") or "").lower()
+    if not prompt:
+        return True
+    cuts = [c for c in (scene.get("internal_cuts") or []) if isinstance(c, dict)]
+    new_first = (_flat((cuts[0] if cuts else {}).get("framing")), _cut_action(cuts[0] if cuts else {}))
+    if orig_first and (tuple(orig_first) != new_first):
+        return True
+    object_name = str((scene.get("object_start") or {}).get("name") or extract_key_object(scene) or "").strip()
+    if object_name and object_name.lower() not in prompt:
+        return True
+    for cid in (scene.get("characters_present") or [])[:MAX_SCENE_CAST]:
+        name = _display_name(str(cid), master).lower()
+        if name and name not in prompt:
+            return True
+    return False
+
+
+def prepare_scene_locks(
+    scene: Dict[str, Any],
+    master: Dict[str, Any],
+    previous: Optional[Dict[str, Any]] = None,
+    ledger: Optional[Dict[str, Any]] = None,
+    style: Optional[Dict[str, Any]] = None,
+) -> Dict[str, Any]:
+    """Deriva en memoria el contrato v2 (no reescribe el proyecto en disco)."""
+    prepared = copy.deepcopy(scene)
+    ledger = ledger if isinstance(ledger, dict) else {}
+    prepared["dialogue"] = _coerce_dialogue(prepared.get("dialogue"))
+    prepared["key_object"] = extract_key_object(prepared)
+    _apply_object_ledger(prepared, ledger, master)
+    cuts_before = [c for c in (prepared.get("internal_cuts") or []) if isinstance(c, dict)]
+    orig_first = (
+        _flat((cuts_before[0] if cuts_before else {}).get("framing")),
+        _cut_action(cuts_before[0] if cuts_before else {}),
+    )
+    prepared["internal_cuts"] = _plan_scene_shots(prepared, master)
+    present = scene_characters_present(prepared, master)
+    prepared["characters_present"] = present
+    speakers: List[str] = []
+    for entry in scene_dialogue_lines(prepared):
+        cid = resolve_speaker(entry.get("speaker") or "", master) or str(entry.get("speaker") or "").strip()
+        if cid and cid not in speakers:
+            speakers.append(cid)
+    prepared["present_silent"] = [cid for cid in present if cid not in speakers]
+    prepared["shot_lock_version"] = "2"
+    prepared["character_anchors"] = format_character_anchors(
+        prepared, master.get("characters_locked") or master.get("characters") or []
+    )
+    _ensure_key_object_in_first_cut(prepared)
+    prepared["storyboard_panel"] = build_storyboard_panel_description(prepared, master)
+    prepared["dialogue_end_seconds"] = _dialogue_end_seconds(prepared)
+    _apply_dialogue_shots(prepared, master)
+    repaired = False
+    if _first_frame_prompt_needs_repair(prepared, master, orig_first):
+        prepared["first_frame_prompt"] = build_scene_first_frame_prompt(prepared, master, style)
+        repaired = True
+    cuts_after = [c for c in (prepared.get("internal_cuts") or []) if isinstance(c, dict)]
+    new_first = (
+        _flat((cuts_after[0] if cuts_after else {}).get("framing")),
+        _cut_action(cuts_after[0] if cuts_after else {}),
+    )
+    prepared["frame_regeneration_required"] = bool(repaired or (orig_first != new_first))
+    return prepared
+
+
+def prepare_master_locks(
+    master: Dict[str, Any],
+    style: Optional[Dict[str, Any]] = None,
+) -> Dict[str, Any]:
+    """Copia del maestro con todas las escenas preparadas para el contrato v2."""
+    if not isinstance(master, dict):
+        raise NFError("prepare_master_locks espera un JSON maestro.")
+    style = style if isinstance(style, dict) else load_style_locks()
+    prepared = dict(master)
+    ledger: Dict[str, Any] = {}
+    scenes: List[Dict[str, Any]] = []
+    previous: Optional[Dict[str, Any]] = None
+    for scene in ordered_scenes(master):
+        current = prepare_scene_locks(scene, master, previous=previous, ledger=ledger, style=style)
+        scenes.append(current)
+        previous = current
+    prepared["scenes"] = scenes
+    prepared["shot_lock_version"] = "2"
+    return prepared
+
+
+def prepare_master_locks_safe(
+    master: Dict[str, Any],
+    style: Optional[Dict[str, Any]] = None,
+) -> Dict[str, Any]:
+    """``prepare_master_locks`` solo cuando el contrato v2 aplica; maestros legados intactos."""
+    if not isinstance(master, dict):
+        return master
+    if str(master.get("shot_lock_version") or "") == "2":
+        return master
+    if not _should_apply_v2(master):
+        return master
+    return prepare_master_locks(master, style)
+
+
+def scene_shot_rows(scene: Dict[str, Any]) -> List[Dict[str, Any]]:
+    rows: List[Dict[str, Any]] = []
+    for cut in scene.get("internal_cuts") or []:
+        if not isinstance(cut, dict):
+            continue
+        rows.append({
+            "range": str(cut.get("range") or ""),
+            "at": float(cut.get("at") or 0.0),
+            "framing": str(cut.get("framing") or "").strip(),
+            "action": str(cut.get("action") or "").strip(),
+            "dialogue": bool(cut.get("dialogue")),
+            "silent": bool(cut.get("silent")),
+            "kind": str(cut.get("kind") or "").strip(),
+            "speakers": [str(s) for s in (cut.get("speakers") or [])],
+            "line_indexes": [int(i) for i in (cut.get("line_indexes") or [])],
+        })
+    return rows
+
+
+def scene_present_silent_names(scene: Dict[str, Any], master: Dict[str, Any]) -> List[str]:
+    return [_display_name(str(cid), master) for cid in (scene.get("present_silent") or []) if str(cid).strip()]
+
+
+def scene_speaker_names(scene: Dict[str, Any], master: Dict[str, Any]) -> List[str]:
+    names: List[str] = []
+    for entry in scene_dialogue_lines(scene):
+        cid = resolve_speaker(entry.get("speaker") or "", master) or str(entry.get("speaker") or "").strip()
+        name = _display_name(cid, master) if cid else ""
+        if name and name not in names:
+            names.append(name)
+    return names
+
+
 def _cut_action(cut: Dict[str, Any]) -> str:
     return re.sub(r"\s+", " ", str((cut or {}).get("action") or "")).strip().rstrip(".")
 
 
 def _ensure_key_object_in_first_cut(scene: Dict[str, Any]) -> None:
     """Regla 4: el nombre exacto del key_object también vive en la Toma 1."""
-    key_object = extract_key_object(scene)
+    key_object = str((scene.get("object_start") or {}).get("name") or "").strip() or extract_key_object(scene)
     cuts = scene.get("internal_cuts") or []
     if not key_object or not isinstance(cuts, list) or not cuts or not isinstance(cuts[0], dict):
         return
@@ -1061,9 +2204,27 @@ def _coerce_narrative_continuity(
     ):
         changed = synthesized_change
 
+    entry_bridge = str(scene.get("entry_bridge") or "").strip()
+    exit_hook = str(scene.get("exit_hook") or "").strip()
+
+    if previous:
+        prev_exit = str(previous.get("exit_hook") or "").strip()
+        if not prev_exit:
+            prev_exit = f"a command to resolve {key_object}"
+        if not entry_bridge or is_placeholder_text(entry_bridge):
+            entry_bridge = f"Following {prev_exit.rstrip('.').lower()}, action begins without pause around {key_object}."
+    else:
+        if not entry_bridge or is_placeholder_text(entry_bridge):
+            entry_bridge = f"The story opens cold as {started.rstrip('.').lower()}."
+
+    if not exit_hook or is_placeholder_text(exit_hook):
+        exit_hook = f"A sharp ultimatum leaves {key_object} contested, forcing an urgent response."
+
     scene["because_previous_ended_with"] = because
     scene["this_scene_starts_with"] = started
     scene["single_change_at_end"] = changed
+    scene["entry_bridge"] = entry_bridge
+    scene["exit_hook"] = exit_hook
 
 
 def _auto_block_question(
@@ -1115,10 +2276,18 @@ def build_narrative_continuity(
                 break
         if not question:
             question = _auto_block_question(group, protagonist, block_number)
+        default_cliffhanger = DEFAULT_CLIFFHANGER_ROTATION[(block_number - 1) % len(DEFAULT_CLIFFHANGER_ROTATION)]
+        cliffhanger_type = ""
+        for scene in reversed(group):
+            ct = str(scene.get("cliffhanger_type") or "").strip().lower()
+            if ct:
+                cliffhanger_type = ct
+                break
         blocks.append({
             "block": block_number,
             "scenes": [int(scene.get("scene_id") or 0) for scene in group],
             "driving_question": question,
+            "cliffhanger_type": cliffhanger_type or default_cliffhanger,
         })
     return {
         "schema_version": int(engine.get("schema_version") or 1),
@@ -1173,6 +2342,19 @@ def _normalize_teasers(payload: Dict[str, Any], scenes: List[Dict[str, Any]], wa
             t["caption"] = str(t.get("hook_text") or "").strip()
     teasers.sort(key=lambda t: t["id"])
     return teasers
+
+
+def _should_apply_v2(master: Dict[str, Any]) -> bool:
+    """Solo si hay reparto y al menos un hablante resoluble (no rompe fixtures)."""
+    if not isinstance(master.get("characters"), list) or not master.get("characters"):
+        return False
+    for scene in master.get("scenes") or []:
+        if not isinstance(scene, dict):
+            continue
+        for entry in scene_dialogue_lines(scene):
+            if resolve_speaker(entry.get("speaker") or "", master):
+                return True
+    return False
 
 
 def normalize_master(
@@ -1322,12 +2504,38 @@ def normalize_master(
         else master["characters"]
     )
     master["scenes"] = scenes
+    if _should_apply_v2(master):
+        try:
+            prepared_master = prepare_master_locks(master, style)
+            master["scenes"] = prepared_master["scenes"]
+            master["shot_lock_version"] = "2"
+            scenes = master["scenes"]
+        except NFError as exc:
+            warnings.append(f"Contrato v2 no aplicado: {exc}")
     for scene in scenes:
         scene["character_anchors"] = format_character_anchors(scene, master["characters_locked"])
         scene["storyboard_panel"] = build_storyboard_panel_description(scene, master)
     master["partial"] = len(scenes) != SCENE_COUNT
     master["teasers"] = _normalize_teasers(payload, scenes, warnings)
     master["narrative_continuity"] = build_narrative_continuity(master, rules)
+
+    # TAREA A: Modo fuente probada (proven_adaptation vs original_unproven)
+    source_script = str(payload.get("source_script") or payload.get("source_text") or "").strip()
+    source_mode = str(payload.get("source_mode") or "").strip()
+    if not source_mode:
+        source_mode = "proven_adaptation" if source_script else "original_unproven"
+    elif source_mode == "proven_adaptation" and not source_script:
+        source_mode = "original_unproven"
+
+    master["source_mode"] = source_mode
+    if source_script:
+        master["source_script"] = source_script
+
+    if source_mode == "original_unproven":
+        warnings.append(
+            "source_mode: 'original_unproven' — guion generado sin fuente probada (source_script). "
+            "ReelShort/DramaBox exigen adaptar historias probadas para garantizar retención."
+        )
 
     pub = dict(master.get("publisher") or {}) if isinstance(master.get("publisher"), dict) else {}
     pub.setdefault("personaje_id", "emma_hayes")
@@ -1364,6 +2572,112 @@ def _fill_default_prompts(master: Dict[str, Any], style: Dict[str, Any]) -> Dict
     return master
 
 
+def _cut_end_seconds(cuts: Sequence[Dict[str, Any]], index: int) -> float:
+    if index + 1 < len(cuts):
+        return float(cuts[index + 1].get("at") or SCENE_SECONDS)
+    return SCENE_SECONDS
+
+
+def _validate_scene_v2(
+    scene: Dict[str, Any],
+    master: Dict[str, Any],
+    sid: int,
+    strict: Any,
+) -> None:
+    """Reglas del contrato v2: hablante por toma, mute list, objeto y texto."""
+    cuts = [c for c in (scene.get("internal_cuts") or []) if isinstance(c, dict)]
+    lines = scene_dialogue_lines(scene)
+    present = [str(cid) for cid in (scene.get("characters_present") or [])]
+    if len(present) > MAX_SCENE_CAST:
+        strict(f"Escena {sid}: {len(present)} personajes en escena; el máximo del prompt es {MAX_SCENE_CAST}.")
+    if len(lines) > MAX_DIALOGUE_LINES_PER_SCENE:
+        strict(f"Escena {sid}: {len(lines)} líneas de diálogo; el máximo por clip es {MAX_DIALOGUE_LINES_PER_SCENE}.")
+    if not lines and any(cut.get("dialogue") for cut in cuts):
+        strict(f"Escena {sid}: hay una toma marcada como diálogo sin líneas.")
+    speakers: List[str] = []
+    for entry in lines:
+        cid = resolve_speaker(entry.get("speaker") or "", master) or str(entry.get("speaker") or "").strip()
+        if cid and cid not in speakers:
+            speakers.append(cid)
+    for index, entry in enumerate(lines):
+        shot = int(entry.get("shot") or 0)
+        if not 1 <= shot <= len(cuts):
+            strict(f"Escena {sid}: línea {index + 1} sin toma asignada.")
+            continue
+        cut = cuts[shot - 1]
+        if not cut.get("dialogue"):
+            strict(f"Escena {sid}: línea {index + 1} cae en una toma marcada como silencio.")
+        if not face_visible_in_cut(cut):
+            strict(f"Escena {sid}: línea {index + 1} cae en un plano sin rostro y boca visibles.")
+        speaker = entry.get("speaker") or ""
+        if not speaker:
+            strict(f"Escena {sid}: línea {index + 1} sin hablante.")
+        else:
+            ownership = line_ownership_error(entry.get("line") or "", speaker, master)
+            if ownership:
+                strict(f"Escena {sid}: {ownership}")
+            if not _cut_mentions(cut, speaker, master):
+                strict(f"Escena {sid}: la toma de la línea {index + 1} no nombra al hablante '{speaker}'.")
+            recipient = str(entry.get("recipient") or "").strip()
+            if not recipient:
+                strict(f"Escena {sid}: línea {index + 1} sin destinatario.")
+            elif _same_character(recipient, speaker, master):
+                strict(f"Escena {sid}: línea {index + 1} se habla a sí misma.")
+    shots = [int(entry.get("shot") or 0) for entry in lines]
+    if shots != sorted(shots):
+        strict(f"Escena {sid}: las líneas no están en orden de aparición ({shots}).")
+    seen: List[str] = []
+    for entry in lines:
+        flat = re.sub(r"[^a-z0-9 ]", "", str(entry.get("line") or "").lower()).strip()
+        if flat and flat in seen:
+            strict(f"Escena {sid}: una línea aparece más de una vez en la escena.")
+        seen.append(flat)
+    for cid in scene.get("present_silent") or []:
+        if any(_same_character(str(cid), speaker, master) for speaker in speakers):
+            strict(f"Escena {sid}: '{cid}' está en la lista de mudos y también habla.")
+    for cut in cuts:
+        if cut.get("dialogue"):
+            continue
+        action = str(cut.get("action") or "")
+        if re.search(r'"[^"]+"', action) or SPEAKING_VERB_RE.search(action):
+            strict(f"Escena {sid}: una toma silenciosa contiene diálogo o la acción de hablar.")
+    start = scene.get("object_start") or {}
+    end = scene.get("object_end") or {}
+    if not str(start.get("name") or "").strip():
+        strict(f"Escena {sid}: falta el bloque OBJETO AL INICIAR.")
+    if not str(end.get("name") or "").strip():
+        strict(f"Escena {sid}: falta el bloque OBJETO AL TERMINAR.")
+    if str(scene.get("object_focus") or "") == "reveal":
+        obj = str(end.get("name") or start.get("name") or "").strip()
+        focus_cut = None
+        for index, cut in enumerate(cuts):
+            if cut.get("dialogue"):
+                continue
+            text = _cut_text(cut)
+            if cut.get("kind") == "object" or (obj and (obj.lower() in text.lower() or _contains_name(text, obj))):
+                focus_cut = (index, cut)
+                break
+        if focus_cut is None:
+            strict(f"Escena {sid}: el hallazgo de '{obj}' no tiene toma propia sin diálogo.")
+        else:
+            index, _cut = focus_cut
+            duration = _cut_end_seconds(cuts, index) - float(cuts[index].get("at") or 0.0)
+            if duration < OBJECT_FOCUS_MIN_SECONDS - 0.05:
+                strict(
+                    f"Escena {sid}: la toma del hallazgo dura {duration:.1f}s; "
+                    f"mínimo {OBJECT_FOCUS_MIN_SECONDS:.1f}s."
+                )
+    if scene.get("object_hidden"):
+        for cut in cuts:
+            text = _cut_text(cut).lower()
+            if re.search(r"\b(?:empty|interior|leather tools|inside the bag)\b", text):
+                if "out of frame" not in text and "shadow" not in text:
+                    strict(f"Escena {sid}: una toma muestra el interior o la ausencia de un objeto oculto.")
+    for text in scene.get("diegetic_text") or []:
+        if str(text) != str(text).upper():
+            strict(f"Escena {sid}: el texto diegético '{text}' debe ir en mayúsculas exactas.")
+
+
 def validate_master(
     master: Dict[str, Any],
     allow_partial: bool = False,
@@ -1381,6 +2695,11 @@ def validate_master(
 
     def strict(msg: str) -> None:
         (errors if production else warnings).append(msg)
+
+    if master.get("source_mode") == "original_unproven":
+        warnings.append(
+            "source_mode: 'original_unproven' — Guion no probado. Falta 'source_script'."
+        )
 
     ep = episode_meta(master)
     scenes = [s for s in (master.get("scenes") or []) if isinstance(s, dict)]
@@ -1426,32 +2745,42 @@ def validate_master(
         else:
             prompts += 1
         cuts = scene.get("internal_cuts")
-        if not isinstance(cuts, list) or len(cuts) != 3:
-            errors.append(f"Escena {sid}: se requieren exactamente 3 tomas (00s-03s, 03s-07s, 07s-10s).")
+        v2_scene = str(scene.get("shot_lock_version") or "") == "2" or production
+        if not isinstance(cuts, list) or not (1 <= len(cuts) <= MAX_CUTS_PER_SCENE):
+            errors.append(
+                f"Escena {sid}: se requieren entre 1 y {MAX_CUTS_PER_SCENE} tomas; hay "
+                f"{len(cuts) if isinstance(cuts, list) else 0}."
+            )
         else:
             ats = [float(c.get("at") or 0.0) for c in cuts]
-            if any(abs(a - e) > 1e-6 for a, e in zip(ats, SHOT_CUT_TIMES)):
-                errors.append(f"Escena {sid}: cortes en {ats}; se esperan {list(SHOT_CUT_TIMES)}.")
-            first = cuts[0] if isinstance(cuts[0], dict) else {}
-            second = cuts[1] if isinstance(cuts[1], dict) else {}
-            third = cuts[2] if isinstance(cuts[2], dict) else {}
-            if not str(first.get("action") or "").strip():
-                errors.append(f"Escena {sid}: Toma 1 sin acción de arranque en movimiento.")
-            if STATIC_RE.search(str(first.get("action") or "")):
-                errors.append(f"Escena {sid}: Toma 1 describe un frame estático; debe arrancar en movimiento.")
-            if not CLOSEUP_RE.search(str(second.get("framing") or "")):
-                errors.append(f"Escena {sid}: Toma 2 debe ser close-up u over-the-shoulder.")
-            if not REACTION_RE.search(str(third.get("framing") or "")):
-                errors.append(f"Escena {sid}: Toma 3 debe ser tight close-up, reacción o insert.")
-            if not str(second.get("action") or "").strip():
-                errors.append(f"Escena {sid}: Toma 2 sin acción de diálogo/acción.")
-            if not str(third.get("action") or "").strip():
-                errors.append(f"Escena {sid}: Toma 3 sin acción de reacción.")
+            if abs(ats[0]) > 1e-6:
+                errors.append(f"Escena {sid}: la primera toma debe empezar en 0.0 s.")
+            if any(b <= a for a, b in zip(ats, ats[1:])):
+                errors.append(f"Escena {sid}: los cortes deben ser crecientes ({ats}).")
+            if ats[-1] >= scene_seconds:
+                errors.append(f"Escena {sid}: el último corte {ats[-1]} debe caer antes de {scene_seconds} s.")
             for cut_no, cut in enumerate(cuts, start=1):
+                if not str((cut or {}).get("action") or "").strip():
+                    errors.append(f"Escena {sid}: Toma {cut_no} sin acción.")
                 if is_placeholder_text(str((cut or {}).get("action") or "")):
                     errors.append(
                         f"Escena {sid}: Toma {cut_no} usa un placeholder mecánico de cámara."
                     )
+            first = cuts[0] if isinstance(cuts[0], dict) else {}
+            if not v2_scene:
+                if len(cuts) != 3:
+                    errors.append(f"Escena {sid}: se requieren exactamente 3 tomas (00s-03s, 03s-07s, 07s-10s).")
+                else:
+                    second = cuts[1] if isinstance(cuts[1], dict) else {}
+                    third = cuts[2] if isinstance(cuts[2], dict) else {}
+                    if not CLOSEUP_RE.search(str(second.get("framing") or "")):
+                        errors.append(f"Escena {sid}: Toma 2 debe ser close-up u over-the-shoulder.")
+                    if not REACTION_RE.search(str(third.get("framing") or "")):
+                        errors.append(f"Escena {sid}: Toma 3 debe ser tight close-up, reacción o insert.")
+            if not str(first.get("action") or "").strip():
+                errors.append(f"Escena {sid}: Toma 1 sin acción de arranque en movimiento.")
+            elif STATIC_RE.search(str(first.get("action") or "")) and not v2_scene:
+                errors.append(f"Escena {sid}: Toma 1 describe un frame estático; debe arrancar en movimiento.")
         words = scene_words(scene)
         dialogue_cap = int(fmt.get("max_dialogue_words_per_10s_scene") or max_scene_words)
         if words == 0:
@@ -1499,16 +2828,24 @@ def validate_master(
                 resolved = resolve_speaker(speaker, master)
                 if resolved not in present_set:
                     errors.append(f"Escena {sid}: hablante '{speaker}' no está en characters_present[].")
+            line_val = str(entry.get("line") or "")
+            trans_match = FORBIDDEN_TRANSLATION_RE.search(line_val)
+            if trans_match:
+                strict(
+                    f"Escena {sid}: artefacto de traducción literal prohibido ('{trans_match.group(0)}') "
+                    "en diálogo. Escribe en inglés idiomático con contracciones."
+                )
         key_object = extract_key_object(scene)
         if not key_object:
             warnings.append(f"Escena {sid}: sin key_object explícito (la viñeta queda genérica).")
+        first_object = str((scene.get("object_start") or {}).get("name") or "").strip() or key_object
         panel = str(scene.get("storyboard_panel") or "").strip()
         panel_flat = re.sub(r"\s+", " ", panel)
         first_cut = (scene.get("internal_cuts") or [{}])[0]
         first_framing = str(first_cut.get("framing") or "").strip()
         first_action = re.sub(r"\s+", " ", str(first_cut.get("action") or "")).strip().rstrip(".")
-        if not panel.startswith("[00s-03s]"):
-            errors.append(f"Escena {sid}: storyboard_panel ausente o sin rango [00s-03s].")
+        if not re.match(r"^\[\d{2}s-\d{2}s\]", panel):
+            errors.append(f"Escena {sid}: storyboard_panel ausente o sin rango de tiempo.")
         if first_framing and first_framing not in panel_flat:
             errors.append(f"Escena {sid}: storyboard_panel no coincide con el encuadre de Toma 1.")
         if first_action and first_action not in panel_flat:
@@ -1516,18 +2853,21 @@ def validate_master(
         scene_location = str(scene.get("location") or "").strip()
         if scene_location and scene_location not in panel_flat:
             errors.append(f"Escena {sid}: storyboard_panel no incluye la ubicación de la escena.")
-        if key_object and key_object not in panel_flat:
-            errors.append(f"Escena {sid}: storyboard_panel no incluye el key_object.")
-        if key_object and key_object.lower() not in first_action.lower():
-            errors.append(f"Escena {sid}: la acción de Toma 1 no usa el key_object canónico.")
+        if first_object and first_object not in panel_flat:
+            errors.append(f"Escena {sid}: storyboard_panel no incluye el objeto de arranque.")
+        if first_object and first_object.lower() not in first_action.lower():
+            errors.append(f"Escena {sid}: la acción de Toma 1 no usa el objeto de arranque.")
         anchors = str(scene.get("character_anchors") or "").strip()
         cast_index = canonical_cast(master)
-        for cid in present:
+        panel_cast = present[:MAX_SCENE_CAST] if v2_scene else present
+        for cid in panel_cast:
             name = str((cast_index.get(cid) or {}).get("name") or cid)
             if name not in panel:
                 errors.append(f"Escena {sid}: storyboard_panel no incluye a {name}.")
             if name not in anchors:
                 errors.append(f"Escena {sid}: character_anchors no incluye a {name}.")
+        if v2_scene:
+            _validate_scene_v2(scene, master, sid, strict)
         future = scene.get("continuity_future_refs") or []
         if future:
             errors.append(f"Escena {sid}: continuidad con spoiler futuro: {future[0][:70]}")
@@ -1542,6 +2882,23 @@ def validate_master(
                     errors.append(f"Escena {sid}: '{field}' es demasiado corto para probar causalidad.")
                 elif is_placeholder_text(value):
                     errors.append(f"Escena {sid}: '{field}' contiene un placeholder mecánico.")
+
+            exit_hook = str(scene.get("exit_hook") or "").strip()
+            if not exit_hook:
+                strict(f"Escena {sid}: falta el campo 'exit_hook'.")
+            elif len(exit_hook) < 15:
+                strict(f"Escena {sid}: 'exit_hook' es demasiado corto para empujar a la siguiente escena.")
+            elif is_placeholder_text(exit_hook):
+                errors.append(f"Escena {sid}: 'exit_hook' contiene un placeholder mecánico.")
+
+            if sid >= 2:
+                entry_bridge = str(scene.get("entry_bridge") or "").strip()
+                if not entry_bridge:
+                    strict(f"Escena {sid}: falta el campo 'entry_bridge'.")
+                elif len(entry_bridge) < 15:
+                    strict(f"Escena {sid}: 'entry_bridge' es demasiado corto para servir de puente causal.")
+                elif is_placeholder_text(entry_bridge):
+                    errors.append(f"Escena {sid}: 'entry_bridge' contiene un placeholder mecánico.")
 
     for sid, name in sorted(unknown_chars):
         strict(f"Escena {sid}: personaje desconocido '{name}' (no está en characters[]).")
@@ -1619,6 +2976,41 @@ def validate_master(
             "la regla recomienda 3-6 escenas por bloque dramático."
         )
 
+    # Regla de ritmo por bloque (6 escenas): PROHIBIDO 6 picos de confrontación seguidos
+    per_block = int(engine.get("scenes_per_block") or 6) if engine else 6
+    if len(ordered) >= per_block:
+        for b_idx in range(0, len(ordered), per_block):
+            group = ordered[b_idx:b_idx + per_block]
+            if len(group) == per_block:
+                block_no = (b_idx // per_block) + 1
+                all_confrontational = all(is_confrontation_scene(s) for s in group)
+                has_non_confront = any(is_non_confrontational_scene(s) for s in group)
+                if all_confrontational or (not has_non_confront and all(str(s.get("beat") or "") in ("confrontation", "crisis", "confrontation_peak") for s in group)):
+                    errors.append(
+                        f"Ritmo: bloque {block_no} (escenas {group[0].get('scene_id')}-{group[-1].get('scene_id')}) "
+                        "tiene 6 picos de confrontación seguidos. Prohibido: se requiere al menos 1 beat no confrontacional "
+                        "por bloque (decisión en solitario, descubrimiento, plan, momento tierno/vulnerable)."
+                    )
+
+    if engine:
+        cliffhanger_types: List[str] = []
+        by_id_map = {int(s.get("scene_id") or 0): s for s in scenes}
+        for b in blocks:
+            c_type = str(b.get("cliffhanger_type") or "").strip().lower()
+            if not c_type and b.get("scenes"):
+                last_sid = b["scenes"][-1]
+                last_sc = by_id_map.get(last_sid) or {}
+                c_type = str(last_sc.get("cliffhanger_type") or "").strip().lower()
+            cliffhanger_types.append(c_type)
+
+        for i in range(len(cliffhanger_types) - 1):
+            c1, c2 = cliffhanger_types[i], cliffhanger_types[i + 1]
+            if c1 and c2 and c1 == c2:
+                errors.append(
+                    f"Continuidad: bloques {i + 1} y {i + 2} repiten el tipo de cliffhanger '{c1}'. "
+                    "Prohibido repetir el mismo tipo en dos bloques seguidos (rotar entre identity, emotion, revelation)."
+                )
+
     if scenes:
         required = {int(k): v for k, v in (rules.get("required_beats") or {}).items() if str(k).isdigit()}
         by_id = {int(s.get("scene_id") or 0): s for s in scenes}
@@ -1649,7 +3041,7 @@ def validate_master(
     elif not any(
         str(c.get("visual_reference") or c.get("reference_image") or "").strip() for c in characters
     ):
-        strict(
+        warnings.append(
             "Ningún personaje define visual_reference/reference_image: la coherencia facial "
             "dependerá de adjuntos manuales (ver 02 — chatgpt_reference_sheets.txt)."
         )

@@ -94,6 +94,11 @@ def render_workflow_markdown(
             f"- Mega-nicho USA: {viral.get('label')} ({viral.get('id')})",
             f"- Categoría: {viral.get('category')}",
         ]
+    if pack.get("source_mode") == "original_unproven" or (pack.get("project") or {}).get("source_mode") == "original_unproven":
+        lines += [
+            "",
+            "> ⚠️ **WARNING: source_mode es 'original_unproven' — Guion generado sin fuente probada.**",
+        ]
     lines += [
         "",
         "> Los cuatro prompts ya están rellenados con los datos de este proyecto.",

@@ -82,9 +82,13 @@ def write_reference_sheets(paths: Dict[str, Path], master: Dict[str, Any], sheet
         "  2. Pega el prompt de cada personaje; guarda el resultado en la carpeta del",
         f"     proyecto: {refs_dir}",
         "     con el nombre exacto que se indica abajo (reference_<id>.png).",
-        "  3. Adjunta TODAS las hojas de referencia a la conversación y déjalas ahí",
+        "  3. Recorta además la cara en primer plano de cada personaje y guarda el",
+        "     recorte en la misma carpeta como reference_<id>_face.png (se adjunta en las",
+        "     escenas donde ese personaje HABLA).",
+        "  4. Adjunta TODAS las hojas de referencia a la conversación y déjalas ahí",
         "     mientras generas frame_001.png … frame_060.png (chatgpt_image_prompts_queue.txt).",
-        "  4. Los prompts de escena nombran al personaje y su archivo reference_<id>.png:",
+        "     En escenas habladas adjunta también el recorte reference_<id>_face.png del hablante.",
+        "  5. Los prompts de escena nombran al personaje y su archivo reference_<id>.png:",
         "     la cara nunca se describe en texto, se copia de estas hojas.",
         "",
     ]
@@ -101,7 +105,11 @@ def write_reference_sheets(paths: Dict[str, Path], master: Dict[str, Any], sheet
 
 
 def compose_image_prompt(body: str, style: Dict[str, Any]) -> str:
-    """Cuerpo del maestro + sufijo de estilo (sin duplicar) + cláusula anti-texto."""
+    """Cuerpo del maestro + sufijo de estilo (sin duplicar) + cláusula anti-texto.
+
+    Si la escena trae la excepción de texto diegético (p. ej. CONFESSION), no se
+    añade la cláusula genérica anti-texto: esa escena declara su único texto legible.
+    """
     prompt = " ".join(str(body or "").split())
     if not prompt:
         return ""
@@ -110,12 +118,20 @@ def compose_image_prompt(body: str, style: Dict[str, Any]) -> str:
     if suffix and SUFFIX_MARKER not in low:
         prompt = prompt.rstrip(" .") + ". " + suffix
         low = prompt.lower()
-    if "no text" not in low:
+    if "no text" not in low and "diegetic text exception" not in low:
         prompt = prompt.rstrip(" .") + ". " + NO_TEXT_CLAUSE
         low = prompt.lower()
     if "16:9" not in low:
         prompt = "16:9 widescreen cinematic still. " + prompt
     return " ".join(prompt.split())
+
+
+def face_crop_name(reference: str) -> str:
+    """Recorte de cara para escenas donde el personaje habla: reference_<id>_face.png."""
+    value = str(reference or "").strip()
+    if value.lower().endswith(".png"):
+        return value[:-4] + "_face.png"
+    return value + "_face.png" if value else ""
 
 
 def scene_cast_entries(master: Dict[str, Any], scene: Dict[str, Any]) -> List[Dict[str, Any]]:
@@ -158,9 +174,18 @@ def teaser_cover_scenes(master: Dict[str, Any]) -> List[int]:
 def build_queue(master: Dict[str, Any], style: Dict[str, Any]) -> List[Dict[str, Any]]:
     covers = set(teaser_cover_scenes(master))
     entries: List[Dict[str, Any]] = []
-    for scene in nf.ordered_scenes(master):
+    prepared = nf.prepare_master_locks_safe(master, style)
+    for scene in nf.ordered_scenes(prepared):
         sid = int(scene.get("scene_id") or 0)
         cast = scene_cast_entries(master, scene)
+        speaking = {
+            str(nf.resolve_speaker(entry.get("speaker") or "", master) or "").strip()
+            for entry in nf.scene_dialogue_lines(scene)
+            if str(entry.get("speaker") or "").strip()
+        }
+        for character in cast:
+            character["speaks"] = character["id"] in speaking
+            character["face_crop"] = face_crop_name(character["reference"]) if character["speaks"] else ""
         body = str(scene.get("first_frame_prompt") or "")
         panel = str(scene.get("storyboard_panel") or nf.build_storyboard_panel_description(scene, master)).strip()
         anchors = str(
@@ -181,6 +206,7 @@ def build_queue(master: Dict[str, Any], style: Dict[str, Any]) -> List[Dict[str,
             "location": str(scene.get("location") or ""),
             "cast": cast,
             "references": [c["reference"] for c in cast],
+            "face_crops": [c["face_crop"] for c in cast if c.get("face_crop")],
             "teaser_cover": sid in covers,
             "prompt": compose_image_prompt(body, style),
         })
@@ -198,6 +224,13 @@ def write_queue_files(paths: Dict[str, Path], master: Dict[str, Any], entries: L
         f"NOVEL FACTORY — Cola de fotogramas iniciales (ChatGPT) · {title}",
         f"Escenas: {len(entries)} · Carpeta destino: {paths['frames']}",
         "",
+    ]
+    if master.get("source_mode") == "original_unproven":
+        labeled_lines += [
+            "⚠️ WARNING: source_mode es 'original_unproven' — Guion generado sin fuente probada.",
+            "",
+        ]
+    labeled_lines += [
         "Cómo usarla:",
         "  0. Genera PRIMERO las hojas de referencia con chatgpt_reference_sheets.txt (una sola vez)",
         "     y adjúntalas TODAS en la conversación de ChatGPT.",
@@ -211,12 +244,17 @@ def write_queue_files(paths: Dict[str, Path], master: Dict[str, Any], entries: L
     ]
     for entry in entries:
         cast_note = ", ".join(
-            f"{c['name']} (Pos #{c.get('position') or '?'})" for c in entry["cast"]
+            f"{c['name']} (Pos #{c.get('position') or '?'}{'; habla' if c.get('speaks') else ''})"
+            for c in entry["cast"]
         ) or "—"
         cover = "  [9:16 PORTADA]" if entry["teaser_cover"] else ""
+        attach = ", ".join(entry.get("references") or []) or "—"
+        if entry.get("face_crops"):
+            attach += " + " + ", ".join(entry["face_crops"]) + " (recorte de cara del hablante)"
         labeled_lines += [
             f"=== SCENE {entry['scene_id']:03d} | {entry['filename']} | {entry['shot']} | "
             f"{entry['location']} | cast: {cast_note}{cover} ===",
+            f"Adjuntar: {attach}",
             entry["prompt"],
             "",
         ]
@@ -226,7 +264,9 @@ def write_queue_files(paths: Dict[str, Path], master: Dict[str, Any], entries: L
         "episode": ep.get("slug"),
         "title": title,
         "count": len(entries),
-        "note": "Cada prompt ya incluye el sufijo de estilo global y la cláusula anti-texto.",
+        "note": "Cada prompt ya incluye el sufijo de estilo global y la cláusula anti-texto "
+                "(las escenas con texto diegético declarado usan su excepción). "
+                "face_crops lista los recortes reference_<id>_face.png a adjuntar en escenas habladas.",
         "items": entries,
     })
 
@@ -423,7 +463,7 @@ def build_storyboard_grid_items(
     pack = pack or mpl.build_prompt_pack(master, style)
     ep = nf.episode_meta(master)
     title = str(ep.get("title") or ep.get("slug") or "Episodio")
-    scenes = nf.ordered_scenes(master)
+    scenes = nf.ordered_scenes(nf.prepare_master_locks_safe(master, style))
     groups = [scenes[i:i + 6] for i in range(0, len(scenes), 6)]
     total_batches = len(groups)
 

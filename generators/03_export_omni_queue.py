@@ -116,7 +116,9 @@ def _voice_for(speaker: str, characters: Dict[str, Dict[str, Any]], style: Dict[
     return ""
 
 
-def _shot_block(scene: Dict[str, Any], templates: Dict[str, Any]) -> str:
+def _shot_block(scene: Dict[str, Any], templates: Dict[str, Any],
+                characters: Optional[Dict[str, Dict[str, Any]]] = None) -> str:
+    characters = characters or {}
     cuts = scene.get("internal_cuts") or []
     lines: List[str] = [str(templates.get("shot_block_header") or "SHOT PLAN:")]
     for idx, cut in enumerate(cuts):
@@ -124,6 +126,10 @@ def _shot_block(scene: Dict[str, Any], templates: Dict[str, Any]) -> str:
         framing = str(cut.get("framing") or "medium shot").strip()
         action = str(cut.get("action") or "").strip() or "the subject continues the motion from the previous beat."
         shot_range = str(cut.get("range") or (nf.SHOT_RANGES[idx] if idx < len(nf.SHOT_RANGES) else "")).strip()
+        if cut.get("dialogue"):
+            action = f"{action} [DIALOGUE SHOT: speaker on camera, mouth visible for the whole line.]"
+        elif cut.get("silent"):
+            action = f"{action} [SILENT SHOT: no dialogue, no speaking, mouths closed.]"
         if idx == 0:
             end = float(cuts[1].get("at") or 10.0) if len(cuts) > 1 else 10.0
             line = str(templates.get("shot_first_template") or "").format_map(_SafeDict(
@@ -135,6 +141,32 @@ def _shot_block(scene: Dict[str, Any], templates: Dict[str, Any]) -> str:
     suffix = str(templates.get("shot_last_suffix") or "").strip()
     if suffix:
         lines.append(suffix)
+    if scene.get("present_silent"):
+        names = []
+        for cid in scene.get("present_silent") or []:
+            character = characters.get(str(cid or "").strip().upper()) or {}
+            names.append(str(character.get("name") or cid or "").strip())
+        names = ", ".join(name for name in names if name)
+        if names:
+            lines.append(f"PRESENT BUT SILENT: {names} — mouths closed for the whole scene, no lines.")
+    start = scene.get("object_start") or {}
+    end = scene.get("object_end") or {}
+    if str(start.get("name") or "").strip():
+        lines.append(
+            f"OBJECT LOCK: {start.get('name')} stays visible on camera at the start — {start.get('visible')}; "
+            f"at the end — {end.get('visible')}."
+        )
+        if scene.get("object_hidden"):
+            lines.append(
+                "The container interior is never shown: no empty interior, no full look inside, "
+                "it stays in shadow and out of frame."
+            )
+    texts = scene.get("diegetic_text") or []
+    if texts:
+        lines.append(
+            "DIEGETIC TEXT ON OBJECT (the only legible text allowed in frame): "
+            + ", ".join(f'"{str(t)}"' for t in texts) + "."
+        )
     return "\n".join(lines)
 
 
@@ -199,7 +231,7 @@ def _continuity_block(scene: Dict[str, Any], master: Dict[str, Any], characters:
         wardrobes = character.get("wardrobe_by_act") or []
         if isinstance(wardrobes, list) and 1 <= act <= len(wardrobes) and str(wardrobes[act - 1]).strip():
             parts.append(f"{character.get('name') or key} wardrobe (act {act}): {str(wardrobes[act - 1]).strip()}")
-    key_object = nf.extract_key_object(scene)
+    key_object = str((scene.get("object_start") or {}).get("name") or "").strip() or nf.extract_key_object(scene)
     if key_object:
         parts.append(f"Key object in frame: {key_object}.")
     if not parts:
@@ -231,7 +263,7 @@ def compose_video_prompt(
         platform_label=str(spec.get("label") or platform),
         speech_seconds=f"{nf.scene_speech_seconds(scene):.1f}",
         dialogue_words=str(nf.scene_words(scene)),
-        shot_block=_shot_block(scene, templates),
+        shot_block=_shot_block(scene, templates, characters),
         timeline_block=_timeline_block(scene, templates),
         dialogue_block=_dialogue_block(scene, characters, style),
         storyboard_panel=str(scene.get("storyboard_panel") or nf.build_storyboard_panel_description(scene, master)),
@@ -267,10 +299,12 @@ def build_rows(
     if not spec:
         raise nf.NFError(f"Plataforma desconocida: {platform!r}. Usa: {', '.join(PLATFORM_ORDER)}")
     rows: List[Dict[str, Any]] = []
-    for scene in nf.ordered_scenes(master):
+    prepared = nf.prepare_master_locks_safe(master, style)
+    for scene in nf.ordered_scenes(prepared):
         sid = int(scene.get("scene_id") or 0)
         frame = nf.find_frame(paths["frames"], sid)
         clip = nf.find_clip(paths["raw_clips"], sid)
+        attach_list = nf.build_scene_attachments(scene, master)
         rows.append({
             "scene_id": sid,
             "platform": platform,
@@ -282,6 +316,7 @@ def build_rows(
             "dialogue_words": nf.scene_words(scene),
             "speech_seconds": round(nf.scene_speech_seconds(scene), 2),
             "status": "done" if clip else "pending",
+            "attach": attach_list,
             "prompt": compose_video_prompt(master, scene, paths, style, platform),
         })
     return rows
@@ -300,26 +335,36 @@ def write_queue_files(
     label = str(spec.get("label") or platform)
     fieldnames = [
         "scene_id", "platform", "frame_file", "output_file", "duration_seconds",
-        "dialogue_words", "speech_seconds", "status", "prompt",
+        "dialogue_words", "speech_seconds", "status", "attach", "prompt",
     ]
     with paths[str(spec["csv"])].open("w", encoding="utf-8", newline="") as fh:
         writer = csv.DictWriter(fh, fieldnames=fieldnames, quoting=csv.QUOTE_ALL)
         writer.writeheader()
         for row in rows:
-            writer.writerow({k: row.get(k, "") for k in fieldnames})
+            entry = dict(row)
+            if isinstance(entry.get("attach"), list):
+                entry["attach"] = ", ".join(entry["attach"])
+            writer.writerow({k: entry.get(k, "") for k in fieldnames})
 
     ep = nf.episode_meta(master)
+    notes = list(spec.get("notes") or [])
+    notes.insert(0, nf.PRODUCTION_ATTACH_NOTE)
+    if master.get("source_mode") == "original_unproven":
+        notes.insert(1, "WARNING: source_mode is original_unproven (guion no probado).")
+
     nf.write_json(paths[str(spec["json"])], {
         "episode": ep.get("slug"),
         "title": ep.get("title"),
         "platform": platform,
         "platform_label": label,
+        "production_note": nf.PRODUCTION_ATTACH_NOTE,
+        "source_mode": master.get("source_mode", "proven_adaptation"),
         "frame_dir": str(paths["frames"]),
         "raw_clips_dir": str(paths["raw_clips"]),
         "output_pattern": "scene_XXX.mp4",
         "duration_seconds": nf.SCENE_SECONDS,
         "aspect": "16:9",
-        "notes": list(spec.get("notes") or []),
+        "notes": notes,
         "items": rows,
     })
 
@@ -327,11 +372,20 @@ def write_queue_files(
         f"NOVEL FACTORY — Cola de video ({label}, First Frame, 10 s) · {ep.get('title')}",
         f"Frames: {paths['frames']}  →  Clips: {paths['raw_clips']}",
         "",
+        f"NOTA DE PRODUCCIÓN: {nf.PRODUCTION_ATTACH_NOTE}",
+        "",
     ]
+    if master.get("source_mode") == "original_unproven":
+        lines += [
+            "⚠️ WARNING: source_mode es 'original_unproven' — Guion generado sin fuente probada.",
+            "",
+        ]
     for row in rows:
+        attach_str = ", ".join(row.get("attach") or [])
         lines += [
             f"=== SCENE {row['scene_id']:03d} | frame: {row['frame_file']} | salida: {row['output_file']} "
             f"| estado: {row['status']} ===",
+            f"attach: [{attach_str}]",
             row["prompt"],
             "",
         ]

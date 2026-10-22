@@ -35,6 +35,8 @@ for _path in (NF_ROOT, GENERATORS_DIR):
 import nf_core as nf  # noqa: E402
 import master_prompts_library as mpl  # noqa: E402
 
+PROMPT_00B_SOURCE_BEAT_EXTRACTOR = mpl.PROMPT_00B_SOURCE_BEAT_EXTRACTOR
+
 
 # ---------------------------------------------------------------------------
 # Brief de historia
@@ -47,6 +49,7 @@ def build_brief_markdown(
     genre: str,
     personaje: str,
     episode_number: int,
+    source_mode: str = "proven_adaptation",
 ) -> str:
     parts = [
         f"# Story Brief — {title or slug}",
@@ -56,7 +59,17 @@ def build_brief_markdown(
         f"- **Genre:** {genre}",
         f"- **Language:** English (US) — all dialogue and prompts",
         f"- **Publisher persona (USA WHITE):** {personaje}",
+        f"- **Source mode:** {source_mode}",
         "",
+    ]
+    if source_mode == "original_unproven" or not source_text.strip():
+        parts += [
+            "> ⚠️ **WARNING: GUION NO PROBADO (original_unproven)**",
+            "> Este guion se genera sin guion fuente probado (`source_script`).",
+            "> Las historias inventadas desde cero tienden a producir picos excesivos de confrontación y falta de recorrido.",
+            "",
+        ]
+    parts += [
         "## Premise / idea",
         "",
         idea.strip() or "_Describe here the premise in 3-10 lines: who wants what, who blocks it, what secret powers the story._",
@@ -119,9 +132,12 @@ def _retention_block(rules: Dict[str, Any]) -> str:
         f"Target {fmt.get('words_per_scene_dialogue')}. Never exceed {max_words}.\n"
         f"- Max {max_line} words per single line. At ~{wps} words/second that is <= {max_speech} s of speech "
         f"in a {fmt.get('scene_seconds')} s scene, leaving room for pauses.\n"
-        f"- Internal cuts per scene: exactly 3 shots at 0/3/7 s, ranges 00s-03s, 03s-07s and 07s-10s. "
-        "Shot 1 starts in motion from the storyboard panel, Shot 2 is close-up/OTS dialogue/action, "
-        "Shot 3 is tight close-up/reaction/insert.\n"
+        "- Internal cuts per scene: 1 to 4 shots built from the dialogue, not a fixed 0/3/7 grid. "
+        "Shot 1 always starts at 0.0 in motion from the storyboard panel; when exactly two different "
+        "characters speak, Shot 1 is a two-shot holding both lines. Otherwise each spoken line gets its "
+        "own shot with the speaker on camera, face and mouth visible, facing the recipient. Silent "
+        "inserts, reactions and object shots come after the dialogue, and a revelation insert gets its "
+        "own centered silent shot of 2-3 s.\n"
         "- Causal order is strict: consequences never precede their cause, clues are revealed once, and every "
         "location change needs a visible transition. Group 3-6 consecutive scenes per dramatic situation/location block.\n"
         f"- Open-loop types allowed: " + "; ".join(eng.get("open_loop_types") or []) + ".\n"
@@ -149,16 +165,45 @@ The episode is {blocks} minute-blocks of {per_block} scenes. These rules are che
    - `this_scene_starts_with`: the concrete action already in motion that follows from it.
    - `single_change_at_end`: the ONE irreversible state change produced by this scene.
    Scene 1 uses `"The episode opens cold; there is no prior beat."` for the first field.
-3. NO LOCATION PING-PONG: group 3-5 consecutive scenes in the same location. A-B-A is forbidden.
-4. CANONICAL OBJECT LOCK: use one exact `key_object` name in the storyboard panel, in the
+3. ENTRY AND EXIT BRIDGES (NO STARTING AT THE PEAK):
+   Every scene N >= 2 declares:
+   - `entry_bridge`: micro-action or line (max ~2 s) starting this scene because of the previous scene (an order executed, a decision acted upon, pursuing someone).
+   - `exit_hook`: gesture, order, decision or question ending the scene and pushing into the next.
+   `exit_hook(N)` feeds `entry_bridge(N+1)` and aligns with `because_previous_ended_with(N+1)`.
+4. BLOCK RHYTHM RULE: in every 6-scene block, 6 consecutive confrontation peaks are FORBIDDEN.
+   At least 1 beat per block must be non-confrontational (solo decision, discovery, plan, tender/vulnerable moment).
+5. CLIFFHANGER ROTATION: rotate cliffhanger types between minute blocks (identity -> emotion -> revelation).
+   Repeating the same cliffhanger type in two consecutive blocks is forbidden.
+6. NO LOCATION PING-PONG: group 3-5 consecutive scenes in the same location. A-B-A is forbidden.
+7. CANONICAL OBJECT LOCK: use one exact `key_object` name in the storyboard panel, in the
    Shot 1 action and in the Key Object list. Never switch to an alias.
-5. DISORDER TEST: if the block is shuffled and the chain of consequences no longer makes sense,
+8. DISORDER TEST: if the block is shuffled and the chain of consequences no longer makes sense,
    rewrite it. Mechanical placeholders (`hard cut...`, `the room falls quiet...`,
    `reacts as the line lands...`) are rejected by validation.
 
-The three per-scene fields are mandatory from scene 2 to scene 60; scene 1 declares its opening
+The continuity and bridge fields are mandatory from scene 2 to scene 60; scene 1 declares its opening
 state and first change. Never repeat the same sentence in `this_scene_starts_with` and
 `single_change_at_end`.
+"""
+
+
+def _reelshort_reskin_block(rules: Dict[str, Any]) -> str:
+    return """## REELSHORT / DRAMABOX RE-SKIN & LOCALIZATION RULES (MANDATORY)
+
+1. WHAT TO PRESERVE FROM THE PROVEN SOURCE:
+   - Beat functions (hook, setup-stakes, reversal, escalation, crisis, cliffhanger), sequence order, timings, causal bridges, and cliffhanger types.
+2. 100% SURFACE RE-SKIN:
+   - Rewrite ALL dialogues from scratch in authentic, idiomatic US English with contractions.
+   - Change 100% of names, professions, setting, institutions (sheriff, ranch, trusts, corporate boards) and objects.
+   - FORBIDDEN TRANSLATION ARTIFACTS: never use "You dare?!", titles as names ("CEO Wang", "President Gu"), moral lectures, or translated foreign idioms.
+   - CULTURAL EQUIVALENCES: controlling mother-in-law or foreign family pressure becomes a stepmother, ex, toxic boss, or local in-laws.
+3. RHYTHM TEMPLATE:
+   - Conflict within the first 3-5 seconds of each 1-minute block.
+   - A shift in power, information, or emotion every 10-20 seconds.
+   - Major turn around ~30 seconds.
+   - Cliffhanger in the last 10 seconds, cutting BEFORE the answer ("answer small, ask big").
+   - Protagonist first victory / face-slap by block 5 at latest.
+   - Biggest revelation reserved for blocks 8-10 (paywall equivalent).
 """
 
 
@@ -335,6 +380,8 @@ def build_llm_prompt(
   "acts": [
     {"act": 1, "title": "The Bait", "goal": "one line", "cliffhanger": "what the audience learns or fears at scene 10"}
   ],
+  "source_mode": "proven_adaptation",
+  "source_script": "Summary or title of the proven reference script",
   "scenes": [
     {
       "scene_id": 1,
@@ -345,26 +392,36 @@ def build_llm_prompt(
       "characters": ["nora"],
       "on_screen_hook": "5-10 word teaser headline (only for scenes 1, 10, 20, 30, 40, 50, 60; empty elsewhere)",
       "first_frame_prompt": "Cinematic still of Nora Hale (the character in reference_nora.png), wide establishing shot, at the Hale lighthouse cliff edge, storm dusk. Nora strides along the cliff edge, coat snapping in the wind, jaw set, eyes bright with contained anger. Wardrobe: charcoal wool coat over a dark sweater, dark jeans, rain-wet hair. Keep Nora Hale's face and wardrobe identical to reference_nora.png. Framing keeps the face unobstructed and centered for a 9:16 crop. 45-80 words, no style suffix (it is appended automatically), no text or logos.",
+      "key_object": "brass key",
+      "object_focus": "",
+      "present_silent": ["cole"],
+      "object_start": {"name": "brass key", "visible": "in Nora's fist, in frame from the first second"},
+      "object_end": {"name": "brass key", "visible": "held up into the headlights, in frame at the end"},
+      "object_hidden": false,
+      "diegetic_text": [],
       "internal_cuts": [
-        {"at": 0.0, "range": "00s-03s", "framing": "wide establishing shot", "action": "Nora strides along the cliff edge, the lighthouse dark behind her, salt wind whipping her coat."},
-        {"at": 3.0, "range": "03s-07s", "framing": "close-up", "action": "Her hand closes around a brass key in her pocket; her jaw tightens."},
-        {"at": 7.0, "range": "07s-10s", "framing": "tight close-up", "action": "Headlights sweep across her eyes; she turns toward the road."}
+        {"at": 0.0, "range": "00s-05s", "framing": "wide establishing shot, two-shot", "action": "Nora strides along the cliff edge with Cole behind her, the lighthouse dark, salt wind whipping her coat; both are on camera and facing each other as they speak.", "dialogue": true},
+        {"at": 5.0, "range": "05s-07s", "framing": "close-up", "action": "Nora's hand closes around a brass key in her pocket; her jaw tightens.", "dialogue": false},
+        {"at": 7.0, "range": "07s-10s", "framing": "tight close-up", "action": "Headlights sweep across the brass key as she raises it; she turns toward the road.", "dialogue": false}
       ],
       "dialogue": [
-        {"speaker": "NORA", "line": "They said the lighthouse was empty for ten years. So who left the light on?", "delivery": "cold, quiet"}
+        {"speaker": "NORA", "line": "They said the lighthouse was empty for ten years.", "delivery": "cold, quiet", "shot": 0, "recipient": "COLE"},
+        {"speaker": "COLE", "line": "So who left the light on?", "delivery": "low, suspicious", "shot": 0, "recipient": "NORA"}
       ],
       "sfx_ambience": "wind, distant surf, a gull, wet gravel underfoot",
       "continuity": "Act 1 wardrobe. She is holding the brass key; salt wind, wet gravel, cold hands. Present state only.",
       "because_previous_ended_with": "The episode opens cold; there is no prior beat.",
       "this_scene_starts_with": "Nora strides along the cliff edge, the brass key already closed in her fist.",
       "single_change_at_end": "Headlights find Nora on the cliff road, and she turns toward whoever is coming.",
+      "entry_bridge": "Nora steps out onto the wet rocks, following the distant sound of an engine.",
+      "exit_hook": "Nora holds the key up into the glare and demands to know who is driving.",
       "block_driving_question": "Why did the lighthouse light turn on after ten years?"
     }
   ],
   "narrative_continuity": {
     "engine": "narrative_continuity_engine",
     "minute_blocks": [
-      {"block": 1, "scenes": [1, 2, 3, 4, 5, 6], "driving_question": "Why did the lighthouse light turn on after ten years?"}
+      {"block": 1, "scenes": [1, 2, 3, 4, 5, 6], "driving_question": "Why did the lighthouse light turn on after ten years?", "cliffhanger_type": "identity"}
     ]
   },
   "teasers": [
@@ -424,6 +481,8 @@ Write the complete episode as ONE valid JSON object that follows the schema belo
 
 {_narrative_continuity_block(rules)}
 
+{_reelshort_reskin_block(rules)}
+
 ## FIRST-FRAME / VISUAL RULES
 
 - Step 0 (once per episode): fill "visual_reference" for every main character. generators/02 exports chatgpt_reference_sheets.txt so the user can create one reference sheet per character BEFORE the frames and keep all of them attached in the same ChatGPT thread.
@@ -434,7 +493,7 @@ Write the complete episode as ONE valid JSON object that follows the schema belo
 - Include framing, location, time of day, wardrobe, expression and one telling environmental detail.
 - Center-weight the subject so a 9:16 crop still works. Keep the face unobstructed.
 - 45-80 words per prompt. Do NOT include the global style suffix or negative prompt; they are appended automatically.
-- No text, letters, logos, watermarks or captions inside the image.
+- No text, letters, logos, watermarks or captions inside the image, except the exact "diegetic_text" word(s) declared for that scene (nothing else becomes legible).
 - Global look (for your reference, not to repeat verbatim): {visual.get('look', '')}
 - Allowed lighting: {'; '.join(visual.get('lighting') or [])}
 - Camera vocabulary: {'; '.join(visual.get('camera_language') or [])}
@@ -448,6 +507,16 @@ Write the complete episode as ONE valid JSON object that follows the schema belo
 - The clip contains dialogue + diegetic ambience only. NO music, NO narrator, NO subtitles.
 - Voice archetypes you may reference: {json.dumps(voice.get('character_voice_archetypes') or {}, ensure_ascii=False)}
 - Delivery format: {voice.get('dialogue_line_template', '{speaker} ({delivery}): "{line}"')}
+
+## SPEAKER-SHOT LOCK / OBJECT LOCK (MANDATORY)
+
+1. ONE LINE = ONE SPOKEN SHOT. Whoever speaks is ON CAMERA with face and mouth visible for the whole line, facing the recipient; the recipient is in frame or over the shoulder, never hidden behind the speaker's back. Never put a line over an insert of hands, an object or an empty framing.
+2. TWO-HANDER = SHOT 1. When exactly two different characters speak in the scene (one line each), Shot 1 is a two-shot that holds BOTH lines: both faces and mouths visible, each turned toward the other. Inside a two-hander, do not use single close-ups for the same two lines.
+3. SILENT BEATS COME AFTER THE DIALOGUE. Inserts, reactions and object shots are silent and follow the spoken shots, except a revelation: the reveal goes in its own centered silent insert of 2-3 s between spoken shots, and the scene states when the dialogue ends.
+4. MUZZLE THE MUTE. Every character present who does not speak is listed in "present_silent" and stays with the mouth closed for the whole scene. Never give a mute character a speaking verb or a quoted line.
+5. NEVER SHOW THE INSIDE OF THE HIDING PLACE. If an object is hidden inside a bag, box, safe or drawer, the camera sees the container from outside, loosened but never gaping; the interior is only shown in the reveal scene, as the object being taken out.
+6. OBJECT IN / OBJECT OUT. "object_start" and "object_end" name what the audience sees at the first and last second; both are physically visible in frame, not implied.
+7. TEXT ON OBJECT. The only legible text in any frame is the exact word(s) declared in "diegetic_text"; documents, signs and screens stay illegible unless the plot declares them.
 
 ## CONTINUITY
 
@@ -471,8 +540,13 @@ Do not promise DMs, downloads or links that do not exist.
 
 Rules for the JSON:
 - "scenes" must contain exactly the scene range requested for this part, in order, with all required fields.
-- "internal_cuts": exactly 3 items at 0.0, 3.0 and 7.0 s with ranges 00s-03s, 03s-07s and 07s-10s. Shot 1 starts in motion from the exact storyboard panel; Shot 2 is close-up/OTS dialogue/action; Shot 3 is tight close-up/reaction/insert.
-- "internal_cuts[].action" is VISUAL ONLY (no dialogue in it). "dialogue" is separate.
+- "internal_cuts": 1 to 4 items. Shot 1 is at 0.0 and starts in motion from the exact storyboard panel; the rest follow in chronological order with contiguous time ranges ("00s-06s", "06s-08s", ...). Each cut sets "dialogue": true when it carries a line and false when it is a silent insert/reaction/object shot. Silent shots never contain speech quotes or "says/whispers/tells".
+- SPEAKER-SHOT LOCK: when exactly two different characters speak, Shot 1 is a two-shot holding both lines; otherwise each line is assigned to its own cut where the speaker is on camera, face and mouth visible, looking at the recipient. Never place dialogue on a hand insert, an object insert, a reaction-only shot or a shot from behind the speaker.
+- "dialogue[].shot" is the 0-based index of the "internal_cuts" item that carries the line, and "dialogue[].recipient" names the person the line is spoken to (never the speaker).
+- Silent shots come after the dialogue except a revelation insert, which gets its own centered silent shot of 2-3 s between spoken shots.
+- "present_silent": characters present who do not speak in this scene (mouths closed the whole scene). Never list a speaker there.
+- "key_object": the canonical name of the scene's story object, used in the panel, Shot 1 and the object shots. For a planting scene set "object_focus": "plant", "planted_object" (what is hidden), "planted_in" (the container, never a frame/view phrase) and "planted_by"; for a reveal set "object_focus": "reveal". "object_hidden": true when a container appears whose interior must never be shown.
+- "diegetic_text": [] by default. Only when the plot REQUIRES the object itself to carry a legible word (e.g. "CONFESSION") list the exact uppercase word(s); the image prompt will allow exactly that text and nothing else.
 - Shot 1 (at 0.0) defines the storyboard panel: its framing and action MUST describe the literal first frame, already in motion, with the location, key object and every character present matching "first_frame_prompt".
 - "teasers[].scenes" must reference real scene_id values from this episode and be consecutive.
 - Keep the cast to 3-5 characters and 3-5 primary locations. Every scene "location" must reuse one of the declared locations (same wording), never a brand-new place. Group 3-6 consecutive scenes per location block whenever the story allows it.
@@ -1033,6 +1107,10 @@ def build_demo_payload(slug: str, title: str, personaje: str, episode_number: in
                 "world_and_wound" if idx == 2 else
                 "act_cliffhanger" if idx in (10, 20, 30, 40, 50) else
                 "payoff_next_hook" if idx == 60 else
+                "discovery" if idx in (4, 8, 14, 21, 33, 41, 54) else
+                "plan" if idx in (6, 17, 25, 47) else
+                "solo_decision" if idx in (9, 18, 27, 42, 52) else
+                "tender_moment" if idx in (15, 34) else
                 "escalation"
             ),
             "location": f"{loc_name}, {light}",
@@ -1049,6 +1127,12 @@ def build_demo_payload(slug: str, title: str, personaje: str, episode_number: in
             "dialogue": dialogue,
             "sfx_ambience": act["sfx"],
             "continuity": f"Act {act_idx + 1} wardrobe: {act['wardrobe']}. Evidence object in play: {prop}.",
+            "entry_bridge": (
+                "Nora steps out onto the cliff edge into the whipping wind."
+                if idx == 1
+                else f"Following the previous beat with {prop}, {character['name']} takes immediate action without hesitation."
+            ),
+            "exit_hook": f"{character['name']} issues an ultimatum regarding {prop}, pushing the tension into the next moment.",
         })
 
     teasers = [
@@ -1093,6 +1177,8 @@ def build_demo_payload(slug: str, title: str, personaje: str, episode_number: in
         "schema_version": "1.0",
         "generated_by": "novel_factory/01_story_to_master_json.py --template",
         "demo_fixture": True,
+        "source_mode": "proven_adaptation",
+        "source_script": "Proven viral short-drama reference script: The Silent Contract (10 min adaptation).",
         "episode": {
             "slug": slug,
             "title": title or "The Silent Contract",
@@ -1177,6 +1263,9 @@ def main(argv: Optional[List[str]] = None) -> int:
     parser.add_argument("--idea", default="", help="Premisa en 3-10 líneas.")
     parser.add_argument("--idea-file", type=str, default="", help="Archivo con la premisa.")
     parser.add_argument("--from-text", type=str, default="", help="Transcripción / material fuente.")
+    parser.add_argument("--source-script", type=str, default="", help="Guión probado o resumen por escenas.")
+    parser.add_argument("--source-mode", default="proven_adaptation", choices=["proven_adaptation", "original_unproven"],
+                        help="Modo de entrada: proven_adaptation (default) o original_unproven.")
     parser.add_argument("--genre", default="romantic suspense short-drama")
     parser.add_argument("--episode-number", type=int, default=1)
     parser.add_argument("--personaje", default="emma_hayes",
@@ -1280,14 +1369,39 @@ def main(argv: Optional[List[str]] = None) -> int:
     if args.idea_file:
         idea = Path(args.idea_file).read_text(encoding="utf-8", errors="replace").strip()
     source_text = ""
-    if args.from_text:
+    if args.source_script:
+        p = Path(args.source_script)
+        source_text = p.read_text(encoding="utf-8", errors="replace").strip() if p.exists() else args.source_script.strip()
+    elif args.from_text:
         source_text = Path(args.from_text).read_text(encoding="utf-8", errors="replace").strip()
+
+    source_mode = args.source_mode
+    if not source_text:
+        source_mode = "original_unproven"
+        nf.warn(
+            "⚠️ WARNING: source_mode='original_unproven' — No se proporcionó un guion fuente probado "
+            "(--source-script o --from-text). Las historias inventadas desde cero tienden a generar "
+            "picos excesivos de confrontación."
+        )
+    else:
+        source_mode = "proven_adaptation"
+
     if not idea and not source_text and not args.idea_file:
-        nf.warn("No diste --idea ni --from-text: el brief quedará con un placeholder editable.")
+        nf.warn("No diste --idea ni --from-text / --source-script: el brief quedará con un placeholder editable.")
 
     title = args.title or args.slug.replace("_", " ").title()
-    brief = build_brief_markdown(slug, title, idea, source_text, args.genre, args.personaje, args.episode_number)
+    brief = build_brief_markdown(
+        slug, title, idea, source_text, args.genre, args.personaje, args.episode_number, source_mode=source_mode
+    )
     brief_path = nf.write_text(paths["root"] / "story_brief.md", brief)
+
+    if source_text:
+        extractor_prompt = PROMPT_00B_SOURCE_BEAT_EXTRACTOR.format(source_script=source_text)
+        extractor_path = nf.write_text(paths["root"] / "prompt_00b_source_beat_extractor.md", extractor_prompt)
+        prompts_dir = paths["root"] / "prompts"
+        prompts_dir.mkdir(parents=True, exist_ok=True)
+        nf.write_text(prompts_dir / "PROMPT_00B_SOURCE_BEAT_EXTRACTOR.txt", extractor_prompt)
+        nf.ok(f"Extractor de beats: {extractor_path}")
 
     context_text = ""
     if args.context:

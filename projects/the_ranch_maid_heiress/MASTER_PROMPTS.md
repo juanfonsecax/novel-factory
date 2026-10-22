@@ -1,6 +1,6 @@
 # MASTER PROMPTS — The Stable Girl
 
-- Generado: 2026-10-22T00:27:24-05:00
+- Generado: 2026-10-22T17:16:35-05:00
 - Duración: 10 minuto(s)
 - Escenas: 60
 - Grids de 1 minuto: 10
@@ -345,7 +345,7 @@ Entrega solamente la imagen de los personajes.
 
 _Convierte el storyboard en escenas de 10 s con cortes internos, SFX, diálogo en inglés y comando final para Muse AI._
 
-**6,395 caracteres · 1,016 palabras**
+**7,596 caracteres · 1,236 palabras**
 
 ````text
 🎬 PROMPT 003 — GENERADOR DE GUION CINEMATOGRÁFICO EN INGLÉS + CAMBIOS DE CÁMARA + SONIDO (OPTIMIZADO PARA MUSE AI Y GOOGLE FLOW)
@@ -371,12 +371,17 @@ Todos los diálogos hablados deben estar en INGLÉS natural, dramático y emocio
 - Nunca cortes una frase por tiempo: si una idea necesita más, divídela entre escenas.
 - No todas las escenas necesitan diálogo: usa "No dialogue (Pure visual & sound tension)." cuando la imagen hable mejor.
 
-DIRECCIÓN DE CÁMARA: EXACTAMENTE 3 TOMAS POR ESCENA DE 10s
-1. TRES TOMAS OBLIGATORIAS:
-   - [00s–03s] Toma 1: arranca EN MOVIMIENTO desde el frame exacto de la viñeta. Mismo encuadre, misma posición de cámara, mismo blocking, mismo vestuario, misma luz y mismo objeto clave. Prohibido abrir con un frame estático.
-   - [03s–07s] Corte duro a close-up u over-the-shoulder del personaje que habla o actúa, con lip-sync claro.
-   - [07s–10s] Corte duro a tight close-up, reacción o insert del objeto clave.
-2. IDENTIDAD Y POSICIONES:
+DIRECCIÓN DE CÁMARA: ENTRE 1 Y 4 TOMAS POR ESCENA DE 10s, NACIDAS DEL DIÁLOGO
+1. REGLA DE ORO: UNA LÍNEA = UN PLANO DEL HABLANTE:
+   - Quien habla está EN CÁMARA con rostro y boca visibles durante toda su línea, mirando al destinatario. Prohibido poner diálogo sobre un insert, una reacción o una espalda.
+   - Toma 1: arranca EN MOVIMIENTO desde el frame exacto de la viñeta. Mismo encuadre, misma posición de cámara, mismo blocking, mismo vestuario, misma luz y mismo objeto clave. Prohibido abrir con un frame estático. Si hay dos hablantes, la Toma 1 es un two-shot que los muestra a ambos y sostiene sus dos líneas.
+   - Los planos silenciosos (insert, reacción, detalle del objeto) van DESPUÉS de que termina el diálogo. Excepción: el hallazgo/revelación va en su propio plano silencioso centrado de 2–3 segundos; declara en qué segundo termina el diálogo ("El diálogo termina en el segundo X").
+   - Los presentes que no hablan se listan como mudos: una sola vez y con la boca cerrada.
+2. OBJETO CLAVE Y TEXTO EN PANTALLA:
+   - Cada escena declara OBJETO AL INICIAR y OBJETO AL TERMINAR visibles en cámara; el insert del objeto lo muestra tal cual.
+   - Nunca muestres el interior vacío de una bolsa, caja fuerte o contenedor donde se escondió el objeto.
+   - Solo el texto diegético declarado (ej. la palabra CONFESSION en el documento) puede verse legible; el resto de papeles y carteles no muestra palabras.
+3. IDENTIDAD Y POSICIONES:
    - Cada personaje presente se nombra como Nombre (Cast Sheet Pos #N: descriptor estable, wearing vestuario del acto).
    - La Hoja de Personajes fija posiciones de izquierda a derecha; nunca insertes esa hoja como plano entre escenas.
 3. DISEÑO SONORO (SFX & AMBIENCE) Y VOZ:
@@ -394,19 +399,21 @@ ESCENA [N] (Viñeta #[N] del Storyboard) — [MM:SS–MM:SS]
 - Characters Present: [Nombre (Cast Sheet Pos #N), ...]
 - Storyboard Panel (Shot 1 exact framing): [ encuadre + acción de la viñeta + objeto clave + todos los presentes ]
 - Identity Anchors: [Nombre (Cast Sheet Pos #N: descriptor, wearing vestuario), ...]
-- Camera Cuts & Visual Action (10s):
-  * [00s–03s]: [Encuadre exacto de la viñeta + acción ya en movimiento]
-  * [03s–07s]: [Corte a plano cerrado frontal o tres cuartos del hablante o del objeto clave, nunca desde detrás del personaje]
-  * [07s–10s]: [Corte a plano cerrado del segundo personaje reaccionando o respondiendo]
+- Object In / Object Out: [OBJETO AL INICIAR visible → OBJETO AL TERMINAR visible]
+- Camera Cuts & Visual Action (10s, 1–4 tomas):
+  * [00s–..]: [Toma 1: encuadre exacto de la viñeta + acción ya en movimiento; two-shot si hablan dos personajes]
+  * [..s–..s]: [PLANO QUE HABLA: nombre (visible, mira a destinatario) dice exactamente, una sola vez: "línea"] (una toma por línea hablada)
+  * [..s–..s]: [SIN DIÁLOGO: insert, reacción o plano del objeto; el hallazgo va centrado 2–3 s]
+- Mudos: [PRESENTES QUE NO HABLAN: nombre — boca cerrada en toda la escena]
 - Sound Design (SFX & Voice Tone): [Efectos de sonido del ambiente + tono de voz fijo del personaje]
-- Dialogue (English, max 15 words, finish before 8.5 s):
+- Dialogue (English, max 15 words per line, finish before 8.5 s):
   [NOMBRE DEL PERSONAJE]: "[Diálogo en inglés breve, concreto y completo, máx. 15 palabras]"
 
 RESULTADO FINAL
 Entrega únicamente el bloque de escenas con la estructura anterior y, al final de las escenas, incluye este comando exacto listo para copiar y pegar junto con el guion en MUSE AI:
 
 COMANDO FINAL PARA PEGAR EN MUSE AI (JUNTO CON EL STORYBOARD Y LA HOJA DE PERSONAJES ADJUNTOS):
-"Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando los 3 cambios de cámara ([00s-03s] arrancando directamente en movimiento desde el encuadre exacto de la viñeta correspondiente sin frames estáticos, [03s-07s] corte a plano cerrado frontal o tres cuartos del hablante o del objeto clave, nunca desde detrás del personaje, y [07s-10s] corte a plano cerrado del segundo personaje reaccionando o respondiendo), manteniendo estrictamente la misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre escenas. Formato: 16:9. Reglas negativas estrictas: no subtitles, no captions, no on-screen text, no watermark, no background music, no groans or mouth noises before dialogue."
+"Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando entre 1 y 4 tomas exactamente como las lista el guion (la Toma 1 arranca directamente en movimiento desde el encuadre exacto de la viñeta correspondiente sin frames estáticos; cada línea hablada tiene su propio plano con el hablante de frente, rostro y boca visibles, nunca desde detrás del personaje; los planos silenciosos de insert, reacción u objeto van después del diálogo y nunca contienen habla), manteniendo estrictamente la misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre escenas. Formato: 16:9. Reglas negativas estrictas: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
 
 REGLA DE CONTINUIDAD NARRATIVA (Hilo Conductor Único + Cadena Causa y Efecto + Ledger de Estado Arrastrado + Prohibición de Ping-Pong de Locaciones + Un Solo Nombre por Objeto Clave + Prueba de Desorden):
 1. UNA SOLA PREGUNTA MOTRIZ POR BLOQUE DE 6 ESCENAS: cada minuto tiene una única pregunta dramática; ninguna escena abre una pregunta nueva.

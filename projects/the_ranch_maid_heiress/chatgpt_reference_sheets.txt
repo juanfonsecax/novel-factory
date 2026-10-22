@@ -5,9 +5,13 @@ Esto se genera UNA sola vez por episodio, ANTES de la cola de los 60 frames:
   2. Pega el prompt de cada personaje; guarda el resultado en la carpeta del
      proyecto: C:\Users\juand\Downloads\PROYECTOS REDES SOCIALES\novel_factory\projects\the_ranch_maid_heiress\references
      con el nombre exacto que se indica abajo (reference_<id>.png).
-  3. Adjunta TODAS las hojas de referencia a la conversación y déjalas ahí
+  3. Recorta además la cara en primer plano de cada personaje y guarda el
+     recorte en la misma carpeta como reference_<id>_face.png (se adjunta en las
+     escenas donde ese personaje HABLA).
+  4. Adjunta TODAS las hojas de referencia a la conversación y déjalas ahí
      mientras generas frame_001.png … frame_060.png (chatgpt_image_prompts_queue.txt).
-  4. Los prompts de escena nombran al personaje y su archivo reference_<id>.png:
+     En escenas habladas adjunta también el recorte reference_<id>_face.png del hablante.
+  5. Los prompts de escena nombran al personaje y su archivo reference_<id>.png:
      la cara nunca se describe en texto, se copia de estas hojas.
 
 === ELENA VANCE -> reference_elena.png ===

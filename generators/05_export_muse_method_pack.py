@@ -54,9 +54,20 @@ def build_pack(master: Dict[str, Any], style: Dict[str, Any]) -> Dict[str, Any]:
     grids = GEN02.build_storyboard_grid_items(master, style)
     batches = mpl.build_muse_batches(master, style)
     slug = nf.slugify(str(ep.get("slug") or "episodio"))
+    scene_lookup = {int(s.get("scene_id") or 0): s for s in nf.ordered_scenes(master)}
+    for batch in batches:
+        batch["scene_attachments"] = [
+            {
+                "scene_id": sid,
+                "attach": nf.build_scene_attachments(scene_lookup.get(sid, {}), master),
+            }
+            for sid in batch.get("scenes", [])
+        ]
     return {
         "schema_version": "1.0",
         "method": "muse-minute-batches",
+        "production_note": nf.PRODUCTION_ATTACH_NOTE,
+        "source_mode": master.get("source_mode", "proven_adaptation"),
         "episode": {
             "slug": slug,
             "title": str(ep.get("title") or slug),
@@ -90,7 +101,14 @@ def render_markdown(pack: Dict[str, Any]) -> str:
         f"**Slug:** `{ep['slug']}`  ·  **Escenas:** {counts['scenes']}  ·  "
         f"**Imágenes:** {counts['images']}  ·  **Lotes:** {counts['batches']}",
         "",
+        f"> **NOTA DE PRODUCCIÓN:** {pack.get('production_note', nf.PRODUCTION_ATTACH_NOTE)}",
+        "",
     ]
+    if pack.get("source_mode") == "original_unproven":
+        lines += [
+            "> ⚠️ **WARNING: source_mode es 'original_unproven' — Guion generado sin fuente probada.**",
+            "",
+        ]
     if ep.get("logline"):
         lines += [f"> {ep['logline']}", ""]
     lines += [
@@ -148,6 +166,14 @@ def render_markdown(pack: Dict[str, Any]) -> str:
             "",
             f"**Adjuntar:** {refs}",
             "",
+            "**Adjuntos por escena de este lote:**",
+            "",
+        ]
+        for item in batch.get("scene_attachments") or []:
+            attach_str = ", ".join(item.get("attach") or [])
+            lines.append(f"- Escena {item['scene_id']:03d}: `attach: [{attach_str}]`")
+        lines += [
+            "",
             f"**Guardar 16:9 como:** `{batch.get('save_as_16x9') or batch['save_as']}`",
             "",
             f"**Guardar 9:16 como:** `{batch.get('save_as_9x16') or 'raw_clips/minute_' + format(batch['batch_id'], '02d') + '_vertical.mp4'}`",
@@ -183,6 +209,8 @@ def render_checklist(pack: Dict[str, Any]) -> str:
     ep = pack["episode"]
     lines = [
         f"# Checklist — {ep['title']}",
+        "",
+        f"> **NOTA DE PRODUCCIÓN:** {pack.get('production_note', nf.PRODUCTION_ATTACH_NOTE)}",
         "",
         "## Imágenes del método nuevo (`storyboards/`)",
         "",

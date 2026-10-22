@@ -5,6 +5,11 @@
 - **Genre:** romantic suspense short-drama
 - **Language:** English (US) — all dialogue and prompts
 - **Publisher persona (USA WHITE):** emma_hayes
+- **Source mode:** proven_adaptation
+
+> ⚠️ **WARNING: GUION NO PROBADO (original_unproven)**
+> Este guion se genera sin guion fuente probado (`source_script`).
+> Las historias inventadas desde cero tienden a producir picos excesivos de confrontación y falta de recorrido.
 
 ## Premise / idea
 

@@ -133,6 +133,11 @@ def _scene_entry(
             "at": float(cut.get("at") or 0.0),
             "framing": str(cut.get("framing") or "").strip(),
             "action": str(cut.get("action") or "").strip(),
+            "dialogue": bool(cut.get("dialogue")),
+            "silent": bool(cut.get("silent")),
+            "kind": str(cut.get("kind") or "").strip(),
+            "speakers": [str(s) for s in (cut.get("speakers") or [])],
+            "range": str(cut.get("range") or ""),
         }
         for cut in (scene.get("internal_cuts") or [])
         if isinstance(cut, dict)
@@ -147,12 +152,18 @@ def _scene_entry(
         "cast": cast,
         "dialogue": dialogue,
         "cuts": cuts,
+        "present_silent": [str(item) for item in (scene.get("present_silent") or [])],
+        "key_object": str((scene.get("object_start") or {}).get("name") or scene.get("key_object") or "").strip(),
+        "diegetic_text": [str(item) for item in (scene.get("diegetic_text") or []) if str(item).strip()],
+        "shot_lock_version": str(scene.get("shot_lock_version") or ""),
         "sfx": str(scene.get("sfx_ambience") or ""),
         "continuity": str(scene.get("continuity") or ""),
         "camera": str(scene.get("camera") or ""),
         "duration_s": float(scene.get("duration_s") or nf.SCENE_SECONDS),
         "teaser_cover": sid in covers,
         "image_prompt": str(image_entry.get("prompt") or ""),
+        "references": [str(item) for item in (image_entry.get("references") or [])],
+        "face_crops": [str(item) for item in (image_entry.get("face_crops") or [])],
         "video_prompt": GEN03.compose_video_prompt(master, scene, paths, style, "omni"),
         "video_prompts": {
             platform["id"]: GEN03.compose_video_prompt(master, scene, paths, style, platform["id"])
@@ -208,12 +219,13 @@ def build_state(project: str | Path, paths: Optional[Dict[str, Path]] = None) ->
     rules = nf.load_showrunner()
     root = paths["root"]
     ep = nf.episode_meta(master)
-    image_entries = {int(e["scene_id"]): e for e in GEN02.build_queue(master, style)}
-    covers = set(GEN02.teaser_cover_scenes(master))
-    references = [_reference_entry(paths, root, sheet) for sheet in GEN02.build_reference_sheets(master)]
+    prepared = nf.prepare_master_locks_safe(master, style)
+    image_entries = {int(e["scene_id"]): e for e in GEN02.build_queue(prepared, style)}
+    covers = set(GEN02.teaser_cover_scenes(prepared))
+    references = [_reference_entry(paths, root, sheet) for sheet in GEN02.build_reference_sheets(prepared)]
     scenes = [
-        _scene_entry(master, scene, paths, root, style, image_entries.get(int(scene.get("scene_id") or 0), {}), covers)
-        for scene in nf.ordered_scenes(master)
+        _scene_entry(prepared, scene, paths, root, style, image_entries.get(int(scene.get("scene_id") or 0), {}), covers)
+        for scene in nf.ordered_scenes(prepared)
     ]
     brief_path = root / "story_brief.md"
     brief_text = ""
@@ -639,7 +651,7 @@ const FORMAT_KEY = "novelfactory_format";
 const VIRAL_KEY = "novelfactory_latam_template";
 let state = STATE;
 let tracking = normalizeTracking(TRACKING_SEED);
-let activeTab = "prompts";
+let activeTab = "clips";
 let platform = "omni";
 let selectedNiche = "";
 let format = "16x9";
@@ -828,17 +840,12 @@ function syncLegacyButton() {
 
 function renderTabs() {
   const tabs = [
-    ["prompts", "Guía de producción", 4],
+    ["clips", "Clips (video v2)", state.scenes.length],
+    ["frames", "Frames (imagen)", state.scenes.length],
     ["script", "Guion", state.scenes.length],
+    ["prompts", "Guía de producción", 4],
+    ["references", "Referencias", state.references.length],
   ];
-  if (!["prompts", "script"].includes(activeTab)) {
-    const legacy = {
-      references: ["Referencias", state.references.length],
-      frames: ["Frames (imagen)", state.scenes.length],
-      clips: ["Clips (video)", state.scenes.length],
-    }[activeTab];
-    if (legacy) tabs.push([activeTab, legacy[0], legacy[1]]);
-  }
   $("#tabs").innerHTML = tabs.map(([id, label, count]) => `<button class="tab ${activeTab === id ? "active" : ""}" data-tab="${id}">${label} (${count})</button>`).join("");
   syncLegacyButton();
 }
@@ -915,6 +922,7 @@ function sceneCard(scene, kind) {
     ${scene.hook ? `<div class="hook">${esc(scene.hook)}</div>` : ""}
     ${scene.cast.length ? `<div class="cast">${scene.cast.map((name) => `<span class="chip">${esc(name)}</span>`).join("")}</div>` : ""}
     ${kind === "frames" ? `<div class="detail"><b>Frame:</b> ${esc(scene.frame_file || `frames/frame_${String(scene.scene_id).padStart(3, "0")}.png`)}</div>` : `<div class="detail"><b>Clip:</b> ${esc(scene.clip_file || `raw_clips/scene_${String(scene.scene_id).padStart(3, "0")}.mp4`)} · <b>Plataforma:</b> ${esc(platformLabel(platform))}</div>`}
+    ${kind === "frames" && scene.face_crops && scene.face_crops.length ? `<div class="detail"><b>Adjuntar extra:</b> ${esc(scene.face_crops.join(", "))} (recorte de cara de quien habla)</div>` : ""}
     <pre class="prompt">${esc(prompt)}</pre>
     <div class="actions">
       <button class="btn primary" data-action="copy" data-kind="${kind}" data-id="${scene.scene_id}">Copiar prompt</button>
@@ -926,7 +934,17 @@ function sceneCard(scene, kind) {
 function scriptCard(scene) {
   const done = clipDone(scene);
   const dialogue = scene.dialogue.map((line) => `<div class="line"><b>${esc(line.speaker)}</b>${line.delivery ? ` <em>(${esc(line.delivery)})</em>` : ""}: ${esc(line.line)}</div>`).join("");
-  const cuts = scene.cuts.map((cut) => `<div><b>${cut.at.toFixed(1)} s</b> · ${esc(cut.framing)}: ${esc(cut.action)}</div>`).join("");
+  const cuts = (scene.cuts || []).map((cut) => {
+    let tag = "";
+    if (cut.dialogue) {
+      const spk = cut.speakers && cut.speakers.length ? cut.speakers.join(", ") : "";
+      tag = ` <span class="badge ok" style="font-size:10px;padding:1px 5px">HABLA${spk ? `: ${esc(spk)}` : ""}</span>`;
+    } else if (cut.silent) {
+      tag = ` <span class="badge" style="font-size:10px;padding:1px 5px;background:#334155;color:#94a3b8">SILENCIO</span>`;
+    }
+    const range = cut.range ? `[${esc(cut.range)}] ` : "";
+    return `<div><b>${cut.at.toFixed(1)} s</b> · ${range}${esc(cut.framing)}: ${esc(cut.action)}${tag}</div>`;
+  }).join("");
   return `<article class="card ${done ? "is-done" : ""}">
     <div class="card-top">
       <div class="scene-id">#${scene.scene_id}</div>
@@ -940,6 +958,9 @@ function scriptCard(scene) {
     <div class="detail"><b>Momento:</b> ${esc(scene.time_of_day || "—")} · <b>Duración:</b> ${scene.duration_s.toFixed(1)} s</div>
     ${dialogue ? `<div class="dialogue">${dialogue}</div>` : `<div class="detail">Sin diálogo (ambiencia diegética).</div>`}
     ${cuts ? `<div class="cuts">${cuts}</div>` : ""}
+    ${scene.key_object ? `<div class="detail"><b>Objeto clave (Lock):</b> ${esc(scene.key_object)}</div>` : ""}
+    ${scene.present_silent && scene.present_silent.length ? `<div class="detail"><b>Silenciosos en escena:</b> ${esc(scene.present_silent.join(", "))} (boca cerrada)</div>` : ""}
+    ${scene.diegetic_text && scene.diegetic_text.length ? `<div class="detail"><b>Texto diegético:</b> ${esc(scene.diegetic_text.join(", "))}</div>` : ""}
     <div class="detail"><b>SFX / ambiencia:</b> ${esc(scene.sfx || "—")}</div>
     <div class="detail"><b>Continuidad:</b> ${esc(scene.continuity || "—")}</div>
     <div class="detail"><b>Cámara:</b> ${esc(scene.camera || "—")}</div>
@@ -1197,14 +1218,14 @@ function methodBanner() {
   return `<div class="method" style="padding:13px 16px;margin-bottom:18px">
     <div class="master-head" style="margin-bottom:0">
       <div>
-        <b>Método anterior · 60 escenas de 10 s</b>
-        <p>Vista heredada para frames y clips por escena. Imágenes en <b>storyboards/</b>:
+        <b>Contrato V2 activo · 60 escenas sincronizadas</b>
+        <p>Prompts de producción con speaker shot lock, silencios y objetos en cámara. Imágenes en <b>storyboards/</b>:
         <b>${assembly.storyboards_disk || 0}/${assembly.storyboards_expected || 11}</b> ·
         modo detectado: <b>${clipModeLabel(assembly.clip_mode)}</b> ·
         lotes en disco: <b>${assembly.batch_clips_disk || 0}/10</b>.</p>
       </div>
       <div class="master-actions">
-        <button class="btn green" data-action="goto-prompts">Volver a la guía</button>
+        <button class="btn green" data-action="goto-prompts">Ver guía 4 pasos</button>
       </div>
     </div>
   </div>`;

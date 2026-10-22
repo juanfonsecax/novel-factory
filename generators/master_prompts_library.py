@@ -48,12 +48,49 @@ PLACEHOLDERS = (
 PROMPT_ORDER = ("prompt_000", "prompt_001", "prompt_002", "prompt_003")
 VIRAL_TEMPLATES_TOKEN = "<<<VIRAL_TEMPLATES>>>"
 
-NARRATIVE_CONTINUITY_RULE = """REGLA DE CONTINUIDAD NARRATIVA (Hilo Conductor Único + Cadena Causa y Efecto + Ledger de Estado Arrastrado + Prohibición de Ping-Pong de Locaciones + Un Solo Nombre por Objeto Clave + Prueba de Desorden):
+NARRATIVE_CONTINUITY_RULE = """REGLA DE CONTINUIDAD NARRATIVA (Hilo Conductor Único + Cadena Causa y Efecto + Ledger de Estado Arrastrado + Prohibición de Ping-Pong de Locaciones + Un Solo Nombre por Objeto Clave + Prueba de Desorden + Puentes y Ritmo ReelShort/DramaBox):
 1. UNA SOLA PREGUNTA MOTRIZ POR BLOQUE DE 6 ESCENAS: cada minuto tiene una única pregunta dramática; ninguna escena abre una pregunta nueva.
 2. CADENA CAUSA-EFECTO OBLIGATORIA: de la escena 2 a la 60, cada escena declara `because_previous_ended_with` (copia literal del cambio final de la escena anterior), `this_scene_starts_with` (acción concreta ya en movimiento que continúa esa consecuencia) y `single_change_at_end` (un único cambio de estado irreversible).
-3. PROHIBIDO EL PING-PONG DE LOCACIONES: agrupa de 3 a 5 escenas consecutivas en la misma locación; el patrón A-B-A está prohibido.
-4. UN SOLO NOMBRE POR OBJETO CLAVE: el mismo `key_object` exacto aparece en el panel de storyboard, en la acción de la Toma 1 y en la lista Key Object; nunca uses alias.
-5. PRUEBA DE DESORDEN: si al desordenar el bloque la cadena de consecuencias deja de tener sentido, reescríbelo. El validador rechaza placeholders mecánicos (`hard cut into the dialogue beat`, `hard cut to the reaction as the line lands`) y saltos de locación sin transición.
+3. PUENTES DE ENTRADA Y SALIDA (ARRANQUE Y CIERRE): cada escena declara `entry_bridge` (micro-acción o línea <= 2 s con que arrancamos a causa de la anterior) y `exit_hook` (gesto, orden, decisión o pregunta con que termina y empuja a la siguiente). exit_hook(N) alimenta entry_bridge(N+1).
+4. REGLA DE RITMO POR BLOQUE (6 ESCENAS): PROHIBIDO 6 picos de confrontación seguidos. Al menos 1 beat NO confrontacional por bloque (decisión en solitario, descubrimiento, plan, momento tierno/vulnerable).
+5. ROTACIÓN DE CLIFFHANGER: rotar el tipo entre bloques (identidad -> emoción -> revelación). Prohibido repetir el mismo tipo en dos bloques seguidos.
+6. PROHIBIDO EL PING-PONG DE LOCACIONES: agrupa de 3 a 5 escenas consecutivas en la misma locación; el patrón A-B-A está prohibido.
+7. UN SOLO NOMBRE POR OBJETO CLAVE: el mismo `key_object` exacto aparece en el panel de storyboard, en la acción de la Toma 1 y en la lista Key Object; nunca uses alias.
+8. PRUEBA DE DESORDEN: si al desordenar el bloque la cadena de consecuencias deja de tener sentido, reescríbelo. El validador rechaza placeholders mecánicos y saltos sin transición.
+"""
+
+
+# ---------------------------------------------------------------------------
+# PROMPT 00B — Extractor de beats de historia fuente probada (ReelShort/DramaBox)
+# ---------------------------------------------------------------------------
+PROMPT_00B_SOURCE_BEAT_EXTRACTOR = """🔍 PROMPT 00B — EXTRACTOR DE BEATS Y PUENTES DE HISTORIA FUENTE (MÉTODO REELSHORT / DRAMABOX)
+Actúa como un Showrunner y Script Doctor analítico especializado en micro-dramas de alta retención (ReelShort, DramaBox).
+
+OBJETIVO:
+Analiza el GUIÓN FUENTE PROBADO adjunto (o transcripción de historia viral) y extrae ÚNICAMENTE el esqueleto dramático y los puentes escena por escena para 60 escenas de 10 segundos agrupadas en 10 bloques de 1 minuto (6 escenas por bloque).
+
+REGLA DE ORO (PROHIBICIÓN ESTRICTA):
+ESTÁ TOTALMENTE PROHIBIDO COPIAR DIÁLOGOS, NOMBRES, MARCAS O TEXTO LITERAL DEL ORIGINAL.
+Solo extrae funciones dramáticas, dinámicas de poder, giros, emociones y puentes de causalidad. La superficie completa se reinventará en inglés idiomático en el siguiente paso.
+
+POR CADA ESCENA EXTRAE:
+1. scene_id: número de escena (1 a 60).
+2. block: bloque de 1 minuto al que pertenece (1 a 10).
+3. beat_function: una de las 6 funciones clave:
+   - "hook" (atrapa en los primeros 3-5 s)
+   - "setup-stakes" (establece qué se gana o se pierde)
+   - "reversal" (giro o cambio de poder)
+   - "escalation" (aumento de la tensión o conflicto)
+   - "crisis" (dilema o momento crítico)
+   - "cliffhanger" (corte en el pico antes de la respuesta)
+4. core_turn: qué cambia exactamente en esta escena (información revelada, balance de poder alterado o estado irreversible).
+5. emotion: trayectoria emocional dominante (ira -> sorpresa -> curiosidad -> esperanza -> miedo -> alivio).
+6. entry_bridge: la micro-acción o línea (máx ~2 s) con la que arranca la escena a causa directa de la anterior (una orden que se ejecuta, alguien que persigue a otro, etc.). Nada de empezar "en el pico" sin puente.
+7. exit_hook: con qué gesto, orden, decisión o pregunta concluye la escena y empuja a la siguiente.
+8. non_confrontational: true/false. REGLA DE RITMO: En cada bloque de 6 escenas debe haber al menos 1 beat NO confrontacional (decisión en solitario, descubrimiento, plan, momento tierno/vulnerable).
+
+GUIÓN FUENTE / RESUMEN:
+{source_script}
 """
 
 
@@ -282,12 +319,17 @@ Todos los diálogos hablados deben estar en INGLÉS natural, dramático y emocio
 - Nunca cortes una frase por tiempo: si una idea necesita más, divídela entre escenas.
 - No todas las escenas necesitan diálogo: usa "No dialogue (Pure visual & sound tension)." cuando la imagen hable mejor.
 
-DIRECCIÓN DE CÁMARA: EXACTAMENTE 3 TOMAS POR ESCENA DE 10s
-1. TRES TOMAS OBLIGATORIAS:
-   - [00s–03s] Toma 1: arranca EN MOVIMIENTO desde el frame exacto de la viñeta. Mismo encuadre, misma posición de cámara, mismo blocking, mismo vestuario, misma luz y mismo objeto clave. Prohibido abrir con un frame estático.
-   - [03s–07s] Corte duro a close-up u over-the-shoulder del personaje que habla o actúa, con lip-sync claro.
-   - [07s–10s] Corte duro a tight close-up, reacción o insert del objeto clave.
-2. IDENTIDAD Y POSICIONES:
+DIRECCIÓN DE CÁMARA: ENTRE 1 Y 4 TOMAS POR ESCENA DE 10s, NACIDAS DEL DIÁLOGO
+1. REGLA DE ORO: UNA LÍNEA = UN PLANO DEL HABLANTE:
+   - Quien habla está EN CÁMARA con rostro y boca visibles durante toda su línea, mirando al destinatario. Prohibido poner diálogo sobre un insert, una reacción o una espalda.
+   - Toma 1: arranca EN MOVIMIENTO desde el frame exacto de la viñeta. Mismo encuadre, misma posición de cámara, mismo blocking, mismo vestuario, misma luz y mismo objeto clave. Prohibido abrir con un frame estático. Si hay dos hablantes, la Toma 1 es un two-shot que los muestra a ambos y sostiene sus dos líneas.
+   - Los planos silenciosos (insert, reacción, detalle del objeto) van DESPUÉS de que termina el diálogo. Excepción: el hallazgo/revelación va en su propio plano silencioso centrado de 2–3 segundos; declara en qué segundo termina el diálogo ("El diálogo termina en el segundo X").
+   - Los presentes que no hablan se listan como mudos: una sola vez y con la boca cerrada.
+2. OBJETO CLAVE Y TEXTO EN PANTALLA:
+   - Cada escena declara OBJETO AL INICIAR y OBJETO AL TERMINAR visibles en cámara; el insert del objeto lo muestra tal cual.
+   - Nunca muestres el interior vacío de una bolsa, caja fuerte o contenedor donde se escondió el objeto.
+   - Solo el texto diegético declarado (ej. la palabra CONFESSION en el documento) puede verse legible; el resto de papeles y carteles no muestra palabras.
+3. IDENTIDAD Y POSICIONES:
    - Cada personaje presente se nombra como Nombre (Cast Sheet Pos #N: descriptor estable, wearing vestuario del acto).
    - La Hoja de Personajes fija posiciones de izquierda a derecha; nunca insertes esa hoja como plano entre escenas.
 3. DISEÑO SONORO (SFX & AMBIENCE) Y VOZ:
@@ -305,19 +347,21 @@ ESCENA [N] (Viñeta #[N] del Storyboard) — [MM:SS–MM:SS]
 - Characters Present: [Nombre (Cast Sheet Pos #N), ...]
 - Storyboard Panel (Shot 1 exact framing): [ encuadre + acción de la viñeta + objeto clave + todos los presentes ]
 - Identity Anchors: [Nombre (Cast Sheet Pos #N: descriptor, wearing vestuario), ...]
-- Camera Cuts & Visual Action (10s):
-  * [00s–03s]: [Encuadre exacto de la viñeta + acción ya en movimiento]
-  * [03s–07s]: [Corte a plano cerrado frontal o tres cuartos del hablante o del objeto clave, nunca desde detrás del personaje]
-  * [07s–10s]: [Corte a plano cerrado del segundo personaje reaccionando o respondiendo]
+- Object In / Object Out: [OBJETO AL INICIAR visible → OBJETO AL TERMINAR visible]
+- Camera Cuts & Visual Action (10s, 1–4 tomas):
+  * [00s–..]: [Toma 1: encuadre exacto de la viñeta + acción ya en movimiento; two-shot si hablan dos personajes]
+  * [..s–..s]: [PLANO QUE HABLA: nombre (visible, mira a destinatario) dice exactamente, una sola vez: "línea"] (una toma por línea hablada)
+  * [..s–..s]: [SIN DIÁLOGO: insert, reacción o plano del objeto; el hallazgo va centrado 2–3 s]
+- Mudos: [PRESENTES QUE NO HABLAN: nombre — boca cerrada en toda la escena]
 - Sound Design (SFX & Voice Tone): [Efectos de sonido del ambiente + tono de voz fijo del personaje]
-- Dialogue (English, max 15 words, finish before 8.5 s):
+- Dialogue (English, max 15 words per line, finish before 8.5 s):
   [NOMBRE DEL PERSONAJE]: "[Diálogo en inglés breve, concreto y completo, máx. 15 palabras]"
 
 RESULTADO FINAL
 Entrega únicamente el bloque de escenas con la estructura anterior y, al final de las escenas, incluye este comando exacto listo para copiar y pegar junto con el guion en MUSE AI:
 
 COMANDO FINAL PARA PEGAR EN MUSE AI (JUNTO CON EL STORYBOARD Y LA HOJA DE PERSONAJES ADJUNTOS):
-"Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando los 3 cambios de cámara ([00s-03s] arrancando directamente en movimiento desde el encuadre exacto de la viñeta correspondiente sin frames estáticos, [03s-07s] corte a plano cerrado frontal o tres cuartos del hablante o del objeto clave, nunca desde detrás del personaje, y [07s-10s] corte a plano cerrado del segundo personaje reaccionando o respondiendo), manteniendo estrictamente la misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre escenas. Formato: {aspect_ratio}. Reglas negativas estrictas: no subtitles, no captions, no on-screen text, no watermark, no background music, no groans or mouth noises before dialogue.\""""
+"Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando entre 1 y 4 tomas exactamente como las lista el guion (la Toma 1 arranca directamente en movimiento desde el encuadre exacto de la viñeta correspondiente sin frames estáticos; cada línea hablada tiene su propio plano con el hablante de frente, rostro y boca visibles, nunca desde detrás del personaje; los planos silenciosos de insert, reacción u objeto van después del diálogo y nunca contienen habla), manteniendo estrictamente la misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre escenas. Formato: {aspect_ratio}. Reglas negativas estrictas: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue.\""""
 
 
 TEMPLATES: Dict[str, Dict[str, str]] = {
@@ -706,7 +750,9 @@ def build_prompt_pack(
             "total_scenes": values["total_scenes"],
             "total_grid_images": values["total_grid_images"],
             "aspect_ratio": values["aspect_ratio"],
+            "source_mode": master.get("source_mode", "proven_adaptation"),
         },
+        "source_mode": master.get("source_mode", "proven_adaptation"),
         "values": values,
         "prompts": prompts,
         "viral_template": ({
@@ -743,8 +789,12 @@ def render_markdown(pack: Dict[str, Any]) -> str:
         f"- Estilo visual: {values.get('visual_style')}",
         "",
         "> Todos los prompts están rellenados con los datos del proyecto. Copia cada bloque completo.",
-        "",
     ]
+    if pack.get("source_mode") == "original_unproven":
+        lines += [
+            "> ⚠️ **WARNING: source_mode es 'original_unproven' — Guion generado sin fuente probada.**",
+        ]
+    lines += [""]
     for prompt in pack.get("prompts") or []:
         lines += [
             "---",
@@ -815,15 +865,16 @@ MUSE_FINAL_COMMAND_HEADER = (
     "COMANDOS FINALES PARA PEGAR EN MUSE AI (ELIGE SEGÚN EL CANAL):"
 )
 MUSE_FINAL_COMMAND_TEMPLATE = (
-    "Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando los 3 cambios "
-    "de cámara ([00s-03s] arrancando directamente en movimiento desde el encuadre exacto de la "
-    "viñeta correspondiente sin frames estáticos, [03s-07s] corte a plano cerrado frontal o tres "
-    "cuartos del hablante o del objeto clave, nunca desde detrás del personaje, y [07s-10s] corte a "
-    "plano cerrado del segundo personaje reaccionando o respondiendo), manteniendo estrictamente la "
-    "misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes "
-    "adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre "
-    "escenas. Formato: {orientation} {aspect_ratio} {destination}. "
-    "Reglas negativas estrictas: no subtitles, no captions, no on-screen text, no watermark, "
+    "Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando entre 1 y 4 "
+    "tomas exactamente como las lista el guion: la Toma 1 arranca directamente en movimiento desde "
+    "el encuadre exacto de la viñeta correspondiente sin frames estáticos (two-shot si hablan dos "
+    "personajes); cada línea hablada tiene su propio plano con el hablante de frente, rostro y boca "
+    "visibles, nunca desde detrás del personaje; los planos silenciosos (insert, reacción, objeto) "
+    "van después del diálogo y nunca contienen habla. Mantén estrictamente la misma raza, rostro y "
+    "vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un "
+    "solo video continuo sin insertar jamás la imagen de referencia entre escenas. "
+    "Formato: {orientation} {aspect_ratio} {destination}. "
+    "Reglas negativas estrictas: no subtitles, no captions, no overlay text, no watermark, "
     "no background music, no groans or mouth noises before dialogue."
 )
 MUSE_FINAL_COMMAND = MUSE_FINAL_COMMAND_TEMPLATE
@@ -1006,31 +1057,31 @@ def _scene_characters(master: Dict[str, Any], scene: Dict[str, Any]) -> List[str
 
 
 def _muse_cut_rows(scene: Dict[str, Any]) -> List[Dict[str, str]]:
+    import nf_core as nf
+
     cuts = [c for c in (scene.get("internal_cuts") or []) if isinstance(c, dict)]
-    fallbacks = (
-        "Shot 1 already in motion inside the exact storyboard framing; the subject continues the action.",
-        "Hard cut to a close-up or over-the-shoulder of the speaking character; lip-sync is clear.",
-        "Hard cut to a tight close-up, reaction or insert of the key object as the line lands.",
-    )
+    if not cuts:
+        return [
+            {"range": "00s–03s", "framing": "wide establishing shot",
+             "action": "Shot 1 already in motion inside the exact storyboard framing."},
+            {"range": "03s–07s", "framing": "close-up",
+             "action": "Hard cut to a close-up or over-the-shoulder of the speaking character; lip-sync is clear."},
+            {"range": "07s–10s", "framing": "tight close-up",
+             "action": "Hard cut to a tight close-up, reaction or insert of the key object as the line lands."},
+        ]
+    total = float(scene.get("duration_s") or nf.SCENE_SECONDS)
     rows: List[Dict[str, str]] = []
-    for idx, (label, fallback) in enumerate(zip(("00s–03s", "03s–07s", "07s–10s"), fallbacks)):
-        if cuts:
-            if idx < len(cuts):
-                cut = cuts[idx]
-            elif len(cuts) >= 2:
-                cut = cuts[-1]
-            else:
-                cut = cuts[0]
-            framing = str(cut.get("framing") or "").strip()
-            action = str(cut.get("action") or "").strip()
+    for idx, cut in enumerate(cuts):
+        at = float(cut.get("at") or 0.0)
+        end = float(cuts[idx + 1].get("at")) if idx + 1 < len(cuts) else total
+        label = str(cut.get("range") or f"{int(at):02d}s–{int(end):02d}s").strip()
+        framing = str(cut.get("framing") or "medium shot").strip()
+        action = str(cut.get("action") or "").strip() or "the subject continues the motion from the previous beat."
+        if cut.get("dialogue"):
+            action += "  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]"
         else:
-            framing = ("wide establishing shot", "close-up", "tight close-up")[idx]
-            action = ""
-        rows.append({
-            "range": label,
-            "framing": framing or ("wide establishing shot", "close-up", "tight close-up")[idx],
-            "action": action or fallback,
-        })
+            action += "  [SILENT SHOT: no dialogue, no speaking, mouths closed.]"
+        rows.append({"range": label, "framing": framing, "action": action})
     return rows
 
 
@@ -1064,7 +1115,11 @@ def render_muse_scene_block(
         scene.get("character_anchors")
         or nf.format_character_anchors(scene, master.get("characters_locked") or master.get("characters") or [])
     ).strip()
-    key_object = nf.extract_key_object(scene)
+    start_object = str((scene.get("object_start") or {}).get("name") or "").strip()
+    end_object = str((scene.get("object_end") or {}).get("name") or "").strip()
+    key_object = start_object or nf.extract_key_object(scene)
+    diegetic = [str(text) for text in (scene.get("diegetic_text") or []) if str(text).strip()]
+    silent_names = nf.scene_present_silent_names(scene, master)
 
     lines: List[str] = [
         f"ESCENA {sid} (Viñeta #{sid} del Storyboard) — {_muse_timecode(start)}–{_muse_timecode(end)}",
@@ -1072,9 +1127,16 @@ def render_muse_scene_block(
         f"- Characters Present: {', '.join(characters) if characters else 'the characters visible in the storyboard panel'}",
         f"- Storyboard Panel (Shot 1 exact framing): {panel}",
         f"- Identity Anchors: {anchors or 'use the cast sheet positions exactly as attached'}",
-        f"- Key Object: {key_object or 'the central visual detail of the scene'}",
-        "- Camera Cuts & Visual Action (10s):",
+        f"- Key Object: {key_object or 'the central visual detail of the scene'}"
+        + (f" → Object In / Object Out: {start_object} → {end_object or start_object}" if start_object else ""),
     ]
+    if scene.get("object_hidden"):
+        lines.append("- Object Rule: never show the container interior; it stays in shadow and out of frame.")
+    if diegetic:
+        lines.append(f"- On-Object Text (only legible text allowed in frame): \"{' / '.join(diegetic)}\"")
+    if silent_names:
+        lines.append(f"- Silent Present: {', '.join(silent_names)} — mouths closed for the whole scene, no lines.")
+    lines.append("- Camera Cuts & Visual Action (10s):")
     for row in _muse_cut_rows(scene):
         lines.append(f"  * [{row['range']}]: {row['framing']} — {row['action']}")
     lines.append(f"- Sound Design (SFX & Voice Tone): {sfx}. Voice tone: {voice_text}")
@@ -1098,7 +1160,7 @@ def build_muse_batches(
     import nf_core as nf
 
     style = style if isinstance(style, dict) else {}
-    scenes = nf.ordered_scenes(master)
+    scenes = nf.ordered_scenes(nf.prepare_master_locks_safe(master, style))
     aspect = _aspect_ratio_from(master, style, aspect_ratio)
     batches: List[Dict[str, Any]] = []
     for position in range(0, len(scenes), 6):

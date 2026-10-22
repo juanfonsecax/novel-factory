@@ -194,7 +194,7 @@ class PromptRuleTests(unittest.TestCase):
 
     def test_muse_command_has_negative_rules(self):
         command = MPL._muse_final_command(1, "horizontal", "16:9", "YouTube")
-        self.assertIn("no subtitles, no captions, no on-screen text, no watermark", command)
+        self.assertIn("no subtitles, no captions, no overlay text, no watermark", command)
         self.assertIn("no background music", command)
         self.assertIn("no groans or mouth noises before dialogue", command)
 
@@ -213,6 +213,108 @@ class PromptRuleTests(unittest.TestCase):
         for scene in master["scenes"]:
             for cut in scene["internal_cuts"]:
                 self.assertFalse(nf.is_placeholder_text(cut["action"]), msg=cut["action"])
+
+
+class SpeakerShotLockTests(unittest.TestCase):
+    @staticmethod
+    def _master_with(payload: dict):
+        master, _ = nf.normalize_master(payload, "unit_v2", "Unit V2")
+        return master
+
+    @staticmethod
+    def _demo_payload() -> dict:
+        return GEN01.build_demo_payload("unit_v2", "Unit V2", "emma_hayes", 1)
+
+    def test_two_hander_holds_both_lines_in_first_shot(self):
+        payload = self._demo_payload()
+        payload["scenes"][0]["characters"] = ["nora", "sam"]
+        payload["scenes"][0]["dialogue"] = [
+            {"speaker": "NORA", "line": "You came back for the light.", "delivery": "cold"},
+            {"speaker": "SAM", "line": "I came back for you.", "delivery": "low"},
+        ]
+        master = self._master_with(payload)
+        scene = master["scenes"][0]
+        cuts = scene["internal_cuts"]
+        self.assertEqual(cuts[0]["at"], 0.0)
+        self.assertTrue(cuts[0].get("dialogue"))
+        self.assertIn("two-shot", cuts[0]["framing"].lower())
+        self.assertEqual([line["shot"] for line in scene["dialogue"]], [1, 1])
+        self.assertIn("Nora Hale", cuts[0]["action"])
+        self.assertIn("Sam Calloway", cuts[0]["action"])
+
+    def test_hidden_container_is_never_opened(self):
+        payload = self._demo_payload()
+        payload["scenes"][0]["internal_cuts"][0]["action"] = (
+            "Richard slips the silver watch into the canvas bag."
+        )
+        payload["scenes"][2]["internal_cuts"][0]["action"] = (
+            "Elena sets the canvas bag on the table. The canvas bag is open."
+        )
+        master = self._master_with(payload)
+        scene = master["scenes"][2]
+        self.assertTrue(scene.get("object_hidden"))
+        actions = " ".join(str(cut.get("action") or "") for cut in scene["internal_cuts"])
+        self.assertIn("never show it empty", actions)
+        self.assertNotIn("bag is open", actions.lower())
+
+    def test_silent_cuts_never_speak(self):
+        master = self._master_with(self._demo_payload())
+        for scene in master["scenes"]:
+            for cut in scene["internal_cuts"]:
+                if cut.get("dialogue"):
+                    continue
+                action = str(cut.get("action") or "")
+                self.assertIsNone(nf.SPEAKING_VERB_RE.search(action), msg=action)
+                self.assertNotIn('"', action, msg=action)
+
+    def test_reveal_gets_its_own_silent_object_shot(self):
+        payload = self._demo_payload()
+        payload["scenes"][3]["internal_cuts"][0]["action"] = (
+            "Elena lifts the dead lighthouse lamp out of the canvas bag."
+        )
+        master = self._master_with(payload)
+        scene = master["scenes"][3]
+        self.assertEqual(scene.get("object_focus"), "reveal")
+        kinds = [cut.get("kind") for cut in scene["internal_cuts"]]
+        self.assertIn("object", kinds)
+        index = kinds.index("object")
+        self.assertGreater(index, 0)
+        self.assertFalse(scene["internal_cuts"][index].get("dialogue"))
+        self.assertIn("lamp", scene["internal_cuts"][index]["action"].lower())
+
+    def test_speaking_characters_get_reference_face_crop(self):
+        master = self._master_with(self._demo_payload())
+        entries = GEN02.build_queue(master, nf.load_style_locks())
+        scene_two = next(entry for entry in entries if entry["scene_id"] == 2)
+        cast = {member["id"]: member for member in scene_two["cast"]}
+        self.assertTrue(cast["sam"]["speaks"])
+        self.assertEqual(cast["sam"]["face_crop"], "reference_sam_face.png")
+        self.assertIn("reference_sam_face.png", scene_two["face_crops"])
+        self.assertFalse(cast["nora"]["speaks"])
+        self.assertEqual(cast["nora"]["face_crop"], "")
+
+    def test_diegetic_text_gets_its_own_clause(self):
+        payload = self._demo_payload()
+        payload["scenes"][0]["diegetic_text"] = ["CONFESSION"]
+        master = self._master_with(payload)
+        scene = master["scenes"][0]
+        self.assertEqual(scene["diegetic_text"], ["CONFESSION"])
+        prompt = nf.build_scene_first_frame_prompt(scene, master, nf.load_style_locks())
+        self.assertIn("DIEGETIC TEXT EXCEPTION", prompt)
+        self.assertIn("CONFESSION", prompt)
+        composed = GEN02.compose_image_prompt(prompt, nf.load_style_locks())
+        self.assertIn("the only legible text allowed", composed.lower())
+
+    def test_validator_flags_self_naming_line(self):
+        master = self._master_with(self._demo_payload())
+        target = master["scenes"][53]
+        target["dialogue"][0]["line"] = "The court recognizes Nora Hale as sole heir."
+        target["dialogue"][0]["speaker"] = "NORA"
+        result = nf.validate_master(master, production=True)
+        self.assertTrue(
+            any("no puede decirla" in error for error in result["errors"]),
+            msg=result["errors"],
+        )
 
 
 @unittest.skipUnless(DEMO_DIR.exists(), "no existe projects/demo_contract")
@@ -341,9 +443,10 @@ class MasterPromptTests(unittest.TestCase):
                 self.assertTrue((target / name).exists(), msg=name)
             batches_text = (target / "muse_ai_batches_queue.txt").read_text(encoding="utf-8")
             self.assertIn("ESCENA 1", batches_text)
-            self.assertIn("[00s–03s]", batches_text)
-            self.assertIn("[03s–07s]", batches_text)
-            self.assertIn("[07s–10s]", batches_text)
+            self.assertIn("[00s-", batches_text)
+            self.assertIn("SPEAKING SHOT", batches_text)
+            self.assertIn("SILENT SHOT", batches_text)
+            self.assertIn("Object In / Object Out", batches_text)
             self.assertIn("=== COPIA 16:9 (YouTube) ===", batches_text)
             self.assertIn("=== COPIA 9:16 (Reels / TikTok / Shorts) ===", batches_text)
             self.assertIn("📎 ADJUNTAR EN MUSE AI", batches_text)
@@ -1047,6 +1150,91 @@ class LauncherTests(unittest.TestCase):
         bat = (NF_ROOT / "novelfactory.bat").read_text(encoding="utf-8", errors="replace")
         self.assertIn("if errorlevel 1", bat)
         self.assertIn(":INGEST_RUN", bat)
+
+
+class V3ReelShortMethodTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.master = nf.load_master(DEMO_DIR)
+        cls.style = nf.load_style_locks()
+        cls.paths = nf.project_paths(DEMO_DIR)
+
+    def test_master_without_source_is_marked_original_unproven_with_warning(self):
+        # (1) master sin fuente queda marcado original_unproven con warning;
+        payload = minimal_payload()
+        master, warnings = nf.normalize_master(payload, "unproven_slug", "Unproven Title")
+        self.assertEqual(master.get("source_mode"), "original_unproven")
+        self.assertTrue(any("original_unproven" in w for w in warnings))
+
+        # Y con source_script queda proven_adaptation
+        payload_proven = minimal_payload()
+        payload_proven["source_script"] = "Escena 1: El gancho de la herencia..."
+        master_p, warnings_p = nf.normalize_master(payload_proven, "proven_slug", "Proven Title")
+        self.assertEqual(master_p.get("source_mode"), "proven_adaptation")
+        self.assertEqual(master_p.get("source_script"), "Escena 1: El gancho de la herencia...")
+
+    def test_scene_without_bridges_fails_production_validation(self):
+        # (2) escena sin entry_bridge/exit_hook falla validación en producción;
+        master, _ = nf.normalize_master(minimal_payload(), "bridge_slug", "Bridge Title")
+        # Quitamos entry_bridge en escena 2
+        del master["scenes"][1]["entry_bridge"]
+        res_entry = nf.validate_master(master, production=True)
+        self.assertTrue(any("entry_bridge" in err for err in res_entry["errors"]))
+
+        # Restauramos y quitamos exit_hook en escena 2
+        master["scenes"][1]["entry_bridge"] = "Following the prior command, she walks toward the gate."
+        del master["scenes"][1]["exit_hook"]
+        res_exit = nf.validate_master(master, production=True)
+        self.assertTrue(any("exit_hook" in err for err in res_exit["errors"]))
+
+    def test_block_with_six_confrontation_beats_fails_rhythm_rule(self):
+        # (3) bloque con 6 beats de confrontación falla la regla de ritmo;
+        master, _ = nf.normalize_master(minimal_payload(), "rhythm_slug", "Rhythm Title")
+        # Establecemos 6 beats seguidos de confrontación en el bloque 1 (escenas 1 a 6)
+        for s in master["scenes"][:6]:
+            s["beat"] = "confrontation"
+        result = nf.validate_master(master)
+        self.assertTrue(any("confrontación" in err.lower() or "ritmo" in err.lower() for err in result["errors"]))
+
+        # Al introducir al menos 1 beat no confrontacional (ej: discovery o plan), pasa
+        master["scenes"][3]["beat"] = "discovery"
+        result_fixed = nf.validate_master(master)
+        self.assertFalse(any("confrontación" in err.lower() or "ritmo" in err.lower() for err in result_fixed["errors"]))
+
+    def test_repeated_cliffhanger_in_consecutive_blocks_fails(self):
+        # (4) cliffhanger repetido en bloques seguidos falla;
+        master, _ = nf.normalize_master(minimal_payload(), "cliff_slug", "Cliff Title")
+        blocks = master["narrative_continuity"]["minute_blocks"]
+        # Asignamos el mismo tipo de cliffhanger a dos bloques seguidos
+        blocks[0]["cliffhanger_type"] = "identity"
+        blocks[1]["cliffhanger_type"] = "identity"
+        result = nf.validate_master(master)
+        self.assertTrue(any("cliffhanger" in err.lower() and "repeti" in err.lower() for err in result["errors"]))
+
+        # Con rotación (identity -> emotion) no falla
+        blocks[1]["cliffhanger_type"] = "emotion"
+        result_ok = nf.validate_master(master)
+        self.assertFalse(any("cliffhanger" in err.lower() and "repeti" in err.lower() for err in result_ok["errors"]))
+
+    def test_exported_pack_contains_scene_attachments_note(self):
+        # (5) el pack exportado contiene la nota de adjuntos por escena.
+        # Comprobación en exportador 05 (Muse Method Pack)
+        pack = GEN05.build_pack(self.master, self.style)
+        md = GEN05.render_markdown(pack)
+        self.assertIn("ADJUNTA EN CADA ESCENA", md)
+        self.assertIn("No generes ninguna escena sin sus personajes adjuntos", md)
+        self.assertIn("attach:", md.lower())
+
+        # Comprobación en exportador 03 (Omni Queue)
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp_paths = nf.project_paths(Path(tmp))
+            for folder in (tmp_paths["frames"], tmp_paths["raw_clips"]):
+                folder.mkdir(parents=True, exist_ok=True)
+            rows = GEN03.build_rows(self.master, tmp_paths, self.style, "omni")
+            GEN03.write_queue_files(tmp_paths, self.master, rows, "omni")
+            txt_content = tmp_paths["omni_txt"].read_text(encoding="utf-8")
+            self.assertIn("ADJUNTA EN CADA ESCENA", txt_content)
+            self.assertIn("attach: [panel_", txt_content)
 
 
 if __name__ == "__main__":

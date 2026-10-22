@@ -22,7 +22,8 @@
     "duration_tolerance_sec": 0.05,
     "max_characters": 5,
     "max_primary_locations": 5,
-    "internal_cuts_per_scene": [3, 3],
+    "internal_cuts_per_scene": [1, 4],
+    "internal_cut_policy": "Los cortes nacen del diálogo: 1 línea hablada = 1 plano con hablante visible. Hasta 2 líneas por clip; los silenciosos (insert, reacción, objeto) van después del diálogo, salvo el hallazgo, que va en su propio plano silencioso entre las líneas.",
     "internal_cut_times": [0.0, 3.0, 7.0],
     "internal_cut_ranges": ["00s-03s", "03s-07s", "07s-10s"],
     "max_dialogue_words_per_10s_scene": 20,
@@ -36,7 +37,9 @@
     "scene_fields": [
       "because_previous_ended_with",
       "this_scene_starts_with",
-      "single_change_at_end"
+      "single_change_at_end",
+      "entry_bridge",
+      "exit_hook"
     ],
     "block_field": "block_driving_question",
     "placeholder_patterns": [
@@ -77,6 +80,18 @@
         "reject_placeholders": true,
         "reject_location_ping_pong": true,
         "reject_unmotivated_location_reset": true
+      },
+      "6_entry_and_exit_bridges": {
+        "description": "De la escena 2 a la 60, entry_bridge inicia la escena a causa de la anterior (max ~2s) y exit_hook empuja a la siguiente con un gesto, orden, decisión o pregunta. exit_hook(N) alimenta entry_bridge(N+1).",
+        "required_fields": ["entry_bridge", "exit_hook"]
+      },
+      "7_block_rhythm_and_recorrido": {
+        "description": "Por bloque de 6 escenas, prohibido 6 picos de confrontación seguidos. Al menos 1 beat no confrontacional por bloque (decisión en solitario, descubrimiento, plan, momento tierno/vulnerable).",
+        "min_non_confrontational_per_block": 1
+      },
+      "8_cliffhanger_rotation": {
+        "description": "Rotar el tipo de cliffhanger entre bloques de 1 minuto (identity -> emotion -> revelation). Prohibido repetir el mismo tipo en dos bloques seguidos.",
+        "rotation": ["identity", "emotion", "revelation"]
       }
     }
   },
@@ -345,10 +360,10 @@
   "scene_contract": {
     "duration_seconds": 10,
     "dialogue": "6-15 spoken words total per scene, hard max 15. Native US English, subtext over exposition. Dialogue must finish before 8.5 seconds. Optional second line from another character.",
-    "internal_cuts": "Exactly 3 shots inside the 10 seconds. Shot 1 runs 00s-03s and starts in motion from the storyboard panel framing. Hard cut at 3.0s to a close-up or over-the-shoulder dialogue/action shot. Hard cut at 7.0s to a tight close-up, reaction or insert. No static first frame and no extra cuts.",
+    "internal_cuts": "1-4 shots inside the 10 seconds, born from the dialogue: one spoken line = one shot with the speaker on camera, face and mouth visible, looking at the recipient. The first shot starts in motion from the storyboard panel framing and, when two characters speak, holds both in a two-shot. Silent beats (insert, reaction, object detail) come after the dialogue ends; the finding/reveal gets its own silent 2-3 second centered shot. Never place dialogue over an insert or reaction shot. No static first frame and no extra cuts.",
     "first_frame": "The storyboard panel is the literal first frame of shot 1: same framing, same camera position, same wardrobe, same location, same light and same blocking. Shot 1 begins in motion from that frame. Center-weight the subject so a 9:16 crop still works.",
     "audio": "Native audio only: dialogue, breath, cloth, footsteps, wind, rain, room tone, diegetic SFX. No music in the generated clip (the soundtrack is mixed in post).",
-    "no_text": "No subtitles, captions, logos, watermarks, UI or readable text rendered inside the image or video.",
+    "no_text": "No subtitles, captions, overlay text, logos, watermarks, UI or signage rendered inside the image or video. Diegetic text exception: only when the scene declares on-object text (for example the word CONFESSION on the story document) may that exact word render as legible letters; everything else stays non-legible.",
     "continuity": "Track wardrobe, hair, injuries, props and time of day per act. A scene may not teleport to a new location without a line or a visual transition. Continuity notes describe only the present state of the scene; never reference future scenes."
   },
   "continuity_rules": {
@@ -363,7 +378,7 @@
     "style": "Short sentences. Concrete nouns. One subtext line per scene. No therapy-speak, no lecture, no exposition dumps.",
     "profanity": "None. Use implication and silence.",
     "tone": "Restrained, adult, cinematic. Fear and desire are shown through what characters refuse to say.",
-    "per_scene_max_lines": 3,
+    "per_scene_max_lines": 2,
     "max_words_per_scene": 15,
     "deadline_seconds": 8.5
   },
@@ -372,7 +387,7 @@
     "location_blocks": "Plan 3-6 consecutive scenes inside one continuous dramatic situation before changing location. A location change needs a visible or spoken transition; no teleporting.",
     "storyboard_sync": "Each scene has exactly one storyboard panel. That panel is the literal first frame of shot 1: same framing, camera position, blocking, wardrobe, light and key object. Shot 1 begins in motion from that exact image.",
     "identity_anchor": "Every scene prompt lists each present character as: Name (Cast Sheet Pos #N: stable descriptor wearing act wardrobe). The cast sheet uses fixed left-to-right positions and uppercase names.",
-    "shot_plan": "Shot 1 00s-03s: storyboard framing, subject already moving. Shot 2 03s-07s: hard cut to close-up or over-the-shoulder dialogue/action. Shot 3 07s-10s: hard cut to tight close-up, reaction or insert for the turn.",
+    "shot_plan": "1-4 shots. Shot 1: storyboard framing, subject already moving; with two speakers it is a two-shot holding both lines with both faces visible. Each spoken line gets its shot: the speaker is on camera with face and mouth visible, addressing the recipient. Silent beats (insert, reaction, object) come after the dialogue; the reveal gets its own silent 2-3 second shot. Never describe speaking inside a silent shot.",
     "dialogue_budget": "Maximum 15 spoken words per scene and dialogue must end before 8.5 seconds. Short lines, concrete nouns, no exposition dumps.",
     "forbidden": [
       "consequence shown before its cause",
@@ -565,5 +580,32 @@
     "teaser_3": "The cliffhanger or the confrontation. Use 6 consecutive scenes from acts 5-6.",
     "hook_text": "5-10 words, all caps allowed for one word, no spoilers, ends with an open loop.",
     "caption": "2-4 short lines, one question, 4-8 niche hashtags, honest CTA (follow/save/comment), no fake DM promises."
+  },
+  "source_mode": {
+    "default": "proven_adaptation",
+    "allowed": ["proven_adaptation", "original_unproven"],
+    "unproven_warning": "WARNING: source_mode es 'original_unproven'. Generado sin guion fuente probado; puede presentar picos excesivos de confrontación."
+  },
+  "localization_reskin_rules": {
+    "preserve": ["beat_functions", "scene_order", "timings", "bridges", "cliffhanger_types"],
+    "reskin_100_percent": ["names", "jobs", "setting", "institutions", "objects", "dialogues"],
+    "forbidden_translation_artifacts": ["You dare?!", "CEO Wang", "moral lectures", "translated idioms"],
+    "cultural_equivalences": {
+      "controlling_mother_in_law_or_chinese_family_pressure": "stepmother, ex, boss, or local in-laws"
+    }
+  },
+  "reelshort_dramabox_rhythm_template": {
+    "per_minute_block": {
+      "conflict_window_seconds": [3, 5],
+      "state_shift_every_seconds": [10, 20],
+      "major_turn_seconds": 30,
+      "cliffhanger_window_seconds": [50, 60],
+      "cut_before_answer": true
+    },
+    "ten_minute_arc": {
+      "first_victory_latest_block": 5,
+      "biggest_revelation_blocks": [8, 9, 10],
+      "principle": "answer small, ask big"
+    }
   }
 }
