@@ -55,7 +55,7 @@ regenerates projects, runs `pytest -v` and commits.
   and contain the real character names.
 - Every batch has `prompt_16x9_youtube` and `prompt_9x16_vertical`; neither contains attachment headers.
 - `config/showrunner_rules.json` includes the six `viral_latam_to_usa_templates`.
-- Dashboard shows PASO 1..4 with the required buttons, badges, save paths and status indicators.
+- Dashboard shows STEP 1..4 with the required buttons, badges, save paths and status indicators.
 - `pytest -v` passes.
 
 ## Applicable checks
@@ -67,7 +67,7 @@ regenerates projects, runs `pytest -v` and commits.
 - T2: `master_prompts_library.py` exposes `build_cast_sheet_prompt` and per-format `prompt_16x9_youtube` / `prompt_9x16_vertical`; the generated prompts contain no `[ADJUNTAR`.
 - T3: `01_story_to_master_json.py --viral-template <id>` injects the LATAM catalog plus the selected structure block.
 - T4: `02` and `05` consume the shared cast prompt; `MUSE_PRODUCTION_PACK.md` lists both formats with save paths `raw_clips/minute_01.mp4` and `raw_clips/minute_01_vertical.mp4`.
-- T5: dashboard renders PASO 1–4, project and format selectors, 10 storyboard mini-cards, 10 batch cards, dual save paths/status, assembly command and the closed legacy accordion.
+- T5: dashboard renders STEP 1–4, project and format selectors, 10 storyboard mini-cards, 10 batch cards, dual save paths/status, assembly command and the closed legacy accordion.
 - T6: new tests cover cast prompt cleanliness, split format prompts, six templates, generator 01 catalog injection and dashboard tokens.
 - T7: regenerated both projects; `python -m compileall -q automation generators nf_core.py` OK; `pytest -v` -> 78 passed. Server smoke test: `/`, `/p/<slug>/` and a project asset return HTTP 200; inline JS passes `node --check`.
 - T8: commit `3131c77` (`feat(dashboard): add four-step viral production guide`).

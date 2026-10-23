@@ -1,9 +1,9 @@
-# Teaser 1 — pack de publicación (9:16)
+# Teaser 1 — publish pack (9:16)
 
-- Archivo: `teaser_01_9x16.mp4`
-- Duración: 60.0 s
+- File: `teaser_01_9x16.mp4`
+- Runtime: 60.0 s
 - Headline: THE LIGHT WAS NEVER OFF
-- Escenas: [1, 2, 3, 4, 5, 6]
+- Scenes: [1, 2, 3, 4, 5, 6]
 
 ## Caption
 

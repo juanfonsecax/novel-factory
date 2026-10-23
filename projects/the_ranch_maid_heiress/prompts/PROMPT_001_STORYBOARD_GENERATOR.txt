@@ -1,8 +1,8 @@
-🎬 PROMPT 001 — GENERADOR DE STORYBOARD CINEMATOGRÁFICO (6 ESCENAS POR IMAGEN)
-Actúa como director de cine y crea un storyboard visual para la historia que te voy a proporcionar.
+🎬 PROMPT 001 — CINEMATIC STORYBOARD GENERATOR (6 SCENES PER IMAGE)
+Act as a film director and create a visual storyboard for the story I am going to give you.
 
-DATOS DE LA HISTORIA
-Historia:
+STORY DATA
+Story:
 PREMISE:
 # THE STABLE GIRL — Episodio 1 de "Silver Creek Secrets"
 
@@ -36,86 +36,89 @@ ACT MAP:
 - Act 5 — The Turn : Elena converts the bank box into leverage while the town gathers for the gala; Cole and Maggie each choose to pay a price, and Victoria's last threat sets the stage.
 - Act 6 — The Payoff : At the county hearing the will is read in public, the mask comes off, and Silver Creek changes hands; a line in Walter's letter opens the next mystery.
 
-Duración:
-10 minuto(s) (60 escenas de 10 segundos = 10 imagen(es) de storyboard de 6 viñetas cada una)
+Runtime:
+10 minute(s) (60 ten-second scenes = 10 storyboard image(s) with 6 panels each)
 
-Estilo visual:
+Visual style:
 prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette Lighting palette: late-afternoon sun raking across the scene with long shadows; overcast storm light with a cold rim on faces; practical tungsten warmth inside against a blue dusk exterior. Camera language: wide establishing shot with a human scale reference; medium shot, chest up, subject slightly off-center; tight close-up, eyes in sharp focus, background falling off; over-the-shoulder shot with the listener soft in foreground.
-(Opciones: Cinematográfico realista 35mm / Realista / Animación 3D / Animación 2D / Anime / Ilustración)
+(Options: Realistic cinematic 35mm / Realistic / 3D animation / 2D animation / Anime / Illustration)
 
-REGLAS DEL STORYBOARD
-Cada escena dura exactamente 10 segundos.
-Calcula automáticamente el número de escenas según la duración.
-Cada imagen debe contener 6 escenas/viñetas (en cuadrícula limpia de 3x2: 6 viñetas numeradas del 1 al 6).
-Por lo tanto:
-1 minuto = 6 escenas = 1 imagen
-2 minutos = 12 escenas = 2 imágenes
-3 minutos = 18 escenas = 3 imágenes
-4 minutos = 24 escenas = 4 imágenes
-5 minutos = 30 escenas = 5 imágenes
-10 minutos = 60 escenas = 10 imágenes
-Cada imagen representa exactamente 1 minuto de historia.
+STORYBOARD RULES
+Every scene lasts exactly 10 seconds.
+Automatically calculate the number of scenes from the runtime.
+Every image must contain 6 scenes/panels (in a clean 3x2 grid: 6 panels numbered 1 to 6).
+Therefore:
+1 minute = 6 scenes = 1 image
+2 minutes = 12 scenes = 2 images
+3 minutes = 18 scenes = 3 images
+4 minutes = 24 scenes = 4 images
+5 minutes = 30 scenes = 5 images
+10 minutes = 60 scenes = 10 images
+Every image represents exactly 1 minute of story.
 
-CADA VIÑETA
-Cada viñeta debe mostrar visualmente el momento correspondiente de la historia con encuadre de cine profesional (alternando planos generales establecedores, planos medios dramáticos y primeros planos emocionales).
-Cada viñeta es el PRIMER FRAME literal de la Toma 1 de su escena: mismo encuadre, misma posición de cámara, mismo blocking, mismo vestuario, misma luz y mismo objeto clave. La Toma 1 arranca en movimiento desde esa imagen; nunca es un frame congelado.
-Debe incluir:
-- Todos los personajes presentes en la escena, con su posición fija de la Hoja de Personajes.
-- Lugar.
-- Acción física clara ya en movimiento.
-- Emoción intensa en los rostros.
-- El objeto clave de la escena visible o claramente implicado.
-- Composición e iluminación cinematográfica.
-FORMATO DE VIÑETAS 100% VISUAL (SIN CAJAS DE TEXTO): Las 6 viñetas fotográficas en cuadrícula 3x2 deben ocupar el 100% del lienzo 16:9 separadas únicamente por líneas divisorias finas. Coloca SOLO el número pequeño [1], [2], [3], [4], [5], [6] en la esquina superior izquierda de cada viñeta. PROHIBIDO dibujar barras inferiores oscuras, subtítulos, cajas de texto o descripciones escritas dentro de la imagen.
+EVERY PANEL
+Every panel must visually show the corresponding story moment with professional cinematic framing (alternating establishing wide shots, dramatic medium shots and emotional close-ups).
+Every panel is the literal FIRST FRAME of Shot 1 in its scene: same framing, same camera position, same blocking, same wardrobe, same lighting and same key object. Shot 1 starts in motion from that image; it is never a frozen frame.
+It must include:
+- Every character present in the scene, in their fixed Cast Sheet position.
+- Location.
+- Clear physical action already in motion.
+- Intense emotion on the faces.
+- The scene's key object visible or clearly implied.
+- Cinematic composition and lighting.
+100% VISUAL PANEL FORMAT (NO TEXT BOXES): The 6 photographic panels in a 3x2 grid must fill 100% of the 16:9 canvas, separated only by thin divider lines. Place ONLY the small number [1], [2], [3], [4], [5], [6] in the top-left corner of each panel. Drawing dark bottom bars, subtitles, text boxes or written descriptions inside the image is FORBIDDEN.
 
-IMPORTANTE:
-No escribir diálogos ni párrafos dentro del storyboard.
+IMPORTANT:
+Do not write dialogue or paragraphs inside the storyboard.
 
-CONTINUIDAD
-Mantén la misma apariencia exacta de los personajes durante todo el storyboard.
-Conserva también la continuidad estricta de:
-- Rostros.
-- Cabello.
-- Edad.
-- Complexión.
-- Vestuario.
-- Locaciones.
-- Época.
-- Objetos importantes (anillos, contratos, vehículos, herramientas).
-- Iluminación.
-- Ambiente.
-Si un personaje cambia de ropa por motivos narrativos, el cambio debe ser coherente.
+CONTINUITY
+Keep the exact same character appearance throughout the storyboard.
+Also preserve strict continuity of:
+- Faces.
+- Hair.
+- Age.
+- Build.
+- Wardrobe.
+- Locations.
+- Period.
+- Important objects (rings, contracts, vehicles, tools).
+- Lighting.
+- Atmosphere.
+If a character changes clothes for narrative reasons, the change must be coherent.
 
-ESTILO VISUAL
-Utiliza exactamente el estilo visual seleccionado (prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette Lighting palette: late-afternoon sun raking across the scene with long shadows; overcast storm light with a cold rim on faces; practical tungsten warmth inside against a blue dusk exterior. Camera language: wide establishing shot with a human scale reference; medium shot, chest up, subject slightly off-center; tight close-up, eyes in sharp focus, background falling off; over-the-shoulder shot with the listener soft in foreground.).
-Mantén ese estilo de manera consistente en todas las imágenes y todas las viñetas.
-El storyboard debe tener apariencia profesional y cinematográfica.
+VISUAL STYLE
+Use exactly the selected visual style (prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette Lighting palette: late-afternoon sun raking across the scene with long shadows; overcast storm light with a cold rim on faces; practical tungsten warmth inside against a blue dusk exterior. Camera language: wide establishing shot with a human scale reference; medium shot, chest up, subject slightly off-center; tight close-up, eyes in sharp focus, background falling off; over-the-shoulder shot with the listener soft in foreground.).
+Keep that style consistent across every image and every panel.
+The storyboard must look professional and cinematic.
 
-IMPORTANTE
-El resultado debe ser principalmente visual.
-No incluir:
-- Diálogos.
-- Narración extensa.
-- Subtítulos.
-- Párrafos.
-- Prompts de video.
-- Explicaciones del proceso.
-- Descripciones escritas, cajas de texto o barras inferiores dentro de la imagen.
+IMPORTANT
+The result must be primarily visual.
+Do not include:
+- Dialogue.
+- Extended narration.
+- Subtitles.
+- Paragraphs.
+- Video prompts.
+- Process explanations.
+- Written descriptions, text boxes or bottom bars inside the image.
 
-RESULTADO FINAL
-A partir de la historia, duración y estilo proporcionados:
-1. Calcula el número total de escenas (60 escenas).
-2. Cada escena debe durar 10 segundos.
-3. Divide las escenas en grupos de 6.
-4. Genera una imagen por cada grupo de 6 escenas.
-5. Cada imagen debe contener 6 viñetas claramente divididas.
-6. Mantén la numeración [1]-[6] en la esquina superior izquierda, sin texto adicional.
-7. Mantén la continuidad absoluta de personajes y escenarios.
-8. Cuenta toda la historia visualmente de principio a fin.
+FINAL RESULT
+From the provided story, runtime and style:
+1. Calculate the total number of scenes (60 scenes).
+2. Every scene must last 10 seconds.
+3. Divide the scenes into groups of 6.
+4. Generate one image per group of 6 scenes.
+5. Every image must contain 6 clearly divided panels.
+6. Keep the numbering [1]-[6] in the top-left corner, with no additional text.
+7. Preserve absolute continuity of characters and locations.
+8. Tell the entire story visually from beginning to end.
 
-REGLA DE CONTINUIDAD NARRATIVA (Hilo Conductor Único + Cadena Causa y Efecto + Ledger de Estado Arrastrado + Prohibición de Ping-Pong de Locaciones + Un Solo Nombre por Objeto Clave + Prueba de Desorden):
-1. UNA SOLA PREGUNTA MOTRIZ POR BLOQUE DE 6 ESCENAS: cada minuto tiene una única pregunta dramática; ninguna escena abre una pregunta nueva.
-2. CADENA CAUSA-EFECTO OBLIGATORIA: de la escena 2 a la 60, cada escena declara `because_previous_ended_with` (copia literal del cambio final de la escena anterior), `this_scene_starts_with` (acción concreta ya en movimiento que continúa esa consecuencia) y `single_change_at_end` (un único cambio de estado irreversible).
-3. PROHIBIDO EL PING-PONG DE LOCACIONES: agrupa de 3 a 5 escenas consecutivas en la misma locación; el patrón A-B-A está prohibido.
-4. UN SOLO NOMBRE POR OBJETO CLAVE: el mismo `key_object` exacto aparece en el panel de storyboard, en la acción de la Toma 1 y en la lista Key Object; nunca uses alias.
-5. PRUEBA DE DESORDEN: si al desordenar el bloque la cadena de consecuencias deja de tener sentido, reescríbelo. El validador rechaza placeholders mecánicos (`hard cut into the dialogue beat`, `hard cut to the reaction as the line lands`) y saltos de locación sin transición.
+NARRATIVE CONTINUITY RULE (Single Through-Line + Cause-and-Effect Chain + Carried-State Ledger + Location Ping-Pong Ban + One Name per Key Object + Scramble Test + ReelShort/DramaBox Bridges and Pacing):
+1. ONE DRIVING QUESTION PER 6-SCENE BLOCK: each minute has a single dramatic question; no scene opens a new question.
+2. MANDATORY CAUSE-AND-EFFECT CHAIN: from scene 2 to the last scene, every scene declares `because_previous_ended_with` (literal copy of the previous scene's final change), `this_scene_starts_with` (concrete action already in motion that continues that consequence) and `single_change_at_end` (one irreversible state change).
+3. ENTRY AND EXIT BRIDGES (OPENING AND CLOSING): every scene declares `entry_bridge` (micro-action or line <= 2 s that starts it because of the previous scene) and `exit_hook` (gesture, order, decision or question that ends it and pushes into the next one). exit_hook(N) feeds entry_bridge(N+1).
+4. BLOCK PACING RULE (6 SCENES): 6 confrontation peaks in a row are FORBIDDEN. At least 1 non-confrontational beat per block (solo decision, discovery, plan, tender/vulnerable moment).
+5. CLIFFHANGER ROTATION: rotate the type between blocks (identity -> emotion -> revelation). Repeating the same type in two consecutive blocks is forbidden.
+6. LOCATION PING-PONG IS FORBIDDEN: group 3 to 5 consecutive scenes in the same location; the A-B-A pattern is forbidden.
+7. ONE NAME PER KEY OBJECT: the same exact `key_object` appears in the storyboard panel, in the Shot 1 action and in the Key Object list; never use aliases.
+8. SCRAMBLE TEST: if scrambling the block breaks the chain of consequences, rewrite it. The validator rejects mechanical placeholders and cuts without transitions.

@@ -1,18 +1,20 @@
-# assets/fonts/ — typografía opcional para los teasers
+# assets/fonts/ - optional typography for teasers
 
-El ensamblador (04) quema el headline (hook) sobre los primeros ~6 s de cada teaser 9:16.
+The assembler (04) burns the headline (hook) over the first ~6 s of each 9:16 teaser.
 
-## Orden de búsqueda de la fuente
+## Font lookup order
 
-1. Un `.ttf`/`.otf` landa en esta carpeta (se priorizan nombres con `bold` o `semibold`).
-2. Fuentes del sistema en Windows: `arialbd.ttf`, `seguisb.ttf`, `segoeuib.ttf`,
-   `arial.ttf`, `impact.ttf`.
+1. A `.ttf`/`.otf` file placed in this folder (names containing `bold` or `semibold`
+   are preferred).
+2. Windows system fonts: `arialbd.ttf`, `seguisb.ttf`, `segoeuib.ttf`, `arial.ttf`,
+   `impact.ttf`.
 
-## Cómo cambiar la fuente
+## How to change the font
 
-- Copia tu `.ttf` aquí (por ejemplo `Anton-Regular.ttf` o `Montserrat-ExtraBold.ttf`)
-  y ya se usará automáticamente, o
-- Pasa una ruta explícita: `python post_production/04_assemble_novel_ffmpeg.py <proyecto> --font "C:\ruta\Anton-Regular.ttf"`.
+- Copy your `.ttf` here (for example `Anton-Regular.ttf` or
+  `Montserrat-ExtraBold.ttf`) and it is used automatically, or
+- Pass an explicit path:
+  `python post_production/04_assemble_novel_ffmpeg.py <project> --font "C:\path\Anton-Regular.ttf"`.
 
-Sugerencias que funcionan bien en vertical (montserrat/anton/bebas/archivo black):
-descárgalas de Google Fonts (uso libre, incluido comercial).
+Fonts that work well in vertical format: Montserrat, Anton, Bebas, Archivo Black.
+Download them from Google Fonts (free for commercial use).

@@ -39,7 +39,7 @@ def _load_generator(module_name: str, filename: str):
     path = NF_ROOT / "generators" / filename
     spec = importlib.util.spec_from_file_location(module_name, path)
     if not spec or not spec.loader:
-        raise nf.NFError(f"No se pudo cargar el generador: {path}")
+        raise nf.NFError(f"Could not load generator: {path}")
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     return module
@@ -409,16 +409,16 @@ def load_tracking(paths: Dict[str, Path]) -> Dict[str, Any]:
 
 def save_tracking(paths: Dict[str, Path], data: Dict[str, Any]) -> Dict[str, Any]:
     if not isinstance(data, dict):
-        raise nf.NFError("El tracking debe ser un objeto JSON.")
+        raise nf.NFError("Tracking must be a JSON object.")
     if not isinstance(data.get("scenes"), dict) or not isinstance(data.get("references"), dict):
-        raise nf.NFError("El tracking debe incluir 'scenes' y 'references' como objetos.")
+        raise nf.NFError("Tracking must include 'scenes' and 'references' as objects.")
     data["updated_at"] = nf.now_iso()
     nf.write_json(tracking_path(paths), data)
     return data
 
 
 HTML_TEMPLATE = r"""<!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -587,16 +587,16 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   <div class="title-row">
     <div>
       <h1>Novel Factory <span>Dashboard</span></h1>
-      <div class="sub" id="project-sub">Cargando proyecto...</div>
+      <div class="sub" id="project-sub">Loading project...</div>
     </div>
     <div class="guide-controls">
-      <label>Proyecto <select id="project-select" aria-label="Proyecto"></select></label>
-      <label>Formato <select id="format-select" aria-label="Formato de salida">
+      <label>Project <select id="project-select" aria-label="Project"></select></label>
+      <label>Format <select id="format-select" aria-label="Output format">
         <option value="16x9">16:9 · YouTube</option>
         <option value="9x16">9:16 · Reels / TikTok / Shorts</option>
       </select></label>
-      <button class="btn ghost small" id="legacy-btn" data-action="toggle-legacy">Ver método anterior</button>
-      <div class="mode" id="mode">modo archivo</div>
+      <button class="btn ghost small" id="legacy-btn" data-action="toggle-legacy">Show legacy method</button>
+      <div class="mode" id="mode">file mode</div>
     </div>
   </div>
   <div class="progress-grid" id="progress"></div>
@@ -606,39 +606,39 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   <div class="toolbar-inner">
     <div class="tabs" id="tabs"></div>
     <div class="spacer"></div>
-    <button class="btn primary" id="copy-next">Copiar siguiente pendiente</button>
-    <button class="btn" id="rescan">Recargar estado</button>
-    <button class="btn" id="export">Exportar tracking</button>
-    <button class="btn" id="import-btn">Importar</button>
-    <button class="btn ghost" id="reset">Reiniciar</button>
+    <button class="btn primary" id="copy-next">Copy next pending</button>
+    <button class="btn" id="rescan">Reload state</button>
+    <button class="btn" id="export">Export tracking</button>
+    <button class="btn" id="import-btn">Import</button>
+    <button class="btn ghost" id="reset">Reset</button>
     <input type="file" id="import-file" accept="application/json,.json" hidden>
   </div>
 </div>
 
 <div class="filters">
-  <input type="search" id="q" placeholder="Buscar escena, lugar, beat, diálogo, reparto...">
+  <input type="search" id="q" placeholder="Search scene, location, beat, dialogue, cast...">
   <select id="state-filter" class="scene-only">
-    <option value="all">Todos los estados</option>
-    <option value="pending">Pendientes</option>
-    <option value="copied">Copiados sin marcar</option>
-    <option value="done">Hechos</option>
+    <option value="all">All states</option>
+    <option value="pending">Pending</option>
+    <option value="copied">Copied, not marked</option>
+    <option value="done">Done</option>
   </select>
-  <select id="platform-filter" class="scene-only" title="Plataforma de video">
+  <select id="platform-filter" class="scene-only" title="Video platform">
     <option value="omni">Omni 1.1 Flash</option>
     <option value="muse">Muse AI</option>
     <option value="flow">Google Flow (Veo)</option>
   </select>
   <select id="act-filter" class="scene-only">
-    <option value="all">Todos los actos</option>
-    <option value="1">Acto 1</option>
-    <option value="2">Acto 2</option>
-    <option value="3">Acto 3</option>
-    <option value="4">Acto 4</option>
-    <option value="5">Acto 5</option>
-    <option value="6">Acto 6</option>
+    <option value="all">All acts</option>
+    <option value="1">Act 1</option>
+    <option value="2">Act 2</option>
+    <option value="3">Act 3</option>
+    <option value="4">Act 4</option>
+    <option value="5">Act 5</option>
+    <option value="6">Act 6</option>
   </select>
-  <label class="check scene-only"><input type="checkbox" id="teaser-filter"> Solo portadas de teaser</label>
-  <label class="check scene-only"><input type="checkbox" id="hide-done"> Ocultar hechos</label>
+  <label class="check scene-only"><input type="checkbox" id="teaser-filter"> Teaser covers only</label>
+  <label class="check scene-only"><input type="checkbox" id="hide-done"> Hide done</label>
 </div>
 
 <main class="container" id="content"></main>
@@ -727,9 +727,9 @@ function touchTracking() {
       try {
         const res = await fetch("/api/tracking", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(tracking) });
         if (!res.ok) throw new Error("bad status");
-        toast("Tracking guardado en disco");
+        toast("Tracking saved to disk");
       } catch (e) {
-        toast("Guardado local (servidor no disponible)", true);
+        toast("Saved locally (server unavailable)", true);
       }
     }, 300);
   }
@@ -745,7 +745,7 @@ function toast(message, isError) {
 async function copyText(text, message) {
   try {
     await navigator.clipboard.writeText(text);
-    toast(message || "Copiado");
+    toast(message || "Copied");
   } catch (e) {
     const area = document.createElement("textarea");
     area.value = text;
@@ -755,7 +755,7 @@ async function copyText(text, message) {
     area.select();
     document.execCommand("copy");
     area.remove();
-    toast(message || "Copiado");
+    toast(message || "Copied");
   }
 }
 
@@ -813,21 +813,21 @@ function renderProgress() {
   const batchMax = museBatches().length || 1;
   const cast = castMaster();
   const bars = [
-    ["PASO 1 · Hoja de personajes", cast && cast.exists ? 1 : 0, 1],
-    ["PASO 2 · Storyboards", storyboardDoneCount(), storyboardMax],
-    ["PASO 3 · Lotes Muse AI", batchesDoneCount(format), batchMax],
-    ["PASO 4 · Máster ensamblado", state.assembly.masters.length ? 1 : 0, 1],
-    ["Prompts maestros", (state.master_prompts && state.master_prompts.items ? state.master_prompts.items.length : 0), 4],
+    ["STEP 1 · Character sheet", cast && cast.exists ? 1 : 0, 1],
+    ["STEP 2 · Storyboards", storyboardDoneCount(), storyboardMax],
+    ["STEP 3 · Muse AI batches", batchesDoneCount(format), batchMax],
+    ["STEP 4 · Assembled master", state.assembly.masters.length ? 1 : 0, 1],
+    ["Master prompts", (state.master_prompts && state.master_prompts.items ? state.master_prompts.items.length : 0), 4],
   ];
   $("#progress").innerHTML = bars.map(([label, value, max]) => {
     const pct = Math.min(100, Math.round((value / (max || 1)) * 100));
     return `<div class="progress"><div class="progress-top"><span>${esc(label)}</span><b>${value}/${max}</b></div><div class="bar"><span style="width:${pct}%"></span></div></div>`;
   }).join("");
   const mode = $("#mode");
-  mode.textContent = MODE === "server" ? "servidor local · tracking en disco" : "modo archivo · tracking en navegador";
+  mode.textContent = MODE === "server" ? "local server · on-disk tracking" : "file mode · browser tracking";
   mode.classList.toggle("server", MODE === "server");
-  const moviePart = `${images}/${imagesMax} imágenes · ${batchesDoneCount(format)}/${batchMax} lotes de 1 min`;
-  const durationPart = `${state.totals.minutes || 0} min · ${state.totals.blocks || 0} bloques · ${state.scenes.length} escenas`;
+  const moviePart = `${images}/${imagesMax} images · ${batchesDoneCount(format)}/${batchMax} 1-min batches`;
+  const durationPart = `${state.totals.minutes || 0} min · ${state.totals.blocks || 0} blocks · ${state.scenes.length} scenes`;
   $("#project-sub").innerHTML = `<b>${esc(state.title)}</b> · ${esc(state.slug)} · ${durationPart} · ${moviePart}`;
   renderProjectSelect();
   const formatSelect = $("#format-select");
@@ -840,17 +840,17 @@ function syncLegacyButton() {
   const details = $("#legacy-details");
   if (!button) return;
   const open = !!(details && details.open);
-  button.textContent = open ? "Ocultar método anterior" : "Ver método anterior";
+  button.textContent = open ? "Hide legacy method" : "Show legacy method";
   button.classList.toggle("active", open);
 }
 
 function renderTabs() {
   const tabs = [
     ["clips", "Clips (video v2)", state.scenes.length],
-    ["frames", "Frames (imagen)", state.scenes.length],
-    ["script", "Guion", state.scenes.length],
-    ["prompts", "Guía de producción", 4],
-    ["references", "Referencias", state.references.length],
+    ["frames", "Frames (image)", state.scenes.length],
+    ["script", "Script", state.scenes.length],
+    ["prompts", "Production guide", 4],
+    ["references", References, state.references.length],
   ];
   $("#tabs").innerHTML = tabs.map(([id, label, count]) => `<button class="tab ${activeTab === id ? "active" : ""}" data-tab="${id}">${label} (${count})</button>`).join("");
   syncLegacyButton();
@@ -888,9 +888,9 @@ function matchesRef(ref) {
 }
 
 function metaBadges(scene) {
-  const badges = [`<span class="badge act">Acto ${scene.act || "?"}</span>`];
+  const badges = [`<span class="badge act">Act ${scene.act || "?"}</span>`];
   if (scene.beat) badges.push(`<span class="badge">${esc(scene.beat)}</span>`);
-  if (scene.teaser_cover) badges.push(`<span class="badge cover">Portada teaser</span>`);
+  if (scene.teaser_cover) badges.push(`<span class="badge cover">Teaser cover</span>`);
   if (scene.hook) badges.push(`<span class="badge hook">Hook</span>`);
   return badges.join("");
 }
@@ -898,15 +898,15 @@ function metaBadges(scene) {
 function stateBadges(kind, scene) {
   const badges = [];
   const file = kind === "frames" ? scene.frame_exists : (kind === "clips" || kind === "script") ? scene.clip_exists : false;
-  if (file) badges.push(`<span class="badge file">✓ Archivo en disco</span>`);
-  if (isCopied(kind, scene)) badges.push(`<span class="badge copied">Copiado</span>`);
-  if (isDone(kind, scene) && !file) badges.push(`<span class="badge ok">Hecho</span>`);
+  if (file) badges.push(`<span class="badge file">✓ File on disk</span>`);
+  if (isCopied(kind, scene)) badges.push(`<span class="badge copied">Copied</span>`);
+  if (isDone(kind, scene) && !file) badges.push(`<span class="badge ok">Done</span>`);
   return badges.join("");
 }
 
 function thumb(scene) {
   if (!scene.frame_exists || !scene.frame_file) return "";
-  return `<img class="thumb" loading="lazy" src="${esc(scene.frame_file)}" alt="Frame escena ${scene.scene_id}">`;
+  return `<img class="thumb" loading="lazy" src="${esc(scene.frame_file)}" alt="Scene ${scene.scene_id} frame">`;
 }
 
 function sceneCard(scene, kind) {
@@ -914,24 +914,24 @@ function sceneCard(scene, kind) {
   const file = kind === "frames" ? scene.frame_exists : scene.clip_exists;
   const prompt = kind === "frames" ? scene.image_prompt : sceneVideoPrompt(scene);
   const markButton = file
-    ? `<span class="btn green small" style="text-align:center;cursor:default">✓ En disco</span>`
-    : `<button class="btn ${done ? "green" : ""}" data-action="mark" data-kind="${kind}" data-id="${scene.scene_id}">${done ? "✓ Hecho" : "Marcar hecho"}</button>`;
+    ? `<span class="btn green small" style="text-align:center;cursor:default">✓ On disk</span>`
+    : `<button class="btn ${done ? "green" : ""}" data-action="mark" data-kind="${kind}" data-id="${scene.scene_id}">${done ? "✓ Done" : "Mark done"}</button>`;
   return `<article class="card ${done ? "is-done" : ""}" id="card-${kind}-${scene.scene_id}">
     <div class="card-top">
       <div class="scene-id">#${scene.scene_id}</div>
       <div style="flex:1">
-        <div class="card-title">${esc(scene.location || "Sin locación")}</div>
+        <div class="card-title">${esc(scene.location || "No location")}</div>
         <div class="meta">${metaBadges(scene)} ${stateBadges(kind, scene)}</div>
       </div>
     </div>
     ${thumb(scene)}
     ${scene.hook ? `<div class="hook">${esc(scene.hook)}</div>` : ""}
     ${scene.cast.length ? `<div class="cast">${scene.cast.map((name) => `<span class="chip">${esc(name)}</span>`).join("")}</div>` : ""}
-    ${kind === "frames" ? `<div class="detail"><b>Frame:</b> ${esc(scene.frame_file || `frames/frame_${String(scene.scene_id).padStart(3, "0")}.png`)}</div>` : `<div class="detail"><b>Clip:</b> ${esc(scene.clip_file || `raw_clips/scene_${String(scene.scene_id).padStart(3, "0")}.mp4`)} · <b>Plataforma:</b> ${esc(platformLabel(platform))}</div>`}
-    ${kind === "frames" && scene.face_crops && scene.face_crops.length ? `<div class="detail"><b>Adjuntar extra:</b> ${esc(scene.face_crops.join(", "))} (recorte de cara de quien habla)</div>` : ""}
+    ${kind === "frames" ? `<div class="detail"><b>Frame:</b> ${esc(scene.frame_file || `frames/frame_${String(scene.scene_id).padStart(3, "0")}.png`)}</div>` : `<div class="detail"><b>Clip:</b> ${esc(scene.clip_file || `raw_clips/scene_${String(scene.scene_id).padStart(3, "0")}.mp4`)} · <b>Platform:</b> ${esc(platformLabel(platform))}</div>`}
+    ${kind === "frames" && scene.face_crops && scene.face_crops.length ? `<div class="detail"><b>Extra attachment:</b> ${esc(scene.face_crops.join(", "))} (speaking character face crop)</div>` : ""}
     <pre class="prompt">${esc(prompt)}</pre>
     <div class="actions">
-      <button class="btn primary" data-action="copy" data-kind="${kind}" data-id="${scene.scene_id}">Copiar prompt</button>
+      <button class="btn primary" data-action="copy" data-kind="${kind}" data-id="${scene.scene_id}">Copy prompt</button>
       ${markButton}
     </div>
   </article>`;
@@ -944,9 +944,9 @@ function scriptCard(scene) {
     let tag = "";
     if (cut.dialogue) {
       const spk = cut.speakers && cut.speakers.length ? cut.speakers.join(", ") : "";
-      tag = ` <span class="badge ok" style="font-size:10px;padding:1px 5px">HABLA${spk ? `: ${esc(spk)}` : ""}</span>`;
+      tag = ` <span class="badge ok" style="font-size:10px;padding:1px 5px">SPEAKING${spk ? `: ${esc(spk)}` : ""}</span>`;
     } else if (cut.silent) {
-      tag = ` <span class="badge" style="font-size:10px;padding:1px 5px;background:#334155;color:#94a3b8">SILENCIO</span>`;
+      tag = ` <span class="badge" style="font-size:10px;padding:1px 5px;background:#334155;color:#94a3b8">SILENCE</span>`;
     }
     const range = cut.range ? `[${esc(cut.range)}] ` : "";
     return `<div><b>${cut.at.toFixed(1)} s</b> · ${range}${esc(cut.framing)}: ${esc(cut.action)}${tag}</div>`;
@@ -955,31 +955,31 @@ function scriptCard(scene) {
     <div class="card-top">
       <div class="scene-id">#${scene.scene_id}</div>
       <div style="flex:1">
-        <div class="card-title">${esc(scene.location || "Sin locación")}</div>
+        <div class="card-title">${esc(scene.location || "No location")}</div>
         <div class="meta">${metaBadges(scene)} ${stateBadges("script", scene)}</div>
       </div>
     </div>
     ${scene.hook ? `<div class="hook">${esc(scene.hook)}</div>` : ""}
     ${scene.cast.length ? `<div class="cast">${scene.cast.map((name) => `<span class="chip">${esc(name)}</span>`).join("")}</div>` : ""}
-    <div class="detail"><b>Momento:</b> ${esc(scene.time_of_day || "—")} · <b>Duración:</b> ${scene.duration_s.toFixed(1)} s</div>
-    ${dialogue ? `<div class="dialogue">${dialogue}</div>` : `<div class="detail">Sin diálogo (ambiencia diegética).</div>`}
+    <div class="detail"><b>Time:</b> ${esc(scene.time_of_day || "—")} · <b>Duration:</b> ${scene.duration_s.toFixed(1)} s</div>
+    ${dialogue ? `<div class="dialogue">${dialogue}</div>` : `<div class="detail">No dialogue (diegetic ambience).</div>`}
     ${cuts ? `<div class="cuts">${cuts}</div>` : ""}
-    ${scene.key_object ? `<div class="detail"><b>Objeto clave (Lock):</b> ${esc(scene.key_object)}</div>` : ""}
-    ${scene.present_silent && scene.present_silent.length ? `<div class="detail"><b>Silenciosos en escena:</b> ${esc(scene.present_silent.join(", "))} (boca cerrada)</div>` : ""}
-    ${scene.diegetic_text && scene.diegetic_text.length ? `<div class="detail"><b>Texto diegético:</b> ${esc(scene.diegetic_text.join(", "))}</div>` : ""}
-    <div class="detail"><b>SFX / ambiencia:</b> ${esc(scene.sfx || "—")}</div>
-    <div class="detail"><b>Continuidad:</b> ${esc(scene.continuity || "—")}</div>
-    <div class="detail"><b>Cámara:</b> ${esc(scene.camera || "—")}</div>
+    ${scene.key_object ? `<div class="detail"><b>Key object (Lock):</b> ${esc(scene.key_object)}</div>` : ""}
+    ${scene.present_silent && scene.present_silent.length ? `<div class="detail"><b>Silent characters in scene:</b> ${esc(scene.present_silent.join(", "))} (mouth closed)</div>` : ""}
+    ${scene.diegetic_text && scene.diegetic_text.length ? `<div class="detail"><b>Diegetic text:</b> ${esc(scene.diegetic_text.join(", "))}</div>` : ""}
+    <div class="detail"><b>SFX / ambience:</b> ${esc(scene.sfx || "—")}</div>
+    <div class="detail"><b>Continuity:</b> ${esc(scene.continuity || "—")}</div>
+    <div class="detail"><b>Camera:</b> ${esc(scene.camera || "—")}</div>
     <div class="actions">
-      <button class="btn primary" data-action="copy-dialogue" data-kind="script" data-id="${scene.scene_id}">Copiar diálogo</button>
-      <button class="btn" data-action="copy-json" data-kind="script" data-id="${scene.scene_id}">Copiar escena JSON</button>
+      <button class="btn primary" data-action="copy-dialogue" data-kind="script" data-id="${scene.scene_id}">Copy dialogue</button>
+      <button class="btn" data-action="copy-json" data-kind="script" data-id="${scene.scene_id}">Copy scene JSON</button>
     </div>
   </article>`;
 }
 
 function referenceCard(ref) {
   const done = refDone(ref);
-  const prompt = ref.prompt || `Adjunta la imagen existente de ${ref.name} a la conversación de ChatGPT. No hace falta generarla.`;
+  const prompt = ref.prompt || `Attach the existing image of ${ref.name} to the ChatGPT conversation. You do not need to generate it.`;
   return `<article class="card ${done ? "is-done" : ""}">
     <div class="card-top">
       <div class="scene-id">REF</div>
@@ -987,18 +987,18 @@ function referenceCard(ref) {
         <div class="card-title">${esc(ref.name)}</div>
         <div class="meta">
           <span class="badge">${esc(ref.filename || "reference")}</span>
-          ${ref.exists ? `<span class="badge file">✓ Archivo en disco</span>` : ""}
-          ${ref.external ? `<span class="badge hook">Imagen externa</span>` : ""}
-          ${isCopied("references", ref) ? `<span class="badge copied">Copiado</span>` : ""}
-          ${done && !ref.exists ? `<span class="badge ok">Hecho</span>` : ""}
+          ${ref.exists ? `<span class="badge file">✓ File on disk</span>` : ""}
+          ${ref.external ? `<span class="badge hook">External image</span>` : ""}
+          ${isCopied("references", ref) ? `<span class="badge copied">Copied</span>` : ""}
+          ${done && !ref.exists ? `<span class="badge ok">Done</span>` : ""}
         </div>
       </div>
     </div>
     ${ref.file ? `<img class="thumb" loading="lazy" src="${esc(ref.file)}" alt="${esc(ref.name)}">` : ""}
     <pre class="prompt">${esc(prompt)}</pre>
     <div class="actions">
-      <button class="btn primary" data-action="copy" data-kind="references" data-id="${esc(ref.id)}">Copiar prompt</button>
-      ${ref.exists ? `<span class="btn green small" style="text-align:center;cursor:default">✓ En disco</span>` : `<button class="btn ${done ? "green" : ""}" data-action="mark" data-kind="references" data-id="${esc(ref.id)}">${done ? "✓ Hecho" : "Marcar hecho"}</button>`}
+      <button class="btn primary" data-action="copy" data-kind="references" data-id="${esc(ref.id)}">Copy prompt</button>
+      ${ref.exists ? `<span class="btn green small" style="text-align:center;cursor:default">✓ On disk</span>` : `<button class="btn ${done ? "green" : ""}" data-action="mark" data-kind="references" data-id="${esc(ref.id)}">${done ? "✓ Done" : "Mark done"}</button>`}
     </div>
   </article>`;
 }
@@ -1043,14 +1043,14 @@ function nichePicker() {
   return `<section class="niche-picker">
     <div class="niche-picker-head">
       <div>
-        <b>Mega-nicho USA para PROMPT 000</b>
-        <p>${niche ? esc(niche.description) : "Sin mega-nicho: el PROMPT 000 usa la idea base libre del proyecto."}</p>
+        <b>USA mega-niche for PROMPT 000</b>
+        <p>${niche ? esc(niche.description) : "No mega-niche: PROMPT 000 uses the project free base idea."}</p>
       </div>
-      ${niche ? `<button class="btn primary" data-action="copy-master" data-id="prompt_000">Copiar PROMPT 000 con este nicho</button>` : ""}
+      ${niche ? `<button class="btn primary" data-action="copy-master" data-id="prompt_000">Copy PROMPT 000 with this niche</button>` : ""}
     </div>
-    <label for="niche-select">Arquetipo</label>
+    <label for="niche-select">Archetype</label>
     <select id="niche-select">
-      <option value=""${niche ? "" : " selected"}>Sin mega-nicho (libre)</option>
+      <option value=""${niche ? "" : " selected"}>No mega-niche (free)</option>
       ${options}
     </select>
   </section>`;
@@ -1085,11 +1085,11 @@ function museBatchCard(batch) {
     <div class="card-top">
       <div class="scene-id">${String(batch.batch_id || 0).padStart(2, "0")}</div>
       <div style="flex:1">
-        <div class="card-title">Minuto ${batch.minute} · Bloque ${batch.batch_id}</div>
+        <div class="card-title">Minute ${batch.minute} · Block ${batch.batch_id}</div>
         <div class="meta">
-          <span class="badge">Escenas ${first}–${last}</span>
+          <span class="badge">Scenes ${first}–${last}</span>
           <span class="badge">${esc(batch.start_timecode)}–${esc(batch.end_timecode)}</span>
-          <span class="badge ${done ? "ok" : "hook"}">${done ? "✅ En disco" : "⏳ Pendiente"}</span>
+          <span class="badge ${done ? "ok" : "hook"}">${done ? "✅ On disk" : "⏳ Pending"}</span>
         </div>
         <div class="cast" style="margin-top:6px">${refs.map((ref) => `<span class="chip">📎 ${esc(ref)}</span>`).join("")}</div>
       </div>
@@ -1100,9 +1100,9 @@ function museBatchCard(batch) {
     </div>
     <pre class="prompt huge">${esc(batchPrompt(batch, format))}</pre>
     <div class="actions">
-      <button class="btn ${active169}" data-action="copy-muse-batch-169" data-id="${esc(batch.batch_id)}">Copiar 16:9 YouTube</button>
-      <button class="btn ${active916}" data-action="copy-muse-batch-916" data-id="${esc(batch.batch_id)}">Copiar 9:16 Reels</button>
-      <button class="btn ghost" data-action="download-muse-batch" data-id="${esc(batch.batch_id)}">Descargar .txt</button>
+      <button class="btn ${active169}" data-action="copy-muse-batch-169" data-id="${esc(batch.batch_id)}">Copy 16:9 YouTube</button>
+      <button class="btn ${active916}" data-action="copy-muse-batch-916" data-id="${esc(batch.batch_id)}">Copy 9:16 Reels</button>
+      <button class="btn ghost" data-action="download-muse-batch" data-id="${esc(batch.batch_id)}">Download .txt</button>
     </div>
   </article>`;
 }
@@ -1111,11 +1111,11 @@ function storyboardMiniCard(item) {
   const first = item.scenes && item.scenes.length ? item.scenes[0] : "";
   const last = item.scenes && item.scenes.length ? item.scenes[item.scenes.length - 1] : "";
   return `<article class="mini-card ${item.exists ? "done" : ""}">
-    <b>Minuto ${esc(item.minute || item.index)}</b>
-    <span>Escenas ${first}–${last}</span>
+    <b>Minute ${esc(item.minute || item.index)}</b>
+    <span>Scenes ${first}–${last}</span>
     <span>${esc(item.filename)}</span>
-    <span class="step-status ${item.exists ? "ok" : "pending"}">${item.exists ? "✅ En disco" : "⏳ Pendiente"}</span>
-    <div class="actions"><button class="btn small" data-action="copy-storyboard-grid" data-id="${esc(item.index)}">Copiar prompt</button></div>
+    <span class="step-status ${item.exists ? "ok" : "pending"}">${item.exists ? "✅ On disk" : "⏳ Pending"}</span>
+    <div class="actions"><button class="btn small" data-action="copy-storyboard-grid" data-id="${esc(item.index)}">Copy prompt</button></div>
   </article>`;
 }
 
@@ -1124,10 +1124,10 @@ function guideStep(number, title, description, status, body) {
     <div class="step-card-head">
       <div class="step-num">${number}</div>
       <div style="flex:1">
-        <h3>PASO ${number} — ${esc(title)}</h3>
+        <h3>STEP ${number} — ${esc(title)}</h3>
         <p>${description}</p>
       </div>
-      <span class="step-status ${status.ok ? "ok" : "pending"}">${status.ok ? "✅ Listo" : "⏳ Pendiente"} · ${status.detail}</span>
+      <span class="step-status ${status.ok ? "ok" : "pending"}">${status.ok ? "✅ Ready" : "⏳ Pending"} · ${status.detail}</span>
     </div>
     <div class="step-body">${body}</div>
   </section>`;
@@ -1145,51 +1145,51 @@ function productionGuide() {
   const castPrompt = cast ? cast.prompt : "";
   const batchBody = batches.length
     ? `<div class="step-actions">
-        <button class="btn primary" data-action="copy-muse-batches">Copiar los ${batches.length} lotes en ${esc(formatLabel())}</button>
-        <button class="btn" data-action="download-muse-batches">Descargar lotes .txt</button>
+        <button class="btn primary" data-action="copy-muse-batches">Copy all ${batches.length} batches in ${esc(formatLabel())}</button>
+        <button class="btn" data-action="download-muse-batches">Download batch .txt files</button>
       </div>
       <div class="grid">${batches.map(museBatchCard).join("")}</div>`
-    : `<div class="empty">Genera primero la cola de storyboards y vuelve a cargar el dashboard.</div>`;
+    : `<div class="empty">Generate the storyboard queue first, then reload the dashboard.</div>`;
   return `<section class="guide-head">
     <div>
-      <h2>Flujo de producción en 4 pasos</h2>
-      <p>Copia y pega cada bloque en el orden indicado. El selector de formato decide qué prompt completo se copia en Muse AI; la instrucción de adjuntar queda fuera del texto copiable.</p>
+      <h2>Four-step production flow</h2>
+      <p>Copy and paste each block in the order shown. The format selector decides which complete prompt is copied into Muse AI; the attachment instruction stays outside the copyable text.</p>
     </div>
-    <div class="guide-note">Método actual: 1 hoja de personajes + un storyboard por bloque + un lote de 1 minuto por bloque.</div>
+    <div class="guide-note">Current method: 1 character sheet + one storyboard per block + one 1-minute batch per block.</div>
   </section>
-  ${guideStep(1, "Hoja maestra de personajes",
-    "Genera <b>REF_CAST_MASTER.png</b> en ChatGPT con los personajes reales del proyecto. Es la referencia fija de rostros y vestuario.",
+  ${guideStep(1, "Master character sheet",
+    "Generate <b>REF_CAST_MASTER.png</b> in ChatGPT with the project real characters. It is the fixed reference for faces and wardrobe.",
     { ok: castReady, detail: castReady ? "1/1" : "0/1" },
-    `<div class="save-path"><b>Guardar en:</b> <code>references/REF_CAST_MASTER.png</code></div>
+    `<div class="save-path"><b>Save as:</b> <code>references/REF_CAST_MASTER.png</code></div>
      <div class="step-actions">
-       ${cast ? `<button class="btn primary" data-action="copy-storyboard-grid" data-id="${esc(cast.index)}">Copiar prompt de personajes</button>` : ""}
-       <span class="guide-note">También se acepta <code>storyboards/REF_CAST_MASTER.png</code>.</span>
+       ${cast ? `<button class="btn primary" data-action="copy-storyboard-grid" data-id="${esc(cast.index)}">Copy character prompt</button>` : ""}
+       <span class="guide-note"><code>storyboards/REF_CAST_MASTER.png</code> is also accepted.</span>
      </div>
-     ${castPrompt ? `<details class="prompt-details"><summary>Ver prompt del cast</summary><pre class="prompt">${esc(castPrompt)}</pre></details>` : ""}`)}
-  ${guideStep(2, "Storyboards por minuto",
-    `Genera los ${grids.length} grids 3x2 en ChatGPT. Cada imagen cubre 6 escenas de un minuto y debe usar los mismos rostros y vestuario del cast.`,
+     ${castPrompt ? `<details class="prompt-details"><summary>Show cast prompt</summary><pre class="prompt">${esc(castPrompt)}</pre></details>` : ""}`)}
+  ${guideStep(2, "Storyboards per minute",
+    `Generate the ${grids.length} 3x2 grids in ChatGPT. Each image covers 6 scenes from one minute and must use the same faces and wardrobe as the cast.`,
     { ok: gridsReady >= grids.length, detail: `${gridsReady}/${grids.length}` },
-    `<div class="save-path"><b>Guardar en:</b> <code>storyboards/REF_GRID_MIN_01.png … REF_GRID_MIN_${String(grids.length).padStart(2, "0")}.png</code></div>
+    `<div class="save-path"><b>Save as:</b> <code>storyboards/REF_GRID_MIN_01.png … REF_GRID_MIN_${String(grids.length).padStart(2, "0")}.png</code></div>
      <div class="step-actions">
-       <button class="btn primary" data-action="copy-storyboard-grids-10">Copiar los ${grids.length} storyboards</button>
-       <button class="btn" data-action="copy-storyboard-grids">Copiar cola completa (cast + ${grids.length})</button>
-       <button class="btn" data-action="download-storyboard-grids">Descargar cola .txt</button>
+       <button class="btn primary" data-action="copy-storyboard-grids-10">Copy all ${grids.length} storyboards</button>
+       <button class="btn" data-action="copy-storyboard-grids">Copy full queue (cast + ${grids.length})</button>
+       <button class="btn" data-action="download-storyboard-grids">Download queue .txt</button>
      </div>
      <div class="mini-grid">${grids.map(storyboardMiniCard).join("")}</div>`)}
-  ${guideStep(3, "Lotes de 1 minuto en Muse AI",
-    "En cada lote adjunta <b>REF_CAST_MASTER.png</b> + <b>REF_GRID_MIN_0X.png</b>. Pega el guion completo del formato elegido; el bloque ya termina con el comando final.",
+  ${guideStep(3, "1-minute batches in Muse AI",
+    "For each batch attach <b>REF_CAST_MASTER.png</b> + <b>REF_GRID_MIN_0X.png</b>. Paste the complete script for the chosen format; the block already ends with the final command.",
     { ok: batchReady >= batches.length, detail: `${batchReady}/${batches.length}` },
-    `<div class="save-path"><b>Formato activo:</b> ${esc(formatLabel())} · <b>Guardar en:</b> <code>raw_clips/minute_0X.mp4</code> ${format === "9x16" ? "(sufijo <code>_vertical.mp4</code>)" : ""}</div>
+    `<div class="save-path"><b>Active format:</b> ${esc(formatLabel())} · <b>Save as:</b> <code>raw_clips/minute_0X.mp4</code> ${format === "9x16" ? "(suffix <code>_vertical.mp4</code>)" : ""}</div>
      ${batchBody}`)}
-  ${guideStep(4, "Ensamblar el máster",
-    `Cuando existan los ${batches.length} lotes, ejecuta el ensamblador. El máster 16:9 y los teasers 9:16 se guardan en <b>output/</b>.`,
-    { ok: masterReady, detail: masterReady ? `${assembly.masters.length} máster` : "0/1" },
-    `<div class="save-path"><b>Salida:</b> <code>output/${esc(state.slug)}_master_16x9_1080p.mp4</code> ${masterReady ? "✅" : "⏳"}</div>
+  ${guideStep(4, "Assemble the master",
+    `When all ${batches.length} batches exist, run the assembler. The 16:9 master and 9:16 teasers are saved in <b>output/</b>.`,
+    { ok: masterReady, detail: masterReady ? `${assembly.masters.length} master` : "0/1" },
+    `<div class="save-path"><b>Output:</b> <code>output/${esc(state.slug)}_master_16x9_1080p.mp4</code> ${masterReady ? "✅" : "⏳"}</div>
      <div class="step-actions">
-       <button class="btn primary" data-action="copy-assemble-command">Copiar comando de ensamblaje</button>
-       <button class="btn" data-action="goto-script">Revisar guion</button>
+       <button class="btn primary" data-action="copy-assemble-command">Copy assembly command</button>
+       <button class="btn" data-action="goto-script">Review script</button>
      </div>
-     <div class="guide-note">Teasers en disco: ${assembly.teasers ? assembly.teasers.length : 0} · Reporte: ${assembly.report ? "sí" : "pendiente"}.</div>`)}
+     <div class="guide-note">Teasers on disk: ${assembly.teasers ? assembly.teasers.length : 0} · Report: ${assembly.report ? "yes" : "pending"}.</div>`)}
   ${legacyPanel()}`;
 }
 
@@ -1205,16 +1205,16 @@ function storyboardGridCard(item) {
         <div class="card-title">${esc(item.title)}</div>
         <div class="meta">
           <span class="badge file">${esc(item.filename)}</span>
-          ${item.scenes && item.scenes.length ? `<span class="badge">Escenas ${first}–${last}</span>` : `<span class="badge">Referencia base</span>`}
-          <span class="badge">${isCast ? "1 imagen 16:9" : "Grid 3x2 · 6 viñetas"}</span>
-          <span class="badge ${item.exists ? "ok" : ""}">${item.exists ? "En disco" : "Pendiente"}</span>
+          ${item.scenes && item.scenes.length ? `<span class="badge">Scenes ${first}–${last}</span>` : `<span class="badge">Base reference</span>`}
+          <span class="badge">${isCast ? "1 image 16:9" : "Grid 3x2 · 6 panels"}</span>
+          <span class="badge ${item.exists ? "ok" : ""}">${item.exists ? "On disk" : "Pending"}</span>
         </div>
       </div>
     </div>
     <pre class="prompt huge">${esc(item.prompt)}</pre>
     <div class="actions">
-      <button class="btn primary" data-action="copy-storyboard-grid" data-id="${esc(item.index)}">Copiar prompt</button>
-      <button class="btn" data-action="download-storyboard-grid" data-id="${esc(item.index)}">Descargar .txt</button>
+      <button class="btn primary" data-action="copy-storyboard-grid" data-id="${esc(item.index)}">Copy prompt</button>
+      <button class="btn" data-action="download-storyboard-grid" data-id="${esc(item.index)}">Download .txt</button>
     </div>
   </article>`;
 }
@@ -1224,14 +1224,14 @@ function methodBanner() {
   return `<div class="method" style="padding:13px 16px;margin-bottom:18px">
     <div class="master-head" style="margin-bottom:0">
       <div>
-        <b>Contrato V2 activo · ${state.totals.minutes || 0} min · ${state.totals.blocks || 0} bloques · ${state.totals.scenes || 0} escenas sincronizadas</b>
-        <p>Prompts de producción con speaker shot lock, silencios y objetos en cámara. Imágenes en <b>storyboards/</b>:
+        <b>V2 contract active · ${state.totals.minutes || 0} min · ${state.totals.blocks || 0} blocks · ${state.totals.scenes || 0} scenes synced</b>
+        <p>Production prompts with speaker shot lock, silence and on-camera objects. Images in <b>storyboards/</b>:
         <b>${assembly.storyboards_disk || 0}/${assembly.storyboards_expected || 1}</b> ·
-        modo detectado: <b>${clipModeLabel(assembly.clip_mode)}</b> ·
-        lotes en disco: <b>${assembly.batch_clips_disk || 0}/${state.totals.blocks || 0}</b>.</p>
+        detected mode: <b>${clipModeLabel(assembly.clip_mode)}</b> ·
+        batches on disk: <b>${assembly.batch_clips_disk || 0}/${state.totals.blocks || 0}</b>.</p>
       </div>
       <div class="master-actions">
-        <button class="btn green" data-action="goto-prompts">Ver guía 4 pasos</button>
+        <button class="btn green" data-action="goto-prompts">View 4-step guide</button>
       </div>
     </div>
   </div>`;
@@ -1239,10 +1239,10 @@ function methodBanner() {
 
 function clipModeLabel(mode) {
   const scenes = (state.totals && state.totals.scenes) || 60;
-  if (mode === "scenes") return `A — ${scenes} escenas de 10 s`;
-  if (mode === "batches") return `B — ${Math.ceil(scenes / 6)} lotes Muse AI de 1 min`;
-  if (mode === "incomplete") return "incompleto (faltan clips)";
-  return "sin clips todavía";
+  if (mode === "scenes") return `A — ${scenes} 10 s scenes`;
+  if (mode === "batches") return `B — ${Math.ceil(scenes / 6)} 1-min Muse AI batches`;
+  if (mode === "incomplete") return "incomplete (missing clips)";
+  return "no clips yet";
 }
 
 function legacyPanel() {
@@ -1253,38 +1253,38 @@ function legacyPanel() {
   const selected = latam.find((item) => item.id === selectedViralTemplate) || latam[0] || null;
   const options = latam.map((item) => `<option value="${esc(item.id)}"${selected && item.id === selected.id ? " selected" : ""}>${esc(item.name)} · ${esc(item.views)}</option>`).join("");
   return `<details class="legacy" id="legacy-details">
-    <summary>Método anterior y opciones avanzadas</summary>
+    <summary>Legacy method and advanced options</summary>
     <div class="legacy-body">
-      <div class="guide-note"><b>Nueva metodología</b> — 1 hoja de personajes + un grid y un lote de 1 minuto por bloque. Esta sección conserva los tabs de referencias, frames, clips y los prompts individuales 000–003.</div>
+      <div class="guide-note"><b>New methodology</b> — 1 character sheet + one grid and one 1-minute batch per block. This section keeps the references, frames, clips and individual 000–003 prompts tabs.</div>
       <div class="legacy-links">
-        <button class="btn" data-tab="references">Referencias (${state.references.length})</button>
-        <button class="btn" data-tab="frames">Frames imagen (${state.scenes.length})</button>
-        <button class="btn" data-tab="clips">Clips video (${state.scenes.length})</button>
+        <button class="btn" data-tab="references">References (${state.references.length})</button>
+        <button class="btn" data-tab="frames">Image frames (${state.scenes.length})</button>
+        <button class="btn" data-tab="clips">Video clips (${state.scenes.length})</button>
       </div>
       ${nichePicker()}
       <div class="master-head" style="margin-bottom:0">
         <div>
-          <h2>Prompts maestros 000–003</h2>
-          <p>Prompts completos del método anterior. El PROMPT 000 incluye el catálogo LATAM -> USA cuando hay mega-nicho seleccionado.</p>
+          <h2>Master prompts 000–003</h2>
+          <p>Complete prompts from the legacy method. PROMPT 000 includes the LATAM -> USA catalog when a mega-niche is selected.</p>
         </div>
         <div class="master-actions">
-          <button class="btn primary" data-action="copy-master-all">Copiar los ${items.length}</button>
-          <button class="btn" data-action="download-master-all">Descargar JSON</button>
-          ${grids.count ? `<button class="btn green" data-action="copy-storyboard-grids">Copiar cola de ${grids.count} imágenes</button>` : ""}
-          ${batches.length ? `<button class="btn green" data-action="copy-muse-batches">Copiar los ${batches.length} lotes</button>` : ""}
+          <button class="btn primary" data-action="copy-master-all">Copy all ${items.length}</button>
+          <button class="btn" data-action="download-master-all">Download JSON</button>
+          ${grids.count ? `<button class="btn green" data-action="copy-storyboard-grids">Copy queue of ${grids.count} images</button>` : ""}
+          ${batches.length ? `<button class="btn green" data-action="copy-muse-batches">Copy all ${batches.length} batches</button>` : ""}
         </div>
       </div>
       <div class="quick-access">${quickPromptButtons()}</div>
       <div class="grid">${items.map((item) => masterPromptCard(effectiveMasterPrompt(item))).join("")}</div>
       <div class="master-head" style="margin-bottom:0">
         <div>
-          <h2>Crear un proyecto desde una plantilla LATAM</h2>
-          <p>Elige una de las seis estructuras virales y copia el comando. Reemplaza <code>nuevo_proyecto</code> y la premisa antes de ejecutarlo.</p>
+          <h2>Create a project from a LATAM template</h2>
+          <p>Choose one of the six viral structures and copy the command. Replace <code>new_project</code> and the premise before running it.</p>
         </div>
       </div>
       <div class="step-actions">
-        <select id="viral-template-select" aria-label="Plantilla LATAM">${options}</select>
-        <button class="btn primary" data-action="copy-new-project">Copiar comando de nuevo proyecto</button>
+        <select id="viral-template-select" aria-label="LATAM template">${options}</select>
+        <button class="btn primary" data-action="copy-new-project">Copy new project command</button>
       </div>
     </div>
   </details>`;
@@ -1310,8 +1310,8 @@ function downloadText(filename, text, mime) {
 function masterPromptCard(prompt) {
   const activeNiche = prompt.key === "prompt_000" ? currentNiche() : null;
   const missing = prompt.unfilled && prompt.unfilled.length
-    ? `<span class="badge hook">Sin rellenar: ${esc(prompt.unfilled.join(", "))}</span>`
-    : `<span class="badge ok">Completo</span>`;
+    ? `<span class="badge hook">Unfilled: ${esc(prompt.unfilled.join(", "))}</span>`
+    : `<span class="badge ok">Complete</span>`;
   return `<article class="card">
     <div class="card-top">
       <div class="scene-id">${esc(String(prompt.code || "").replace("PROMPT ", ""))}</div>
@@ -1319,9 +1319,9 @@ function masterPromptCard(prompt) {
         <div class="card-title">${esc(prompt.title)}</div>
         <div class="meta">
           <span class="badge">${esc(prompt.code)}</span>
-          ${activeNiche ? `<span class="badge niche">Nicho USA</span>` : ""}
+          ${activeNiche ? `<span class="badge niche">USA niche</span>` : ""}
           <span class="badge">${prompt.chars.toLocaleString()} chars</span>
-          <span class="badge">${prompt.words.toLocaleString()} palabras</span>
+          <span class="badge">${prompt.words.toLocaleString()} words</span>
           ${missing}
         </div>
       </div>
@@ -1329,8 +1329,8 @@ function masterPromptCard(prompt) {
     <div class="detail">${esc(prompt.purpose || "")}</div>
     <pre class="prompt huge">${esc(prompt.text)}</pre>
     <div class="actions">
-      <button class="btn primary" data-action="copy-master" data-id="${esc(prompt.key)}">Copiar prompt</button>
-      <button class="btn" data-action="download-master" data-id="${esc(prompt.key)}">Descargar .txt</button>
+      <button class="btn primary" data-action="copy-master" data-id="${esc(prompt.key)}">Copy prompt</button>
+      <button class="btn" data-action="download-master" data-id="${esc(prompt.key)}">Download .txt</button>
     </div>
   </article>`;
 }
@@ -1346,13 +1346,13 @@ function renderContent() {
   }
   if (activeTab === "references") {
     const refs = state.references.filter(matchesRef);
-    holder.innerHTML = `${methodBanner()}${refs.length ? `<div class="grid">${refs.map(referenceCard).join("")}</div>` : `<div class="empty">No hay referencias que coincidan con el filtro.</div>`}`;
+    holder.innerHTML = `${methodBanner()}${refs.length ? `<div class="grid">${refs.map(referenceCard).join("")}</div>` : `<div class="empty">No references match the filter.</div>`}`;
     return;
   }
   const kind = activeTab === "frames" ? "frames" : "clips";
   const scenes = state.scenes.filter((scene) => matchesScene(scene, activeTab === "script" ? "clips" : kind));
   if (!scenes.length) {
-    holder.innerHTML = `<div class="empty">No hay escenas que coincidan con el filtro.</div>`;
+    holder.innerHTML = `<div class="empty">No scenes match the filter.</div>`;
     return;
   }
   const cards = activeTab === "script" ? scenes.map(scriptCard) : scenes.map((scene) => sceneCard(scene, kind));
@@ -1394,16 +1394,16 @@ async function handleAction(button) {
     const prompt = effectiveMasterPrompt(masterItems().find((item) => item.key === id));
     if (!prompt) return;
     if (action === "copy-master") {
-      await copyText(prompt.text, `${prompt.code} copiado completo`);
+      await copyText(prompt.text, `${prompt.code} copied in full`);
     } else {
       downloadText(`${prompt.signature || prompt.key}.txt`, prompt.text);
-      toast(`${prompt.code} descargado`);
+      toast(`${prompt.code} downloaded`);
     }
     return;
   }
   if (action === "copy-master-all") {
     const text = masterItems().map(effectiveMasterPrompt).map((item) => `${item.code} — ${item.title}\n\n${item.text}`).join("\n\n\n");
-    await copyText(text, "Los 4 prompts maestros copiados");
+    await copyText(text, "All 4 master prompts copied");
     return;
   }
   if (action === "download-master-all") {
@@ -1411,7 +1411,7 @@ async function handleAction(button) {
       items: masterItems().map(effectiveMasterPrompt),
     });
     downloadText(`master_prompts_${state.slug || "episode"}.json`, JSON.stringify(manifest, null, 2), "application/json");
-    toast("Manifiesto de prompts descargado");
+    toast("Prompt manifest downloaded");
     return;
   }
   if (action === "goto-prompts") {
@@ -1427,27 +1427,27 @@ async function handleAction(button) {
     return;
   }
   if (action === "copy-storyboard-grids") {
-    await copyText(storyboardGridsText(), `Cola de ${storyboardGrids().count} imágenes copiada (1 cast + ${storyboardItems().length} storyboards)`);
+    await copyText(storyboardGridsText(), `Queue of ${storyboardGrids().count} images copied (1 cast + ${storyboardItems().length} storyboards)`);
     return;
   }
   if (action === "copy-storyboard-grids-10") {
     const text = storyboardItems().map((item) => item.prompt).join("\n\n\n");
-    await copyText(text, `Los ${storyboardItems().length} storyboards copiados en orden`);
+    await copyText(text, `Copied ${storyboardItems().length} storyboards in order`);
     return;
   }
   if (action === "download-storyboard-grids") {
     downloadText(`chatgpt_storyboard_grids_queue_${state.slug || "episode"}.txt`, storyboardGridsText());
-    toast(`Cola de ${storyboardGrids().count} imágenes descargada`);
+    toast(`Queue of ${storyboardGrids().count} images downloaded`);
     return;
   }
   if (action === "copy-storyboard-grid" || action === "download-storyboard-grid") {
     const item = storyboardGrids().items.find((grid) => String(grid.index) === String(id));
     if (!item) return;
     if (action === "copy-storyboard-grid") {
-      await copyText(item.prompt, `${item.filename} copiado`);
+      await copyText(item.prompt, `${item.filename} copied`);
     } else {
       downloadText(`${item.filename.replace(/\.png$/i, "")}_prompt.txt`, item.prompt);
-      toast(`${item.filename} descargado`);
+      toast(`${item.filename} downloaded`);
     }
     return;
   }
@@ -1456,43 +1456,43 @@ async function handleAction(button) {
     if (!batch) return;
     const vertical = action === "copy-muse-batch-916";
     const text = batchPrompt(batch, vertical ? "9x16" : "16x9");
-    await copyText(text, `Guion completo ${vertical ? "9:16 (Reels)" : "16:9 (YouTube)"} del lote ${batch.batch_id} copiado`);
+    await copyText(text, `Full script ${vertical ? "9:16 (Reels)" : "16:9 (YouTube)"} for batch ${batch.batch_id} copied`);
     return;
   }
   if (action === "copy-assemble-command") {
-    await copyText(`./novelfactory.bat assemble ${state.slug || "<proyecto>"}`, "Comando de ensamblaje copiado");
+    await copyText(`./novelfactory.bat assemble ${state.slug || "<project>"}`, "Assembly command copied");
     return;
   }
   if (action === "copy-muse-batch") {
     const batch = museBatches().find((item) => String(item.batch_id) === String(id));
     if (!batch) return;
-    await copyText(batchPrompt(batch, format), `Lote ${batch.batch_id} copiado (${formatLabel()})`);
+    await copyText(batchPrompt(batch, format), `Batch ${batch.batch_id} copied (${formatLabel()})`);
     return;
   }
   if (action === "download-muse-batch") {
     const batch = museBatches().find((item) => String(item.batch_id) === String(id));
     if (!batch) return;
     downloadText(`muse_ai_batch_${String(batch.batch_id).padStart(2, "0")}_${format}.txt`, batchPrompt(batch, format));
-    toast(`Lote ${batch.batch_id} descargado`);
+    toast(`Batch ${batch.batch_id} downloaded`);
     return;
   }
   if (action === "copy-muse-batches") {
-    const text = museBatches().map((batch) => `BLOQUE ${batch.batch_id} — MINUTO ${batch.minute} — ${formatLabel()}\n\n${batchPrompt(batch, format)}`).join("\n\n\n");
-    await copyText(text, `${museBatches().length} lotes de Muse AI copiados (${formatLabel()})`);
+    const text = museBatches().map((batch) => `BLOCK ${batch.batch_id} — MINUTE ${batch.minute} — ${formatLabel()}\n\n${batchPrompt(batch, format)}`).join("\n\n\n");
+    await copyText(text, `${museBatches().length} Muse AI batches copied (${formatLabel()})`);
     return;
   }
   if (action === "download-muse-batches") {
-    const text = museBatches().map((batch) => `BLOQUE ${batch.batch_id} — MINUTO ${batch.minute} — ${formatLabel()}\n\n${batchPrompt(batch, format)}`).join("\n\n\n");
+    const text = museBatches().map((batch) => `BLOCK ${batch.batch_id} — MINUTE ${batch.minute} — ${formatLabel()}\n\n${batchPrompt(batch, format)}`).join("\n\n\n");
     downloadText(`muse_ai_batches_${state.slug || "episode"}_${format}.txt`, text);
-    toast("Lotes de Muse AI descargados");
+    toast("Muse AI batches downloaded");
     return;
   }
   if (action === "copy-new-project") {
     const latam = Array.isArray(state.viral_latam_templates) ? state.viral_latam_templates : [];
     const template = latam.find((item) => item.id === selectedViralTemplate) || latam[0];
-    if (!template) return toast("No hay plantillas LATAM disponibles", true);
-    const command = `python generators/01_story_to_master_json.py nuevo_proyecto --viral-template ${template.id} --idea "Premisa en 3-10 lineas"`;
-    await copyText(command, `Comando para crear un proyecto con ${template.name}`);
+    if (!template) return toast("No LATAM templates available", true);
+    const command = `python generators/01_story_to_master_json.py new_project --viral-template ${template.id} --idea "Premise in 3-10 lines"`;
+    await copyText(command, `Command to create a project with ${template.name}`);
     return;
   }
   if (action === "copy") {
@@ -1501,14 +1501,14 @@ async function handleAction(button) {
       if (!ref) return;
       refTrack(id).copied = new Date().toISOString();
       touchTracking();
-      await copyText(ref.prompt || ref.name, "Prompt de referencia copiado");
+      await copyText(ref.prompt || ref.name, "Reference prompt copied");
     } else {
       const scene = findScene(id);
       if (!scene) return;
       const field = kind === "frames" ? "image_copied" : "video_copied";
       sceneTrack(id)[field] = new Date().toISOString();
       touchTracking();
-      await copyText(kind === "frames" ? scene.image_prompt : sceneVideoPrompt(scene), kind === "frames" ? "Prompt de imagen copiado" : `Prompt de ${platformLabel(platform)} copiado`);
+      await copyText(kind === "frames" ? scene.image_prompt : sceneVideoPrompt(scene), kind === "frames" ? "Image prompt copied" : `${platformLabel(platform)} prompt copied`);
     }
     renderContent();
     return;
@@ -1517,13 +1517,13 @@ async function handleAction(button) {
     const scene = findScene(id);
     if (!scene) return;
     const text = scene.dialogue.map((line) => `${line.speaker}${line.delivery ? ` (${line.delivery})` : ""}: "${line.line}"`).join("\n");
-    await copyText(text || scene.video_prompt, "Diálogo copiado");
+    await copyText(text || scene.video_prompt, "Dialogue copied");
     return;
   }
   if (action === "copy-json") {
     const scene = findScene(id);
     if (!scene) return;
-    await copyText(scene.scene_json, "Escena JSON copiada");
+    await copyText(scene.scene_json, "Scene JSON copied");
     return;
   }
   if (action === "mark") {
@@ -1543,26 +1543,26 @@ async function handleAction(button) {
 function copyNextPending() {
   if (activeTab === "prompts") {
     const prompt = effectiveMasterPrompt(masterItems()[0]);
-    if (!prompt) return toast("No hay prompts maestros exportados");
-    copyText(prompt.text, `${prompt.code} copiado`);
+    if (!prompt) return toast("No master prompts exported");
+    copyText(prompt.text, `${prompt.code} copied`);
     return;
   }
   if (activeTab === "references") {
     const ref = state.references.find((item) => !refDone(item));
-    if (!ref) return toast("No quedan referencias pendientes");
+    if (!ref) return toast("No pending references left");
     refTrack(ref.id).copied = new Date().toISOString();
     touchTracking();
-    copyText(ref.prompt || ref.name, `Referencia copiada: ${ref.name}`);
+    copyText(ref.prompt || ref.name, `Reference copied: ${ref.name}`);
     renderContent();
     return;
   }
   const kind = activeTab === "frames" ? "frames" : "clips";
   const field = kind === "frames" ? "image_copied" : "video_copied";
   const scene = state.scenes.find((item) => !isDone(kind, item));
-  if (!scene) return toast("No quedan escenas pendientes");
+  if (!scene) return toast("No pending scenes left");
   sceneTrack(scene.scene_id)[field] = new Date().toISOString();
   touchTracking();
-  copyText(kind === "frames" ? scene.image_prompt : sceneVideoPrompt(scene), `Escena ${scene.scene_id} copiada (${kind === "frames" ? "imagen" : platformLabel(platform)})`);
+  copyText(kind === "frames" ? scene.image_prompt : sceneVideoPrompt(scene), `Scene ${scene.scene_id} copied (${kind === "frames" ? "image" : platformLabel(platform)})`);
   renderContent();
 }
 
@@ -1577,9 +1577,9 @@ async function rescan() {
     const data = await res.json();
     state = data.state || state;
     render();
-    toast("Estado recargado desde disco");
+    toast("State reloaded from disk");
   } catch (e) {
-    toast("No se pudo recargar el estado", true);
+    toast("Could not reload state", true);
   }
 }
 
@@ -1607,14 +1607,14 @@ function importTracking(file) {
       render();
       toast("Tracking importado");
     } catch (e) {
-      toast("Archivo de tracking inválido", true);
+      toast("Invalid tracking file", true);
     }
   };
   reader.readAsText(file);
 }
 
 function resetTracking() {
-  if (!confirm("¿Reiniciar el tracking manual? Los archivos de frames y clips no se borran.")) return;
+  if (!confirm("Reset tracking? Frame and clip files are not deleted.")) return;
   tracking = { scenes: {}, references: {}, updated_at: new Date().toISOString() };
   touchTracking();
   render();
@@ -1643,7 +1643,7 @@ document.addEventListener("change", (event) => {
     try { localStorage.setItem(NICHE_KEY, selectedNiche); } catch (e) {}
     renderContent();
     const niche = currentNiche();
-    toast(niche ? `Mega-nicho activo: ${niche.label}` : "Sin mega-nicho");
+    toast(niche ? `Mega-niche active: ${niche.label}` : "No mega-niche");
     return;
   }
   if (event.target.id === "viral-template-select") {
@@ -1656,7 +1656,7 @@ $("#format-select").addEventListener("change", (event) => {
   format = event.target.value === "9x16" ? "9x16" : "16x9";
   try { localStorage.setItem(FORMAT_KEY, format); } catch (e) {}
   render();
-  toast(`Formato activo: ${formatLabel()}`);
+  toast(`Active format: ${formatLabel()}`);
 });
 
 $("#project-select").addEventListener("change", (event) => {
@@ -1826,7 +1826,7 @@ class DashboardHandler(BaseHTTPRequestHandler):
         if route in ("/", "/index.html", "/dashboard.html"):
             target = self.dashboard_path or (self.project_paths["root"] / DASHBOARD_FILENAME)
             if not target.exists():
-                self.send_error(404, "dashboard.html no existe; ejecuta el generador primero")
+                self.send_error(404, "dashboard.html does not exist; run the generator first")
                 return
             self._send_file(target)
             return
@@ -1871,30 +1871,30 @@ def serve(paths: Dict[str, Path], dashboard: Path, port: int, open_browser: bool
     try:
         httpd = ThreadingHTTPServer(("127.0.0.1", port), DashboardHandler)
     except OSError as exc:
-        raise nf.NFError(f"No se pudo abrir el puerto {port}: {exc}. Prueba --port otro_numero.") from exc
+        raise nf.NFError(f"Could not open port {port}: {exc}. Try --port another_number.") from exc
     url = f"http://127.0.0.1:{port}/"
     nf.ok(f"Dashboard servido en {url}")
-    nf.info(f"Proyecto: {paths['root']}")
+    nf.info(f"Project: {paths['root']}")
     nf.info(f"Tracking: {tracking_path(paths)}")
-    nf.info("Ctrl+C para detener.")
+    nf.info("Ctrl+C to stop.")
     if open_browser:
         threading.Timer(0.6, lambda: webbrowser.open(url)).start()
     try:
         httpd.serve_forever()
     except KeyboardInterrupt:
-        nf.info("Servidor detenido.")
+        nf.info("Server stopped.")
     finally:
         httpd.server_close()
 
 
 def main(argv: Optional[List[str]] = None) -> int:
-    parser = argparse.ArgumentParser(description="Dashboard local de producción por episodio.")
-    parser.add_argument("project", help="Slug del episodio o ruta a su carpeta.")
-    parser.add_argument("--out", type=str, default="", help="Ruta del HTML generado (por defecto <proyecto>/dashboard.html).")
-    parser.add_argument("--serve", action="store_true", help="Sirve el dashboard en 127.0.0.1 con tracking persistente.")
-    parser.add_argument("--port", type=int, default=DEFAULT_PORT, help=f"Puerto del servidor local (por defecto {DEFAULT_PORT}).")
-    parser.add_argument("--open", action="store_true", help="Abre el dashboard en el navegador.")
-    parser.add_argument("--quiet", action="store_true", help="No imprime el resumen final.")
+    parser = argparse.ArgumentParser(description="Local per-episode production dashboard.")
+    parser.add_argument("project", help="Episode slug or path to its folder.")
+    parser.add_argument("--out", type=str, default="", help="Path to the generated HTML (default <project>/dashboard.html).")
+    parser.add_argument("--serve", action="store_true", help="Serve the dashboard on 127.0.0.1 with persistent tracking.")
+    parser.add_argument("--port", type=int, default=DEFAULT_PORT, help=f"Local server port (default {DEFAULT_PORT}).")
+    parser.add_argument("--open", action="store_true", help="Open the dashboard in the browser.")
+    parser.add_argument("--quiet", action="store_true", help="Do not print the final summary.")
     args = parser.parse_args(argv)
 
     paths = nf.resolve_project(args.project)
@@ -1904,11 +1904,11 @@ def main(argv: Optional[List[str]] = None) -> int:
     dashboard = write_dashboard(paths, state, tracking, out, mode="server" if args.serve else "static")
 
     if not args.quiet:
-        nf.ok(f"Dashboard generado: {dashboard}")
-        nf.info(f"Escenas: {state['totals']['scenes']} · frames en disco: {state['totals']['frames_disk']} · clips en disco: {state['totals']['clips_disk']}")
-        nf.info(f"Referencias: {state['totals']['references']} · teasers: {state['totals']['teasers']}")
+        nf.ok(f"Dashboard generated: {dashboard}")
+        nf.info(f"Scenes: {state['totals']['scenes']} · frames on disk: {state['totals']['frames_disk']} · clips on disk: {state['totals']['clips_disk']}")
+        nf.info(f"References: {state['totals']['references']} · teasers: {state['totals']['teasers']}")
         if not args.serve:
-            nf.info("Modo archivo: el tracking se guarda en el navegador. Usa --serve para guardarlo en disco.")
+            nf.info("File mode: tracking is stored in the browser. Use --serve to store it on disk.")
 
     if args.serve or args.open:
         if args.serve:

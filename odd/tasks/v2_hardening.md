@@ -1,4 +1,4 @@
-# V2.0 Hardening — novel_factory
+# V2.0 Hardening - novel_factory
 
 ## Objective
 Ship the V2.0 hardening plan (7 patches) inside `novel_factory` only: identity/references,
@@ -15,7 +15,7 @@ music, no burned teaser captions, unsafe publisher idempotency (JSON OR media ->
 and no way to import existing frames.
 
 ## Why
-Downstream Omni/ffmpeg pipeline needs deterministic, production-safe inputs so the
+The downstream Omni/ffmpeg pipeline needs deterministic, production-safe inputs so the
 600s master assembles exactly and teasers publish idempotently.
 
 ## Scope (authorized)
@@ -32,14 +32,14 @@ Downstream Omni/ffmpeg pipeline needs deterministic, production-safe inputs so t
 ## Constraints
 - 60 scenes x 10s = 600s master 16:9; 3 teasers 9:16 (scenes 1-6, 21-26, 55-60); US English.
 - TDD: disabled (stdlib `unittest` regression suite run per task).
-- No paid APIs, no network, no new deps.
+- No paid APIs, no network, no new dependencies.
 
 ## Route declaration
 Substantial feature -> direct inline for already-understood mechanical edits; single writer.
-Delegation not used because edits are localized and the code was already mapped.
+Delegation was not used because the edits are localized and the code was already mapped.
 
 ## Checklist
-- [x] T0 nf_core: slugify CJK-safe; speech/budget constants; cast/speaker/continuity helpers;
+- [x] T0 nf_core: CJK-safe slugify; speech/budget constants; cast/speaker/continuity helpers;
       normalize_master preserves ids + continuity split + canonical characters;
       validate_master strict content checks; merge_payloads sort/dedupe/preserve ids.
 - [x] T1 config: showrunner budget+speech keys; style exact duration + hybrid teaser keys.
@@ -48,17 +48,17 @@ Delegation not used because edits are localized and the code was already mapped.
 - [x] T3 gen02: cast prefix per scene, reference filenames, thumbnail sheet, strict check.
 - [x] T4 gen03: `_timeline_block` + spoiler-filtered continuity.
 - [x] T5 runner: `import-frames`, deterministic watch mapping, safer assign.
-- [x] T6 asm04: exact duration (clip normalizado a EXACTAMENTE 10.0s con `tpad`/`apad`),
-      punch-ins sobre el clip ya recortado, audio ducking (`sidechaincompress`),
-      teaser híbrido (fondo blur + foreground `teaser_foreground_width_ratio`) + captions
-      quemadas (fallback sin libass).
-- [x] T7 pub05: `enqueue_item` atómico (`.part-*` + `os.replace`) e idempotente
-      (completo=omite, parcial=repara, `--force`=reemplaza), `verify_media(strict)`,
-      `validate_post`; `--strict` aborta teasers inválidos.
+- [x] T6 asm04: exact duration (clip normalized to EXACTLY 10.0s with `tpad`/`apad`),
+      punch-ins on the already-trimmed clip, audio ducking (`sidechaincompress`),
+      hybrid teaser (blurred background + foreground `teaser_foreground_width_ratio`) +
+      burned-in captions (fallback without libass).
+- [x] T7 pub05: atomic `enqueue_item` (`.part-*` + `os.replace`) and idempotent
+      (complete=skip, partial=repair, `--force`=replace), `verify_media(strict)`,
+      `validate_post`; `--strict` aborts invalid teasers.
 - [x] T8 bat dispatcher `import-frames` + error propagation; tests; README/docs.
-- [x] T9 Full run: compileall + unittest green; demo_contract re-ensamblado
-      (`--limit 12 --force`): escenas normalizadas = 10.000 s exactos, teaser_01
-      1080x1920 con captions, master 120.02 s.
+- [x] T9 Full run: compileall + unittest green; demo_contract re-assembled
+      (`--limit 12 --force`): normalized scenes = exactly 10.000 s, teaser_01
+      1080x1920 with captions, master 120.02 s.
 
 ## Acceptance criteria
 - `python -m compileall -q .` clean; `python -m unittest discover -s tests` green.
@@ -73,9 +73,9 @@ Delegation not used because edits are localized and the code was already mapped.
 ## Progress / evidence
 - T0-T9 done; 36/36 tests pass (`python -m unittest discover -s tests`).
 - Demo validates with `production=True` (0 errors, 0 warnings).
-- Evidence demo_contract: scene_001..003 = 10.000 s; tea. teaser_01 1080x1920/60.1s;
-  master_16x9 = 120.02 s (12 escenas).
+- demo_contract evidence: scene_001..003 = 10.000 s; teaser_01 1080x1920/60.1s;
+  master_16x9 = 120.02 s (12 scenes).
 - Baseline HEAD 556d8ae (origin/main), branch main.
 
 ## Next step
-- Plan completo (T0-T9). Pendiente: commit de los cambios (autorización del usuario).
+- Plan complete (T0-T9). Pending: commit the changes (user authorization).

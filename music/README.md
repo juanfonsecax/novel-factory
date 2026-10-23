@@ -1,49 +1,49 @@
-# music/ — BGM local del módulo
+# music/ - local BGM for the module
 
-Coloca aquí pistas **instrumentales sin voces**, en bucle limpio, con derechos libres
-de uso comercial (descargadas a mano una vez; novel_factory nunca descarga nada).
+Place **instrumental tracks without vocals** here, with clean loops and commercial-use
+rights (downloaded manually once; novel_factory never downloads anything).
 
-## Fuentes gratuitas recomendadas (descarga manual)
+## Recommended free sources (manual download)
 
-- **YouTube Audio Library** (Studio → Audio library): filtro "no attribution".
-- **Pixabay Music**: licencia gratuita para uso comercial sin atribución.
-- **Free Music Archive** (pistas CC0 / CC-BY): revisa la licencia de cada pista.
-- **Uppbeat / Bensound**: versión gratuita con créditos si aplica.
+- **YouTube Audio Library** (Studio -> Audio library): filter "no attribution".
+- **Pixabay Music**: free license for commercial use without attribution.
+- **Free Music Archive** (CC0 / CC-BY tracks): check each track's license.
+- **Uppbeat / Bensound**: free tier with credit where required.
 
-> No uses música comercial con copyright: el contenido se publica en
-> Instagram / TikTok / YouTube y el reclamo de derechos mata el alcance.
+> Do not use copyrighted commercial music: content is published on Instagram / TikTok /
+> YouTube, and a copyright claim kills reach.
 
-## Formatos
+## Formats
 
-`.mp3`, `.wav`, `.m4a`, `.aac`, `.ogg` o `.flac`. Idealmente loops de 60-120 s.
+`.mp3`, `.wav`, `.m4a`, `.aac`, `.ogg`, or `.flac`. Ideally 60-120 s loops.
 
-## Cómo elige el ensamblador (04)
+## How the assembler (04) chooses music
 
-1. `--music "ruta.mp3"` → usa ese archivo exacto.
-2. Si el maestro define `soundtrack.suggested_track`, busca una pista cuyo nombre
-   contenga ese texto (por ejemplo `dark_tide` → `dark_tide_loop.mp3`).
-3. Si no, elige de forma estable según el slug del episodio (siempre la misma
-   pista para el mismo episodio).
+1. `--music "path.mp3"` -> uses that exact file.
+2. If the master defines `soundtrack.suggested_track`, it looks for a track whose name
+   contains that text (for example `dark_tide` -> `dark_tide_loop.mp3`).
+3. Otherwise it chooses deterministically from the episode slug (the same track for the
+   same episode every time).
 
-## Qué hace el ensamblador con la música
+## What the assembler does with music
 
-- La repite en bucle (`-stream_loop -1`) durante todo el episodio.
-- Volumen bajo (por defecto `-22 dB`) para no tapar el diálogo nativo.
-- Fade in (2 s) y fade out (4 s).
-- Mezcla final normalizada a **-14 LUFS / True Peak -1.5 dB** (estándar YouTube).
+- Loops it (`-stream_loop -1`) for the whole episode.
+- Keeps it low (default `-22 dB`) so it does not cover native dialogue.
+- Fade in (2 s) and fade out (4 s).
+- Final mix normalized to **-14 LUFS / True Peak -1.5 dB** (YouTube standard).
 
-Todo esto se puede ajustar en `config/voice_and_style_locks.json`
+All of this can be adjusted in `config/voice_and_style_locks.json`
 (`post_production.music_volume_db`, `music_fade_in_sec`, `music_fade_out_sec`,
 `loudness_target_lufs`).
 
-Sin pistas aquí, el ensamblador funciona igual: sin BGM (solo diálogo nativo).
+Without tracks here, the assembler still works: no BGM (native dialogue only).
 
-## Ideas de mood por género (nombra los archivos así)
+## Mood ideas by genre (name files accordingly)
 
-| Prefijo de archivo | Mood | Género típico |
+| File prefix | Mood | Typical genre |
 |---|---|---|
-| `dark_tide_*` | tenso, misterioso | romantic suspense, thriller |
-| `harbor_lights_*` | cálido, melancólico | drama familiar, romance |
-| `cold_ledger_*` | corporativo, opresivo | drama de poder, venganza |
-| `open_road_*` | esperanzador, expansivo | superación, segundas oportunidades |
-| `night_motel_*` | inquietante, nocturno | misterio, desaparición |
+| `dark_tide_*` | tense, mysterious | romantic suspense, thriller |
+| `harbor_lights_*` | warm, melancholic | family drama, romance |
+| `cold_ledger_*` | corporate, oppressive | power drama, revenge |
+| `open_road_*` | hopeful, expansive | overcoming, second chances |
+| `night_motel_*` | unsettling, nocturnal | mystery, disappearance |

@@ -1,21 +1,21 @@
 #!/usr/bin/env python3
-"""01 — Del brief al JSON Maestro del proyecto (duración declarada por proyecto).
+"""01 — From brief to the project's Master JSON (runtime declared per project).
 
-No llama a ninguna API. Genera:
-  1) story_brief.md  — la fuente (idea, sinopsis o transcripción).
-  2) llm_prompt.md   — el prompt exacto para Claude / Gemini / ChatGPT, con el
-                       esquema JSON, las reglas del showrunner y el brief.
-  3) master_episode.json — el JSON Maestro validado (tras pegar la respuesta).
+Calls no API. Generates:
+  1) story_brief.md  — the source (idea, synopsis or transcript).
+  2) llm_prompt.md   — the exact prompt for Claude / Gemini / ChatGPT, with the
+                       JSON schema, showrunner rules and brief.
+  3) master_episode.json — the validated Master JSON (after pasting the response).
 
-Flujo recomendado:
-  python generators/01_story_to_master_json.py mi_episodio --idea "..." --brief
-  -> pegas llm_prompt.md en el LLM y guardas su respuesta como llm_response.json
-  python generators/01_story_to_master_json.py mi_episodio --ingest llm_response.json
+Recommended flow:
+  python generators/01_story_to_master_json.py my_episode --idea "..." --brief
+  -> paste llm_prompt.md into the LLM and save its response as llm_response.json
+  python generators/01_story_to_master_json.py my_episode --ingest llm_response.json
 
-Si el LLM no puede devolver todas las escenas de una vez, usa --part 1 / --part 2
-y luego ingiere los dos archivos juntos.
+If the LLM cannot return all scenes at once, use --part 1 / --part 2
+and then ingest both files together.
 
-Modo de calibración sin LLM:
+Calibration mode without an LLM:
   python generators/01_story_to_master_json.py demo_contract --template
 """
 from __future__ import annotations
@@ -39,7 +39,7 @@ PROMPT_00B_SOURCE_BEAT_EXTRACTOR = mpl.PROMPT_00B_SOURCE_BEAT_EXTRACTOR
 
 
 # ---------------------------------------------------------------------------
-# Brief de historia
+# Story brief
 # ---------------------------------------------------------------------------
 def build_brief_markdown(
     slug: str,
@@ -68,9 +68,9 @@ def build_brief_markdown(
     ]
     if source_mode == "original_unproven" or not source_text.strip():
         parts += [
-            "> ⚠️ **WARNING: GUION NO PROBADO (original_unproven)**",
-            "> Este guion se genera sin guion fuente probado (`source_script`).",
-            "> Las historias inventadas desde cero tienden a producir picos excesivos de confrontación y falta de recorrido.",
+            "> ⚠️ **WARNING: UNPROVEN SCRIPT (original_unproven)**",
+            "> This script is generated without a proven source script (`source_script`).",
+            "> Stories invented from scratch tend to produce excessive confrontation peaks and lack of progression.",
             "",
         ]
     parts += [
@@ -112,7 +112,7 @@ def build_brief_markdown(
 
 
 # ---------------------------------------------------------------------------
-# Prompt para el LLM
+# Prompt for the LLM
 # ---------------------------------------------------------------------------
 def _acts_block(rules: Dict[str, Any], total_scenes: int) -> str:
     lines: List[str] = []
@@ -273,10 +273,10 @@ def _selected_viral_template_block(rules: Dict[str, Any], template_id: str) -> s
 
 
 def _part_plan(part: str, total_scenes: int) -> Dict[str, Any]:
-    """Traduce --part a rango de escenas + reglas de prompts/teasers.
+    """Translate --part into a scene range plus prompt/teaser rules.
 
-    Acepta 'full', la división clásica en 2 ('1'/'2') y las etiquetas explícitas
-    '1of2'/'2of2' y '1of3'/'2of3'/'3of3'. Los rangos se escalan al total real.
+    Accepts 'full', the classic 2-part split ('1'/'2') and explicit labels
+    '1of2'/'2of2' and '1of3'/'2of3'/'3of3'. Ranges scale to the real total.
     """
     total = max(1, int(total_scenes))
     key = str(part or "full").strip().lower()
@@ -298,7 +298,7 @@ def _part_plan(part: str, total_scenes: int) -> Dict[str, Any]:
     else:
         idx = 1 if key in ("1", "1of2") else 2 if key in ("2", "2of2") else None
         if idx is None:
-            raise NFError(f"--part inválido: {part!r} (usa full, 1of3/2of3/3of3 o 1of2/2of2)")
+            raise NFError(f"Invalid --part: {part!r} (use full, 1of3/2of3/3of3 or 1of2/2of2)")
         lo = ((idx - 1) * total) // 2 + 1
         hi = (idx * total) // 2
         label = f"PART {idx} OF 2"
@@ -335,15 +335,15 @@ def export_master_prompts(
     brief_text: str = "",
     overrides: Optional[Dict[str, Any]] = None,
 ) -> Optional[Dict[str, Any]]:
-    """Escribe MASTER_PROMPTS.md/.txt/.json + prompts/*.txt junto al proyecto."""
+    """Write MASTER_PROMPTS.md/.txt/.json + prompts/*.txt next to the project."""
     try:
         style = nf.load_style_locks()
         pack = mpl.build_prompt_pack(master or {}, style, brief_text, overrides)
         written = mpl.write_prompt_pack(paths["root"], pack)
-        nf.ok(f"Prompts maestros: {written['markdown'].name} (+4 en prompts/)")
+        nf.ok(f"Master prompts: {written['markdown'].name} (+4 in prompts/)")
         return pack
-    except Exception as exc:  # noqa: BLE001 - nunca bloquea la creación del maestro
-        nf.warn(f"No se pudieron exportar los prompts maestros: {exc}")
+    except Exception as exc:  # noqa: BLE001 - never blocks master creation
+        nf.warn(f"Could not export the master prompts: {exc}")
         return None
 
 
@@ -609,7 +609,7 @@ If you cannot fit the whole part, stop at the last complete scene and say nothin
 
 
 # ---------------------------------------------------------------------------
-# Episodio de calibración (sin LLM) — fixture de pipeline, no guion final
+# Calibration episode (no LLM) — pipeline fixture, not a final script
 # ---------------------------------------------------------------------------
 DEMO_ACTS: List[Dict[str, Any]] = [
     {
@@ -1261,13 +1261,13 @@ def build_demo_payload(slug: str, title: str, personaje: str, episode_number: in
 
 
 # ---------------------------------------------------------------------------
-# Ingesta / fusión de respuestas LLM
+# Ingest / merge LLM responses
 # ---------------------------------------------------------------------------
 def _unwrap(payload: Any) -> Any:
     if isinstance(payload, list):
         return {"scenes": payload}
     if not isinstance(payload, dict):
-        raise nf.NFError("La respuesta no es un objeto JSON.")
+        raise nf.NFError("The response is not a JSON object.")
     for key in ("episode_json", "data", "result", "output", "master_episode"):
         inner = payload.get(key)
         if isinstance(inner, dict) and isinstance(inner.get("scenes"), list):
@@ -1280,19 +1280,19 @@ def load_payloads(paths: List[Path]) -> Tuple[List[Dict[str, Any]], List[str]]:
     warnings: List[str] = []
     for path in paths:
         if not path.exists():
-            raise nf.NFError(f"No existe el archivo: {path}")
+            raise nf.NFError(f"File does not exist: {path}")
         text = path.read_text(encoding="utf-8", errors="replace")
         payload = _unwrap(nf.extract_json_blob(text))
         scenes = payload.get("scenes")
         if not isinstance(scenes, list) or not scenes:
-            raise nf.NFError(f"{path.name} no contiene una lista 'scenes'.")
+            raise nf.NFError(f"{path.name} does not contain a 'scenes' list.")
         payloads.append(payload)
-        nf.info(f"{path.name}: {len(scenes)} escenas leídas.")
+        nf.info(f"{path.name}: {len(scenes)} scenes read.")
     return payloads, warnings
 
 
 def merge_payloads(payloads: List[Dict[str, Any]]) -> Tuple[Dict[str, Any], List[str]]:
-    """Compatibilidad: delega en el fusionador canónico de nf_core."""
+    """Compatibility: delegates to the canonical nf_core merger."""
     return nf.merge_payloads(payloads)
 
 
@@ -1301,51 +1301,51 @@ def merge_payloads(payloads: List[Dict[str, Any]]) -> Tuple[Dict[str, Any], List
 # ---------------------------------------------------------------------------
 def main(argv: Optional[List[str]] = None) -> int:
     parser = argparse.ArgumentParser(
-        description="01 — Convierte idea/transcripción en el JSON Maestro del proyecto.",
+        description="01 — Turn an idea/transcript into the project's Master JSON.",
     )
-    parser.add_argument("slug", help="Slug del episodio (carpeta en projects/).")
-    parser.add_argument("--title", default="", help="Título del episodio.")
-    parser.add_argument("--idea", default="", help="Premisa en 3-10 líneas.")
-    parser.add_argument("--idea-file", type=str, default="", help="Archivo con la premisa.")
-    parser.add_argument("--from-text", type=str, default="", help="Transcripción / material fuente.")
-    parser.add_argument("--source-script", type=str, default="", help="Guión probado o resumen por escenas.")
+    parser.add_argument("slug", help="Episode slug (folder under projects/).")
+    parser.add_argument("--title", default="", help="Episode title.")
+    parser.add_argument("--idea", default="", help="Premise in 3-10 lines.")
+    parser.add_argument("--idea-file", type=str, default="", help="File containing the premise.")
+    parser.add_argument("--from-text", type=str, default="", help="Transcript / source material.")
+    parser.add_argument("--source-script", type=str, default="", help="Proven script or scene-by-scene summary.")
     parser.add_argument("--source-mode", default="proven_adaptation", choices=["proven_adaptation", "original_unproven"],
-                        help="Modo de entrada: proven_adaptation (default) o original_unproven.")
+                        help="Input mode: proven_adaptation (default) or original_unproven.")
     parser.add_argument("--genre", default="romantic suspense short-drama")
     parser.add_argument("--episode-number", type=int, default=1)
     parser.add_argument("--minutes", type=int, default=None,
-                        help="Duración del proyecto en minutos (default 22; rango orientativo 18-26).")
+                        help="Project runtime in minutes (default 22; suggested range 18-26).")
     parser.add_argument("--profile", default="", choices=["", "youtube_10", "short_1"],
-                        help="Atajo legacy de duración: youtube_10 (10 min) o short_1 (1 min).")
+                        help="Legacy runtime shortcut: youtube_10 (10 min) or short_1 (1 min).")
     parser.add_argument("--personaje", default="emma_hayes",
-                        help="Persona de USA WHITE para el pack de publicación (default: emma_hayes).")
+                        help="USA WHITE persona for the publishing pack (default: emma_hayes).")
     parser.add_argument("--part", default="full",
-                        help="Divide el guion: full, 1of2/2of2 o 1of3/2of3/3of3 (por tandas de 20).")
+                        help="Split the script: full, 1of2/2of2 or 1of3/2of3/3of3 (batches of 20).")
     parser.add_argument("--context", type=str, default="",
-                        help="Archivo de la parte anterior para continuidad (modo --part por tandas).")
+                        help="Previous part file for continuity (batched --part mode).")
     parser.add_argument("--viral-template", default="",
-                        help="ID de una de las 6 estructuras LATAM->USA (config/showrunner_rules.json).")
-    parser.add_argument("--brief", action="store_true", help="Genera story_brief.md + llm_prompt.md (default).")
-    parser.add_argument("--template", action="store_true", help="Episodio demo de calibración, sin LLM.")
+                        help="ID of one of the 6 LATAM->USA structures (config/showrunner_rules.json).")
+    parser.add_argument("--brief", action="store_true", help="Generate story_brief.md + llm_prompt.md (default).")
+    parser.add_argument("--template", action="store_true", help="Calibration demo episode, no LLM.")
     parser.add_argument("--ingest", nargs="+", default=None, metavar="JSON",
-                        help="Uno o varios JSON del LLM para validar y guardar como master_episode.json.")
-    parser.add_argument("--validate", action="store_true", help="Valida un master_episode.json existente.")
+                        help="One or more LLM JSON files to validate and save as master_episode.json.")
+    parser.add_argument("--validate", action="store_true", help="Validate an existing master_episode.json.")
     parser.add_argument("--strict", action="store_true",
-                        help="Modo producción: reparto, hablantes, presupuesto de habla y continuidad pasan a error.")
+                        help="Production mode: cast, speakers, speech budget and continuity become errors.")
     parser.add_argument("--allow-partial", action="store_true",
-                        help="Permite ingerir menos escenas que las declaradas por el proyecto.")
-    parser.add_argument("--force", action="store_true", help="Sobrescribe sin preguntar (siempre deja backup).")
+                        help="Allow ingesting fewer scenes than the project declares.")
+    parser.add_argument("--force", action="store_true", help="Overwrite without asking (always keeps a backup).")
     args = parser.parse_args(argv)
 
     slug = nf.slugify(args.slug)
     nf.log("")
     nf.log("=" * 70)
-    nf.log("  NOVEL FACTORY — 01 · Guion maestro del proyecto")
+    nf.log("  NOVEL FACTORY — 01 · Project master script")
     nf.log("=" * 70)
 
     if args.validate:
         paths = nf.resolve_project(args.slug)
-        nf.info(f"Proyecto: {paths['root']}")
+        nf.info(f"Project: {paths['root']}")
         master = nf.load_master(paths["root"])
         result = nf.validate_master(master, allow_partial=args.allow_partial, production=args.strict)
         nf.log("")
@@ -1358,27 +1358,27 @@ def main(argv: Optional[List[str]] = None) -> int:
         )
         if requested != nf.LEGACY_TARGET_MINUTES:
             raise nf.NFError(
-                "--template genera el fixture legacy de 60 escenas (10 min). "
-                "Para otra duración usa --brief + --minutes."
+                "--template generates the legacy 60-scene fixture (10 min). "
+                "For another runtime use --brief + --minutes."
             )
         paths = nf.create_project(slug, target_minutes=nf.LEGACY_TARGET_MINUTES)
         target_minutes = nf.LEGACY_TARGET_MINUTES
     elif args.ingest and not had_meta and args.minutes is None and not args.profile:
         paths = nf.create_project(slug, target_minutes=nf.LEGACY_TARGET_MINUTES)
         target_minutes = nf.LEGACY_TARGET_MINUTES
-        nf.info("Proyecto legacy sin project.json: se asume 10 min. "
-                "Usa --minutes para otra duración.")
+        nf.info("Legacy project without project.json: assuming 10 min. "
+                "Use --minutes for another runtime.")
     else:
         paths = nf.create_project(slug, target_minutes=args.minutes, format_profile=args.profile)
         target_minutes = int(
             nf.load_project_meta(paths).get("target_minutes") or nf.DEFAULT_TARGET_MINUTES
         )
-    nf.info(f"Proyecto: {paths['root']} · {target_minutes} min · "
-            f"{nf.scene_count_for_target(target_minutes)} escenas")
+    nf.info(f"Project: {paths['root']} · {target_minutes} min · "
+            f"{nf.scene_count_for_target(target_minutes)} scenes")
 
     if args.ingest:
         nf.log("")
-        nf.info("Ingiriendo respuesta del LLM…")
+        nf.info("Ingesting LLM response…")
         payloads, warnings = load_payloads([Path(p) for p in args.ingest])
         payload, merge_warnings = merge_payloads(payloads)
         warnings.extend(merge_warnings)
@@ -1394,29 +1394,29 @@ def main(argv: Optional[List[str]] = None) -> int:
         if not nf.print_validation(result):
             out = paths["root"] / "llm_response_merged.json"
             nf.write_json(out, payload)
-            nf.warn(f"El JSON crudo quedó en {out} para inspección. No se escribió el maestro.")
+            nf.warn(f"Raw JSON left at {out} for inspection. The master was not written.")
             return 1
         if paths["master"].exists() and not args.force:
             backup = paths["root"] / "master_episode.backup.json"
             backup.write_bytes(paths["master"].read_bytes())
-            nf.info(f"Backup del maestro anterior: {backup.name}")
+            nf.info(f"Previous master backup: {backup.name}")
         nf.write_json(paths["master"], master)
         nf.write_json(paths["root"] / "llm_response_merged.json", payload)
         ep = nf.episode_meta(master)
         nf.log("")
-        nf.ok(f"Maestro escrito: {paths['master']}")
+        nf.ok(f"Master written: {paths['master']}")
         total_seconds = ep.get("total_seconds") or (
             nf.scene_count_for_target(target_minutes) * nf.scene_seconds()
         )
-        nf.info(f"{ep.get('title')} · {len(master['scenes'])} escenas · {nf.human_duration(total_seconds)}")
-        nf.info(f"Personaje de publicación: {master.get('publisher', {}).get('personaje_id')}")
+        nf.info(f"{ep.get('title')} · {len(master['scenes'])} scenes · {nf.human_duration(total_seconds)}")
+        nf.info(f"Publishing persona: {master.get('publisher', {}).get('personaje_id')}")
         export_master_prompts(paths, master, _read_brief_text(paths))
         nf.log("")
-        nf.log("  Siguiente: python generators/02_export_chatgpt_queue.py " + slug)
+        nf.log("  Next: python generators/02_export_chatgpt_queue.py " + slug)
         return 0
 
     if args.template:
-        nf.info("Generando episodio demo de calibración (sin LLM)…")
+        nf.info("Generating calibration demo episode (no LLM)…")
         payload = build_demo_payload(slug, args.title or "The Silent Contract", args.personaje, args.episode_number)
         master, warnings = nf.normalize_master(
             payload, slug, args.title, repair=True, target_minutes=target_minutes
@@ -1436,14 +1436,14 @@ def main(argv: Optional[List[str]] = None) -> int:
                                  args.episode_number, target_minutes=target_minutes),
         )
         nf.log("")
-        nf.ok(f"Episodio demo listo: {paths['master']}")
-        nf.warn("Es un fixture de calibración, no un guion final. Reemplázalo con --brief + --ingest.")
+        nf.ok(f"Demo episode ready: {paths['master']}")
+        nf.warn("This is a calibration fixture, not a final script. Replace it with --brief + --ingest.")
         export_master_prompts(paths, master, _read_brief_text(paths))
         nf.log("")
-        nf.log("  Siguiente: python generators/02_export_chatgpt_queue.py " + slug)
+        nf.log("  Next: python generators/02_export_chatgpt_queue.py " + slug)
         return 0
 
-    # --- Modo brief (default) ---
+    # --- Brief mode (default) ---
     idea = args.idea.strip()
     if args.idea_file:
         idea = Path(args.idea_file).read_text(encoding="utf-8", errors="replace").strip()
@@ -1458,15 +1458,15 @@ def main(argv: Optional[List[str]] = None) -> int:
     if not source_text:
         source_mode = "original_unproven"
         nf.warn(
-            "⚠️ WARNING: source_mode='original_unproven' — No se proporcionó un guion fuente probado "
-            "(--source-script o --from-text). Las historias inventadas desde cero tienden a generar "
-            "picos excesivos de confrontación."
+            "⚠️ WARNING: source_mode='original_unproven' — No proven source script was provided "
+            "(--source-script or --from-text). Stories invented from scratch tend to generate "
+            "excessive confrontation peaks."
         )
     else:
         source_mode = "proven_adaptation"
 
     if not idea and not source_text and not args.idea_file:
-        nf.warn("No diste --idea ni --from-text / --source-script: el brief quedará con un placeholder editable.")
+        nf.warn("You did not provide --idea or --from-text / --source-script: the brief will use an editable placeholder.")
 
     title = args.title or args.slug.replace("_", " ").title()
     brief = build_brief_markdown(
@@ -1525,17 +1525,17 @@ def main(argv: Optional[List[str]] = None) -> int:
 
     nf.log("")
     nf.ok(f"Brief:  {brief_path}")
-    nf.ok(f"Prompt: {prompt_path}  ({len(prompt):,} caracteres)")
+    nf.ok(f"Prompt: {prompt_path}  ({len(prompt):,} characters)")
     nf.log("")
     plan = _part_plan(args.part, total_scenes)
-    nf.log("  Pasos:")
-    nf.log("   1. Abre llm_prompt.md, cópialo completo y pégalo en Claude / Gemini / ChatGPT.")
-    nf.log("   2. Guarda la respuesta como projects/" + slug + "/llm_response.json")
+    nf.log("  Steps:")
+    nf.log("   1. Open llm_prompt.md, copy it in full and paste it into Claude / Gemini / ChatGPT.")
+    nf.log("   2. Save the response as projects/" + slug + "/llm_response.json")
     nf.log("   3. python generators/01_story_to_master_json.py " + slug + " --ingest " +
            f"projects/{slug}/llm_response.json --strict")
     if plan["label"]:
-        nf.log(f"   (Tanda {plan['label']}: escenas {plan['lo']}-{plan['hi']}. Repite con la siguiente")
-        nf.log("    --part y --context <json anterior>; luego ingiere TODAS juntas)")
+        nf.log(f"   (Batch {plan['label']}: scenes {plan['lo']}-{plan['hi']}. Repeat with the next")
+        nf.log("    --part and --context <previous json>; then ingest ALL of them together)")
         nf.log("    python generators/01_story_to_master_json.py " + slug +
                " --ingest parte1.json parte2.json ... --strict")
     nf.log("")

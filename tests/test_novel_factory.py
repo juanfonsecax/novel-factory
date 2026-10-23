@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Tests offline de novel_factory — solo stdlib + (opcional) ffmpeg/ffprobe. Sin red, sin APIs.
+"""Offline tests for novel_factory — stdlib only + optional ffmpeg/ffprobe. No network, no APIs.
 
-Ejecutar desde la raíz del workspace:
+Run from the workspace root:
     python -m unittest discover -s novel_factory/tests -v
     novel_factory\\novelfactory.bat test
 """
@@ -256,14 +256,14 @@ class MasterSchemaTests(unittest.TestCase):
         )
         master, _ = nf.normalize_master(payload, "unit_slug", "Unit Title")
         result = nf.validate_master(master)
-        self.assertTrue(any("16 palabras" in error for error in result["errors"]))
+        self.assertTrue(any("16 words" in error for error in result["errors"]))
 
     def test_partial_rejected_without_flag(self):
         with self.assertRaises(nf.NFError):
             nf.normalize_master(minimal_payload(10), "unit_slug", "Unit Title")
         master, warnings = nf.normalize_master(minimal_payload(10), "unit_slug", "Unit Title", allow_partial=True)
         self.assertEqual(len(master["scenes"]), 10)
-        self.assertTrue(any("parcial" in w.lower() for w in warnings))
+        self.assertTrue(any("partial" in w.lower() for w in warnings))
 
     def test_demo_template_is_strictly_valid(self):
         payload = GEN01.build_demo_payload("unit_demo", "Unit Demo", "emma_hayes", 1)
@@ -320,9 +320,9 @@ class PromptRuleTests(unittest.TestCase):
         values = {placeholder: "X" for placeholder in MPL.PLACEHOLDERS}
         for key in ("prompt_000", "prompt_001", "prompt_003"):
             text = MPL.render_prompt(key, values)
-            self.assertIn("REGLA DE CONTINUIDAD NARRATIVA", text)
-            self.assertIn("PROHIBIDO EL PING-PONG DE LOCACIONES", text)
-            self.assertIn("PRUEBA DE DESORDEN", text)
+            self.assertIn("NARRATIVE CONTINUITY RULE", text)
+            self.assertIn("LOCATION PING-PONG IS FORBIDDEN", text)
+            self.assertIn("SCRAMBLE TEST", text)
 
     def test_muse_command_has_negative_rules(self):
         command = MPL._muse_final_command(1, "horizontal", "16:9", "YouTube")
@@ -335,9 +335,9 @@ class PromptRuleTests(unittest.TestCase):
         master = nf.load_master(DEMO_DIR)
         style = nf.load_style_locks()
         prompt = GEN02._storyboard_grid_prompt(master, style, 1, master["scenes"][:6], 10)
-        self.assertIn("FORMATO DE VIÑETAS 100% VISUAL", prompt)
-        self.assertIn("barras inferiores oscuras", prompt)
-        self.assertNotIn("descripción breve", prompt)
+        self.assertIn("100% VISUAL PANEL FORMAT", prompt)
+        self.assertIn("dark bottom bars", prompt)
+        self.assertNotIn("brief description", prompt.lower())
 
     @unittest.skipUnless(DEMO_DIR.exists(), "no existe projects/demo_contract")
     def test_demo_master_has_no_placeholder_cuts(self):
@@ -388,6 +388,60 @@ class SpeakerShotLockTests(unittest.TestCase):
         actions = " ".join(str(cut.get("action") or "") for cut in scene["internal_cuts"])
         self.assertIn("never show it empty", actions)
         self.assertNotIn("bag is open", actions.lower())
+
+    def test_object_lock_never_uses_cut_prose(self):
+        payload = self._demo_payload()
+        payload["scenes"][0]["internal_cuts"][0]["action"] = (
+            "Richard sets the brass key sharp in the foreground."
+        )
+        master = self._master_with(payload)
+        scene = master["scenes"][0]
+        self.assertNotEqual(scene["key_object"].lower(), "sharp")
+        self.assertNotIn("foreground", scene["key_object"].lower())
+        self.assertTrue(nf.is_concrete_object_value(scene["key_object"]))
+
+    def test_validation_rejects_prose_object_fragments(self):
+        master = self._master_with(self._demo_payload())
+        master["scenes"][0]["key_object"] = "sharp"
+        master["scenes"][0]["object_start"] = {"name": "the foreground", "visible": ""}
+        master["scenes"][0]["object_end"] = {"name": "sharp", "visible": ""}
+        result = nf.validate_master(master, production=True)
+        text = " ".join(result["errors"])
+        self.assertIn("key_object", text)
+        self.assertIn("object_in", text)
+        self.assertIn("object_out", text)
+
+    def test_solo_scene_never_looks_at_an_absent_partner(self):
+        payload = self._demo_payload()
+        payload["scenes"][0]["characters"] = ["nora"]
+        payload["scenes"][0]["internal_cuts"][0]["action"] = (
+            "Nora Hale is on camera, looking at the other person in frame."
+        )
+        payload["scenes"][0]["dialogue"] = [
+            {"speaker": "NORA", "line": "I came back for the light.", "delivery": "cold",
+             "recipient": "Sam Calloway"}
+        ]
+        master = self._master_with(payload)
+        scene = master["scenes"][0]
+        actions = " ".join(str(cut.get("action") or "") for cut in scene["internal_cuts"])
+        self.assertIn("alone in the frame", actions)
+        self.assertNotIn("the other person in frame", actions.lower())
+        self.assertEqual(scene["dialogue"][0]["recipient"], "")
+        result = nf.validate_master(master, production=True)
+        self.assertFalse(
+            [error for error in result["errors"] if error.startswith("Scene 1:")],
+            msg=result["errors"],
+        )
+
+    def test_anchor_describes_real_hair_instead_of_reference_sheet(self):
+        character = {
+            "name": "Eleanor Cole",
+            "identity_anchor": "early sixties matriarch with a silver chignon",
+            "wardrobe": "cream blouse and knit cardigan",
+        }
+        anchor = nf.character_prompt_anchor(character, 1)
+        self.assertIn("silver chignon", anchor)
+        self.assertNotIn("reference sheet", anchor)
 
     def test_silent_cuts_never_speak(self):
         master = self._master_with(self._demo_payload())
@@ -444,7 +498,7 @@ class SpeakerShotLockTests(unittest.TestCase):
         target["dialogue"][0]["speaker"] = "NORA"
         result = nf.validate_master(master, production=True)
         self.assertTrue(
-            any("no puede decirla" in error for error in result["errors"]),
+            any("cannot say it" in error for error in result["errors"]),
             msg=result["errors"],
         )
 
@@ -511,9 +565,18 @@ class MasterPromptTests(unittest.TestCase):
 
     def test_prompt_000_keeps_literal_header(self):
         text = MPL.TEMPLATES["prompt_000"]["text"]
-        self.assertTrue(text.startswith("🧠 PROMPT 000"))
-        self.assertIn("ARQUITECTO DE HISTORIAS VIRALES", text)
+        self.assertTrue(text.startswith("\U0001F9E0 PROMPT 000"))
+        self.assertIn("VIRAL STORY ARCHITECT", text)
         self.assertIn("CHINA / USA MICRO-DRAMA", text)
+
+    def test_generated_master_prompts_have_no_legacy_spanish(self):
+        text = "\n\n".join(prompt["text"] for prompt in self.pack["prompts"])
+        self.assertIn("FINAL COMMAND TO PASTE INTO MUSE AI", text)
+        for token in (
+            "Pendiente", "Guardar en", "Copiar", "Descargar",
+            "ESCENA", "Vi\u00f1eta", "palabras", "[ADJUNTAR",
+        ):
+            self.assertNotIn(token, text, msg=token)
 
     def test_platform_prompts_differ(self):
         muse = GEN03.build_rows(self.master, self.paths, self.style, "muse")
@@ -552,9 +615,9 @@ class MasterPromptTests(unittest.TestCase):
             text = getattr(MPL, name)
             self.assertIn(header, text)
             self.assertGreater(len(text), 500, msg=name)
-        self.assertIn("6 viñetas", MPL.PROMPT_001_STORYBOARD_GENERATOR)
-        self.assertIn("UNA SOLA IMAGEN", MPL.PROMPT_002_CHARACTER_SHEET_GENERATOR)
-        self.assertIn("COMANDO FINAL PARA PEGAR EN MUSE AI", MPL.PROMPT_003_SCRIPT_CAMERA_SOUND_GENERATOR)
+        self.assertIn("6 panels", MPL.PROMPT_001_STORYBOARD_GENERATOR)
+        self.assertIn("SINGLE IMAGE", MPL.PROMPT_002_CHARACTER_SHEET_GENERATOR)
+        self.assertIn("FINAL COMMAND TO PASTE INTO MUSE AI", MPL.PROMPT_003_SCRIPT_CAMERA_SOUND_GENERATOR)
 
     def test_workflow_export_writes_ready_and_batches(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -574,18 +637,18 @@ class MasterPromptTests(unittest.TestCase):
             ):
                 self.assertTrue((target / name).exists(), msg=name)
             batches_text = (target / "muse_ai_batches_queue.txt").read_text(encoding="utf-8")
-            self.assertIn("ESCENA 1", batches_text)
+            self.assertIn("SCENE 1", batches_text)
             self.assertIn("[00s-", batches_text)
             self.assertIn("SPEAKING SHOT", batches_text)
             self.assertIn("SILENT SHOT", batches_text)
             self.assertIn("Object In / Object Out", batches_text)
-            self.assertIn("=== COPIA 16:9 (YouTube) ===", batches_text)
-            self.assertIn("=== COPIA 9:16 (Reels / TikTok / Shorts) ===", batches_text)
-            self.assertIn("📎 ADJUNTAR EN MUSE AI", batches_text)
+            self.assertIn("=== 16:9 COPY (YouTube) ===", batches_text)
+            self.assertIn("=== 9:16 COPY (Reels / TikTok / Shorts) ===", batches_text)
+            self.assertIn("ATTACH IN MUSE AI", batches_text)
             self.assertIn("REF_CAST_MASTER.png", batches_text)
             self.assertIn("REF_GRID_MIN_01.png", batches_text)
-            self.assertIn("Formato: horizontal 16:9", batches_text)
-            self.assertIn("Formato: vertical 9:16", batches_text)
+            self.assertIn("Format: horizontal 16:9", batches_text)
+            self.assertIn("Format: vertical 9:16", batches_text)
 
     def test_viral_templates_catalog_has_six_us_meganiches(self):
         templates = MPL.list_viral_templates()
@@ -607,7 +670,7 @@ class MasterPromptTests(unittest.TestCase):
         pack = MPL.build_prompt_pack(self.master, self.style, niche=niche_id)
         prompts = {prompt["key"]: prompt for prompt in pack["prompts"]}
         text = prompts["prompt_000"]["text"]
-        self.assertTrue(text.startswith("🧠 PROMPT 000"))
+        self.assertTrue(text.startswith("\U0001F9E0 PROMPT 000"))
         self.assertIn("USA MEGA-NICHE ARCHETYPE", text)
         self.assertIn(niche_id, text)
         self.assertEqual(MPL.unfilled_placeholders(text), [])
@@ -629,8 +692,8 @@ class MasterPromptTests(unittest.TestCase):
             written = GEN02.write_master_image_prompt_files(paths, self.master, self.style)
             storyboard = written["prompt_001"].read_text(encoding="utf-8")
             characters = written["prompt_002"].read_text(encoding="utf-8")
-            self.assertIn("GENERADOR DE STORYBOARD", storyboard)
-            self.assertIn("HOJA MAESTRA DE PERSONAJES", characters)
+            self.assertIn("STORYBOARD GENERATOR", storyboard)
+            self.assertIn("MASTER CHARACTER SHEET", characters)
             self.assertNotIn("{story_idea}", storyboard)
             self.assertNotIn("{visual_style}", characters)
 
@@ -645,20 +708,20 @@ class MasterPromptTests(unittest.TestCase):
             self.assertEqual(data["items"][0]["scenes"], [1, 2, 3, 4, 5, 6])
             first = data["items"][0]
             self.assertEqual(first["reference_images"], ["REF_CAST_MASTER.png", "REF_GRID_MIN_01.png"])
-            self.assertIn("Formato: horizontal 16:9", first["muse_command"])
-            self.assertIn("Formato: vertical 9:16", first["muse_command_916"])
+            self.assertIn("Format: horizontal 16:9", first["muse_command"])
+            self.assertIn("Format: vertical 9:16", first["muse_command_916"])
 
     def test_storyboard_prompt_includes_all_60_scenes(self):
         with tempfile.TemporaryDirectory() as tmp:
             written = GEN02.write_master_image_prompt_files({"root": Path(tmp)}, self.master, self.style)
             storyboard = written["prompt_001"].read_text(encoding="utf-8")
-            self.assertIn("ESCENA 001", storyboard)
-            self.assertIn("ESCENA 024", storyboard)
-            self.assertIn("ESCENA 025", storyboard)
-            self.assertIn("ESCENA 060", storyboard)
-            self.assertIn("MINUTO 1 (Escenas 1 a 6)", storyboard)
-            self.assertIn("MINUTO 10 (Escenas 55 a 60)", storyboard)
-            self.assertGreaterEqual(storyboard.count("ESCENA "), 60)
+            self.assertIn("SCENE 001", storyboard)
+            self.assertIn("SCENE 024", storyboard)
+            self.assertIn("SCENE 025", storyboard)
+            self.assertIn("SCENE 060", storyboard)
+            self.assertIn("MINUTE 1 (Scenes 1 to 6)", storyboard)
+            self.assertIn("MINUTE 10 (Scenes 55 to 60)", storyboard)
+            self.assertGreaterEqual(storyboard.count("SCENE "), 60)
 
     def test_storyboard_grids_queue_has_11_prompts(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -668,15 +731,15 @@ class MasterPromptTests(unittest.TestCase):
             self.assertEqual(len(data["items"]), 11)
             self.assertEqual(data["items"][0]["filename"], "REF_CAST_MASTER.png")
             self.assertEqual(data["items"][0]["kind"], "cast_sheet")
-            self.assertIn("gris neutro", data["items"][0]["prompt"])
+            self.assertIn("neutral studio gray", data["items"][0]["prompt"])
             self.assertEqual(
                 [item["filename"] for item in data["items"][1:]],
                 [f"REF_GRID_MIN_{n:02d}.png" for n in range(1, 11)],
             )
             self.assertEqual(data["items"][1]["scenes"], [1, 2, 3, 4, 5, 6])
             self.assertEqual(data["items"][10]["scenes"], [55, 56, 57, 58, 59, 60])
-            self.assertIn("Viñeta 1 — Escena 1", data["items"][1]["prompt"])
-            self.assertIn("Viñeta 6 — Escena 6", data["items"][1]["prompt"])
+            self.assertIn("Panel 1 — Scene 1", data["items"][1]["prompt"])
+            self.assertIn("Panel 6 — Scene 6", data["items"][1]["prompt"])
             self.assertIn("REF_CAST_MASTER.png", data["items"][1]["prompt"])
             lines = written["txt"].read_text(encoding="utf-8").strip().splitlines()
             self.assertEqual(len(lines), 11)
@@ -702,11 +765,19 @@ class MusePackTests(unittest.TestCase):
 
     def test_markdown_has_the_four_steps(self):
         text = GEN05.render_markdown(self.pack)
-        for step in ("Paso 1", "Paso 2", "Paso 3", "Paso 4"):
+        for step in ("Step 1", "Step 2", "Step 3", "Step 4"):
             self.assertIn(step, text)
         self.assertIn("REF_GRID_MIN_10.png", text)
         self.assertIn("minute_10.mp4", text)
-        self.assertIn("Comando final 9:16", text)
+        self.assertIn("Final 9:16 command", text)
+
+    def test_pack_has_no_legacy_spanish_labels(self):
+        text = GEN05.render_markdown(self.pack)
+        for token in (
+            "ESCENA", "Vi\u00f1eta", "Pendiente", "Guardar en",
+            "Copiar", "Descargar", "[ADJUNTAR",
+        ):
+            self.assertNotIn(token, text, msg=token)
 
     def test_write_pack_creates_files(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -726,25 +797,25 @@ class MusePackTests(unittest.TestCase):
 
     def test_cast_prompt_has_no_attachment_placeholders_and_real_names(self):
         prompt = self.pack["cast_master"]["prompt"]
-        self.assertNotIn("[ADJUNTAR", prompt)
+        self.assertNotIn("[ATTACH", prompt)
         for name in ("NORA HALE", "SAM CALLOWAY", "MARGARET KELLER", "ADRIAN KELLER", "CLAIRE BOONE"):
             self.assertIn(name, prompt)
 
     def test_storyboard_queue_cast_prompt_is_clean(self):
         grids = GEN02.build_storyboard_grid_items(self.master, self.style)
         cast_prompt = grids[0]["prompt"]
-        self.assertNotIn("[ADJUNTAR", cast_prompt)
+        self.assertNotIn("[ATTACH", cast_prompt)
         for name in ("NORA HALE", "SAM CALLOWAY", "MARGARET KELLER"):
             self.assertIn(name, cast_prompt)
 
     def test_muse_prompts_are_split_by_format_without_attachment_headers(self):
         first = self.pack["batches"][0]
-        self.assertIn("Formato: horizontal 16:9", first["prompt_16x9_youtube"])
-        self.assertIn("Formato: vertical 9:16", first["prompt_9x16_vertical"])
-        self.assertNotIn("[ADJUNTAR", first["prompt_16x9_youtube"])
-        self.assertNotIn("[ADJUNTAR", first["prompt_9x16_vertical"])
-        self.assertNotIn("📎 ADJUNTAR", first["prompt_16x9_youtube"])
-        self.assertNotIn("📎 ADJUNTAR", first["prompt_9x16_vertical"])
+        self.assertIn("Format: horizontal 16:9", first["prompt_16x9_youtube"])
+        self.assertIn("Format: vertical 9:16", first["prompt_9x16_vertical"])
+        self.assertNotIn("[ATTACH", first["prompt_16x9_youtube"])
+        self.assertNotIn("[ATTACH", first["prompt_9x16_vertical"])
+        self.assertNotIn("ATTACH IN MUSE AI", first["prompt_16x9_youtube"])
+        self.assertNotIn("ATTACH IN MUSE AI", first["prompt_9x16_vertical"])
         self.assertEqual(first["save_as_16x9"], "raw_clips/minute_01.mp4")
         self.assertEqual(first["save_as_9x16"], "raw_clips/minute_01_vertical.mp4")
         self.assertEqual(first["attach_instruction"], first["attach"])
@@ -806,7 +877,7 @@ class AssemblerTests(unittest.TestCase):
             self.assertIn("00:00:00,250 -->", text)
 
     def test_added_output_args_are_before_output_file(self):
-        """Regresión: los -map/-af deben ir antes del archivo de salida (ffmpeg los ignora si van después)."""
+        """Regression: -map/-af must come before the output file (ffmpeg ignores them otherwise)."""
         import inspect
 
         src = inspect.getsource(ASM04.normalize_scene)
@@ -828,7 +899,7 @@ class AssemblerTests(unittest.TestCase):
         with self.assertRaises(nf.NFError):
             ASM04.pick_music({}, "slug", str(Path(tempfile.gettempdir()) / "no_existe_nf.mp3"))
 
-    @unittest.skipUnless(HAS_FFMPEG, "ffmpeg no disponible")
+    @unittest.skipUnless(HAS_FFMPEG, "ffmpeg not available")
     def test_analyze_silence_detects_head(self):
         with tempfile.TemporaryDirectory() as tmp:
             clip = Path(tmp) / "silent_head.mp4"
@@ -842,17 +913,17 @@ class AssemblerTests(unittest.TestCase):
                 "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "96k", str(clip),
             ])
             probe = nf.probe_media(clip)
-            # min_keep bajo: este clip de prueba dura 6 s (las escenas reales duran 10 s)
+            # low min_keep: this test clip is 6 s long (real scenes are 10 s)
             head, tail, note = ASM04.analyze_silence(clip, probe, {"min_scene_after_trim_sec": 1.0})
             self.assertGreater(head, 1.2)
             self.assertLess(head, 1.6)
             self.assertGreater(tail, 4.2)
             self.assertLess(tail, 4.9)
-            self.assertIn("recorte", note)
+            self.assertIn("trim", note)
 
-    @unittest.skipUnless(HAS_FFMPEG, "ffmpeg no disponible")
+    @unittest.skipUnless(HAS_FFMPEG, "ffmpeg not available")
     def test_analyze_silence_discards_when_too_short(self):
-        """Con min_keep por defecto (6 s) un clip de 6 s no se recorta: se conserva entero."""
+        """With the default min_keep (6 s), a 6 s clip is not trimmed; it is kept whole."""
         with tempfile.TemporaryDirectory() as tmp:
             clip = Path(tmp) / "tiny.mp4"
             nf.run_ffmpeg([
@@ -868,7 +939,7 @@ class AssemblerTests(unittest.TestCase):
             head, tail, note = ASM04.analyze_silence(clip, probe, {})
             self.assertEqual(head, 0.0)
             self.assertAlmostEqual(tail, float(probe["duration"]), delta=0.3)
-            self.assertIn("descartado", note)
+            self.assertIn("discarded", note)
 
 
     def test_scene_target_seconds_default_and_override(self):
@@ -894,7 +965,7 @@ class AssemblerTests(unittest.TestCase):
         timeline = [{"scene": {"scene_id": 1, "dialogue": []}, "start": 0.0, "dur": 10.0}]
         self.assertEqual(ASM04.build_cues(timeline), [])
 
-    @unittest.skipUnless(HAS_FFMPEG, "ffmpeg no disponible")
+    @unittest.skipUnless(HAS_FFMPEG, "ffmpeg not available")
     def test_normalize_scene_exact_duration(self):
         with tempfile.TemporaryDirectory() as tmp:
             base = Path(tmp)
@@ -968,10 +1039,10 @@ class PublisherTests(unittest.TestCase):
             root = self._fake_publisher(Path(tmp) / "USA WHITE")
             found = PUB05.find_publisher_root(str(root))
             self.assertEqual(Path(found).resolve(), root.resolve())
-            # acepta también el padre
+            # also accepts the parent
             found_parent = PUB05.find_publisher_root(str(root.parent))
             self.assertEqual(Path(found_parent).resolve(), root.resolve())
-            # ruta explícita inválida -> None (jamás se cae a la autodetección)
+            # explicit invalid path -> None (never falls back to auto-detection)
             self.assertIsNone(PUB05.find_publisher_root(str(Path(tmp) / "no_publisher")))
 
     def test_build_post_adds_hashtags(self):
@@ -998,7 +1069,7 @@ class PublisherTests(unittest.TestCase):
             self.assertEqual(len(teasers), 1)
             self.assertEqual(teasers[0]["caption"], "Pack caption with #tags")
 
-    @unittest.skipUnless(HAS_FFMPEG, "ffmpeg no disponible")
+    @unittest.skipUnless(HAS_FFMPEG, "ffmpeg not available")
     def test_verify_media_flags_wrong_aspect(self):
         with tempfile.TemporaryDirectory() as tmp:
             clip = Path(tmp) / "wrong.mp4"
@@ -1040,7 +1111,7 @@ class PublisherTests(unittest.TestCase):
             post = {"id": "nf_slug_teaser_02", "personaje_id": "eva", "tipo": "reel",
                     "archivo_media": "m2.mp4", "estado": "pendiente_aprobacion",
                     "plataformas": {"instagram": True}}
-            # encolado incompleto: solo el JSON
+            # incomplete enqueue: JSON only
             nf.write_json(pend / "nf_slug_teaser_02.json", post)
             status, dj, dm = PUB05.enqueue_item(pend, post, src, "m2.mp4")
             self.assertEqual(status, "repaired")
@@ -1088,18 +1159,18 @@ class RunnerTests(unittest.TestCase):
             self.assertEqual(RUNNER.find_newest_media(folder, time.time() - 60), new)
             self.assertIsNone(RUNNER.find_newest_media(folder, time.time() + 60))
 
-    @unittest.skipUnless(HAS_FFMPEG, "ffmpeg no disponible")
+    @unittest.skipUnless(HAS_FFMPEG, "ffmpeg not available")
     def test_assign_clip_rejects_non_video(self):
         with tempfile.TemporaryDirectory() as tmp:
             base = Path(tmp)
             bogus = base / "bogus.mp4"
-            bogus.write_text("esto no es un vídeo", encoding="utf-8")
+            bogus.write_text("this is not a video", encoding="utf-8")
             paths = {"raw_clips": base / "raw_clips"}
             ok, note = RUNNER.assign_clip(bogus, paths, 1)
             self.assertFalse(ok)
-            self.assertIn("inválido", note)
+            self.assertIn("invalid", note)
 
-    @unittest.skipUnless(HAS_FFMPEG, "ffmpeg no disponible")
+    @unittest.skipUnless(HAS_FFMPEG, "ffmpeg not available")
     def test_assign_clip_moves_and_names(self):
         with tempfile.TemporaryDirectory() as tmp:
             base = Path(tmp)
@@ -1207,13 +1278,25 @@ class DashboardTests(unittest.TestCase):
         state = DASH.build_state(DEMO_DIR)
         html = DASH.render_dashboard(state, {"scenes": {}, "references": {}})
         for token in (
-            "PASO 1", "PASO 2", "PASO 3", "PASO 4",
-            "project-select", "format-select", "16:9 · YouTube", "9:16 · Reels / TikTok / Shorts",
+            "STEP 1", "STEP 2", "STEP 3", "STEP 4",
+            "project-select", "format-select", "16:9 \u00B7 YouTube", "9:16 \u00B7 Reels / TikTok / Shorts",
             "references/REF_CAST_MASTER.png", "storyboards/REF_GRID_MIN_01.png",
             "raw_clips/minute_0X.mp4", "viral-template-select", "copy-storyboard-grids-10",
             "prompt_16x9_youtube", "prompt_9x16_vertical", "legacy-details",
         ):
             self.assertIn(token, html)
+
+    def test_dashboard_has_no_legacy_spanish_ui(self):
+        state = DASH.build_state(DEMO_DIR)
+        html = DASH.render_dashboard(state, {"scenes": {}, "references": {}})
+        for token in (
+            "Pendiente", "Referencias", "Frames imagen", "Clips video",
+            "Completo", "palabras", "ESCENA", "Vi\u00f1eta", "Guardar en",
+            "Descargar", "Copiar", "Marcar hecho", "Archivo en disco",
+            "Ver m\u00e9todo anterior", "Recargar estado", "Exportar tracking",
+            "Importar tracking",
+        ):
+            self.assertNotIn(token, html, msg=token)
 
     def test_render_escapes_script_tags(self):
         state = DASH.build_state(DEMO_DIR)
@@ -1221,16 +1304,16 @@ class DashboardTests(unittest.TestCase):
         html = DASH.render_dashboard(state, {"scenes": {}, "references": {}})
         self.assertEqual(html.count("</script>"), 1)
         self.assertIn("const STATE =", html)
-        self.assertIn("Nueva metodología", html)
+        self.assertIn("New methodology", html)
         self.assertIn("copy-muse-batch-169", html)
         self.assertIn("copy-storyboard-grid", html)
         self.assertIn("toggle-legacy", html)
-        self.assertIn("Ver método anterior", html)
+        self.assertIn("Show legacy method", html)
         self.assertIn("storyboards_disk", html)
         self.assertIn("Novel Factory", html)
-        self.assertIn("Prompts maestros", html)
+        self.assertIn("Master prompts", html)
         self.assertIn("platform-filter", html)
-        self.assertIn("Copiar prompt", html)
+        self.assertIn("Copy prompt", html)
 
     def test_build_state_exposes_viral_template_selector(self):
         state = DASH.build_state(DEMO_DIR)
@@ -1249,7 +1332,7 @@ class DashboardTests(unittest.TestCase):
             self.assertIn(item["id"], item["prompt"])
             self.assertIn("USA MEGA-NICHE ARCHETYPE", item["prompt"])
         html = DASH.render_dashboard(state, {"scenes": {}, "references": {}})
-        for token in ("niche-select", "viral_templates", "usa_01_secret_billionaire_divorce", "Sin mega-nicho"):
+        for token in ("niche-select", "viral_templates", "usa_01_secret_billionaire_divorce", "No mega-niche"):
             self.assertIn(token, html)
 
     def test_tracking_roundtrip(self):
@@ -1325,13 +1408,13 @@ class V3ReelShortMethodTests(unittest.TestCase):
         cls.paths = nf.project_paths(DEMO_DIR)
 
     def test_master_without_source_is_marked_original_unproven_with_warning(self):
-        # (1) master sin fuente queda marcado original_unproven con warning;
+        # (1) a master without a source is marked original_unproven with a warning;
         payload = minimal_payload()
         master, warnings = nf.normalize_master(payload, "unproven_slug", "Unproven Title")
         self.assertEqual(master.get("source_mode"), "original_unproven")
         self.assertTrue(any("original_unproven" in w for w in warnings))
 
-        # Y con source_script queda proven_adaptation
+        # And with source_script it becomes proven_adaptation
         payload_proven = minimal_payload()
         payload_proven["source_script"] = "Escena 1: El gancho de la herencia..."
         master_p, warnings_p = nf.normalize_master(payload_proven, "proven_slug", "Proven Title")
@@ -1339,58 +1422,58 @@ class V3ReelShortMethodTests(unittest.TestCase):
         self.assertEqual(master_p.get("source_script"), "Escena 1: El gancho de la herencia...")
 
     def test_scene_without_bridges_fails_production_validation(self):
-        # (2) escena sin entry_bridge/exit_hook falla validación en producción;
+        # (2) a scene without entry_bridge/exit_hook fails production validation;
         master, _ = nf.normalize_master(minimal_payload(), "bridge_slug", "Bridge Title")
-        # Quitamos entry_bridge en escena 2
+        # Remove entry_bridge from scene 2
         del master["scenes"][1]["entry_bridge"]
         res_entry = nf.validate_master(master, production=True)
         self.assertTrue(any("entry_bridge" in err for err in res_entry["errors"]))
 
-        # Restauramos y quitamos exit_hook en escena 2
+        # Restore it and remove exit_hook from scene 2
         master["scenes"][1]["entry_bridge"] = "Following the prior command, she walks toward the gate."
         del master["scenes"][1]["exit_hook"]
         res_exit = nf.validate_master(master, production=True)
         self.assertTrue(any("exit_hook" in err for err in res_exit["errors"]))
 
     def test_block_with_six_confrontation_beats_fails_rhythm_rule(self):
-        # (3) bloque con 6 beats de confrontación falla la regla de ritmo;
+        # (3) a block with 6 confrontation beats fails the rhythm rule;
         master, _ = nf.normalize_master(minimal_payload(), "rhythm_slug", "Rhythm Title")
-        # Establecemos 6 beats seguidos de confrontación en el bloque 1 (escenas 1 a 6)
+        # Set 6 consecutive confrontation beats in block 1 (scenes 1 to 6)
         for s in master["scenes"][:6]:
             s["beat"] = "confrontation"
         result = nf.validate_master(master)
-        self.assertTrue(any("confrontación" in err.lower() or "ritmo" in err.lower() for err in result["errors"]))
+        self.assertTrue(any("confrontation" in err.lower() or "pacing" in err.lower() for err in result["errors"]))
 
-        # Al introducir al menos 1 beat no confrontacional (ej: discovery o plan), pasa
+        # With at least 1 non-confrontation beat (e.g. discovery or plan), it passes
         master["scenes"][3]["beat"] = "discovery"
         result_fixed = nf.validate_master(master)
-        self.assertFalse(any("confrontación" in err.lower() or "ritmo" in err.lower() for err in result_fixed["errors"]))
+        self.assertFalse(any("confrontation" in err.lower() or "pacing" in err.lower() for err in result_fixed["errors"]))
 
     def test_repeated_cliffhanger_in_consecutive_blocks_fails(self):
-        # (4) cliffhanger repetido en bloques seguidos falla;
+        # (4) a repeated cliffhanger in consecutive blocks fails;
         master, _ = nf.normalize_master(minimal_payload(), "cliff_slug", "Cliff Title")
         blocks = master["narrative_continuity"]["minute_blocks"]
-        # Asignamos el mismo tipo de cliffhanger a dos bloques seguidos
+        # Assign the same cliffhanger type to two consecutive blocks
         blocks[0]["cliffhanger_type"] = "identity"
         blocks[1]["cliffhanger_type"] = "identity"
         result = nf.validate_master(master)
-        self.assertTrue(any("cliffhanger" in err.lower() and "repeti" in err.lower() for err in result["errors"]))
+        self.assertTrue(any("cliffhanger" in err.lower() and "repeat" in err.lower() for err in result["errors"]))
 
-        # Con rotación (identity -> emotion) no falla
+        # With rotation (identity -> emotion) it does not fail
         blocks[1]["cliffhanger_type"] = "emotion"
         result_ok = nf.validate_master(master)
-        self.assertFalse(any("cliffhanger" in err.lower() and "repeti" in err.lower() for err in result_ok["errors"]))
+        self.assertFalse(any("cliffhanger" in err.lower() and "repeat" in err.lower() for err in result_ok["errors"]))
 
     def test_exported_pack_contains_scene_attachments_note(self):
-        # (5) el pack exportado contiene la nota de adjuntos por escena.
-        # Comprobación en exportador 05 (Muse Method Pack)
+        # (5) the exported pack contains the per-scene attachment note.
+        # Check in exporter 05 (Muse Method Pack)
         pack = GEN05.build_pack(self.master, self.style)
         md = GEN05.render_markdown(pack)
-        self.assertIn("ADJUNTA EN CADA ESCENA", md)
-        self.assertIn("No generes ninguna escena sin sus personajes adjuntos", md)
+        self.assertIn("ATTACH FOR EVERY SCENE", md)
+        self.assertIn("Never generate a scene without its attached characters", md)
         self.assertIn("attach:", md.lower())
 
-        # Comprobación en exportador 03 (Omni Queue)
+        # Check in exporter 03 (Omni Queue)
         with tempfile.TemporaryDirectory() as tmp:
             tmp_paths = nf.project_paths(Path(tmp))
             for folder in (tmp_paths["frames"], tmp_paths["raw_clips"]):
@@ -1398,7 +1481,7 @@ class V3ReelShortMethodTests(unittest.TestCase):
             rows = GEN03.build_rows(self.master, tmp_paths, self.style, "omni")
             GEN03.write_queue_files(tmp_paths, self.master, rows, "omni")
             txt_content = tmp_paths["omni_txt"].read_text(encoding="utf-8")
-            self.assertIn("ADJUNTA EN CADA ESCENA", txt_content)
+            self.assertIn("ATTACH FOR EVERY SCENE", txt_content)
             self.assertIn("attach: [panel_", txt_content)
 
 

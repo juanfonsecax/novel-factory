@@ -21,7 +21,7 @@
     "duration_seconds": 120.02,
     "aspect": "16:9",
     "title": "The Silent Contract",
-    "description": "Ten years after the fire that ruined her family, Nora Hale returns to inherit a lighthouse and finds the town's most powerful family has been paying her dead mother's debts.\n\nA 2:00 cinematic short-drama episode in native English audio.\n\nChapters:\n00:00:00 Act 1 — The Bait\n00:01:40 Act 2 — The Trap\n\nFollow for Episode 2.\n\n#shortdrama #novel #storytime #suspense #drama #episode1\n\nVoices and visuals are AI-generated. Story and edit by the creator.",
+    "description": "Ten years after the fire that ruined her family, Nora Hale returns to inherit a lighthouse and finds the town's most powerful family has been paying her dead mother's debts.\n\nA 2:00 cinematic short-drama episode in native English audio.\n\nChapters:\n00:00:00 Act 1 — The Bait\n00:01:40 Act 2 — The Trap\n00:03:20 Act 3 — The First Crack\n00:05:00 Act 4 — The Dark Night\n00:06:40 Act 5 — The Turn\n00:08:20 Act 6 — The Payoff\n\nFollow for Episode 2.\n\n#shortdrama #novel #storytime #suspense #drama #episode1\n\nVoices and visuals are AI-generated. Story and edit by the creator.",
     "tags": [
       "shortdrama",
       "novel",
@@ -38,6 +38,22 @@
       {
         "start": 100.0,
         "title": "Act 2 — The Trap"
+      },
+      {
+        "start": 200.0,
+        "title": "Act 3 — The First Crack"
+      },
+      {
+        "start": 300.0,
+        "title": "Act 4 — The Dark Night"
+      },
+      {
+        "start": 400.0,
+        "title": "Act 5 — The Turn"
+      },
+      {
+        "start": 500.0,
+        "title": "Act 6 — The Payoff"
       }
     ]
   },

@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
-"""02 — Exporta la cola de fotogramas iniciales para la extensión de ChatGPT.
+"""02 — Export the first-frame queue for the ChatGPT extension.
 
-Genera tres artefactos en la carpeta del episodio:
-  chatgpt_image_prompts_queue.txt          -> 1 prompt por línea (cola automática)
-  chatgpt_image_prompts_queue_labeled.txt  -> legible, con el nombre de archivo esperado
-  chatgpt_image_prompts_queue.json         -> índice máquina-legible
+Generates three artifacts in the episode folder:
+  chatgpt_image_prompts_queue.txt          -> 1 prompt per line (automatic queue)
+  chatgpt_image_prompts_queue_labeled.txt  -> readable, with the expected filename
+  chatgpt_image_prompts_queue.json         -> machine-readable index
 
-El prompt final = cuerpo del maestro + sufijo de estilo global (una sola vez) +
-cláusula anti-texto. Cada línea corresponde EXACTAMENTE a:
+Final prompt = master body + global style suffix (once) + anti-text clause.
+Each line corresponds EXACTLY to:
   frames/frame_001.png ... frames/frame_060.png
 
-No abre navegadores, no toca sesiones de ChatGPT y no descarga nada: solo escribe
-texto local que tú pegas (o tu extensión de cola lee) en orden.
+Opens no browsers, touches no ChatGPT sessions and downloads nothing: it only writes
+local text that you paste (or your queue extension reads) in order.
 """
 from __future__ import annotations
 
@@ -44,10 +44,10 @@ SHEET_TEMPLATE = (
 
 
 def build_reference_sheets(master: Dict[str, Any]) -> List[Dict[str, Any]]:
-    """Hojas de referencia (PASO 0): una por personaje, se generan UNA vez antes de la cola.
+    """Reference sheets (STEP 0): one per character, generated ONCE before the queue.
 
-    Un personaje participa si define `visual_reference` (descripción de casting -> prompt de hoja)
-    o `reference_image` (ya tiene imagen propia -> solo se adjunta, no se genera).
+    A character participates if it defines `visual_reference` (casting description -> sheet prompt)
+    or `reference_image` (already has its own image -> only attach it, do not generate).
     """
     sheets: List[Dict[str, Any]] = []
     for character in master.get("characters") or []:
@@ -75,21 +75,21 @@ def write_reference_sheets(paths: Dict[str, Path], master: Dict[str, Any], sheet
     ep = nf.episode_meta(master)
     refs_dir = paths.get("references") or (paths["root"] / "references")
     lines = [
-        f"NOVEL FACTORY — Hojas de referencia de personajes (PASO 0) · {ep.get('title') or ep.get('slug')}",
+        f"NOVEL FACTORY — Character reference sheets (STEP 0) · {ep.get('title') or ep.get('slug')}",
         "",
-        "Esto se genera UNA sola vez por episodio, ANTES de la cola de frames:",
-        "  1. Abre una conversación nueva de ChatGPT con generación de imágenes.",
-        "  2. Pega el prompt de cada personaje; guarda el resultado en la carpeta del",
-        f"     proyecto: {refs_dir}",
-        "     con el nombre exacto que se indica abajo (reference_<id>.png).",
-        "  3. Recorta además la cara en primer plano de cada personaje y guarda el",
-        "     recorte en la misma carpeta como reference_<id>_face.png (se adjunta en las",
-        "     escenas donde ese personaje HABLA).",
-        "  4. Adjunta TODAS las hojas de referencia a la conversación y déjalas ahí",
-        "     mientras generas frame_001.png … frame_060.png (chatgpt_image_prompts_queue.txt).",
-        "     En escenas habladas adjunta también el recorte reference_<id>_face.png del hablante.",
-        "  5. Los prompts de escena nombran al personaje y su archivo reference_<id>.png:",
-        "     la cara nunca se describe en texto, se copia de estas hojas.",
+        "This is generated ONCE per episode, BEFORE the frame queue:",
+        "  1. Open a new ChatGPT conversation with image generation.",
+        "  2. Paste each character prompt; save the result in the project",
+        f"     folder: {refs_dir}",
+        "     with the exact filename shown below (reference_<id>.png).",
+        "  3. Also crop each character's face in close-up and save the",
+        "     crop in the same folder as reference_<id>_face.png (attached in",
+        "     scenes where that character SPEAKS).",
+        "  4. Attach ALL reference sheets to the conversation and keep them there",
+        "     while you generate frame_001.png … frame_060.png (chatgpt_image_prompts_queue.txt).",
+        "     In speaking scenes also attach the speaker's reference_<id>_face.png crop.",
+        "  5. Scene prompts name the character and their reference_<id>.png file:",
+        "     the face is never described in text; it is copied from these sheets.",
         "",
     ]
     for sheet in sheets:
@@ -97,18 +97,18 @@ def write_reference_sheets(paths: Dict[str, Path], master: Dict[str, Any], sheet
         if sheet["prompt"]:
             lines.append(sheet["prompt"])
         else:
-            lines.append(f"Ya tienes una imagen de referencia ({sheet['existing_image']}): "
-                         "adjúntala a la conversación; no hace falta generarla.")
+            lines.append(f"You already have a reference image ({sheet['existing_image']}): "
+                         "attach it to the conversation; no need to generate it.")
         lines.append("")
     out = paths.get("chatgpt_refs") or (paths["root"] / "chatgpt_reference_sheets.txt")
     return nf.write_text(out, "\n".join(lines))
 
 
 def compose_image_prompt(body: str, style: Dict[str, Any]) -> str:
-    """Cuerpo del maestro + sufijo de estilo (sin duplicar) + cláusula anti-texto.
+    """Master body + style suffix (no duplication) + anti-text clause.
 
-    Si la escena trae la excepción de texto diegético (p. ej. CONFESSION), no se
-    añade la cláusula genérica anti-texto: esa escena declara su único texto legible.
+    If the scene carries the diegetic-text exception (e.g. CONFESSION), the generic
+    anti-text clause is not added: that scene declares its only legible text.
     """
     prompt = " ".join(str(body or "").split())
     if not prompt:
@@ -127,7 +127,7 @@ def compose_image_prompt(body: str, style: Dict[str, Any]) -> str:
 
 
 def face_crop_name(reference: str) -> str:
-    """Recorte de cara para escenas donde el personaje habla: reference_<id>_face.png."""
+    """Face crop for scenes where the character speaks: reference_<id>_face.png."""
     value = str(reference or "").strip()
     if value.lower().endswith(".png"):
         return value[:-4] + "_face.png"
@@ -135,7 +135,7 @@ def face_crop_name(reference: str) -> str:
 
 
 def scene_cast_entries(master: Dict[str, Any], scene: Dict[str, Any]) -> List[Dict[str, Any]]:
-    """Reparto canónico de la escena con posición fija y hoja de referencia."""
+    """Canonical scene cast with fixed position and reference sheet."""
     positions = nf.character_position_map(master)
     out: List[Dict[str, Any]] = []
     for character in nf.scene_cast(master, scene):
@@ -160,7 +160,7 @@ def _identity_anchor(cast: List[Dict[str, Any]]) -> str:
 
 
 def teaser_cover_scenes(master: Dict[str, Any]) -> List[int]:
-    """Primera escena de cada teaser: portada candidata 9:16."""
+    """First scene of each teaser: candidate 9:16 cover."""
     covers: List[int] = []
     for teaser in master.get("teasers") or []:
         if not isinstance(teaser, dict):
@@ -221,40 +221,40 @@ def write_queue_files(paths: Dict[str, Path], master: Dict[str, Any], entries: L
     nf.write_text(paths["chatgpt_txt"], pure)
 
     labeled_lines = [
-        f"NOVEL FACTORY — Cola de fotogramas iniciales (ChatGPT) · {title}",
-        f"Escenas: {len(entries)} · Carpeta destino: {paths['frames']}",
+        f"NOVEL FACTORY — First-frame queue (ChatGPT) · {title}",
+        f"Scenes: {len(entries)} · Destination folder: {paths['frames']}",
         "",
     ]
     if master.get("source_mode") == "original_unproven":
         labeled_lines += [
-            "⚠️ WARNING: source_mode es 'original_unproven' — Guion generado sin fuente probada.",
+            "⚠️ WARNING: source_mode is 'original_unproven' — script generated without a proven source.",
             "",
         ]
     labeled_lines += [
-        "Cómo usarla:",
-        "  0. Genera PRIMERO las hojas de referencia con chatgpt_reference_sheets.txt (una sola vez)",
-        "     y adjúntalas TODAS en la conversación de ChatGPT.",
-        "  1. Cada prompt nombra al personaje y su reference_<id>.png: la cara se copia de esas",
-        "     hojas, nunca se describe en texto.",
-        "  2. Carga chatgpt_image_prompts_queue.txt en tu extensión de cola (1 prompt por línea).",
-        "  3. Guarda cada imagen generada como frame_001.png ... frame_060.png en frames/.",
-        "  4. Verifica con: python generators/02_export_chatgpt_queue.py "
+        "How to use it:",
+        "  0. Generate the reference sheets FIRST with chatgpt_reference_sheets.txt (once)",
+        "     and attach ALL of them in the ChatGPT conversation.",
+        "  1. Each prompt names the character and their reference_<id>.png: the face is copied from those",
+        "     sheets, never described in text.",
+        "  2. Load chatgpt_image_prompts_queue.txt in your queue extension (1 prompt per line).",
+        "  3. Save each generated image as frame_001.png ... frame_060.png in frames/.",
+        "  4. Verify with: python generators/02_export_chatgpt_queue.py "
         f"{ep.get('slug', '')} --check --strict",
         "",
     ]
     for entry in entries:
         cast_note = ", ".join(
-            f"{c['name']} (Pos #{c.get('position') or '?'}{'; habla' if c.get('speaks') else ''})"
+            f"{c['name']} (Pos #{c.get('position') or '?'}{'; speaks' if c.get('speaks') else ''})"
             for c in entry["cast"]
         ) or "—"
-        cover = "  [9:16 PORTADA]" if entry["teaser_cover"] else ""
+        cover = "  [9:16 COVER]" if entry["teaser_cover"] else ""
         attach = ", ".join(entry.get("references") or []) or "—"
         if entry.get("face_crops"):
-            attach += " + " + ", ".join(entry["face_crops"]) + " (recorte de cara del hablante)"
+            attach += " + " + ", ".join(entry["face_crops"]) + " (speaker face crop)"
         labeled_lines += [
             f"=== SCENE {entry['scene_id']:03d} | {entry['filename']} | {entry['shot']} | "
             f"{entry['location']} | cast: {cast_note}{cover} ===",
-            f"Adjuntar: {attach}",
+            f"Attach: {attach}",
             entry["prompt"],
             "",
         ]
@@ -264,15 +264,15 @@ def write_queue_files(paths: Dict[str, Path], master: Dict[str, Any], entries: L
         "episode": ep.get("slug"),
         "title": title,
         "count": len(entries),
-        "note": "Cada prompt ya incluye el sufijo de estilo global y la cláusula anti-texto "
-                "(las escenas con texto diegético declarado usan su excepción). "
-                "face_crops lista los recortes reference_<id>_face.png a adjuntar en escenas habladas.",
+        "note": "Each prompt already includes the global style suffix and anti-text clause "
+                "(scenes with declared diegetic text use their exception). "
+                "face_crops lists the reference_<id>_face.png crops to attach in speaking scenes.",
         "items": entries,
     })
 
 
 def compose_vertical_prompt(body: str, style: Dict[str, Any]) -> str:
-    """Igual que el horizontal, pero forzando encuadre 9:16 (portada de teaser)."""
+    """Same as horizontal, but forcing 9:16 framing (teaser cover)."""
     prompt = compose_image_prompt(body, style)
     prompt = prompt.replace("16:9 widescreen cinematic still.", "9:16 vertical cinematic still.")
     if "9:16" not in prompt.lower():
@@ -283,23 +283,23 @@ def compose_vertical_prompt(body: str, style: Dict[str, Any]) -> str:
 def write_thumbnail_prompts(
     paths: Dict[str, Path], master: Dict[str, Any], style: Dict[str, Any], entries: List[Dict[str, Any]]
 ) -> Optional[Path]:
-    """Portadas 9:16 para los teasers (la primera escena de cada ventana de 6)."""
+    """9:16 teaser covers (the first scene of each 6-scene window)."""
     by_id = {e["scene_id"]: e for e in entries}
     covers = teaser_cover_scenes(master)
     if not covers:
         return None
     lines = [
-        "NOVEL FACTORY — Portadas de teaser 9:16 (opcional, 3 imágenes verticales)",
+        "NOVEL FACTORY — 9:16 teaser covers (optional, 3 vertical images)",
         "",
-        "Genera estas portadas ADEMÁS de los frames 16:9 del proyecto. Mismo personaje y referencia.",
-        "Nombre sugerido: thumbnail_teaser_01.png … thumbnail_teaser_03.png",
+        "Generate these covers IN ADDITION to the project's 16:9 frames. Same character and reference.",
+        "Suggested filename: thumbnail_teaser_01.png … thumbnail_teaser_03.png",
         "",
     ]
     for idx, sid in enumerate(covers, start=1):
         entry = by_id.get(sid)
         body = str(entry["prompt"]) if entry else ""
         lines += [
-            f"=== TEASER {idx} | portada de scene {sid:03d} -> thumbnail_teaser_{idx:02d}.png ===",
+            f"=== TEASER {idx} | cover for scene {sid:03d} -> thumbnail_teaser_{idx:02d}.png ===",
             compose_vertical_prompt(body, style),
             "",
         ]
@@ -308,11 +308,11 @@ def write_thumbnail_prompts(
 
 
 ROLE_LABELS = {
-    "protagonist": "Protagonista",
-    "love_interest": "Interés romántico",
-    "antagonist": "Antagonista",
-    "antagonist_heir": "Heredero antagonista",
-    "ally": "Aliada",
+    "protagonist": "Protagonist",
+    "love_interest": "Love interest",
+    "antagonist": "Antagonist",
+    "antagonist_heir": "Antagonist heir",
+    "ally": "Ally",
     "mentor": "Mentor",
     "supporting": "Secundario",
 }
@@ -356,7 +356,7 @@ def _character_visual(character: Dict[str, Any]) -> str:
         or character.get("appearance")
         or ""
     ).strip()
-    return visual or "rasgos y complexion definidos por su ficha de casting"
+    return visual or "features and build defined by the casting sheet"
 
 
 def _character_wardrobe(character: Dict[str, Any]) -> str:
@@ -374,11 +374,11 @@ def _character_wardrobe(character: Dict[str, Any]) -> str:
     match = re.search(r"signature\s+(.+?)(?:\.|$)", _character_visual(character), flags=re.IGNORECASE)
     if match:
         return match.group(1).strip()
-    return "el vestuario principal descrito en su ficha de casting"
+    return "the main wardrobe described in the casting sheet"
 
 
 def short_scene_brief(scene: Dict[str, Any], max_words: int = 10) -> str:
-    """Resumen de 5–10 palabras para una viñeta del storyboard."""
+    """5-10 word summary for a storyboard panel."""
     cuts = [c for c in (scene.get("internal_cuts") or []) if isinstance(c, dict)]
     candidates = [
         str(cuts[0].get("action") or "") if cuts else "",
@@ -396,7 +396,7 @@ def short_scene_brief(scene: Dict[str, Any], max_words: int = 10) -> str:
 
 
 def scene_breakdown_lines(master: Dict[str, Any]) -> List[str]:
-    """Todas las escenas del proyecto (nunca truncadas) para PROMPT 001."""
+    """All project scenes (never truncated) for PROMPT 001."""
     lines: List[str] = []
     for scene in nf.ordered_scenes(master):
         sid = int(scene.get("scene_id") or 0)
@@ -405,10 +405,10 @@ def scene_breakdown_lines(master: Dict[str, Any]) -> List[str]:
             f"{entry['speaker']}: {entry['line']}" for entry in nf.scene_dialogue_lines(scene)
         ) or "—"
         lines.append(
-            f"ESCENA {sid:03d} | Acto {int(scene.get('act') or 0)} | "
+            f"SCENE {sid:03d} | Act {int(scene.get('act') or 0)} | "
             f"{str(scene.get('location') or '—')} | {str(scene.get('time_of_day') or '—')} | "
             f"Hook: {str(scene.get('on_screen_hook') or '—')} | Cast: {cast} | "
-            f"Diálogo: {dialogue}"
+            f"Dialogue: {dialogue}"
         )
     return lines
 
@@ -428,11 +428,11 @@ def _storyboard_grid_prompt(
     last = int(group[-1].get("scene_id") or first)
     visual = str((style.get("visual_style_lock") or {}).get("look") or "").strip()
     lines = [
-        f"Usando los personajes de REF_CAST_MASTER.png como referencia fija de rostros, edades, cuerpos y vestuarios, genera UNA IMAGEN horizontal 16:9 de Storyboard dividida en una cuadrícula limpia de 3x2 (6 viñetas numeradas del 1 al 6) que represente el MINUTO {batch_number} (Escenas {first} a {last}) de la historia en estilo Cinematográfico Realista 35mm:",
+        f"Using the characters in REF_CAST_MASTER.png as fixed references for faces, ages, bodies and wardrobes, generate A SINGLE horizontal 16:9 storyboard IMAGE divided into a clean 3x2 grid (6 panels numbered 1 to 6) representing MINUTE {batch_number} (Scenes {first} to {last}) of the story in Realistic Cinematic 35mm style:",
         "",
     ]
     if visual:
-        lines += [f"Look visual: {visual}.", ""]
+        lines += [f"Visual look: {visual}.", ""]
     for idx, scene in enumerate(group, start=1):
         sid = int(scene.get("scene_id") or 0)
         location = str(scene.get("location") or "").strip()
@@ -443,13 +443,13 @@ def _storyboard_grid_prompt(
         ).strip()
         place = f" ({location})" if location else ""
         lines.append(
-            f"Viñeta {idx} — Escena {sid}{place}: {panel} "
+            f"Panel {idx} — Scene {sid}{place}: {panel} "
             f"Identity anchors: {anchors or 'use the cast sheet positions exactly as attached'}."
         )
     lines += [
         "",
-        "Mantén continuidad exacta de posiciones, rostros, cuerpos, vestuario, props, locaciones, luz y hora del día entre las 6 viñetas. Cada viñeta es el PRIMER FRAME literal de la Toma 1 de su escena: mismo encuadre, misma cámara, mismo blocking y mismo objeto clave; la acción ya está en movimiento, nunca congelada. Cada viñeta es un plano cinematográfico 16:9 con acción legible.",
-        "FORMATO DE VIÑETAS 100% VISUAL (SIN CAJAS DE TEXTO): Las 6 viñetas fotográficas en cuadrícula 3x2 deben ocupar el 100% del lienzo 16:9 separadas únicamente por líneas divisorias finas. Coloca SOLO el número pequeño [1], [2], [3], [4], [5], [6] en la esquina superior izquierda de cada viñeta. PROHIBIDO dibujar barras inferiores oscuras, subtítulos, cajas de texto o descripciones escritas dentro de la imagen.",
+        "Keep exact continuity of positions, faces, bodies, wardrobe, props, locations, lighting and time of day across the 6 panels. Each panel is the literal FIRST FRAME of Shot 1 in its scene: same framing, same camera, same blocking and same key object; the action is already in motion, never frozen. Each panel is a 16:9 cinematic shot with legible action.",
+        "100% VISUAL PANEL FORMAT (NO TEXT BOXES): The 6 photographic panels in a 3x2 grid must fill 100% of the 16:9 canvas, separated only by thin divider lines. Place ONLY the small number [1], [2], [3], [4], [5], [6] in the top-left corner of each panel. Drawing dark bottom bars, subtitles, text boxes or written descriptions inside the image is FORBIDDEN.",
     ]
     return "\n".join(lines)
 
@@ -459,7 +459,7 @@ def build_storyboard_grid_items(
     style: Dict[str, Any],
     pack: Optional[Dict[str, Any]] = None,
 ) -> List[Dict[str, Any]]:
-    """Cola de imágenes: 1 hoja de casting + un storyboard de 6 viñetas por bloque."""
+    """Image queue: 1 cast sheet + one 6-panel storyboard per block."""
     pack = pack or mpl.build_prompt_pack(master, style)
     ep = nf.episode_meta(master)
     title = str(ep.get("title") or ep.get("slug") or "Episodio")
@@ -474,7 +474,7 @@ def build_storyboard_grid_items(
         "kind": "cast_sheet",
         "minute": 0,
         "scenes": [],
-        "title": f"Hoja maestra de personajes — {title}",
+        "title": f"Master character sheet — {title}",
         "prompt": cast_prompt,
     }]
     for batch_number, group in enumerate(groups, start=1):
@@ -488,14 +488,14 @@ def build_storyboard_grid_items(
             "kind": "storyboard_grid",
             "minute": batch_number,
             "scenes": [int(scene.get("scene_id") or 0) for scene in group],
-            "title": f"Storyboard minuto {batch_number}: escenas {first}–{last}",
+            "title": f"Storyboard minute {batch_number}: scenes {first}–{last}",
             "prompt": _storyboard_grid_prompt(master, style, batch_number, group, total_batches),
         })
     return items
 
 
 def render_storyboard_grid_queue_text(items: List[Dict[str, Any]]) -> str:
-    """Una línea por prompt (formato de cola de la extensión de ChatGPT)."""
+    """One line per prompt (ChatGPT extension queue format)."""
     return "\n".join(" ".join(str(item.get("prompt") or "").split()) for item in items) + "\n"
 
 
@@ -505,7 +505,7 @@ def write_storyboard_grid_queue(
     style: Dict[str, Any],
     pack: Optional[Dict[str, Any]] = None,
 ) -> Dict[str, Path]:
-    """Exporta la cola de imágenes (cast sheet + un grid por bloque) en .txt y .json."""
+    """Export the image queue (cast sheet + one grid per block) as .txt and .json."""
     root = paths["root"]
     ep = nf.episode_meta(master)
     items = build_storyboard_grid_items(master, style, pack)
@@ -518,8 +518,8 @@ def write_storyboard_grid_queue(
         "episode": ep.get("slug"),
         "title": ep.get("title"),
         "count": len(items),
-        "note": f"1 hoja de personajes (REF_CAST_MASTER.png) + {storyboard_count} storyboards "
-                f"de 6 viñetas (REF_GRID_MIN_01.png … REF_GRID_MIN_{storyboard_count:02d}.png).",
+        "note": f"1 character sheet (REF_CAST_MASTER.png) + {storyboard_count} storyboards "
+                f"with 6 panels (REF_GRID_MIN_01.png … REF_GRID_MIN_{storyboard_count:02d}.png).",
         "items": items,
     })
     return {"txt": txt_path, "json": json_path, "items": items}
@@ -530,7 +530,7 @@ def write_master_image_prompt_files(
     master: Dict[str, Any],
     style: Dict[str, Any],
 ) -> Dict[str, Path]:
-    """Exporta PROMPT 001, PROMPT 002 y la cola de imágenes del proyecto."""
+    """Export PROMPT 001, PROMPT 002 and the project image queue."""
     pack = mpl.build_prompt_pack(master, style)
     by_key = {prompt["key"]: prompt for prompt in pack["prompts"]}
     root = paths["root"]
@@ -544,26 +544,26 @@ def write_master_image_prompt_files(
     prompt_002 = paths.get("chatgpt_prompt_002") or (root / "chatgpt_prompt_002_characters.txt")
 
     header_001 = (
-        f"NOVEL FACTORY — PROMPT 001 — GENERADOR DE STORYBOARD · {title}\n"
-        f"Incluye la historia completa ({total_scenes} escenas, sin truncar) y los "
-        f"{storyboard_count} prompts individuales de una imagen por minuto.\n\n"
+        f"NOVEL FACTORY — PROMPT 001 — STORYBOARD GENERATOR · {title}\n"
+        f"Includes the full story ({total_scenes} scenes, untruncated) and the "
+        f"{storyboard_count} individual prompts for one image per minute.\n\n"
     )
     header_002 = (
-        f"NOVEL FACTORY — PROMPT 002 — HOJA MAESTRA DE PERSONAJES · {title}\n"
-        "Adjunta el storyboard creado con PROMPT 001 antes de pegar este prompt.\n\n"
+        f"NOVEL FACTORY — PROMPT 002 — MASTER CHARACTER SHEET · {title}\n"
+        "Attach the storyboard created with PROMPT 001 before pasting this prompt.\n\n"
     )
     storyboard_lines = [
         header_001.rstrip(),
         by_key["prompt_001"]["text"].strip(),
         "",
         "=" * 78,
-        f"HISTORIA COMPLETA — {total_scenes} ESCENAS (SIN TRUNCAR)",
+        f"FULL STORY — {total_scenes} SCENES (UNTRUNCATED)",
         "=" * 78,
         "",
         *scene_breakdown_lines(master),
         "",
         "=" * 78,
-        f"{storyboard_count} PROMPTS INDIVIDUALES — UNA IMAGEN DE STORYBOARD POR MINUTO",
+        f"{storyboard_count} INDIVIDUAL PROMPTS — ONE STORYBOARD IMAGE PER MINUTE",
         "=" * 78,
         "",
     ]
@@ -596,12 +596,12 @@ def run_check(
         else:
             missing.append(entry["scene_id"])
     nf.log("")
-    nf.info(f"Frames presentes: {len(present)}/{len(entries)}")
+    nf.info(f"Frames present: {len(present)}/{len(entries)}")
     ok = True
     if missing:
-        nf.warn(f"Faltan {len(missing)} frames: {', '.join(str(i) for i in missing[:20])}" +
+        nf.warn(f"Missing {len(missing)} frames: {', '.join(str(i) for i in missing[:20])}" +
                 (" …" if len(missing) > 20 else ""))
-        nf.info("Esperados como frame_XXX.png / .jpg / .jpeg / .webp en " + str(paths["frames"]))
+        nf.info("Expected as frame_XXX.png / .jpg / .jpeg / .webp in " + str(paths["frames"]))
         if not allow_missing:
             ok = False
 
@@ -610,33 +610,33 @@ def run_check(
         missing_refs = [s for s in sheets if not (refs_dir / s["filename"]).exists() and not s.get("existing_image")]
         if missing_refs:
             names = ", ".join(s["filename"] for s in missing_refs)
-            msg = f"Faltan {len(missing_refs)} hojas de referencia en {refs_dir}: {names}"
+            msg = f"Missing {len(missing_refs)} reference sheets in {refs_dir}: {names}"
             if strict:
                 nf.err(msg)
                 ok = False
             else:
-                nf.warn(msg + " (usa --strict para que sea error)")
+                nf.warn(msg + " (use --strict to make it an error)")
         else:
-            nf.ok(f"Hojas de referencia presentes: {len(sheets)}.")
+            nf.ok(f"Reference sheets present: {len(sheets)}.")
 
     if ok:
-        nf.ok("Los fotogramas iniciales (y sus referencias) están en su sitio.")
+        nf.ok("First frames (and their references) are in place.")
         return 0
     return 0 if allow_missing else 1
 
 
 def main(argv: Optional[List[str]] = None) -> int:
-    parser = argparse.ArgumentParser(description="02 — Cola de prompts de fotogramas para ChatGPT.")
-    parser.add_argument("project", help="Slug del episodio.")
-    parser.add_argument("--check", action="store_true", help="Solo verifica los frames en frames/.")
-    parser.add_argument("--allow-missing", action="store_true", help="No falla si faltan frames.")
-    parser.add_argument("--strict", action="store_true", help="Falla también si faltan hojas de referencia.")
-    parser.add_argument("--show", type=str, default="", help="Imprime los prompts de un rango (ej: 1-3).")
+    parser = argparse.ArgumentParser(description="02 — ChatGPT frame prompt queue.")
+    parser.add_argument("project", help="Episode slug.")
+    parser.add_argument("--check", action="store_true", help="Only verify the frames in frames/.")
+    parser.add_argument("--allow-missing", action="store_true", help="Do not fail if frames are missing.")
+    parser.add_argument("--strict", action="store_true", help="Also fail if reference sheets are missing.")
+    parser.add_argument("--show", type=str, default="", help="Print prompts from a range (e.g. 1-3).")
     args = parser.parse_args(argv)
 
     nf.log("")
     nf.log("=" * 70)
-    nf.log("  NOVEL FACTORY — 02 · Cola de fotogramas iniciales (ChatGPT)")
+    nf.log("  NOVEL FACTORY — 02 · First-frame queue (ChatGPT)")
     nf.log("=" * 70)
 
     paths = nf.resolve_project(args.project)
@@ -650,28 +650,28 @@ def main(argv: Optional[List[str]] = None) -> int:
         write_queue_files(paths, master, entries)
         image_prompts = write_master_image_prompt_files(paths, master, style)
         nf.log("")
-        nf.ok(f"{len(entries)} prompts exportados:")
-        nf.info(f"{paths['chatgpt_txt'].name}          (cola pura, 1 prompt por línea)")
-        nf.info(f"chatgpt_image_prompts_queue_labeled.txt (con nombre de archivo por escena)")
-        nf.info(f"{paths['chatgpt_json'].name}         (índice JSON)")
+        nf.ok(f"{len(entries)} prompts exported:")
+        nf.info(f"{paths['chatgpt_txt'].name}          (pure queue, 1 prompt per line)")
+        nf.info(f"chatgpt_image_prompts_queue_labeled.txt (with filename per scene)")
+        nf.info(f"{paths['chatgpt_json'].name}         (JSON index)")
         grid_count = nf.master_target_minutes(master)
-        nf.ok("Prompts maestros de imagen:")
-        nf.info(f"{image_prompts['prompt_001'].name}  (PROMPT 001 — {len(entries)} escenas + {grid_count} grids)")
-        nf.info(f"{image_prompts['prompt_002'].name}  (PROMPT 002 — hoja maestra de personajes)")
-        nf.info(f"{image_prompts['grids_txt'].name}  (cola de {grid_count + 1} imágenes: 1 cast + {grid_count} grids)")
-        nf.info(f"{image_prompts['grids_json'].name} (manifiesto de la cola de {grid_count + 1} imágenes)")
+        nf.ok("Master image prompts:")
+        nf.info(f"{image_prompts['prompt_001'].name}  (PROMPT 001 — {len(entries)} scenes + {grid_count} grids)")
+        nf.info(f"{image_prompts['prompt_002'].name}  (PROMPT 002 — master character sheet)")
+        nf.info(f"{image_prompts['grids_txt'].name}  (queue of {grid_count + 1} images: 1 cast + {grid_count} grids)")
+        nf.info(f"{image_prompts['grids_json'].name} (manifest for the queue of {grid_count + 1} images)")
 
     if not args.check:
         if sheets:
             refs_path = write_reference_sheets(paths, master, sheets)
             to_generate = sum(1 for s in sheets if s["prompt"])
-            nf.ok(f"PASO 0 — hojas de referencia: {len(sheets)} personaje(s), {to_generate} por generar.")
-            nf.info(f"{refs_path.name}   (adjúntalas en ChatGPT antes de la cola)")
+            nf.ok(f"STEP 0 — reference sheets: {len(sheets)} character(s), {to_generate} to generate.")
+            nf.info(f"{refs_path.name}   (attach them in ChatGPT before the queue)")
         else:
-            nf.info("Sin visual_reference/reference_image en el maestro: adjunta tus propias imágenes de referencia.")
+            nf.info("No visual_reference/reference_image in the master: attach your own reference images.")
         thumbs = write_thumbnail_prompts(paths, master, style, entries)
         if thumbs:
-            nf.ok(f"Portadas 9:16 de teaser: {thumbs.name}")
+            nf.ok(f"9:16 teaser covers: {thumbs.name}")
 
     if args.show:
         want = set(nf.parse_ranges(args.show))
@@ -685,7 +685,7 @@ def main(argv: Optional[List[str]] = None) -> int:
     rc = run_check(paths, entries, args.allow_missing, sheets=sheets, strict=args.strict) if (args.check or not args.show) else 0
     if not args.check and not args.show:
         nf.log("")
-        nf.log(f"  Siguiente: genera los frames y confirma con --check, luego")
+        nf.log(f"  Next: generate the frames and confirm with --check, then")
         nf.log(f"  python generators/03_export_omni_queue.py {args.project}")
         nf.log("")
     return rc

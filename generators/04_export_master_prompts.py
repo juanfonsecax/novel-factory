@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
-"""04 — Exporta los cuatro prompts maestros rellenados con el proyecto.
+"""04 - Export the four master prompts filled with project data.
 
-Salidas en la carpeta del episodio:
-  MASTER_PROMPTS.md              (lectura + bloques copiables)
-  MASTER_PROMPTS.txt             (texto plano, ideal para copiar y pegar)
-  master_prompts.json            (manifiesto con valores y prompts renderizados)
-  prompts/PROMPT_000_...txt      (un archivo por prompt, listo para copiar)
+Outputs in the episode folder:
+  MASTER_PROMPTS.md              (readable + copyable blocks)
+  MASTER_PROMPTS.txt             (plain text, easy to copy and paste)
+  master_prompts.json            (manifest with values and rendered prompts)
+  prompts/PROMPT_000_...txt      (one file per prompt, ready to copy)
 
-Uso:
-  python generators/04_export_master_prompts.py mi_episodio
-  python generators/04_export_master_prompts.py mi_episodio --show prompt_003
-  python generators/04_export_master_prompts.py mi_episodio --out-dir "C:\\salida"
+Usage:
+  python generators/04_export_master_prompts.py my_episode
+  python generators/04_export_master_prompts.py my_episode --show prompt_003
+  python generators/04_export_master_prompts.py my_episode --out-dir "C:\\output"
 """
 from __future__ import annotations
 
@@ -52,17 +52,17 @@ def export_prompts(project: str | Path, out_dir: Optional[Path] = None) -> Dict[
 
 def main(argv: Optional[list[str]] = None) -> int:
     parser = argparse.ArgumentParser(
-        description="04 — Exporta PROMPT 000/001/002/003 rellenados con los datos del episodio.",
+        description="04 - Export PROMPT 000/001/002/003 filled with episode data.",
     )
-    parser.add_argument("project", help="Slug del episodio o ruta a su carpeta.")
-    parser.add_argument("--out-dir", default="", help="Carpeta de salida (por defecto, la del proyecto).")
-    parser.add_argument("--show", default="", help="Imprime un prompt: prompt_000..prompt_003 o all.")
-    parser.add_argument("--quiet", action="store_true", help="No imprime el resumen.")
+    parser.add_argument("project", help="Episode slug or path to its folder.")
+    parser.add_argument("--out-dir", default="", help="Output folder (defaults to the project folder).")
+    parser.add_argument("--show", default="", help="Print one prompt: prompt_000..prompt_003 or all.")
+    parser.add_argument("--quiet", action="store_true", help="Do not print the summary.")
     args = parser.parse_args(argv)
 
     nf.log("")
     nf.log("=" * 70)
-    nf.log("  NOVEL FACTORY — 04 · Prompts maestros (000/001/002/003)")
+    nf.log("  NOVEL FACTORY - 04 - Master prompts (000/001/002/003)")
     nf.log("=" * 70)
 
     result = export_prompts(args.project, Path(args.out_dir) if args.out_dir else None)
@@ -71,14 +71,14 @@ def main(argv: Optional[list[str]] = None) -> int:
     target_root = result["target_root"]
 
     if not args.quiet:
-        nf.ok(f"Prompts exportados en: {target_root}")
-        nf.info(written["markdown"].name + "  (lectura + bloques copiables)")
-        nf.info(written["plain"].name + "     (texto plano)")
-        nf.info(written["json"].name + "    (manifiesto)")
-        nf.info("prompts/  (4 archivos .txt individuales)")
+        nf.ok(f"Prompts exported to: {target_root}")
+        nf.info(written["markdown"].name + "  (readable + copyable blocks)")
+        nf.info(written["plain"].name + "     (plain text)")
+        nf.info(written["json"].name + "    (manifest)")
+        nf.info("prompts/  (4 individual .txt files)")
         nf.log("")
         for prompt in pack["prompts"]:
-            nf.info(f"{prompt['code']}: {prompt['chars']:,} chars · {prompt['words']:,} palabras")
+            nf.info(f"{prompt['code']}: {prompt['chars']:,} chars - {prompt['words']:,} words")
 
     if args.show:
         wanted = {p["key"] for p in pack["prompts"]} if args.show == "all" else {args.show}
@@ -86,7 +86,7 @@ def main(argv: Optional[list[str]] = None) -> int:
         for prompt in pack["prompts"]:
             if prompt["key"] in wanted:
                 nf.log("=" * 70)
-                nf.log(f"{prompt['code']} — {prompt['title']}")
+                nf.log(f"{prompt['code']} - {prompt['title']}")
                 nf.log("=" * 70)
                 nf.log(prompt["text"])
                 nf.log("")

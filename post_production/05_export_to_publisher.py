@@ -1,28 +1,28 @@
 #!/usr/bin/env python3
-"""05 — Puente novel_factory -> publicador de USA WHITE (por archivos, sin tocar su código).
+"""05 — Bridge from novel_factory to the USA WHITE publisher (file-based, no code changes there).
 
-Qué hace:
-  1. Localiza el sistema publicador (carpeta USA WHITE: cola/pendientes + src/orquestador.py).
-  2. Toma los 3 teasers 9:16 renderizados por 04 (o los que existan) y arma un post JSON
-     con el esquema EXACTO que ya consume el orquestador / auto_runner:
+What it does:
+  1. Locates the publisher system (USA WHITE folder: cola/pendientes + src/orquestador.py).
+  2. Takes the three 9:16 teasers rendered by 04 (or whichever exist) and builds a JSON post
+     with the EXACT schema already consumed by the orchestrator / auto_runner:
         id, personaje_id, tipo="reel", fecha_creacion, archivo_media, hook, caption,
         estado="pendiente_aprobacion", final_video=true, output_filename, plataformas
-  3. Copia el MP4 junto al JSON en cola/pendientes/ (el orquestador busca la media ahí).
-  4. Imprime cómo lanzar la publicación (manual segura o daemon por horarios).
+  3. Copies the MP4 next to the JSON in cola/pendientes/ (the orchestrator looks for media there).
+  4. Prints how to launch publishing (safe manual run or scheduled daemon).
 
-Seguridad:
-  - Por defecto es PLAN (dry-run): no escribe nada. Con --apply copia de verdad.
-  - No duplica: si el JSON o el MP4 ya existen en la cola, se omite (salvo --force).
-  - El id incluye el slug del episodio; los teasers entran ordenados 01, 02, 03.
-  - NO se exporta el master largo: el publicador de YouTube de USA WHITE es solo Shorts;
-    el master se sube a mano con output/publish_pack/youtube_master.md.
+Safety:
+  - PLAN (dry-run) by default: writes nothing. With --apply it really copies.
+  - No duplicates: if the JSON or MP4 already exists in the queue, it is skipped (unless --force).
+  - The id includes the episode slug; teasers are queued in order 01, 02, 03.
+  - The long master is NOT exported: the USA WHITE YouTube publisher is Shorts-only;
+    upload the master manually with output/publish_pack/youtube_master.md.
 
-Uso:
-  python post_production/05_export_to_publisher.py mi_episodio                  (plan)
-  python post_production/05_export_to_publisher.py mi_episodio --apply          (exporta)
-  python post_production/05_export_to_publisher.py mi_episodio --only 1,2 --apply
-  python post_production/05_export_to_publisher.py mi_episodio --publisher-root "C:\\ruta\\USA WHITE" --apply
-  python post_production/05_export_to_publisher.py mi_episodio --personaje eva_hayes --apply
+Usage:
+  python post_production/05_export_to_publisher.py my_episode                  (plan)
+  python post_production/05_export_to_publisher.py my_episode --apply          (export)
+  python post_production/05_export_to_publisher.py my_episode --only 1,2 --apply
+  python post_production/05_export_to_publisher.py my_episode --publisher-root "C:\\path\\USA WHITE" --apply
+  python post_production/05_export_to_publisher.py my_episode --personaje eva_hayes --apply
 """
 from __future__ import annotations
 
@@ -40,7 +40,7 @@ import nf_core as nf  # noqa: E402
 
 
 # ---------------------------------------------------------------------------
-# Localización del publicador
+# Publisher location
 # ---------------------------------------------------------------------------
 def _looks_like_publisher(path: Path) -> bool:
     return (
@@ -50,10 +50,10 @@ def _looks_like_publisher(path: Path) -> bool:
 
 
 def find_publisher_root(explicit: str = "") -> Optional[Path]:
-    """Devuelve la raíz de USA WHITE. Si falla, None (el llamador explica cómo arreglarlo).
+    """Return the USA WHITE root. On failure, None (the caller explains how to fix it).
 
-    Con --publisher-root se busca SOLO ahí (la carpeta, su padre y sus hijas directas);
-    nunca se cae silenciosamente a la autodetección, para no publicar en el sitio equivocado.
+    With --publisher-root it searches ONLY there (the folder, its parent and its direct children);
+    it never silently falls back to auto-detection, to avoid publishing to the wrong place.
     """
     if explicit:
         base = Path(explicit).expanduser()
@@ -73,7 +73,7 @@ def find_publisher_root(explicit: str = "") -> Optional[Path]:
         return None
 
     candidates = []
-    # Búsqueda alrededor del workspace: hermanos de novel_factory y de su padre
+    # Search around the workspace: siblings of novel_factory and of its parent
     for anchor in (NF_ROOT.parent, NF_ROOT.parent.parent):
         if anchor == anchor.parent:
             continue
@@ -98,10 +98,10 @@ def find_publisher_root(explicit: str = "") -> Optional[Path]:
 
 
 # ---------------------------------------------------------------------------
-# Datos del episodio
+# Episode data
 # ---------------------------------------------------------------------------
 def collect_teasers(paths: Dict[str, Path], master: Dict[str, Any]) -> List[Dict[str, Any]]:
-    """Combina publish_pack/metadata.json (preferente) con master.teasers y los archivos reales."""
+    """Merge publish_pack/metadata.json (preferred) with master.teasers and the real files."""
     pack = nf.read_json(paths["output"] / "publish_pack" / "metadata.json", default=None)
     by_id: Dict[int, Dict[str, Any]] = {}
     for teaser in master.get("teasers") or []:
@@ -122,7 +122,7 @@ def collect_teasers(paths: Dict[str, Path], master: Dict[str, Any]) -> List[Dict
             for key in ("hook_text", "scenes"):
                 if item.get(key) and not merged.get(key):
                     merged[key] = item[key]
-            # El pack de 04 ya añade los hashtags al caption: es preferible al del maestro.
+            # The pack from 04 already adds hashtags to the caption: prefer it over the master's.
             if item.get("caption"):
                 merged["caption"] = item["caption"]
             if item.get("file"):
@@ -134,7 +134,7 @@ def collect_teasers(paths: Dict[str, Path], master: Dict[str, Any]) -> List[Dict
         file_name = str(teaser.get("_file") or f"teaser_{tid:02d}_9x16.mp4")
         media = paths["output"] / file_name
         if not media.exists():
-            # tolerancia: buscar cualquier teaser_XX_9x16*.mp4
+            # tolerance: look for any teaser_XX_9x16*.mp4
             hits = sorted(paths["output"].glob(f"teaser_{tid:02d}_9x16*"))
             media = hits[0] if hits else media
         teaser["_media"] = media
@@ -144,11 +144,11 @@ def collect_teasers(paths: Dict[str, Path], master: Dict[str, Any]) -> List[Dict
 
 
 def verify_media(path: Path, strict: bool = False) -> List[str]:
-    """Revisa el MP4. Devuelve una lista de problemas (vacía = OK).
+    """Check the MP4. Return a list of problems (empty = OK).
 
-    Con `strict=True` también exige pista de audio; el llamador decide si la lista
-    bloquea el encolado. Nunca lanza salvo que el archivo sea ilegible (entonces la
-    lista contiene el error y el encolado debe abortarse).
+    With `strict=True` it also requires an audio track; the caller decides whether the list
+    blocks enqueueing. It never raises unless the file is unreadable (then the
+    list contains the error and enqueueing must abort).
     """
     problems: List[str] = []
     try:
@@ -156,35 +156,35 @@ def verify_media(path: Path, strict: bool = False) -> List[str]:
     except nf.NFError as exc:
         return [str(exc)]
     if not path.exists() or path.stat().st_size == 0:
-        return [f"{path.name}: archivo vacío o inexistente"]
+        return [f"{path.name}: empty or missing file"]
     if not probe.get("has_video"):
-        problems.append("el archivo no tiene pista de vídeo")
+        problems.append("the file has no video track")
     if (probe.get("width"), probe.get("height")) != (nf.TEASER_W, nf.TEASER_H):
         problems.append(
-            f"resolución {probe.get('width')}x{probe.get('height')} (se esperaba {nf.TEASER_W}x{nf.TEASER_H})"
+            f"resolution {probe.get('width')}x{probe.get('height')} (expected {nf.TEASER_W}x{nf.TEASER_H})"
         )
     dur = float(probe.get("duration") or 0.0)
     if dur and not (45.0 <= dur <= 75.0):
-        problems.append(f"duración {dur:.1f}s (los teasers suelen ser ~60 s)")
+        problems.append(f"duration {dur:.1f}s (teasers are usually ~60 s)")
     if strict and not probe.get("has_audio"):
-        problems.append("el archivo no tiene pista de audio")
+        problems.append("the file has no audio track")
     return problems
 
 
 def validate_post(post: Dict[str, Any]) -> List[str]:
-    """Comprueba las claves mínimas que consume el orquestador; lista de problemas."""
+    """Check the minimum keys consumed by the orchestrator; returns a list of problems."""
     required = ("id", "personaje_id", "tipo", "archivo_media", "estado", "plataformas")
-    problems = [f"falta '{key}'" for key in required if post.get(key) in (None, "")]
+    problems = [f"missing '{key}'" for key in required if post.get(key) in (None, "")]
     if post.get("tipo") != "reel":
-        problems.append("tipo debe ser 'reel'")
+        problems.append("tipo must be 'reel'")
     plats = post.get("plataformas")
     if not isinstance(plats, dict) or not plats:
-        problems.append("plataformas debe ser un dict no vacío")
+        problems.append("plataformas must be a non-empty dict")
     return problems
 
 
 # ---------------------------------------------------------------------------
-# Encolado atómico e idempotente
+# Atomic, idempotent enqueue
 # ---------------------------------------------------------------------------
 def _atomic_copy(src: Path, dest: Path) -> None:
     tmp = dest.with_name(f".{dest.name}.part-{os.getpid()}")
@@ -219,10 +219,10 @@ def enqueue_item(
     media_name: str,
     force: bool = False,
 ) -> Tuple[str, Path, Path]:
-    """Encola (media + json) de forma atómica e idempotente.
+    """Enqueue (media + json) atomically and idempotently.
 
-    Un item está completo solo si existen AMBOS archivos. Si falta uno, se repara
-    (no se omite a medias). Devuelve (estado, ruta_json, ruta_media) con estado en
+    An item is complete only when BOTH files exist. If one is missing, it is repaired
+    (not skipped halfway). Returns (status, json_path, media_path) with status in
     {"copied", "repaired", "skipped"}.
     """
     dest_json = pendientes / f"{post['id']}.json"
@@ -231,7 +231,7 @@ def enqueue_item(
     if have_json and have_media:
         if not force:
             return "skipped", dest_json, dest_media
-        status = "copied"  # reemplazo forzado de un item completo
+        status = "copied"  # forced replacement of a complete item
     else:
         status = "repaired" if (have_json or have_media) else "copied"
     pendientes.mkdir(parents=True, exist_ok=True)
@@ -241,7 +241,7 @@ def enqueue_item(
 
 
 # ---------------------------------------------------------------------------
-# Construcción del post (esquema del orquestador de USA WHITE)
+# Post construction (USA WHITE orchestrator schema)
 # ---------------------------------------------------------------------------
 def build_post(
     teaser: Dict[str, Any],
@@ -281,20 +281,20 @@ def build_post(
 # CLI
 # ---------------------------------------------------------------------------
 def main(argv: Optional[List[str]] = None) -> int:
-    parser = argparse.ArgumentParser(description="05 — Exporta teasers 9:16 a la cola del publicador USA WHITE.")
-    parser.add_argument("project", help="Slug del episodio.")
-    parser.add_argument("--publisher-root", default="", help="Ruta a USA WHITE (si no se autodetecta).")
-    parser.add_argument("--personaje", default="", help="personaje_id de la cola (p. ej. emma_hayes).")
-    parser.add_argument("--only", default="", help="Solo estos teasers, p. ej. '1,3'.")
-    parser.add_argument("--apply", action="store_true", help="Copia de verdad (sin esto solo muestra el plan).")
-    parser.add_argument("--force", action="store_true", help="Sobrescribe si ya existe en la cola.")
+    parser = argparse.ArgumentParser(description="05 — Export 9:16 teasers to the USA WHITE publisher queue.")
+    parser.add_argument("project", help="Episode slug.")
+    parser.add_argument("--publisher-root", default="", help="Path to USA WHITE (if not auto-detected).")
+    parser.add_argument("--personaje", default="", help="Queue personaje_id (e.g. emma_hayes).")
+    parser.add_argument("--only", default="", help="Only these teasers, e.g. '1,3'.")
+    parser.add_argument("--apply", action="store_true", help="Actually copy (without this it only shows the plan).")
+    parser.add_argument("--force", action="store_true", help="Overwrite if it already exists in the queue.")
     parser.add_argument("--strict", action="store_true",
-                        help="Aborta el encolado de teasers con problemas de media (resolución/audio).")
+                        help="Abort enqueueing teasers with media problems (resolution/audio).")
     args = parser.parse_args(argv)
 
     nf.log("")
     nf.log("=" * 70)
-    nf.log("  NOVEL FACTORY — 05 · Exportar teasers a la cola del publicador")
+    nf.log("  NOVEL FACTORY — 05 · Export teasers to the publisher queue")
     nf.log("=" * 70)
 
     paths = nf.resolve_project(args.project)
@@ -304,25 +304,25 @@ def main(argv: Optional[List[str]] = None) -> int:
 
     publisher = find_publisher_root(args.publisher_root)
     if publisher is None:
-        nf.err("No se encontró la carpeta del publicador (debe contener src/orquestador.py y cola/pendientes).")
-        nf.info("Indícala a mano:  --publisher-root \"C:\\ruta\\USA WHITE\"")
+        nf.err("Publisher folder not found (it must contain src/orquestador.py and cola/pendientes).")
+        nf.info("Specify it manually:  --publisher-root \"C:\\path\\USA WHITE\"")
         return 1
 
     pendientes = publisher / "cola" / "pendientes"
-    nf.info(f"Publicador : {publisher}")
-    nf.info(f"Cola       : {pendientes}")
-    nf.info(f"Personaje  : {personaje}")
-    nf.info(f"Modo       : {'APPLY (copia a la cola)' if args.apply else 'PLAN (no escribe nada)'}")
+    nf.info(f"Publisher  : {publisher}")
+    nf.info(f"Queue      : {pendientes}")
+    nf.info(f"Character  : {personaje}")
+    nf.info(f"Mode       : {'APPLY (copies to the queue)' if args.apply else 'PLAN (writes nothing)'}")
 
     only_ids = {int(x) for x in nf.parse_ranges(args.only)} if args.only.strip() else None
     teasers = collect_teasers(paths, master)
     if not teasers:
-        nf.err("El maestro no define teasers. Revisa master_episode.json (teasers) y re-ejecuta 04.")
+        nf.err("The master defines no teasers. Check master_episode.json (teasers) and rerun 04.")
         return 1
     if only_ids is not None:
         teasers = [t for t in teasers if int(t["_id"]) in only_ids]
     if not teasers:
-        nf.err(f"--only {args.only} no coincide con ningún teaser disponible.")
+        nf.err(f"--only {args.only} matches no available teaser.")
         return 1
 
     stamp = dt.datetime.now().astimezone().isoformat(timespec="seconds")
@@ -333,7 +333,7 @@ def main(argv: Optional[List[str]] = None) -> int:
     for teaser in teasers:
         media: Path = teaser["_media"]
         if not media.exists():
-            nf.warn(f"Teaser {teaser['_id']}: falta {media.name} (renderízalo con 04_assemble_novel_ffmpeg.py).")
+            nf.warn(f"Teaser {teaser['_id']}: missing {media.name} (render it with 04_assemble_novel_ffmpeg.py).")
             missing += 1
             continue
         problems = verify_media(media, strict=args.strict)
@@ -347,7 +347,7 @@ def main(argv: Optional[List[str]] = None) -> int:
         media_name = f"nf_{slug}_teaser_{int(teaser['_id']):02d}_9x16.mp4"
         post = build_post(teaser, slug, personaje, media_name, stamp, hashtags)
         for p in validate_post(post):
-            nf.err(f"Teaser {teaser['_id']}: post inválido: {p}")
+            nf.err(f"Teaser {teaser['_id']}: invalid post: {p}")
             invalid += 1
             post = None
             break
@@ -356,23 +356,23 @@ def main(argv: Optional[List[str]] = None) -> int:
         pending.append({"teaser": teaser, "post": post, "src": media, "media_name": media_name})
     if not pending:
         if invalid:
-            nf.err(f"{invalid} teaser(s) con problemas; nada que exportar (revisa con --strict).")
+            nf.err(f"{invalid} teaser(s) have problems; nothing to export (check with --strict).")
         elif missing:
-            nf.err("No hay ningún teaser renderizado para exportar.")
+            nf.err("No rendered teaser available to export.")
         else:
-            nf.err("No hay ningún teaser para exportar.")
+            nf.err("No teaser available to export.")
         return 1
 
     nf.log("")
-    nf.info("Plan de exportación:")
+    nf.info("Export plan:")
     for item in pending:
         dest_media = pendientes / item["media_name"]
         dest_json = pendientes / f"{item['post']['id']}.json"
         have_json, have_media = dest_json.exists(), dest_media.exists()
         if have_json and have_media and not args.force:
-            flag = " (YA EN COLA: se omite)"
+            flag = " (ALREADY QUEUED: skipped)"
         elif have_json or have_media:
-            flag = " (encolado incompleto: se repara)"
+            flag = " (incomplete enqueue: repaired)"
         else:
             flag = ""
         nf.log(f"    - {dest_json.name}")
@@ -381,7 +381,7 @@ def main(argv: Optional[List[str]] = None) -> int:
 
     if not args.apply:
         nf.log("")
-        nf.info("Esto ha sido un PLAN. Repite con --apply para copiar a la cola.")
+        nf.info("This was a PLAN. Run again with --apply to copy to the queue.")
         return 0 if (missing == 0 and invalid == 0) else 1
 
     copied = repaired = skipped = 0
@@ -390,31 +390,31 @@ def main(argv: Optional[List[str]] = None) -> int:
             pendientes, item["post"], item["src"], item["media_name"], force=args.force
         )
         if status == "skipped":
-            nf.warn(f"{dest_json.name}: ya en la cola (media + json); se omite (usa --force para reemplazar).")
+            nf.warn(f"{dest_json.name}: already queued (media + json); skipped (use --force to replace).")
             skipped += 1
         elif status == "repaired":
-            nf.ok(f"Reparado (faltaba parte): {dest_json.name} + {dest_media.name}")
+            nf.ok(f"Repaired (part was missing): {dest_json.name} + {dest_media.name}")
             repaired += 1
         else:
-            nf.ok(f"Encolado: {dest_json.name} + {dest_media.name}")
+            nf.ok(f"Queued: {dest_json.name} + {dest_media.name}")
             copied += 1
     if copied == 0 and repaired == 0:
-        nf.warn("No se copió nada (todo existía ya). Usa --force para reemplazar.")
+        nf.warn("Nothing was copied (everything already existed). Use --force to replace.")
         return 0
     if repaired:
-        nf.info(f"Reparados: {repaired} (encolados incompletos previos).")
+        nf.info(f"Repaired: {repaired} (previously incomplete enqueues).")
 
     nf.log("")
     nf.log("-" * 70)
-    nf.ok(f"{copied + repaired} teaser(s) en cola/pendientes de {publisher.name}.")
-    nf.info("Prueba en seco del publicador (no publica nada):")
+    nf.ok(f"{copied + repaired} teaser(s) in cola/pendientes of {publisher.name}.")
+    nf.info("Publisher dry run (publishes nothing):")
     nf.log(f'    cd "{publisher}"')
     nf.log(f"    python src\\orquestador.py --publicar-siguiente --seco")
-    nf.info("Publicación real (uno a uno, en orden):")
+    nf.info("Real publishing (one at a time, in order):")
     nf.log(f"    python src\\orquestador.py --publicar-siguiente")
-    nf.info("O por horarios automáticos (daemon con slots US EST): run_auto.bat")
+    nf.info("Or on an automatic schedule (daemon with US EST slots): run_auto.bat")
     nf.log("")
-    nf.info("Master 16:9 (subirlo a mano a YouTube):")
+    nf.info("16:9 master (upload manually to YouTube):")
     nf.log(f"    {paths['output'] / 'publish_pack'}")
     nf.log("")
     return 0

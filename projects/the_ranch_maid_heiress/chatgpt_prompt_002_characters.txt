@@ -1,82 +1,82 @@
-NOVEL FACTORY — PROMPT 002 — HOJA MAESTRA DE PERSONAJES · The Stable Girl
-Adjunta el storyboard creado con PROMPT 001 antes de pegar este prompt.
+NOVEL FACTORY — PROMPT 002 — MASTER CHARACTER SHEET · The Stable Girl
+Attach the storyboard created with PROMPT 001 before pasting this prompt.
 
-👤 PROMPT 002 — GENERADOR DE PERSONAJES (HOJA MAESTRA EN UNA SOLA IMAGEN)
-Actúa como director de casting y diseñador de personajes.
-Ya tenemos creado el storyboard de la historia.
-Ahora analiza ese storyboard e identifica los personajes principales y secundarios relevantes que aparecen en la historia.
-Tu tarea es generar UNA SOLA IMAGEN que muestre juntos a todos los personajes identificados.
+👤 PROMPT 002 — CHARACTER GENERATOR (MASTER SHEET IN A SINGLE IMAGE)
+Act as a casting director and character designer.
+We have already created the story's storyboard.
+Now analyze that storyboard and identify the relevant main and secondary characters who appear in the story.
+Your task is to generate A SINGLE IMAGE showing all identified characters together.
 
-REFERENCIA
-Storyboard: el storyboard completo creado en el paso anterior. La hoja debe mantener exactamente los rostros, edades, etnias, vestuarios y accesorios que aparecen en ese storyboard.
+REFERENCE
+Storyboard: the complete storyboard created in the previous step. The sheet must preserve exactly the faces, ages, ethnicities, wardrobes and accessories that appear in that storyboard.
 
-REGLA PRINCIPAL
-Los personajes deben basarse directamente en el storyboard.
-Debes mantener exactamente su:
-- Sexo.
-- Edad aproximada.
-- Etnia y rasgos físicos.
-- Rostro.
-- Cabello.
-- Tono de piel.
-- Complexión.
-- Vestuario principal.
-- Accesorios importantes.
-- Estilo visual (prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette Lighting palette: late-afternoon sun raking across the scene with long shadows; overcast storm light with a cold rim on faces; practical tungsten warmth inside against a blue dusk exterior. Camera language: wide establishing shot with a human scale reference; medium shot, chest up, subject slightly off-center; tight close-up, eyes in sharp focus, background falling off; over-the-shoulder shot with the listener soft in foreground.).
+MAIN RULE
+Characters must be based directly on the storyboard.
+You must preserve exactly their:
+- Sex.
+- Approximate age.
+- Ethnicity and physical features.
+- Face.
+- Hair.
+- Skin tone.
+- Build.
+- Main wardrobe.
+- Important accessories.
+- Visual style (prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette Lighting palette: late-afternoon sun raking across the scene with long shadows; overcast storm light with a cold rim on faces; practical tungsten warmth inside against a blue dusk exterior. Camera language: wide establishing shot with a human scale reference; medium shot, chest up, subject slightly off-center; tight close-up, eyes in sharp focus, background falling off; over-the-shoulder shot with the listener soft in foreground.).
 
-Si el storyboard tiene 2 personajes, muestra los 2 en una sola imagen.
-Si tiene 3 personajes, muestra los 3 en una sola imagen.
-Si tiene 4 personajes, muestra los 4 en una sola imagen.
-Y así sucesivamente (priorizando los 3 a 5 personajes principales de la trama).
-No inventes personajes que no sean relevantes para la historia.
+If the storyboard has 2 characters, show all 2 in a single image.
+If it has 3 characters, show all 3 in a single image.
+If it has 4 characters, show all 4 in a single image.
+And so on (prioritizing the 3 to 5 main characters of the plot).
+Do not invent characters who are not relevant to the story.
 
-COMPOSICIÓN DE LA IMAGEN
-Genera una hoja de referencia de personajes limpia y profesional.
-Todos los personajes deben aparecer:
-- En una sola imagen.
-- Uno al lado del otro.
-- Claramente separados.
-- De cuerpo completo.
-- De pie.
-- Mirando hacia la cámara.
-- En una pose natural y neutral.
-- Sin taparse entre ellos.
-- Sin interactuar físicamente entre ellos.
-Debe verse claramente el rostro y el cuerpo completo de cada personaje.
-Usa un fondo sencillo y neutro (gris estudio limpio) para que los personajes sean los protagonistas de la imagen.
+IMAGE COMPOSITION
+Generate a clean, professional character reference sheet.
+All characters must appear:
+- In a single image.
+- Side by side.
+- Clearly separated.
+- Full body.
+- Standing.
+- Facing the camera.
+- In a natural, neutral pose.
+- Not covering each other.
+- Not physically interacting with each other.
+Each character's face and full body must be clearly visible.
+Use a simple, neutral background (clean studio gray) so the characters are the protagonists of the image.
 
-CONSISTENCIA
-Esta imagen funcionará como referencia oficial de los personajes para las siguientes generaciones de imágenes y videos en Muse AI y Google Flow.
-Por eso, los rostros y características físicas deben corresponder lo máximo posible con los personajes mostrados en el storyboard.
-No rediseñes a los personajes.
-El objetivo es extraer del storyboard una referencia visual clara y consistente de cada personaje.
+CONSISTENCY
+This image will serve as the official character reference for subsequent image and video generations in Muse AI and Google Flow.
+Therefore, faces and physical features must match the characters shown in the storyboard as closely as possible.
+Do not redesign the characters.
+The goal is to extract a clear, consistent visual reference for each character from the storyboard.
 
-ESTILO VISUAL
-Utiliza exactamente el mismo estilo visual utilizado en el storyboard (prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette Lighting palette: late-afternoon sun raking across the scene with long shadows; overcast storm light with a cold rim on faces; practical tungsten warmth inside against a blue dusk exterior. Camera language: wide establishing shot with a human scale reference; medium shot, chest up, subject slightly off-center; tight close-up, eyes in sharp focus, background falling off; over-the-shoulder shot with the listener soft in foreground.).
-No cambiar el estilo visual de la historia.
+VISUAL STYLE
+Use exactly the same visual style used in the storyboard (prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette Lighting palette: late-afternoon sun raking across the scene with long shadows; overcast storm light with a cold rim on faces; practical tungsten warmth inside against a blue dusk exterior. Camera language: wide establishing shot with a human scale reference; medium shot, chest up, subject slightly off-center; tight close-up, eyes in sharp focus, background falling off; over-the-shoulder shot with the listener soft in foreground.).
+Do not change the story's visual style.
 
-VESTUARIO
-Utiliza para cada personaje su vestuario más representativo o principal dentro de la historia.
-El vestuario debe ayudar a identificar inmediatamente quién es cada personaje.
+WARDROBE
+Use each character's most representative or main wardrobe within the story.
+Wardrobe must immediately help identify who each character is.
 
-TEXTO
-Ordena a los personajes de izquierda a derecha y coloca debajo de cada uno únicamente:
-Position #N — NOMBRE DEL PERSONAJE EN MAYÚSCULAS
-Ejemplo:
+TEXT
+Arrange the characters from left to right and place only the following below each one:
+Position #N — CHARACTER NAME IN UPPERCASE
+Example:
 Position #1 (Far Left) — ELENA
 Position #2 — SAM
 Position #3 — MARGARET
 Position #4 (Far Right) — ADRIAN
-Cada personaje conserva siempre la misma posición, el mismo rostro y el mismo vestuario en la hoja y en todas las escenas.
-No incluir:
-- Descripciones largas.
-- Diálogos.
-- Biografías.
-- Párrafos.
-- Información de las escenas.
-El texto debe ser mínimo para mantener la imagen limpia.
+Every character always keeps the same position, the same face and the same wardrobe on the sheet and in every scene.
+Do not include:
+- Long descriptions.
+- Dialogue.
+- Biographies.
+- Paragraphs.
+- Scene information.
+Text must be minimal to keep the image clean.
 
-RESULTADO FINAL
-Genera UNA SOLA IMAGEN que contenga a todos los personajes relevantes de la historia.
-La imagen debe funcionar como una hoja maestra de referencia de personajes, que posteriormente pueda utilizarse para mantener la misma apariencia de los personajes en todas las escenas y videos.
-Entrega solamente la imagen de los personajes.
+FINAL RESULT
+Generate A SINGLE IMAGE containing all relevant characters in the story.
+The image must work as a master character reference sheet that can later be used to keep the same character appearance across every scene and video.
+Deliver only the character image.

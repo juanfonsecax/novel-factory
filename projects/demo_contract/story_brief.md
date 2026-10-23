@@ -7,9 +7,9 @@
 - **Publisher persona (USA WHITE):** emma_hayes
 - **Source mode:** proven_adaptation
 
-> ⚠️ **WARNING: GUION NO PROBADO (original_unproven)**
-> Este guion se genera sin guion fuente probado (`source_script`).
-> Las historias inventadas desde cero tienden a producir picos excesivos de confrontación y falta de recorrido.
+> ⚠️ **WARNING: UNPROVEN SCRIPT (original_unproven)**
+> This script is generated without a proven source script (`source_script`).
+> Stories invented from scratch tend to produce excessive confrontation peaks and lack of progression.
 
 ## Premise / idea
 

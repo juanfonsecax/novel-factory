@@ -3,7 +3,7 @@
   "title": "The Silent Contract",
   "platform": "muse",
   "platform_label": "Muse AI",
-  "production_note": "ADJUNTA EN CADA ESCENA: la viñeta de esa escena + las referencias SOLO de los personajes que salen en ESA escena + el prompt de esa escena. No generes ninguna escena sin sus personajes adjuntos.",
+  "production_note": "ATTACH FOR EVERY SCENE: that scene's storyboard panel + references ONLY for the characters who appear in THAT scene + that scene's prompt. Never generate a scene without its attached characters.",
   "source_mode": "proven_adaptation",
   "frame_dir": "C:\\Users\\juand\\Downloads\\PROYECTOS REDES SOCIALES\\novel_factory\\projects\\demo_contract\\frames",
   "raw_clips_dir": "C:\\Users\\juand\\Downloads\\PROYECTOS REDES SOCIALES\\novel_factory\\projects\\demo_contract\\raw_clips",
@@ -11,10 +11,10 @@
   "duration_seconds": 10.0,
   "aspect": "16:9",
   "notes": [
-    "ADJUNTA EN CADA ESCENA: la viñeta de esa escena + las referencias SOLO de los personajes que salen en ESA escena + el prompt de esa escena. No generes ninguna escena sin sus personajes adjuntos.",
-    "Sube el frame_XXX.png como primer fotograma y pega el prompt completo.",
-    "Solicita 10 s, 16:9 y audio nativo en inglés.",
-    "Verifica los 3 cortes exactos (0/3/7 s) y descarga como scene_XXX.mp4 en raw_clips/."
+    "ATTACH FOR EVERY SCENE: that scene's storyboard panel + references ONLY for the characters who appear in THAT scene + that scene's prompt. Never generate a scene without its attached characters.",
+    "Upload frame_XXX.png as the first frame and paste the full prompt.",
+    "Request 10 s, 16:9 and native English audio.",
+    "Verify the 3 exact cuts (0/3/7 s) and download as scene_XXX.mp4 in raw_clips/."
   ],
   "items": [
     {

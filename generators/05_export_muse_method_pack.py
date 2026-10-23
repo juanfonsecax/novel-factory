@@ -1,20 +1,20 @@
 #!/usr/bin/env python3
-"""05 — Paquete único de producción con el método nuevo de Muse AI.
+"""05 — Single production pack for the new Muse AI method.
 
-Reúne, en orden y listo para copiar/pegar:
-  1. Hoja maestra de personajes (REF_CAST_MASTER.png).
-  2. Diez storyboards de 6 viñetas (REF_GRID_MIN_01.png … REF_GRID_MIN_10.png).
-  3. Diez lotes Muse AI de 1 minuto con adjuntos y comandos 16:9 / 9:16.
-  4. Checklist de archivos y comando de ensamblaje.
+Collects, in order and ready to copy/paste:
+  1. Master character sheet (REF_CAST_MASTER.png).
+  2. Ten 6-panel storyboards (REF_GRID_MIN_01.png … REF_GRID_MIN_10.png).
+  3. Ten 1-minute Muse AI batches with attachments and 16:9 / 9:16 commands.
+  4. File checklist and assembly command.
 
-Salidas en la carpeta del episodio:
-  MUSE_PRODUCTION_PACK.md     Guía completa (prompts + instrucciones)
-  MUSE_PRODUCTION_PACK.json   Manifiesto máquina-legible
-  MUSE_CHECKLIST.md           Checklist imprimible
-  storyboards/README.md       Dónde guardar las imágenes del proyecto
+Outputs in the episode folder:
+  MUSE_PRODUCTION_PACK.md     Complete guide (prompts + instructions)
+  MUSE_PRODUCTION_PACK.json   Machine-readable manifest
+  MUSE_CHECKLIST.md           Printable checklist
+  storyboards/README.md       Where to save the project images
 
-Uso:
-  python generators/05_export_muse_method_pack.py mi_episodio
+Usage:
+  python generators/05_export_muse_method_pack.py my_episode
 """
 from __future__ import annotations
 
@@ -40,7 +40,7 @@ def _load_gen02():
     path = GENERATORS_DIR / "02_export_chatgpt_queue.py"
     spec = importlib.util.spec_from_file_location("nf_gen02_muse_pack", path)
     if not spec or not spec.loader:
-        raise nf.NFError(f"No se pudo cargar el generador: {path}")
+        raise nf.NFError(f"Could not load the generator: {path}")
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     return module
@@ -53,7 +53,7 @@ def build_pack(master: Dict[str, Any], style: Dict[str, Any]) -> Dict[str, Any]:
     ep = nf.episode_meta(master)
     grids = GEN02.build_storyboard_grid_items(master, style)
     batches = mpl.build_muse_batches(master, style)
-    slug = nf.slugify(str(ep.get("slug") or "episodio"))
+    slug = nf.slugify(str(ep.get("slug") or "episode"))
     scene_lookup = {int(s.get("scene_id") or 0): s for s in nf.ordered_scenes(master)}
     for batch in batches:
         batch["scene_attachments"] = [
@@ -96,36 +96,36 @@ def render_markdown(pack: Dict[str, Any]) -> str:
     counts = pack["counts"]
     cast = pack["cast_master"]
     lines: List[str] = [
-        f"# {ep['title']} — Producción con Muse AI (método nuevo)",
+        f"# {ep['title']} — Muse AI Production (new method)",
         "",
-        f"**Slug:** `{ep['slug']}`  ·  **Escenas:** {counts['scenes']}  ·  "
-        f"**Imágenes:** {counts['images']}  ·  **Lotes:** {counts['batches']}",
+        f"**Slug:** `{ep['slug']}`  ·  **Scenes:** {counts['scenes']}  ·  "
+        f"**Images:** {counts['images']}  ·  **Batches:** {counts['batches']}",
         "",
-        f"> **NOTA DE PRODUCCIÓN:** {pack.get('production_note', nf.PRODUCTION_ATTACH_NOTE)}",
+        f"> **PRODUCTION NOTE:** {pack.get('production_note', nf.PRODUCTION_ATTACH_NOTE)}",
         "",
     ]
     if pack.get("source_mode") == "original_unproven":
         lines += [
-            "> ⚠️ **WARNING: source_mode es 'original_unproven' — Guion generado sin fuente probada.**",
+            "> ⚠️ **WARNING: source_mode is 'original_unproven' — script generated without a proven source.**",
             "",
         ]
     if ep.get("logline"):
         lines += [f"> {ep['logline']}", ""]
     lines += [
-        "## Cómo funciona",
+        "## How it works",
         "",
-        "1. Genera **una** hoja maestra de personajes con los rostros y vestuarios fijos.",
-        f"2. Genera **{counts['batches']}** storyboards (uno por minuto) usando esa hoja como referencia.",
-        "3. En Muse AI, sube la hoja maestra + el storyboard del minuto y pega el bloque del lote.",
-        "4. Guarda cada video como `raw_clips/minute_0X.mp4` y ejecuta el comando de ensamblaje.",
+        "1. Generate **one** master character sheet with fixed faces and wardrobes.",
+        f"2. Generate **{counts['batches']}** storyboards (one per minute) using that sheet as reference.",
+        "3. In Muse AI, upload the master sheet + the minute storyboard and paste the batch block.",
+        "4. Save each video as `raw_clips/minute_0X.mp4` and run the assembly command.",
         "",
-        "> No necesitas frames por escena ni clips de 10 s: el ensamblador detecta los lotes de 1 minuto.",
+        "> You do not need per-scene frames or 10 s clips: the assembler detects 1-minute batches.",
         "",
         "---",
         "",
-        "## Paso 1 — Hoja maestra de personajes",
+        "## Step 1 — Master character sheet",
         "",
-        f"Guarda el resultado como `storyboards/{cast['filename']}`.",
+        f"Save the result as `storyboards/{cast['filename']}`.",
         "",
         "**Prompt:**",
         "",
@@ -133,17 +133,17 @@ def render_markdown(pack: Dict[str, Any]) -> str:
         "",
         "---",
         "",
-        f"## Paso 2 — Storyboards ({counts['batches']} imágenes)",
+        f"## Step 2 — Storyboards ({counts['batches']} images)",
         "",
-        "Genera cada imagen con el mismo estilo y los mismos personajes de la hoja maestra.",
-        "Guarda cada archivo en `storyboards/` con el nombre indicado.",
+        "Generate each image with the same style and the same characters as the master sheet.",
+        "Save each file in `storyboards/` with the indicated filename.",
         "",
     ]
     for item in pack["storyboards"]:
         first = item["scenes"][0]
         last = item["scenes"][-1]
         lines += [
-            f"### {item['filename']} — Minuto {item['minute']} (escenas {first}–{last})",
+            f"### {item['filename']} — Minute {item['minute']} (scenes {first}–{last})",
             "",
             *_prompt_block(item["prompt"]),
             "",
@@ -151,10 +151,10 @@ def render_markdown(pack: Dict[str, Any]) -> str:
     lines += [
         "---",
         "",
-        f"## Paso 3 — Lotes Muse AI ({counts['batches']} videos de 1 minuto)",
+        f"## Step 3 — Muse AI batches ({counts['batches']} 1-minute videos)",
         "",
-        "En cada lote: adjunta los dos archivos indicados y pega **un guion completo**",
-        "(16:9 para YouTube o 9:16 para Reels/Shorts). El guion ya termina con el comando final.",
+        "For each batch: attach the two indicated files and paste **one complete script**",
+        "(16:9 for YouTube or 9:16 for Reels/Shorts). The script already ends with the final command.",
         "",
     ]
     for batch in pack["batches"]:
@@ -162,27 +162,27 @@ def render_markdown(pack: Dict[str, Any]) -> str:
         first = batch["scenes"][0]
         last = batch["scenes"][-1]
         lines += [
-            f"### Lote {batch['batch_id']:02d} — Minuto {batch['minute']} (escenas {first}–{last})",
+            f"### Batch {batch['batch_id']:02d} — Minute {batch['minute']} (scenes {first}–{last})",
             "",
-            f"**Adjuntar:** {refs}",
+            f"**Attach:** {refs}",
             "",
-            "**Adjuntos por escena de este lote:**",
+            "**Per-scene attachments for this batch:**",
             "",
         ]
         for item in batch.get("scene_attachments") or []:
             attach_str = ", ".join(item.get("attach") or [])
-            lines.append(f"- Escena {item['scene_id']:03d}: `attach: [{attach_str}]`")
+            lines.append(f"- Scene {item['scene_id']:03d}: `attach: [{attach_str}]`")
         lines += [
             "",
-            f"**Guardar 16:9 como:** `{batch.get('save_as_16x9') or batch['save_as']}`",
+            f"**Save 16:9 as:** `{batch.get('save_as_16x9') or batch['save_as']}`",
             "",
-            f"**Guardar 9:16 como:** `{batch.get('save_as_9x16') or 'raw_clips/minute_' + format(batch['batch_id'], '02d') + '_vertical.mp4'}`",
+            f"**Save 9:16 as:** `{batch.get('save_as_9x16') or 'raw_clips/minute_' + format(batch['batch_id'], '02d') + '_vertical.mp4'}`",
             "",
-            "**Bloque 16:9 para Muse AI (YouTube):**",
+            "**16:9 block for Muse AI (YouTube):**",
             "",
             *_prompt_block(batch["prompt_16x9_youtube"]),
             "",
-            "**Comando final 9:16 (Reels/Shorts):**",
+            "**Final 9:16 command (Reels/Shorts):**",
             "",
             *_prompt_block(batch["prompt_9x16_vertical"]),
             "",
@@ -190,17 +190,17 @@ def render_markdown(pack: Dict[str, Any]) -> str:
     lines += [
         "---",
         "",
-        "## Paso 4 — Ensamblar",
+        "## Step 4 — Assemble",
         "",
-        f"Cuando existan los {counts['batches']} archivos "
+        f"Once the {counts['batches']} files exist: "
         f"`minute_01.mp4 … minute_{counts['batches']:02d}.mp4`:",
         "",
         "```powershell",
         pack["assemble_command"],
         "```",
         "",
-        "El ensamblador detecta el modo B, genera el máster 16:9 completo,",
-        "el SRT sincronizado y el teaser vertical automático de 20 segundos.",
+        "The assembler detects mode B, generates the complete 16:9 master,",
+        "the synchronized SRT and the automatic 20-second vertical teaser.",
         "",
     ]
     return "\n".join(lines)
@@ -211,31 +211,31 @@ def render_checklist(pack: Dict[str, Any]) -> str:
     lines = [
         f"# Checklist — {ep['title']}",
         "",
-        f"> **NOTA DE PRODUCCIÓN:** {pack.get('production_note', nf.PRODUCTION_ATTACH_NOTE)}",
+        f"> **PRODUCTION NOTE:** {pack.get('production_note', nf.PRODUCTION_ATTACH_NOTE)}",
         "",
-        "## Imágenes del método nuevo (`storyboards/`)",
+        "## New-method images (`storyboards/`)",
         "",
     ]
     cast = pack["cast_master"]
-    lines.append(f"- [ ] `{cast['filename']}` — hoja maestra de personajes")
+    lines.append(f"- [ ] `{cast['filename']}` — master character sheet")
     for item in pack["storyboards"]:
         first = item["scenes"][0]
         last = item["scenes"][-1]
-        lines.append(f"- [ ] `{item['filename']}` — minuto {item['minute']} (escenas {first}–{last})")
-    lines += ["", "## Videos Muse AI (`raw_clips/`)", ""]
+        lines.append(f"- [ ] `{item['filename']}` — minute {item['minute']} (scenes {first}–{last})")
+    lines += ["", "## Muse AI videos (`raw_clips/`)", ""]
     for batch in pack["batches"]:
         refs = " + ".join(batch["reference_images"])
         lines.append(
-            f"- [ ] `minute_{batch['batch_id']:02d}.mp4` — lote {batch['batch_id']:02d} "
-            f"(adjuntos: {refs})"
+            f"- [ ] `minute_{batch['batch_id']:02d}.mp4` — batch {batch['batch_id']:02d} "
+            f"(attachments: {refs})"
         )
     lines += [
         "",
-        "## Cierre",
+        "## Close-out",
         "",
-        f"- [ ] Los {pack['counts']['batches']} lotes están en `raw_clips/`.",
-        f"- [ ] Ejecutar `{pack['assemble_command']}`.",
-        "- [ ] Revisar `output/<slug>_master_16x9_1080p.mp4` y `output/<slug>_teaser_9x16.mp4`.",
+        f"- [ ] All {pack['counts']['batches']} batches are in `raw_clips/`.",
+        f"- [ ] Run `{pack['assemble_command']}`.",
+        "- [ ] Review `output/<slug>_master_16x9_1080p.mp4` and `output/<slug>_teaser_9x16.mp4`.",
         "",
     ]
     return "\n".join(lines)
@@ -256,14 +256,14 @@ def write_pack(paths: Dict[str, Path], pack: Dict[str, Any]) -> Dict[str, Path]:
         grid_count = int(pack["counts"]["batches"])
         image_count = int(pack["counts"]["images"])
         nf.write_text(readme_path, "\n".join([
-            "# Storyboards del método Muse AI",
+            "# Muse AI method storyboards",
             "",
-            "Guarda aquí las imágenes generadas en ChatGPT con estos nombres exactos:",
+            "Save the images generated in ChatGPT here with these exact filenames:",
             "",
-            "- `REF_CAST_MASTER.png` (hoja maestra de personajes)",
-            f"- `REF_GRID_MIN_01.png` … `REF_GRID_MIN_{grid_count:02d}.png` (un storyboard por minuto)",
+            "- `REF_CAST_MASTER.png` (master character sheet)",
+            f"- `REF_GRID_MIN_01.png` … `REF_GRID_MIN_{grid_count:02d}.png` (one storyboard per minute)",
             "",
-            f"El dashboard detecta estos archivos y marca el progreso de las {image_count} imágenes.",
+            f"The dashboard detects these files and tracks progress across the {image_count} images.",
             "",
         ]))
     return {
@@ -277,13 +277,13 @@ def write_pack(paths: Dict[str, Path], pack: Dict[str, Any]) -> Dict[str, Path]:
 
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(
-        description="Exporta el paquete completo de producción con el método Muse AI de 1 minuto."
+        description="Export the complete production pack for the 1-minute Muse AI method."
     )
-    parser.add_argument("project", help="Slug o ruta del proyecto.")
+    parser.add_argument("project", help="Project slug or path.")
     args = parser.parse_args(argv)
 
     nf.log("=" * 78)
-    nf.log("  NOVEL FACTORY — 05 · Paquete de producción Muse AI (método nuevo)")
+    nf.log("  NOVEL FACTORY — 05 · Muse AI production pack (new method)")
     nf.log("=" * 78)
     paths = nf.resolve_project(args.project)
     master = nf.load_master(paths["root"])
@@ -291,13 +291,13 @@ def main(argv=None) -> int:
     pack = build_pack(master, style)
     written = write_pack(paths, pack)
 
-    nf.ok(f"Paquete exportado en: {paths['root']}")
-    nf.info(f"{written['md'].name}  (guía completa: {pack['counts']['images']} imágenes + "
-            f"{pack['counts']['batches']} lotes)")
-    nf.info(f"{written['checklist'].name}  (checklist imprimible)")
-    nf.info(f"{written['json'].name}  (manifiesto máquina-legible)")
-    nf.info(f"storyboards/README.md  (dónde guardar las {pack['counts']['images']} imágenes)")
-    nf.info(f"Comando final: {pack['assemble_command']}")
+    nf.ok(f"Pack exported to: {paths['root']}")
+    nf.info(f"{written['md'].name}  (complete guide: {pack['counts']['images']} images + "
+            f"{pack['counts']['batches']} batches)")
+    nf.info(f"{written['checklist'].name}  (printable checklist)")
+    nf.info(f"{written['json'].name}  (machine-readable manifest)")
+    nf.info(f"storyboards/README.md  (where to save the {pack['counts']['images']} images)")
+    nf.info(f"Final command: {pack['assemble_command']}")
     return 0
 
 

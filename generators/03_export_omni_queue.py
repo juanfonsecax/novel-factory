@@ -1,25 +1,25 @@
 #!/usr/bin/env python3
-"""03 — Exporta las colas de video (Omni 1.1 Flash, Muse AI y Google Flow).
+"""03 — Export the video queues (Omni 1.1 Flash, Muse AI and Google Flow).
 
-Compone, escena por escena, el prompt de video definitivo a partir de datos
-estructurados del maestro (nada se confía a prosa suelta del LLM):
+Composes, scene by scene, the final video prompt from structured master data
+(nothing is trusted to loose LLM prose):
 
-  - plan de planos con cortes internos duros y sus tiempos,
-  - diálogo con voz y entrega por personaje (bloqueo de voz en inglés),
-  - ambiencia/sfx, continuidad, estilo y prompts negativos.
+  - shot plan with hard internal cuts and their timings,
+  - dialogue with per-character voice and delivery (English voice lock),
+  - ambience/sfx, continuity, style and negative prompts.
 
-Salidas en la carpeta del episodio (según --platform):
+Outputs in the episode folder (depending on --platform):
   omni_video_prompts_queue.{csv,json,txt}         Omni 1.1 Flash (default)
   muse_ai_video_prompts_queue.{csv,json,txt}      Muse AI
   google_flow_video_prompts_queue.{csv,json,txt}  Google Flow (Veo)
 
-Uso:
-  python generators/03_export_omni_queue.py mi_episodio
-  python generators/03_export_omni_queue.py mi_episodio --platform muse
-  python generators/03_export_omni_queue.py mi_episodio --platform flow
-  python generators/03_export_omni_queue.py mi_episodio --platform all
-  python generators/03_export_omni_queue.py mi_episodio --only-missing
-  python generators/03_export_omni_queue.py mi_episodio --check
+Usage:
+  python generators/03_export_omni_queue.py my_episode
+  python generators/03_export_omni_queue.py my_episode --platform muse
+  python generators/03_export_omni_queue.py my_episode --platform flow
+  python generators/03_export_omni_queue.py my_episode --platform all
+  python generators/03_export_omni_queue.py my_episode --only-missing
+  python generators/03_export_omni_queue.py my_episode --check
 """
 from __future__ import annotations
 
@@ -41,7 +41,7 @@ format_character_anchors = nf.format_character_anchors
 
 
 class _SafeDict(dict):
-    def __missing__(self, key: str) -> str:  # deja el marcador si falta una clave
+    def __missing__(self, key: str) -> str:  # keep the placeholder if a key is missing
         return "{" + key + "}"
 
 
@@ -55,9 +55,9 @@ PLATFORM_SPECS: Dict[str, Dict[str, Any]] = {
         "txt": "omni_txt",
         "manifest": "omni_video_prompts_queue",
         "notes": [
-            "Modo First Frame: sube el frame_XXX.png y pega el prompt completo.",
-            "Duración exacta: 10 s. Audio nativo en inglés. Sin música.",
-            "Descarga el clip como scene_XXX.mp4 dentro de raw_clips/.",
+            "First Frame mode: upload frame_XXX.png and paste the full prompt.",
+            "Exact duration: 10 s. Native English audio. No music.",
+            "Download the clip as scene_XXX.mp4 inside raw_clips/.",
         ],
     },
     "muse": {
@@ -69,9 +69,9 @@ PLATFORM_SPECS: Dict[str, Dict[str, Any]] = {
         "txt": "muse_txt",
         "manifest": "muse_ai_video_prompts_queue",
         "notes": [
-            "Sube el frame_XXX.png como primer fotograma y pega el prompt completo.",
-            "Solicita 10 s, 16:9 y audio nativo en inglés.",
-            "Verifica los 3 cortes exactos (0/3/7 s) y descarga como scene_XXX.mp4 en raw_clips/.",
+            "Upload frame_XXX.png as the first frame and paste the full prompt.",
+            "Request 10 s, 16:9 and native English audio.",
+            "Verify the 3 exact cuts (0/3/7 s) and download as scene_XXX.mp4 in raw_clips/.",
         ],
     },
     "flow": {
@@ -83,9 +83,9 @@ PLATFORM_SPECS: Dict[str, Dict[str, Any]] = {
         "txt": "flow_txt",
         "manifest": "google_flow_video_prompts_queue",
         "notes": [
-            "Usa 'Frames to Video' con frame_XXX.png como ingrediente/primer fotograma.",
-            "Si Flow limita a 8 s, genera 8 s: la postproducción extiende a 10 s.",
-            "El diálogo debe terminar antes de 8.5 s. Descarga como scene_XXX.mp4.",
+            "Use 'Frames to Video' with frame_XXX.png as the ingredient/first frame.",
+            "If Flow limits you to 8 s, generate 8 s: post-production extends it to 10 s.",
+            "Dialogue must finish before 8.5 s. Download as scene_XXX.mp4.",
         ],
     },
 }
@@ -171,7 +171,7 @@ def _shot_block(scene: Dict[str, Any], templates: Dict[str, Any],
 
 
 def _timeline_block(scene: Dict[str, Any], templates: Dict[str, Any]) -> str:
-    """Línea de tiempo explícita: tramos y marcas absolutas de corte duro."""
+    """Explicit timeline: segments and absolute hard-cut marks."""
     cuts = scene.get("internal_cuts") or []
     total = float(scene.get("duration_s") or nf.SCENE_SECONDS)
     header = str(templates.get("timeline_header") or "TIMELINE (one continuous 10 s take):")
@@ -350,7 +350,7 @@ def write_queue_files(
     notes = list(spec.get("notes") or [])
     notes.insert(0, nf.PRODUCTION_ATTACH_NOTE)
     if master.get("source_mode") == "original_unproven":
-        notes.insert(1, "WARNING: source_mode is original_unproven (guion no probado).")
+        notes.insert(1, "WARNING: source_mode is original_unproven (script not validated).")
 
     nf.write_json(paths[str(spec["json"])], {
         "episode": ep.get("slug"),
@@ -369,22 +369,22 @@ def write_queue_files(
     })
 
     lines = [
-        f"NOVEL FACTORY — Cola de video ({label}, First Frame, 10 s) · {ep.get('title')}",
+        f"NOVEL FACTORY — Video queue ({label}, First Frame, 10 s) · {ep.get('title')}",
         f"Frames: {paths['frames']}  →  Clips: {paths['raw_clips']}",
         "",
-        f"NOTA DE PRODUCCIÓN: {nf.PRODUCTION_ATTACH_NOTE}",
+        f"PRODUCTION NOTE: {nf.PRODUCTION_ATTACH_NOTE}",
         "",
     ]
     if master.get("source_mode") == "original_unproven":
         lines += [
-            "⚠️ WARNING: source_mode es 'original_unproven' — Guion generado sin fuente probada.",
+            "⚠️ WARNING: source_mode is 'original_unproven' — script generated without a proven source.",
             "",
         ]
     for row in rows:
         attach_str = ", ".join(row.get("attach") or [])
         lines += [
-            f"=== SCENE {row['scene_id']:03d} | frame: {row['frame_file']} | salida: {row['output_file']} "
-            f"| estado: {row['status']} ===",
+            f"=== SCENE {row['scene_id']:03d} | frame: {row['frame_file']} | output: {row['output_file']} "
+            f"| status: {row['status']} ===",
             f"attach: [{attach_str}]",
             row["prompt"],
             "",
@@ -398,7 +398,7 @@ def write_muse_batches(
     style: Dict[str, Any],
     aspect_ratio: str = "",
 ) -> Dict[str, Any]:
-    """Cola de Muse AI agrupada en bloques de 6 escenas (1 minuto por bloque)."""
+    """Muse AI queue grouped into 6-scene blocks (1 minute per block)."""
     return mpl.write_muse_batch_files(
         paths["root"],
         master,
@@ -414,38 +414,38 @@ def run_check(paths: Dict[str, Path], rows: List[Dict[str, Any]], allow_missing:
     missing_frames = [r["scene_id"] for r in rows if r["frame_status"] != "ok"]
     missing_clips = [r["scene_id"] for r in rows if r["status"] != "done"]
     nf.log("")
-    nf.info(f"Fotogramas iniciales: {frames_ok}/{len(rows)}")
-    nf.info(f"Clips de video:      {clips_ok}/{len(rows)}")
+    nf.info(f"First frames: {frames_ok}/{len(rows)}")
+    nf.info(f"Video clips:         {clips_ok}/{len(rows)}")
     if missing_frames:
-        nf.warn("Faltan frames: " + ", ".join(map(str, missing_frames[:20])) +
+        nf.warn("Missing frames: " + ", ".join(map(str, missing_frames[:20])) +
                 (" …" if len(missing_frames) > 20 else ""))
     if missing_clips:
-        nf.info("Faltan clips: " + ", ".join(map(str, missing_clips[:20])) +
+        nf.info("Missing clips: " + ", ".join(map(str, missing_clips[:20])) +
                 (" …" if len(missing_clips) > 20 else ""))
     if not missing_clips:
-        nf.ok(f"Los {len(rows)} clips están listos para el ensamblaje.")
+        nf.ok(f"All {len(rows)} clips are ready for assembly.")
         return 0
     if missing_frames and not allow_missing:
-        nf.warn("Genera primero los frames faltantes (02) antes de producir los videos.")
+        nf.warn("Generate the missing frames first (02) before producing the videos.")
     return 0 if allow_missing else 1
 
 
 def main(argv: Optional[List[str]] = None) -> int:
-    parser = argparse.ArgumentParser(description="03 — Cola de prompts de video para Omni, Muse AI y Google Flow.")
-    parser.add_argument("project", help="Slug del episodio.")
+    parser = argparse.ArgumentParser(description="03 — Video prompt queue for Omni, Muse AI and Google Flow.")
+    parser.add_argument("project", help="Episode slug.")
     parser.add_argument("--platform", choices=list(PLATFORM_ORDER) + ["all"], default="omni",
-                        help="Plataforma de video: omni (default), muse, flow o all.")
-    parser.add_argument("--only-missing", action="store_true", help="Exporta solo las escenas sin clip.")
-    parser.add_argument("--check", action="store_true", help="Verifica frames y clips sin reexportar.")
-    parser.add_argument("--allow-missing", action="store_true", help="No falla si faltan archivos.")
-    parser.add_argument("--show", type=str, default="", help="Imprime prompts de un rango (ej: 1-2).")
+                        help="Video platform: omni (default), muse, flow or all.")
+    parser.add_argument("--only-missing", action="store_true", help="Export only scenes without a clip.")
+    parser.add_argument("--check", action="store_true", help="Verify frames and clips without re-exporting.")
+    parser.add_argument("--allow-missing", action="store_true", help="Do not fail if files are missing.")
+    parser.add_argument("--show", type=str, default="", help="Print prompts from a range (e.g. 1-2).")
     args = parser.parse_args(argv)
 
     platforms = list(PLATFORM_ORDER) if args.platform == "all" else [args.platform]
     labels = ", ".join(str(PLATFORM_SPECS[p]["label"]) for p in platforms)
     nf.log("")
     nf.log("=" * 70)
-    nf.log(f"  NOVEL FACTORY — 03 · Cola de video ({labels} · 10 s · First Frame)")
+    nf.log(f"  NOVEL FACTORY — 03 · Video queue ({labels} · 10 s · First Frame)")
     nf.log("=" * 70)
 
     paths = nf.resolve_project(args.project)
@@ -462,15 +462,15 @@ def main(argv: Optional[List[str]] = None) -> int:
 
         if args.only_missing:
             rows = [r for r in rows if r["status"] != "done"]
-            nf.info(f"[{label}] Filtro --only-missing: {len(rows)} de {total} escenas por generar.")
+            nf.info(f"[{label}] --only-missing filter: {len(rows)} of {total} scenes to generate.")
 
         if not args.check:
             write_queue_files(paths, master, rows, platform)
             nf.log("")
-            nf.ok(f"[{label}] {len(rows)} prompts de video exportados:")
-            nf.info(paths[str(spec["csv"])].name + "  (cola principal, campos citados)")
-            nf.info(paths[str(spec["json"])].name + " (manifiesto completo)")
-            nf.info(paths[str(spec["txt"])].name + "  (legible, bloque por escena)")
+            nf.ok(f"[{label}] {len(rows)} video prompts exported:")
+            nf.info(paths[str(spec["csv"])].name + "  (main queue, quoted fields)")
+            nf.info(paths[str(spec["json"])].name + " (full manifest)")
+            nf.info(paths[str(spec["txt"])].name + "  (readable, block per scene)")
 
         if want:
             nf.log("")
@@ -485,17 +485,17 @@ def main(argv: Optional[List[str]] = None) -> int:
         batch_files = write_muse_batches(paths, master, style)
         nf.log("")
         nf.ok(
-            f"[Muse AI] {len(batch_files['batches'])} lotes de 1 minuto (6 escenas) exportados:"
+            f"[Muse AI] {len(batch_files['batches'])} 1-minute batches (6 scenes) exported:"
         )
-        nf.info(batch_files["txt"].name + "  (bloques con adjuntos, cámara, SFX, diálogo y 2 comandos)")
-        nf.info(batch_files["json"].name + " (manifiesto de lotes)")
-        nf.info("Adjuntos por lote: REF_CAST_MASTER.png + REF_GRID_MIN_XX.png · "
-                "comandos 16:9 (YouTube) y 9:16 (Reels).")
+        nf.info(batch_files["txt"].name + "  (blocks with attachments, camera, SFX, dialogue and 2 commands)")
+        nf.info(batch_files["json"].name + " (batch manifest)")
+        nf.info("Attachments per batch: REF_CAST_MASTER.png + REF_GRID_MIN_XX.png · "
+                "16:9 (YouTube) and 9:16 (Reels) commands.")
 
     rc = run_check(paths, last_rows, args.allow_missing) if not want or args.check else 0
     if not args.check and not want:
         nf.log("")
-        nf.log(f"  Cuando tengas clips en raw_clips/: python post_production/04_assemble_novel_ffmpeg.py {args.project}")
+        nf.log(f"  When you have clips in raw_clips/: python post_production/04_assemble_novel_ffmpeg.py {args.project}")
         nf.log("")
     return rc
 

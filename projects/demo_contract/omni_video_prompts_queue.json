@@ -3,7 +3,7 @@
   "title": "The Silent Contract",
   "platform": "omni",
   "platform_label": "Omni 1.1 Flash",
-  "production_note": "ADJUNTA EN CADA ESCENA: la viñeta de esa escena + las referencias SOLO de los personajes que salen en ESA escena + el prompt de esa escena. No generes ninguna escena sin sus personajes adjuntos.",
+  "production_note": "ATTACH FOR EVERY SCENE: that scene's storyboard panel + references ONLY for the characters who appear in THAT scene + that scene's prompt. Never generate a scene without its attached characters.",
   "source_mode": "proven_adaptation",
   "frame_dir": "C:\\Users\\juand\\Downloads\\PROYECTOS REDES SOCIALES\\novel_factory\\projects\\demo_contract\\frames",
   "raw_clips_dir": "C:\\Users\\juand\\Downloads\\PROYECTOS REDES SOCIALES\\novel_factory\\projects\\demo_contract\\raw_clips",
@@ -11,10 +11,10 @@
   "duration_seconds": 10.0,
   "aspect": "16:9",
   "notes": [
-    "ADJUNTA EN CADA ESCENA: la viñeta de esa escena + las referencias SOLO de los personajes que salen en ESA escena + el prompt de esa escena. No generes ninguna escena sin sus personajes adjuntos.",
-    "Modo First Frame: sube el frame_XXX.png y pega el prompt completo.",
-    "Duración exacta: 10 s. Audio nativo en inglés. Sin música.",
-    "Descarga el clip como scene_XXX.mp4 dentro de raw_clips/."
+    "ATTACH FOR EVERY SCENE: that scene's storyboard panel + references ONLY for the characters who appear in THAT scene + that scene's prompt. Never generate a scene without its attached characters.",
+    "First Frame mode: upload frame_XXX.png and paste the full prompt.",
+    "Exact duration: 10 s. Native English audio. No music.",
+    "Download the clip as scene_XXX.mp4 inside raw_clips/."
   ],
   "items": [
     {

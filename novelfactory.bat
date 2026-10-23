@@ -1,32 +1,32 @@
 @echo off
 REM ============================================================================
-REM  NOVEL FACTORY ??? lanzador de comandos (Windows)
+REM  NOVEL FACTORY - command launcher (Windows)
 REM
-REM  Uso:  novelfactory.bat <comando> <proyecto> [opciones...]
+REM  Usage:  novelfactory.bat <command> <project> [options...]
 REM
-REM  Crear guion LLM :  novelfactory.bat new mi_episodio --title "The Silent Contract"
-REM  Ingerir guion   :  novelfactory.bat ingest mi_episodio guion_parte1.json guion_parte2.json
-REM  Episodio demo   :  novelfactory.bat demo mi_episodio
-REM  Validar maestro :  novelfactory.bat validate mi_episodio
-REM  Cola ChatGPT    :  novelfactory.bat frames mi_episodio
-REM  Cola Omni       :  novelfactory.bat omni mi_episodio
-REM  Cola Muse AI    :  novelfactory.bat muse mi_episodio
-REM  Cola Flow/Veo   :  novelfactory.bat flow mi_episodio
-REM  Prompts maestros:  novelfactory.bat prompts mi_episodio
-REM  Workflow prompts: novelfactory.bat export-master-prompts mi_episodio
-REM  Estado          :  novelfactory.bat status mi_episodio
-REM  Asistente clips :  novelfactory.bat assisted mi_episodio
-REM  Vigilar descargas: novelfactory.bat watch mi_episodio --once
-REM  Importar frames :  novelfactory.bat import-frames mi_episodio --frames-src "C:\ruta\frames"
-REM  Dashboard       :  novelfactory.bat dashboard mi_episodio --serve --open
-REM  Ensamblar       :  novelfactory.bat assemble mi_episodio
-REM  Solo preflight  :  novelfactory.bat check mi_episodio
-REM  Exportar cola   :  novelfactory.bat publish mi_episodio --apply
-REM  Tests offline   :  novelfactory.bat test
+REM  Create LLM script :  novelfactory.bat new my_episode --title "The Silent Contract"
+REM  Ingest script     :  novelfactory.bat ingest my_episode script_part1.json script_part2.json
+REM  Demo episode      :  novelfactory.bat demo my_episode
+REM  Validate master   :  novelfactory.bat validate my_episode
+REM  ChatGPT queue     :  novelfactory.bat frames my_episode
+REM  Omni queue        :  novelfactory.bat omni my_episode
+REM  Muse AI queue     :  novelfactory.bat muse my_episode
+REM  Flow/Veo queue    :  novelfactory.bat flow my_episode
+REM  Master prompts    :  novelfactory.bat prompts my_episode
+REM  Workflow prompts  :  novelfactory.bat export-master-prompts my_episode
+REM  Status            :  novelfactory.bat status my_episode
+REM  Clip assistant    :  novelfactory.bat assisted my_episode
+REM  Watch downloads   :  novelfactory.bat watch my_episode --once
+REM  Import frames     :  novelfactory.bat import-frames my_episode --frames-src "C:\path\frames"
+REM  Dashboard         :  novelfactory.bat dashboard my_episode --serve --open
+REM  Assemble          :  novelfactory.bat assemble my_episode
+REM  Preflight only    :  novelfactory.bat check my_episode
+REM  Export queue      :  novelfactory.bat publish my_episode --apply
+REM  Offline tests     :  novelfactory.bat test
 REM ============================================================================
 setlocal enabledelayedexpansion
-REM IMPORTANTE: capturar la carpeta del .bat ANTES de mover argumentos.
-REM (shift tambi??n desplaza %0, as?? que %~dp0 dejar??a de ser fiable.)
+REM IMPORTANT: capture the .bat folder BEFORE shifting arguments.
+REM (shift also shifts %0, so %~dp0 would no longer be reliable.)
 set "NFDIR=%~dp0"
 cd /d "%NFDIR%"
 
@@ -65,7 +65,7 @@ if /i "%CMD%"=="check"    ( set "SCRIPT=post_production\04_assemble_novel_ffmpeg
 if /i "%CMD%"=="assemble" ( set "SCRIPT=post_production\04_assemble_novel_ffmpeg.py" & goto :RUN )
 if /i "%CMD%"=="publish"  ( set "SCRIPT=post_production\05_export_to_publisher.py" & goto :RUN )
 if /i "%CMD%"=="test"     ( python -m unittest discover -s tests -v & goto :DONE )
-echo  [!] Comando desconocido: %CMD%
+echo  [!] Unknown command: %CMD%
 goto :HELP
 
 :PREPARE
@@ -73,12 +73,12 @@ echo.
 python "%NFDIR%nf_core.py" prepare !REST!
 if errorlevel 1 (
   echo.
-  echo  [X] prepare termino con errores ^(codigo %errorlevel%^).
+  echo  [X] prepare finished with errors ^(code %errorlevel%^).
 )
 goto :DONE
 
 :INGEST
-REM  ingest <slug> <json...>  ->  --ingest debe ir ANTES de la lista de JSON
+REM  ingest <slug> <json...>  ->  --ingest must come BEFORE the JSON list
 shift
 set "SLUG=%~1"
 shift
@@ -90,11 +90,11 @@ shift
 goto :INGEST_COLLECT
 :INGEST_RUN
 if "!SLUG!"=="" (
-  echo  [!] Uso: novelfactory.bat ingest ^<slug^> ^<json...^>
+  echo  [!] Usage: novelfactory.bat ingest ^<slug^> ^<json...^>
   goto :DONE
 )
 python "%NFDIR%generators\01_story_to_master_json.py" "!SLUG!" --ingest !FILES!
-if errorlevel 1 ( echo. & echo  [X] La ingesta termin?? con errores. )
+if errorlevel 1 ( echo. & echo  [X] Ingest finished with errors. )
 goto :DONE
 
 :RUN
@@ -102,38 +102,38 @@ echo.
 python "%NFDIR%%SCRIPT%" !REST! %MODE%
 if errorlevel 1 (
   echo.
-  echo  [X] El comando termin?? con errores ^(c??digo %errorlevel%^).
+  echo  [X] The command finished with errors ^(code %errorlevel%^).
 )
 goto :DONE
 
 :HELP
 echo.
-echo  NOVEL FACTORY ??? comandos disponibles:
+echo  NOVEL FACTORY - available commands:
 echo.
-echo    new ^<slug^> [--title "..."]        Genera brief + prompt-pack para el LLM
-echo    ingest ^<slug^> ^<json...^>           Ingesta el guion JSON del LLM
-echo    demo ^<slug^>                         Episodio demo de calibraci??n (sin LLM)
-echo    validate ^<slug^>                     Valida master_episode.json
-echo    frames ^<slug^>                       Exporta la cola de im??genes (ChatGPT)
-echo    omni ^<slug^>                         Exporta la cola de v??deo (Omni)
-echo    muse ^<slug^>                         Exporta la cola de v??deo (Muse AI)
-echo    flow ^<slug^>                         Exporta la cola de v??deo (Google Flow / Veo)
-echo    prompts ^<slug^>                      Exporta los 4 prompts maestros rellenados
-echo    export-master-prompts ^<slug^>        Genera workflow 000-003 + lotes Muse AI (6 escenas)
-echo    muse-pack ^<slug^>                    Paquete unico: 11 imagenes + 10 lotes Muse AI
-echo    prepare ^<slug^>                       Regenera workflow 00 + 04 + paquete Muse 05
-echo    status ^<slug^>                       Tabla de progreso de clips/frames
-echo    queue ^<slug^>                        Siguiente prompt pendiente por consola
-echo    assisted ^<slug^>                     Asistente de portapapeles para Omni
-echo    watch ^<slug^> [--once]               Vigila Descargas y archiva clips
-echo    import-frames ^<slug^> --frames-src DIR  Importa frames existentes a raw_frames
-echo    dashboard ^<slug^> [--serve] [--open]  Dashboard para copiar prompts y trackear escenas
-echo    check ^<slug^>                        Preflight del ensamblaje (sin render)
-echo    assemble ^<slug^>                     Ensambla master 16:9 + teasers 9:16
-echo    publish ^<slug^> [--apply]            Exporta teasers a la cola del publicador
-echo    test                                 Ejecuta los tests offline
+echo    new ^<slug^> [--title "..."]        Generate brief + prompt-pack for the LLM
+echo    ingest ^<slug^> ^<json...^>           Ingest the LLM's JSON script
+echo    demo ^<slug^>                         Calibration demo episode (no LLM)
+echo    validate ^<slug^>                     Validate master_episode.json
+echo    frames ^<slug^>                       Export the image queue (ChatGPT)
+echo    omni ^<slug^>                         Export the video queue (Omni)
+echo    muse ^<slug^>                         Export the video queue (Muse AI)
+echo    flow ^<slug^>                         Export the video queue (Google Flow / Veo)
+echo    prompts ^<slug^>                      Export the 4 filled master prompts
+echo    export-master-prompts ^<slug^>        Generate workflow 000-003 + Muse AI batches (6 scenes)
+echo    muse-pack ^<slug^>                    Single package: 11 images + 10 Muse AI batches
+echo    prepare ^<slug^>                       Regenerate workflow 00 + 04 + Muse package 05
+echo    status ^<slug^>                       Clip/frame progress table
+echo    queue ^<slug^>                        Next pending prompt in the console
+echo    assisted ^<slug^>                     Clipboard assistant for Omni
+echo    watch ^<slug^> [--once]               Watch Downloads and file clips
+echo    import-frames ^<slug^> --frames-src DIR  Import existing frames into raw_frames
+echo    dashboard ^<slug^> [--serve] [--open]  Dashboard to copy prompts and track scenes
+echo    check ^<slug^>                        Assembly preflight (no render)
+echo    assemble ^<slug^>                     Assemble 16:9 master + 9:16 teasers
+echo    publish ^<slug^> [--apply]            Export teasers to the publisher queue
+echo    test                                 Run the offline tests
 echo.
-echo  Ejemplo completo:
+echo  Full example:
 echo    novelfactory.bat demo demo_contract
 echo    novelfactory.bat frames demo_contract
 echo    novelfactory.bat omni demo_contract

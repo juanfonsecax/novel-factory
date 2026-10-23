@@ -1,42 +1,42 @@
 # MASTER WORKFLOW PROMPTS READY — The Stable Girl
 
-- Generado: 2026-10-22T17:16:34-05:00
-- Historia fuente: story_brief.md
-- Duración: 10 minuto(s)
-- Escenas: 60 (10 s cada una)
-- Bloques de storyboard: 10 (6 escenas por imagen)
-- Formato máster: 16:9
-- Formato teasers/Reels: 9:16
-- Estilo visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette Lighting palette: late-afternoon sun raking across the scene with long shadows; overcast storm light with a cold rim on faces; practical tungsten warmth inside against a blue dusk exterior. Camera language: wide establishing shot with a human scale reference; medium shot, chest up, subject slightly off-center; tight close-up, eyes in sharp focus, background falling off; over-the-shoulder shot with the listener soft in foreground.
+- Generated: 2026-10-23T11:53:23-05:00
+- Source story: story_brief.md
+- Runtime: 10 minute(s)
+- Scenes: 60 (10 s each)
+- Storyboard blocks: 10 (6 scenes per image)
+- Master format: 16:9
+- Teaser/Reels format: 9:16
+- Visual style: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette Lighting palette: late-afternoon sun raking across the scene with long shadows; overcast storm light with a cold rim on faces; practical tungsten warmth inside against a blue dusk exterior. Camera language: wide establishing shot with a human scale reference; medium shot, chest up, subject slightly off-center; tight close-up, eyes in sharp focus, background falling off; over-the-shoulder shot with the listener soft in foreground.
 
-> Los cuatro prompts ya están rellenados con los datos de este proyecto.
-> Copia cada bloque completo y úsalo en el orden 000 → 001 → 002 → 003.
+> All four prompts are already filled with this project's data.
+> Copy each complete block and use it in the order 000 → 001 → 002 → 003.
 
-## Cómo usar este documento
+## How to use this document
 
-1. **PROMPT 000** genera la arquitectura narrativa y el elenco.
-2. **PROMPT 001** convierte esa arquitectura en storyboards de 6 viñetas por imagen.
-3. **PROMPT 002** extrae del storyboard la hoja maestra de personajes en una sola imagen.
-4. **PROMPT 003** convierte el storyboard en guion técnico con cámara, sonido y diálogo en inglés.
-5. Copia el comando final de cada bloque de 1 minuto en Muse AI junto con el storyboard y la hoja de personajes.
+1. **PROMPT 000** generates the narrative architecture and cast.
+2. **PROMPT 001** turns that architecture into storyboards with 6 panels per image.
+3. **PROMPT 002** extracts the master character sheet from the storyboard in a single image.
+4. **PROMPT 003** turns the storyboard into a technical script with camera, sound and English dialogue.
+5. Copy the final command for each 1-minute block into Muse AI together with the storyboard and character sheet.
 
-Lotes de 1 minuto listos: `muse_ai_minute_batches_queue.txt` (10 bloques).
+1-minute batches ready: `muse_ai_minute_batches_queue.txt` (10 blocks).
 
 ---
 
-## PROMPT 000 — Arquitecto de Historias Virales (China / USA Micro-Drama)
+## PROMPT 000 — Viral Story Architect (China / USA Micro-Drama)
 
-_Convierte la idea base en una arquitectura de alta retención con elenco, locaciones y sinopsis bloque por bloque._
+_Turns the base idea into a high-retention architecture with cast, locations and a block-by-block synopsis._
 
-**14,218 caracteres · 2,271 palabras**
+**14,447 characters · 2,299 words**
 
 ````text
-🧠 PROMPT 000 — ARQUITECTO DE HISTORIAS VIRALES (CHINA / USA MICRO-DRAMA SHOWRUNNER)
-Actúa como un Showrunner experto en Micro-Dramas virales de Estados Unidos y China (estilo ReelShort, DramaBox y canales de novelas con IA de +500,000 vistas).
+🧠 PROMPT 000 — VIRAL STORY ARCHITECT (CHINA / USA MICRO-DRAMA SHOWRUNNER)
+Act as a Showrunner with deep expertise in viral micro-dramas from the United States and China (ReelShort, DramaBox and AI-novel channels with 500,000+ views).
 
-Tu objetivo es transformar mi idea base en una HISTORIA DE ALTA RETENCIÓN pensada para el mercado en INGLÉS (alto RPM), estructurada matemáticamente para una duración de 10 minuto(s) (60 escenas de 10 segundos cada una, divididas en 10 bloques de 1 minuto / 6 escenas).
+Your goal is to turn my base idea into a HIGH-RETENTION STORY built for the ENGLISH-language market (high RPM), mathematically structured for a runtime of 10 minute(s) (60 ten-second scenes, split into 10 one-minute blocks / 6 scenes each).
 
-IDEA BASE / SEMILLA:
+BASE IDEA / SEED:
 PREMISE:
 # THE STABLE GIRL — Episodio 1 de "Silver Creek Secrets"
 
@@ -70,79 +70,82 @@ ACT MAP:
 - Act 5 — The Turn : Elena converts the bank box into leverage while the town gathers for the gala; Cole and Maggie each choose to pay a price, and Victoria's last threat sets the stage.
 - Act 6 — The Payoff : At the county hearing the will is read in public, the mask comes off, and Silver Creek changes hands; a line in Walter's letter opens the next mystery.
 
-REGLAS DE ORO DE DRAMATURGIA Y RETENCIÓN QUE DEBES APLICAR:
-1. GANCHO EXPLOSIVO EN LOS PRIMEROS 10 SEGUNDOS (ESCENA 1): La historia jamás debe empezar de forma lenta. Debe abrir en medio de una tensión máxima: una humillación pública, una traición descubierta, un secreto millonario, una diferencia extrema de clases sociales o un contrato inesperado.
-2. MICRO-GIROS CADA 30 SEGUNDOS (CADA 3 ESCENAS): Cada 3 escenas debe ocurrir una revelación, un conflicto emocional, una mirada prohibida, una confrontación o un obstáculo que impida que el espectador cierre el video.
-3. CLIFFHANGER AL FINAL DE CADA MINUTO (ESCENAS 6, 12, 18...): La última escena de cada bloque de 6 escenas debe terminar en máxima tensión dramática.
-4. PERSONAJES CON CONTRASTE VISUAL INMEDIATO (MÁXIMO 3 A 5 PERSONAJES PRINCIPALES): Diseña personajes cuyo estatus social y personalidad se entiendan en 1 segundo solo por su vestuario (ej. multimillonario arrogante vs. trabajadora humilde con dignidad de hierro; heredera secreta vs. villana elitista).
-5. ECONOMÍA DE ESCENARIOS (MÁXIMO 3 A 5 LOCACIONES): Concentra la acción en locaciones visualmente ricas y contrastantes para mantener continuidad perfecta. Agrupa 3 a 6 escenas consecutivas en la misma situación dramática antes de cambiar de lugar.
-6. CAUSALIDAD ESTRICTA Y ORDEN CRONOLÓGICO: Cada escena debe ser consecuencia de la anterior y causa de la siguiente. Prohibido mostrar una consecuencia antes de su causa, revelar la misma pista dos veces o teletransportar personajes sin una transición visible o hablada. Cada acto termina en una decisión que obliga al siguiente.
-7. CATÁLOGO DE 6 ESTRUCTURAS VIRALES PROBADAS (LATAM → USA, +500,000 VISTAS): Usa este catálogo como banco de estructuras. Elige UNA sola como columna vertebral de la historia y adáptala al mercado estadounidense en inglés. No copies nombres, marcas ni diálogos: conserva la mecánica emocional y el orden de beats.
+GOLDEN DRAMATURGY AND RETENTION RULES YOU MUST APPLY:
+1. EXPLOSIVE HOOK IN THE FIRST 10 SECONDS (SCENE 1): The story must never start slowly. Open in the middle of maximum tension: a public humiliation, a discovered betrayal, a millionaire secret, an extreme social-class gap or an unexpected contract.
+2. MICRO-TURNS EVERY 30 SECONDS (EVERY 3 SCENES): Every 3 scenes there must be a revelation, an emotional conflict, a forbidden glance, a confrontation or an obstacle that prevents the viewer from closing the video.
+3. CLIFFHANGER AT THE END OF EVERY MINUTE (SCENES 6, 12, 18...): The last scene of every 6-scene block must end at maximum dramatic tension.
+4. CHARACTERS WITH IMMEDIATE VISUAL CONTRAST (MAXIMUM 3 TO 5 MAIN CHARACTERS): Design characters whose social status and personality are understood in 1 second through wardrobe alone (e.g. arrogant billionaire vs. humble worker with iron dignity; secret heiress vs. elitist villain).
+5. LOCATION ECONOMY (MAXIMUM 3 TO 5 LOCATIONS): Concentrate the action in visually rich, contrasting locations to preserve perfect continuity. Group 3 to 6 consecutive scenes in the same dramatic situation before changing location.
+6. STRICT CAUSALITY AND CHRONOLOGICAL ORDER: Every scene must be a consequence of the previous one and the cause of the next. Never show a consequence before its cause, reveal the same clue twice or teleport characters without a visible or spoken transition. Every act ends on a decision that forces the next one.
+7. CATALOG OF 6 PROVEN VIRAL STRUCTURES (LATAM → USA, 500,000+ VIEWS): Use this catalog as a structure bank. Choose ONE as the story's backbone and adapt it to the US market in English. Do not copy names, brands or dialogue: preserve the emotional mechanics and beat order.
 1. The Ranch Laundress and the Stolen Heirloom (`ranch_laundress_stolen_heirloom`)
-   Inspiración: @novelasaa7 · 831K vistas · Ranch / Class Revenge.
-   Premisa: A humble ranch laundress is publicly accused of stealing the family heirloom. The real thief is a wealthy family member, and the heir she loves is the only one willing to prove her innocence.
-   Gancho: They accused the help. The thief wore the family name.
+   Inspiration: @novelasaa7 · 831K views · Ranch / Class Revenge.
+   Premise: A humble ranch laundress is publicly accused of stealing the family heirloom. The real thief is a wealthy family member, and the heir she loves is the only one willing to prove her innocence.
+   Hook: They accused the help. The thief wore the family name.
    Beats: Public humiliation: the heirloom disappears during a family gathering and the laundress is accused. -> A physical detail contradicts the accusation: mud on the wrong boots, a broken clasp, a locked room. -> The heir investigates and discovers the planted evidence and the family cover-up. -> The laundress is forced to leave; the heir stops her at the gate with proof. -> Public reveal before the family and the town: the real thief is exposed. -> Payoff: the laundress is vindicated, the heir chooses her, and a new family secret opens.
-   Adaptación USA: Texas or Montana ranch, county fair or ranch anniversary party, US English, land and class stakes, conservative family dynasty.
+   USA adaptation: Texas or Montana ranch, county fair or ranch anniversary party, US English, land and class stakes, conservative family dynasty.
 2. The Humiliated Vagabond Is the Billionaire Owner (`humiliated_vagabond_is_billionaire_owner`)
-   Inspiración: @Mini_Dramas07 · 658K vistas · Hidden Billionaire / Revenge.
-   Premisa: A humble ranch hand arrives at the property and is humiliated by the corrupt foreman and the family, never suspecting that he is the new billionaire owner who bought the entire ranch.
-   Gancho: They threw out the man who owns the land.
+   Inspiration: @Mini_Dramas07 · 658K views · Hidden Billionaire / Revenge.
+   Premise: A humble ranch hand arrives at the property and is humiliated by the corrupt foreman and the family, never suspecting that he is the new billionaire owner who bought the entire ranch.
+   Hook: They threw out the man who owns the land.
    Beats: Humiliation: the drifter is mocked, underpaid and thrown out of the ranch house. -> The heroine defends him and loses her job for it. -> The drifter returns as the anonymous billionaire owner and quietly changes the power dynamic. -> The corrupt foreman tries to cover up the abuse and frames the heroine. -> Public reveal: the owner identifies himself and exposes the foreman's fraud. -> Payoff: the heroine is chosen, the foreman faces the consequences, and a new threat appears.
-   Adaptación USA: Texas or Montana cattle ranch, US English, ranch-hand class conflict, land ownership and public status reversal.
+   USA adaptation: Texas or Montana cattle ranch, US English, ranch-hand class conflict, land ownership and public status reversal.
 3. The Hidden Will and the Secret Daughter (`hidden_will_secret_daughter`)
-   Inspiración: @Mini_Dramas07 & @TIEMPOCONLASABUELAS · 578K vistas · Family Secret / Inheritance.
-   Premisa: A young woman enters the ranch as a maid to find the true will hidden under the floorboards or in a secret drawer by the ambitious widow and the family lawyer.
-   Gancho: The will named a daughter no one had ever met.
+   Inspiration: @Mini_Dramas07 & @TIEMPOCONLASABUELAS · 578K views · Family Secret / Inheritance.
+   Premise: A young woman enters the ranch as a maid to find the true will hidden under the floorboards or in a secret drawer by the ambitious widow and the family lawyer.
+   Hook: The will named a daughter no one had ever met.
    Beats: The maid arrives at the ranch and is treated as invisible by the widow and the lawyer. -> A loose floorboard or locked drawer reveals a second, older will. -> The widow accuses the maid of theft and forgery before the family. -> The maid finds a birth record, photograph or letter proving she is the secret daughter. -> Public hearing: the lawyer's forgery is exposed and the widow loses control. -> Payoff: the maid claims her name and inheritance, and a new family secret opens.
-   Adaptación USA: Texas or Montana ranch estate, US English, probate hearing, legitimacy and family-dynasty stakes.
+   USA adaptation: Texas or Montana ranch estate, US English, probate hearing, legitimacy and family-dynasty stakes.
 4. Contract Marriage with the Proud Foreman (`contract_marriage_proud_foreman`)
-   Inspiración: @Mini_Dramas07 · 185K vistas · Contract Marriage / Romance.
-   Premisa: To save her late father's ranch from bank ruin, the protagonist must marry her proud rival by contract. In secret, he protects her from an internal betrayal that wants to take the land.
-   Gancho: She bought a husband for one year. He wanted the truth.
+   Inspiration: @Mini_Dramas07 · 185K views · Contract Marriage / Romance.
+   Premise: To save her late father's ranch from bank ruin, the protagonist must marry her proud rival by contract. In secret, he protects her from an internal betrayal that wants to take the land.
+   Hook: She bought a husband for one year. He wanted the truth.
    Beats: The bank deadline forces the contract marriage to be signed in public. -> Forced proximity reveals the foreman's secret debt and the heroine's collapsing ranch. -> Sabotage at the ranch puts the heroine in danger and the foreman protects her. -> The antagonist exposes the contract to humiliate them; the couple turns it into a real commitment. -> Public confrontation: the sabotage is traced to the antagonist. -> Payoff: the contract is torn up, a real proposal lands, and a new threat appears.
-   Adaptación USA: Texas or Wyoming ranch, US English, bank foreclosure, blue-collar vs. landowner class tension.
+   USA adaptation: Texas or Wyoming ranch, US English, bank foreclosure, blue-collar vs. landowner class tension.
 5. The Untamable Champion Horse (`untamable_champion_horse`)
-   Inspiración: @Mini_Dramas07 · 122K vistas · Horse Ranch / Forbidden Love.
-   Premisa: A champion horse that nobody on the ranch can ride is tamed by the humblest worker on the property. The feat saves the ranch from ruin and awakens a forbidden love.
-   Gancho: The horse that broke every rider chose the one nobody saw.
+   Inspiration: @Mini_Dramas07 · 122K views · Horse Ranch / Forbidden Love.
+   Premise: A champion horse that nobody on the ranch can ride is tamed by the humblest worker on the property. The feat saves the ranch from ruin and awakens a forbidden love.
+   Hook: The horse that broke every rider chose the one nobody saw.
    Beats: The untamable champion injures another rider and the ranch is threatened with foreclosure. -> The humblest worker is blamed and forbidden from entering the stable. -> A hidden injury or doped feed reveals the rival stable's sabotage. -> The worker bonds with the horse and proves the method works before the championship. -> Public race: the sabotage is exposed and the rival stable is disqualified. -> Payoff: the horse wins, the forbidden love is chosen, and a new race or threat opens.
-   Adaptación USA: Kentucky or Texas horse country, US English, championship race, forbidden romance and animal stakes.
+   USA adaptation: Kentucky or Texas horse country, US English, championship race, forbidden romance and animal stakes.
 6. Grandma's Buried Secret and the Family Betrayal (`grandmas_buried_secret_betrayal`)
-   Inspiración: @TIEMPOCONLASABUELAS & @Dramasquetocanelalma · +500K vistas · Family Betrayal / Mystery.
-   Premisa: A grandmother despised by her ambitious children reveals a secret buried for decades and gives the inheritance to the only person who cared for her with nobility.
-   Gancho: Grandma left a box in the ground and a warning on the lid.
+   Inspiration: @TIEMPOCONLASABUELAS & @Dramasquetocanelalma · +500K views · Family Betrayal / Mystery.
+   Premise: A grandmother despised by her ambitious children reveals a secret buried for decades and gives the inheritance to the only person who cared for her with nobility.
+   Hook: Grandma left a box in the ground and a warning on the lid.
    Beats: At the family gathering, the despised grandmother announces a buried secret. -> The ambitious children deny it and threaten the protagonist's inheritance. -> A buried box, land deed or photograph proves the fortune was stolen from another branch. -> The family destroys evidence and tries to run the protagonist out of town. -> Public reveal at the family business or town meeting: the betrayal is exposed. -> Payoff: the inheritance goes to the noble caregiver, and a second grave or name opens the next mystery.
-   Adaptación USA: Texas ranch or Louisiana family estate, US English, funeral and land-deed stakes, matriarch inheritance and family-business betrayal.
+   USA adaptation: Texas ranch or Louisiana family estate, US English, funeral and land-deed stakes, matriarch inheritance and family-business betrayal.
 
-ENTREGA EL RESULTADO EN ESTE FORMATO EXACTO (LISTO PARA COPIAR AL PROMPT 001):
-1. TÍTULO VIRAL EN INGLÉS (3 opciones de alto CTR).
-2. ELENCO PRINCIPAL (3 a 5 personajes: Nombre, Edad, Apariencia Física exacta, Vestuario característico fijo y Timbre de Voz en inglés).
-3. SINOPSIS NARRATIVA INTENSA BLOQUE POR BLOQUE (1 párrafo por cada minuto de historia = 6 escenas por minuto, describiendo inicio, conflicto, giros y desenlace/cliffhanger).
+DELIVER THE RESULT IN THIS EXACT FORMAT (READY TO PASTE INTO PROMPT 001):
+1. VIRAL TITLE IN ENGLISH (3 high-CTR options).
+2. MAIN CAST (3 to 5 characters: Name, Age, Exact Physical Appearance, Fixed Signature Wardrobe and Voice Timbre in English).
+3. INTENSE BLOCK-BY-BLOCK NARRATIVE SYNOPSIS (1 paragraph per story minute = 6 scenes per minute, describing opening, conflict, turns and outcome/cliffhanger).
 
-REGLA DE CONTINUIDAD NARRATIVA (Hilo Conductor Único + Cadena Causa y Efecto + Ledger de Estado Arrastrado + Prohibición de Ping-Pong de Locaciones + Un Solo Nombre por Objeto Clave + Prueba de Desorden):
-1. UNA SOLA PREGUNTA MOTRIZ POR BLOQUE DE 6 ESCENAS: cada minuto tiene una única pregunta dramática; ninguna escena abre una pregunta nueva.
-2. CADENA CAUSA-EFECTO OBLIGATORIA: de la escena 2 a la 60, cada escena declara `because_previous_ended_with` (copia literal del cambio final de la escena anterior), `this_scene_starts_with` (acción concreta ya en movimiento que continúa esa consecuencia) y `single_change_at_end` (un único cambio de estado irreversible).
-3. PROHIBIDO EL PING-PONG DE LOCACIONES: agrupa de 3 a 5 escenas consecutivas en la misma locación; el patrón A-B-A está prohibido.
-4. UN SOLO NOMBRE POR OBJETO CLAVE: el mismo `key_object` exacto aparece en el panel de storyboard, en la acción de la Toma 1 y en la lista Key Object; nunca uses alias.
-5. PRUEBA DE DESORDEN: si al desordenar el bloque la cadena de consecuencias deja de tener sentido, reescríbelo. El validador rechaza placeholders mecánicos (`hard cut into the dialogue beat`, `hard cut to the reaction as the line lands`) y saltos de locación sin transición.
+NARRATIVE CONTINUITY RULE (Single Through-Line + Cause-and-Effect Chain + Carried-State Ledger + Location Ping-Pong Ban + One Name per Key Object + Scramble Test + ReelShort/DramaBox Bridges and Pacing):
+1. ONE DRIVING QUESTION PER 6-SCENE BLOCK: each minute has a single dramatic question; no scene opens a new question.
+2. MANDATORY CAUSE-AND-EFFECT CHAIN: from scene 2 to the last scene, every scene declares `because_previous_ended_with` (literal copy of the previous scene's final change), `this_scene_starts_with` (concrete action already in motion that continues that consequence) and `single_change_at_end` (one irreversible state change).
+3. ENTRY AND EXIT BRIDGES (OPENING AND CLOSING): every scene declares `entry_bridge` (micro-action or line <= 2 s that starts it because of the previous scene) and `exit_hook` (gesture, order, decision or question that ends it and pushes into the next one). exit_hook(N) feeds entry_bridge(N+1).
+4. BLOCK PACING RULE (6 SCENES): 6 confrontation peaks in a row are FORBIDDEN. At least 1 non-confrontational beat per block (solo decision, discovery, plan, tender/vulnerable moment).
+5. CLIFFHANGER ROTATION: rotate the type between blocks (identity -> emotion -> revelation). Repeating the same type in two consecutive blocks is forbidden.
+6. LOCATION PING-PONG IS FORBIDDEN: group 3 to 5 consecutive scenes in the same location; the A-B-A pattern is forbidden.
+7. ONE NAME PER KEY OBJECT: the same exact `key_object` appears in the storyboard panel, in the Shot 1 action and in the Key Object list; never use aliases.
+8. SCRAMBLE TEST: if scrambling the block breaks the chain of consequences, rewrite it. The validator rejects mechanical placeholders and cuts without transitions.
 
 ````
 
 ---
 
-## PROMPT 001 — Generador de Storyboard Cinematográfico (6 Escenas por Imagen)
+## PROMPT 001 — Cinematic Storyboard Generator (6 Scenes per Image)
 
-_Crea un storyboard visual en cuadrículas de 6 viñetas (3x2), una imagen por minuto de historia._
+_Creates a visual storyboard in 6-panel grids (3x2), one image per minute of story._
 
-**9,794 caracteres · 1,562 palabras**
+**9,876 characters · 1,579 words**
 
 ````text
-🎬 PROMPT 001 — GENERADOR DE STORYBOARD CINEMATOGRÁFICO (6 ESCENAS POR IMAGEN)
-Actúa como director de cine y crea un storyboard visual para la historia que te voy a proporcionar.
+🎬 PROMPT 001 — CINEMATIC STORYBOARD GENERATOR (6 SCENES PER IMAGE)
+Act as a film director and create a visual storyboard for the story I am going to give you.
 
-DATOS DE LA HISTORIA
-Historia:
+STORY DATA
+Story:
 PREMISE:
 # THE STABLE GIRL — Episodio 1 de "Silver Creek Secrets"
 
@@ -176,344 +179,353 @@ ACT MAP:
 - Act 5 — The Turn : Elena converts the bank box into leverage while the town gathers for the gala; Cole and Maggie each choose to pay a price, and Victoria's last threat sets the stage.
 - Act 6 — The Payoff : At the county hearing the will is read in public, the mask comes off, and Silver Creek changes hands; a line in Walter's letter opens the next mystery.
 
-Duración:
-10 minuto(s) (60 escenas de 10 segundos = 10 imagen(es) de storyboard de 6 viñetas cada una)
+Runtime:
+10 minute(s) (60 ten-second scenes = 10 storyboard image(s) with 6 panels each)
 
-Estilo visual:
+Visual style:
 prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette Lighting palette: late-afternoon sun raking across the scene with long shadows; overcast storm light with a cold rim on faces; practical tungsten warmth inside against a blue dusk exterior. Camera language: wide establishing shot with a human scale reference; medium shot, chest up, subject slightly off-center; tight close-up, eyes in sharp focus, background falling off; over-the-shoulder shot with the listener soft in foreground.
-(Opciones: Cinematográfico realista 35mm / Realista / Animación 3D / Animación 2D / Anime / Ilustración)
+(Options: Realistic cinematic 35mm / Realistic / 3D animation / 2D animation / Anime / Illustration)
 
-REGLAS DEL STORYBOARD
-Cada escena dura exactamente 10 segundos.
-Calcula automáticamente el número de escenas según la duración.
-Cada imagen debe contener 6 escenas/viñetas (en cuadrícula limpia de 3x2: 6 viñetas numeradas del 1 al 6).
-Por lo tanto:
-1 minuto = 6 escenas = 1 imagen
-2 minutos = 12 escenas = 2 imágenes
-3 minutos = 18 escenas = 3 imágenes
-4 minutos = 24 escenas = 4 imágenes
-5 minutos = 30 escenas = 5 imágenes
-10 minutos = 60 escenas = 10 imágenes
-Cada imagen representa exactamente 1 minuto de historia.
+STORYBOARD RULES
+Every scene lasts exactly 10 seconds.
+Automatically calculate the number of scenes from the runtime.
+Every image must contain 6 scenes/panels (in a clean 3x2 grid: 6 panels numbered 1 to 6).
+Therefore:
+1 minute = 6 scenes = 1 image
+2 minutes = 12 scenes = 2 images
+3 minutes = 18 scenes = 3 images
+4 minutes = 24 scenes = 4 images
+5 minutes = 30 scenes = 5 images
+10 minutes = 60 scenes = 10 images
+Every image represents exactly 1 minute of story.
 
-CADA VIÑETA
-Cada viñeta debe mostrar visualmente el momento correspondiente de la historia con encuadre de cine profesional (alternando planos generales establecedores, planos medios dramáticos y primeros planos emocionales).
-Cada viñeta es el PRIMER FRAME literal de la Toma 1 de su escena: mismo encuadre, misma posición de cámara, mismo blocking, mismo vestuario, misma luz y mismo objeto clave. La Toma 1 arranca en movimiento desde esa imagen; nunca es un frame congelado.
-Debe incluir:
-- Todos los personajes presentes en la escena, con su posición fija de la Hoja de Personajes.
-- Lugar.
-- Acción física clara ya en movimiento.
-- Emoción intensa en los rostros.
-- El objeto clave de la escena visible o claramente implicado.
-- Composición e iluminación cinematográfica.
-FORMATO DE VIÑETAS 100% VISUAL (SIN CAJAS DE TEXTO): Las 6 viñetas fotográficas en cuadrícula 3x2 deben ocupar el 100% del lienzo 16:9 separadas únicamente por líneas divisorias finas. Coloca SOLO el número pequeño [1], [2], [3], [4], [5], [6] en la esquina superior izquierda de cada viñeta. PROHIBIDO dibujar barras inferiores oscuras, subtítulos, cajas de texto o descripciones escritas dentro de la imagen.
+EVERY PANEL
+Every panel must visually show the corresponding story moment with professional cinematic framing (alternating establishing wide shots, dramatic medium shots and emotional close-ups).
+Every panel is the literal FIRST FRAME of Shot 1 in its scene: same framing, same camera position, same blocking, same wardrobe, same lighting and same key object. Shot 1 starts in motion from that image; it is never a frozen frame.
+It must include:
+- Every character present in the scene, in their fixed Cast Sheet position.
+- Location.
+- Clear physical action already in motion.
+- Intense emotion on the faces.
+- The scene's key object visible or clearly implied.
+- Cinematic composition and lighting.
+100% VISUAL PANEL FORMAT (NO TEXT BOXES): The 6 photographic panels in a 3x2 grid must fill 100% of the 16:9 canvas, separated only by thin divider lines. Place ONLY the small number [1], [2], [3], [4], [5], [6] in the top-left corner of each panel. Drawing dark bottom bars, subtitles, text boxes or written descriptions inside the image is FORBIDDEN.
 
-IMPORTANTE:
-No escribir diálogos ni párrafos dentro del storyboard.
+IMPORTANT:
+Do not write dialogue or paragraphs inside the storyboard.
 
-CONTINUIDAD
-Mantén la misma apariencia exacta de los personajes durante todo el storyboard.
-Conserva también la continuidad estricta de:
-- Rostros.
-- Cabello.
-- Edad.
-- Complexión.
-- Vestuario.
-- Locaciones.
-- Época.
-- Objetos importantes (anillos, contratos, vehículos, herramientas).
-- Iluminación.
-- Ambiente.
-Si un personaje cambia de ropa por motivos narrativos, el cambio debe ser coherente.
+CONTINUITY
+Keep the exact same character appearance throughout the storyboard.
+Also preserve strict continuity of:
+- Faces.
+- Hair.
+- Age.
+- Build.
+- Wardrobe.
+- Locations.
+- Period.
+- Important objects (rings, contracts, vehicles, tools).
+- Lighting.
+- Atmosphere.
+If a character changes clothes for narrative reasons, the change must be coherent.
 
-ESTILO VISUAL
-Utiliza exactamente el estilo visual seleccionado (prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette Lighting palette: late-afternoon sun raking across the scene with long shadows; overcast storm light with a cold rim on faces; practical tungsten warmth inside against a blue dusk exterior. Camera language: wide establishing shot with a human scale reference; medium shot, chest up, subject slightly off-center; tight close-up, eyes in sharp focus, background falling off; over-the-shoulder shot with the listener soft in foreground.).
-Mantén ese estilo de manera consistente en todas las imágenes y todas las viñetas.
-El storyboard debe tener apariencia profesional y cinematográfica.
+VISUAL STYLE
+Use exactly the selected visual style (prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette Lighting palette: late-afternoon sun raking across the scene with long shadows; overcast storm light with a cold rim on faces; practical tungsten warmth inside against a blue dusk exterior. Camera language: wide establishing shot with a human scale reference; medium shot, chest up, subject slightly off-center; tight close-up, eyes in sharp focus, background falling off; over-the-shoulder shot with the listener soft in foreground.).
+Keep that style consistent across every image and every panel.
+The storyboard must look professional and cinematic.
 
-IMPORTANTE
-El resultado debe ser principalmente visual.
-No incluir:
-- Diálogos.
-- Narración extensa.
-- Subtítulos.
-- Párrafos.
-- Prompts de video.
-- Explicaciones del proceso.
-- Descripciones escritas, cajas de texto o barras inferiores dentro de la imagen.
+IMPORTANT
+The result must be primarily visual.
+Do not include:
+- Dialogue.
+- Extended narration.
+- Subtitles.
+- Paragraphs.
+- Video prompts.
+- Process explanations.
+- Written descriptions, text boxes or bottom bars inside the image.
 
-RESULTADO FINAL
-A partir de la historia, duración y estilo proporcionados:
-1. Calcula el número total de escenas (60 escenas).
-2. Cada escena debe durar 10 segundos.
-3. Divide las escenas en grupos de 6.
-4. Genera una imagen por cada grupo de 6 escenas.
-5. Cada imagen debe contener 6 viñetas claramente divididas.
-6. Mantén la numeración [1]-[6] en la esquina superior izquierda, sin texto adicional.
-7. Mantén la continuidad absoluta de personajes y escenarios.
-8. Cuenta toda la historia visualmente de principio a fin.
+FINAL RESULT
+From the provided story, runtime and style:
+1. Calculate the total number of scenes (60 scenes).
+2. Every scene must last 10 seconds.
+3. Divide the scenes into groups of 6.
+4. Generate one image per group of 6 scenes.
+5. Every image must contain 6 clearly divided panels.
+6. Keep the numbering [1]-[6] in the top-left corner, with no additional text.
+7. Preserve absolute continuity of characters and locations.
+8. Tell the entire story visually from beginning to end.
 
-REGLA DE CONTINUIDAD NARRATIVA (Hilo Conductor Único + Cadena Causa y Efecto + Ledger de Estado Arrastrado + Prohibición de Ping-Pong de Locaciones + Un Solo Nombre por Objeto Clave + Prueba de Desorden):
-1. UNA SOLA PREGUNTA MOTRIZ POR BLOQUE DE 6 ESCENAS: cada minuto tiene una única pregunta dramática; ninguna escena abre una pregunta nueva.
-2. CADENA CAUSA-EFECTO OBLIGATORIA: de la escena 2 a la 60, cada escena declara `because_previous_ended_with` (copia literal del cambio final de la escena anterior), `this_scene_starts_with` (acción concreta ya en movimiento que continúa esa consecuencia) y `single_change_at_end` (un único cambio de estado irreversible).
-3. PROHIBIDO EL PING-PONG DE LOCACIONES: agrupa de 3 a 5 escenas consecutivas en la misma locación; el patrón A-B-A está prohibido.
-4. UN SOLO NOMBRE POR OBJETO CLAVE: el mismo `key_object` exacto aparece en el panel de storyboard, en la acción de la Toma 1 y en la lista Key Object; nunca uses alias.
-5. PRUEBA DE DESORDEN: si al desordenar el bloque la cadena de consecuencias deja de tener sentido, reescríbelo. El validador rechaza placeholders mecánicos (`hard cut into the dialogue beat`, `hard cut to the reaction as the line lands`) y saltos de locación sin transición.
+NARRATIVE CONTINUITY RULE (Single Through-Line + Cause-and-Effect Chain + Carried-State Ledger + Location Ping-Pong Ban + One Name per Key Object + Scramble Test + ReelShort/DramaBox Bridges and Pacing):
+1. ONE DRIVING QUESTION PER 6-SCENE BLOCK: each minute has a single dramatic question; no scene opens a new question.
+2. MANDATORY CAUSE-AND-EFFECT CHAIN: from scene 2 to the last scene, every scene declares `because_previous_ended_with` (literal copy of the previous scene's final change), `this_scene_starts_with` (concrete action already in motion that continues that consequence) and `single_change_at_end` (one irreversible state change).
+3. ENTRY AND EXIT BRIDGES (OPENING AND CLOSING): every scene declares `entry_bridge` (micro-action or line <= 2 s that starts it because of the previous scene) and `exit_hook` (gesture, order, decision or question that ends it and pushes into the next one). exit_hook(N) feeds entry_bridge(N+1).
+4. BLOCK PACING RULE (6 SCENES): 6 confrontation peaks in a row are FORBIDDEN. At least 1 non-confrontational beat per block (solo decision, discovery, plan, tender/vulnerable moment).
+5. CLIFFHANGER ROTATION: rotate the type between blocks (identity -> emotion -> revelation). Repeating the same type in two consecutive blocks is forbidden.
+6. LOCATION PING-PONG IS FORBIDDEN: group 3 to 5 consecutive scenes in the same location; the A-B-A pattern is forbidden.
+7. ONE NAME PER KEY OBJECT: the same exact `key_object` appears in the storyboard panel, in the Shot 1 action and in the Key Object list; never use aliases.
+8. SCRAMBLE TEST: if scrambling the block breaks the chain of consequences, rewrite it. The validator rejects mechanical placeholders and cuts without transitions.
 
 ````
 
 ---
 
-## PROMPT 002 — Generador de la Hoja Maestra de Personajes (Una Sola Imagen)
+## PROMPT 002 — Master Character Sheet Generator (Single Image)
 
-_Extrae del storyboard una hoja maestra con todos los personajes relevantes y su vestuario principal._
+_Extracts from the storyboard a master sheet with all relevant characters and their main wardrobe._
 
-**4,568 caracteres · 707 palabras**
+**4,221 characters · 668 words**
 
 ````text
-👤 PROMPT 002 — GENERADOR DE PERSONAJES (HOJA MAESTRA EN UNA SOLA IMAGEN)
-Actúa como director de casting y diseñador de personajes.
-Ya tenemos creado el storyboard de la historia.
-Ahora analiza ese storyboard e identifica los personajes principales y secundarios relevantes que aparecen en la historia.
-Tu tarea es generar UNA SOLA IMAGEN que muestre juntos a todos los personajes identificados.
+👤 PROMPT 002 — CHARACTER GENERATOR (MASTER SHEET IN A SINGLE IMAGE)
+Act as a casting director and character designer.
+We have already created the story's storyboard.
+Now analyze that storyboard and identify the relevant main and secondary characters who appear in the story.
+Your task is to generate A SINGLE IMAGE showing all identified characters together.
 
-REFERENCIA
-Storyboard: el storyboard completo creado en el paso anterior. La hoja debe mantener exactamente los rostros, edades, etnias, vestuarios y accesorios que aparecen en ese storyboard.
+REFERENCE
+Storyboard: the complete storyboard created in the previous step. The sheet must preserve exactly the faces, ages, ethnicities, wardrobes and accessories that appear in that storyboard.
 
-REGLA PRINCIPAL
-Los personajes deben basarse directamente en el storyboard.
-Debes mantener exactamente su:
-- Sexo.
-- Edad aproximada.
-- Etnia y rasgos físicos.
-- Rostro.
-- Cabello.
-- Tono de piel.
-- Complexión.
-- Vestuario principal.
-- Accesorios importantes.
-- Estilo visual (prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette Lighting palette: late-afternoon sun raking across the scene with long shadows; overcast storm light with a cold rim on faces; practical tungsten warmth inside against a blue dusk exterior. Camera language: wide establishing shot with a human scale reference; medium shot, chest up, subject slightly off-center; tight close-up, eyes in sharp focus, background falling off; over-the-shoulder shot with the listener soft in foreground.).
+MAIN RULE
+Characters must be based directly on the storyboard.
+You must preserve exactly their:
+- Sex.
+- Approximate age.
+- Ethnicity and physical features.
+- Face.
+- Hair.
+- Skin tone.
+- Build.
+- Main wardrobe.
+- Important accessories.
+- Visual style (prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette Lighting palette: late-afternoon sun raking across the scene with long shadows; overcast storm light with a cold rim on faces; practical tungsten warmth inside against a blue dusk exterior. Camera language: wide establishing shot with a human scale reference; medium shot, chest up, subject slightly off-center; tight close-up, eyes in sharp focus, background falling off; over-the-shoulder shot with the listener soft in foreground.).
 
-Si el storyboard tiene 2 personajes, muestra los 2 en una sola imagen.
-Si tiene 3 personajes, muestra los 3 en una sola imagen.
-Si tiene 4 personajes, muestra los 4 en una sola imagen.
-Y así sucesivamente (priorizando los 3 a 5 personajes principales de la trama).
-No inventes personajes que no sean relevantes para la historia.
+If the storyboard has 2 characters, show all 2 in a single image.
+If it has 3 characters, show all 3 in a single image.
+If it has 4 characters, show all 4 in a single image.
+And so on (prioritizing the 3 to 5 main characters of the plot).
+Do not invent characters who are not relevant to the story.
 
-COMPOSICIÓN DE LA IMAGEN
-Genera una hoja de referencia de personajes limpia y profesional.
-Todos los personajes deben aparecer:
-- En una sola imagen.
-- Uno al lado del otro.
-- Claramente separados.
-- De cuerpo completo.
-- De pie.
-- Mirando hacia la cámara.
-- En una pose natural y neutral.
-- Sin taparse entre ellos.
-- Sin interactuar físicamente entre ellos.
-Debe verse claramente el rostro y el cuerpo completo de cada personaje.
-Usa un fondo sencillo y neutro (gris estudio limpio) para que los personajes sean los protagonistas de la imagen.
+IMAGE COMPOSITION
+Generate a clean, professional character reference sheet.
+All characters must appear:
+- In a single image.
+- Side by side.
+- Clearly separated.
+- Full body.
+- Standing.
+- Facing the camera.
+- In a natural, neutral pose.
+- Not covering each other.
+- Not physically interacting with each other.
+Each character's face and full body must be clearly visible.
+Use a simple, neutral background (clean studio gray) so the characters are the protagonists of the image.
 
-CONSISTENCIA
-Esta imagen funcionará como referencia oficial de los personajes para las siguientes generaciones de imágenes y videos en Muse AI y Google Flow.
-Por eso, los rostros y características físicas deben corresponder lo máximo posible con los personajes mostrados en el storyboard.
-No rediseñes a los personajes.
-El objetivo es extraer del storyboard una referencia visual clara y consistente de cada personaje.
+CONSISTENCY
+This image will serve as the official character reference for subsequent image and video generations in Muse AI and Google Flow.
+Therefore, faces and physical features must match the characters shown in the storyboard as closely as possible.
+Do not redesign the characters.
+The goal is to extract a clear, consistent visual reference for each character from the storyboard.
 
-ESTILO VISUAL
-Utiliza exactamente el mismo estilo visual utilizado en el storyboard (prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette Lighting palette: late-afternoon sun raking across the scene with long shadows; overcast storm light with a cold rim on faces; practical tungsten warmth inside against a blue dusk exterior. Camera language: wide establishing shot with a human scale reference; medium shot, chest up, subject slightly off-center; tight close-up, eyes in sharp focus, background falling off; over-the-shoulder shot with the listener soft in foreground.).
-No cambiar el estilo visual de la historia.
+VISUAL STYLE
+Use exactly the same visual style used in the storyboard (prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette Lighting palette: late-afternoon sun raking across the scene with long shadows; overcast storm light with a cold rim on faces; practical tungsten warmth inside against a blue dusk exterior. Camera language: wide establishing shot with a human scale reference; medium shot, chest up, subject slightly off-center; tight close-up, eyes in sharp focus, background falling off; over-the-shoulder shot with the listener soft in foreground.).
+Do not change the story's visual style.
 
-VESTUARIO
-Utiliza para cada personaje su vestuario más representativo o principal dentro de la historia.
-El vestuario debe ayudar a identificar inmediatamente quién es cada personaje.
+WARDROBE
+Use each character's most representative or main wardrobe within the story.
+Wardrobe must immediately help identify who each character is.
 
-TEXTO
-Ordena a los personajes de izquierda a derecha y coloca debajo de cada uno únicamente:
-Position #N — NOMBRE DEL PERSONAJE EN MAYÚSCULAS
-Ejemplo:
+TEXT
+Arrange the characters from left to right and place only the following below each one:
+Position #N — CHARACTER NAME IN UPPERCASE
+Example:
 Position #1 (Far Left) — ELENA
 Position #2 — SAM
 Position #3 — MARGARET
 Position #4 (Far Right) — ADRIAN
-Cada personaje conserva siempre la misma posición, el mismo rostro y el mismo vestuario en la hoja y en todas las escenas.
-No incluir:
-- Descripciones largas.
-- Diálogos.
-- Biografías.
-- Párrafos.
-- Información de las escenas.
-El texto debe ser mínimo para mantener la imagen limpia.
+Every character always keeps the same position, the same face and the same wardrobe on the sheet and in every scene.
+Do not include:
+- Long descriptions.
+- Dialogue.
+- Biographies.
+- Paragraphs.
+- Scene information.
+Text must be minimal to keep the image clean.
 
-RESULTADO FINAL
-Genera UNA SOLA IMAGEN que contenga a todos los personajes relevantes de la historia.
-La imagen debe funcionar como una hoja maestra de referencia de personajes, que posteriormente pueda utilizarse para mantener la misma apariencia de los personajes en todas las escenas y videos.
-Entrega solamente la imagen de los personajes.
+FINAL RESULT
+Generate A SINGLE IMAGE containing all relevant characters in the story.
+The image must work as a master character reference sheet that can later be used to keep the same character appearance across every scene and video.
+Deliver only the character image.
 ````
 
 ---
 
-## PROMPT 003 — Generador de Guion + Cámara + Sonido + Comando Muse AI
+## PROMPT 003 — Script + Camera + Sound + Muse AI Command Generator
 
-_Convierte el storyboard en escenas de 10 s con cortes internos, SFX, diálogo en inglés y comando final para Muse AI._
+_Turns the storyboard into 10-second scenes with internal cuts, SFX, English dialogue and a final Muse AI command._
 
-**7,596 caracteres · 1,236 palabras**
+**7,700 characters · 1,231 words**
 
 ````text
-🎬 PROMPT 003 — GENERADOR DE GUION CINEMATOGRÁFICO EN INGLÉS + CAMBIOS DE CÁMARA + SONIDO (OPTIMIZADO PARA MUSE AI Y GOOGLE FLOW)
-Actúa como guionista de Hollywood, director de fotografía y diseñador sonoro.
-Ya tenemos creado el storyboard de la historia y la hoja maestra de personajes. Ahora debes convertir ese storyboard en un guion cinematográfico y técnico completo en texto, respetando exactamente las escenas que aparecen en el storyboard, con todos los diálogos hablados en INGLÉS (English) para monetización internacional.
+🎬 PROMPT 003 — ENGLISH CINEMATIC SCRIPT GENERATOR + CAMERA CUTS + SOUND (OPTIMIZED FOR MUSE AI AND GOOGLE FLOW)
+Act as a Hollywood screenwriter, cinematographer and sound designer.
+We have already created the story's storyboard and the master character sheet. Now convert that storyboard into a complete cinematic, technical text script, respecting exactly the scenes shown in the storyboard, with all spoken dialogue in ENGLISH for international monetization.
 
-DATOS DEL PROYECTO
+PROJECT DATA
 Storyboard:
-El storyboard completo creado en el paso 1: 10 imágenes de 6 viñetas, una por minuto. Cada escena debe corresponder exactamente a su viñeta.
-Duración del bloque:
-1 minuto = 6 escenas de 10 segundos (o el total de escenas del storyboard adjunto).
+The complete storyboard created in step 1: 10 images with 6 panels, one per minute. Every scene must match its panel exactly.
+Block runtime:
+1 minute = 6 ten-second scenes (or the total number of scenes in the attached storyboard).
 
-REGLA PRINCIPAL
-Cada escena dura exactamente 10 segundos.
-Debes mantener exactamente el mismo número y orden de escenas del storyboard.
-NO debes agregar ni eliminar escenas.
-Cada escena debe corresponder directamente a su respectiva viñeta del storyboard.
+MAIN RULE
+Every scene lasts exactly 10 seconds.
+You must keep exactly the same number and order of scenes as the storyboard.
+You must NOT add or remove scenes.
+Every scene must correspond directly to its storyboard panel.
 
-DIÁLOGOS EN INGLÉS (REGLA DURA: MÁXIMO 15 PALABRAS POR ESCENA)
-Todos los diálogos hablados deben estar en INGLÉS natural, dramático y emocional.
-- Máximo 15 palabras por escena y máximo 15 por intervención.
-- La voz debe terminar antes de 8.5 segundos; deja el resto para pausas, miradas y reacciones.
-- Nunca cortes una frase por tiempo: si una idea necesita más, divídela entre escenas.
-- No todas las escenas necesitan diálogo: usa "No dialogue (Pure visual & sound tension)." cuando la imagen hable mejor.
+ENGLISH DIALOGUE (HARD RULE: MAXIMUM 15 WORDS PER SCENE)
+All spoken dialogue must be in natural, dramatic, emotional ENGLISH.
+- Maximum 15 words per scene and maximum 15 per turn.
+- The voice must finish before 8.5 seconds; leave the rest for pauses, glances and reactions.
+- Never cut a sentence for time: if an idea needs more, split it across scenes.
+- Not every scene needs dialogue: use "No dialogue (Pure visual & sound tension)." when the image speaks better.
 
-DIRECCIÓN DE CÁMARA: ENTRE 1 Y 4 TOMAS POR ESCENA DE 10s, NACIDAS DEL DIÁLOGO
-1. REGLA DE ORO: UNA LÍNEA = UN PLANO DEL HABLANTE:
-   - Quien habla está EN CÁMARA con rostro y boca visibles durante toda su línea, mirando al destinatario. Prohibido poner diálogo sobre un insert, una reacción o una espalda.
-   - Toma 1: arranca EN MOVIMIENTO desde el frame exacto de la viñeta. Mismo encuadre, misma posición de cámara, mismo blocking, mismo vestuario, misma luz y mismo objeto clave. Prohibido abrir con un frame estático. Si hay dos hablantes, la Toma 1 es un two-shot que los muestra a ambos y sostiene sus dos líneas.
-   - Los planos silenciosos (insert, reacción, detalle del objeto) van DESPUÉS de que termina el diálogo. Excepción: el hallazgo/revelación va en su propio plano silencioso centrado de 2–3 segundos; declara en qué segundo termina el diálogo ("El diálogo termina en el segundo X").
-   - Los presentes que no hablan se listan como mudos: una sola vez y con la boca cerrada.
-2. OBJETO CLAVE Y TEXTO EN PANTALLA:
-   - Cada escena declara OBJETO AL INICIAR y OBJETO AL TERMINAR visibles en cámara; el insert del objeto lo muestra tal cual.
-   - Nunca muestres el interior vacío de una bolsa, caja fuerte o contenedor donde se escondió el objeto.
-   - Solo el texto diegético declarado (ej. la palabra CONFESSION en el documento) puede verse legible; el resto de papeles y carteles no muestra palabras.
-3. IDENTIDAD Y POSICIONES:
-   - Cada personaje presente se nombra como Nombre (Cast Sheet Pos #N: descriptor estable, wearing vestuario del acto).
-   - La Hoja de Personajes fija posiciones de izquierda a derecha; nunca insertes esa hoja como plano entre escenas.
-3. DISEÑO SONORO (SFX & AMBIENCE) Y VOZ:
-   - Especifica el timbre de voz constante de quien habla (ej. "Warm emotional young female voice" / "Deep authoritative male baritone voice").
-   - Especifica los efectos de sonido realistas del entorno (ej. "Rain on window, footsteps on gravel, tense dramatic silence").
-4. CAUSALIDAD Y LOCACIÓN:
-   - Cada escena es consecuencia de la anterior y causa de la siguiente. Prohibido revelar una consecuencia antes de su causa o repetir la misma pista.
-   - Agrupa 3 a 6 escenas consecutivas en la misma situación dramática antes de cambiar de lugar. Todo cambio de lugar necesita una transición visible o hablada.
+CAMERA DIRECTION: BETWEEN 1 AND 4 SHOTS PER 10s SCENE, BORN FROM THE DIALOGUE
+1. GOLDEN RULE: ONE LINE = ONE SHOT OF THE SPEAKER:
+   - Whoever speaks is ON CAMERA with face and mouth visible throughout their line, looking at the recipient. Putting dialogue over an insert, a reaction or someone's back is forbidden.
+   - Shot 1: starts IN MOTION from the panel's exact frame. Same framing, same camera position, same blocking, same wardrobe, same lighting and same key object. Opening on a static frame is forbidden. If there are two speakers, Shot 1 is a two-shot showing both and holding their two lines.
+   - Silent shots (insert, reaction, object detail) come AFTER the dialogue ends. Exception: the discovery/revelation goes in its own centered 2–3 second silent shot; declare at which second the dialogue ends ("Dialogue ends at second X").
+   - Present characters who do not speak are listed as silent: once, with their mouth closed.
+2. KEY OBJECT AND ON-SCREEN TEXT:
+   - Every scene declares OBJECT AT START and OBJECT AT END visible on camera; the object insert shows it exactly as it is.
+   - Never show the empty interior of a bag, safe or container where the object was hidden.
+   - Only declared diegetic text (e.g. the word CONFESSION on the document) may be legible; all other papers and signs show no words.
+3. IDENTITY AND POSITIONS:
+   - Every present character is named as Name (Cast Sheet Pos #N: stable descriptor, wearing act wardrobe).
+   - The Cast Sheet fixes positions from left to right; never insert that sheet as a shot between scenes.
+3. SOUND DESIGN (SFX & AMBIENCE) AND VOICE:
+   - Specify the speaker's constant voice timbre (e.g. "Warm emotional young female voice" / "Deep authoritative male baritone voice").
+   - Specify realistic environmental sound effects (e.g. "Rain on window, footsteps on gravel, tense dramatic silence").
+4. CAUSALITY AND LOCATION:
+   - Every scene is a consequence of the previous one and the cause of the next. Revealing a consequence before its cause or repeating the same clue is forbidden.
+   - Group 3 to 6 consecutive scenes in the same dramatic situation before changing location. Every location change needs a visible or spoken transition.
 
-ESTRUCTURA OBLIGATORIA DE CADA ESCENA
-Para cada escena utiliza exactamente esta estructura:
+MANDATORY STRUCTURE FOR EVERY SCENE
+Use exactly this structure for every scene:
 
-ESCENA [N] (Viñeta #[N] del Storyboard) — [MM:SS–MM:SS]
-- Location: [Lugar exacto de la viñeta]
-- Characters Present: [Nombre (Cast Sheet Pos #N), ...]
-- Storyboard Panel (Shot 1 exact framing): [ encuadre + acción de la viñeta + objeto clave + todos los presentes ]
-- Identity Anchors: [Nombre (Cast Sheet Pos #N: descriptor, wearing vestuario), ...]
-- Object In / Object Out: [OBJETO AL INICIAR visible → OBJETO AL TERMINAR visible]
-- Camera Cuts & Visual Action (10s, 1–4 tomas):
-  * [00s–..]: [Toma 1: encuadre exacto de la viñeta + acción ya en movimiento; two-shot si hablan dos personajes]
-  * [..s–..s]: [PLANO QUE HABLA: nombre (visible, mira a destinatario) dice exactamente, una sola vez: "línea"] (una toma por línea hablada)
-  * [..s–..s]: [SIN DIÁLOGO: insert, reacción o plano del objeto; el hallazgo va centrado 2–3 s]
-- Mudos: [PRESENTES QUE NO HABLAN: nombre — boca cerrada en toda la escena]
-- Sound Design (SFX & Voice Tone): [Efectos de sonido del ambiente + tono de voz fijo del personaje]
+SCENE [N] (Storyboard Panel #[N]) — [MM:SS–MM:SS]
+- Location: [Exact location from the panel]
+- Characters Present: [Name (Cast Sheet Pos #N), ...]
+- Storyboard Panel (Shot 1 exact framing): [ panel framing + action + key object + everyone present ]
+- Identity Anchors: [Name (Cast Sheet Pos #N: descriptor, wearing wardrobe), ...]
+- Object In / Object Out: [OBJECT AT START visible → OBJECT AT END visible]
+- Camera Cuts & Visual Action (10s, 1–4 shots):
+  * [00s–..]: [Shot 1: exact panel framing + action already in motion; two-shot if two characters speak]
+  * [..s–..s]: [SPEAKING SHOT: name (visible, looking at recipient) says exactly, only once: "line"] (one shot per spoken line)
+  * [..s–..s]: [NO DIALOGUE: insert, reaction or object shot; the discovery is centered for 2–3 s]
+- Silent: [PRESENT CHARACTERS WHO DO NOT SPEAK: name — mouth closed throughout the scene]
+- Sound Design (SFX & Voice Tone): [Environmental sound effects + the character's fixed voice tone]
 - Dialogue (English, max 15 words per line, finish before 8.5 s):
-  [NOMBRE DEL PERSONAJE]: "[Diálogo en inglés breve, concreto y completo, máx. 15 palabras]"
+  [CHARACTER NAME]: "[Brief, concrete, complete English dialogue, max. 15 words]"
 
-RESULTADO FINAL
-Entrega únicamente el bloque de escenas con la estructura anterior y, al final de las escenas, incluye este comando exacto listo para copiar y pegar junto con el guion en MUSE AI:
+FINAL RESULT
+Deliver only the scene block using the structure above and, at the end of the scenes, include this exact command ready to copy and paste together with the script into MUSE AI:
 
-COMANDO FINAL PARA PEGAR EN MUSE AI (JUNTO CON EL STORYBOARD Y LA HOJA DE PERSONAJES ADJUNTOS):
-"Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando entre 1 y 4 tomas exactamente como las lista el guion (la Toma 1 arranca directamente en movimiento desde el encuadre exacto de la viñeta correspondiente sin frames estáticos; cada línea hablada tiene su propio plano con el hablante de frente, rostro y boca visibles, nunca desde detrás del personaje; los planos silenciosos de insert, reacción u objeto van después del diálogo y nunca contienen habla), manteniendo estrictamente la misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre escenas. Formato: 16:9. Reglas negativas estrictas: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
+FINAL COMMAND TO PASTE INTO MUSE AI (TOGETHER WITH THE ATTACHED STORYBOARD AND CHARACTER SHEET):
+"Make a realistic cinematic video of 10 seconds per scene, executing between 1 and 4 shots exactly as the script lists them (Shot 1 starts directly in motion from the exact framing of the corresponding storyboard panel without static frames; every spoken line gets its own shot with the speaker facing camera, face and mouth visible, never from behind the character; silent shots of inserts, reactions or objects come after the dialogue and never contain speech), keeping strictly the same race, face and wardrobe for each character according to their position in the attached Character Sheet, and join them into a single continuous video, never inserting the reference image between scenes. Format: 16:9. Strict negative rules: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
 
-REGLA DE CONTINUIDAD NARRATIVA (Hilo Conductor Único + Cadena Causa y Efecto + Ledger de Estado Arrastrado + Prohibición de Ping-Pong de Locaciones + Un Solo Nombre por Objeto Clave + Prueba de Desorden):
-1. UNA SOLA PREGUNTA MOTRIZ POR BLOQUE DE 6 ESCENAS: cada minuto tiene una única pregunta dramática; ninguna escena abre una pregunta nueva.
-2. CADENA CAUSA-EFECTO OBLIGATORIA: de la escena 2 a la 60, cada escena declara `because_previous_ended_with` (copia literal del cambio final de la escena anterior), `this_scene_starts_with` (acción concreta ya en movimiento que continúa esa consecuencia) y `single_change_at_end` (un único cambio de estado irreversible).
-3. PROHIBIDO EL PING-PONG DE LOCACIONES: agrupa de 3 a 5 escenas consecutivas en la misma locación; el patrón A-B-A está prohibido.
-4. UN SOLO NOMBRE POR OBJETO CLAVE: el mismo `key_object` exacto aparece en el panel de storyboard, en la acción de la Toma 1 y en la lista Key Object; nunca uses alias.
-5. PRUEBA DE DESORDEN: si al desordenar el bloque la cadena de consecuencias deja de tener sentido, reescríbelo. El validador rechaza placeholders mecánicos (`hard cut into the dialogue beat`, `hard cut to the reaction as the line lands`) y saltos de locación sin transición.
+NARRATIVE CONTINUITY RULE (Single Through-Line + Cause-and-Effect Chain + Carried-State Ledger + Location Ping-Pong Ban + One Name per Key Object + Scramble Test + ReelShort/DramaBox Bridges and Pacing):
+1. ONE DRIVING QUESTION PER 6-SCENE BLOCK: each minute has a single dramatic question; no scene opens a new question.
+2. MANDATORY CAUSE-AND-EFFECT CHAIN: from scene 2 to the last scene, every scene declares `because_previous_ended_with` (literal copy of the previous scene's final change), `this_scene_starts_with` (concrete action already in motion that continues that consequence) and `single_change_at_end` (one irreversible state change).
+3. ENTRY AND EXIT BRIDGES (OPENING AND CLOSING): every scene declares `entry_bridge` (micro-action or line <= 2 s that starts it because of the previous scene) and `exit_hook` (gesture, order, decision or question that ends it and pushes into the next one). exit_hook(N) feeds entry_bridge(N+1).
+4. BLOCK PACING RULE (6 SCENES): 6 confrontation peaks in a row are FORBIDDEN. At least 1 non-confrontational beat per block (solo decision, discovery, plan, tender/vulnerable moment).
+5. CLIFFHANGER ROTATION: rotate the type between blocks (identity -> emotion -> revelation). Repeating the same type in two consecutive blocks is forbidden.
+6. LOCATION PING-PONG IS FORBIDDEN: group 3 to 5 consecutive scenes in the same location; the A-B-A pattern is forbidden.
+7. ONE NAME PER KEY OBJECT: the same exact `key_object` appears in the storyboard panel, in the Shot 1 action and in the Key Object list; never use aliases.
+8. SCRAMBLE TEST: if scrambling the block breaks the chain of consequences, rewrite it. The validator rejects mechanical placeholders and cuts without transitions.
 
 ````
 
-## PROMPT 003 — Variante 9:16 (teasers / Reels / Shorts)
+## PROMPT 003 — 9:16 variant (teasers / Reels / Shorts)
 
-Misma estructura del PROMPT 003, pero con el comando final en formato 9:16.
+Same PROMPT 003 structure, but with the final command in 9:16 format.
 
 ````text
-🎬 PROMPT 003 — GENERADOR DE GUION CINEMATOGRÁFICO EN INGLÉS + CAMBIOS DE CÁMARA + SONIDO (OPTIMIZADO PARA MUSE AI Y GOOGLE FLOW)
-Actúa como guionista de Hollywood, director de fotografía y diseñador sonoro.
-Ya tenemos creado el storyboard de la historia y la hoja maestra de personajes. Ahora debes convertir ese storyboard en un guion cinematográfico y técnico completo en texto, respetando exactamente las escenas que aparecen en el storyboard, con todos los diálogos hablados en INGLÉS (English) para monetización internacional.
+🎬 PROMPT 003 — ENGLISH CINEMATIC SCRIPT GENERATOR + CAMERA CUTS + SOUND (OPTIMIZED FOR MUSE AI AND GOOGLE FLOW)
+Act as a Hollywood screenwriter, cinematographer and sound designer.
+We have already created the story's storyboard and the master character sheet. Now convert that storyboard into a complete cinematic, technical text script, respecting exactly the scenes shown in the storyboard, with all spoken dialogue in ENGLISH for international monetization.
 
-DATOS DEL PROYECTO
+PROJECT DATA
 Storyboard:
-El storyboard completo creado en el paso 1: 10 imágenes de 6 viñetas, una por minuto. Cada escena debe corresponder exactamente a su viñeta.
-Duración del bloque:
-1 minuto = 6 escenas de 10 segundos (o el total de escenas del storyboard adjunto).
+The complete storyboard created in step 1: 10 images with 6 panels, one per minute. Every scene must match its panel exactly.
+Block runtime:
+1 minute = 6 ten-second scenes (or the total number of scenes in the attached storyboard).
 
-REGLA PRINCIPAL
-Cada escena dura exactamente 10 segundos.
-Debes mantener exactamente el mismo número y orden de escenas del storyboard.
-NO debes agregar ni eliminar escenas.
-Cada escena debe corresponder directamente a su respectiva viñeta del storyboard.
+MAIN RULE
+Every scene lasts exactly 10 seconds.
+You must keep exactly the same number and order of scenes as the storyboard.
+You must NOT add or remove scenes.
+Every scene must correspond directly to its storyboard panel.
 
-DIÁLOGOS EN INGLÉS (REGLA DURA: MÁXIMO 15 PALABRAS POR ESCENA)
-Todos los diálogos hablados deben estar en INGLÉS natural, dramático y emocional.
-- Máximo 15 palabras por escena y máximo 15 por intervención.
-- La voz debe terminar antes de 8.5 segundos; deja el resto para pausas, miradas y reacciones.
-- Nunca cortes una frase por tiempo: si una idea necesita más, divídela entre escenas.
-- No todas las escenas necesitan diálogo: usa "No dialogue (Pure visual & sound tension)." cuando la imagen hable mejor.
+ENGLISH DIALOGUE (HARD RULE: MAXIMUM 15 WORDS PER SCENE)
+All spoken dialogue must be in natural, dramatic, emotional ENGLISH.
+- Maximum 15 words per scene and maximum 15 per turn.
+- The voice must finish before 8.5 seconds; leave the rest for pauses, glances and reactions.
+- Never cut a sentence for time: if an idea needs more, split it across scenes.
+- Not every scene needs dialogue: use "No dialogue (Pure visual & sound tension)." when the image speaks better.
 
-DIRECCIÓN DE CÁMARA: ENTRE 1 Y 4 TOMAS POR ESCENA DE 10s, NACIDAS DEL DIÁLOGO
-1. REGLA DE ORO: UNA LÍNEA = UN PLANO DEL HABLANTE:
-   - Quien habla está EN CÁMARA con rostro y boca visibles durante toda su línea, mirando al destinatario. Prohibido poner diálogo sobre un insert, una reacción o una espalda.
-   - Toma 1: arranca EN MOVIMIENTO desde el frame exacto de la viñeta. Mismo encuadre, misma posición de cámara, mismo blocking, mismo vestuario, misma luz y mismo objeto clave. Prohibido abrir con un frame estático. Si hay dos hablantes, la Toma 1 es un two-shot que los muestra a ambos y sostiene sus dos líneas.
-   - Los planos silenciosos (insert, reacción, detalle del objeto) van DESPUÉS de que termina el diálogo. Excepción: el hallazgo/revelación va en su propio plano silencioso centrado de 2–3 segundos; declara en qué segundo termina el diálogo ("El diálogo termina en el segundo X").
-   - Los presentes que no hablan se listan como mudos: una sola vez y con la boca cerrada.
-2. OBJETO CLAVE Y TEXTO EN PANTALLA:
-   - Cada escena declara OBJETO AL INICIAR y OBJETO AL TERMINAR visibles en cámara; el insert del objeto lo muestra tal cual.
-   - Nunca muestres el interior vacío de una bolsa, caja fuerte o contenedor donde se escondió el objeto.
-   - Solo el texto diegético declarado (ej. la palabra CONFESSION en el documento) puede verse legible; el resto de papeles y carteles no muestra palabras.
-3. IDENTIDAD Y POSICIONES:
-   - Cada personaje presente se nombra como Nombre (Cast Sheet Pos #N: descriptor estable, wearing vestuario del acto).
-   - La Hoja de Personajes fija posiciones de izquierda a derecha; nunca insertes esa hoja como plano entre escenas.
-3. DISEÑO SONORO (SFX & AMBIENCE) Y VOZ:
-   - Especifica el timbre de voz constante de quien habla (ej. "Warm emotional young female voice" / "Deep authoritative male baritone voice").
-   - Especifica los efectos de sonido realistas del entorno (ej. "Rain on window, footsteps on gravel, tense dramatic silence").
-4. CAUSALIDAD Y LOCACIÓN:
-   - Cada escena es consecuencia de la anterior y causa de la siguiente. Prohibido revelar una consecuencia antes de su causa o repetir la misma pista.
-   - Agrupa 3 a 6 escenas consecutivas en la misma situación dramática antes de cambiar de lugar. Todo cambio de lugar necesita una transición visible o hablada.
+CAMERA DIRECTION: BETWEEN 1 AND 4 SHOTS PER 10s SCENE, BORN FROM THE DIALOGUE
+1. GOLDEN RULE: ONE LINE = ONE SHOT OF THE SPEAKER:
+   - Whoever speaks is ON CAMERA with face and mouth visible throughout their line, looking at the recipient. Putting dialogue over an insert, a reaction or someone's back is forbidden.
+   - Shot 1: starts IN MOTION from the panel's exact frame. Same framing, same camera position, same blocking, same wardrobe, same lighting and same key object. Opening on a static frame is forbidden. If there are two speakers, Shot 1 is a two-shot showing both and holding their two lines.
+   - Silent shots (insert, reaction, object detail) come AFTER the dialogue ends. Exception: the discovery/revelation goes in its own centered 2–3 second silent shot; declare at which second the dialogue ends ("Dialogue ends at second X").
+   - Present characters who do not speak are listed as silent: once, with their mouth closed.
+2. KEY OBJECT AND ON-SCREEN TEXT:
+   - Every scene declares OBJECT AT START and OBJECT AT END visible on camera; the object insert shows it exactly as it is.
+   - Never show the empty interior of a bag, safe or container where the object was hidden.
+   - Only declared diegetic text (e.g. the word CONFESSION on the document) may be legible; all other papers and signs show no words.
+3. IDENTITY AND POSITIONS:
+   - Every present character is named as Name (Cast Sheet Pos #N: stable descriptor, wearing act wardrobe).
+   - The Cast Sheet fixes positions from left to right; never insert that sheet as a shot between scenes.
+3. SOUND DESIGN (SFX & AMBIENCE) AND VOICE:
+   - Specify the speaker's constant voice timbre (e.g. "Warm emotional young female voice" / "Deep authoritative male baritone voice").
+   - Specify realistic environmental sound effects (e.g. "Rain on window, footsteps on gravel, tense dramatic silence").
+4. CAUSALITY AND LOCATION:
+   - Every scene is a consequence of the previous one and the cause of the next. Revealing a consequence before its cause or repeating the same clue is forbidden.
+   - Group 3 to 6 consecutive scenes in the same dramatic situation before changing location. Every location change needs a visible or spoken transition.
 
-ESTRUCTURA OBLIGATORIA DE CADA ESCENA
-Para cada escena utiliza exactamente esta estructura:
+MANDATORY STRUCTURE FOR EVERY SCENE
+Use exactly this structure for every scene:
 
-ESCENA [N] (Viñeta #[N] del Storyboard) — [MM:SS–MM:SS]
-- Location: [Lugar exacto de la viñeta]
-- Characters Present: [Nombre (Cast Sheet Pos #N), ...]
-- Storyboard Panel (Shot 1 exact framing): [ encuadre + acción de la viñeta + objeto clave + todos los presentes ]
-- Identity Anchors: [Nombre (Cast Sheet Pos #N: descriptor, wearing vestuario), ...]
-- Object In / Object Out: [OBJETO AL INICIAR visible → OBJETO AL TERMINAR visible]
-- Camera Cuts & Visual Action (10s, 1–4 tomas):
-  * [00s–..]: [Toma 1: encuadre exacto de la viñeta + acción ya en movimiento; two-shot si hablan dos personajes]
-  * [..s–..s]: [PLANO QUE HABLA: nombre (visible, mira a destinatario) dice exactamente, una sola vez: "línea"] (una toma por línea hablada)
-  * [..s–..s]: [SIN DIÁLOGO: insert, reacción o plano del objeto; el hallazgo va centrado 2–3 s]
-- Mudos: [PRESENTES QUE NO HABLAN: nombre — boca cerrada en toda la escena]
-- Sound Design (SFX & Voice Tone): [Efectos de sonido del ambiente + tono de voz fijo del personaje]
+SCENE [N] (Storyboard Panel #[N]) — [MM:SS–MM:SS]
+- Location: [Exact location from the panel]
+- Characters Present: [Name (Cast Sheet Pos #N), ...]
+- Storyboard Panel (Shot 1 exact framing): [ panel framing + action + key object + everyone present ]
+- Identity Anchors: [Name (Cast Sheet Pos #N: descriptor, wearing wardrobe), ...]
+- Object In / Object Out: [OBJECT AT START visible → OBJECT AT END visible]
+- Camera Cuts & Visual Action (10s, 1–4 shots):
+  * [00s–..]: [Shot 1: exact panel framing + action already in motion; two-shot if two characters speak]
+  * [..s–..s]: [SPEAKING SHOT: name (visible, looking at recipient) says exactly, only once: "line"] (one shot per spoken line)
+  * [..s–..s]: [NO DIALOGUE: insert, reaction or object shot; the discovery is centered for 2–3 s]
+- Silent: [PRESENT CHARACTERS WHO DO NOT SPEAK: name — mouth closed throughout the scene]
+- Sound Design (SFX & Voice Tone): [Environmental sound effects + the character's fixed voice tone]
 - Dialogue (English, max 15 words per line, finish before 8.5 s):
-  [NOMBRE DEL PERSONAJE]: "[Diálogo en inglés breve, concreto y completo, máx. 15 palabras]"
+  [CHARACTER NAME]: "[Brief, concrete, complete English dialogue, max. 15 words]"
 
-RESULTADO FINAL
-Entrega únicamente el bloque de escenas con la estructura anterior y, al final de las escenas, incluye este comando exacto listo para copiar y pegar junto con el guion en MUSE AI:
+FINAL RESULT
+Deliver only the scene block using the structure above and, at the end of the scenes, include this exact command ready to copy and paste together with the script into MUSE AI:
 
-COMANDO FINAL PARA PEGAR EN MUSE AI (JUNTO CON EL STORYBOARD Y LA HOJA DE PERSONAJES ADJUNTOS):
-"Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando entre 1 y 4 tomas exactamente como las lista el guion (la Toma 1 arranca directamente en movimiento desde el encuadre exacto de la viñeta correspondiente sin frames estáticos; cada línea hablada tiene su propio plano con el hablante de frente, rostro y boca visibles, nunca desde detrás del personaje; los planos silenciosos de insert, reacción u objeto van después del diálogo y nunca contienen habla), manteniendo estrictamente la misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre escenas. Formato: 9:16. Reglas negativas estrictas: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
+FINAL COMMAND TO PASTE INTO MUSE AI (TOGETHER WITH THE ATTACHED STORYBOARD AND CHARACTER SHEET):
+"Make a realistic cinematic video of 10 seconds per scene, executing between 1 and 4 shots exactly as the script lists them (Shot 1 starts directly in motion from the exact framing of the corresponding storyboard panel without static frames; every spoken line gets its own shot with the speaker facing camera, face and mouth visible, never from behind the character; silent shots of inserts, reactions or objects come after the dialogue and never contain speech), keeping strictly the same race, face and wardrobe for each character according to their position in the attached Character Sheet, and join them into a single continuous video, never inserting the reference image between scenes. Format: 9:16. Strict negative rules: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
 
-REGLA DE CONTINUIDAD NARRATIVA (Hilo Conductor Único + Cadena Causa y Efecto + Ledger de Estado Arrastrado + Prohibición de Ping-Pong de Locaciones + Un Solo Nombre por Objeto Clave + Prueba de Desorden):
-1. UNA SOLA PREGUNTA MOTRIZ POR BLOQUE DE 6 ESCENAS: cada minuto tiene una única pregunta dramática; ninguna escena abre una pregunta nueva.
-2. CADENA CAUSA-EFECTO OBLIGATORIA: de la escena 2 a la 60, cada escena declara `because_previous_ended_with` (copia literal del cambio final de la escena anterior), `this_scene_starts_with` (acción concreta ya en movimiento que continúa esa consecuencia) y `single_change_at_end` (un único cambio de estado irreversible).
-3. PROHIBIDO EL PING-PONG DE LOCACIONES: agrupa de 3 a 5 escenas consecutivas en la misma locación; el patrón A-B-A está prohibido.
-4. UN SOLO NOMBRE POR OBJETO CLAVE: el mismo `key_object` exacto aparece en el panel de storyboard, en la acción de la Toma 1 y en la lista Key Object; nunca uses alias.
-5. PRUEBA DE DESORDEN: si al desordenar el bloque la cadena de consecuencias deja de tener sentido, reescríbelo. El validador rechaza placeholders mecánicos (`hard cut into the dialogue beat`, `hard cut to the reaction as the line lands`) y saltos de locación sin transición.
+NARRATIVE CONTINUITY RULE (Single Through-Line + Cause-and-Effect Chain + Carried-State Ledger + Location Ping-Pong Ban + One Name per Key Object + Scramble Test + ReelShort/DramaBox Bridges and Pacing):
+1. ONE DRIVING QUESTION PER 6-SCENE BLOCK: each minute has a single dramatic question; no scene opens a new question.
+2. MANDATORY CAUSE-AND-EFFECT CHAIN: from scene 2 to the last scene, every scene declares `because_previous_ended_with` (literal copy of the previous scene's final change), `this_scene_starts_with` (concrete action already in motion that continues that consequence) and `single_change_at_end` (one irreversible state change).
+3. ENTRY AND EXIT BRIDGES (OPENING AND CLOSING): every scene declares `entry_bridge` (micro-action or line <= 2 s that starts it because of the previous scene) and `exit_hook` (gesture, order, decision or question that ends it and pushes into the next one). exit_hook(N) feeds entry_bridge(N+1).
+4. BLOCK PACING RULE (6 SCENES): 6 confrontation peaks in a row are FORBIDDEN. At least 1 non-confrontational beat per block (solo decision, discovery, plan, tender/vulnerable moment).
+5. CLIFFHANGER ROTATION: rotate the type between blocks (identity -> emotion -> revelation). Repeating the same type in two consecutive blocks is forbidden.
+6. LOCATION PING-PONG IS FORBIDDEN: group 3 to 5 consecutive scenes in the same location; the A-B-A pattern is forbidden.
+7. ONE NAME PER KEY OBJECT: the same exact `key_object` appears in the storyboard panel, in the Shot 1 action and in the Key Object list; never use aliases.
+8. SCRAMBLE TEST: if scrambling the block breaks the chain of consequences, rewrite it. The validator rejects mechanical placeholders and cuts without transitions.
 
 ````

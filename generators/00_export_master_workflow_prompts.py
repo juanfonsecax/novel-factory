@@ -1,21 +1,21 @@
 #!/usr/bin/env python3
-"""00 — Exporta el workflow maestro de prompts listo para copiar y pegar.
+"""00 — Export the master prompt workflow ready to copy and paste.
 
-Entradas:
-  projects/<proyecto>/story_brief.md   (preferido)
-  projects/<proyecto>/idea_input.md    (fallback)
-  projects/<proyecto>/master_episode.json (opcional, para los lotes de Muse AI)
+Inputs:
+  projects/<project>/story_brief.md   (preferred)
+  projects/<project>/idea_input.md    (fallback)
+  projects/<project>/master_episode.json (optional, for Muse AI batches)
 
-Salidas en la carpeta del episodio:
-  MASTER_WORKFLOW_PROMPTS_READY.md        PROMPT 000/001/002/003 rellenados
-  muse_ai_minute_batches_queue.txt        Lotes de 1 minuto (6 escenas) para Muse AI
-  muse_ai_minute_batches_queue.json       Manifiesto máquina-legible de esos lotes
-  muse_ai_batches_queue.txt / .json       Alias compatible con el exportador 03
+Outputs in the episode folder:
+  MASTER_WORKFLOW_PROMPTS_READY.md        PROMPT 000/001/002/003 filled in
+  muse_ai_minute_batches_queue.txt        1-minute batches (6 scenes) for Muse AI
+  muse_ai_minute_batches_queue.json       Machine-readable manifest of those batches
+  muse_ai_batches_queue.txt / .json       Alias compatible with exporter 03
 
-Uso:
-  python generators/00_export_master_workflow_prompts.py mi_episodio
-  python generators/00_export_master_workflow_prompts.py mi_episodio --show prompt_003
-  python generators/00_export_master_workflow_prompts.py mi_episodio --out-dir "C:\\salida"
+Usage:
+  python generators/00_export_master_workflow_prompts.py my_episode
+  python generators/00_export_master_workflow_prompts.py my_episode --show prompt_003
+  python generators/00_export_master_workflow_prompts.py my_episode --out-dir "C:\\output"
 """
 from __future__ import annotations
 
@@ -37,7 +37,7 @@ STORY_FILENAMES = ("story_brief.md", "idea_input.md")
 
 
 def read_story(paths: Dict[str, Path]) -> Tuple[str, Optional[Path]]:
-    """Lee story_brief.md o, si no existe/vacío, idea_input.md."""
+    """Read story_brief.md or, if missing/empty, idea_input.md."""
     for name in STORY_FILENAMES:
         path = paths["root"] / name
         if not path.exists():
@@ -62,8 +62,8 @@ def load_master_if_available(paths: Dict[str, Path]) -> Dict[str, Any]:
 
 def _story_fallback() -> str:
     return (
-        "(Completa story_brief.md o idea_input.md con la premisa: quién quiere qué, "
-        "quién se lo impide y qué secreto mueve la historia)"
+        "(Complete story_brief.md or idea_input.md with the premise: who wants what, "
+        "who blocks them and what secret drives the story)"
     )
 
 
@@ -76,53 +76,53 @@ def render_workflow_markdown(
     project = pack.get("project") or {}
     values = pack.get("values") or {}
     viral = pack.get("viral_template") or {}
-    title = project.get("title") or project.get("slug") or "Episodio"
+    title = project.get("title") or project.get("slug") or "Episode"
     lines: List[str] = [
         f"# MASTER WORKFLOW PROMPTS READY — {title}",
         "",
-        f"- Generado: {pack.get('generated_at')}",
-        f"- Historia fuente: {story_path.name if story_path else '(sin archivo de historia)'}",
-        f"- Duración: {values.get('duration_minutes')} minuto(s)",
-        f"- Escenas: {values.get('total_scenes')} (10 s cada una)",
-        f"- Bloques de storyboard: {values.get('total_grid_images')} (6 escenas por imagen)",
-        f"- Formato máster: 16:9",
-        f"- Formato teasers/Reels: 9:16",
-        f"- Estilo visual: {values.get('visual_style')}",
+        f"- Generated: {pack.get('generated_at')}",
+        f"- Source story: {story_path.name if story_path else '(no story file)'}",
+        f"- Runtime: {values.get('duration_minutes')} minute(s)",
+        f"- Scenes: {values.get('total_scenes')} (10 s each)",
+        f"- Storyboard blocks: {values.get('total_grid_images')} (6 scenes per image)",
+        f"- Master format: 16:9",
+        f"- Teaser/Reels format: 9:16",
+        f"- Visual style: {values.get('visual_style')}",
     ]
     if viral:
         lines += [
-            f"- Mega-nicho USA: {viral.get('label')} ({viral.get('id')})",
-            f"- Categoría: {viral.get('category')}",
+            f"- USA mega-niche: {viral.get('label')} ({viral.get('id')})",
+            f"- Category: {viral.get('category')}",
         ]
     if pack.get("source_mode") == "original_unproven" or (pack.get("project") or {}).get("source_mode") == "original_unproven":
         lines += [
             "",
-            "> ⚠️ **WARNING: source_mode es 'original_unproven' — Guion generado sin fuente probada.**",
+            "> ⚠️ **WARNING: source_mode is 'original_unproven' — script generated without a proven source.**",
         ]
     lines += [
         "",
-        "> Los cuatro prompts ya están rellenados con los datos de este proyecto.",
-        "> Copia cada bloque completo y úsalo en el orden 000 → 001 → 002 → 003.",
+        "> All four prompts are already filled with this project's data.",
+        "> Copy each complete block and use it in the order 000 → 001 → 002 → 003.",
         "",
-        "## Cómo usar este documento",
+        "## How to use this document",
         "",
-        "1. **PROMPT 000** genera la arquitectura narrativa y el elenco.",
-        "2. **PROMPT 001** convierte esa arquitectura en storyboards de 6 viñetas por imagen.",
-        "3. **PROMPT 002** extrae del storyboard la hoja maestra de personajes en una sola imagen.",
-        "4. **PROMPT 003** convierte el storyboard en guion técnico con cámara, sonido y diálogo en inglés.",
-        "5. Copia el comando final de cada bloque de 1 minuto en Muse AI junto con el storyboard y la hoja de personajes.",
+        "1. **PROMPT 000** generates the narrative architecture and cast.",
+        "2. **PROMPT 001** turns that architecture into storyboards with 6 panels per image.",
+        "3. **PROMPT 002** extracts the master character sheet from the storyboard in a single image.",
+        "4. **PROMPT 003** turns the storyboard into a technical script with camera, sound and English dialogue.",
+        "5. Copy the final command for each 1-minute block into Muse AI together with the storyboard and character sheet.",
         "",
     ]
     if batch_paths:
         lines += [
-            f"Lotes de 1 minuto listos: `{batch_paths['txt'].name}` "
-            f"({len(batch_paths.get('batches') or [])} bloques).",
+            f"1-minute batches ready: `{batch_paths['txt'].name}` "
+            f"({len(batch_paths.get('batches') or [])} blocks).",
             "",
         ]
     else:
         lines += [
-            "Sin `master_episode.json`: el documento se generó solo con la historia. "
-            "Cuando exista el maestro, vuelve a ejecutar este comando para crear los lotes de Muse AI.",
+            "No `master_episode.json`: the document was generated from the story alone. "
+            "Once the master exists, run this command again to create the Muse AI batches.",
             "",
         ]
 
@@ -134,7 +134,7 @@ def render_workflow_markdown(
             "",
             f"_{prompt['purpose']}_",
             "",
-            f"**{prompt['chars']:,} caracteres · {prompt['words']:,} palabras**",
+            f"**{prompt['chars']:,} characters · {prompt['words']:,} words**",
             "",
             "````text",
             prompt["text"],
@@ -143,9 +143,9 @@ def render_workflow_markdown(
         ]
         if prompt["key"] == "prompt_003":
             lines += [
-                f"## {prompt['code']} — Variante 9:16 (teasers / Reels / Shorts)",
+                f"## {prompt['code']} — 9:16 variant (teasers / Reels / Shorts)",
                 "",
-                "Misma estructura del PROMPT 003, pero con el comando final en formato 9:16.",
+                "Same PROMPT 003 structure, but with the final command in 9:16 format.",
                 "",
                 "````text",
                 prompt_003_916,
@@ -159,7 +159,7 @@ def export_workflow(project: str | Path, out_dir: Optional[Path] = None, niche: 
     paths = nf.resolve_project(project, must_exist=False)
     root = paths["root"]
     if not root.exists() or not root.is_dir():
-        raise nf.NFError(f"No existe la carpeta del proyecto: {root}")
+        raise nf.NFError(f"Project folder does not exist: {root}")
 
     style = nf.load_style_locks()
     brief_text, story_path = read_story(paths)
@@ -225,16 +225,16 @@ def export_workflow(project: str | Path, out_dir: Optional[Path] = None, niche: 
 
 def main(argv: Optional[List[str]] = None) -> int:
     parser = argparse.ArgumentParser(
-        description="00 — Exporta PROMPT 000/001/002/003 y los lotes de Muse AI listos para usar.",
+        description="00 — Export PROMPT 000/001/002/003 and ready-to-use Muse AI batches.",
     )
-    parser.add_argument("project", nargs="?", default="", help="Slug del episodio o ruta a su carpeta.")
-    parser.add_argument("--out-dir", default="", help="Carpeta de salida (por defecto, la del proyecto).")
-    parser.add_argument("--show", default="", help="Imprime un prompt: prompt_000..prompt_003 o all.")
-    parser.add_argument("--quiet", action="store_true", help="No imprime el resumen.")
+    parser.add_argument("project", nargs="?", default="", help="Episode slug or path to its folder.")
+    parser.add_argument("--out-dir", default="", help="Output folder (default: the project folder).")
+    parser.add_argument("--show", default="", help="Print one prompt: prompt_000..prompt_003 or all.")
+    parser.add_argument("--quiet", action="store_true", help="Do not print the summary.")
     parser.add_argument("--niche", "--archetype", dest="niche", default="",
-                        help="ID del mega-nicho USA que se añade al PROMPT 000.")
+                        help="ID of the USA mega-niche added to PROMPT 000.")
     parser.add_argument("--list-niches", action="store_true",
-                        help="Lista los mega-nichos USA disponibles y termina.")
+                        help="List the available USA mega-niches and exit.")
     args = parser.parse_args(argv)
 
     if args.list_niches:
@@ -242,7 +242,7 @@ def main(argv: Optional[List[str]] = None) -> int:
             nf.log(f"{template.get('id')} · {template.get('category')} · {template.get('label')}")
         return 0
     if not args.project:
-        parser.error("Debes indicar un proyecto (o usa --list-niches).")
+        parser.error("You must provide a project (or use --list-niches).")
 
     niche = str(args.niche or "").strip()
     selected_niche: Optional[Dict[str, Any]] = None
@@ -255,7 +255,7 @@ def main(argv: Optional[List[str]] = None) -> int:
 
     nf.log("")
     nf.log("=" * 70)
-    nf.log("  NOVEL FACTORY — 00 · Workflow maestro (000/001/002/003 + lotes Muse AI)")
+    nf.log("  NOVEL FACTORY — 00 · Master workflow (000/001/002/003 + Muse AI batches)")
     nf.log("=" * 70)
 
     result = export_workflow(args.project, Path(args.out_dir) if args.out_dir else None, niche=niche)
@@ -264,23 +264,23 @@ def main(argv: Optional[List[str]] = None) -> int:
     target_root = result["target_root"]
 
     if not args.quiet:
-        nf.ok(f"Workflow exportado en: {target_root}")
-        nf.info(written["markdown"].name + "  (4 prompts rellenados + variante 9:16)")
+        nf.ok(f"Workflow exported to: {target_root}")
+        nf.info(written["markdown"].name + "  (4 filled prompts + 9:16 variant)")
         if result["batches"]:
-            nf.info(written["txt"].name + f"  ({len(result['batches'])} lotes de 6 escenas)")
-            nf.info(written["json"].name + "  (manifiesto de lotes)")
-            nf.info(written["alias_txt"].name + "  (alias para el exportador 03)")
-            nf.info("Cada lote adjunta REF_CAST_MASTER.png + REF_GRID_MIN_XX.png y trae "
-                    "comandos finales 16:9 (YouTube) y 9:16 (Reels).")
+            nf.info(written["txt"].name + f"  ({len(result['batches'])} batches of 6 scenes)")
+            nf.info(written["json"].name + "  (batch manifest)")
+            nf.info(written["alias_txt"].name + "  (alias for exporter 03)")
+            nf.info("Each batch attaches REF_CAST_MASTER.png + REF_GRID_MIN_XX.png and includes "
+                    "final 16:9 (YouTube) and 9:16 (Reels) commands.")
         else:
-            nf.warn("Sin master_episode.json: no se generaron lotes de Muse AI.")
+            nf.warn("No master_episode.json: no Muse AI batches were generated.")
         if result["story_path"]:
-            nf.info(f"Historia fuente: {result['story_path'].name}")
+            nf.info(f"Source story: {result['story_path'].name}")
         if selected_niche:
-            nf.info(f"Mega-nicho USA: {selected_niche.get('label')} ({selected_niche.get('id')})")
+            nf.info(f"USA mega-niche: {selected_niche.get('label')} ({selected_niche.get('id')})")
         nf.log("")
         for prompt in pack["prompts"]:
-            nf.info(f"{prompt['code']}: {prompt['chars']:,} chars · {prompt['words']:,} palabras")
+            nf.info(f"{prompt['code']}: {prompt['chars']:,} chars · {prompt['words']:,} words")
 
     if args.show:
         wanted = {p["key"] for p in pack["prompts"]} if args.show == "all" else {args.show}

@@ -1,24 +1,24 @@
 #!/usr/bin/env python3
-"""Biblioteca de plantillas maestras de novel_factory.
+"""novel_factory master template library.
 
-Contiene los cuatro prompts maestros del sistema, completos y sin resumir:
+Contains the system's four complete, unabridged master prompts:
 
-  PROMPT 000 — Arquitecto de historias virales (China / USA micro-drama).
-  PROMPT 001 — Generador de storyboard cinematográfico (6 viñetas por imagen).
-  PROMPT 002 — Generador de la hoja maestra de personajes (una sola imagen).
-  PROMPT 003 — Generador de guion + cámara + sonido + comando Muse AI.
+  PROMPT 000 — Viral story architect (China / USA micro-drama).
+  PROMPT 001 — Cinematic storyboard generator (6 panels per image).
+  PROMPT 002 — Master character sheet generator (single image).
+  PROMPT 003 — Script + camera + sound + Muse AI command generator.
 
-Los marcadores que el sistema rellena automáticamente son exactamente:
+The placeholders the system fills automatically are exactly:
 
-  {story_idea}          Idea base / arquitectura narrativa del proyecto.
-  {duration_minutes}    Duración total del episodio en minutos.
-  {total_scenes}        Número total de escenas del proyecto.
-  {total_grid_images}   Número de bloques de 1 minuto (6 escenas cada uno).
-  {visual_style}        Look visual bloqueado del proyecto.
-  {aspect_ratio}        Relación de aspecto del máster (16:9 por defecto).
+  {story_idea}          Base idea / narrative architecture for the project.
+  {duration_minutes}    Total episode runtime in minutes.
+  {total_scenes}        Total number of scenes in the project.
+  {total_grid_images}   Number of 1-minute blocks (6 scenes each).
+  {visual_style}        Locked visual look for the project.
+  {aspect_ratio}        Master aspect ratio (16:9 by default).
 
-El relleno se hace con reemplazo literal de tokens (no con str.format), para
-que las llaves de los ejemplos de los prompts nunca se rompan.
+Filling uses literal token replacement (not str.format), so braces in prompt
+examples are never broken.
 """
 from __future__ import annotations
 
@@ -48,320 +48,320 @@ PLACEHOLDERS = (
 PROMPT_ORDER = ("prompt_000", "prompt_001", "prompt_002", "prompt_003")
 VIRAL_TEMPLATES_TOKEN = "<<<VIRAL_TEMPLATES>>>"
 
-NARRATIVE_CONTINUITY_RULE = """REGLA DE CONTINUIDAD NARRATIVA (Hilo Conductor Único + Cadena Causa y Efecto + Ledger de Estado Arrastrado + Prohibición de Ping-Pong de Locaciones + Un Solo Nombre por Objeto Clave + Prueba de Desorden + Puentes y Ritmo ReelShort/DramaBox):
-1. UNA SOLA PREGUNTA MOTRIZ POR BLOQUE DE 6 ESCENAS: cada minuto tiene una única pregunta dramática; ninguna escena abre una pregunta nueva.
-2. CADENA CAUSA-EFECTO OBLIGATORIA: de la escena 2 hasta la última, cada escena declara `because_previous_ended_with` (copia literal del cambio final de la escena anterior), `this_scene_starts_with` (acción concreta ya en movimiento que continúa esa consecuencia) y `single_change_at_end` (un único cambio de estado irreversible).
-3. PUENTES DE ENTRADA Y SALIDA (ARRANQUE Y CIERRE): cada escena declara `entry_bridge` (micro-acción o línea <= 2 s con que arrancamos a causa de la anterior) y `exit_hook` (gesto, orden, decisión o pregunta con que termina y empuja a la siguiente). exit_hook(N) alimenta entry_bridge(N+1).
-4. REGLA DE RITMO POR BLOQUE (6 ESCENAS): PROHIBIDO 6 picos de confrontación seguidos. Al menos 1 beat NO confrontacional por bloque (decisión en solitario, descubrimiento, plan, momento tierno/vulnerable).
-5. ROTACIÓN DE CLIFFHANGER: rotar el tipo entre bloques (identidad -> emoción -> revelación). Prohibido repetir el mismo tipo en dos bloques seguidos.
-6. PROHIBIDO EL PING-PONG DE LOCACIONES: agrupa de 3 a 5 escenas consecutivas en la misma locación; el patrón A-B-A está prohibido.
-7. UN SOLO NOMBRE POR OBJETO CLAVE: el mismo `key_object` exacto aparece en el panel de storyboard, en la acción de la Toma 1 y en la lista Key Object; nunca uses alias.
-8. PRUEBA DE DESORDEN: si al desordenar el bloque la cadena de consecuencias deja de tener sentido, reescríbelo. El validador rechaza placeholders mecánicos y saltos sin transición.
+NARRATIVE_CONTINUITY_RULE = """NARRATIVE CONTINUITY RULE (Single Through-Line + Cause-and-Effect Chain + Carried-State Ledger + Location Ping-Pong Ban + One Name per Key Object + Scramble Test + ReelShort/DramaBox Bridges and Pacing):
+1. ONE DRIVING QUESTION PER 6-SCENE BLOCK: each minute has a single dramatic question; no scene opens a new question.
+2. MANDATORY CAUSE-AND-EFFECT CHAIN: from scene 2 to the last scene, every scene declares `because_previous_ended_with` (literal copy of the previous scene's final change), `this_scene_starts_with` (concrete action already in motion that continues that consequence) and `single_change_at_end` (one irreversible state change).
+3. ENTRY AND EXIT BRIDGES (OPENING AND CLOSING): every scene declares `entry_bridge` (micro-action or line <= 2 s that starts it because of the previous scene) and `exit_hook` (gesture, order, decision or question that ends it and pushes into the next one). exit_hook(N) feeds entry_bridge(N+1).
+4. BLOCK PACING RULE (6 SCENES): 6 confrontation peaks in a row are FORBIDDEN. At least 1 non-confrontational beat per block (solo decision, discovery, plan, tender/vulnerable moment).
+5. CLIFFHANGER ROTATION: rotate the type between blocks (identity -> emotion -> revelation). Repeating the same type in two consecutive blocks is forbidden.
+6. LOCATION PING-PONG IS FORBIDDEN: group 3 to 5 consecutive scenes in the same location; the A-B-A pattern is forbidden.
+7. ONE NAME PER KEY OBJECT: the same exact `key_object` appears in the storyboard panel, in the Shot 1 action and in the Key Object list; never use aliases.
+8. SCRAMBLE TEST: if scrambling the block breaks the chain of consequences, rewrite it. The validator rejects mechanical placeholders and cuts without transitions.
 """
 
 
 # ---------------------------------------------------------------------------
-# PROMPT 00B — Extractor de beats de historia fuente probada (ReelShort/DramaBox)
+# PROMPT 00B — Proven source-story beat extractor (ReelShort/DramaBox)
 # ---------------------------------------------------------------------------
-PROMPT_00B_SOURCE_BEAT_EXTRACTOR = """🔍 PROMPT 00B — EXTRACTOR DE BEATS Y PUENTES DE HISTORIA FUENTE (MÉTODO REELSHORT / DRAMABOX)
-Actúa como un Showrunner y Script Doctor analítico especializado en micro-dramas de alta retención (ReelShort, DramaBox).
+PROMPT_00B_SOURCE_BEAT_EXTRACTOR = """🔍 PROMPT 00B — SOURCE-STORY BEAT AND BRIDGE EXTRACTOR (REELSHORT / DRAMABOX METHOD)
+Act as an analytical Showrunner and Script Doctor specializing in high-retention micro-dramas (ReelShort, DramaBox).
 
-OBJETIVO:
-Analiza el GUIÓN FUENTE PROBADO adjunto (o transcripción de historia viral) y extrae ÚNICAMENTE el esqueleto dramático y los puentes escena por escena para todas las escenas de 10 segundos del proyecto, agrupadas en bloques de 1 minuto (6 escenas por bloque).
+GOAL:
+Analyze the attached PROVEN SOURCE SCRIPT (or a viral-story transcript) and extract ONLY the dramatic skeleton and scene-by-scene bridges for every 10-second scene in the project, grouped into 1-minute blocks (6 scenes per block).
 
-REGLA DE ORO (PROHIBICIÓN ESTRICTA):
-ESTÁ TOTALMENTE PROHIBIDO COPIAR DIÁLOGOS, NOMBRES, MARCAS O TEXTO LITERAL DEL ORIGINAL.
-Solo extrae funciones dramáticas, dinámicas de poder, giros, emociones y puentes de causalidad. La superficie completa se reinventará en inglés idiomático en el siguiente paso.
+GOLDEN RULE (STRICT PROHIBITION):
+COPYING DIALOGUE, NAMES, BRANDS OR ANY LITERAL TEXT FROM THE ORIGINAL IS COMPLETELY FORBIDDEN.
+Extract only dramatic functions, power dynamics, turns, emotions and causal bridges. The full surface will be reinvented in idiomatic English in the next step.
 
-POR CADA ESCENA EXTRAE:
-1. scene_id: número de escena (1 al total declarado por el proyecto).
-2. block: bloque de 1 minuto al que pertenece (1 al total de bloques del proyecto).
-3. beat_function: una de las 6 funciones clave:
-   - "hook" (atrapa en los primeros 3-5 s)
-   - "setup-stakes" (establece qué se gana o se pierde)
-   - "reversal" (giro o cambio de poder)
-   - "escalation" (aumento de la tensión o conflicto)
-   - "crisis" (dilema o momento crítico)
-   - "cliffhanger" (corte en el pico antes de la respuesta)
-4. core_turn: qué cambia exactamente en esta escena (información revelada, balance de poder alterado o estado irreversible).
-5. emotion: trayectoria emocional dominante (ira -> sorpresa -> curiosidad -> esperanza -> miedo -> alivio).
-6. entry_bridge: la micro-acción o línea (máx ~2 s) con la que arranca la escena a causa directa de la anterior (una orden que se ejecuta, alguien que persigue a otro, etc.). Nada de empezar "en el pico" sin puente.
-7. exit_hook: con qué gesto, orden, decisión o pregunta concluye la escena y empuja a la siguiente.
-8. non_confrontational: true/false. REGLA DE RITMO: En cada bloque de 6 escenas debe haber al menos 1 beat NO confrontacional (decisión en solitario, descubrimiento, plan, momento tierno/vulnerable).
+FOR EACH SCENE EXTRACT:
+1. scene_id: scene number (1 to the total declared by the project).
+2. block: the 1-minute block it belongs to (1 to the total project blocks).
+3. beat_function: one of the 6 key functions:
+   - "hook" (grabs attention in the first 3-5 s)
+   - "setup-stakes" (establishes what can be won or lost)
+   - "reversal" (turn or power shift)
+   - "escalation" (rising tension or conflict)
+   - "crisis" (dilemma or critical moment)
+   - "cliffhanger" (cut at the peak before the answer)
+4. core_turn: what exactly changes in this scene (information revealed, power balance altered or irreversible state).
+5. emotion: dominant emotional trajectory (anger -> surprise -> curiosity -> hope -> fear -> relief).
+6. entry_bridge: the micro-action or line (max ~2 s) that starts the scene as a direct result of the previous one (an order being executed, someone chasing another, etc.). Never start "at the peak" without a bridge.
+7. exit_hook: the gesture, order, decision or question that ends the scene and pushes into the next one.
+8. non_confrontational: true/false. PACING RULE: every 6-scene block must have at least 1 NON-confrontational beat (solo decision, discovery, plan, tender/vulnerable moment).
 
-GUIÓN FUENTE / RESUMEN:
+SOURCE SCRIPT / SUMMARY:
 {source_script}
 """
 
 
 # ---------------------------------------------------------------------------
-# PROMPT 000 — texto literal solicitado (no modificar)
+# PROMPT 000 — literal requested text (do not modify)
 # ---------------------------------------------------------------------------
-PROMPT_000_VIRAL_STORY_ARCHITECT = """🧠 PROMPT 000 — ARQUITECTO DE HISTORIAS VIRALES (CHINA / USA MICRO-DRAMA SHOWRUNNER)
-Actúa como un Showrunner experto en Micro-Dramas virales de Estados Unidos y China (estilo ReelShort, DramaBox y canales de novelas con IA de +500,000 vistas).
+PROMPT_000_VIRAL_STORY_ARCHITECT = """🧠 PROMPT 000 — VIRAL STORY ARCHITECT (CHINA / USA MICRO-DRAMA SHOWRUNNER)
+Act as a Showrunner with deep expertise in viral micro-dramas from the United States and China (ReelShort, DramaBox and AI-novel channels with 500,000+ views).
 
-Tu objetivo es transformar mi idea base en una HISTORIA DE ALTA RETENCIÓN pensada para el mercado en INGLÉS (alto RPM), estructurada matemáticamente para una duración de {duration_minutes} minuto(s) ({total_scenes} escenas de 10 segundos cada una, divididas en {total_grid_images} bloques de 1 minuto / 6 escenas).
+Your goal is to turn my base idea into a HIGH-RETENTION STORY built for the ENGLISH-language market (high RPM), mathematically structured for a runtime of {duration_minutes} minute(s) ({total_scenes} ten-second scenes, split into {total_grid_images} one-minute blocks / 6 scenes each).
 
-IDEA BASE / SEMILLA:
+BASE IDEA / SEED:
 {story_idea}
 
-REGLAS DE ORO DE DRAMATURGIA Y RETENCIÓN QUE DEBES APLICAR:
-1. GANCHO EXPLOSIVO EN LOS PRIMEROS 10 SEGUNDOS (ESCENA 1): La historia jamás debe empezar de forma lenta. Debe abrir en medio de una tensión máxima: una humillación pública, una traición descubierta, un secreto millonario, una diferencia extrema de clases sociales o un contrato inesperado.
-2. MICRO-GIROS CADA 30 SEGUNDOS (CADA 3 ESCENAS): Cada 3 escenas debe ocurrir una revelación, un conflicto emocional, una mirada prohibida, una confrontación o un obstáculo que impida que el espectador cierre el video.
-3. CLIFFHANGER AL FINAL DE CADA MINUTO (ESCENAS 6, 12, 18...): La última escena de cada bloque de 6 escenas debe terminar en máxima tensión dramática.
-4. PERSONAJES CON CONTRASTE VISUAL INMEDIATO (MÁXIMO 3 A 5 PERSONAJES PRINCIPALES): Diseña personajes cuyo estatus social y personalidad se entiendan en 1 segundo solo por su vestuario (ej. multimillonario arrogante vs. trabajadora humilde con dignidad de hierro; heredera secreta vs. villana elitista).
-5. ECONOMÍA DE ESCENARIOS (MÁXIMO 3 A 5 LOCACIONES): Concentra la acción en locaciones visualmente ricas y contrastantes para mantener continuidad perfecta. Agrupa 3 a 6 escenas consecutivas en la misma situación dramática antes de cambiar de lugar.
-6. CAUSALIDAD ESTRICTA Y ORDEN CRONOLÓGICO: Cada escena debe ser consecuencia de la anterior y causa de la siguiente. Prohibido mostrar una consecuencia antes de su causa, revelar la misma pista dos veces o teletransportar personajes sin una transición visible o hablada. Cada acto termina en una decisión que obliga al siguiente.
-7. CATÁLOGO DE 6 ESTRUCTURAS VIRALES PROBADAS (LATAM → USA, +500,000 VISTAS): Usa este catálogo como banco de estructuras. Elige UNA sola como columna vertebral de la historia y adáptala al mercado estadounidense en inglés. No copies nombres, marcas ni diálogos: conserva la mecánica emocional y el orden de beats.
+GOLDEN DRAMATURGY AND RETENTION RULES YOU MUST APPLY:
+1. EXPLOSIVE HOOK IN THE FIRST 10 SECONDS (SCENE 1): The story must never start slowly. Open in the middle of maximum tension: a public humiliation, a discovered betrayal, a millionaire secret, an extreme social-class gap or an unexpected contract.
+2. MICRO-TURNS EVERY 30 SECONDS (EVERY 3 SCENES): Every 3 scenes there must be a revelation, an emotional conflict, a forbidden glance, a confrontation or an obstacle that prevents the viewer from closing the video.
+3. CLIFFHANGER AT THE END OF EVERY MINUTE (SCENES 6, 12, 18...): The last scene of every 6-scene block must end at maximum dramatic tension.
+4. CHARACTERS WITH IMMEDIATE VISUAL CONTRAST (MAXIMUM 3 TO 5 MAIN CHARACTERS): Design characters whose social status and personality are understood in 1 second through wardrobe alone (e.g. arrogant billionaire vs. humble worker with iron dignity; secret heiress vs. elitist villain).
+5. LOCATION ECONOMY (MAXIMUM 3 TO 5 LOCATIONS): Concentrate the action in visually rich, contrasting locations to preserve perfect continuity. Group 3 to 6 consecutive scenes in the same dramatic situation before changing location.
+6. STRICT CAUSALITY AND CHRONOLOGICAL ORDER: Every scene must be a consequence of the previous one and the cause of the next. Never show a consequence before its cause, reveal the same clue twice or teleport characters without a visible or spoken transition. Every act ends on a decision that forces the next one.
+7. CATALOG OF 6 PROVEN VIRAL STRUCTURES (LATAM → USA, 500,000+ VIEWS): Use this catalog as a structure bank. Choose ONE as the story's backbone and adapt it to the US market in English. Do not copy names, brands or dialogue: preserve the emotional mechanics and beat order.
 <<<VIRAL_TEMPLATES>>>
 
-ENTREGA EL RESULTADO EN ESTE FORMATO EXACTO (LISTO PARA COPIAR AL PROMPT 001):
-1. TÍTULO VIRAL EN INGLÉS (3 opciones de alto CTR).
-2. ELENCO PRINCIPAL (3 a 5 personajes: Nombre, Edad, Apariencia Física exacta, Vestuario característico fijo y Timbre de Voz en inglés).
-3. SINOPSIS NARRATIVA INTENSA BLOQUE POR BLOQUE (1 párrafo por cada minuto de historia = 6 escenas por minuto, describiendo inicio, conflicto, giros y desenlace/cliffhanger)."""
+DELIVER THE RESULT IN THIS EXACT FORMAT (READY TO PASTE INTO PROMPT 001):
+1. VIRAL TITLE IN ENGLISH (3 high-CTR options).
+2. MAIN CAST (3 to 5 characters: Name, Age, Exact Physical Appearance, Fixed Signature Wardrobe and Voice Timbre in English).
+3. INTENSE BLOCK-BY-BLOCK NARRATIVE SYNOPSIS (1 paragraph per story minute = 6 scenes per minute, describing opening, conflict, turns and outcome/cliffhanger)."""
 
 
 # ---------------------------------------------------------------------------
-# PROMPT 001 — generador de storyboard cinematográfico (6 escenas por imagen)
+# PROMPT 001 — cinematic storyboard generator (6 scenes per image)
 # ---------------------------------------------------------------------------
-PROMPT_001_STORYBOARD_GENERATOR = """🎬 PROMPT 001 — GENERADOR DE STORYBOARD CINEMATOGRÁFICO (6 ESCENAS POR IMAGEN)
-Actúa como director de cine y crea un storyboard visual para la historia que te voy a proporcionar.
+PROMPT_001_STORYBOARD_GENERATOR = """🎬 PROMPT 001 — CINEMATIC STORYBOARD GENERATOR (6 SCENES PER IMAGE)
+Act as a film director and create a visual storyboard for the story I am going to give you.
 
-DATOS DE LA HISTORIA
-Historia:
+STORY DATA
+Story:
 {story_idea}
 
-Duración:
-{duration_minutes} minuto(s) ({total_scenes} escenas de 10 segundos = {total_grid_images} imagen(es) de storyboard de 6 viñetas cada una)
+Runtime:
+{duration_minutes} minute(s) ({total_scenes} ten-second scenes = {total_grid_images} storyboard image(s) with 6 panels each)
 
-Estilo visual:
+Visual style:
 {visual_style}
-(Opciones: Cinematográfico realista 35mm / Realista / Animación 3D / Animación 2D / Anime / Ilustración)
+(Options: Realistic cinematic 35mm / Realistic / 3D animation / 2D animation / Anime / Illustration)
 
-REGLAS DEL STORYBOARD
-Cada escena dura exactamente 10 segundos.
-Calcula automáticamente el número de escenas según la duración.
-Cada imagen debe contener 6 escenas/viñetas (en cuadrícula limpia de 3x2: 6 viñetas numeradas del 1 al 6).
-Por lo tanto:
-1 minuto = 6 escenas = 1 imagen
-2 minutos = 12 escenas = 2 imágenes
-3 minutos = 18 escenas = 3 imágenes
-4 minutos = 24 escenas = 4 imágenes
-5 minutos = 30 escenas = 5 imágenes
-{duration_minutes} minutos = {total_scenes} escenas = {total_grid_images} imágenes
-Cada imagen representa exactamente 1 minuto de historia.
+STORYBOARD RULES
+Every scene lasts exactly 10 seconds.
+Automatically calculate the number of scenes from the runtime.
+Every image must contain 6 scenes/panels (in a clean 3x2 grid: 6 panels numbered 1 to 6).
+Therefore:
+1 minute = 6 scenes = 1 image
+2 minutes = 12 scenes = 2 images
+3 minutes = 18 scenes = 3 images
+4 minutes = 24 scenes = 4 images
+5 minutes = 30 scenes = 5 images
+{duration_minutes} minutes = {total_scenes} scenes = {total_grid_images} images
+Every image represents exactly 1 minute of story.
 
-CADA VIÑETA
-Cada viñeta debe mostrar visualmente el momento correspondiente de la historia con encuadre de cine profesional (alternando planos generales establecedores, planos medios dramáticos y primeros planos emocionales).
-Cada viñeta es el PRIMER FRAME literal de la Toma 1 de su escena: mismo encuadre, misma posición de cámara, mismo blocking, mismo vestuario, misma luz y mismo objeto clave. La Toma 1 arranca en movimiento desde esa imagen; nunca es un frame congelado.
-Debe incluir:
-- Todos los personajes presentes en la escena, con su posición fija de la Hoja de Personajes.
-- Lugar.
-- Acción física clara ya en movimiento.
-- Emoción intensa en los rostros.
-- El objeto clave de la escena visible o claramente implicado.
-- Composición e iluminación cinematográfica.
-FORMATO DE VIÑETAS 100% VISUAL (SIN CAJAS DE TEXTO): Las 6 viñetas fotográficas en cuadrícula 3x2 deben ocupar el 100% del lienzo 16:9 separadas únicamente por líneas divisorias finas. Coloca SOLO el número pequeño [1], [2], [3], [4], [5], [6] en la esquina superior izquierda de cada viñeta. PROHIBIDO dibujar barras inferiores oscuras, subtítulos, cajas de texto o descripciones escritas dentro de la imagen.
+EVERY PANEL
+Every panel must visually show the corresponding story moment with professional cinematic framing (alternating establishing wide shots, dramatic medium shots and emotional close-ups).
+Every panel is the literal FIRST FRAME of Shot 1 in its scene: same framing, same camera position, same blocking, same wardrobe, same lighting and same key object. Shot 1 starts in motion from that image; it is never a frozen frame.
+It must include:
+- Every character present in the scene, in their fixed Cast Sheet position.
+- Location.
+- Clear physical action already in motion.
+- Intense emotion on the faces.
+- The scene's key object visible or clearly implied.
+- Cinematic composition and lighting.
+100% VISUAL PANEL FORMAT (NO TEXT BOXES): The 6 photographic panels in a 3x2 grid must fill 100% of the 16:9 canvas, separated only by thin divider lines. Place ONLY the small number [1], [2], [3], [4], [5], [6] in the top-left corner of each panel. Drawing dark bottom bars, subtitles, text boxes or written descriptions inside the image is FORBIDDEN.
 
-IMPORTANTE:
-No escribir diálogos ni párrafos dentro del storyboard.
+IMPORTANT:
+Do not write dialogue or paragraphs inside the storyboard.
 
-CONTINUIDAD
-Mantén la misma apariencia exacta de los personajes durante todo el storyboard.
-Conserva también la continuidad estricta de:
-- Rostros.
-- Cabello.
-- Edad.
-- Complexión.
-- Vestuario.
-- Locaciones.
-- Época.
-- Objetos importantes (anillos, contratos, vehículos, herramientas).
-- Iluminación.
-- Ambiente.
-Si un personaje cambia de ropa por motivos narrativos, el cambio debe ser coherente.
+CONTINUITY
+Keep the exact same character appearance throughout the storyboard.
+Also preserve strict continuity of:
+- Faces.
+- Hair.
+- Age.
+- Build.
+- Wardrobe.
+- Locations.
+- Period.
+- Important objects (rings, contracts, vehicles, tools).
+- Lighting.
+- Atmosphere.
+If a character changes clothes for narrative reasons, the change must be coherent.
 
-ESTILO VISUAL
-Utiliza exactamente el estilo visual seleccionado ({visual_style}).
-Mantén ese estilo de manera consistente en todas las imágenes y todas las viñetas.
-El storyboard debe tener apariencia profesional y cinematográfica.
+VISUAL STYLE
+Use exactly the selected visual style ({visual_style}).
+Keep that style consistent across every image and every panel.
+The storyboard must look professional and cinematic.
 
-IMPORTANTE
-El resultado debe ser principalmente visual.
-No incluir:
-- Diálogos.
-- Narración extensa.
-- Subtítulos.
-- Párrafos.
-- Prompts de video.
-- Explicaciones del proceso.
-- Descripciones escritas, cajas de texto o barras inferiores dentro de la imagen.
+IMPORTANT
+The result must be primarily visual.
+Do not include:
+- Dialogue.
+- Extended narration.
+- Subtitles.
+- Paragraphs.
+- Video prompts.
+- Process explanations.
+- Written descriptions, text boxes or bottom bars inside the image.
 
-RESULTADO FINAL
-A partir de la historia, duración y estilo proporcionados:
-1. Calcula el número total de escenas ({total_scenes} escenas).
-2. Cada escena debe durar 10 segundos.
-3. Divide las escenas en grupos de 6.
-4. Genera una imagen por cada grupo de 6 escenas.
-5. Cada imagen debe contener 6 viñetas claramente divididas.
-6. Mantén la numeración [1]-[6] en la esquina superior izquierda, sin texto adicional.
-7. Mantén la continuidad absoluta de personajes y escenarios.
-8. Cuenta toda la historia visualmente de principio a fin."""
+FINAL RESULT
+From the provided story, runtime and style:
+1. Calculate the total number of scenes ({total_scenes} scenes).
+2. Every scene must last 10 seconds.
+3. Divide the scenes into groups of 6.
+4. Generate one image per group of 6 scenes.
+5. Every image must contain 6 clearly divided panels.
+6. Keep the numbering [1]-[6] in the top-left corner, with no additional text.
+7. Preserve absolute continuity of characters and locations.
+8. Tell the entire story visually from beginning to end."""
 
 
 # ---------------------------------------------------------------------------
-# PROMPT 002 — hoja maestra de personajes en una sola imagen
+# PROMPT 002 — master character sheet in a single image
 # ---------------------------------------------------------------------------
-PROMPT_002_CHARACTER_SHEET_GENERATOR = """👤 PROMPT 002 — GENERADOR DE PERSONAJES (HOJA MAESTRA EN UNA SOLA IMAGEN)
-Actúa como director de casting y diseñador de personajes.
-Ya tenemos creado el storyboard de la historia.
-Ahora analiza ese storyboard e identifica los personajes principales y secundarios relevantes que aparecen en la historia.
-Tu tarea es generar UNA SOLA IMAGEN que muestre juntos a todos los personajes identificados.
+PROMPT_002_CHARACTER_SHEET_GENERATOR = """👤 PROMPT 002 — CHARACTER GENERATOR (MASTER SHEET IN A SINGLE IMAGE)
+Act as a casting director and character designer.
+We have already created the story's storyboard.
+Now analyze that storyboard and identify the relevant main and secondary characters who appear in the story.
+Your task is to generate A SINGLE IMAGE showing all identified characters together.
 
-REFERENCIA
-Storyboard: el storyboard completo creado en el paso anterior. La hoja debe mantener exactamente los rostros, edades, etnias, vestuarios y accesorios que aparecen en ese storyboard.
+REFERENCE
+Storyboard: the complete storyboard created in the previous step. The sheet must preserve exactly the faces, ages, ethnicities, wardrobes and accessories that appear in that storyboard.
 
-REGLA PRINCIPAL
-Los personajes deben basarse directamente en el storyboard.
-Debes mantener exactamente su:
-- Sexo.
-- Edad aproximada.
-- Etnia y rasgos físicos.
-- Rostro.
-- Cabello.
-- Tono de piel.
-- Complexión.
-- Vestuario principal.
-- Accesorios importantes.
-- Estilo visual ({visual_style}).
+MAIN RULE
+Characters must be based directly on the storyboard.
+You must preserve exactly their:
+- Sex.
+- Approximate age.
+- Ethnicity and physical features.
+- Face.
+- Hair.
+- Skin tone.
+- Build.
+- Main wardrobe.
+- Important accessories.
+- Visual style ({visual_style}).
 
-Si el storyboard tiene 2 personajes, muestra los 2 en una sola imagen.
-Si tiene 3 personajes, muestra los 3 en una sola imagen.
-Si tiene 4 personajes, muestra los 4 en una sola imagen.
-Y así sucesivamente (priorizando los 3 a 5 personajes principales de la trama).
-No inventes personajes que no sean relevantes para la historia.
+If the storyboard has 2 characters, show all 2 in a single image.
+If it has 3 characters, show all 3 in a single image.
+If it has 4 characters, show all 4 in a single image.
+And so on (prioritizing the 3 to 5 main characters of the plot).
+Do not invent characters who are not relevant to the story.
 
-COMPOSICIÓN DE LA IMAGEN
-Genera una hoja de referencia de personajes limpia y profesional.
-Todos los personajes deben aparecer:
-- En una sola imagen.
-- Uno al lado del otro.
-- Claramente separados.
-- De cuerpo completo.
-- De pie.
-- Mirando hacia la cámara.
-- En una pose natural y neutral.
-- Sin taparse entre ellos.
-- Sin interactuar físicamente entre ellos.
-Debe verse claramente el rostro y el cuerpo completo de cada personaje.
-Usa un fondo sencillo y neutro (gris estudio limpio) para que los personajes sean los protagonistas de la imagen.
+IMAGE COMPOSITION
+Generate a clean, professional character reference sheet.
+All characters must appear:
+- In a single image.
+- Side by side.
+- Clearly separated.
+- Full body.
+- Standing.
+- Facing the camera.
+- In a natural, neutral pose.
+- Not covering each other.
+- Not physically interacting with each other.
+Each character's face and full body must be clearly visible.
+Use a simple, neutral background (clean studio gray) so the characters are the protagonists of the image.
 
-CONSISTENCIA
-Esta imagen funcionará como referencia oficial de los personajes para las siguientes generaciones de imágenes y videos en Muse AI y Google Flow.
-Por eso, los rostros y características físicas deben corresponder lo máximo posible con los personajes mostrados en el storyboard.
-No rediseñes a los personajes.
-El objetivo es extraer del storyboard una referencia visual clara y consistente de cada personaje.
+CONSISTENCY
+This image will serve as the official character reference for subsequent image and video generations in Muse AI and Google Flow.
+Therefore, faces and physical features must match the characters shown in the storyboard as closely as possible.
+Do not redesign the characters.
+The goal is to extract a clear, consistent visual reference for each character from the storyboard.
 
-ESTILO VISUAL
-Utiliza exactamente el mismo estilo visual utilizado en el storyboard ({visual_style}).
-No cambiar el estilo visual de la historia.
+VISUAL STYLE
+Use exactly the same visual style used in the storyboard ({visual_style}).
+Do not change the story's visual style.
 
-VESTUARIO
-Utiliza para cada personaje su vestuario más representativo o principal dentro de la historia.
-El vestuario debe ayudar a identificar inmediatamente quién es cada personaje.
+WARDROBE
+Use each character's most representative or main wardrobe within the story.
+Wardrobe must immediately help identify who each character is.
 
-TEXTO
-Ordena a los personajes de izquierda a derecha y coloca debajo de cada uno únicamente:
-Position #N — NOMBRE DEL PERSONAJE EN MAYÚSCULAS
-Ejemplo:
+TEXT
+Arrange the characters from left to right and place only the following below each one:
+Position #N — CHARACTER NAME IN UPPERCASE
+Example:
 Position #1 (Far Left) — ELENA
 Position #2 — SAM
 Position #3 — MARGARET
 Position #4 (Far Right) — ADRIAN
-Cada personaje conserva siempre la misma posición, el mismo rostro y el mismo vestuario en la hoja y en todas las escenas.
-No incluir:
-- Descripciones largas.
-- Diálogos.
-- Biografías.
-- Párrafos.
-- Información de las escenas.
-El texto debe ser mínimo para mantener la imagen limpia.
+Every character always keeps the same position, the same face and the same wardrobe on the sheet and in every scene.
+Do not include:
+- Long descriptions.
+- Dialogue.
+- Biographies.
+- Paragraphs.
+- Scene information.
+Text must be minimal to keep the image clean.
 
-RESULTADO FINAL
-Genera UNA SOLA IMAGEN que contenga a todos los personajes relevantes de la historia.
-La imagen debe funcionar como una hoja maestra de referencia de personajes, que posteriormente pueda utilizarse para mantener la misma apariencia de los personajes en todas las escenas y videos.
-Entrega solamente la imagen de los personajes."""
+FINAL RESULT
+Generate A SINGLE IMAGE containing all relevant characters in the story.
+The image must work as a master character reference sheet that can later be used to keep the same character appearance across every scene and video.
+Deliver only the character image."""
 
 
 # ---------------------------------------------------------------------------
-# PROMPT 003 — guion cinematográfico + cámara + sonido + comando Muse AI
+# PROMPT 003 — cinematic script + camera + sound + Muse AI command
 # ---------------------------------------------------------------------------
-PROMPT_003_SCRIPT_CAMERA_SOUND_GENERATOR = """🎬 PROMPT 003 — GENERADOR DE GUION CINEMATOGRÁFICO EN INGLÉS + CAMBIOS DE CÁMARA + SONIDO (OPTIMIZADO PARA MUSE AI Y GOOGLE FLOW)
-Actúa como guionista de Hollywood, director de fotografía y diseñador sonoro.
-Ya tenemos creado el storyboard de la historia y la hoja maestra de personajes. Ahora debes convertir ese storyboard en un guion cinematográfico y técnico completo en texto, respetando exactamente las escenas que aparecen en el storyboard, con todos los diálogos hablados en INGLÉS (English) para monetización internacional.
+PROMPT_003_SCRIPT_CAMERA_SOUND_GENERATOR = """🎬 PROMPT 003 — ENGLISH CINEMATIC SCRIPT GENERATOR + CAMERA CUTS + SOUND (OPTIMIZED FOR MUSE AI AND GOOGLE FLOW)
+Act as a Hollywood screenwriter, cinematographer and sound designer.
+We have already created the story's storyboard and the master character sheet. Now convert that storyboard into a complete cinematic, technical text script, respecting exactly the scenes shown in the storyboard, with all spoken dialogue in ENGLISH for international monetization.
 
-DATOS DEL PROYECTO
+PROJECT DATA
 Storyboard:
-El storyboard completo creado en el paso 1: {total_grid_images} imágenes de 6 viñetas, una por minuto. Cada escena debe corresponder exactamente a su viñeta.
-Duración del bloque:
-1 minuto = 6 escenas de 10 segundos (o el total de escenas del storyboard adjunto).
+The complete storyboard created in step 1: {total_grid_images} images with 6 panels, one per minute. Every scene must match its panel exactly.
+Block runtime:
+1 minute = 6 ten-second scenes (or the total number of scenes in the attached storyboard).
 
-REGLA PRINCIPAL
-Cada escena dura exactamente 10 segundos.
-Debes mantener exactamente el mismo número y orden de escenas del storyboard.
-NO debes agregar ni eliminar escenas.
-Cada escena debe corresponder directamente a su respectiva viñeta del storyboard.
+MAIN RULE
+Every scene lasts exactly 10 seconds.
+You must keep exactly the same number and order of scenes as the storyboard.
+You must NOT add or remove scenes.
+Every scene must correspond directly to its storyboard panel.
 
-DIÁLOGOS EN INGLÉS (REGLA DURA: MÁXIMO 15 PALABRAS POR ESCENA)
-Todos los diálogos hablados deben estar en INGLÉS natural, dramático y emocional.
-- Máximo 15 palabras por escena y máximo 15 por intervención.
-- La voz debe terminar antes de 8.5 segundos; deja el resto para pausas, miradas y reacciones.
-- Nunca cortes una frase por tiempo: si una idea necesita más, divídela entre escenas.
-- No todas las escenas necesitan diálogo: usa "No dialogue (Pure visual & sound tension)." cuando la imagen hable mejor.
+ENGLISH DIALOGUE (HARD RULE: MAXIMUM 15 WORDS PER SCENE)
+All spoken dialogue must be in natural, dramatic, emotional ENGLISH.
+- Maximum 15 words per scene and maximum 15 per turn.
+- The voice must finish before 8.5 seconds; leave the rest for pauses, glances and reactions.
+- Never cut a sentence for time: if an idea needs more, split it across scenes.
+- Not every scene needs dialogue: use "No dialogue (Pure visual & sound tension)." when the image speaks better.
 
-DIRECCIÓN DE CÁMARA: ENTRE 1 Y 4 TOMAS POR ESCENA DE 10s, NACIDAS DEL DIÁLOGO
-1. REGLA DE ORO: UNA LÍNEA = UN PLANO DEL HABLANTE:
-   - Quien habla está EN CÁMARA con rostro y boca visibles durante toda su línea, mirando al destinatario. Prohibido poner diálogo sobre un insert, una reacción o una espalda.
-   - Toma 1: arranca EN MOVIMIENTO desde el frame exacto de la viñeta. Mismo encuadre, misma posición de cámara, mismo blocking, mismo vestuario, misma luz y mismo objeto clave. Prohibido abrir con un frame estático. Si hay dos hablantes, la Toma 1 es un two-shot que los muestra a ambos y sostiene sus dos líneas.
-   - Los planos silenciosos (insert, reacción, detalle del objeto) van DESPUÉS de que termina el diálogo. Excepción: el hallazgo/revelación va en su propio plano silencioso centrado de 2–3 segundos; declara en qué segundo termina el diálogo ("El diálogo termina en el segundo X").
-   - Los presentes que no hablan se listan como mudos: una sola vez y con la boca cerrada.
-2. OBJETO CLAVE Y TEXTO EN PANTALLA:
-   - Cada escena declara OBJETO AL INICIAR y OBJETO AL TERMINAR visibles en cámara; el insert del objeto lo muestra tal cual.
-   - Nunca muestres el interior vacío de una bolsa, caja fuerte o contenedor donde se escondió el objeto.
-   - Solo el texto diegético declarado (ej. la palabra CONFESSION en el documento) puede verse legible; el resto de papeles y carteles no muestra palabras.
-3. IDENTIDAD Y POSICIONES:
-   - Cada personaje presente se nombra como Nombre (Cast Sheet Pos #N: descriptor estable, wearing vestuario del acto).
-   - La Hoja de Personajes fija posiciones de izquierda a derecha; nunca insertes esa hoja como plano entre escenas.
-3. DISEÑO SONORO (SFX & AMBIENCE) Y VOZ:
-   - Especifica el timbre de voz constante de quien habla (ej. "Warm emotional young female voice" / "Deep authoritative male baritone voice").
-   - Especifica los efectos de sonido realistas del entorno (ej. "Rain on window, footsteps on gravel, tense dramatic silence").
-4. CAUSALIDAD Y LOCACIÓN:
-   - Cada escena es consecuencia de la anterior y causa de la siguiente. Prohibido revelar una consecuencia antes de su causa o repetir la misma pista.
-   - Agrupa 3 a 6 escenas consecutivas en la misma situación dramática antes de cambiar de lugar. Todo cambio de lugar necesita una transición visible o hablada.
+CAMERA DIRECTION: BETWEEN 1 AND 4 SHOTS PER 10s SCENE, BORN FROM THE DIALOGUE
+1. GOLDEN RULE: ONE LINE = ONE SHOT OF THE SPEAKER:
+   - Whoever speaks is ON CAMERA with face and mouth visible throughout their line, looking at the recipient. Putting dialogue over an insert, a reaction or someone's back is forbidden.
+   - Shot 1: starts IN MOTION from the panel's exact frame. Same framing, same camera position, same blocking, same wardrobe, same lighting and same key object. Opening on a static frame is forbidden. If there are two speakers, Shot 1 is a two-shot showing both and holding their two lines.
+   - Silent shots (insert, reaction, object detail) come AFTER the dialogue ends. Exception: the discovery/revelation goes in its own centered 2–3 second silent shot; declare at which second the dialogue ends ("Dialogue ends at second X").
+   - Present characters who do not speak are listed as silent: once, with their mouth closed.
+2. KEY OBJECT AND ON-SCREEN TEXT:
+   - Every scene declares OBJECT AT START and OBJECT AT END visible on camera; the object insert shows it exactly as it is.
+   - Never show the empty interior of a bag, safe or container where the object was hidden.
+   - Only declared diegetic text (e.g. the word CONFESSION on the document) may be legible; all other papers and signs show no words.
+3. IDENTITY AND POSITIONS:
+   - Every present character is named as Name (Cast Sheet Pos #N: stable descriptor, wearing act wardrobe).
+   - The Cast Sheet fixes positions from left to right; never insert that sheet as a shot between scenes.
+3. SOUND DESIGN (SFX & AMBIENCE) AND VOICE:
+   - Specify the speaker's constant voice timbre (e.g. "Warm emotional young female voice" / "Deep authoritative male baritone voice").
+   - Specify realistic environmental sound effects (e.g. "Rain on window, footsteps on gravel, tense dramatic silence").
+4. CAUSALITY AND LOCATION:
+   - Every scene is a consequence of the previous one and the cause of the next. Revealing a consequence before its cause or repeating the same clue is forbidden.
+   - Group 3 to 6 consecutive scenes in the same dramatic situation before changing location. Every location change needs a visible or spoken transition.
 
-ESTRUCTURA OBLIGATORIA DE CADA ESCENA
-Para cada escena utiliza exactamente esta estructura:
+MANDATORY STRUCTURE FOR EVERY SCENE
+Use exactly this structure for every scene:
 
-ESCENA [N] (Viñeta #[N] del Storyboard) — [MM:SS–MM:SS]
-- Location: [Lugar exacto de la viñeta]
-- Characters Present: [Nombre (Cast Sheet Pos #N), ...]
-- Storyboard Panel (Shot 1 exact framing): [ encuadre + acción de la viñeta + objeto clave + todos los presentes ]
-- Identity Anchors: [Nombre (Cast Sheet Pos #N: descriptor, wearing vestuario), ...]
-- Object In / Object Out: [OBJETO AL INICIAR visible → OBJETO AL TERMINAR visible]
-- Camera Cuts & Visual Action (10s, 1–4 tomas):
-  * [00s–..]: [Toma 1: encuadre exacto de la viñeta + acción ya en movimiento; two-shot si hablan dos personajes]
-  * [..s–..s]: [PLANO QUE HABLA: nombre (visible, mira a destinatario) dice exactamente, una sola vez: "línea"] (una toma por línea hablada)
-  * [..s–..s]: [SIN DIÁLOGO: insert, reacción o plano del objeto; el hallazgo va centrado 2–3 s]
-- Mudos: [PRESENTES QUE NO HABLAN: nombre — boca cerrada en toda la escena]
-- Sound Design (SFX & Voice Tone): [Efectos de sonido del ambiente + tono de voz fijo del personaje]
+SCENE [N] (Storyboard Panel #[N]) — [MM:SS–MM:SS]
+- Location: [Exact location from the panel]
+- Characters Present: [Name (Cast Sheet Pos #N), ...]
+- Storyboard Panel (Shot 1 exact framing): [ panel framing + action + key object + everyone present ]
+- Identity Anchors: [Name (Cast Sheet Pos #N: descriptor, wearing wardrobe), ...]
+- Object In / Object Out: [OBJECT AT START visible → OBJECT AT END visible]
+- Camera Cuts & Visual Action (10s, 1–4 shots):
+  * [00s–..]: [Shot 1: exact panel framing + action already in motion; two-shot if two characters speak]
+  * [..s–..s]: [SPEAKING SHOT: name (visible, looking at recipient) says exactly, only once: "line"] (one shot per spoken line)
+  * [..s–..s]: [NO DIALOGUE: insert, reaction or object shot; the discovery is centered for 2–3 s]
+- Silent: [PRESENT CHARACTERS WHO DO NOT SPEAK: name — mouth closed throughout the scene]
+- Sound Design (SFX & Voice Tone): [Environmental sound effects + the character's fixed voice tone]
 - Dialogue (English, max 15 words per line, finish before 8.5 s):
-  [NOMBRE DEL PERSONAJE]: "[Diálogo en inglés breve, concreto y completo, máx. 15 palabras]"
+  [CHARACTER NAME]: "[Brief, concrete, complete English dialogue, max. 15 words]"
 
-RESULTADO FINAL
-Entrega únicamente el bloque de escenas con la estructura anterior y, al final de las escenas, incluye este comando exacto listo para copiar y pegar junto con el guion en MUSE AI:
+FINAL RESULT
+Deliver only the scene block using the structure above and, at the end of the scenes, include this exact command ready to copy and paste together with the script into MUSE AI:
 
-COMANDO FINAL PARA PEGAR EN MUSE AI (JUNTO CON EL STORYBOARD Y LA HOJA DE PERSONAJES ADJUNTOS):
-"Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando entre 1 y 4 tomas exactamente como las lista el guion (la Toma 1 arranca directamente en movimiento desde el encuadre exacto de la viñeta correspondiente sin frames estáticos; cada línea hablada tiene su propio plano con el hablante de frente, rostro y boca visibles, nunca desde detrás del personaje; los planos silenciosos de insert, reacción u objeto van después del diálogo y nunca contienen habla), manteniendo estrictamente la misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre escenas. Formato: {aspect_ratio}. Reglas negativas estrictas: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue.\""""
+FINAL COMMAND TO PASTE INTO MUSE AI (TOGETHER WITH THE ATTACHED STORYBOARD AND CHARACTER SHEET):
+"Make a realistic cinematic video of 10 seconds per scene, executing between 1 and 4 shots exactly as the script lists them (Shot 1 starts directly in motion from the exact framing of the corresponding storyboard panel without static frames; every spoken line gets its own shot with the speaker facing camera, face and mouth visible, never from behind the character; silent shots of inserts, reactions or objects come after the dialogue and never contain speech), keeping strictly the same race, face and wardrobe for each character according to their position in the attached Character Sheet, and join them into a single continuous video, never inserting the reference image between scenes. Format: {aspect_ratio}. Strict negative rules: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue.\""""
 
 
 TEMPLATES: Dict[str, Dict[str, str]] = {
@@ -369,39 +369,39 @@ TEMPLATES: Dict[str, Dict[str, str]] = {
         "key": "prompt_000",
         "code": "PROMPT 000",
         "signature": "PROMPT_000_VIRAL_STORY_ARCHITECT",
-        "title": "Arquitecto de Historias Virales (China / USA Micro-Drama)",
-        "purpose": "Convierte la idea base en una arquitectura de alta retención con elenco, locaciones y sinopsis bloque por bloque.",
+        "title": "Viral Story Architect (China / USA Micro-Drama)",
+        "purpose": "Turns the base idea into a high-retention architecture with cast, locations and a block-by-block synopsis.",
         "text": PROMPT_000_VIRAL_STORY_ARCHITECT,
     },
     "prompt_001": {
         "key": "prompt_001",
         "code": "PROMPT 001",
         "signature": "PROMPT_001_STORYBOARD_GENERATOR",
-        "title": "Generador de Storyboard Cinematográfico (6 Escenas por Imagen)",
-        "purpose": "Crea un storyboard visual en cuadrículas de 6 viñetas (3x2), una imagen por minuto de historia.",
+        "title": "Cinematic Storyboard Generator (6 Scenes per Image)",
+        "purpose": "Creates a visual storyboard in 6-panel grids (3x2), one image per minute of story.",
         "text": PROMPT_001_STORYBOARD_GENERATOR,
     },
     "prompt_002": {
         "key": "prompt_002",
         "code": "PROMPT 002",
         "signature": "PROMPT_002_CHARACTER_SHEET_GENERATOR",
-        "title": "Generador de la Hoja Maestra de Personajes (Una Sola Imagen)",
-        "purpose": "Extrae del storyboard una hoja maestra con todos los personajes relevantes y su vestuario principal.",
+        "title": "Master Character Sheet Generator (Single Image)",
+        "purpose": "Extracts from the storyboard a master sheet with all relevant characters and their main wardrobe.",
         "text": PROMPT_002_CHARACTER_SHEET_GENERATOR,
     },
     "prompt_003": {
         "key": "prompt_003",
         "code": "PROMPT 003",
         "signature": "PROMPT_003_SCRIPT_CAMERA_SOUND_GENERATOR",
-        "title": "Generador de Guion + Cámara + Sonido + Comando Muse AI",
-        "purpose": "Convierte el storyboard en escenas de 10 s con cortes internos, SFX, diálogo en inglés y comando final para Muse AI.",
+        "title": "Script + Camera + Sound + Muse AI Command Generator",
+        "purpose": "Turns the storyboard into 10-second scenes with internal cuts, SFX, English dialogue and a final Muse AI command.",
         "text": PROMPT_003_SCRIPT_CAMERA_SOUND_GENERATOR,
     },
 }
 
 
 # ---------------------------------------------------------------------------
-# Valores del proyecto
+# Project values
 # ---------------------------------------------------------------------------
 DEFAULT_VISUAL_STYLE = (
     "prestige cinematic short-drama, photoreal, 35mm anamorphic glass, "
@@ -502,7 +502,7 @@ def _story_idea_from_master(master: Dict[str, Any], brief_text: str = "") -> str
         parts.append("\n".join(lines))
 
     idea = "\n\n".join(part.strip() for part in parts if part.strip()).strip()
-    return idea or "(describe aquí la idea base: quién quiere qué, quién se lo impide y qué secreto mueve la historia)"
+    return idea or "(describe the base idea here: who wants what, who blocks them and what secret drives the story)"
 
 
 def visual_style_from_style(style: Dict[str, Any]) -> str:
@@ -571,7 +571,7 @@ def values_from_master(
 
 
 # ---------------------------------------------------------------------------
-# Render y exportación
+# Rendering and export
 # ---------------------------------------------------------------------------
 def list_viral_templates() -> List[Dict[str, Any]]:
     import copy
@@ -595,8 +595,8 @@ def get_viral_template(template_id: str) -> Dict[str, Any]:
     for item in templates:
         if str(item.get("id") or "") == wanted:
             return item
-    valid = ", ".join(str(item.get("id") or "") for item in templates) or "(ninguno)"
-    raise KeyError(f"Plantilla viral desconocida: {template_id}. Válidas: {valid}")
+    valid = ", ".join(str(item.get("id") or "") for item in templates) or "(none)"
+    raise KeyError(f"Unknown viral template: {template_id}. Valid: {valid}")
 
 
 def render_viral_niche_block(template: Dict[str, Any]) -> str:
@@ -609,39 +609,39 @@ def render_viral_niche_block(template: Dict[str, Any]) -> str:
         return [str(value).strip() for value in (template.get(key) or []) if str(value).strip()]
 
     lines: List[str] = [
-        "USA MEGA-NICHE ARCHETYPE — SELECCIÓN DEL USUARIO",
+        "USA MEGA-NICHE ARCHETYPE — USER SELECTION",
         "",
         f"- ID: {text('id')}",
-        f"- Arquetipo: {text('label')}",
-        f"- Categoría: {text('category')}",
-        f"- Descripción del nicho (ES): {text('description')}",
+        f"- Archetype: {text('label')}",
+        f"- Category: {text('category')}",
+        f"- Niche description (source): {text('description')}",
     ]
     audience = text("audience")
     if audience:
-        lines.append(f"- Audiencia: {audience}")
+        lines.append(f"- Audience: {audience}")
     lines += [
         "",
-        "SEMILLA EN INGLÉS (US MARKET, en-US):",
+        "ENGLISH SEED (US MARKET, en-US):",
         f"- Premise seed: {text('premise_seed')}",
         f"- Opening hook: {text('opening_hook')}",
         "",
-        "BEATS OBLIGATORIOS:",
+        "MANDATORY BEATS:",
     ]
-    lines += [f"- {item}" for item in bullets("must_include")] or ["- (sin beats definidos)"]
-    lines += ["", "LOCACIONES PRIMARIAS:"]
-    lines += [f"- {item}" for item in bullets("primary_locations")] or ["- (sin locaciones definidas)"]
-    lines += ["", f"FIRMA VISUAL: {text('visual_signature')}"]
+    lines += [f"- {item}" for item in bullets("must_include")] or ["- (no beats defined)"]
+    lines += ["", "PRIMARY LOCATIONS:"]
+    lines += [f"- {item}" for item in bullets("primary_locations")] or ["- (no locations defined)"]
+    lines += ["", f"VISUAL SIGNATURE: {text('visual_signature')}"]
     series_hook = text("series_hook")
     if series_hook:
         lines.append(f"SERIES HOOK: {series_hook}")
     lines += [
         "",
-        "REGLAS DE USO DEL ARQUETIPO:",
-        "- Usa este arquetipo como el único motor de la historia; no mezcles nichos ni tramas de otros arquetipos.",
-        "- Escribe títulos, elenco y sinopsis en inglés nativo de Estados Unidos (en-US).",
-        "- Mantén de 3 a 5 personajes principales y de 3 a 5 locaciones.",
-        "- Conserva la duración y el número de escenas declarados por el proyecto, con un cliffhanger al final de cada minuto.",
-        "- La semilla en inglés es el material canónico; esta selección manda sobre la idea base.",
+        "ARCHETYPE USAGE RULES:",
+        "- Use this archetype as the story's only engine; do not mix niches or plots from other archetypes.",
+        "- Write titles, cast and synopsis in native US English (en-US).",
+        "- Keep 3 to 5 main characters and 3 to 5 locations.",
+        "- Preserve the runtime and scene count declared by the project, with a cliffhanger at the end of every minute.",
+        "- The English seed is the canonical material; this selection overrides the base idea.",
     ]
     return "\n".join(lines).strip()
 
@@ -672,19 +672,19 @@ def find_viral_latam_template(template_id: str, rules: Optional[Dict[str, Any]] 
 def render_viral_latam_block(templates: Optional[List[Dict[str, Any]]] = None) -> str:
     items = templates if templates is not None else viral_latam_templates()
     if not items:
-        return ("(Catálogo no disponible: usa una estructura de micro-drama LATAM -> USA con "
-                "gancho público, secreto familiar y status reversal.)")
+        return ("(Catalog unavailable: use a LATAM -> USA micro-drama structure with "
+                "a public hook, family secret and status reversal.)")
     lines: List[str] = []
     for index, item in enumerate(items, start=1):
         beats = " -> ".join(str(beat).strip() for beat in (item.get("structure") or []) if str(beat).strip())
         lines.extend([
             f"{index}. {item.get('name') or item.get('id')} (`{item.get('id')}`)",
-            f"   Inspiración: {item.get('source') or 'LATAM viral'} · {item.get('views') or '+500K'} vistas · "
+            f"   Inspiration: {item.get('source') or 'LATAM viral'} · {item.get('views') or '+500K'} views · "
             f"{item.get('genre') or 'micro-drama'}.",
-            f"   Premisa: {item.get('premise') or ''}",
-            f"   Gancho: {item.get('hook') or ''}",
+            f"   Premise: {item.get('premise') or ''}",
+            f"   Hook: {item.get('hook') or ''}",
             f"   Beats: {beats}",
-            f"   Adaptación USA: {item.get('usa_adaptation') or ''}",
+            f"   USA adaptation: {item.get('usa_adaptation') or ''}",
         ])
     return "\n".join(lines).strip()
 
@@ -692,7 +692,7 @@ def render_viral_latam_block(templates: Optional[List[Dict[str, Any]]] = None) -
 def render_prompt(key: str, values: Dict[str, Any], niche: str = "") -> str:
     template = TEMPLATES.get(str(key))
     if not template:
-        raise KeyError(f"Plantilla desconocida: {key}. Usa: {', '.join(PROMPT_ORDER)}")
+        raise KeyError(f"Unknown template: {key}. Use: {', '.join(PROMPT_ORDER)}")
     text = template["text"]
     for placeholder in PLACEHOLDERS:
         token = "{" + placeholder + "}"
@@ -780,20 +780,20 @@ def render_markdown(pack: Dict[str, Any]) -> str:
     project = pack.get("project") or {}
     values = pack.get("values") or {}
     lines: List[str] = [
-        f"# MASTER PROMPTS — {project.get('title') or project.get('slug') or 'Episodio'}",
+        f"# MASTER PROMPTS — {project.get('title') or project.get('slug') or 'Episode'}",
         "",
-        f"- Generado: {pack.get('generated_at')}",
-        f"- Duración: {values.get('duration_minutes')} minuto(s)",
-        f"- Escenas: {values.get('total_scenes')}",
-        f"- Grids de 1 minuto: {values.get('total_grid_images')}",
+        f"- Generated: {pack.get('generated_at')}",
+        f"- Runtime: {values.get('duration_minutes')} minute(s)",
+        f"- Scenes: {values.get('total_scenes')}",
+        f"- 1-minute grids: {values.get('total_grid_images')}",
         f"- Aspect ratio: {values.get('aspect_ratio')}",
-        f"- Estilo visual: {values.get('visual_style')}",
+        f"- Visual style: {values.get('visual_style')}",
         "",
-        "> Todos los prompts están rellenados con los datos del proyecto. Copia cada bloque completo.",
+        "> All prompts are filled with the project data. Copy each complete block.",
     ]
     if pack.get("source_mode") == "original_unproven":
         lines += [
-            "> ⚠️ **WARNING: source_mode es 'original_unproven' — Guion generado sin fuente probada.**",
+            "> ⚠️ **WARNING: source_mode is 'original_unproven' — script generated without a proven source.**",
         ]
     lines += [""]
     for prompt in pack.get("prompts") or []:
@@ -804,7 +804,7 @@ def render_markdown(pack: Dict[str, Any]) -> str:
             "",
             f"_{prompt['purpose']}_",
             "",
-            f"**{prompt['chars']:,} caracteres · {prompt['words']:,} palabras**",
+            f"**{prompt['chars']:,} characters · {prompt['words']:,} words**",
             "",
             "````text",
             prompt["text"],
@@ -819,10 +819,10 @@ def render_plain(pack: Dict[str, Any]) -> str:
     values = pack.get("values") or {}
     lines: List[str] = [
         "=" * 78,
-        f"NOVEL FACTORY — MASTER PROMPTS — {project.get('title') or project.get('slug') or 'Episodio'}",
+        f"NOVEL FACTORY — MASTER PROMPTS — {project.get('title') or project.get('slug') or 'Episode'}",
         "=" * 78,
-        f"Generado: {pack.get('generated_at')}",
-        f"Duración: {values.get('duration_minutes')} minuto(s) · Escenas: {values.get('total_scenes')} · "
+        f"Generated: {pack.get('generated_at')}",
+        f"Runtime: {values.get('duration_minutes')} minute(s) · Scenes: {values.get('total_scenes')} · "
         f"Grids: {values.get('total_grid_images')} · Aspect: {values.get('aspect_ratio')}",
         "",
     ]
@@ -860,28 +860,28 @@ def write_prompt_pack(root: Path, pack: Dict[str, Any]) -> Dict[str, Path]:
 
 
 # ---------------------------------------------------------------------------
-# Lotes de 1 minuto para Muse AI (6 escenas por bloque)
+# 1-minute batches for Muse AI (6 scenes per block)
 # ---------------------------------------------------------------------------
 MUSE_FINAL_COMMAND_HEADER = (
-    "COMANDOS FINALES PARA PEGAR EN MUSE AI (ELIGE SEGÚN EL CANAL):"
+    "FINAL COMMANDS TO PASTE INTO MUSE AI (CHOOSE BY CHANNEL):"
 )
 MUSE_FINAL_COMMAND_TEMPLATE = (
-    "Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando entre 1 y 4 "
-    "tomas exactamente como las lista el guion: la Toma 1 arranca directamente en movimiento desde "
-    "el encuadre exacto de la viñeta correspondiente sin frames estáticos (two-shot si hablan dos "
-    "personajes); cada línea hablada tiene su propio plano con el hablante de frente, rostro y boca "
-    "visibles, nunca desde detrás del personaje; los planos silenciosos (insert, reacción, objeto) "
-    "van después del diálogo y nunca contienen habla. Mantén estrictamente la misma raza, rostro y "
-    "vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un "
-    "solo video continuo sin insertar jamás la imagen de referencia entre escenas. "
-    "Formato: {orientation} {aspect_ratio} {destination}. "
-    "Reglas negativas estrictas: no subtitles, no captions, no overlay text, no watermark, "
+    "Make a realistic cinematic video of 10 seconds per scene, executing between 1 and 4 shots "
+    "exactly as the script lists them: Shot 1 starts directly in motion from the exact framing of "
+    "the corresponding storyboard panel, with no static frames (two-shot if two characters speak); "
+    "every spoken line gets its own shot with the speaker facing camera, face and mouth visible, "
+    "never from behind the character; silent shots (inserts, reactions, objects) come after the "
+    "dialogue and never contain speech. Keep strictly the same race, face and wardrobe for each "
+    "character according to their position in the attached Character Sheet, and join them into a "
+    "single continuous video, never inserting the reference image between scenes. "
+    "Format: {orientation} {aspect_ratio} {destination}. "
+    "Strict negative rules: no subtitles, no captions, no overlay text, no watermark, "
     "no background music, no groans or mouth noises before dialogue."
 )
 MUSE_FINAL_COMMAND = MUSE_FINAL_COMMAND_TEMPLATE
 MUSE_ATTACH_LINE = (
-    "📎 ADJUNTAR EN MUSE AI: REF_CAST_MASTER.png (Hoja de Personajes) + "
-    "REF_GRID_MIN_{batch:02d}.png (Storyboard Minuto {minute}: Escenas {first}–{last})"
+    "📎 ATTACH IN MUSE AI: REF_CAST_MASTER.png (Character Sheet) + "
+    "REF_GRID_MIN_{batch:02d}.png (Minute {minute} Storyboard: Scenes {first}–{last})"
 )
 
 
@@ -894,13 +894,13 @@ def _muse_final_command(batch_number: int, orientation: str, aspect: str, destin
 
 
 ROLE_LABELS = {
-    "protagonist": "Protagonista",
-    "love_interest": "Interés romántico",
-    "antagonist": "Antagonista",
-    "antagonist_heir": "Heredero antagonista",
-    "ally": "Aliada",
+    "protagonist": "Protagonist",
+    "love_interest": "Love interest",
+    "antagonist": "Antagonist",
+    "antagonist_heir": "Antagonist heir",
+    "ally": "Ally",
     "mentor": "Mentor",
-    "supporting": "Secundario",
+    "supporting": "Supporting",
 }
 
 
@@ -933,7 +933,7 @@ def _character_age(character: Dict[str, Any]) -> str:
         match = re.search(pattern, text, flags=re.IGNORECASE)
         if match:
             return match.group(1).lower().replace(" ", "-")
-    return "adulto"
+    return "adult"
 
 
 def _character_visual(character: Dict[str, Any]) -> str:
@@ -943,7 +943,7 @@ def _character_visual(character: Dict[str, Any]) -> str:
         or character.get("appearance")
         or ""
     ).strip()
-    return visual or "rasgos y complexión definidos por su ficha de casting"
+    return visual or "features and build defined by the casting sheet"
 
 
 def _character_wardrobe(character: Dict[str, Any]) -> str:
@@ -961,40 +961,40 @@ def _character_wardrobe(character: Dict[str, Any]) -> str:
     match = re.search(r"signature\s+(.+?)(?:\.|$)", _character_visual(character), flags=re.IGNORECASE)
     if match:
         return match.group(1).strip()
-    return "el vestuario principal descrito en su ficha de casting"
+    return "the main wardrobe described in the casting sheet"
 
 
 def build_cast_sheet_prompt(master: Optional[Dict[str, Any]]) -> str:
-    """Prompt 100% copiable para REF_CAST_MASTER.png, sin adjuntos ni corchetes."""
+    """Copy-ready prompt for REF_CAST_MASTER.png, with no attachments or brackets."""
     characters = project_characters(master)
     lines = [
-        "Actúa como director de casting y diseñador de personajes. Genera UNA SOLA IMAGEN horizontal 16:9 "
-        "que muestre juntos, de cuerpo completo, de pie, mirando al frente sobre un fondo gris neutro de "
-        "estudio (#808080) y sin tocarse entre sí, a los siguientes personajes de nuestra novela en estilo "
-        "Cinematográfico Realista 35mm:",
+        "Act as a casting director and character designer. Generate A SINGLE horizontal 16:9 IMAGE "
+        "showing together, full body, standing, facing forward on a neutral studio gray "
+        "background (#808080) and not touching each other, the following characters from our novel in "
+        "Realistic Cinematic 35mm style:",
         "",
     ]
     for index, character in enumerate(characters, start=1):
-        name = str(character.get("name") or character.get("id") or "PERSONAJE").strip().upper()
+        name = str(character.get("name") or character.get("id") or "CHARACTER").strip().upper()
         edge = " (Far Left)" if index == 1 else (" (Far Right)" if index == len(characters) else "")
         lines.append(
-            f"Position #{index}{edge} — {name}. Rol: {_character_role(character)}. "
-            f"Edad: {_character_age(character)}. "
-            f"Rasgos físicos: {_character_visual(character)}. "
-            f"Vestuario fijo: {_character_wardrobe(character)}."
+            f"Position #{index}{edge} — {name}. Role: {_character_role(character)}. "
+            f"Age: {_character_age(character)}. "
+            f"Physical features: {_character_visual(character)}. "
+            f"Fixed wardrobe: {_character_wardrobe(character)}."
         )
     if not characters:
         lines.append(
-            "1. LOS PERSONAJES PRINCIPALES DEL PROYECTO — usa exactamente los nombres, roles, "
-            "edades y vestuarios definidos en story_brief.md y master_episode.json."
+            "1. THE PROJECT'S MAIN CHARACTERS — use exactly the names, roles, "
+            "ages and wardrobes defined in story_brief.md and master_episode.json."
         )
     lines += [
         "",
-        "Ordena a los personajes de izquierda a derecha y coloca debajo de cada uno únicamente "
-        "'Position #N — NOMBRE EN MAYÚSCULAS'. Mantén exactamente las mismas posiciones, rostros, "
-        "peinados y vestuarios en todas las imágenes del storyboard y de los lotes de Muse AI. "
-        "Sin texto adicional, sin títulos, sin frases, sin logos, sin marcas de agua; solo la "
-        "imagen de los personajes y sus posiciones.",
+        "Arrange the characters from left to right and place only the following below each one: "
+        "'Position #N — NAME IN UPPERCASE'. Keep exactly the same positions, faces, "
+        "hairstyles and wardrobes in every storyboard image and Muse AI batch. "
+        "No additional text, no titles, no sentences, no logos, no watermarks; only the "
+        "character image and their positions.",
     ]
     return "\n".join(lines)
 
@@ -1123,7 +1123,7 @@ def render_muse_scene_block(
     silent_names = nf.scene_present_silent_names(scene, master)
 
     lines: List[str] = [
-        f"ESCENA {sid} (Viñeta #{sid} del Storyboard) — {_muse_timecode(start)}–{_muse_timecode(end)}",
+        f"SCENE {sid} (Storyboard Panel #{sid}) — {_muse_timecode(start)}–{_muse_timecode(end)}",
         f"- Location: {location}",
         f"- Characters Present: {', '.join(characters) if characters else 'the characters visible in the storyboard panel'}",
         f"- Storyboard Panel (Shot 1 exact framing): {panel}",
@@ -1182,20 +1182,20 @@ def build_muse_batches(
         )
         save_as = f"raw_clips/minute_{batch_number:02d}.mp4"
         command_169 = _muse_final_command(
-            batch_number, "horizontal", "16:9", "para YouTube"
+            batch_number, "horizontal", "16:9", "for YouTube"
         )
         command_916 = _muse_final_command(
-            batch_number, "vertical", "9:16", "para Reels, TikTok y Shorts"
+            batch_number, "vertical", "9:16", "for Reels, TikTok and Shorts"
         )
         script = "\n\n".join(blocks)
         prompt_169 = "\n\n".join([
             script,
-            "COMANDO FINAL (16:9 YouTube):",
+            "FINAL COMMAND (16:9 YouTube):",
             f"\"{command_169}\"",
         ])
         prompt_916 = "\n\n".join([
             script,
-            "COMANDO FINAL (9:16 Reels/TikTok/Shorts):",
+            "FINAL COMMAND (9:16 Reels/TikTok/Shorts):",
             f"\"{command_916}\"",
         ])
         batches.append({
@@ -1230,10 +1230,10 @@ def render_muse_batches_text(master: Dict[str, Any], batches: List[Dict[str, Any
     title = str(episode.get("title") or episode.get("slug") or "Episodio")
     lines: List[str] = [
         "=" * 78,
-        f"NOVEL FACTORY — MUSE AI — LOTES DE 1 MINUTO (6 ESCENAS) — {title}",
+        f"NOVEL FACTORY — MUSE AI — 1-MINUTE BATCHES (6 SCENES) — {title}",
         "=" * 78,
-        f"Escenas: {len(nf.ordered_scenes(master))} · Lotes: {len(batches)} · 10 s por escena",
-        "Cada bloque incluye los adjuntos requeridos y DOS comandos finales: 16:9 (YouTube) y 9:16 (Reels).",
+        f"Scenes: {len(nf.ordered_scenes(master))} · Batches: {len(batches)} · 10 s per scene",
+        "Each block includes the required attachments and TWO final commands: 16:9 (YouTube) and 9:16 (Reels).",
         "",
     ]
     for batch in batches:
@@ -1241,16 +1241,16 @@ def render_muse_batches_text(master: Dict[str, Any], batches: List[Dict[str, Any
         last = batch["scenes"][-1] if batch.get("scenes") else 0
         lines += [
             "=" * 78,
-            f"BLOQUE {batch['batch_id']:02d} — MINUTO {batch['minute']:02d} — "
-            f"ESCENAS {first}–{last} — {batch['start_timecode']}–{batch['end_timecode']}",
+            f"BLOCK {batch['batch_id']:02d} — MINUTE {batch['minute']:02d} — "
+            f"SCENES {first}–{last} — {batch['start_timecode']}–{batch['end_timecode']}",
             "=" * 78,
             "",
             batch["attach"],
             "",
-            "=== COPIA 16:9 (YouTube) ===",
+            "=== 16:9 COPY (YouTube) ===",
             batch["prompt_16x9_youtube"],
             "",
-            "=== COPIA 9:16 (Reels / TikTok / Shorts) ===",
+            "=== 9:16 COPY (Reels / TikTok / Shorts) ===",
             batch["prompt_9x16_vertical"],
             "",
         ]
@@ -1291,13 +1291,13 @@ def write_muse_batch_files(
 
 
 def main(argv: Optional[List[str]] = None) -> int:
-    """Render rápido desde consola (útil para depurar la librería)."""
+    """Quick console render (useful for debugging the library)."""
     import argparse
 
-    parser = argparse.ArgumentParser(description="Renderiza los prompts maestros de novel_factory.")
+    parser = argparse.ArgumentParser(description="Render the novel_factory master prompts.")
     parser.add_argument("prompt", nargs="?", default="all", choices=list(PROMPT_ORDER) + ["all"])
-    parser.add_argument("--idea", default="", help="Idea base para el marcador {story_idea}.")
-    parser.add_argument("--project", default="", help="Proyecto existente del que tomar los datos.")
+    parser.add_argument("--idea", default="", help="Base idea for the {story_idea} placeholder.")
+    parser.add_argument("--project", default="", help="Existing project to take data from.")
     args = parser.parse_args(argv)
 
     master: Dict[str, Any] = {}

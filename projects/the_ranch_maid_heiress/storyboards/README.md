@@ -1,8 +1,8 @@
-# Storyboards del método Muse AI
+# Muse AI method storyboards
 
-Guarda aquí las imágenes generadas en ChatGPT con estos nombres exactos:
+Save the images generated in ChatGPT here with these exact filenames:
 
-- `REF_CAST_MASTER.png` (hoja maestra de personajes)
-- `REF_GRID_MIN_01.png` … `REF_GRID_MIN_10.png` (un storyboard por minuto)
+- `REF_CAST_MASTER.png` (master character sheet)
+- `REF_GRID_MIN_01.png` … `REF_GRID_MIN_10.png` (one storyboard per minute)
 
-El dashboard detecta estos archivos y marca el progreso de las 11 imágenes.
+The dashboard detects these files and tracks progress across the 11 images.

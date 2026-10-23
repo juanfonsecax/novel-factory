@@ -1,28 +1,28 @@
 #!/usr/bin/env python3
-"""04 — Ensamblaje del episodio con ffmpeg: clips -> master 16:9 + teasers 9:16.
+"""04 — Episode assembly with ffmpeg: clips -> 16:9 master + 9:16 teasers.
 
-Qué hace, en orden:
-  1. Preflight: detecta el modo de entrada y verifica clips, frames y música.
-     · Modo A: escenas individuales de 10 s (scene_001.mp4 … scene_NNN.mp4).
-     · Modo B: lotes Muse AI de 1 min (minute_01.mp4 … minute_NN.mp4 o
-       batch_01.mp4 … batch_NN.mp4); ensambla el master sin clips por escena.
-  2. Normaliza cada clip: en modo A corta silencio muerto y fija 10.0 s; en modo B
-     fija 60 s por lote sin recorte. Estandariza a 1920x1080 / 30 fps / H.264+AAC
-     con micro-fade de audio (0.08 s) y cachea en output/.work/norm/.
-  3. Concatena los clips sin recomprimir (concat demuxer + -c copy).
-  4. Mezcla BGM en bucle a volumen bajo, fades y loudnorm de YouTube (-14 LUFS).
-  5. Escribe subtítulos .srt sincronizados con la línea de tiempo del proyecto.
-  6. Renderiza un teaser vertical automático de 20 s (9:16) y, en modo A, los 3
-     teasers de 60 s con headline opcional.
-  7. Deja un pack de publicación (título, descripción, tags, capítulos) y un reporte JSON.
+What it does, in order:
+  1. Preflight: detects the input mode and verifies clips, frames and music.
+     · Mode A: individual 10 s scenes (scene_001.mp4 … scene_NNN.mp4).
+     · Mode B: 1-minute Muse AI batches (minute_01.mp4 … minute_NN.mp4 or
+       batch_01.mp4 … batch_NN.mp4); assembles the master without per-scene clips.
+  2. Normalizes each clip: in mode A it trims dead silence and locks 10.0 s; in mode B
+     it locks 60 s per batch without trimming. Standardizes to 1920x1080 / 30 fps / H.264+AAC
+     with an audio micro-fade (0.08 s) and caches in output/.work/norm/.
+  3. Concatenates the clips without re-encoding (concat demuxer + -c copy).
+  4. Mixes looping BGM at low volume, fades and YouTube loudnorm (-14 LUFS).
+  5. Writes .srt subtitles synchronized with the project timeline.
+  6. Renders an automatic 20 s vertical teaser (9:16) and, in mode A, the 3
+     60 s teasers with an optional headline.
+  7. Leaves a publish pack (title, description, tags, chapters) and a JSON report.
 
-Uso:
-  python post_production/04_assemble_novel_ffmpeg.py mi_episodio
-  python post_production/04_assemble_novel_ffmpeg.py mi_episodio --check
-  python post_production/04_assemble_novel_ffmpeg.py mi_episodio --limit 4 --skip-teasers --no-music  (pruebas)
-  python post_production/04_assemble_novel_ffmpeg.py mi_episodio --only-missing-work --force
+Usage:
+  python post_production/04_assemble_novel_ffmpeg.py my_episode
+  python post_production/04_assemble_novel_ffmpeg.py my_episode --check
+  python post_production/04_assemble_novel_ffmpeg.py my_episode --limit 4 --skip-teasers --no-music  (tests)
+  python post_production/04_assemble_novel_ffmpeg.py my_episode --only-missing-work --force
 
-Nada de red, nada de APIs: solo ffmpeg/ffprobe locales.
+No network, no APIs: only local ffmpeg/ffprobe.
 """
 from __future__ import annotations
 
@@ -45,20 +45,20 @@ BATCH_PATTERNS = ("minute_{n:02d}.mp4", "batch_{n:02d}.mp4", "minute_{n}.mp4", "
 
 
 # ---------------------------------------------------------------------------
-# Utilidades
+# Utilities
 # ---------------------------------------------------------------------------
 def _run_ffmpeg(cmd: Sequence[str], cwd: Optional[Path] = None) -> None:
     if cwd is None:
         nf.run_ffmpeg(cmd)
         return
-    # nf.run_cmd no acepta cwd: se ejecuta con cwd propio aquí (filtros drawtext con rutas relativas).
+    # nf.run_cmd does not accept cwd: run it with its own cwd here (drawtext filters with relative paths).
     import subprocess
 
     res = subprocess.run([str(c) for c in cmd], capture_output=True, text=True,
                          encoding="utf-8", errors="replace", cwd=str(cwd))
     if res.returncode != 0:
         tail = (res.stderr or res.stdout or "").strip().splitlines()[-12:]
-        raise nf.NFError("ffmpeg falló:\n  " + "\n  ".join(tail))
+        raise nf.NFError("ffmpeg failed:\n  " + "\n  ".join(tail))
 
 
 def batch_for_scene(scene_id: int) -> int:
@@ -66,7 +66,7 @@ def batch_for_scene(scene_id: int) -> int:
 
 
 def find_batch_clip(raw_clips_dir: Path, batch_number: int) -> Optional[Path]:
-    """Busca minute_01.mp4 / batch_01.mp4 (y variantes sin cero a la izquierda)."""
+    """Look for minute_01.mp4 / batch_01.mp4 (and variants without a leading zero)."""
     for pattern in BATCH_PATTERNS:
         candidate = raw_clips_dir / pattern.format(n=batch_number)
         if candidate.exists():
@@ -75,10 +75,10 @@ def find_batch_clip(raw_clips_dir: Path, batch_number: int) -> Optional[Path]:
 
 
 def detect_clip_mode(raw_clips_dir: Path, scene_ids: Sequence[int]) -> Dict[str, Any]:
-    """Detecta el modo de entrada: escenas de 10 s (A) o lotes de 1 min (B).
+    """Detect the input mode: 10 s scenes (A) or 1-minute batches (B).
 
-    Devuelve un dict con `mode` = "scenes" | "batches" | "missing", los clips
-    encontrados y las escenas/lotes que faltan. No toca ffmpeg ni el maestro.
+    Returns a dict with `mode` = "scenes" | "batches" | "missing", the clips
+    found and the missing scenes/batches. It does not touch ffmpeg or the master.
     """
     ids = [int(sid) for sid in scene_ids]
     scene_clips: Dict[int, Path] = {}
@@ -136,7 +136,7 @@ def pick_music(master: Dict[str, Any], slug: str, override: str = "") -> Optiona
     if override:
         path = Path(override)
         if not path.exists():
-            raise nf.NFError(f"No existe el archivo de música: {path}")
+            raise nf.NFError(f"Music file does not exist: {path}")
         return path
     tracks = sorted(p for p in nf.MUSIC_DIR.iterdir() if p.suffix.lower() in AUDIO_EXTS) \
         if nf.MUSIC_DIR.exists() else []
@@ -151,13 +151,13 @@ def pick_music(master: Dict[str, Any], slug: str, override: str = "") -> Optiona
 
 
 # ---------------------------------------------------------------------------
-# 1-2. Normalización por escena
+# 1-2. Per-scene normalization
 # ---------------------------------------------------------------------------
 def analyze_silence(src: Path, probe: Dict[str, Any], pp: Dict[str, Any]) -> Tuple[float, float, str]:
-    """Devuelve (inicio_util, fin_util, nota) recortando silencio de cabecera/cola."""
+    """Return (usable_start, usable_end, note) after trimming head/tail silence."""
     duration = float(probe.get("duration") or 0.0)
     if not probe.get("has_audio") or duration <= 0:
-        return 0.0, duration, "sin audio"
+        return 0.0, duration, "no audio"
     threshold = float(pp.get("silence_threshold_db", -35))
     min_len = float(pp.get("silence_min_sec", 0.35))
     res = nf.run_cmd([
@@ -182,10 +182,10 @@ def analyze_silence(src: Path, probe: Dict[str, Any], pp: Dict[str, Any]) -> Tup
         tail = max(starts[-1] + 0.05, duration - tail_max)
     tail = min(tail, duration)
     if tail - head < min_keep:
-        return 0.0, duration, "recorte descartado (quedaría demasiado corta)"
+        return 0.0, duration, "trim discarded (clip would be too short)"
     note = ""
     if head > 0.01 or tail < duration - 0.01:
-        note = f"recorte {head:.2f}s cabecera / {duration - tail:.2f}s cola"
+        note = f"trim {head:.2f}s head / {duration - tail:.2f}s tail"
     return head, tail, note
 
 
@@ -202,10 +202,10 @@ def normalize_scene(
     force: bool,
     target: Optional[float] = None,
 ) -> None:
-    """Normaliza una escena (10 s) o un lote Muse AI (60 s) a duración exacta.
+    """Normalize a scene (10 s) or a Muse AI batch (60 s) to an exact duration.
 
-    Recorta la cabecera indicada y rellena con el último fotograma / silencio si el
-    clip es más corto, de modo que todos los clips tengan la misma duración exacta.
+    Trims the given head and pads with the last frame / silence if the
+    clip is shorter, so every clip has the same exact duration.
     """
     target = float(target) if target is not None else scene_target_seconds(pp)
     if dst.exists() and not force and dst.stat().st_mtime >= src.stat().st_mtime:
@@ -248,11 +248,11 @@ def apply_punch_ins(
     crf: int,
     target: Optional[float] = None,
 ) -> bool:
-    """Zoom digital sutil en los segmentos alternos para diferenciar los cortes internos.
+    """Subtle digital zoom on alternating segments to distinguish internal cuts.
 
-    Opera sobre el clip YA normalizado y recortado (su t=0 coincide con el inicio de la
-    escena), por lo que los tiempos de corte del maestro se usan tal cual, sin sumar el
-    desplazamiento de cabecera. Los segmentos suman exactamente `target` segundos.
+    Operates on the ALREADY normalized and trimmed clip (its t=0 matches the scene
+    start), so the master's cut times are used as-is, without adding the head
+    offset. The segments add up to exactly `target` seconds.
     """
     dst.parent.mkdir(parents=True, exist_ok=True)
     probe = nf.probe_media(src)
@@ -322,7 +322,7 @@ def mix_master(
         fade_out_start = max(0.0, total - fade_out)
         duck_threshold = float(pp.get("duck_threshold", 0.03))
         duck_ratio = float(pp.get("duck_ratio", 8.0))
-        # Ducked BGM: la música baja sola cuando hablan los personajes.
+        # Ducked BGM: the music lowers itself when characters speak.
         graph = (
             f"[1:a]volume={vol}dB,afade=t=in:st=0:d={fade_in},"
             f"afade=t=out:st={fade_out_start:.2f}:d={fade_out}[bg];"
@@ -343,7 +343,7 @@ def mix_master(
         try:
             nf.run_ffmpeg(cmd)
         except nf.NFError:
-            # Reintento sin normalize=0 (compatibilidad con ffmpeg antiguos)
+            # Retry without normalize=0 (compatibility with older ffmpeg)
             idx = cmd.index("-filter_complex") + 1
             cmd[idx] = cmd[idx].replace(":normalize=0", "")
             nf.run_ffmpeg(cmd)
@@ -361,10 +361,10 @@ def mix_master(
 
 
 # ---------------------------------------------------------------------------
-# 5. Subtítulos
+# 5. Subtitles
 # ---------------------------------------------------------------------------
 def build_cues(timeline: List[Dict[str, Any]]) -> List[Tuple[float, float, str]]:
-    """Cues (inicio, fin, texto) proporcionales a las palabras de cada línea."""
+    """Cues (start, end, text) proportional to the words in each line."""
     cues: List[Tuple[float, float, str]] = []
     for item in timeline:
         scene = item["scene"]
@@ -398,14 +398,14 @@ def write_cues_file(cues: List[Tuple[float, float, str]], out: Path) -> None:
 def write_srt(timeline: List[Dict[str, Any]], out: Path) -> int:
     cues = build_cues(timeline)
     if not cues:
-        nf.warn("No hay diálogo: no se escribió .srt.")
+        nf.warn("No dialogue: no .srt was written.")
         return 0
     write_cues_file(cues, out)
     return len(cues)
 
 
 # ---------------------------------------------------------------------------
-# 6. Teasers 9:16
+# 6. 9:16 teasers
 # ---------------------------------------------------------------------------
 def render_auto_teaser(
     src: Path,
@@ -414,7 +414,7 @@ def render_auto_teaser(
     crf: int,
     seconds: float = 20.0,
 ) -> float:
-    """Extrae los primeros 15–20 s del master y los convierte a 9:16 (Reels/Shorts)."""
+    """Extract the first 15–20 s of the master and convert them to 9:16 (Reels/Shorts)."""
     target = float(seconds or pp.get("auto_teaser_seconds", 20.0))
     vf = "crop=ih*9/16:ih,scale=1080:1920,setsar=1"
     af = "afade=t=in:st=0:d=0.08"
@@ -446,9 +446,9 @@ def render_teaser(
     work: Path,
     teaser_timeline: Optional[List[Dict[str, Any]]] = None,
 ) -> float:
-    """Teaser 9:16 con encaje híbrido (fondo desenfocado + primer plano centrado).
+    """9:16 teaser with hybrid fit (blurred background + centered foreground).
 
-    Si hay timeline de las escenas del teaser, quema los subtítulos del diálogo.
+    If there is a timeline for the teaser scenes, burns in the dialogue subtitles.
     """
     list_file = concat_list(segments, work / f"{out.stem}_list.txt")
     fg_ratio = float(pp.get("teaser_foreground_width_ratio", 0.8))
@@ -476,7 +476,7 @@ def render_teaser(
 
     headline_ready = bool(hook_text) and font is not None
     if hook_text and font is None:
-        nf.warn("Sin fuente TTF disponible: el teaser sale sin headline quemado.")
+        nf.warn("No TTF font available: the teaser will have no burned-in headline.")
     if headline_ready:
         local_font = work / "nf_overlay_font.ttf"
         if not local_font.exists():
@@ -547,13 +547,13 @@ def render_teaser(
     except nf.NFError:
         if not srt_name:
             raise
-        nf.warn("No se pudieron quemar los subtítulos del teaser (¿libass?); reintento sin captions.")
+        nf.warn("Could not burn in the teaser subtitles (libass?); retrying without captions.")
         _run_ffmpeg(build_cmd(False), cwd=work)
     return total
 
 
 # ---------------------------------------------------------------------------
-# 7. Pack de publicación
+# 7. Publish pack
 # ---------------------------------------------------------------------------
 def build_publish_pack(
     paths: Dict[str, Path],
@@ -615,15 +615,15 @@ def build_publish_pack(
         nf.write_text(pack_dir / "youtube_master.md", "\n".join([
             f"# {ep.get('title')} — YouTube pack",
             "",
-            f"- Archivo: `{master_file.name}`",
-            f"- Duración: {nf.human_duration(master_dur)}",
-            f"- Formato: 1920x1080, 30 fps, H.264 + AAC",
+            f"- File: `{master_file.name}`",
+            f"- Runtime: {nf.human_duration(master_dur)}",
+            f"- Format: 1920x1080, 30 fps, H.264 + AAC",
             "",
-            "## Título",
+            "## Title",
             "",
             str(ep.get("title") or ""),
             "",
-            "## Descripción",
+            "## Description",
             "",
             "```text",
             description,
@@ -647,12 +647,12 @@ def build_publish_pack(
             "scenes": teaser.get("scenes"),
         })
         nf.write_text(pack_dir / f"teaser_{int(teaser.get('id') or 0):02d}.md", "\n".join([
-            f"# Teaser {teaser.get('id')} — pack de publicación (9:16)",
+            f"# Teaser {teaser.get('id')} — publish pack (9:16)",
             "",
-            f"- Archivo: `{path.name}`",
-            f"- Duración: {dur:.1f} s",
+            f"- File: `{path.name}`",
+            f"- Runtime: {dur:.1f} s",
             f"- Headline: {teaser.get('hook_text')}",
-            f"- Escenas: {teaser.get('scenes')}",
+            f"- Scenes: {teaser.get('scenes')}",
             "",
             "## Caption",
             "",
@@ -667,28 +667,28 @@ def build_publish_pack(
 
 
 # ---------------------------------------------------------------------------
-# CLI / orquestación
+# CLI / orchestration
 # ---------------------------------------------------------------------------
 def main(argv: Optional[List[str]] = None) -> int:
-    parser = argparse.ArgumentParser(description="04 — Ensamblaje final (master 16:9 + 3 teasers 9:16).")
-    parser.add_argument("project", help="Slug del episodio.")
-    parser.add_argument("--check", action="store_true", help="Solo preflight, no renderiza.")
-    parser.add_argument("--limit", type=int, default=0, help="Usa solo las primeras N escenas (pruebas).")
-    parser.add_argument("--skip-teasers", action="store_true", help="No renderiza teasers.")
-    parser.add_argument("--no-music", action="store_true", help="Sin BGM.")
-    parser.add_argument("--music", type=str, default="", help="Ruta a un MP3 concreto.")
-    parser.add_argument("--punch-ins", action="store_true", help="Zoom digital sutil en los cortes internos.")
-    parser.add_argument("--no-trim", action="store_true", help="No recorta silencio de cabecera/cola.")
-    parser.add_argument("--video-fade", action="store_true", help="Fade a negro al inicio/final del master.")
-    parser.add_argument("--no-srt", action="store_true", help="No escribir subtítulos.")
-    parser.add_argument("--force", action="store_true", help="Recalcula la normalización cacheada.")
-    parser.add_argument("--allow-gaps", action="store_true", help="Continúa aunque falten clips.")
-    parser.add_argument("--font", type=str, default="", help="TTF para el headline de los teasers.")
+    parser = argparse.ArgumentParser(description="04 — Final assembly (16:9 master + 3 9:16 teasers).")
+    parser.add_argument("project", help="Episode slug.")
+    parser.add_argument("--check", action="store_true", help="Preflight only; renders nothing.")
+    parser.add_argument("--limit", type=int, default=0, help="Use only the first N scenes (tests).")
+    parser.add_argument("--skip-teasers", action="store_true", help="Do not render teasers.")
+    parser.add_argument("--no-music", action="store_true", help="No BGM.")
+    parser.add_argument("--music", type=str, default="", help="Path to a specific MP3.")
+    parser.add_argument("--punch-ins", action="store_true", help="Subtle digital zoom on internal cuts.")
+    parser.add_argument("--no-trim", action="store_true", help="Do not trim head/tail silence.")
+    parser.add_argument("--video-fade", action="store_true", help="Fade to black at the start/end of the master.")
+    parser.add_argument("--no-srt", action="store_true", help="Do not write subtitles.")
+    parser.add_argument("--force", action="store_true", help="Recompute cached normalization.")
+    parser.add_argument("--allow-gaps", action="store_true", help="Continue even if clips are missing.")
+    parser.add_argument("--font", type=str, default="", help="TTF for the teaser headline.")
     args = parser.parse_args(argv)
 
     nf.log("")
     nf.log("=" * 70)
-    nf.log("  NOVEL FACTORY — 04 · Ensamblaje ffmpeg (16:9 master + teasers 9:16)")
+    nf.log("  NOVEL FACTORY — 04 · ffmpeg assembly (16:9 master + 9:16 teasers)")
     nf.log("=" * 70)
     nf.require_ffmpeg()
 
@@ -703,7 +703,7 @@ def main(argv: Optional[List[str]] = None) -> int:
     if args.limit:
         scenes = scenes[: max(1, args.limit)]
 
-    # --- Preflight: modo A (escenas 10 s) o modo B (lotes Muse AI de 1 min) ---
+    # --- Preflight: mode A (10 s scenes) or mode B (1-min Muse AI batches) ---
     scene_ids = [int(scene.get("scene_id") or 0) for scene in scenes]
     detected = detect_clip_mode(paths["raw_clips"], scene_ids)
     clip_mode = str(detected["mode"])
@@ -711,34 +711,34 @@ def main(argv: Optional[List[str]] = None) -> int:
     missing: List[int] = detected["missing_scenes"] if clip_mode != "batches" else []
     music = None if args.no_music else pick_music(master, slug, args.music)
 
-    nf.info(f"Episodio: {ep.get('title')}  ({len(scenes)} escenas · {nf.human_duration(sum(10 for _ in scenes))})")
+    nf.info(f"Episode: {ep.get('title')}  ({len(scenes)} scenes · {nf.human_duration(sum(10 for _ in scenes))})")
     if clip_mode == "batches":
-        nf.info(f"Modo de clips: B — {len(batch_clips)} lote(s) Muse AI de 1 minuto")
+        nf.info(f"Clip mode: B — {len(batch_clips)} 1-minute Muse AI batch(es)")
     else:
-        nf.info(f"Modo de clips: A — escenas individuales de 10 s "
-                f"({len(detected['scene_clips'])}/{len(scenes)} presentes)")
-    nf.info(f"BGM: {music.name if music else '(sin música)'}")
+        nf.info(f"Clip mode: A — individual 10 s scenes "
+                f"({len(detected['scene_clips'])}/{len(scenes)} present)")
+    nf.info(f"BGM: {music.name if music else '(no music)'}")
     font = Path(args.font) if args.font else nf.detect_font()
     if not args.skip_teasers:
-        nf.info(f"Fuente de overlay: {font.name if font else '(ninguna: teaser sin headline)'}")
+        nf.info(f"Overlay font: {font.name if font else '(none: teaser without headline)'}")
 
     if detected.get("missing_batches") and detected.get("batch_clips"):
-        nf.warn("Lotes Muse AI incompletos; faltan: " +
+        nf.warn("Incomplete Muse AI batches; missing: " +
                 ", ".join(f"minute_{n:02d}.mp4/batch_{n:02d}.mp4"
                           for n in detected["missing_batches"][:20]))
     if missing:
-        nf.warn(f"Faltan {len(missing)} clips: {', '.join(map(str, missing[:20]))}" +
+        nf.warn(f"Missing {len(missing)} clips: {', '.join(map(str, missing[:20]))}" +
                 (" …" if len(missing) > 20 else ""))
         if not args.allow_gaps:
-            nf.err("Genera los clips con la cola de Omni (03), los lotes de Muse AI "
-                   "del proyecto o usa --allow-gaps / --limit para pruebas.")
+            nf.err("Generate the clips with the Omni queue (03), the project's Muse AI "
+                   "batches, or use --allow-gaps / --limit for tests.")
             return 1
     if args.check:
         nf.log("")
-        nf.ok("Preflight completado (--check: no se renderizó nada).")
+        nf.ok("Preflight complete (--check: nothing was rendered).")
         return 0 if not missing else 1
 
-    # --- Normalización ---
+    # --- Normalization ---
     work = paths["work"]
     norm_dir = work / "norm"
     norm_dir.mkdir(parents=True, exist_ok=True)
@@ -748,11 +748,11 @@ def main(argv: Optional[List[str]] = None) -> int:
     concat_clips: List[Path] = []
     cursor = 0.0
     nf.log("")
-    nf.info("Normalizando clips (1920x1080 · 30 fps · AAC 48 kHz · micro-fade 0.08 s)…")
+    nf.info("Normalizing clips (1920x1080 · 30 fps · AAC 48 kHz · 0.08 s micro-fade)…")
 
     if clip_mode == "batches":
         if args.punch_ins:
-            nf.warn("--punch-ins se omite en modo lotes Muse AI (los cortes ya vienen en el video).")
+            nf.warn("--punch-ins is skipped in Muse AI batch mode (cuts are already in the video).")
         for number in sorted(batch_clips):
             group = [scene for scene in scenes if batch_for_scene(int(scene.get("scene_id") or 0)) == number]
             if not group:
@@ -763,18 +763,18 @@ def main(argv: Optional[List[str]] = None) -> int:
             normalize_scene(src, dst, 0.0, pp, crf_scene, args.force, target=target)
             dur = float(nf.probe_media(dst).get("duration") or target)
             if abs(dur - target) > nf.DURATION_TOLERANCE_SEC:
-                nf.warn(f"Lote {number:02d}: {dur:.3f}s (se esperaban {target:.3f}s).")
+                nf.warn(f"Batch {number:02d}: {dur:.3f}s (expected {target:.3f}s).")
             for offset, scene in enumerate(group):
                 timeline.append({
                     "scene": scene,
                     "clip": dst,
                     "start": cursor + offset * scene_seconds,
                     "dur": scene_seconds,
-                    "trim": "lote Muse AI (sin recorte)",
+                    "trim": "Muse AI batch (no trim)",
                 })
             concat_clips.append(dst)
             cursor += dur
-            nf.info(f"  … lote {number:02d} normalizado ({nf.human_duration(cursor)})")
+            nf.info(f"  … batch {number:02d} normalized ({nf.human_duration(cursor)})")
     else:
         for idx, scene in enumerate(scenes, start=1):
             sid = int(scene.get("scene_id") or 0)
@@ -783,7 +783,7 @@ def main(argv: Optional[List[str]] = None) -> int:
             src = detected["scene_clips"][sid]
             probe = nf.probe_media(src)
             if args.no_trim:
-                head, tail, note = 0.0, min(float(probe.get("duration") or 0.0), nf.SCENE_SECONDS), "sin recorte"
+                head, tail, note = 0.0, min(float(probe.get("duration") or 0.0), nf.SCENE_SECONDS), "no trim"
             else:
                 head, tail, note = analyze_silence(src, probe, pp)
             dst = norm_dir / f"{nf.scene_stem(sid)}.mp4"
@@ -794,61 +794,61 @@ def main(argv: Optional[List[str]] = None) -> int:
                     dst = punch_dst
             dur = float(nf.probe_media(dst).get("duration") or scene_seconds)
             if abs(dur - scene_seconds) > nf.DURATION_TOLERANCE_SEC:
-                nf.warn(f"Escena {sid}: {dur:.3f}s (se esperaban {scene_seconds:.3f}s).")
+                nf.warn(f"Scene {sid}: {dur:.3f}s (expected {scene_seconds:.3f}s).")
             timeline.append({"scene": scene, "clip": dst, "start": cursor, "dur": dur, "trim": note})
             concat_clips.append(dst)
             cursor += dur
             if idx % 10 == 0 or idx == len(scenes):
-                nf.info(f"  … {idx}/{len(scenes)} normalizadas ({nf.human_duration(cursor)})")
+                nf.info(f"  … {idx}/{len(scenes)} normalized ({nf.human_duration(cursor)})")
 
     if not timeline:
-        nf.err("No hay nada que ensamblar.")
+        nf.err("Nothing to assemble.")
         return 1
 
     # --- Concat ---
     nf.log("")
-    nf.info("Uniendo clips (concat demuxer, sin recomprimir)…")
+    nf.info("Joining clips (concat demuxer, no re-encoding)…")
     list_file = concat_list(concat_clips, work / "master_concat.txt")
     master_video = work / "master_video.mp4"
     nf.run_ffmpeg(["ffmpeg", "-y", "-v", "error", "-hide_banner", "-f", "concat", "-safe", "0",
                    "-i", str(list_file), "-c", "copy", "-movflags", "+faststart", str(master_video)])
 
-    # --- Mezcla final ---
+    # --- Final mix ---
     total = sum(float(t["dur"]) for t in timeline)
     master_out = paths["output"] / f"{slug}_master_16x9_1080p.mp4"
     nf.log("")
-    nf.info(f"Mezclando audio y cerrando el master ({nf.human_duration(total)})…")
+    nf.info(f"Mixing audio and finalizing the master ({nf.human_duration(total)})…")
     mix_master(master_video, master_out, music, total, pp, args.video_fade, int(pp.get("master_crf", 20)))
     master_dur = float(nf.probe_media(master_out).get("duration") or total)
     nf.ok(f"Master: {master_out.name} ({nf.human_duration(master_dur)})")
 
-    # --- Teaser vertical automático (20 s de gancho para Reels/Shorts) ---
+    # --- Automatic vertical teaser (20 s hook for Reels/Shorts) ---
     auto_teaser: Optional[Path] = None
     auto_teaser_dur = 0.0
     if not args.skip_teasers:
         nf.log("")
-        nf.info("Renderizando teaser vertical automático (primeros 20 s → 9:16)…")
+        nf.info("Rendering automatic vertical teaser (first 20 s → 9:16)…")
         auto_teaser = paths["output"] / f"{slug}_teaser_9x16.mp4"
         auto_teaser_dur = render_auto_teaser(
             master_out, auto_teaser, pp, int(pp.get("teaser_crf", 20))
         )
-        nf.ok(f"Teaser vertical: {auto_teaser.name} ({auto_teaser_dur:.1f} s)")
+        nf.ok(f"Vertical teaser: {auto_teaser.name} ({auto_teaser_dur:.1f} s)")
 
-    # --- Subtítulos ---
+    # --- Subtitles ---
     if not args.no_srt:
         srt_path = paths["output"] / f"{slug}_master.srt"
         n = write_srt(timeline, srt_path)
         if n:
-            nf.ok(f"Subtítulos: {srt_path.name} ({n} cues, {len(timeline)} escenas)")
+            nf.ok(f"Subtitles: {srt_path.name} ({n} cues, {len(timeline)} scenes)")
 
     # --- Teasers ---
     teaser_files: List[Tuple[Dict[str, Any], Path, float]] = []
     if not args.skip_teasers and clip_mode == "batches":
-        nf.warn("Modo lotes Muse AI: se omite el render de los 3 teasers por escena; "
-                "usa el teaser vertical automático de 20 s.")
+        nf.warn("Muse AI batch mode: skipping the 3 per-scene teasers; "
+                "use the automatic 20 s vertical teaser.")
     elif not args.skip_teasers:
         nf.log("")
-        nf.info("Renderizando teasers 9:16…")
+        nf.info("Rendering 9:16 teasers…")
         crf_teaser = int(pp.get("teaser_crf", 20))
         for teaser in master.get("teasers") or []:
             if not isinstance(teaser, dict):
@@ -856,7 +856,7 @@ def main(argv: Optional[List[str]] = None) -> int:
             ids = [int(i) for i in (teaser.get("scenes") or []) if str(i).isdigit()]
             segments = [t["clip"] for t in timeline if int(t["scene"].get("scene_id") or 0) in ids]
             if len(segments) < len(ids):
-                nf.warn(f"Teaser {teaser.get('id')}: faltan escenas ({len(segments)}/{len(ids)}); se omite.")
+                nf.warn(f"Teaser {teaser.get('id')}: missing scenes ({len(segments)}/{len(ids)}); skipped.")
                 continue
             t_timeline = [t for t in timeline if int(t["scene"].get("scene_id") or 0) in ids]
             if t_timeline:
@@ -869,7 +869,7 @@ def main(argv: Optional[List[str]] = None) -> int:
             teaser_files.append((teaser, out, dur))
             nf.ok(f"Teaser {teaser.get('id')}: {out.name} ({dur:.1f} s)")
 
-    # --- Pack + reporte ---
+    # --- Pack + report ---
     metadata = build_publish_pack(paths, master, timeline, teaser_files,
                                  master_out if master_out.exists() else None, master_dur)
     report = {
@@ -895,16 +895,16 @@ def main(argv: Optional[List[str]] = None) -> int:
 
     nf.log("")
     nf.log("-" * 70)
-    nf.ok("Ensamblaje terminado.")
+    nf.ok("Assembly complete.")
     nf.info(f"Master 16:9 : {master_out}  ({nf.human_duration(master_dur)})")
     if auto_teaser:
-        nf.info(f"Teaser 9:16 : {auto_teaser}  ({auto_teaser_dur:.1f} s, primeros 20 s)")
+        nf.info(f"Teaser 9:16 : {auto_teaser}  ({auto_teaser_dur:.1f} s, first 20 s)")
     for teaser, path, dur in teaser_files:
         nf.info(f"Teaser 9:16 : {path}  ({dur:.1f} s)")
     nf.info(f"Pack         : {paths['output'] / 'publish_pack'}")
-    nf.info(f"Reporte      : {paths['output'] / 'report.json'}")
+    nf.info(f"Report       : {paths['output'] / 'report.json'}")
     nf.log("")
-    nf.log(f"  Publicación: python post_production/05_export_to_publisher.py {args.project} --personaje "
+    nf.log(f"  Publishing: python post_production/05_export_to_publisher.py {args.project} --personaje "
            f"{master.get('publisher', {}).get('personaje_id', 'emma_hayes')}")
     nf.log("")
     return 0

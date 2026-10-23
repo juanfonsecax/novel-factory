@@ -1,9 +1,9 @@
-🧠 PROMPT 000 — ARQUITECTO DE HISTORIAS VIRALES (CHINA / USA MICRO-DRAMA SHOWRUNNER)
-Actúa como un Showrunner experto en Micro-Dramas virales de Estados Unidos y China (estilo ReelShort, DramaBox y canales de novelas con IA de +500,000 vistas).
+🧠 PROMPT 000 — VIRAL STORY ARCHITECT (CHINA / USA MICRO-DRAMA SHOWRUNNER)
+Act as a Showrunner with deep expertise in viral micro-dramas from the United States and China (ReelShort, DramaBox and AI-novel channels with 500,000+ views).
 
-Tu objetivo es transformar mi idea base en una HISTORIA DE ALTA RETENCIÓN pensada para el mercado en INGLÉS (alto RPM), estructurada matemáticamente para una duración de 10 minuto(s) (60 escenas de 10 segundos cada una, divididas en 10 bloques de 1 minuto / 6 escenas).
+Your goal is to turn my base idea into a HIGH-RETENTION STORY built for the ENGLISH-language market (high RPM), mathematically structured for a runtime of 10 minute(s) (60 ten-second scenes, split into 10 one-minute blocks / 6 scenes each).
 
-IDEA BASE / SEMILLA:
+BASE IDEA / SEED:
 PREMISE:
 Ten years after the fire that ruined her family, Nora Hale returns to inherit a lighthouse and finds the town's most powerful family has been paying her dead mother's debts.
 
@@ -38,62 +38,62 @@ ACT MAP:
 - Act 5 — The Turn : The protagonist turns the same system against the antagonist using the truth she already had. The confrontation begins in public. A final complication raises the price of winning.
 - Act 6 — The Payoff : Deliver the public confrontation, the emotional payoff and the romantic resolution. End on a new open loop for the next episode.
 
-REGLAS DE ORO DE DRAMATURGIA Y RETENCIÓN QUE DEBES APLICAR:
-1. GANCHO EXPLOSIVO EN LOS PRIMEROS 10 SEGUNDOS (ESCENA 1): La historia jamás debe empezar de forma lenta. Debe abrir en medio de una tensión máxima: una humillación pública, una traición descubierta, un secreto millonario, una diferencia extrema de clases sociales o un contrato inesperado.
-2. MICRO-GIROS CADA 30 SEGUNDOS (CADA 3 ESCENAS): Cada 3 escenas debe ocurrir una revelación, un conflicto emocional, una mirada prohibida, una confrontación o un obstáculo que impida que el espectador cierre el video.
-3. CLIFFHANGER AL FINAL DE CADA MINUTO (ESCENAS 6, 12, 18...): La última escena de cada bloque de 6 escenas debe terminar en máxima tensión dramática.
-4. PERSONAJES CON CONTRASTE VISUAL INMEDIATO (MÁXIMO 3 A 5 PERSONAJES PRINCIPALES): Diseña personajes cuyo estatus social y personalidad se entiendan en 1 segundo solo por su vestuario (ej. multimillonario arrogante vs. trabajadora humilde con dignidad de hierro; heredera secreta vs. villana elitista).
-5. ECONOMÍA DE ESCENARIOS (MÁXIMO 3 A 5 LOCACIONES): Concentra la acción en locaciones visualmente ricas y contrastantes para mantener continuidad perfecta. Agrupa 3 a 6 escenas consecutivas en la misma situación dramática antes de cambiar de lugar.
-6. CAUSALIDAD ESTRICTA Y ORDEN CRONOLÓGICO: Cada escena debe ser consecuencia de la anterior y causa de la siguiente. Prohibido mostrar una consecuencia antes de su causa, revelar la misma pista dos veces o teletransportar personajes sin una transición visible o hablada. Cada acto termina en una decisión que obliga al siguiente.
-7. CATÁLOGO DE 6 ESTRUCTURAS VIRALES PROBADAS (LATAM → USA, +500,000 VISTAS): Usa este catálogo como banco de estructuras. Elige UNA sola como columna vertebral de la historia y adáptala al mercado estadounidense en inglés. No copies nombres, marcas ni diálogos: conserva la mecánica emocional y el orden de beats.
+GOLDEN DRAMATURGY AND RETENTION RULES YOU MUST APPLY:
+1. EXPLOSIVE HOOK IN THE FIRST 10 SECONDS (SCENE 1): The story must never start slowly. Open in the middle of maximum tension: a public humiliation, a discovered betrayal, a millionaire secret, an extreme social-class gap or an unexpected contract.
+2. MICRO-TURNS EVERY 30 SECONDS (EVERY 3 SCENES): Every 3 scenes there must be a revelation, an emotional conflict, a forbidden glance, a confrontation or an obstacle that prevents the viewer from closing the video.
+3. CLIFFHANGER AT THE END OF EVERY MINUTE (SCENES 6, 12, 18...): The last scene of every 6-scene block must end at maximum dramatic tension.
+4. CHARACTERS WITH IMMEDIATE VISUAL CONTRAST (MAXIMUM 3 TO 5 MAIN CHARACTERS): Design characters whose social status and personality are understood in 1 second through wardrobe alone (e.g. arrogant billionaire vs. humble worker with iron dignity; secret heiress vs. elitist villain).
+5. LOCATION ECONOMY (MAXIMUM 3 TO 5 LOCATIONS): Concentrate the action in visually rich, contrasting locations to preserve perfect continuity. Group 3 to 6 consecutive scenes in the same dramatic situation before changing location.
+6. STRICT CAUSALITY AND CHRONOLOGICAL ORDER: Every scene must be a consequence of the previous one and the cause of the next. Never show a consequence before its cause, reveal the same clue twice or teleport characters without a visible or spoken transition. Every act ends on a decision that forces the next one.
+7. CATALOG OF 6 PROVEN VIRAL STRUCTURES (LATAM → USA, 500,000+ VIEWS): Use this catalog as a structure bank. Choose ONE as the story's backbone and adapt it to the US market in English. Do not copy names, brands or dialogue: preserve the emotional mechanics and beat order.
 1. The Ranch Laundress and the Stolen Heirloom (`ranch_laundress_stolen_heirloom`)
-   Inspiración: @novelasaa7 · 831K vistas · Ranch / Class Revenge.
-   Premisa: A humble ranch laundress is publicly accused of stealing the family heirloom. The real thief is a wealthy family member, and the heir she loves is the only one willing to prove her innocence.
-   Gancho: They accused the help. The thief wore the family name.
+   Inspiration: @novelasaa7 · 831K views · Ranch / Class Revenge.
+   Premise: A humble ranch laundress is publicly accused of stealing the family heirloom. The real thief is a wealthy family member, and the heir she loves is the only one willing to prove her innocence.
+   Hook: They accused the help. The thief wore the family name.
    Beats: Public humiliation: the heirloom disappears during a family gathering and the laundress is accused. -> A physical detail contradicts the accusation: mud on the wrong boots, a broken clasp, a locked room. -> The heir investigates and discovers the planted evidence and the family cover-up. -> The laundress is forced to leave; the heir stops her at the gate with proof. -> Public reveal before the family and the town: the real thief is exposed. -> Payoff: the laundress is vindicated, the heir chooses her, and a new family secret opens.
-   Adaptación USA: Texas or Montana ranch, county fair or ranch anniversary party, US English, land and class stakes, conservative family dynasty.
+   USA adaptation: Texas or Montana ranch, county fair or ranch anniversary party, US English, land and class stakes, conservative family dynasty.
 2. The Humiliated Vagabond Is the Billionaire Owner (`humiliated_vagabond_is_billionaire_owner`)
-   Inspiración: @Mini_Dramas07 · 658K vistas · Hidden Billionaire / Revenge.
-   Premisa: A humble ranch hand arrives at the property and is humiliated by the corrupt foreman and the family, never suspecting that he is the new billionaire owner who bought the entire ranch.
-   Gancho: They threw out the man who owns the land.
+   Inspiration: @Mini_Dramas07 · 658K views · Hidden Billionaire / Revenge.
+   Premise: A humble ranch hand arrives at the property and is humiliated by the corrupt foreman and the family, never suspecting that he is the new billionaire owner who bought the entire ranch.
+   Hook: They threw out the man who owns the land.
    Beats: Humiliation: the drifter is mocked, underpaid and thrown out of the ranch house. -> The heroine defends him and loses her job for it. -> The drifter returns as the anonymous billionaire owner and quietly changes the power dynamic. -> The corrupt foreman tries to cover up the abuse and frames the heroine. -> Public reveal: the owner identifies himself and exposes the foreman's fraud. -> Payoff: the heroine is chosen, the foreman faces the consequences, and a new threat appears.
-   Adaptación USA: Texas or Montana cattle ranch, US English, ranch-hand class conflict, land ownership and public status reversal.
+   USA adaptation: Texas or Montana cattle ranch, US English, ranch-hand class conflict, land ownership and public status reversal.
 3. The Hidden Will and the Secret Daughter (`hidden_will_secret_daughter`)
-   Inspiración: @Mini_Dramas07 & @TIEMPOCONLASABUELAS · 578K vistas · Family Secret / Inheritance.
-   Premisa: A young woman enters the ranch as a maid to find the true will hidden under the floorboards or in a secret drawer by the ambitious widow and the family lawyer.
-   Gancho: The will named a daughter no one had ever met.
+   Inspiration: @Mini_Dramas07 & @TIEMPOCONLASABUELAS · 578K views · Family Secret / Inheritance.
+   Premise: A young woman enters the ranch as a maid to find the true will hidden under the floorboards or in a secret drawer by the ambitious widow and the family lawyer.
+   Hook: The will named a daughter no one had ever met.
    Beats: The maid arrives at the ranch and is treated as invisible by the widow and the lawyer. -> A loose floorboard or locked drawer reveals a second, older will. -> The widow accuses the maid of theft and forgery before the family. -> The maid finds a birth record, photograph or letter proving she is the secret daughter. -> Public hearing: the lawyer's forgery is exposed and the widow loses control. -> Payoff: the maid claims her name and inheritance, and a new family secret opens.
-   Adaptación USA: Texas or Montana ranch estate, US English, probate hearing, legitimacy and family-dynasty stakes.
+   USA adaptation: Texas or Montana ranch estate, US English, probate hearing, legitimacy and family-dynasty stakes.
 4. Contract Marriage with the Proud Foreman (`contract_marriage_proud_foreman`)
-   Inspiración: @Mini_Dramas07 · 185K vistas · Contract Marriage / Romance.
-   Premisa: To save her late father's ranch from bank ruin, the protagonist must marry her proud rival by contract. In secret, he protects her from an internal betrayal that wants to take the land.
-   Gancho: She bought a husband for one year. He wanted the truth.
+   Inspiration: @Mini_Dramas07 · 185K views · Contract Marriage / Romance.
+   Premise: To save her late father's ranch from bank ruin, the protagonist must marry her proud rival by contract. In secret, he protects her from an internal betrayal that wants to take the land.
+   Hook: She bought a husband for one year. He wanted the truth.
    Beats: The bank deadline forces the contract marriage to be signed in public. -> Forced proximity reveals the foreman's secret debt and the heroine's collapsing ranch. -> Sabotage at the ranch puts the heroine in danger and the foreman protects her. -> The antagonist exposes the contract to humiliate them; the couple turns it into a real commitment. -> Public confrontation: the sabotage is traced to the antagonist. -> Payoff: the contract is torn up, a real proposal lands, and a new threat appears.
-   Adaptación USA: Texas or Wyoming ranch, US English, bank foreclosure, blue-collar vs. landowner class tension.
+   USA adaptation: Texas or Wyoming ranch, US English, bank foreclosure, blue-collar vs. landowner class tension.
 5. The Untamable Champion Horse (`untamable_champion_horse`)
-   Inspiración: @Mini_Dramas07 · 122K vistas · Horse Ranch / Forbidden Love.
-   Premisa: A champion horse that nobody on the ranch can ride is tamed by the humblest worker on the property. The feat saves the ranch from ruin and awakens a forbidden love.
-   Gancho: The horse that broke every rider chose the one nobody saw.
+   Inspiration: @Mini_Dramas07 · 122K views · Horse Ranch / Forbidden Love.
+   Premise: A champion horse that nobody on the ranch can ride is tamed by the humblest worker on the property. The feat saves the ranch from ruin and awakens a forbidden love.
+   Hook: The horse that broke every rider chose the one nobody saw.
    Beats: The untamable champion injures another rider and the ranch is threatened with foreclosure. -> The humblest worker is blamed and forbidden from entering the stable. -> A hidden injury or doped feed reveals the rival stable's sabotage. -> The worker bonds with the horse and proves the method works before the championship. -> Public race: the sabotage is exposed and the rival stable is disqualified. -> Payoff: the horse wins, the forbidden love is chosen, and a new race or threat opens.
-   Adaptación USA: Kentucky or Texas horse country, US English, championship race, forbidden romance and animal stakes.
+   USA adaptation: Kentucky or Texas horse country, US English, championship race, forbidden romance and animal stakes.
 6. Grandma's Buried Secret and the Family Betrayal (`grandmas_buried_secret_betrayal`)
-   Inspiración: @TIEMPOCONLASABUELAS & @Dramasquetocanelalma · +500K vistas · Family Betrayal / Mystery.
-   Premisa: A grandmother despised by her ambitious children reveals a secret buried for decades and gives the inheritance to the only person who cared for her with nobility.
-   Gancho: Grandma left a box in the ground and a warning on the lid.
+   Inspiration: @TIEMPOCONLASABUELAS & @Dramasquetocanelalma · +500K views · Family Betrayal / Mystery.
+   Premise: A grandmother despised by her ambitious children reveals a secret buried for decades and gives the inheritance to the only person who cared for her with nobility.
+   Hook: Grandma left a box in the ground and a warning on the lid.
    Beats: At the family gathering, the despised grandmother announces a buried secret. -> The ambitious children deny it and threaten the protagonist's inheritance. -> A buried box, land deed or photograph proves the fortune was stolen from another branch. -> The family destroys evidence and tries to run the protagonist out of town. -> Public reveal at the family business or town meeting: the betrayal is exposed. -> Payoff: the inheritance goes to the noble caregiver, and a second grave or name opens the next mystery.
-   Adaptación USA: Texas ranch or Louisiana family estate, US English, funeral and land-deed stakes, matriarch inheritance and family-business betrayal.
+   USA adaptation: Texas ranch or Louisiana family estate, US English, funeral and land-deed stakes, matriarch inheritance and family-business betrayal.
 
-ENTREGA EL RESULTADO EN ESTE FORMATO EXACTO (LISTO PARA COPIAR AL PROMPT 001):
-1. TÍTULO VIRAL EN INGLÉS (3 opciones de alto CTR).
-2. ELENCO PRINCIPAL (3 a 5 personajes: Nombre, Edad, Apariencia Física exacta, Vestuario característico fijo y Timbre de Voz en inglés).
-3. SINOPSIS NARRATIVA INTENSA BLOQUE POR BLOQUE (1 párrafo por cada minuto de historia = 6 escenas por minuto, describiendo inicio, conflicto, giros y desenlace/cliffhanger).
+DELIVER THE RESULT IN THIS EXACT FORMAT (READY TO PASTE INTO PROMPT 001):
+1. VIRAL TITLE IN ENGLISH (3 high-CTR options).
+2. MAIN CAST (3 to 5 characters: Name, Age, Exact Physical Appearance, Fixed Signature Wardrobe and Voice Timbre in English).
+3. INTENSE BLOCK-BY-BLOCK NARRATIVE SYNOPSIS (1 paragraph per story minute = 6 scenes per minute, describing opening, conflict, turns and outcome/cliffhanger).
 
-REGLA DE CONTINUIDAD NARRATIVA (Hilo Conductor Único + Cadena Causa y Efecto + Ledger de Estado Arrastrado + Prohibición de Ping-Pong de Locaciones + Un Solo Nombre por Objeto Clave + Prueba de Desorden + Puentes y Ritmo ReelShort/DramaBox):
-1. UNA SOLA PREGUNTA MOTRIZ POR BLOQUE DE 6 ESCENAS: cada minuto tiene una única pregunta dramática; ninguna escena abre una pregunta nueva.
-2. CADENA CAUSA-EFECTO OBLIGATORIA: de la escena 2 hasta la última, cada escena declara `because_previous_ended_with` (copia literal del cambio final de la escena anterior), `this_scene_starts_with` (acción concreta ya en movimiento que continúa esa consecuencia) y `single_change_at_end` (un único cambio de estado irreversible).
-3. PUENTES DE ENTRADA Y SALIDA (ARRANQUE Y CIERRE): cada escena declara `entry_bridge` (micro-acción o línea <= 2 s con que arrancamos a causa de la anterior) y `exit_hook` (gesto, orden, decisión o pregunta con que termina y empuja a la siguiente). exit_hook(N) alimenta entry_bridge(N+1).
-4. REGLA DE RITMO POR BLOQUE (6 ESCENAS): PROHIBIDO 6 picos de confrontación seguidos. Al menos 1 beat NO confrontacional por bloque (decisión en solitario, descubrimiento, plan, momento tierno/vulnerable).
-5. ROTACIÓN DE CLIFFHANGER: rotar el tipo entre bloques (identidad -> emoción -> revelación). Prohibido repetir el mismo tipo en dos bloques seguidos.
-6. PROHIBIDO EL PING-PONG DE LOCACIONES: agrupa de 3 a 5 escenas consecutivas en la misma locación; el patrón A-B-A está prohibido.
-7. UN SOLO NOMBRE POR OBJETO CLAVE: el mismo `key_object` exacto aparece en el panel de storyboard, en la acción de la Toma 1 y en la lista Key Object; nunca uses alias.
-8. PRUEBA DE DESORDEN: si al desordenar el bloque la cadena de consecuencias deja de tener sentido, reescríbelo. El validador rechaza placeholders mecánicos y saltos sin transición.
+NARRATIVE CONTINUITY RULE (Single Through-Line + Cause-and-Effect Chain + Carried-State Ledger + Location Ping-Pong Ban + One Name per Key Object + Scramble Test + ReelShort/DramaBox Bridges and Pacing):
+1. ONE DRIVING QUESTION PER 6-SCENE BLOCK: each minute has a single dramatic question; no scene opens a new question.
+2. MANDATORY CAUSE-AND-EFFECT CHAIN: from scene 2 to the last scene, every scene declares `because_previous_ended_with` (literal copy of the previous scene's final change), `this_scene_starts_with` (concrete action already in motion that continues that consequence) and `single_change_at_end` (one irreversible state change).
+3. ENTRY AND EXIT BRIDGES (OPENING AND CLOSING): every scene declares `entry_bridge` (micro-action or line <= 2 s that starts it because of the previous scene) and `exit_hook` (gesture, order, decision or question that ends it and pushes into the next one). exit_hook(N) feeds entry_bridge(N+1).
+4. BLOCK PACING RULE (6 SCENES): 6 confrontation peaks in a row are FORBIDDEN. At least 1 non-confrontational beat per block (solo decision, discovery, plan, tender/vulnerable moment).
+5. CLIFFHANGER ROTATION: rotate the type between blocks (identity -> emotion -> revelation). Repeating the same type in two consecutive blocks is forbidden.
+6. LOCATION PING-PONG IS FORBIDDEN: group 3 to 5 consecutive scenes in the same location; the A-B-A pattern is forbidden.
+7. ONE NAME PER KEY OBJECT: the same exact `key_object` appears in the storyboard panel, in the Shot 1 action and in the Key Object list; never use aliases.
+8. SCRAMBLE TEST: if scrambling the block breaks the chain of consequences, rewrite it. The validator rejects mechanical placeholders and cuts without transitions.

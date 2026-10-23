@@ -1,73 +1,76 @@
-🎬 PROMPT 003 — GENERADOR DE GUION CINEMATOGRÁFICO EN INGLÉS + CAMBIOS DE CÁMARA + SONIDO (OPTIMIZADO PARA MUSE AI Y GOOGLE FLOW)
-Actúa como guionista de Hollywood, director de fotografía y diseñador sonoro.
-Ya tenemos creado el storyboard de la historia y la hoja maestra de personajes. Ahora debes convertir ese storyboard en un guion cinematográfico y técnico completo en texto, respetando exactamente las escenas que aparecen en el storyboard, con todos los diálogos hablados en INGLÉS (English) para monetización internacional.
+🎬 PROMPT 003 — ENGLISH CINEMATIC SCRIPT GENERATOR + CAMERA CUTS + SOUND (OPTIMIZED FOR MUSE AI AND GOOGLE FLOW)
+Act as a Hollywood screenwriter, cinematographer and sound designer.
+We have already created the story's storyboard and the master character sheet. Now convert that storyboard into a complete cinematic, technical text script, respecting exactly the scenes shown in the storyboard, with all spoken dialogue in ENGLISH for international monetization.
 
-DATOS DEL PROYECTO
+PROJECT DATA
 Storyboard:
-El storyboard completo creado en el paso 1: 10 imágenes de 6 viñetas, una por minuto. Cada escena debe corresponder exactamente a su viñeta.
-Duración del bloque:
-1 minuto = 6 escenas de 10 segundos (o el total de escenas del storyboard adjunto).
+The complete storyboard created in step 1: 10 images with 6 panels, one per minute. Every scene must match its panel exactly.
+Block runtime:
+1 minute = 6 ten-second scenes (or the total number of scenes in the attached storyboard).
 
-REGLA PRINCIPAL
-Cada escena dura exactamente 10 segundos.
-Debes mantener exactamente el mismo número y orden de escenas del storyboard.
-NO debes agregar ni eliminar escenas.
-Cada escena debe corresponder directamente a su respectiva viñeta del storyboard.
+MAIN RULE
+Every scene lasts exactly 10 seconds.
+You must keep exactly the same number and order of scenes as the storyboard.
+You must NOT add or remove scenes.
+Every scene must correspond directly to its storyboard panel.
 
-DIÁLOGOS EN INGLÉS (REGLA DURA: MÁXIMO 15 PALABRAS POR ESCENA)
-Todos los diálogos hablados deben estar en INGLÉS natural, dramático y emocional.
-- Máximo 15 palabras por escena y máximo 15 por intervención.
-- La voz debe terminar antes de 8.5 segundos; deja el resto para pausas, miradas y reacciones.
-- Nunca cortes una frase por tiempo: si una idea necesita más, divídela entre escenas.
-- No todas las escenas necesitan diálogo: usa "No dialogue (Pure visual & sound tension)." cuando la imagen hable mejor.
+ENGLISH DIALOGUE (HARD RULE: MAXIMUM 15 WORDS PER SCENE)
+All spoken dialogue must be in natural, dramatic, emotional ENGLISH.
+- Maximum 15 words per scene and maximum 15 per turn.
+- The voice must finish before 8.5 seconds; leave the rest for pauses, glances and reactions.
+- Never cut a sentence for time: if an idea needs more, split it across scenes.
+- Not every scene needs dialogue: use "No dialogue (Pure visual & sound tension)." when the image speaks better.
 
-DIRECCIÓN DE CÁMARA: ENTRE 1 Y 4 TOMAS POR ESCENA DE 10s, NACIDAS DEL DIÁLOGO
-1. REGLA DE ORO: UNA LÍNEA = UN PLANO DEL HABLANTE:
-   - Quien habla está EN CÁMARA con rostro y boca visibles durante toda su línea, mirando al destinatario. Prohibido poner diálogo sobre un insert, una reacción o una espalda.
-   - Toma 1: arranca EN MOVIMIENTO desde el frame exacto de la viñeta. Mismo encuadre, misma posición de cámara, mismo blocking, mismo vestuario, misma luz y mismo objeto clave. Prohibido abrir con un frame estático. Si hay dos hablantes, la Toma 1 es un two-shot que los muestra a ambos y sostiene sus dos líneas.
-   - Los planos silenciosos (insert, reacción, detalle del objeto) van DESPUÉS de que termina el diálogo. Excepción: el hallazgo/revelación va en su propio plano silencioso centrado de 2–3 segundos; declara en qué segundo termina el diálogo ("El diálogo termina en el segundo X").
-   - Los presentes que no hablan se listan como mudos: una sola vez y con la boca cerrada.
-2. OBJETO CLAVE Y TEXTO EN PANTALLA:
-   - Cada escena declara OBJETO AL INICIAR y OBJETO AL TERMINAR visibles en cámara; el insert del objeto lo muestra tal cual.
-   - Nunca muestres el interior vacío de una bolsa, caja fuerte o contenedor donde se escondió el objeto.
-   - Solo el texto diegético declarado (ej. la palabra CONFESSION en el documento) puede verse legible; el resto de papeles y carteles no muestra palabras.
-3. IDENTIDAD Y POSICIONES:
-   - Cada personaje presente se nombra como Nombre (Cast Sheet Pos #N: descriptor estable, wearing vestuario del acto).
-   - La Hoja de Personajes fija posiciones de izquierda a derecha; nunca insertes esa hoja como plano entre escenas.
-3. DISEÑO SONORO (SFX & AMBIENCE) Y VOZ:
-   - Especifica el timbre de voz constante de quien habla (ej. "Warm emotional young female voice" / "Deep authoritative male baritone voice").
-   - Especifica los efectos de sonido realistas del entorno (ej. "Rain on window, footsteps on gravel, tense dramatic silence").
-4. CAUSALIDAD Y LOCACIÓN:
-   - Cada escena es consecuencia de la anterior y causa de la siguiente. Prohibido revelar una consecuencia antes de su causa o repetir la misma pista.
-   - Agrupa 3 a 6 escenas consecutivas en la misma situación dramática antes de cambiar de lugar. Todo cambio de lugar necesita una transición visible o hablada.
+CAMERA DIRECTION: BETWEEN 1 AND 4 SHOTS PER 10s SCENE, BORN FROM THE DIALOGUE
+1. GOLDEN RULE: ONE LINE = ONE SHOT OF THE SPEAKER:
+   - Whoever speaks is ON CAMERA with face and mouth visible throughout their line, looking at the recipient. Putting dialogue over an insert, a reaction or someone's back is forbidden.
+   - Shot 1: starts IN MOTION from the panel's exact frame. Same framing, same camera position, same blocking, same wardrobe, same lighting and same key object. Opening on a static frame is forbidden. If there are two speakers, Shot 1 is a two-shot showing both and holding their two lines.
+   - Silent shots (insert, reaction, object detail) come AFTER the dialogue ends. Exception: the discovery/revelation goes in its own centered 2–3 second silent shot; declare at which second the dialogue ends ("Dialogue ends at second X").
+   - Present characters who do not speak are listed as silent: once, with their mouth closed.
+2. KEY OBJECT AND ON-SCREEN TEXT:
+   - Every scene declares OBJECT AT START and OBJECT AT END visible on camera; the object insert shows it exactly as it is.
+   - Never show the empty interior of a bag, safe or container where the object was hidden.
+   - Only declared diegetic text (e.g. the word CONFESSION on the document) may be legible; all other papers and signs show no words.
+3. IDENTITY AND POSITIONS:
+   - Every present character is named as Name (Cast Sheet Pos #N: stable descriptor, wearing act wardrobe).
+   - The Cast Sheet fixes positions from left to right; never insert that sheet as a shot between scenes.
+3. SOUND DESIGN (SFX & AMBIENCE) AND VOICE:
+   - Specify the speaker's constant voice timbre (e.g. "Warm emotional young female voice" / "Deep authoritative male baritone voice").
+   - Specify realistic environmental sound effects (e.g. "Rain on window, footsteps on gravel, tense dramatic silence").
+4. CAUSALITY AND LOCATION:
+   - Every scene is a consequence of the previous one and the cause of the next. Revealing a consequence before its cause or repeating the same clue is forbidden.
+   - Group 3 to 6 consecutive scenes in the same dramatic situation before changing location. Every location change needs a visible or spoken transition.
 
-ESTRUCTURA OBLIGATORIA DE CADA ESCENA
-Para cada escena utiliza exactamente esta estructura:
+MANDATORY STRUCTURE FOR EVERY SCENE
+Use exactly this structure for every scene:
 
-ESCENA [N] (Viñeta #[N] del Storyboard) — [MM:SS–MM:SS]
-- Location: [Lugar exacto de la viñeta]
-- Characters Present: [Nombre (Cast Sheet Pos #N), ...]
-- Storyboard Panel (Shot 1 exact framing): [ encuadre + acción de la viñeta + objeto clave + todos los presentes ]
-- Identity Anchors: [Nombre (Cast Sheet Pos #N: descriptor, wearing vestuario), ...]
-- Object In / Object Out: [OBJETO AL INICIAR visible → OBJETO AL TERMINAR visible]
-- Camera Cuts & Visual Action (10s, 1–4 tomas):
-  * [00s–..]: [Toma 1: encuadre exacto de la viñeta + acción ya en movimiento; two-shot si hablan dos personajes]
-  * [..s–..s]: [PLANO QUE HABLA: nombre (visible, mira a destinatario) dice exactamente, una sola vez: "línea"] (una toma por línea hablada)
-  * [..s–..s]: [SIN DIÁLOGO: insert, reacción o plano del objeto; el hallazgo va centrado 2–3 s]
-- Mudos: [PRESENTES QUE NO HABLAN: nombre — boca cerrada en toda la escena]
-- Sound Design (SFX & Voice Tone): [Efectos de sonido del ambiente + tono de voz fijo del personaje]
+SCENE [N] (Storyboard Panel #[N]) — [MM:SS–MM:SS]
+- Location: [Exact location from the panel]
+- Characters Present: [Name (Cast Sheet Pos #N), ...]
+- Storyboard Panel (Shot 1 exact framing): [ panel framing + action + key object + everyone present ]
+- Identity Anchors: [Name (Cast Sheet Pos #N: descriptor, wearing wardrobe), ...]
+- Object In / Object Out: [OBJECT AT START visible → OBJECT AT END visible]
+- Camera Cuts & Visual Action (10s, 1–4 shots):
+  * [00s–..]: [Shot 1: exact panel framing + action already in motion; two-shot if two characters speak]
+  * [..s–..s]: [SPEAKING SHOT: name (visible, looking at recipient) says exactly, only once: "line"] (one shot per spoken line)
+  * [..s–..s]: [NO DIALOGUE: insert, reaction or object shot; the discovery is centered for 2–3 s]
+- Silent: [PRESENT CHARACTERS WHO DO NOT SPEAK: name — mouth closed throughout the scene]
+- Sound Design (SFX & Voice Tone): [Environmental sound effects + the character's fixed voice tone]
 - Dialogue (English, max 15 words per line, finish before 8.5 s):
-  [NOMBRE DEL PERSONAJE]: "[Diálogo en inglés breve, concreto y completo, máx. 15 palabras]"
+  [CHARACTER NAME]: "[Brief, concrete, complete English dialogue, max. 15 words]"
 
-RESULTADO FINAL
-Entrega únicamente el bloque de escenas con la estructura anterior y, al final de las escenas, incluye este comando exacto listo para copiar y pegar junto con el guion en MUSE AI:
+FINAL RESULT
+Deliver only the scene block using the structure above and, at the end of the scenes, include this exact command ready to copy and paste together with the script into MUSE AI:
 
-COMANDO FINAL PARA PEGAR EN MUSE AI (JUNTO CON EL STORYBOARD Y LA HOJA DE PERSONAJES ADJUNTOS):
-"Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando entre 1 y 4 tomas exactamente como las lista el guion (la Toma 1 arranca directamente en movimiento desde el encuadre exacto de la viñeta correspondiente sin frames estáticos; cada línea hablada tiene su propio plano con el hablante de frente, rostro y boca visibles, nunca desde detrás del personaje; los planos silenciosos de insert, reacción u objeto van después del diálogo y nunca contienen habla), manteniendo estrictamente la misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre escenas. Formato: 16:9. Reglas negativas estrictas: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
+FINAL COMMAND TO PASTE INTO MUSE AI (TOGETHER WITH THE ATTACHED STORYBOARD AND CHARACTER SHEET):
+"Make a realistic cinematic video of 10 seconds per scene, executing between 1 and 4 shots exactly as the script lists them (Shot 1 starts directly in motion from the exact framing of the corresponding storyboard panel without static frames; every spoken line gets its own shot with the speaker facing camera, face and mouth visible, never from behind the character; silent shots of inserts, reactions or objects come after the dialogue and never contain speech), keeping strictly the same race, face and wardrobe for each character according to their position in the attached Character Sheet, and join them into a single continuous video, never inserting the reference image between scenes. Format: 16:9. Strict negative rules: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
 
-REGLA DE CONTINUIDAD NARRATIVA (Hilo Conductor Único + Cadena Causa y Efecto + Ledger de Estado Arrastrado + Prohibición de Ping-Pong de Locaciones + Un Solo Nombre por Objeto Clave + Prueba de Desorden):
-1. UNA SOLA PREGUNTA MOTRIZ POR BLOQUE DE 6 ESCENAS: cada minuto tiene una única pregunta dramática; ninguna escena abre una pregunta nueva.
-2. CADENA CAUSA-EFECTO OBLIGATORIA: de la escena 2 a la 60, cada escena declara `because_previous_ended_with` (copia literal del cambio final de la escena anterior), `this_scene_starts_with` (acción concreta ya en movimiento que continúa esa consecuencia) y `single_change_at_end` (un único cambio de estado irreversible).
-3. PROHIBIDO EL PING-PONG DE LOCACIONES: agrupa de 3 a 5 escenas consecutivas en la misma locación; el patrón A-B-A está prohibido.
-4. UN SOLO NOMBRE POR OBJETO CLAVE: el mismo `key_object` exacto aparece en el panel de storyboard, en la acción de la Toma 1 y en la lista Key Object; nunca uses alias.
-5. PRUEBA DE DESORDEN: si al desordenar el bloque la cadena de consecuencias deja de tener sentido, reescríbelo. El validador rechaza placeholders mecánicos (`hard cut into the dialogue beat`, `hard cut to the reaction as the line lands`) y saltos de locación sin transición.
+NARRATIVE CONTINUITY RULE (Single Through-Line + Cause-and-Effect Chain + Carried-State Ledger + Location Ping-Pong Ban + One Name per Key Object + Scramble Test + ReelShort/DramaBox Bridges and Pacing):
+1. ONE DRIVING QUESTION PER 6-SCENE BLOCK: each minute has a single dramatic question; no scene opens a new question.
+2. MANDATORY CAUSE-AND-EFFECT CHAIN: from scene 2 to the last scene, every scene declares `because_previous_ended_with` (literal copy of the previous scene's final change), `this_scene_starts_with` (concrete action already in motion that continues that consequence) and `single_change_at_end` (one irreversible state change).
+3. ENTRY AND EXIT BRIDGES (OPENING AND CLOSING): every scene declares `entry_bridge` (micro-action or line <= 2 s that starts it because of the previous scene) and `exit_hook` (gesture, order, decision or question that ends it and pushes into the next one). exit_hook(N) feeds entry_bridge(N+1).
+4. BLOCK PACING RULE (6 SCENES): 6 confrontation peaks in a row are FORBIDDEN. At least 1 non-confrontational beat per block (solo decision, discovery, plan, tender/vulnerable moment).
+5. CLIFFHANGER ROTATION: rotate the type between blocks (identity -> emotion -> revelation). Repeating the same type in two consecutive blocks is forbidden.
+6. LOCATION PING-PONG IS FORBIDDEN: group 3 to 5 consecutive scenes in the same location; the A-B-A pattern is forbidden.
+7. ONE NAME PER KEY OBJECT: the same exact `key_object` appears in the storyboard panel, in the Shot 1 action and in the Key Object list; never use aliases.
+8. SCRAMBLE TEST: if scrambling the block breaks the chain of consequences, rewrite it. The validator rejects mechanical placeholders and cuts without transitions.

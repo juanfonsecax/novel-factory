@@ -2,7 +2,7 @@
   "episode": "demo_contract",
   "title": "The Silent Contract",
   "count": 60,
-  "note": "Cada prompt ya incluye el sufijo de estilo global y la cláusula anti-texto (las escenas con texto diegético declarado usan su excepción). face_crops lista los recortes reference_<id>_face.png a adjuntar en escenas habladas.",
+  "note": "Each prompt already includes the global style suffix and anti-text clause (scenes with declared diegetic text use their exception). face_crops lists the reference_<id>_face.png crops to attach in speaking scenes.",
   "items": [
     {
       "index": 1,

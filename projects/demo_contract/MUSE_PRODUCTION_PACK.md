@@ -1,255 +1,255 @@
-# The Silent Contract — Producción con Muse AI (método nuevo)
+# The Silent Contract — Muse AI Production (new method)
 
-**Slug:** `demo_contract`  ·  **Escenas:** 60  ·  **Imágenes:** 11  ·  **Lotes:** 10
+**Slug:** `demo_contract`  ·  **Scenes:** 60  ·  **Images:** 11  ·  **Batches:** 10
 
-> **NOTA DE PRODUCCIÓN:** ADJUNTA EN CADA ESCENA: la viñeta de esa escena + las referencias SOLO de los personajes que salen en ESA escena + el prompt de esa escena. No generes ninguna escena sin sus personajes adjuntos.
+> **PRODUCTION NOTE:** ATTACH FOR EVERY SCENE: that scene's storyboard panel + references ONLY for the characters who appear in THAT scene + that scene's prompt. Never generate a scene without its attached characters.
 
 > Ten years after the fire that ruined her family, Nora Hale returns to inherit a lighthouse and finds the town's most powerful family has been paying her dead mother's debts.
 
-## Cómo funciona
+## How it works
 
-1. Genera **una** hoja maestra de personajes con los rostros y vestuarios fijos.
-2. Genera **10** storyboards (uno por minuto) usando esa hoja como referencia.
-3. En Muse AI, sube la hoja maestra + el storyboard del minuto y pega el bloque del lote.
-4. Guarda cada video como `raw_clips/minute_0X.mp4` y ejecuta el comando de ensamblaje.
+1. Generate **one** master character sheet with fixed faces and wardrobes.
+2. Generate **10** storyboards (one per minute) using that sheet as reference.
+3. In Muse AI, upload the master sheet + the minute storyboard and paste the batch block.
+4. Save each video as `raw_clips/minute_0X.mp4` and run the assembly command.
 
-> No necesitas frames por escena ni clips de 10 s: el ensamblador detecta los lotes de 1 minuto.
+> You do not need per-scene frames or 10 s clips: the assembler detects 1-minute batches.
 
 ---
 
-## Paso 1 — Hoja maestra de personajes
+## Step 1 — Master character sheet
 
-Guarda el resultado como `storyboards/REF_CAST_MASTER.png`.
+Save the result as `storyboards/REF_CAST_MASTER.png`.
 
 **Prompt:**
 
 ```text
-Actúa como director de casting y diseñador de personajes. Genera UNA SOLA IMAGEN horizontal 16:9 que muestre juntos, de cuerpo completo, de pie, mirando al frente sobre un fondo gris neutro de estudio (#808080) y sin tocarse entre sí, a los siguientes personajes de nuestra novela en estilo Cinematográfico Realista 35mm:
+Act as a casting director and character designer. Generate A SINGLE horizontal 16:9 IMAGE showing together, full body, standing, facing forward on a neutral studio gray background (#808080) and not touching each other, the following characters from our novel in Realistic Cinematic 35mm style:
 
-Position #1 (Far Left) — NORA HALE. Rol: Protagonista. Edad: early-thirties. Rasgos físicos: early thirties coastal New England woman, wiry build, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, charcoal wool coat over a dark sweater. Vestuario fijo: el vestuario principal descrito en su ficha de casting.
-Position #2 — SAM CALLOWAY. Rol: Interés romántico. Edad: mid-thirties. Rasgos físicos: mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin with salt creases, faded canvas work jacket. Vestuario fijo: faded canvas work jacket, dark trousers, worn boots.
-Position #3 — MARGARET KELLER. Rol: Antagonista. Edad: late-sixties. Rasgos físicos: late sixties matriarch, tall and straight-backed, silver hair in a low chignon, pale blue eyes, porcelain skin, tailored dove-grey suit and pearls. Vestuario fijo: tailored dove-grey suit, pearls, low-heeled shoes.
-Position #4 — ADRIAN KELLER. Rol: Heredero antagonista. Edad: late-thirties. Rasgos físicos: late thirties heir, lean and groomed, ash-blond hair swept back, cold grey eyes, even features, navy blazer over an open collar. Vestuario fijo: navy blazer, open-collared white shirt, dark trousers.
-Position #5 (Far Right) — CLAIRE BOONE. Rol: Aliada. Edad: forties. Rasgos físicos: forties small-town lawyer, compact and practical, brown hair in a blunt bob, warm brown eyes, reading glasses on a cord, forest-green cardigan. Vestuario fijo: forest-green cardigan, cream blouse, dark trousers.
+Position #1 (Far Left) — NORA HALE. Role: Protagonist. Age: early-thirties. Physical features: early thirties coastal New England woman, wiry build, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, charcoal wool coat over a dark sweater. Fixed wardrobe: the main wardrobe described in the casting sheet.
+Position #2 — SAM CALLOWAY. Role: Love interest. Age: mid-thirties. Physical features: mid-thirties harbor firefighter, broad-shouldered, short dark-sand hair, hazel eyes, tanned skin with salt creases, faded canvas work jacket. Fixed wardrobe: faded canvas work jacket, dark trousers, worn boots.
+Position #3 — MARGARET KELLER. Role: Antagonist. Age: late-sixties. Physical features: late sixties matriarch, tall and straight-backed, silver hair in a low chignon, pale blue eyes, porcelain skin, tailored dove-grey suit and pearls. Fixed wardrobe: tailored dove-grey suit, pearls, low-heeled shoes.
+Position #4 — ADRIAN KELLER. Role: Antagonist heir. Age: late-thirties. Physical features: late thirties heir, lean and groomed, ash-blond hair swept back, cold grey eyes, even features, navy blazer over an open collar. Fixed wardrobe: navy blazer, open-collared white shirt, dark trousers.
+Position #5 (Far Right) — CLAIRE BOONE. Role: Ally. Age: forties. Physical features: forties small-town lawyer, compact and practical, brown hair in a blunt bob, warm brown eyes, reading glasses on a cord, forest-green cardigan. Fixed wardrobe: forest-green cardigan, cream blouse, dark trousers.
 
-Ordena a los personajes de izquierda a derecha y coloca debajo de cada uno únicamente 'Position #N — NOMBRE EN MAYÚSCULAS'. Mantén exactamente las mismas posiciones, rostros, peinados y vestuarios en todas las imágenes del storyboard y de los lotes de Muse AI. Sin texto adicional, sin títulos, sin frases, sin logos, sin marcas de agua; solo la imagen de los personajes y sus posiciones.
+Arrange the characters from left to right and place only the following below each one: 'Position #N — NAME IN UPPERCASE'. Keep exactly the same positions, faces, hairstyles and wardrobes in every storyboard image and Muse AI batch. No additional text, no titles, no sentences, no logos, no watermarks; only the character image and their positions.
 ```
 
 ---
 
-## Paso 2 — Storyboards (10 imágenes)
+## Step 2 — Storyboards (10 images)
 
-Genera cada imagen con el mismo estilo y los mismos personajes de la hoja maestra.
-Guarda cada archivo en `storyboards/` con el nombre indicado.
+Generate each image with the same style and the same characters as the master sheet.
+Save each file in `storyboards/` with the indicated filename.
 
-### REF_GRID_MIN_01.png — Minuto 1 (escenas 1–6)
+### REF_GRID_MIN_01.png — Minute 1 (scenes 1–6)
 
 ```text
-Usando los personajes de REF_CAST_MASTER.png como referencia fija de rostros, edades, cuerpos y vestuarios, genera UNA IMAGEN horizontal 16:9 de Storyboard dividida en una cuadrícula limpia de 3x2 (6 viñetas numeradas del 1 al 6) que represente el MINUTO 1 (Escenas 1 a 6) de la historia en estilo Cinematográfico Realista 35mm:
+Using the characters in REF_CAST_MASTER.png as fixed references for faces, ages, bodies and wardrobes, generate A SINGLE horizontal 16:9 storyboard IMAGE divided into a clean 3x2 grid (6 panels numbered 1 to 6) representing MINUTE 1 (Scenes 1 to 6) of the story in Realistic Cinematic 35mm style:
 
-Look visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
+Visual look: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
 
-Viñeta 1 — Escena 1 (Hale lighthouse cliff edge, storm dusk, wind and salt spray): [00s-07s] wide establishing shot, face and mouth visible: Nora Hale is on camera with face and mouth fully visible, looking at the other person in frame. Nora stands at the cliff edge, the lighthouse dark behind her, salt wind whipping her coat. Key object in frame: a brass key. Location: Hale lighthouse cliff edge, storm dusk, wind and salt spray. Characters present: Nora Hale. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing charcoal wool coat over a dark sweater, dark jeans, rain-wet hair).
-Viñeta 2 — Escena 2 (Keller harbor boardwalk, blue hour, wet planks and dock lights): [00s-07s] close-up, face and mouth visible: Sam Calloway is on camera with face and mouth fully visible, looking at Nora Hale. Sam Calloway speaks as the camera holds close on their face, the deed catching the light between them. Location: Keller harbor boardwalk, blue hour, wet planks and dock lights. Key object: the deed. Characters present: Nora Hale, Sam Calloway. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing charcoal wool coat over a dark sweater, dark jeans, rain-wet hair); Sam Calloway (Cast Sheet Pos #2: mid-thirties; short dark-sand hair; wearing faded canvas work jacket, dark trousers, worn boots).
-Viñeta 3 — Escena 3 (Hale lighthouse kitchen, night, one warm lamp and a cold stove): [00s-07s] two-shot, medium shot with Nora Hale and Sam Calloway: Nora Hale and Sam Calloway face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Sam leans against a harbor truck with his arms crossed, trying not to smile. Key object in frame: fresh survey stakes. Location: Hale lighthouse kitchen, night, one warm lamp and a cold stove. Characters present: Nora Hale, Sam Calloway. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing charcoal wool coat over a dark sweater, dark jeans, rain-wet hair); Sam Calloway (Cast Sheet Pos #2: mid-thirties; short dark-sand hair; wearing faded canvas work jacket, dark trousers, worn boots).
-Viñeta 4 — Escena 4 (Hale lighthouse cliff edge, storm dusk, wind and salt spray): [00s-07s] two-shot, medium shot with Sam Calloway and Nora Hale: Sam Calloway and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora sets a brass key on the lighthouse kitchen table between them. Key object in frame: the dead lighthouse lamp. Location: Hale lighthouse cliff edge, storm dusk, wind and salt spray. Characters present: Nora Hale, Sam Calloway. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing charcoal wool coat over a dark sweater, dark jeans, rain-wet hair); Sam Calloway (Cast Sheet Pos #2: mid-thirties; short dark-sand hair; wearing faded canvas work jacket, dark trousers, worn boots).
-Viñeta 5 — Escena 5 (Keller harbor boardwalk, blue hour, wet planks and dock lights): [00s-07s] two-shot, medium shot with Margaret Keller and Nora Hale: Margaret Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Sam points through the rain at fresh survey stakes driven into the cliff. Key object in frame: a brass key. Location: Keller harbor boardwalk, blue hour, wet planks and dock lights. Characters present: Nora Hale, Sam Calloway, Margaret Keller. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing charcoal wool coat over a dark sweater, dark jeans, rain-wet hair); Sam Calloway (Cast Sheet Pos #2: mid-thirties; short dark-sand hair; wearing faded canvas work jacket, dark trousers, worn boots); Margaret Keller (Cast Sheet Pos #3: late sixties; tall and straight-backed; wearing tailored dove-grey suit, pearls, low-heeled shoes).
-Viñeta 6 — Escena 6 (Hale lighthouse kitchen, night, one warm lamp and a cold stove): [00s-07s] two-shot, medium shot with Adrian Keller and Nora Hale: Adrian Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Margaret waits under the dry awning of the Keller estate, gloves folded. Key object in frame: the deed. Location: Hale lighthouse kitchen, night, one warm lamp and a cold stove. Characters present: Nora Hale, Margaret Keller, Adrian Keller. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing charcoal wool coat over a dark sweater, dark jeans, rain-wet hair); Margaret Keller (Cast Sheet Pos #3: late sixties; tall and straight-backed; wearing tailored dove-grey suit, pearls, low-heeled shoes); Adrian Keller (Cast Sheet Pos #4: late thirties; ash-blond hair swept back; wearing navy blazer, open-collared white shirt, dark trousers).
+Panel 1 — Scene 1 (Hale lighthouse cliff edge, storm dusk, wind and salt spray): [00s-07s] wide establishing shot, face and mouth visible: Nora Hale is on camera with face and mouth fully visible, looking at the other person in frame. Nora stands at the cliff edge, the lighthouse dark behind her, salt wind whipping her coat. Key object in frame: a brass key. Location: Hale lighthouse cliff edge, storm dusk, wind and salt spray. Characters present: Nora Hale. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing charcoal wool coat over a dark sweater, dark jeans, rain-wet hair).
+Panel 2 — Scene 2 (Keller harbor boardwalk, blue hour, wet planks and dock lights): [00s-07s] close-up, face and mouth visible: Sam Calloway is on camera with face and mouth fully visible, looking at Nora Hale. Sam Calloway speaks as the camera holds close on their face, the deed catching the light between them. Location: Keller harbor boardwalk, blue hour, wet planks and dock lights. Key object: the deed. Characters present: Nora Hale, Sam Calloway. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing charcoal wool coat over a dark sweater, dark jeans, rain-wet hair); Sam Calloway (Cast Sheet Pos #2: mid-thirties; short dark-sand hair; wearing faded canvas work jacket, dark trousers, worn boots).
+Panel 3 — Scene 3 (Hale lighthouse kitchen, night, one warm lamp and a cold stove): [00s-07s] two-shot, medium shot with Nora Hale and Sam Calloway: Nora Hale and Sam Calloway face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Sam leans against a harbor truck with his arms crossed, trying not to smile. Key object in frame: fresh survey stakes. Location: Hale lighthouse kitchen, night, one warm lamp and a cold stove. Characters present: Nora Hale, Sam Calloway. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing charcoal wool coat over a dark sweater, dark jeans, rain-wet hair); Sam Calloway (Cast Sheet Pos #2: mid-thirties; short dark-sand hair; wearing faded canvas work jacket, dark trousers, worn boots).
+Panel 4 — Scene 4 (Hale lighthouse cliff edge, storm dusk, wind and salt spray): [00s-07s] two-shot, medium shot with Sam Calloway and Nora Hale: Sam Calloway and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora sets a brass key on the lighthouse kitchen table between them. Key object in frame: the dead lighthouse lamp. Location: Hale lighthouse cliff edge, storm dusk, wind and salt spray. Characters present: Nora Hale, Sam Calloway. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing charcoal wool coat over a dark sweater, dark jeans, rain-wet hair); Sam Calloway (Cast Sheet Pos #2: mid-thirties; short dark-sand hair; wearing faded canvas work jacket, dark trousers, worn boots).
+Panel 5 — Scene 5 (Keller harbor boardwalk, blue hour, wet planks and dock lights): [00s-07s] two-shot, medium shot with Margaret Keller and Nora Hale: Margaret Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Sam points through the rain at fresh survey stakes driven into the cliff. Key object in frame: a brass key. Location: Keller harbor boardwalk, blue hour, wet planks and dock lights. Characters present: Nora Hale, Sam Calloway, Margaret Keller. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing charcoal wool coat over a dark sweater, dark jeans, rain-wet hair); Sam Calloway (Cast Sheet Pos #2: mid-thirties; short dark-sand hair; wearing faded canvas work jacket, dark trousers, worn boots); Margaret Keller (Cast Sheet Pos #3: late sixties; tall and straight-backed; wearing tailored dove-grey suit, pearls, low-heeled shoes).
+Panel 6 — Scene 6 (Hale lighthouse kitchen, night, one warm lamp and a cold stove): [00s-07s] two-shot, medium shot with Adrian Keller and Nora Hale: Adrian Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Margaret waits under the dry awning of the Keller estate, gloves folded. Key object in frame: the deed. Location: Hale lighthouse kitchen, night, one warm lamp and a cold stove. Characters present: Nora Hale, Margaret Keller, Adrian Keller. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing charcoal wool coat over a dark sweater, dark jeans, rain-wet hair); Margaret Keller (Cast Sheet Pos #3: late sixties; tall and straight-backed; wearing tailored dove-grey suit, pearls, low-heeled shoes); Adrian Keller (Cast Sheet Pos #4: late thirties; ash-blond hair swept back; wearing navy blazer, open-collared white shirt, dark trousers).
 
-Mantén continuidad exacta de posiciones, rostros, cuerpos, vestuario, props, locaciones, luz y hora del día entre las 6 viñetas. Cada viñeta es el PRIMER FRAME literal de la Toma 1 de su escena: mismo encuadre, misma cámara, mismo blocking y mismo objeto clave; la acción ya está en movimiento, nunca congelada. Cada viñeta es un plano cinematográfico 16:9 con acción legible.
-FORMATO DE VIÑETAS 100% VISUAL (SIN CAJAS DE TEXTO): Las 6 viñetas fotográficas en cuadrícula 3x2 deben ocupar el 100% del lienzo 16:9 separadas únicamente por líneas divisorias finas. Coloca SOLO el número pequeño [1], [2], [3], [4], [5], [6] en la esquina superior izquierda de cada viñeta. PROHIBIDO dibujar barras inferiores oscuras, subtítulos, cajas de texto o descripciones escritas dentro de la imagen.
+Keep exact continuity of positions, faces, bodies, wardrobe, props, locations, lighting and time of day across the 6 panels. Each panel is the literal FIRST FRAME of Shot 1 in its scene: same framing, same camera, same blocking and same key object; the action is already in motion, never frozen. Each panel is a 16:9 cinematic shot with legible action.
+100% VISUAL PANEL FORMAT (NO TEXT BOXES): The 6 photographic panels in a 3x2 grid must fill 100% of the 16:9 canvas, separated only by thin divider lines. Place ONLY the small number [1], [2], [3], [4], [5], [6] in the top-left corner of each panel. Drawing dark bottom bars, subtitles, text boxes or written descriptions inside the image is FORBIDDEN.
 ```
 
-### REF_GRID_MIN_02.png — Minuto 2 (escenas 7–12)
+### REF_GRID_MIN_02.png — Minute 2 (scenes 7–12)
 
 ```text
-Usando los personajes de REF_CAST_MASTER.png como referencia fija de rostros, edades, cuerpos y vestuarios, genera UNA IMAGEN horizontal 16:9 de Storyboard dividida en una cuadrícula limpia de 3x2 (6 viñetas numeradas del 1 al 6) que represente el MINUTO 2 (Escenas 7 a 12) de la historia en estilo Cinematográfico Realista 35mm:
+Using the characters in REF_CAST_MASTER.png as fixed references for faces, ages, bodies and wardrobes, generate A SINGLE horizontal 16:9 storyboard IMAGE divided into a clean 3x2 grid (6 panels numbered 1 to 6) representing MINUTE 2 (Scenes 7 to 12) of the story in Realistic Cinematic 35mm style:
 
-Look visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
+Visual look: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
 
-Viñeta 1 — Escena 7 (Hale lighthouse cliff edge, storm dusk, wind and salt spray): [00s-07s] two-shot, medium shot with Nora Hale and Margaret Keller: Nora Hale and Margaret Keller face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora reads the deed by a single warm lamp, jaw tight. Key object in frame: fresh survey stakes. Location: Hale lighthouse cliff edge, storm dusk, wind and salt spray. Characters present: Nora Hale, Margaret Keller. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing charcoal wool coat over a dark sweater, dark jeans, rain-wet hair); Margaret Keller (Cast Sheet Pos #3: late sixties; tall and straight-backed; wearing tailored dove-grey suit, pearls, low-heeled shoes).
-Viñeta 2 — Escena 8 (Keller harbor boardwalk, blue hour, wet planks and dock lights): [00s-07s] two-shot, medium shot with Claire Boone and Nora Hale: Claire Boone and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Adrian blocks the lighthouse door with a folder under his arm. Key object in frame: the dead lighthouse lamp. Location: Keller harbor boardwalk, blue hour, wet planks and dock lights. Characters present: Nora Hale, Adrian Keller, Claire Boone. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing charcoal wool coat over a dark sweater, dark jeans, rain-wet hair); Adrian Keller (Cast Sheet Pos #4: late thirties; ash-blond hair swept back; wearing navy blazer, open-collared white shirt, dark trousers); Claire Boone (Cast Sheet Pos #5: age as shown in the reference sheet; brown blunt bob; wearing forest-green cardigan, cream blouse, dark trousers).
-Viñeta 3 — Escena 9 (Hale lighthouse kitchen, night, one warm lamp and a cold stove): [00s-07s] two-shot, medium shot with Claire Boone and Nora Hale: Claire Boone and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora stands alone on the point, the town lights small below her. Key object in frame: a brass key. Location: Hale lighthouse kitchen, night, one warm lamp and a cold stove. Characters present: Nora Hale, Claire Boone. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing charcoal wool coat over a dark sweater, dark jeans, rain-wet hair); Claire Boone (Cast Sheet Pos #5: age as shown in the reference sheet; brown blunt bob; wearing forest-green cardigan, cream blouse, dark trousers).
-Viñeta 4 — Escena 10 (Hale lighthouse cliff edge, storm dusk, wind and salt spray): [00s-05s] low-angle hero shot, face and mouth visible: Nora Hale is on camera with face and mouth fully visible, looking at the other person in frame. Nora crouches at the lighthouse base, finding a keyhole hidden under peeling paint. Key object in frame: the deed. Location: Hale lighthouse cliff edge, storm dusk, wind and salt spray. Characters present: Nora Hale. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing charcoal wool coat over a dark sweater, dark jeans, rain-wet hair).
-Viñeta 5 — Escena 11 (Claire Boone's law office, grey morning, rain on the windows): [00s-07s] two-shot, medium shot with Claire Boone and Nora Hale: Claire Boone and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Claire slides a sealed envelope across the lawyer's desk. Key object in frame: the sealed petition. Location: Claire Boone's law office, grey morning, rain on the windows. Characters present: Nora Hale, Claire Boone. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing charcoal wool coat, dark jeans, hair dry now, no umbrella); Claire Boone (Cast Sheet Pos #5: age as shown in the reference sheet; brown blunt bob; wearing forest-green cardigan, cream blouse, dark trousers).
-Viñeta 6 — Escena 12 (Keller boathouse, night, one hanging bulb and a flashlight): [00s-07s] two-shot, medium shot with Nora Hale and Claire Boone: Nora Hale and Claire Boone face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora reads the witness signature and looks up slowly. Key object in frame: a witness signature. Location: Keller boathouse, night, one hanging bulb and a flashlight. Characters present: Nora Hale, Claire Boone. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing charcoal wool coat, dark jeans, hair dry now, no umbrella); Claire Boone (Cast Sheet Pos #5: age as shown in the reference sheet; brown blunt bob; wearing forest-green cardigan, cream blouse, dark trousers).
+Panel 1 — Scene 7 (Hale lighthouse cliff edge, storm dusk, wind and salt spray): [00s-07s] two-shot, medium shot with Nora Hale and Margaret Keller: Nora Hale and Margaret Keller face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora reads the deed by a single warm lamp, jaw tight. Key object in frame: fresh survey stakes. Location: Hale lighthouse cliff edge, storm dusk, wind and salt spray. Characters present: Nora Hale, Margaret Keller. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing charcoal wool coat over a dark sweater, dark jeans, rain-wet hair); Margaret Keller (Cast Sheet Pos #3: late sixties; tall and straight-backed; wearing tailored dove-grey suit, pearls, low-heeled shoes).
+Panel 2 — Scene 8 (Keller harbor boardwalk, blue hour, wet planks and dock lights): [00s-07s] two-shot, medium shot with Claire Boone and Nora Hale: Claire Boone and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Adrian blocks the lighthouse door with a folder under his arm. Key object in frame: the dead lighthouse lamp. Location: Keller harbor boardwalk, blue hour, wet planks and dock lights. Characters present: Nora Hale, Adrian Keller, Claire Boone. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing charcoal wool coat over a dark sweater, dark jeans, rain-wet hair); Adrian Keller (Cast Sheet Pos #4: late thirties; ash-blond hair swept back; wearing navy blazer, open-collared white shirt, dark trousers); Claire Boone (Cast Sheet Pos #5: age as shown in the reference sheet; brown blunt bob; wearing forest-green cardigan, cream blouse, dark trousers).
+Panel 3 — Scene 9 (Hale lighthouse kitchen, night, one warm lamp and a cold stove): [00s-07s] two-shot, medium shot with Claire Boone and Nora Hale: Claire Boone and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora stands alone on the point, the town lights small below her. Key object in frame: a brass key. Location: Hale lighthouse kitchen, night, one warm lamp and a cold stove. Characters present: Nora Hale, Claire Boone. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing charcoal wool coat over a dark sweater, dark jeans, rain-wet hair); Claire Boone (Cast Sheet Pos #5: age as shown in the reference sheet; brown blunt bob; wearing forest-green cardigan, cream blouse, dark trousers).
+Panel 4 — Scene 10 (Hale lighthouse cliff edge, storm dusk, wind and salt spray): [00s-05s] low-angle hero shot, face and mouth visible: Nora Hale is on camera with face and mouth fully visible, looking at the other person in frame. Nora crouches at the lighthouse base, finding a keyhole hidden under peeling paint. Key object in frame: the deed. Location: Hale lighthouse cliff edge, storm dusk, wind and salt spray. Characters present: Nora Hale. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing charcoal wool coat over a dark sweater, dark jeans, rain-wet hair).
+Panel 5 — Scene 11 (Claire Boone's law office, grey morning, rain on the windows): [00s-07s] two-shot, medium shot with Claire Boone and Nora Hale: Claire Boone and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Claire slides a sealed envelope across the lawyer's desk. Key object in frame: the sealed petition. Location: Claire Boone's law office, grey morning, rain on the windows. Characters present: Nora Hale, Claire Boone. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing charcoal wool coat, dark jeans, hair dry now, no umbrella); Claire Boone (Cast Sheet Pos #5: age as shown in the reference sheet; brown blunt bob; wearing forest-green cardigan, cream blouse, dark trousers).
+Panel 6 — Scene 12 (Keller boathouse, night, one hanging bulb and a flashlight): [00s-07s] two-shot, medium shot with Nora Hale and Claire Boone: Nora Hale and Claire Boone face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora reads the witness signature and looks up slowly. Key object in frame: a witness signature. Location: Keller boathouse, night, one hanging bulb and a flashlight. Characters present: Nora Hale, Claire Boone. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing charcoal wool coat, dark jeans, hair dry now, no umbrella); Claire Boone (Cast Sheet Pos #5: age as shown in the reference sheet; brown blunt bob; wearing forest-green cardigan, cream blouse, dark trousers).
 
-Mantén continuidad exacta de posiciones, rostros, cuerpos, vestuario, props, locaciones, luz y hora del día entre las 6 viñetas. Cada viñeta es el PRIMER FRAME literal de la Toma 1 de su escena: mismo encuadre, misma cámara, mismo blocking y mismo objeto clave; la acción ya está en movimiento, nunca congelada. Cada viñeta es un plano cinematográfico 16:9 con acción legible.
-FORMATO DE VIÑETAS 100% VISUAL (SIN CAJAS DE TEXTO): Las 6 viñetas fotográficas en cuadrícula 3x2 deben ocupar el 100% del lienzo 16:9 separadas únicamente por líneas divisorias finas. Coloca SOLO el número pequeño [1], [2], [3], [4], [5], [6] en la esquina superior izquierda de cada viñeta. PROHIBIDO dibujar barras inferiores oscuras, subtítulos, cajas de texto o descripciones escritas dentro de la imagen.
+Keep exact continuity of positions, faces, bodies, wardrobe, props, locations, lighting and time of day across the 6 panels. Each panel is the literal FIRST FRAME of Shot 1 in its scene: same framing, same camera, same blocking and same key object; the action is already in motion, never frozen. Each panel is a 16:9 cinematic shot with legible action.
+100% VISUAL PANEL FORMAT (NO TEXT BOXES): The 6 photographic panels in a 3x2 grid must fill 100% of the 16:9 canvas, separated only by thin divider lines. Place ONLY the small number [1], [2], [3], [4], [5], [6] in the top-left corner of each panel. Drawing dark bottom bars, subtitles, text boxes or written descriptions inside the image is FORBIDDEN.
 ```
 
-### REF_GRID_MIN_03.png — Minuto 3 (escenas 13–18)
+### REF_GRID_MIN_03.png — Minute 3 (scenes 13–18)
 
 ```text
-Usando los personajes de REF_CAST_MASTER.png como referencia fija de rostros, edades, cuerpos y vestuarios, genera UNA IMAGEN horizontal 16:9 de Storyboard dividida en una cuadrícula limpia de 3x2 (6 viñetas numeradas del 1 al 6) que represente el MINUTO 3 (Escenas 13 a 18) de la historia en estilo Cinematográfico Realista 35mm:
+Using the characters in REF_CAST_MASTER.png as fixed references for faces, ages, bodies and wardrobes, generate A SINGLE horizontal 16:9 storyboard IMAGE divided into a clean 3x2 grid (6 panels numbered 1 to 6) representing MINUTE 3 (Scenes 13 to 18) of the story in Realistic Cinematic 35mm style:
 
-Look visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
+Visual look: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
 
-Viñeta 1 — Escena 13 (Keller estate, dusk, warm interior against blue windows): [00s-07s] two-shot, medium shot with Sam Calloway and Nora Hale: Sam Calloway and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Sam stands in the boathouse doorway, rain behind him. Key object in frame: a scorched beam. Location: Keller estate, dusk, warm interior against blue windows. Characters present: Nora Hale, Sam Calloway. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing charcoal wool coat, dark jeans, hair dry now, no umbrella); Sam Calloway (Cast Sheet Pos #2: mid-thirties; short dark-sand hair; wearing faded canvas work jacket, dark trousers, worn boots).
-Viñeta 2 — Escena 14 (Claire Boone's law office, grey morning, rain on the windows): [00s-07s] two-shot, medium shot with Sam Calloway and Nora Hale: Sam Calloway and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora sweeps a flashlight over scorched beams. Key object in frame: the survey map. Location: Claire Boone's law office, grey morning, rain on the windows. Characters present: Nora Hale, Sam Calloway, Claire Boone. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing charcoal wool coat, dark jeans, hair dry now, no umbrella); Sam Calloway (Cast Sheet Pos #2: mid-thirties; short dark-sand hair; wearing faded canvas work jacket, dark trousers, worn boots); Claire Boone (Cast Sheet Pos #5: age as shown in the reference sheet; brown blunt bob; wearing forest-green cardigan, cream blouse, dark trousers).
-Viñeta 3 — Escena 15 (Keller boathouse, night, one hanging bulb and a flashlight): [00s-07s] two-shot, medium shot with Margaret Keller and Nora Hale: Margaret Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Margaret pours tea without offering a cup. Key object in frame: the sealed petition. Location: Keller boathouse, night, one hanging bulb and a flashlight. Characters present: Nora Hale, Margaret Keller. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing charcoal wool coat, dark jeans, hair dry now, no umbrella); Margaret Keller (Cast Sheet Pos #3: late sixties; tall and straight-backed; wearing tailored dove-grey suit, pearls, low-heeled shoes).
-Viñeta 4 — Escena 16 (Keller estate, dusk, warm interior against blue windows): [00s-07s] two-shot, medium shot with Nora Hale and Adrian Keller: Nora Hale and Adrian Keller face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora stands in the town hall doorway as every head turns. Key object in frame: a witness signature. Location: Keller estate, dusk, warm interior against blue windows. Characters present: Nora Hale, Adrian Keller. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing charcoal wool coat, dark jeans, hair dry now, no umbrella); Adrian Keller (Cast Sheet Pos #4: late thirties; ash-blond hair swept back; wearing navy blazer, open-collared white shirt, dark trousers).
-Viñeta 5 — Escena 17 (Boone law office, grey morning, rain on the windows): [00s-07s] two-shot, medium shot with Sam Calloway and Nora Hale: Sam Calloway and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Adrian corners Nora by the harbor railing. Key object in frame: a scorched beam. Location: Boone law office, grey morning, rain on the windows. Characters present: Nora Hale, Sam Calloway, Adrian Keller. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing charcoal wool coat, dark jeans, hair dry now, no umbrella); Sam Calloway (Cast Sheet Pos #2: mid-thirties; short dark-sand hair; wearing faded canvas work jacket, dark trousers, worn boots); Adrian Keller (Cast Sheet Pos #4: late thirties; ash-blond hair swept back; wearing navy blazer, open-collared white shirt, dark trousers).
-Viñeta 6 — Escena 18 (Keller boathouse, night, one hanging bulb and a flashlight): [00s-07s] two-shot, medium shot with Sam Calloway and Nora Hale: Sam Calloway and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora stares at a survey map pinned to the boathouse wall. Key object in frame: the survey map. Location: Keller boathouse, night, one hanging bulb and a flashlight. Characters present: Nora Hale, Sam Calloway. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing charcoal wool coat, dark jeans, hair dry now, no umbrella); Sam Calloway (Cast Sheet Pos #2: mid-thirties; short dark-sand hair; wearing faded canvas work jacket, dark trousers, worn boots).
+Panel 1 — Scene 13 (Keller estate, dusk, warm interior against blue windows): [00s-07s] two-shot, medium shot with Sam Calloway and Nora Hale: Sam Calloway and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Sam stands in the boathouse doorway, rain behind him. Key object in frame: a scorched beam. Location: Keller estate, dusk, warm interior against blue windows. Characters present: Nora Hale, Sam Calloway. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing charcoal wool coat, dark jeans, hair dry now, no umbrella); Sam Calloway (Cast Sheet Pos #2: mid-thirties; short dark-sand hair; wearing faded canvas work jacket, dark trousers, worn boots).
+Panel 2 — Scene 14 (Claire Boone's law office, grey morning, rain on the windows): [00s-07s] two-shot, medium shot with Sam Calloway and Nora Hale: Sam Calloway and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora sweeps a flashlight over scorched beams. Key object in frame: the survey map. Location: Claire Boone's law office, grey morning, rain on the windows. Characters present: Nora Hale, Sam Calloway, Claire Boone. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing charcoal wool coat, dark jeans, hair dry now, no umbrella); Sam Calloway (Cast Sheet Pos #2: mid-thirties; short dark-sand hair; wearing faded canvas work jacket, dark trousers, worn boots); Claire Boone (Cast Sheet Pos #5: age as shown in the reference sheet; brown blunt bob; wearing forest-green cardigan, cream blouse, dark trousers).
+Panel 3 — Scene 15 (Keller boathouse, night, one hanging bulb and a flashlight): [00s-07s] two-shot, medium shot with Margaret Keller and Nora Hale: Margaret Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Margaret pours tea without offering a cup. Key object in frame: the sealed petition. Location: Keller boathouse, night, one hanging bulb and a flashlight. Characters present: Nora Hale, Margaret Keller. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing charcoal wool coat, dark jeans, hair dry now, no umbrella); Margaret Keller (Cast Sheet Pos #3: late sixties; tall and straight-backed; wearing tailored dove-grey suit, pearls, low-heeled shoes).
+Panel 4 — Scene 16 (Keller estate, dusk, warm interior against blue windows): [00s-07s] two-shot, medium shot with Nora Hale and Adrian Keller: Nora Hale and Adrian Keller face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora stands in the town hall doorway as every head turns. Key object in frame: a witness signature. Location: Keller estate, dusk, warm interior against blue windows. Characters present: Nora Hale, Adrian Keller. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing charcoal wool coat, dark jeans, hair dry now, no umbrella); Adrian Keller (Cast Sheet Pos #4: late thirties; ash-blond hair swept back; wearing navy blazer, open-collared white shirt, dark trousers).
+Panel 5 — Scene 17 (Boone law office, grey morning, rain on the windows): [00s-07s] two-shot, medium shot with Sam Calloway and Nora Hale: Sam Calloway and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Adrian corners Nora by the harbor railing. Key object in frame: a scorched beam. Location: Boone law office, grey morning, rain on the windows. Characters present: Nora Hale, Sam Calloway, Adrian Keller. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing charcoal wool coat, dark jeans, hair dry now, no umbrella); Sam Calloway (Cast Sheet Pos #2: mid-thirties; short dark-sand hair; wearing faded canvas work jacket, dark trousers, worn boots); Adrian Keller (Cast Sheet Pos #4: late thirties; ash-blond hair swept back; wearing navy blazer, open-collared white shirt, dark trousers).
+Panel 6 — Scene 18 (Keller boathouse, night, one hanging bulb and a flashlight): [00s-07s] two-shot, medium shot with Sam Calloway and Nora Hale: Sam Calloway and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora stares at a survey map pinned to the boathouse wall. Key object in frame: the survey map. Location: Keller boathouse, night, one hanging bulb and a flashlight. Characters present: Nora Hale, Sam Calloway. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing charcoal wool coat, dark jeans, hair dry now, no umbrella); Sam Calloway (Cast Sheet Pos #2: mid-thirties; short dark-sand hair; wearing faded canvas work jacket, dark trousers, worn boots).
 
-Mantén continuidad exacta de posiciones, rostros, cuerpos, vestuario, props, locaciones, luz y hora del día entre las 6 viñetas. Cada viñeta es el PRIMER FRAME literal de la Toma 1 de su escena: mismo encuadre, misma cámara, mismo blocking y mismo objeto clave; la acción ya está en movimiento, nunca congelada. Cada viñeta es un plano cinematográfico 16:9 con acción legible.
-FORMATO DE VIÑETAS 100% VISUAL (SIN CAJAS DE TEXTO): Las 6 viñetas fotográficas en cuadrícula 3x2 deben ocupar el 100% del lienzo 16:9 separadas únicamente por líneas divisorias finas. Coloca SOLO el número pequeño [1], [2], [3], [4], [5], [6] en la esquina superior izquierda de cada viñeta. PROHIBIDO dibujar barras inferiores oscuras, subtítulos, cajas de texto o descripciones escritas dentro de la imagen.
+Keep exact continuity of positions, faces, bodies, wardrobe, props, locations, lighting and time of day across the 6 panels. Each panel is the literal FIRST FRAME of Shot 1 in its scene: same framing, same camera, same blocking and same key object; the action is already in motion, never frozen. Each panel is a 16:9 cinematic shot with legible action.
+100% VISUAL PANEL FORMAT (NO TEXT BOXES): The 6 photographic panels in a 3x2 grid must fill 100% of the 16:9 canvas, separated only by thin divider lines. Place ONLY the small number [1], [2], [3], [4], [5], [6] in the top-left corner of each panel. Drawing dark bottom bars, subtitles, text boxes or written descriptions inside the image is FORBIDDEN.
 ```
 
-### REF_GRID_MIN_04.png — Minuto 4 (escenas 19–24)
+### REF_GRID_MIN_04.png — Minute 4 (scenes 19–24)
 
 ```text
-Usando los personajes de REF_CAST_MASTER.png como referencia fija de rostros, edades, cuerpos y vestuarios, genera UNA IMAGEN horizontal 16:9 de Storyboard dividida en una cuadrícula limpia de 3x2 (6 viñetas numeradas del 1 al 6) que represente el MINUTO 4 (Escenas 19 a 24) de la historia en estilo Cinematográfico Realista 35mm:
+Using the characters in REF_CAST_MASTER.png as fixed references for faces, ages, bodies and wardrobes, generate A SINGLE horizontal 16:9 storyboard IMAGE divided into a clean 3x2 grid (6 panels numbered 1 to 6) representing MINUTE 4 (Scenes 19 to 24) of the story in Realistic Cinematic 35mm style:
 
-Look visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
+Visual look: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
 
-Viñeta 1 — Escena 19 (Keller estate, dusk, warm interior against blue windows): [00s-07s] two-shot, medium shot with Nora Hale and Sam Calloway: Nora Hale and Sam Calloway face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora Hale speaks as the camera holds close on their face, the sealed petition catching the light between them. Location: Keller estate, dusk, warm interior against blue windows. Key object: the sealed petition. Characters present: Nora Hale, Sam Calloway. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing charcoal wool coat, dark jeans, hair dry now, no umbrella); Sam Calloway (Cast Sheet Pos #2: mid-thirties; short dark-sand hair; wearing faded canvas work jacket, dark trousers, worn boots).
-Viñeta 2 — Escena 20 (Claire Boone's law office, grey morning, rain on the windows): [00s-07s] two-shot, medium shot with Adrian Keller and Nora Hale: Adrian Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Adrian holds the lighthouse door open, waiting. Key object in frame: a witness signature. Location: Claire Boone's law office, grey morning, rain on the windows. Characters present: Nora Hale, Adrian Keller, Claire Boone. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing charcoal wool coat, dark jeans, hair dry now, no umbrella); Adrian Keller (Cast Sheet Pos #4: late thirties; ash-blond hair swept back; wearing navy blazer, open-collared white shirt, dark trousers); Claire Boone (Cast Sheet Pos #5: age as shown in the reference sheet; brown blunt bob; wearing forest-green cardigan, cream blouse, dark trousers).
-Viñeta 3 — Escena 21 (Keller boathouse, night, flashlight and dust): [00s-07s] two-shot, medium shot with Adrian Keller and Nora Hale: Adrian Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora spreads water-stained survey files across the lighthouse floor. Key object in frame: the metal evidence box. Location: Keller boathouse, night, flashlight and dust. Characters present: Nora Hale, Adrian Keller. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing cream knit sweater under the charcoal coat, hair loose); Adrian Keller (Cast Sheet Pos #4: late thirties; ash-blond hair swept back; wearing navy blazer, open-collared white shirt, dark trousers).
-Viñeta 4 — Escena 22 (Hale lighthouse archive room, night, a single desk lamp): [00s-07s] two-shot, medium shot with Margaret Keller and Nora Hale: Margaret Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Sam jimmies the boathouse lock with a pry bar. Key object in frame: the seawall permit. Location: Hale lighthouse archive room, night, a single desk lamp. Characters present: Nora Hale, Sam Calloway, Margaret Keller. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing cream knit sweater under the charcoal coat, hair loose); Sam Calloway (Cast Sheet Pos #2: mid-thirties; short dark-sand hair; wearing faded canvas work jacket, dark trousers, worn boots); Margaret Keller (Cast Sheet Pos #3: late sixties; tall and straight-backed; wearing tailored dove-grey suit, pearls, low-heeled shoes).
-Viñeta 5 — Escena 23 (Harbor diner, dawn, cold fluorescent light and steam): [00s-07s] two-shot, medium shot with Claire Boone and Nora Hale: Claire Boone and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora's flashlight beam catches a metal box under the floorboards. Key object in frame: a folded page. Location: Harbor diner, dawn, cold fluorescent light and steam. Characters present: Nora Hale, Claire Boone. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing cream knit sweater under the charcoal coat, hair loose); Claire Boone (Cast Sheet Pos #5: age as shown in the reference sheet; brown blunt bob; wearing forest-green cardigan, cream blouse, dark trousers).
-Viñeta 6 — Escena 24 (Keller boathouse, night, flashlight and dust): [00s-07s] two-shot, medium shot with Sam Calloway and Nora Hale: Sam Calloway and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Sam Calloway speaks as the camera holds close on their face, a diner coffee cup catching the light between them. Location: Keller boathouse, night, flashlight and dust. Key object: a diner coffee cup. Characters present: Nora Hale, Sam Calloway. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing cream knit sweater under the charcoal coat, hair loose); Sam Calloway (Cast Sheet Pos #2: mid-thirties; short dark-sand hair; wearing faded canvas work jacket, dark trousers, worn boots).
+Panel 1 — Scene 19 (Keller estate, dusk, warm interior against blue windows): [00s-07s] two-shot, medium shot with Nora Hale and Sam Calloway: Nora Hale and Sam Calloway face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora Hale speaks as the camera holds close on their face, the sealed petition catching the light between them. Location: Keller estate, dusk, warm interior against blue windows. Key object: the sealed petition. Characters present: Nora Hale, Sam Calloway. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing charcoal wool coat, dark jeans, hair dry now, no umbrella); Sam Calloway (Cast Sheet Pos #2: mid-thirties; short dark-sand hair; wearing faded canvas work jacket, dark trousers, worn boots).
+Panel 2 — Scene 20 (Claire Boone's law office, grey morning, rain on the windows): [00s-07s] two-shot, medium shot with Adrian Keller and Nora Hale: Adrian Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Adrian holds the lighthouse door open, waiting. Key object in frame: a witness signature. Location: Claire Boone's law office, grey morning, rain on the windows. Characters present: Nora Hale, Adrian Keller, Claire Boone. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing charcoal wool coat, dark jeans, hair dry now, no umbrella); Adrian Keller (Cast Sheet Pos #4: late thirties; ash-blond hair swept back; wearing navy blazer, open-collared white shirt, dark trousers); Claire Boone (Cast Sheet Pos #5: age as shown in the reference sheet; brown blunt bob; wearing forest-green cardigan, cream blouse, dark trousers).
+Panel 3 — Scene 21 (Keller boathouse, night, flashlight and dust): [00s-07s] two-shot, medium shot with Adrian Keller and Nora Hale: Adrian Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora spreads water-stained survey files across the lighthouse floor. Key object in frame: the metal evidence box. Location: Keller boathouse, night, flashlight and dust. Characters present: Nora Hale, Adrian Keller. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing cream knit sweater under the charcoal coat, hair loose); Adrian Keller (Cast Sheet Pos #4: late thirties; ash-blond hair swept back; wearing navy blazer, open-collared white shirt, dark trousers).
+Panel 4 — Scene 22 (Hale lighthouse archive room, night, a single desk lamp): [00s-07s] two-shot, medium shot with Margaret Keller and Nora Hale: Margaret Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Sam jimmies the boathouse lock with a pry bar. Key object in frame: the seawall permit. Location: Hale lighthouse archive room, night, a single desk lamp. Characters present: Nora Hale, Sam Calloway, Margaret Keller. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing cream knit sweater under the charcoal coat, hair loose); Sam Calloway (Cast Sheet Pos #2: mid-thirties; short dark-sand hair; wearing faded canvas work jacket, dark trousers, worn boots); Margaret Keller (Cast Sheet Pos #3: late sixties; tall and straight-backed; wearing tailored dove-grey suit, pearls, low-heeled shoes).
+Panel 5 — Scene 23 (Harbor diner, dawn, cold fluorescent light and steam): [00s-07s] two-shot, medium shot with Claire Boone and Nora Hale: Claire Boone and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora's flashlight beam catches a metal box under the floorboards. Key object in frame: a folded page. Location: Harbor diner, dawn, cold fluorescent light and steam. Characters present: Nora Hale, Claire Boone. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing cream knit sweater under the charcoal coat, hair loose); Claire Boone (Cast Sheet Pos #5: age as shown in the reference sheet; brown blunt bob; wearing forest-green cardigan, cream blouse, dark trousers).
+Panel 6 — Scene 24 (Keller boathouse, night, flashlight and dust): [00s-07s] two-shot, medium shot with Sam Calloway and Nora Hale: Sam Calloway and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Sam Calloway speaks as the camera holds close on their face, a diner coffee cup catching the light between them. Location: Keller boathouse, night, flashlight and dust. Key object: a diner coffee cup. Characters present: Nora Hale, Sam Calloway. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing cream knit sweater under the charcoal coat, hair loose); Sam Calloway (Cast Sheet Pos #2: mid-thirties; short dark-sand hair; wearing faded canvas work jacket, dark trousers, worn boots).
 
-Mantén continuidad exacta de posiciones, rostros, cuerpos, vestuario, props, locaciones, luz y hora del día entre las 6 viñetas. Cada viñeta es el PRIMER FRAME literal de la Toma 1 de su escena: mismo encuadre, misma cámara, mismo blocking y mismo objeto clave; la acción ya está en movimiento, nunca congelada. Cada viñeta es un plano cinematográfico 16:9 con acción legible.
-FORMATO DE VIÑETAS 100% VISUAL (SIN CAJAS DE TEXTO): Las 6 viñetas fotográficas en cuadrícula 3x2 deben ocupar el 100% del lienzo 16:9 separadas únicamente por líneas divisorias finas. Coloca SOLO el número pequeño [1], [2], [3], [4], [5], [6] en la esquina superior izquierda de cada viñeta. PROHIBIDO dibujar barras inferiores oscuras, subtítulos, cajas de texto o descripciones escritas dentro de la imagen.
+Keep exact continuity of positions, faces, bodies, wardrobe, props, locations, lighting and time of day across the 6 panels. Each panel is the literal FIRST FRAME of Shot 1 in its scene: same framing, same camera, same blocking and same key object; the action is already in motion, never frozen. Each panel is a 16:9 cinematic shot with legible action.
+100% VISUAL PANEL FORMAT (NO TEXT BOXES): The 6 photographic panels in a 3x2 grid must fill 100% of the 16:9 canvas, separated only by thin divider lines. Place ONLY the small number [1], [2], [3], [4], [5], [6] in the top-left corner of each panel. Drawing dark bottom bars, subtitles, text boxes or written descriptions inside the image is FORBIDDEN.
 ```
 
-### REF_GRID_MIN_05.png — Minuto 5 (escenas 25–30)
+### REF_GRID_MIN_05.png — Minute 5 (scenes 25–30)
 
 ```text
-Usando los personajes de REF_CAST_MASTER.png como referencia fija de rostros, edades, cuerpos y vestuarios, genera UNA IMAGEN horizontal 16:9 de Storyboard dividida en una cuadrícula limpia de 3x2 (6 viñetas numeradas del 1 al 6) que represente el MINUTO 5 (Escenas 25 a 30) de la historia en estilo Cinematográfico Realista 35mm:
+Using the characters in REF_CAST_MASTER.png as fixed references for faces, ages, bodies and wardrobes, generate A SINGLE horizontal 16:9 storyboard IMAGE divided into a clean 3x2 grid (6 panels numbered 1 to 6) representing MINUTE 5 (Scenes 25 to 30) of the story in Realistic Cinematic 35mm style:
 
-Look visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
+Visual look: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
 
-Viñeta 1 — Escena 25 (Hale lighthouse archive room, night, a single desk lamp): [00s-07s] two-shot, medium shot with Adrian Keller and Nora Hale: Adrian Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora holds a permit signed by Margaret, dated before the fire. Key object in frame: the metal evidence box. Location: Hale lighthouse archive room, night, a single desk lamp. Characters present: Nora Hale, Margaret Keller, Adrian Keller. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing cream knit sweater under the charcoal coat, hair loose); Margaret Keller (Cast Sheet Pos #3: late sixties; tall and straight-backed; wearing tailored dove-grey suit, pearls, low-heeled shoes); Adrian Keller (Cast Sheet Pos #4: late thirties; ash-blond hair swept back; wearing navy blazer, open-collared white shirt, dark trousers).
-Viñeta 2 — Escena 26 (Harbor diner, dawn, cold fluorescent light and steam): [00s-07s] two-shot, medium shot with Nora Hale and Sam Calloway: Nora Hale and Sam Calloway face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora and Sam stand close in the archive, the file between them. Key object in frame: the seawall permit. Location: Harbor diner, dawn, cold fluorescent light and steam. Characters present: Nora Hale, Sam Calloway. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing cream knit sweater under the charcoal coat, hair loose); Sam Calloway (Cast Sheet Pos #2: mid-thirties; short dark-sand hair; wearing faded canvas work jacket, dark trousers, worn boots).
-Viñeta 3 — Escena 27 (Keller boathouse, night, flashlight and dust): [00s-07s] two-shot, medium shot with Nora Hale and Sam Calloway: Nora Hale and Sam Calloway face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Adrian waits in a diner booth across from Nora. Key object in frame: a folded page. Location: Keller boathouse, night, flashlight and dust. Characters present: Nora Hale, Sam Calloway, Adrian Keller. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing cream knit sweater under the charcoal coat, hair loose); Sam Calloway (Cast Sheet Pos #2: mid-thirties; short dark-sand hair; wearing faded canvas work jacket, dark trousers, worn boots); Adrian Keller (Cast Sheet Pos #4: late thirties; ash-blond hair swept back; wearing navy blazer, open-collared white shirt, dark trousers).
-Viñeta 4 — Escena 28 (Hale lighthouse archive room, night, a single desk lamp): [00s-07s] two-shot, medium shot with Nora Hale and Sam Calloway: Nora Hale and Sam Calloway face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora slides the file across the table, keeping one page back. Key object in frame: a diner coffee cup. Location: Hale lighthouse archive room, night, a single desk lamp. Characters present: Nora Hale, Sam Calloway. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing cream knit sweater under the charcoal coat, hair loose); Sam Calloway (Cast Sheet Pos #2: mid-thirties; short dark-sand hair; wearing faded canvas work jacket, dark trousers, worn boots).
-Viñeta 5 — Escena 29 (Harbor diner, dawn, cold fluorescent light and steam): [00s-07s] two-shot, medium shot with Adrian Keller and Nora Hale: Adrian Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Adrian Keller speaks as the camera holds close on their face, the metal evidence box catching the light between them. Location: Harbor diner, dawn, cold fluorescent light and steam. Key object: the metal evidence box. Characters present: Nora Hale, Adrian Keller. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing cream knit sweater under the charcoal coat, hair loose); Adrian Keller (Cast Sheet Pos #4: late thirties; ash-blond hair swept back; wearing navy blazer, open-collared white shirt, dark trousers).
-Viñeta 6 — Escena 30 (Keller boathouse, night, flashlight and dust): [00s-07s] two-shot, medium shot with Margaret Keller and Nora Hale: Margaret Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Margaret Keller speaks as the camera holds close on their face, the seawall permit catching the light between them. Location: Keller boathouse, night, flashlight and dust. Key object: the seawall permit. Characters present: Nora Hale, Margaret Keller. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing cream knit sweater under the charcoal coat, hair loose); Margaret Keller (Cast Sheet Pos #3: late sixties; tall and straight-backed; wearing tailored dove-grey suit, pearls, low-heeled shoes).
+Panel 1 — Scene 25 (Hale lighthouse archive room, night, a single desk lamp): [00s-07s] two-shot, medium shot with Adrian Keller and Nora Hale: Adrian Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora holds a permit signed by Margaret, dated before the fire. Key object in frame: the metal evidence box. Location: Hale lighthouse archive room, night, a single desk lamp. Characters present: Nora Hale, Margaret Keller, Adrian Keller. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing cream knit sweater under the charcoal coat, hair loose); Margaret Keller (Cast Sheet Pos #3: late sixties; tall and straight-backed; wearing tailored dove-grey suit, pearls, low-heeled shoes); Adrian Keller (Cast Sheet Pos #4: late thirties; ash-blond hair swept back; wearing navy blazer, open-collared white shirt, dark trousers).
+Panel 2 — Scene 26 (Harbor diner, dawn, cold fluorescent light and steam): [00s-07s] two-shot, medium shot with Nora Hale and Sam Calloway: Nora Hale and Sam Calloway face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora and Sam stand close in the archive, the file between them. Key object in frame: the seawall permit. Location: Harbor diner, dawn, cold fluorescent light and steam. Characters present: Nora Hale, Sam Calloway. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing cream knit sweater under the charcoal coat, hair loose); Sam Calloway (Cast Sheet Pos #2: mid-thirties; short dark-sand hair; wearing faded canvas work jacket, dark trousers, worn boots).
+Panel 3 — Scene 27 (Keller boathouse, night, flashlight and dust): [00s-07s] two-shot, medium shot with Nora Hale and Sam Calloway: Nora Hale and Sam Calloway face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Adrian waits in a diner booth across from Nora. Key object in frame: a folded page. Location: Keller boathouse, night, flashlight and dust. Characters present: Nora Hale, Sam Calloway, Adrian Keller. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing cream knit sweater under the charcoal coat, hair loose); Sam Calloway (Cast Sheet Pos #2: mid-thirties; short dark-sand hair; wearing faded canvas work jacket, dark trousers, worn boots); Adrian Keller (Cast Sheet Pos #4: late thirties; ash-blond hair swept back; wearing navy blazer, open-collared white shirt, dark trousers).
+Panel 4 — Scene 28 (Hale lighthouse archive room, night, a single desk lamp): [00s-07s] two-shot, medium shot with Nora Hale and Sam Calloway: Nora Hale and Sam Calloway face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora slides the file across the table, keeping one page back. Key object in frame: a diner coffee cup. Location: Hale lighthouse archive room, night, a single desk lamp. Characters present: Nora Hale, Sam Calloway. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing cream knit sweater under the charcoal coat, hair loose); Sam Calloway (Cast Sheet Pos #2: mid-thirties; short dark-sand hair; wearing faded canvas work jacket, dark trousers, worn boots).
+Panel 5 — Scene 29 (Harbor diner, dawn, cold fluorescent light and steam): [00s-07s] two-shot, medium shot with Adrian Keller and Nora Hale: Adrian Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Adrian Keller speaks as the camera holds close on their face, the metal evidence box catching the light between them. Location: Harbor diner, dawn, cold fluorescent light and steam. Key object: the metal evidence box. Characters present: Nora Hale, Adrian Keller. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing cream knit sweater under the charcoal coat, hair loose); Adrian Keller (Cast Sheet Pos #4: late thirties; ash-blond hair swept back; wearing navy blazer, open-collared white shirt, dark trousers).
+Panel 6 — Scene 30 (Keller boathouse, night, flashlight and dust): [00s-07s] two-shot, medium shot with Margaret Keller and Nora Hale: Margaret Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Margaret Keller speaks as the camera holds close on their face, the seawall permit catching the light between them. Location: Keller boathouse, night, flashlight and dust. Key object: the seawall permit. Characters present: Nora Hale, Margaret Keller. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing cream knit sweater under the charcoal coat, hair loose); Margaret Keller (Cast Sheet Pos #3: late sixties; tall and straight-backed; wearing tailored dove-grey suit, pearls, low-heeled shoes).
 
-Mantén continuidad exacta de posiciones, rostros, cuerpos, vestuario, props, locaciones, luz y hora del día entre las 6 viñetas. Cada viñeta es el PRIMER FRAME literal de la Toma 1 de su escena: mismo encuadre, misma cámara, mismo blocking y mismo objeto clave; la acción ya está en movimiento, nunca congelada. Cada viñeta es un plano cinematográfico 16:9 con acción legible.
-FORMATO DE VIÑETAS 100% VISUAL (SIN CAJAS DE TEXTO): Las 6 viñetas fotográficas en cuadrícula 3x2 deben ocupar el 100% del lienzo 16:9 separadas únicamente por líneas divisorias finas. Coloca SOLO el número pequeño [1], [2], [3], [4], [5], [6] en la esquina superior izquierda de cada viñeta. PROHIBIDO dibujar barras inferiores oscuras, subtítulos, cajas de texto o descripciones escritas dentro de la imagen.
+Keep exact continuity of positions, faces, bodies, wardrobe, props, locations, lighting and time of day across the 6 panels. Each panel is the literal FIRST FRAME of Shot 1 in its scene: same framing, same camera, same blocking and same key object; the action is already in motion, never frozen. Each panel is a 16:9 cinematic shot with legible action.
+100% VISUAL PANEL FORMAT (NO TEXT BOXES): The 6 photographic panels in a 3x2 grid must fill 100% of the 16:9 canvas, separated only by thin divider lines. Place ONLY the small number [1], [2], [3], [4], [5], [6] in the top-left corner of each panel. Drawing dark bottom bars, subtitles, text boxes or written descriptions inside the image is FORBIDDEN.
 ```
 
-### REF_GRID_MIN_06.png — Minuto 6 (escenas 31–36)
+### REF_GRID_MIN_06.png — Minute 6 (scenes 31–36)
 
 ```text
-Usando los personajes de REF_CAST_MASTER.png como referencia fija de rostros, edades, cuerpos y vestuarios, genera UNA IMAGEN horizontal 16:9 de Storyboard dividida en una cuadrícula limpia de 3x2 (6 viñetas numeradas del 1 al 6) que represente el MINUTO 6 (Escenas 31 a 36) de la historia en estilo Cinematográfico Realista 35mm:
+Using the characters in REF_CAST_MASTER.png as fixed references for faces, ages, bodies and wardrobes, generate A SINGLE horizontal 16:9 storyboard IMAGE divided into a clean 3x2 grid (6 panels numbered 1 to 6) representing MINUTE 6 (Scenes 31 to 36) of the story in Realistic Cinematic 35mm style:
 
-Look visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
+Visual look: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
 
-Viñeta 1 — Escena 31 (Town hall hearing room, grey morning, rain streaking the windows): [00s-07s] two-shot, medium shot with Nora Hale and Margaret Keller: Nora Hale and Margaret Keller face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Rain hammers the town hall windows as Nora faces the panel. Key object in frame: the emergency petition. Location: Town hall hearing room, grey morning, rain streaking the windows. Characters present: Nora Hale, Margaret Keller. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing storm-soaked shirt and trousers, no coat, hair plastered down); Margaret Keller (Cast Sheet Pos #3: late sixties; tall and straight-backed; wearing tailored dove-grey suit, pearls, low-heeled shoes).
-Viñeta 2 — Escena 32 (Town hall hearing room, grey morning, rain streaking the windows): [00s-07s] two-shot, medium shot with Claire Boone and Nora Hale: Claire Boone and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. The hearing room is packed; Claire leans close to Nora. Key object in frame: the emergency petition. Location: Town hall hearing room, grey morning, rain streaking the windows. Characters present: Nora Hale, Claire Boone. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing storm-soaked shirt and trousers, no coat, hair plastered down); Claire Boone (Cast Sheet Pos #5: age as shown in the reference sheet; brown blunt bob; wearing forest-green cardigan, cream blouse, dark trousers).
-Viñeta 3 — Escena 33 (Town hall hearing room, grey morning, rain streaking the windows): [00s-07s] two-shot, medium shot with Sam Calloway and Nora Hale: Sam Calloway and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Sam catches Nora in the hearing room before she takes her seat. Key object in frame: a statement form. Location: Town hall hearing room, grey morning, rain streaking the windows. Characters present: Nora Hale, Sam Calloway. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing storm-soaked shirt and trousers, no coat, hair plastered down); Sam Calloway (Cast Sheet Pos #2: mid-thirties; short dark-sand hair; wearing faded canvas work jacket, dark trousers, worn boots).
-Viñeta 4 — Escena 34 (Town hall hearing room, grey morning, rain streaking the windows): [00s-07s] two-shot, medium shot with Sam Calloway and Margaret Keller: Sam Calloway and Margaret Keller face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Sam Calloway speaks as the camera holds close on their face, a statement form catching the light between them. Location: Town hall hearing room, grey morning, rain streaking the windows. Key object: a statement form. Characters present: Sam Calloway, Margaret Keller. No other characters appear. Identity anchors: Sam Calloway (Cast Sheet Pos #2: mid-thirties; short dark-sand hair; wearing faded canvas work jacket, dark trousers, worn boots); Margaret Keller (Cast Sheet Pos #3: late sixties; tall and straight-backed; wearing tailored dove-grey suit, pearls, low-heeled shoes).
-Viñeta 5 — Escena 35 (Town hall hearing room, grey morning, rain streaking the windows): [00s-04s] tight close-up, face and mouth visible: Nora Hale is on camera with face and mouth fully visible, looking at Adrian Keller. Nora faces Adrian across the hearing room. Key object in frame: the petition ruling. Location: Town hall hearing room, grey morning, rain streaking the windows. Characters present: Nora Hale, Adrian Keller. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing storm-soaked shirt and trousers, no coat, hair plastered down); Adrian Keller (Cast Sheet Pos #4: late thirties; ash-blond hair swept back; wearing navy blazer, open-collared white shirt, dark trousers).
-Viñeta 6 — Escena 36 (Town hall hearing room, grey morning, rain streaking the windows): [00s-07s] two-shot, medium shot with Margaret Keller and Nora Hale: Margaret Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. The clerk stamps the petition; the room goes silent. Key object in frame: the petition ruling. Location: Town hall hearing room, grey morning, rain streaking the windows. Characters present: Nora Hale, Margaret Keller. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing storm-soaked shirt and trousers, no coat, hair plastered down); Margaret Keller (Cast Sheet Pos #3: late sixties; tall and straight-backed; wearing tailored dove-grey suit, pearls, low-heeled shoes).
+Panel 1 — Scene 31 (Town hall hearing room, grey morning, rain streaking the windows): [00s-07s] two-shot, medium shot with Nora Hale and Margaret Keller: Nora Hale and Margaret Keller face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Rain hammers the town hall windows as Nora faces the panel. Key object in frame: the emergency petition. Location: Town hall hearing room, grey morning, rain streaking the windows. Characters present: Nora Hale, Margaret Keller. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing storm-soaked shirt and trousers, no coat, hair plastered down); Margaret Keller (Cast Sheet Pos #3: late sixties; tall and straight-backed; wearing tailored dove-grey suit, pearls, low-heeled shoes).
+Panel 2 — Scene 32 (Town hall hearing room, grey morning, rain streaking the windows): [00s-07s] two-shot, medium shot with Claire Boone and Nora Hale: Claire Boone and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. The hearing room is packed; Claire leans close to Nora. Key object in frame: the emergency petition. Location: Town hall hearing room, grey morning, rain streaking the windows. Characters present: Nora Hale, Claire Boone. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing storm-soaked shirt and trousers, no coat, hair plastered down); Claire Boone (Cast Sheet Pos #5: age as shown in the reference sheet; brown blunt bob; wearing forest-green cardigan, cream blouse, dark trousers).
+Panel 3 — Scene 33 (Town hall hearing room, grey morning, rain streaking the windows): [00s-07s] two-shot, medium shot with Sam Calloway and Nora Hale: Sam Calloway and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Sam catches Nora in the hearing room before she takes her seat. Key object in frame: a statement form. Location: Town hall hearing room, grey morning, rain streaking the windows. Characters present: Nora Hale, Sam Calloway. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing storm-soaked shirt and trousers, no coat, hair plastered down); Sam Calloway (Cast Sheet Pos #2: mid-thirties; short dark-sand hair; wearing faded canvas work jacket, dark trousers, worn boots).
+Panel 4 — Scene 34 (Town hall hearing room, grey morning, rain streaking the windows): [00s-07s] two-shot, medium shot with Sam Calloway and Margaret Keller: Sam Calloway and Margaret Keller face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Sam Calloway speaks as the camera holds close on their face, a statement form catching the light between them. Location: Town hall hearing room, grey morning, rain streaking the windows. Key object: a statement form. Characters present: Sam Calloway, Margaret Keller. No other characters appear. Identity anchors: Sam Calloway (Cast Sheet Pos #2: mid-thirties; short dark-sand hair; wearing faded canvas work jacket, dark trousers, worn boots); Margaret Keller (Cast Sheet Pos #3: late sixties; tall and straight-backed; wearing tailored dove-grey suit, pearls, low-heeled shoes).
+Panel 5 — Scene 35 (Town hall hearing room, grey morning, rain streaking the windows): [00s-04s] tight close-up, face and mouth visible: Nora Hale is on camera with face and mouth fully visible, looking at Adrian Keller. Nora faces Adrian across the hearing room. Key object in frame: the petition ruling. Location: Town hall hearing room, grey morning, rain streaking the windows. Characters present: Nora Hale, Adrian Keller. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing storm-soaked shirt and trousers, no coat, hair plastered down); Adrian Keller (Cast Sheet Pos #4: late thirties; ash-blond hair swept back; wearing navy blazer, open-collared white shirt, dark trousers).
+Panel 6 — Scene 36 (Town hall hearing room, grey morning, rain streaking the windows): [00s-07s] two-shot, medium shot with Margaret Keller and Nora Hale: Margaret Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. The clerk stamps the petition; the room goes silent. Key object in frame: the petition ruling. Location: Town hall hearing room, grey morning, rain streaking the windows. Characters present: Nora Hale, Margaret Keller. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing storm-soaked shirt and trousers, no coat, hair plastered down); Margaret Keller (Cast Sheet Pos #3: late sixties; tall and straight-backed; wearing tailored dove-grey suit, pearls, low-heeled shoes).
 
-Mantén continuidad exacta de posiciones, rostros, cuerpos, vestuario, props, locaciones, luz y hora del día entre las 6 viñetas. Cada viñeta es el PRIMER FRAME literal de la Toma 1 de su escena: mismo encuadre, misma cámara, mismo blocking y mismo objeto clave; la acción ya está en movimiento, nunca congelada. Cada viñeta es un plano cinematográfico 16:9 con acción legible.
-FORMATO DE VIÑETAS 100% VISUAL (SIN CAJAS DE TEXTO): Las 6 viñetas fotográficas en cuadrícula 3x2 deben ocupar el 100% del lienzo 16:9 separadas únicamente por líneas divisorias finas. Coloca SOLO el número pequeño [1], [2], [3], [4], [5], [6] en la esquina superior izquierda de cada viñeta. PROHIBIDO dibujar barras inferiores oscuras, subtítulos, cajas de texto o descripciones escritas dentro de la imagen.
+Keep exact continuity of positions, faces, bodies, wardrobe, props, locations, lighting and time of day across the 6 panels. Each panel is the literal FIRST FRAME of Shot 1 in its scene: same framing, same camera, same blocking and same key object; the action is already in motion, never frozen. Each panel is a 16:9 cinematic shot with legible action.
+100% VISUAL PANEL FORMAT (NO TEXT BOXES): The 6 photographic panels in a 3x2 grid must fill 100% of the 16:9 canvas, separated only by thin divider lines. Place ONLY the small number [1], [2], [3], [4], [5], [6] in the top-left corner of each panel. Drawing dark bottom bars, subtitles, text boxes or written descriptions inside the image is FORBIDDEN.
 ```
 
-### REF_GRID_MIN_07.png — Minuto 7 (escenas 37–42)
+### REF_GRID_MIN_07.png — Minute 7 (scenes 37–42)
 
 ```text
-Usando los personajes de REF_CAST_MASTER.png como referencia fija de rostros, edades, cuerpos y vestuarios, genera UNA IMAGEN horizontal 16:9 de Storyboard dividida en una cuadrícula limpia de 3x2 (6 viñetas numeradas del 1 al 6) que represente el MINUTO 7 (Escenas 37 a 42) de la historia en estilo Cinematográfico Realista 35mm:
+Using the characters in REF_CAST_MASTER.png as fixed references for faces, ages, bodies and wardrobes, generate A SINGLE horizontal 16:9 storyboard IMAGE divided into a clean 3x2 grid (6 panels numbered 1 to 6) representing MINUTE 7 (Scenes 37 to 42) of the story in Realistic Cinematic 35mm style:
 
-Look visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
+Visual look: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
 
-Viñeta 1 — Escena 37 (Hale lighthouse, storm night, lightning through the glass): [00s-07s] two-shot, medium shot with Margaret Keller and Nora Hale: Margaret Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. At the lighthouse door, Margaret holds out the eviction notice. Location: Hale lighthouse, storm night, lightning through the glass. Key object: the eviction notice. Characters present: Nora Hale, Margaret Keller. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing storm-soaked shirt and trousers, no coat, hair plastered down); Margaret Keller (Cast Sheet Pos #3: late sixties; tall and straight-backed; wearing tailored dove-grey suit, pearls, low-heeled shoes).
-Viñeta 2 — Escena 38 (Hale lighthouse, night, one lamp, rain outside): [00s-07s] two-shot, medium shot with Adrian Keller and Nora Hale: Adrian Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Adrian waits in the lighthouse with the sale papers. Location: Hale lighthouse, night, one lamp, rain outside. Key object: the sale papers. Characters present: Nora Hale, Adrian Keller. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing storm-soaked shirt and trousers, no coat, hair plastered down); Adrian Keller (Cast Sheet Pos #4: late thirties; ash-blond hair swept back; wearing navy blazer, open-collared white shirt, dark trousers).
-Viñeta 3 — Escena 39 (Hale lighthouse, storm night, lightning through the glass): [00s-07s] medium shot, face and mouth visible: Nora Hale is on camera with face and mouth fully visible, looking at the other person in frame. Nora stands alone in the dark lighthouse, the cold lens above her. Key object in frame: the cold lamp. Location: Hale lighthouse, storm night, lightning through the glass. Characters present: Nora Hale. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing storm-soaked shirt and trousers, no coat, hair plastered down).
-Viñeta 4 — Escena 40 (Hale lighthouse, storm night, lightning through the glass): [00s-04s] tight close-up, face and mouth visible: Nora Hale is on camera with face and mouth fully visible, looking at the other person in frame. Nora finds an old harbor logbook behind the lens housing. Key object in frame: the harbor logbook. Location: Hale lighthouse, storm night, lightning through the glass. Characters present: Nora Hale. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing storm-soaked shirt and trousers, no coat, hair plastered down).
-Viñeta 5 — Escena 41 (Hale lighthouse archive room, dawn, cold blue light): [00s-07s] two-shot, medium shot with Nora Hale and Sam Calloway: Nora Hale and Sam Calloway face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora opens the logbook on the lighthouse table, pages brittle. Key object in frame: the harbor log. Location: Hale lighthouse archive room, dawn, cold blue light. Characters present: Nora Hale, Sam Calloway. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing dark blazer over a black shirt, hair tied back); Sam Calloway (Cast Sheet Pos #2: mid-thirties; short dark-sand hair; wearing faded canvas work jacket, dark trousers, worn boots).
-Viñeta 6 — Escena 42 (Harbor pier, morning, flat silver water): [00s-07s] two-shot, medium shot with Sam Calloway and Nora Hale: Sam Calloway and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora and Sam compare timestamps under a desk lamp. Key object in frame: a torn page. Location: Harbor pier, morning, flat silver water. Characters present: Nora Hale, Sam Calloway. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing dark blazer over a black shirt, hair tied back); Sam Calloway (Cast Sheet Pos #2: mid-thirties; short dark-sand hair; wearing faded canvas work jacket, dark trousers, worn boots).
+Panel 1 — Scene 37 (Hale lighthouse, storm night, lightning through the glass): [00s-07s] two-shot, medium shot with Margaret Keller and Nora Hale: Margaret Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. At the lighthouse door, Margaret holds out the eviction notice. Location: Hale lighthouse, storm night, lightning through the glass. Key object: the eviction notice. Characters present: Nora Hale, Margaret Keller. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing storm-soaked shirt and trousers, no coat, hair plastered down); Margaret Keller (Cast Sheet Pos #3: late sixties; tall and straight-backed; wearing tailored dove-grey suit, pearls, low-heeled shoes).
+Panel 2 — Scene 38 (Hale lighthouse, night, one lamp, rain outside): [00s-07s] two-shot, medium shot with Adrian Keller and Nora Hale: Adrian Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Adrian waits in the lighthouse with the sale papers. Location: Hale lighthouse, night, one lamp, rain outside. Key object: the sale papers. Characters present: Nora Hale, Adrian Keller. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing storm-soaked shirt and trousers, no coat, hair plastered down); Adrian Keller (Cast Sheet Pos #4: late thirties; ash-blond hair swept back; wearing navy blazer, open-collared white shirt, dark trousers).
+Panel 3 — Scene 39 (Hale lighthouse, storm night, lightning through the glass): [00s-07s] medium shot, face and mouth visible: Nora Hale is on camera with face and mouth fully visible, looking at the other person in frame. Nora stands alone in the dark lighthouse, the cold lens above her. Key object in frame: the cold lamp. Location: Hale lighthouse, storm night, lightning through the glass. Characters present: Nora Hale. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing storm-soaked shirt and trousers, no coat, hair plastered down).
+Panel 4 — Scene 40 (Hale lighthouse, storm night, lightning through the glass): [00s-04s] tight close-up, face and mouth visible: Nora Hale is on camera with face and mouth fully visible, looking at the other person in frame. Nora finds an old harbor logbook behind the lens housing. Key object in frame: the harbor logbook. Location: Hale lighthouse, storm night, lightning through the glass. Characters present: Nora Hale. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing storm-soaked shirt and trousers, no coat, hair plastered down).
+Panel 5 — Scene 41 (Hale lighthouse archive room, dawn, cold blue light): [00s-07s] two-shot, medium shot with Nora Hale and Sam Calloway: Nora Hale and Sam Calloway face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora opens the logbook on the lighthouse table, pages brittle. Key object in frame: the harbor log. Location: Hale lighthouse archive room, dawn, cold blue light. Characters present: Nora Hale, Sam Calloway. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing dark blazer over a black shirt, hair tied back); Sam Calloway (Cast Sheet Pos #2: mid-thirties; short dark-sand hair; wearing faded canvas work jacket, dark trousers, worn boots).
+Panel 6 — Scene 42 (Harbor pier, morning, flat silver water): [00s-07s] two-shot, medium shot with Sam Calloway and Nora Hale: Sam Calloway and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora and Sam compare timestamps under a desk lamp. Key object in frame: a torn page. Location: Harbor pier, morning, flat silver water. Characters present: Nora Hale, Sam Calloway. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing dark blazer over a black shirt, hair tied back); Sam Calloway (Cast Sheet Pos #2: mid-thirties; short dark-sand hair; wearing faded canvas work jacket, dark trousers, worn boots).
 
-Mantén continuidad exacta de posiciones, rostros, cuerpos, vestuario, props, locaciones, luz y hora del día entre las 6 viñetas. Cada viñeta es el PRIMER FRAME literal de la Toma 1 de su escena: mismo encuadre, misma cámara, mismo blocking y mismo objeto clave; la acción ya está en movimiento, nunca congelada. Cada viñeta es un plano cinematográfico 16:9 con acción legible.
-FORMATO DE VIÑETAS 100% VISUAL (SIN CAJAS DE TEXTO): Las 6 viñetas fotográficas en cuadrícula 3x2 deben ocupar el 100% del lienzo 16:9 separadas únicamente por líneas divisorias finas. Coloca SOLO el número pequeño [1], [2], [3], [4], [5], [6] en la esquina superior izquierda de cada viñeta. PROHIBIDO dibujar barras inferiores oscuras, subtítulos, cajas de texto o descripciones escritas dentro de la imagen.
+Keep exact continuity of positions, faces, bodies, wardrobe, props, locations, lighting and time of day across the 6 panels. Each panel is the literal FIRST FRAME of Shot 1 in its scene: same framing, same camera, same blocking and same key object; the action is already in motion, never frozen. Each panel is a 16:9 cinematic shot with legible action.
+100% VISUAL PANEL FORMAT (NO TEXT BOXES): The 6 photographic panels in a 3x2 grid must fill 100% of the 16:9 canvas, separated only by thin divider lines. Place ONLY the small number [1], [2], [3], [4], [5], [6] in the top-left corner of each panel. Drawing dark bottom bars, subtitles, text boxes or written descriptions inside the image is FORBIDDEN.
 ```
 
-### REF_GRID_MIN_08.png — Minuto 8 (escenas 43–48)
+### REF_GRID_MIN_08.png — Minute 8 (scenes 43–48)
 
 ```text
-Usando los personajes de REF_CAST_MASTER.png como referencia fija de rostros, edades, cuerpos y vestuarios, genera UNA IMAGEN horizontal 16:9 de Storyboard dividida en una cuadrícula limpia de 3x2 (6 viñetas numeradas del 1 al 6) que represente el MINUTO 8 (Escenas 43 a 48) de la historia en estilo Cinematográfico Realista 35mm:
+Using the characters in REF_CAST_MASTER.png as fixed references for faces, ages, bodies and wardrobes, generate A SINGLE horizontal 16:9 storyboard IMAGE divided into a clean 3x2 grid (6 panels numbered 1 to 6) representing MINUTE 8 (Scenes 43 to 48) of the story in Realistic Cinematic 35mm style:
 
-Look visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
+Visual look: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
 
-Viñeta 1 — Escena 43 (Town hall steps, dusk, wet stone): [00s-07s] two-shot, medium shot with Nora Hale and Sam Calloway: Nora Hale and Sam Calloway face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora Hale speaks as the camera holds close on their face, a timestamp catching the light between them. Location: Town hall steps, dusk, wet stone. Key object: a timestamp. Characters present: Nora Hale, Sam Calloway. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing dark blazer over a black shirt, hair tied back); Sam Calloway (Cast Sheet Pos #2: mid-thirties; short dark-sand hair; wearing faded canvas work jacket, dark trousers, worn boots).
-Viñeta 2 — Escena 44 (Hale lighthouse archive room, dawn, cold blue light): [00s-07s] two-shot, medium shot with Sam Calloway and Nora Hale: Sam Calloway and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Sam reads over her shoulder, close enough to touch. Key object in frame: the town hall steps. Location: Hale lighthouse archive room, dawn, cold blue light. Characters present: Nora Hale, Sam Calloway. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing dark blazer over a black shirt, hair tied back); Sam Calloway (Cast Sheet Pos #2: mid-thirties; short dark-sand hair; wearing faded canvas work jacket, dark trousers, worn boots).
-Viñeta 3 — Escena 45 (Harbor pier, morning, flat silver water): [00s-07s] two-shot, medium shot with Nora Hale and Sam Calloway: Nora Hale and Sam Calloway face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora looks up at Sam, a decision forming. Key object in frame: the harbor log. Location: Harbor pier, morning, flat silver water. Characters present: Nora Hale, Sam Calloway. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing dark blazer over a black shirt, hair tied back); Sam Calloway (Cast Sheet Pos #2: mid-thirties; short dark-sand hair; wearing faded canvas work jacket, dark trousers, worn boots).
-Viñeta 4 — Escena 46 (Town hall steps, dusk, wet stone): [00s-07s] two-shot, medium shot with Adrian Keller and Nora Hale: Adrian Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Adrian stands on the town hall steps, trying to smile. Key object in frame: a torn page. Location: Town hall steps, dusk, wet stone. Characters present: Nora Hale, Adrian Keller. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing dark blazer over a black shirt, hair tied back); Adrian Keller (Cast Sheet Pos #4: late thirties; ash-blond hair swept back; wearing navy blazer, open-collared white shirt, dark trousers).
-Viñeta 5 — Escena 47 (Hale lighthouse archive room, dawn, cold blue light): [00s-07s] two-shot, medium shot with Margaret Keller and Nora Hale: Margaret Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora walks past him without stopping. Key object in frame: a timestamp. Location: Hale lighthouse archive room, dawn, cold blue light. Characters present: Nora Hale, Margaret Keller. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing dark blazer over a black shirt, hair tied back); Margaret Keller (Cast Sheet Pos #3: late sixties; tall and straight-backed; wearing tailored dove-grey suit, pearls, low-heeled shoes).
-Viñeta 6 — Escena 48 (Harbor pier, morning, flat silver water): [00s-07s] two-shot, medium shot with Claire Boone and Nora Hale: Claire Boone and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Margaret waits in the hall, gloves in hand. Key object in frame: the town hall steps. Location: Harbor pier, morning, flat silver water. Characters present: Nora Hale, Margaret Keller, Claire Boone. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing dark blazer over a black shirt, hair tied back); Margaret Keller (Cast Sheet Pos #3: late sixties; tall and straight-backed; wearing tailored dove-grey suit, pearls, low-heeled shoes); Claire Boone (Cast Sheet Pos #5: age as shown in the reference sheet; brown blunt bob; wearing forest-green cardigan, cream blouse, dark trousers).
+Panel 1 — Scene 43 (Town hall steps, dusk, wet stone): [00s-07s] two-shot, medium shot with Nora Hale and Sam Calloway: Nora Hale and Sam Calloway face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora Hale speaks as the camera holds close on their face, a timestamp catching the light between them. Location: Town hall steps, dusk, wet stone. Key object: a timestamp. Characters present: Nora Hale, Sam Calloway. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing dark blazer over a black shirt, hair tied back); Sam Calloway (Cast Sheet Pos #2: mid-thirties; short dark-sand hair; wearing faded canvas work jacket, dark trousers, worn boots).
+Panel 2 — Scene 44 (Hale lighthouse archive room, dawn, cold blue light): [00s-07s] two-shot, medium shot with Sam Calloway and Nora Hale: Sam Calloway and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Sam reads over her shoulder, close enough to touch. Key object in frame: the town hall steps. Location: Hale lighthouse archive room, dawn, cold blue light. Characters present: Nora Hale, Sam Calloway. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing dark blazer over a black shirt, hair tied back); Sam Calloway (Cast Sheet Pos #2: mid-thirties; short dark-sand hair; wearing faded canvas work jacket, dark trousers, worn boots).
+Panel 3 — Scene 45 (Harbor pier, morning, flat silver water): [00s-07s] two-shot, medium shot with Nora Hale and Sam Calloway: Nora Hale and Sam Calloway face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora looks up at Sam, a decision forming. Key object in frame: the harbor log. Location: Harbor pier, morning, flat silver water. Characters present: Nora Hale, Sam Calloway. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing dark blazer over a black shirt, hair tied back); Sam Calloway (Cast Sheet Pos #2: mid-thirties; short dark-sand hair; wearing faded canvas work jacket, dark trousers, worn boots).
+Panel 4 — Scene 46 (Town hall steps, dusk, wet stone): [00s-07s] two-shot, medium shot with Adrian Keller and Nora Hale: Adrian Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Adrian stands on the town hall steps, trying to smile. Key object in frame: a torn page. Location: Town hall steps, dusk, wet stone. Characters present: Nora Hale, Adrian Keller. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing dark blazer over a black shirt, hair tied back); Adrian Keller (Cast Sheet Pos #4: late thirties; ash-blond hair swept back; wearing navy blazer, open-collared white shirt, dark trousers).
+Panel 5 — Scene 47 (Hale lighthouse archive room, dawn, cold blue light): [00s-07s] two-shot, medium shot with Margaret Keller and Nora Hale: Margaret Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora walks past him without stopping. Key object in frame: a timestamp. Location: Hale lighthouse archive room, dawn, cold blue light. Characters present: Nora Hale, Margaret Keller. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing dark blazer over a black shirt, hair tied back); Margaret Keller (Cast Sheet Pos #3: late sixties; tall and straight-backed; wearing tailored dove-grey suit, pearls, low-heeled shoes).
+Panel 6 — Scene 48 (Harbor pier, morning, flat silver water): [00s-07s] two-shot, medium shot with Claire Boone and Nora Hale: Claire Boone and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Margaret waits in the hall, gloves in hand. Key object in frame: the town hall steps. Location: Harbor pier, morning, flat silver water. Characters present: Nora Hale, Margaret Keller, Claire Boone. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing dark blazer over a black shirt, hair tied back); Margaret Keller (Cast Sheet Pos #3: late sixties; tall and straight-backed; wearing tailored dove-grey suit, pearls, low-heeled shoes); Claire Boone (Cast Sheet Pos #5: age as shown in the reference sheet; brown blunt bob; wearing forest-green cardigan, cream blouse, dark trousers).
 
-Mantén continuidad exacta de posiciones, rostros, cuerpos, vestuario, props, locaciones, luz y hora del día entre las 6 viñetas. Cada viñeta es el PRIMER FRAME literal de la Toma 1 de su escena: mismo encuadre, misma cámara, mismo blocking y mismo objeto clave; la acción ya está en movimiento, nunca congelada. Cada viñeta es un plano cinematográfico 16:9 con acción legible.
-FORMATO DE VIÑETAS 100% VISUAL (SIN CAJAS DE TEXTO): Las 6 viñetas fotográficas en cuadrícula 3x2 deben ocupar el 100% del lienzo 16:9 separadas únicamente por líneas divisorias finas. Coloca SOLO el número pequeño [1], [2], [3], [4], [5], [6] en la esquina superior izquierda de cada viñeta. PROHIBIDO dibujar barras inferiores oscuras, subtítulos, cajas de texto o descripciones escritas dentro de la imagen.
+Keep exact continuity of positions, faces, bodies, wardrobe, props, locations, lighting and time of day across the 6 panels. Each panel is the literal FIRST FRAME of Shot 1 in its scene: same framing, same camera, same blocking and same key object; the action is already in motion, never frozen. Each panel is a 16:9 cinematic shot with legible action.
+100% VISUAL PANEL FORMAT (NO TEXT BOXES): The 6 photographic panels in a 3x2 grid must fill 100% of the 16:9 canvas, separated only by thin divider lines. Place ONLY the small number [1], [2], [3], [4], [5], [6] in the top-left corner of each panel. Drawing dark bottom bars, subtitles, text boxes or written descriptions inside the image is FORBIDDEN.
 ```
 
-### REF_GRID_MIN_09.png — Minuto 9 (escenas 49–54)
+### REF_GRID_MIN_09.png — Minute 9 (scenes 49–54)
 
 ```text
-Usando los personajes de REF_CAST_MASTER.png como referencia fija de rostros, edades, cuerpos y vestuarios, genera UNA IMAGEN horizontal 16:9 de Storyboard dividida en una cuadrícula limpia de 3x2 (6 viñetas numeradas del 1 al 6) que represente el MINUTO 9 (Escenas 49 a 54) de la historia en estilo Cinematográfico Realista 35mm:
+Using the characters in REF_CAST_MASTER.png as fixed references for faces, ages, bodies and wardrobes, generate A SINGLE horizontal 16:9 storyboard IMAGE divided into a clean 3x2 grid (6 panels numbered 1 to 6) representing MINUTE 9 (Scenes 49 to 54) of the story in Realistic Cinematic 35mm style:
 
-Look visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
+Visual look: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
 
-Viñeta 1 — Escena 49 (Town hall steps, dusk, wet stone): [00s-07s] two-shot, medium shot with Nora Hale and Sam Calloway: Nora Hale and Sam Calloway face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora faces Margaret on the empty hearing floor. Key object in frame: the harbor log. Location: Town hall steps, dusk, wet stone. Characters present: Nora Hale, Sam Calloway, Margaret Keller. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing dark blazer over a black shirt, hair tied back); Sam Calloway (Cast Sheet Pos #2: mid-thirties; short dark-sand hair; wearing faded canvas work jacket, dark trousers, worn boots); Margaret Keller (Cast Sheet Pos #3: late sixties; tall and straight-backed; wearing tailored dove-grey suit, pearls, low-heeled shoes).
-Viñeta 2 — Escena 50 (Hale lighthouse archive room, dawn, cold blue light): [00s-07s] two-shot, medium shot with Margaret Keller and Nora Hale: Margaret Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora stands at the lighthouse door as the town lights come on. Key object in frame: a torn page. Location: Hale lighthouse archive room, dawn, cold blue light. Characters present: Nora Hale, Margaret Keller. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing dark blazer over a black shirt, hair tied back); Margaret Keller (Cast Sheet Pos #3: late sixties; tall and straight-backed; wearing tailored dove-grey suit, pearls, low-heeled shoes).
-Viñeta 3 — Escena 51 (Town hall hearing room, day, hard window light): [00s-07s] two-shot, medium shot with Claire Boone and Nora Hale: Claire Boone and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. The hearing room fills; Nora stands alone at the table. Key object in frame: the harbor log. Location: Town hall hearing room, day, hard window light. Characters present: Nora Hale, Claire Boone. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing dark blazer, hair down, salt wind in it); Claire Boone (Cast Sheet Pos #5: age as shown in the reference sheet; brown blunt bob; wearing forest-green cardigan, cream blouse, dark trousers).
-Viñeta 4 — Escena 52 (Hale lighthouse point, golden hour, wind down): [00s-07s] two-shot, medium shot with Sam Calloway and Nora Hale: Sam Calloway and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Sam steps to the microphone, the room silent. Key object in frame: the clerk's desk. Location: Hale lighthouse point, golden hour, wind down. Characters present: Nora Hale, Sam Calloway. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing dark blazer, hair down, salt wind in it); Sam Calloway (Cast Sheet Pos #2: mid-thirties; short dark-sand hair; wearing faded canvas work jacket, dark trousers, worn boots).
-Viñeta 5 — Escena 53 (Harbor, golden hour, calm water): [00s-07s] two-shot, medium shot with Nora Hale and Sam Calloway: Nora Hale and Sam Calloway face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Margaret's smile falters for the first time. Key object in frame: a second ledger. Location: Harbor, golden hour, calm water. Characters present: Nora Hale, Sam Calloway, Margaret Keller. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing dark blazer, hair down, salt wind in it); Sam Calloway (Cast Sheet Pos #2: mid-thirties; short dark-sand hair; wearing faded canvas work jacket, dark trousers, worn boots); Margaret Keller (Cast Sheet Pos #3: late sixties; tall and straight-backed; wearing tailored dove-grey suit, pearls, low-heeled shoes).
-Viñeta 6 — Escena 54 (Town hall hearing room, day, hard window light): [00s-07s] two-shot, medium shot with Sam Calloway and Margaret Keller: Sam Calloway and Margaret Keller face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora holds up the harbor log, open to the page. Key object in frame: Sam's hand. Location: Town hall hearing room, day, hard window light. Characters present: Nora Hale, Sam Calloway, Margaret Keller. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing dark blazer, hair down, salt wind in it); Sam Calloway (Cast Sheet Pos #2: mid-thirties; short dark-sand hair; wearing faded canvas work jacket, dark trousers, worn boots); Margaret Keller (Cast Sheet Pos #3: late sixties; tall and straight-backed; wearing tailored dove-grey suit, pearls, low-heeled shoes).
+Panel 1 — Scene 49 (Town hall steps, dusk, wet stone): [00s-07s] two-shot, medium shot with Nora Hale and Sam Calloway: Nora Hale and Sam Calloway face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora faces Margaret on the empty hearing floor. Key object in frame: the harbor log. Location: Town hall steps, dusk, wet stone. Characters present: Nora Hale, Sam Calloway, Margaret Keller. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing dark blazer over a black shirt, hair tied back); Sam Calloway (Cast Sheet Pos #2: mid-thirties; short dark-sand hair; wearing faded canvas work jacket, dark trousers, worn boots); Margaret Keller (Cast Sheet Pos #3: late sixties; tall and straight-backed; wearing tailored dove-grey suit, pearls, low-heeled shoes).
+Panel 2 — Scene 50 (Hale lighthouse archive room, dawn, cold blue light): [00s-07s] two-shot, medium shot with Margaret Keller and Nora Hale: Margaret Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora stands at the lighthouse door as the town lights come on. Key object in frame: a torn page. Location: Hale lighthouse archive room, dawn, cold blue light. Characters present: Nora Hale, Margaret Keller. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing dark blazer over a black shirt, hair tied back); Margaret Keller (Cast Sheet Pos #3: late sixties; tall and straight-backed; wearing tailored dove-grey suit, pearls, low-heeled shoes).
+Panel 3 — Scene 51 (Town hall hearing room, day, hard window light): [00s-07s] two-shot, medium shot with Claire Boone and Nora Hale: Claire Boone and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. The hearing room fills; Nora stands alone at the table. Key object in frame: the harbor log. Location: Town hall hearing room, day, hard window light. Characters present: Nora Hale, Claire Boone. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing dark blazer, hair down, salt wind in it); Claire Boone (Cast Sheet Pos #5: age as shown in the reference sheet; brown blunt bob; wearing forest-green cardigan, cream blouse, dark trousers).
+Panel 4 — Scene 52 (Hale lighthouse point, golden hour, wind down): [00s-07s] two-shot, medium shot with Sam Calloway and Nora Hale: Sam Calloway and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Sam steps to the microphone, the room silent. Key object in frame: the clerk's desk. Location: Hale lighthouse point, golden hour, wind down. Characters present: Nora Hale, Sam Calloway. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing dark blazer, hair down, salt wind in it); Sam Calloway (Cast Sheet Pos #2: mid-thirties; short dark-sand hair; wearing faded canvas work jacket, dark trousers, worn boots).
+Panel 5 — Scene 53 (Harbor, golden hour, calm water): [00s-07s] two-shot, medium shot with Nora Hale and Sam Calloway: Nora Hale and Sam Calloway face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Margaret's smile falters for the first time. Key object in frame: a second ledger. Location: Harbor, golden hour, calm water. Characters present: Nora Hale, Sam Calloway, Margaret Keller. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing dark blazer, hair down, salt wind in it); Sam Calloway (Cast Sheet Pos #2: mid-thirties; short dark-sand hair; wearing faded canvas work jacket, dark trousers, worn boots); Margaret Keller (Cast Sheet Pos #3: late sixties; tall and straight-backed; wearing tailored dove-grey suit, pearls, low-heeled shoes).
+Panel 6 — Scene 54 (Town hall hearing room, day, hard window light): [00s-07s] two-shot, medium shot with Sam Calloway and Margaret Keller: Sam Calloway and Margaret Keller face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora holds up the harbor log, open to the page. Key object in frame: Sam's hand. Location: Town hall hearing room, day, hard window light. Characters present: Nora Hale, Sam Calloway, Margaret Keller. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing dark blazer, hair down, salt wind in it); Sam Calloway (Cast Sheet Pos #2: mid-thirties; short dark-sand hair; wearing faded canvas work jacket, dark trousers, worn boots); Margaret Keller (Cast Sheet Pos #3: late sixties; tall and straight-backed; wearing tailored dove-grey suit, pearls, low-heeled shoes).
 
-Mantén continuidad exacta de posiciones, rostros, cuerpos, vestuario, props, locaciones, luz y hora del día entre las 6 viñetas. Cada viñeta es el PRIMER FRAME literal de la Toma 1 de su escena: mismo encuadre, misma cámara, mismo blocking y mismo objeto clave; la acción ya está en movimiento, nunca congelada. Cada viñeta es un plano cinematográfico 16:9 con acción legible.
-FORMATO DE VIÑETAS 100% VISUAL (SIN CAJAS DE TEXTO): Las 6 viñetas fotográficas en cuadrícula 3x2 deben ocupar el 100% del lienzo 16:9 separadas únicamente por líneas divisorias finas. Coloca SOLO el número pequeño [1], [2], [3], [4], [5], [6] en la esquina superior izquierda de cada viñeta. PROHIBIDO dibujar barras inferiores oscuras, subtítulos, cajas de texto o descripciones escritas dentro de la imagen.
+Keep exact continuity of positions, faces, bodies, wardrobe, props, locations, lighting and time of day across the 6 panels. Each panel is the literal FIRST FRAME of Shot 1 in its scene: same framing, same camera, same blocking and same key object; the action is already in motion, never frozen. Each panel is a 16:9 cinematic shot with legible action.
+100% VISUAL PANEL FORMAT (NO TEXT BOXES): The 6 photographic panels in a 3x2 grid must fill 100% of the 16:9 canvas, separated only by thin divider lines. Place ONLY the small number [1], [2], [3], [4], [5], [6] in the top-left corner of each panel. Drawing dark bottom bars, subtitles, text boxes or written descriptions inside the image is FORBIDDEN.
 ```
 
-### REF_GRID_MIN_10.png — Minuto 10 (escenas 55–60)
+### REF_GRID_MIN_10.png — Minute 10 (scenes 55–60)
 
 ```text
-Usando los personajes de REF_CAST_MASTER.png como referencia fija de rostros, edades, cuerpos y vestuarios, genera UNA IMAGEN horizontal 16:9 de Storyboard dividida en una cuadrícula limpia de 3x2 (6 viñetas numeradas del 1 al 6) que represente el MINUTO 10 (Escenas 55 a 60) de la historia en estilo Cinematográfico Realista 35mm:
+Using the characters in REF_CAST_MASTER.png as fixed references for faces, ages, bodies and wardrobes, generate A SINGLE horizontal 16:9 storyboard IMAGE divided into a clean 3x2 grid (6 panels numbered 1 to 6) representing MINUTE 10 (Scenes 55 to 60) of the story in Realistic Cinematic 35mm style:
 
-Look visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
+Visual look: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
 
-Viñeta 1 — Escena 55 (Hale lighthouse point, golden hour, wind down): [00s-07s] two-shot, medium shot with Nora Hale and Adrian Keller: Nora Hale and Adrian Keller face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Adrian half-rises from his chair. Key object in frame: the harbor log. Location: Hale lighthouse point, golden hour, wind down. Characters present: Nora Hale, Adrian Keller. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing dark blazer, hair down, salt wind in it); Adrian Keller (Cast Sheet Pos #4: late thirties; ash-blond hair swept back; wearing navy blazer, open-collared white shirt, dark trousers).
-Viñeta 2 — Escena 56 (Harbor, golden hour, calm water): [00s-07s] two-shot, medium shot with Nora Hale and Margaret Keller: Nora Hale and Margaret Keller face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora sets the log on the clerk's desk. Location: Harbor, golden hour, calm water. Key object: the clerk's desk. Characters present: Nora Hale, Margaret Keller. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing dark blazer, hair down, salt wind in it); Margaret Keller (Cast Sheet Pos #3: late sixties; tall and straight-backed; wearing tailored dove-grey suit, pearls, low-heeled shoes).
-Viñeta 3 — Escena 57 (Town hall hearing room, day, hard window light): [00s-07s] two-shot, medium shot with Nora Hale and Claire Boone: Nora Hale and Claire Boone face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Margaret reaches for the log; Nora slides it away. Key object in frame: a second ledger. Location: Town hall hearing room, day, hard window light. Characters present: Nora Hale, Margaret Keller, Claire Boone. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing dark blazer, hair down, salt wind in it); Margaret Keller (Cast Sheet Pos #3: late sixties; tall and straight-backed; wearing tailored dove-grey suit, pearls, low-heeled shoes); Claire Boone (Cast Sheet Pos #5: age as shown in the reference sheet; brown blunt bob; wearing forest-green cardigan, cream blouse, dark trousers).
-Viñeta 4 — Escena 58 (Hale lighthouse point, golden hour, wind down): [00s-07s] two-shot, medium shot with Adrian Keller and Nora Hale: Adrian Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Adrian Keller speaks as the camera holds close on their face, Sam's hand catching the light between them. Location: Hale lighthouse point, golden hour, wind down. Key object: Sam's hand. Characters present: Nora Hale, Sam Calloway, Adrian Keller. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing dark blazer, hair down, salt wind in it); Sam Calloway (Cast Sheet Pos #2: mid-thirties; short dark-sand hair; wearing faded canvas work jacket, dark trousers, worn boots); Adrian Keller (Cast Sheet Pos #4: late thirties; ash-blond hair swept back; wearing navy blazer, open-collared white shirt, dark trousers).
-Viñeta 5 — Escena 59 (Harbor, golden hour, calm water): [00s-07s] two-shot, medium shot with Nora Hale and Margaret Keller: Nora Hale and Margaret Keller face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora walks out of the town hall into the light. Key object in frame: the harbor log. Location: Harbor, golden hour, calm water. Characters present: Nora Hale, Margaret Keller. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing dark blazer, hair down, salt wind in it); Margaret Keller (Cast Sheet Pos #3: late sixties; tall and straight-backed; wearing tailored dove-grey suit, pearls, low-heeled shoes).
-Viñeta 6 — Escena 60 (Town hall hearing room, day, hard window light): [00s-07s] two-shot, medium shot with Nora Hale and Sam Calloway: Nora Hale and Sam Calloway face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora Hale speaks as the camera holds close on their face, the clerk's desk catching the light between them. Location: Town hall hearing room, day, hard window light. Key object: the clerk's desk. Characters present: Nora Hale, Sam Calloway. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing dark blazer, hair down, salt wind in it); Sam Calloway (Cast Sheet Pos #2: mid-thirties; short dark-sand hair; wearing faded canvas work jacket, dark trousers, worn boots).
+Panel 1 — Scene 55 (Hale lighthouse point, golden hour, wind down): [00s-07s] two-shot, medium shot with Nora Hale and Adrian Keller: Nora Hale and Adrian Keller face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Adrian half-rises from his chair. Key object in frame: the harbor log. Location: Hale lighthouse point, golden hour, wind down. Characters present: Nora Hale, Adrian Keller. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing dark blazer, hair down, salt wind in it); Adrian Keller (Cast Sheet Pos #4: late thirties; ash-blond hair swept back; wearing navy blazer, open-collared white shirt, dark trousers).
+Panel 2 — Scene 56 (Harbor, golden hour, calm water): [00s-07s] two-shot, medium shot with Nora Hale and Margaret Keller: Nora Hale and Margaret Keller face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora sets the log on the clerk's desk. Location: Harbor, golden hour, calm water. Key object: the clerk's desk. Characters present: Nora Hale, Margaret Keller. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing dark blazer, hair down, salt wind in it); Margaret Keller (Cast Sheet Pos #3: late sixties; tall and straight-backed; wearing tailored dove-grey suit, pearls, low-heeled shoes).
+Panel 3 — Scene 57 (Town hall hearing room, day, hard window light): [00s-07s] two-shot, medium shot with Nora Hale and Claire Boone: Nora Hale and Claire Boone face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Margaret reaches for the log; Nora slides it away. Key object in frame: a second ledger. Location: Town hall hearing room, day, hard window light. Characters present: Nora Hale, Margaret Keller, Claire Boone. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing dark blazer, hair down, salt wind in it); Margaret Keller (Cast Sheet Pos #3: late sixties; tall and straight-backed; wearing tailored dove-grey suit, pearls, low-heeled shoes); Claire Boone (Cast Sheet Pos #5: age as shown in the reference sheet; brown blunt bob; wearing forest-green cardigan, cream blouse, dark trousers).
+Panel 4 — Scene 58 (Hale lighthouse point, golden hour, wind down): [00s-07s] two-shot, medium shot with Adrian Keller and Nora Hale: Adrian Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Adrian Keller speaks as the camera holds close on their face, Sam's hand catching the light between them. Location: Hale lighthouse point, golden hour, wind down. Key object: Sam's hand. Characters present: Nora Hale, Sam Calloway, Adrian Keller. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing dark blazer, hair down, salt wind in it); Sam Calloway (Cast Sheet Pos #2: mid-thirties; short dark-sand hair; wearing faded canvas work jacket, dark trousers, worn boots); Adrian Keller (Cast Sheet Pos #4: late thirties; ash-blond hair swept back; wearing navy blazer, open-collared white shirt, dark trousers).
+Panel 5 — Scene 59 (Harbor, golden hour, calm water): [00s-07s] two-shot, medium shot with Nora Hale and Margaret Keller: Nora Hale and Margaret Keller face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora walks out of the town hall into the light. Key object in frame: the harbor log. Location: Harbor, golden hour, calm water. Characters present: Nora Hale, Margaret Keller. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing dark blazer, hair down, salt wind in it); Margaret Keller (Cast Sheet Pos #3: late sixties; tall and straight-backed; wearing tailored dove-grey suit, pearls, low-heeled shoes).
+Panel 6 — Scene 60 (Town hall hearing room, day, hard window light): [00s-07s] two-shot, medium shot with Nora Hale and Sam Calloway: Nora Hale and Sam Calloway face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora Hale speaks as the camera holds close on their face, the clerk's desk catching the light between them. Location: Town hall hearing room, day, hard window light. Key object: the clerk's desk. Characters present: Nora Hale, Sam Calloway. No other characters appear. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing dark blazer, hair down, salt wind in it); Sam Calloway (Cast Sheet Pos #2: mid-thirties; short dark-sand hair; wearing faded canvas work jacket, dark trousers, worn boots).
 
-Mantén continuidad exacta de posiciones, rostros, cuerpos, vestuario, props, locaciones, luz y hora del día entre las 6 viñetas. Cada viñeta es el PRIMER FRAME literal de la Toma 1 de su escena: mismo encuadre, misma cámara, mismo blocking y mismo objeto clave; la acción ya está en movimiento, nunca congelada. Cada viñeta es un plano cinematográfico 16:9 con acción legible.
-FORMATO DE VIÑETAS 100% VISUAL (SIN CAJAS DE TEXTO): Las 6 viñetas fotográficas en cuadrícula 3x2 deben ocupar el 100% del lienzo 16:9 separadas únicamente por líneas divisorias finas. Coloca SOLO el número pequeño [1], [2], [3], [4], [5], [6] en la esquina superior izquierda de cada viñeta. PROHIBIDO dibujar barras inferiores oscuras, subtítulos, cajas de texto o descripciones escritas dentro de la imagen.
+Keep exact continuity of positions, faces, bodies, wardrobe, props, locations, lighting and time of day across the 6 panels. Each panel is the literal FIRST FRAME of Shot 1 in its scene: same framing, same camera, same blocking and same key object; the action is already in motion, never frozen. Each panel is a 16:9 cinematic shot with legible action.
+100% VISUAL PANEL FORMAT (NO TEXT BOXES): The 6 photographic panels in a 3x2 grid must fill 100% of the 16:9 canvas, separated only by thin divider lines. Place ONLY the small number [1], [2], [3], [4], [5], [6] in the top-left corner of each panel. Drawing dark bottom bars, subtitles, text boxes or written descriptions inside the image is FORBIDDEN.
 ```
 
 ---
 
-## Paso 3 — Lotes Muse AI (10 videos de 1 minuto)
+## Step 3 — Muse AI batches (10 1-minute videos)
 
-En cada lote: adjunta los dos archivos indicados y pega **un guion completo**
-(16:9 para YouTube o 9:16 para Reels/Shorts). El guion ya termina con el comando final.
+For each batch: attach the two indicated files and paste **one complete script**
+(16:9 for YouTube or 9:16 for Reels/Shorts). The script already ends with the final command.
 
-### Lote 01 — Minuto 1 (escenas 1–6)
+### Batch 01 — Minute 1 (scenes 1–6)
 
-**Adjuntar:** `REF_CAST_MASTER.png` + `REF_GRID_MIN_01.png`
+**Attach:** `REF_CAST_MASTER.png` + `REF_GRID_MIN_01.png`
 
-**Adjuntos por escena de este lote:**
+**Per-scene attachments for this batch:**
 
-- Escena 001: `attach: [panel_001, ref_nora]`
-- Escena 002: `attach: [panel_002, ref_nora, ref_sam]`
-- Escena 003: `attach: [panel_003, ref_nora, ref_sam]`
-- Escena 004: `attach: [panel_004, ref_nora, ref_sam]`
-- Escena 005: `attach: [panel_005, ref_nora, ref_sam, ref_margaret]`
-- Escena 006: `attach: [panel_006, ref_nora, ref_margaret, ref_adrian]`
+- Scene 001: `attach: [panel_001, ref_nora]`
+- Scene 002: `attach: [panel_002, ref_nora, ref_sam]`
+- Scene 003: `attach: [panel_003, ref_nora, ref_sam]`
+- Scene 004: `attach: [panel_004, ref_nora, ref_sam]`
+- Scene 005: `attach: [panel_005, ref_nora, ref_sam, ref_margaret]`
+- Scene 006: `attach: [panel_006, ref_nora, ref_margaret, ref_adrian]`
 
-**Guardar 16:9 como:** `raw_clips/minute_01.mp4`
+**Save 16:9 as:** `raw_clips/minute_01.mp4`
 
-**Guardar 9:16 como:** `raw_clips/minute_01_vertical.mp4`
+**Save 9:16 as:** `raw_clips/minute_01_vertical.mp4`
 
-**Bloque 16:9 para Muse AI (YouTube):**
+**16:9 block for Muse AI (YouTube):**
 
 ```text
-ESCENA 1 (Viñeta #1 del Storyboard) — 00:00–00:10
+SCENE 1 (Storyboard Panel #1) — 00:00–00:10
 - Location: Hale lighthouse cliff edge, storm dusk, wind and salt spray
 - Characters Present: Nora Hale
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] wide establishing shot, face and mouth visible: Nora Hale is on camera with face and mouth fully visible, looking at the other person in frame. Nora stands at the cliff edge, the lighthouse dark behind her, salt wind whipping her coat. Key object in frame: a brass key. Location: Hale lighthouse cliff edge, storm dusk, wind and salt spray. Characters present: Nora Hale. No other characters appear.
@@ -263,7 +263,7 @@ ESCENA 1 (Viñeta #1 del Storyboard) — 00:00–00:10
 - Dialogue (English, max 15 words, finish before 8.5 s):
   NORA (cold, quiet): "They said the lighthouse was empty for ten years. So who left the light on?"
 
-ESCENA 2 (Viñeta #2 del Storyboard) — 00:10–00:20
+SCENE 2 (Storyboard Panel #2) — 00:10–00:20
 - Location: Keller harbor boardwalk, blue hour, wet planks and dock lights
 - Characters Present: Nora Hale, Sam Calloway
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] close-up, face and mouth visible: Sam Calloway is on camera with face and mouth fully visible, looking at Nora Hale. Sam Calloway speaks as the camera holds close on their face, the deed catching the light between them. Location: Keller harbor boardwalk, blue hour, wet planks and dock lights. Key object: the deed. Characters present: Nora Hale, Sam Calloway. No other characters appear.
@@ -278,7 +278,7 @@ ESCENA 2 (Viñeta #2 del Storyboard) — 00:10–00:20
 - Dialogue (English, max 15 words, finish before 8.5 s):
   SAM (dry, warm): "Nora Hale. Ten years, and you still drive like a storm."
 
-ESCENA 3 (Viñeta #3 del Storyboard) — 00:20–00:30
+SCENE 3 (Storyboard Panel #3) — 00:20–00:30
 - Location: Hale lighthouse kitchen, night, one warm lamp and a cold stove
 - Characters Present: Nora Hale, Sam Calloway
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Nora Hale and Sam Calloway: Nora Hale and Sam Calloway face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Sam leans against a harbor truck with his arms crossed, trying not to smile. Key object in frame: fresh survey stakes. Location: Hale lighthouse kitchen, night, one warm lamp and a cold stove. Characters present: Nora Hale, Sam Calloway. No other characters appear.
@@ -293,7 +293,7 @@ ESCENA 3 (Viñeta #3 del Storyboard) — 00:20–00:30
   NORA (guarded): "I inherited a lighthouse, Sam. Not a welcome party."
   SAM (low): "I'm not happy. I'm careful."
 
-ESCENA 4 (Viñeta #4 del Storyboard) — 00:30–00:40
+SCENE 4 (Storyboard Panel #4) — 00:30–00:40
 - Location: Hale lighthouse cliff edge, storm dusk, wind and salt spray
 - Characters Present: Nora Hale, Sam Calloway
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Sam Calloway and Nora Hale: Sam Calloway and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora sets a brass key on the lighthouse kitchen table between them. Key object in frame: the dead lighthouse lamp. Location: Hale lighthouse cliff edge, storm dusk, wind and salt spray. Characters present: Nora Hale, Sam Calloway. No other characters appear.
@@ -308,7 +308,7 @@ ESCENA 4 (Viñeta #4 del Storyboard) — 00:30–00:40
   SAM (flat): "The Kellers already had surveyors on your land."
   NORA (steady): "Then explain it to the state."
 
-ESCENA 5 (Viñeta #5 del Storyboard) — 00:40–00:50
+SCENE 5 (Storyboard Panel #5) — 00:40–00:50
 - Location: Keller harbor boardwalk, blue hour, wet planks and dock lights
 - Characters Present: Nora Hale, Sam Calloway, Margaret Keller
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Margaret Keller and Nora Hale: Margaret Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Sam points through the rain at fresh survey stakes driven into the cliff. Key object in frame: a brass key. Location: Keller harbor boardwalk, blue hour, wet planks and dock lights. Characters present: Nora Hale, Sam Calloway, Margaret Keller. No other characters appear.
@@ -324,7 +324,7 @@ ESCENA 5 (Viñeta #5 del Storyboard) — 00:40–00:50
   MARGARET (silk over steel): "Your father was a liar. The deed stands."
   NORA (quiet): "Then you won't mind me reading it."
 
-ESCENA 6 (Viñeta #6 del Storyboard) — 00:50–01:00
+SCENE 6 (Storyboard Panel #6) — 00:50–01:00
 - Location: Hale lighthouse kitchen, night, one warm lamp and a cold stove
 - Characters Present: Nora Hale, Margaret Keller, Adrian Keller
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Adrian Keller and Nora Hale: Adrian Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Margaret waits under the dry awning of the Keller estate, gloves folded. Key object in frame: the deed. Location: Hale lighthouse kitchen, night, one warm lamp and a cold stove. Characters present: Nora Hale, Margaret Keller, Adrian Keller. No other characters appear.
@@ -340,15 +340,15 @@ ESCENA 6 (Viñeta #6 del Storyboard) — 00:50–01:00
   ADRIAN (reasonable, rehearsed): "Sell us the point. Name your price."
   NORA (cold): "You only ask me to leave the past."
 
-COMANDO FINAL (16:9 YouTube):
+FINAL COMMAND (16:9 YouTube):
 
-"Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando entre 1 y 4 tomas exactamente como las lista el guion: la Toma 1 arranca directamente en movimiento desde el encuadre exacto de la viñeta correspondiente sin frames estáticos (two-shot si hablan dos personajes); cada línea hablada tiene su propio plano con el hablante de frente, rostro y boca visibles, nunca desde detrás del personaje; los planos silenciosos (insert, reacción, objeto) van después del diálogo y nunca contienen habla. Mantén estrictamente la misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre escenas. Formato: horizontal 16:9 para YouTube. Reglas negativas estrictas: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
+"Make a realistic cinematic video of 10 seconds per scene, executing between 1 and 4 shots exactly as the script lists them: Shot 1 starts directly in motion from the exact framing of the corresponding storyboard panel, with no static frames (two-shot if two characters speak); every spoken line gets its own shot with the speaker facing camera, face and mouth visible, never from behind the character; silent shots (inserts, reactions, objects) come after the dialogue and never contain speech. Keep strictly the same race, face and wardrobe for each character according to their position in the attached Character Sheet, and join them into a single continuous video, never inserting the reference image between scenes. Format: horizontal 16:9 for YouTube. Strict negative rules: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
 ```
 
-**Comando final 9:16 (Reels/Shorts):**
+**Final 9:16 command (Reels/Shorts):**
 
 ```text
-ESCENA 1 (Viñeta #1 del Storyboard) — 00:00–00:10
+SCENE 1 (Storyboard Panel #1) — 00:00–00:10
 - Location: Hale lighthouse cliff edge, storm dusk, wind and salt spray
 - Characters Present: Nora Hale
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] wide establishing shot, face and mouth visible: Nora Hale is on camera with face and mouth fully visible, looking at the other person in frame. Nora stands at the cliff edge, the lighthouse dark behind her, salt wind whipping her coat. Key object in frame: a brass key. Location: Hale lighthouse cliff edge, storm dusk, wind and salt spray. Characters present: Nora Hale. No other characters appear.
@@ -362,7 +362,7 @@ ESCENA 1 (Viñeta #1 del Storyboard) — 00:00–00:10
 - Dialogue (English, max 15 words, finish before 8.5 s):
   NORA (cold, quiet): "They said the lighthouse was empty for ten years. So who left the light on?"
 
-ESCENA 2 (Viñeta #2 del Storyboard) — 00:10–00:20
+SCENE 2 (Storyboard Panel #2) — 00:10–00:20
 - Location: Keller harbor boardwalk, blue hour, wet planks and dock lights
 - Characters Present: Nora Hale, Sam Calloway
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] close-up, face and mouth visible: Sam Calloway is on camera with face and mouth fully visible, looking at Nora Hale. Sam Calloway speaks as the camera holds close on their face, the deed catching the light between them. Location: Keller harbor boardwalk, blue hour, wet planks and dock lights. Key object: the deed. Characters present: Nora Hale, Sam Calloway. No other characters appear.
@@ -377,7 +377,7 @@ ESCENA 2 (Viñeta #2 del Storyboard) — 00:10–00:20
 - Dialogue (English, max 15 words, finish before 8.5 s):
   SAM (dry, warm): "Nora Hale. Ten years, and you still drive like a storm."
 
-ESCENA 3 (Viñeta #3 del Storyboard) — 00:20–00:30
+SCENE 3 (Storyboard Panel #3) — 00:20–00:30
 - Location: Hale lighthouse kitchen, night, one warm lamp and a cold stove
 - Characters Present: Nora Hale, Sam Calloway
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Nora Hale and Sam Calloway: Nora Hale and Sam Calloway face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Sam leans against a harbor truck with his arms crossed, trying not to smile. Key object in frame: fresh survey stakes. Location: Hale lighthouse kitchen, night, one warm lamp and a cold stove. Characters present: Nora Hale, Sam Calloway. No other characters appear.
@@ -392,7 +392,7 @@ ESCENA 3 (Viñeta #3 del Storyboard) — 00:20–00:30
   NORA (guarded): "I inherited a lighthouse, Sam. Not a welcome party."
   SAM (low): "I'm not happy. I'm careful."
 
-ESCENA 4 (Viñeta #4 del Storyboard) — 00:30–00:40
+SCENE 4 (Storyboard Panel #4) — 00:30–00:40
 - Location: Hale lighthouse cliff edge, storm dusk, wind and salt spray
 - Characters Present: Nora Hale, Sam Calloway
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Sam Calloway and Nora Hale: Sam Calloway and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora sets a brass key on the lighthouse kitchen table between them. Key object in frame: the dead lighthouse lamp. Location: Hale lighthouse cliff edge, storm dusk, wind and salt spray. Characters present: Nora Hale, Sam Calloway. No other characters appear.
@@ -407,7 +407,7 @@ ESCENA 4 (Viñeta #4 del Storyboard) — 00:30–00:40
   SAM (flat): "The Kellers already had surveyors on your land."
   NORA (steady): "Then explain it to the state."
 
-ESCENA 5 (Viñeta #5 del Storyboard) — 00:40–00:50
+SCENE 5 (Storyboard Panel #5) — 00:40–00:50
 - Location: Keller harbor boardwalk, blue hour, wet planks and dock lights
 - Characters Present: Nora Hale, Sam Calloway, Margaret Keller
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Margaret Keller and Nora Hale: Margaret Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Sam points through the rain at fresh survey stakes driven into the cliff. Key object in frame: a brass key. Location: Keller harbor boardwalk, blue hour, wet planks and dock lights. Characters present: Nora Hale, Sam Calloway, Margaret Keller. No other characters appear.
@@ -423,7 +423,7 @@ ESCENA 5 (Viñeta #5 del Storyboard) — 00:40–00:50
   MARGARET (silk over steel): "Your father was a liar. The deed stands."
   NORA (quiet): "Then you won't mind me reading it."
 
-ESCENA 6 (Viñeta #6 del Storyboard) — 00:50–01:00
+SCENE 6 (Storyboard Panel #6) — 00:50–01:00
 - Location: Hale lighthouse kitchen, night, one warm lamp and a cold stove
 - Characters Present: Nora Hale, Margaret Keller, Adrian Keller
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Adrian Keller and Nora Hale: Adrian Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Margaret waits under the dry awning of the Keller estate, gloves folded. Key object in frame: the deed. Location: Hale lighthouse kitchen, night, one warm lamp and a cold stove. Characters present: Nora Hale, Margaret Keller, Adrian Keller. No other characters appear.
@@ -439,32 +439,32 @@ ESCENA 6 (Viñeta #6 del Storyboard) — 00:50–01:00
   ADRIAN (reasonable, rehearsed): "Sell us the point. Name your price."
   NORA (cold): "You only ask me to leave the past."
 
-COMANDO FINAL (9:16 Reels/TikTok/Shorts):
+FINAL COMMAND (9:16 Reels/TikTok/Shorts):
 
-"Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando entre 1 y 4 tomas exactamente como las lista el guion: la Toma 1 arranca directamente en movimiento desde el encuadre exacto de la viñeta correspondiente sin frames estáticos (two-shot si hablan dos personajes); cada línea hablada tiene su propio plano con el hablante de frente, rostro y boca visibles, nunca desde detrás del personaje; los planos silenciosos (insert, reacción, objeto) van después del diálogo y nunca contienen habla. Mantén estrictamente la misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre escenas. Formato: vertical 9:16 para Reels, TikTok y Shorts. Reglas negativas estrictas: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
+"Make a realistic cinematic video of 10 seconds per scene, executing between 1 and 4 shots exactly as the script lists them: Shot 1 starts directly in motion from the exact framing of the corresponding storyboard panel, with no static frames (two-shot if two characters speak); every spoken line gets its own shot with the speaker facing camera, face and mouth visible, never from behind the character; silent shots (inserts, reactions, objects) come after the dialogue and never contain speech. Keep strictly the same race, face and wardrobe for each character according to their position in the attached Character Sheet, and join them into a single continuous video, never inserting the reference image between scenes. Format: vertical 9:16 for Reels, TikTok and Shorts. Strict negative rules: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
 ```
 
-### Lote 02 — Minuto 2 (escenas 7–12)
+### Batch 02 — Minute 2 (scenes 7–12)
 
-**Adjuntar:** `REF_CAST_MASTER.png` + `REF_GRID_MIN_02.png`
+**Attach:** `REF_CAST_MASTER.png` + `REF_GRID_MIN_02.png`
 
-**Adjuntos por escena de este lote:**
+**Per-scene attachments for this batch:**
 
-- Escena 007: `attach: [panel_007, ref_nora, ref_margaret]`
-- Escena 008: `attach: [panel_008, ref_nora, ref_adrian, ref_claire]`
-- Escena 009: `attach: [panel_009, ref_nora, ref_claire]`
-- Escena 010: `attach: [panel_010, ref_nora]`
-- Escena 011: `attach: [panel_011, ref_nora, ref_claire]`
-- Escena 012: `attach: [panel_012, ref_nora, ref_claire]`
+- Scene 007: `attach: [panel_007, ref_nora, ref_margaret]`
+- Scene 008: `attach: [panel_008, ref_nora, ref_adrian, ref_claire]`
+- Scene 009: `attach: [panel_009, ref_nora, ref_claire]`
+- Scene 010: `attach: [panel_010, ref_nora]`
+- Scene 011: `attach: [panel_011, ref_nora, ref_claire]`
+- Scene 012: `attach: [panel_012, ref_nora, ref_claire]`
 
-**Guardar 16:9 como:** `raw_clips/minute_02.mp4`
+**Save 16:9 as:** `raw_clips/minute_02.mp4`
 
-**Guardar 9:16 como:** `raw_clips/minute_02_vertical.mp4`
+**Save 9:16 as:** `raw_clips/minute_02_vertical.mp4`
 
-**Bloque 16:9 para Muse AI (YouTube):**
+**16:9 block for Muse AI (YouTube):**
 
 ```text
-ESCENA 7 (Viñeta #7 del Storyboard) — 01:00–01:10
+SCENE 7 (Storyboard Panel #7) — 01:00–01:10
 - Location: Hale lighthouse cliff edge, storm dusk, wind and salt spray
 - Characters Present: Nora Hale, Margaret Keller
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Nora Hale and Margaret Keller: Nora Hale and Margaret Keller face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora reads the deed by a single warm lamp, jaw tight. Key object in frame: fresh survey stakes. Location: Hale lighthouse cliff edge, storm dusk, wind and salt spray. Characters present: Nora Hale, Margaret Keller. No other characters appear.
@@ -479,7 +479,7 @@ ESCENA 7 (Viñeta #7 del Storyboard) — 01:00–01:10
   NORA (suspicious): "Ten years. Why wait until I came back?"
   MARGARET (pleasant): "A deed is cleaner than a funeral."
 
-ESCENA 8 (Viñeta #8 del Storyboard) — 01:10–01:20
+SCENE 8 (Storyboard Panel #8) — 01:10–01:20
 - Location: Keller harbor boardwalk, blue hour, wet planks and dock lights
 - Characters Present: Nora Hale, Adrian Keller, Claire Boone
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Claire Boone and Nora Hale: Claire Boone and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Adrian blocks the lighthouse door with a folder under his arm. Key object in frame: the dead lighthouse lamp. Location: Keller harbor boardwalk, blue hour, wet planks and dock lights. Characters present: Nora Hale, Adrian Keller, Claire Boone. No other characters appear.
@@ -495,7 +495,7 @@ ESCENA 8 (Viñeta #8 del Storyboard) — 01:10–01:20
   CLAIRE (careful): "Your father changed his will three days before he died."
   NORA (sharp): "Who witnessed it?"
 
-ESCENA 9 (Viñeta #9 del Storyboard) — 01:20–01:30
+SCENE 9 (Storyboard Panel #9) — 01:20–01:30
 - Location: Hale lighthouse kitchen, night, one warm lamp and a cold stove
 - Characters Present: Nora Hale, Claire Boone
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Claire Boone and Nora Hale: Claire Boone and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora stands alone on the point, the town lights small below her. Key object in frame: a brass key. Location: Hale lighthouse kitchen, night, one warm lamp and a cold stove. Characters present: Nora Hale, Claire Boone. No other characters appear.
@@ -510,7 +510,7 @@ ESCENA 9 (Viñeta #9 del Storyboard) — 01:20–01:30
   CLAIRE (quiet): "Margaret's attorney. And a man named Sam."
   NORA (low): "Sam was there that night?"
 
-ESCENA 10 (Viñeta #10 del Storyboard) — 01:30–01:40
+SCENE 10 (Storyboard Panel #10) — 01:30–01:40
 - Location: Hale lighthouse cliff edge, storm dusk, wind and salt spray
 - Characters Present: Nora Hale
 - Storyboard Panel (Shot 1 exact framing): [00s-05s] low-angle hero shot, face and mouth visible: Nora Hale is on camera with face and mouth fully visible, looking at the other person in frame. Nora crouches at the lighthouse base, finding a keyhole hidden under peeling paint. Key object in frame: the deed. Location: Hale lighthouse cliff edge, storm dusk, wind and salt spray. Characters present: Nora Hale. No other characters appear.
@@ -525,7 +525,7 @@ ESCENA 10 (Viñeta #10 del Storyboard) — 01:30–01:40
   NORA (hushed): "Dad, what did you lock in the lighthouse?"
   NORA (breaking): "And why leave me the key?"
 
-ESCENA 11 (Viñeta #11 del Storyboard) — 01:40–01:50
+SCENE 11 (Storyboard Panel #11) — 01:40–01:50
 - Location: Claire Boone's law office, grey morning, rain on the windows
 - Characters Present: Nora Hale, Claire Boone
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Claire Boone and Nora Hale: Claire Boone and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Claire slides a sealed envelope across the lawyer's desk. Key object in frame: the sealed petition. Location: Claire Boone's law office, grey morning, rain on the windows. Characters present: Nora Hale, Claire Boone. No other characters appear.
@@ -540,7 +540,7 @@ ESCENA 11 (Viñeta #11 del Storyboard) — 01:40–01:50
   CLAIRE (clinical): "The petition calls you unfit. They want a guardian by Friday."
   NORA (flat): "On what grounds?"
 
-ESCENA 12 (Viñeta #12 del Storyboard) — 01:50–02:00
+SCENE 12 (Storyboard Panel #12) — 01:50–02:00
 - Location: Keller boathouse, night, one hanging bulb and a flashlight
 - Characters Present: Nora Hale, Claire Boone
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Nora Hale and Claire Boone: Nora Hale and Claire Boone face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora reads the witness signature and looks up slowly. Key object in frame: a witness signature. Location: Keller boathouse, night, one hanging bulb and a flashlight. Characters present: Nora Hale, Claire Boone. No other characters appear.
@@ -555,15 +555,15 @@ ESCENA 12 (Viñeta #12 del Storyboard) — 01:50–02:00
   NORA (sharp): "Who signed the statement?"
   CLAIRE (quiet): "Half the harbor. And Sam."
 
-COMANDO FINAL (16:9 YouTube):
+FINAL COMMAND (16:9 YouTube):
 
-"Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando entre 1 y 4 tomas exactamente como las lista el guion: la Toma 1 arranca directamente en movimiento desde el encuadre exacto de la viñeta correspondiente sin frames estáticos (two-shot si hablan dos personajes); cada línea hablada tiene su propio plano con el hablante de frente, rostro y boca visibles, nunca desde detrás del personaje; los planos silenciosos (insert, reacción, objeto) van después del diálogo y nunca contienen habla. Mantén estrictamente la misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre escenas. Formato: horizontal 16:9 para YouTube. Reglas negativas estrictas: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
+"Make a realistic cinematic video of 10 seconds per scene, executing between 1 and 4 shots exactly as the script lists them: Shot 1 starts directly in motion from the exact framing of the corresponding storyboard panel, with no static frames (two-shot if two characters speak); every spoken line gets its own shot with the speaker facing camera, face and mouth visible, never from behind the character; silent shots (inserts, reactions, objects) come after the dialogue and never contain speech. Keep strictly the same race, face and wardrobe for each character according to their position in the attached Character Sheet, and join them into a single continuous video, never inserting the reference image between scenes. Format: horizontal 16:9 for YouTube. Strict negative rules: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
 ```
 
-**Comando final 9:16 (Reels/Shorts):**
+**Final 9:16 command (Reels/Shorts):**
 
 ```text
-ESCENA 7 (Viñeta #7 del Storyboard) — 01:00–01:10
+SCENE 7 (Storyboard Panel #7) — 01:00–01:10
 - Location: Hale lighthouse cliff edge, storm dusk, wind and salt spray
 - Characters Present: Nora Hale, Margaret Keller
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Nora Hale and Margaret Keller: Nora Hale and Margaret Keller face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora reads the deed by a single warm lamp, jaw tight. Key object in frame: fresh survey stakes. Location: Hale lighthouse cliff edge, storm dusk, wind and salt spray. Characters present: Nora Hale, Margaret Keller. No other characters appear.
@@ -578,7 +578,7 @@ ESCENA 7 (Viñeta #7 del Storyboard) — 01:00–01:10
   NORA (suspicious): "Ten years. Why wait until I came back?"
   MARGARET (pleasant): "A deed is cleaner than a funeral."
 
-ESCENA 8 (Viñeta #8 del Storyboard) — 01:10–01:20
+SCENE 8 (Storyboard Panel #8) — 01:10–01:20
 - Location: Keller harbor boardwalk, blue hour, wet planks and dock lights
 - Characters Present: Nora Hale, Adrian Keller, Claire Boone
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Claire Boone and Nora Hale: Claire Boone and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Adrian blocks the lighthouse door with a folder under his arm. Key object in frame: the dead lighthouse lamp. Location: Keller harbor boardwalk, blue hour, wet planks and dock lights. Characters present: Nora Hale, Adrian Keller, Claire Boone. No other characters appear.
@@ -594,7 +594,7 @@ ESCENA 8 (Viñeta #8 del Storyboard) — 01:10–01:20
   CLAIRE (careful): "Your father changed his will three days before he died."
   NORA (sharp): "Who witnessed it?"
 
-ESCENA 9 (Viñeta #9 del Storyboard) — 01:20–01:30
+SCENE 9 (Storyboard Panel #9) — 01:20–01:30
 - Location: Hale lighthouse kitchen, night, one warm lamp and a cold stove
 - Characters Present: Nora Hale, Claire Boone
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Claire Boone and Nora Hale: Claire Boone and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora stands alone on the point, the town lights small below her. Key object in frame: a brass key. Location: Hale lighthouse kitchen, night, one warm lamp and a cold stove. Characters present: Nora Hale, Claire Boone. No other characters appear.
@@ -609,7 +609,7 @@ ESCENA 9 (Viñeta #9 del Storyboard) — 01:20–01:30
   CLAIRE (quiet): "Margaret's attorney. And a man named Sam."
   NORA (low): "Sam was there that night?"
 
-ESCENA 10 (Viñeta #10 del Storyboard) — 01:30–01:40
+SCENE 10 (Storyboard Panel #10) — 01:30–01:40
 - Location: Hale lighthouse cliff edge, storm dusk, wind and salt spray
 - Characters Present: Nora Hale
 - Storyboard Panel (Shot 1 exact framing): [00s-05s] low-angle hero shot, face and mouth visible: Nora Hale is on camera with face and mouth fully visible, looking at the other person in frame. Nora crouches at the lighthouse base, finding a keyhole hidden under peeling paint. Key object in frame: the deed. Location: Hale lighthouse cliff edge, storm dusk, wind and salt spray. Characters present: Nora Hale. No other characters appear.
@@ -624,7 +624,7 @@ ESCENA 10 (Viñeta #10 del Storyboard) — 01:30–01:40
   NORA (hushed): "Dad, what did you lock in the lighthouse?"
   NORA (breaking): "And why leave me the key?"
 
-ESCENA 11 (Viñeta #11 del Storyboard) — 01:40–01:50
+SCENE 11 (Storyboard Panel #11) — 01:40–01:50
 - Location: Claire Boone's law office, grey morning, rain on the windows
 - Characters Present: Nora Hale, Claire Boone
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Claire Boone and Nora Hale: Claire Boone and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Claire slides a sealed envelope across the lawyer's desk. Key object in frame: the sealed petition. Location: Claire Boone's law office, grey morning, rain on the windows. Characters present: Nora Hale, Claire Boone. No other characters appear.
@@ -639,7 +639,7 @@ ESCENA 11 (Viñeta #11 del Storyboard) — 01:40–01:50
   CLAIRE (clinical): "The petition calls you unfit. They want a guardian by Friday."
   NORA (flat): "On what grounds?"
 
-ESCENA 12 (Viñeta #12 del Storyboard) — 01:50–02:00
+SCENE 12 (Storyboard Panel #12) — 01:50–02:00
 - Location: Keller boathouse, night, one hanging bulb and a flashlight
 - Characters Present: Nora Hale, Claire Boone
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Nora Hale and Claire Boone: Nora Hale and Claire Boone face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora reads the witness signature and looks up slowly. Key object in frame: a witness signature. Location: Keller boathouse, night, one hanging bulb and a flashlight. Characters present: Nora Hale, Claire Boone. No other characters appear.
@@ -654,32 +654,32 @@ ESCENA 12 (Viñeta #12 del Storyboard) — 01:50–02:00
   NORA (sharp): "Who signed the statement?"
   CLAIRE (quiet): "Half the harbor. And Sam."
 
-COMANDO FINAL (9:16 Reels/TikTok/Shorts):
+FINAL COMMAND (9:16 Reels/TikTok/Shorts):
 
-"Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando entre 1 y 4 tomas exactamente como las lista el guion: la Toma 1 arranca directamente en movimiento desde el encuadre exacto de la viñeta correspondiente sin frames estáticos (two-shot si hablan dos personajes); cada línea hablada tiene su propio plano con el hablante de frente, rostro y boca visibles, nunca desde detrás del personaje; los planos silenciosos (insert, reacción, objeto) van después del diálogo y nunca contienen habla. Mantén estrictamente la misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre escenas. Formato: vertical 9:16 para Reels, TikTok y Shorts. Reglas negativas estrictas: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
+"Make a realistic cinematic video of 10 seconds per scene, executing between 1 and 4 shots exactly as the script lists them: Shot 1 starts directly in motion from the exact framing of the corresponding storyboard panel, with no static frames (two-shot if two characters speak); every spoken line gets its own shot with the speaker facing camera, face and mouth visible, never from behind the character; silent shots (inserts, reactions, objects) come after the dialogue and never contain speech. Keep strictly the same race, face and wardrobe for each character according to their position in the attached Character Sheet, and join them into a single continuous video, never inserting the reference image between scenes. Format: vertical 9:16 for Reels, TikTok and Shorts. Strict negative rules: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
 ```
 
-### Lote 03 — Minuto 3 (escenas 13–18)
+### Batch 03 — Minute 3 (scenes 13–18)
 
-**Adjuntar:** `REF_CAST_MASTER.png` + `REF_GRID_MIN_03.png`
+**Attach:** `REF_CAST_MASTER.png` + `REF_GRID_MIN_03.png`
 
-**Adjuntos por escena de este lote:**
+**Per-scene attachments for this batch:**
 
-- Escena 013: `attach: [panel_013, ref_nora, ref_sam]`
-- Escena 014: `attach: [panel_014, ref_nora, ref_sam, ref_claire]`
-- Escena 015: `attach: [panel_015, ref_nora, ref_margaret]`
-- Escena 016: `attach: [panel_016, ref_nora, ref_adrian]`
-- Escena 017: `attach: [panel_017, ref_nora, ref_sam, ref_adrian]`
-- Escena 018: `attach: [panel_018, ref_nora, ref_sam]`
+- Scene 013: `attach: [panel_013, ref_nora, ref_sam]`
+- Scene 014: `attach: [panel_014, ref_nora, ref_sam, ref_claire]`
+- Scene 015: `attach: [panel_015, ref_nora, ref_margaret]`
+- Scene 016: `attach: [panel_016, ref_nora, ref_adrian]`
+- Scene 017: `attach: [panel_017, ref_nora, ref_sam, ref_adrian]`
+- Scene 018: `attach: [panel_018, ref_nora, ref_sam]`
 
-**Guardar 16:9 como:** `raw_clips/minute_03.mp4`
+**Save 16:9 as:** `raw_clips/minute_03.mp4`
 
-**Guardar 9:16 como:** `raw_clips/minute_03_vertical.mp4`
+**Save 9:16 as:** `raw_clips/minute_03_vertical.mp4`
 
-**Bloque 16:9 para Muse AI (YouTube):**
+**16:9 block for Muse AI (YouTube):**
 
 ```text
-ESCENA 13 (Viñeta #13 del Storyboard) — 02:00–02:10
+SCENE 13 (Storyboard Panel #13) — 02:00–02:10
 - Location: Keller estate, dusk, warm interior against blue windows
 - Characters Present: Nora Hale, Sam Calloway
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Sam Calloway and Nora Hale: Sam Calloway and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Sam stands in the boathouse doorway, rain behind him. Key object in frame: a scorched beam. Location: Keller estate, dusk, warm interior against blue windows. Characters present: Nora Hale, Sam Calloway. No other characters appear.
@@ -694,7 +694,7 @@ ESCENA 13 (Viñeta #13 del Storyboard) — 02:00–02:10
   SAM (ashamed): "I signed a paper. I was twenty-two and scared."
   NORA (cutting): "Scared of being poor? Or her?"
 
-ESCENA 14 (Viñeta #14 del Storyboard) — 02:10–02:20
+SCENE 14 (Storyboard Panel #14) — 02:10–02:20
 - Location: Claire Boone's law office, grey morning, rain on the windows
 - Characters Present: Nora Hale, Sam Calloway, Claire Boone
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Sam Calloway and Nora Hale: Sam Calloway and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora sweeps a flashlight over scorched beams. Key object in frame: the survey map. Location: Claire Boone's law office, grey morning, rain on the windows. Characters present: Nora Hale, Sam Calloway, Claire Boone. No other characters appear.
@@ -710,7 +710,7 @@ ESCENA 14 (Viñeta #14 del Storyboard) — 02:10–02:20
   SAM (low): "The fire started in the boathouse, not the cliffs."
   NORA (raw): "Why did the town blame me?"
 
-ESCENA 15 (Viñeta #15 del Storyboard) — 02:20–02:30
+SCENE 15 (Storyboard Panel #15) — 02:20–02:30
 - Location: Keller boathouse, night, one hanging bulb and a flashlight
 - Characters Present: Nora Hale, Margaret Keller
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Margaret Keller and Nora Hale: Margaret Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Margaret pours tea without offering a cup. Key object in frame: the sealed petition. Location: Keller boathouse, night, one hanging bulb and a flashlight. Characters present: Nora Hale, Margaret Keller. No other characters appear.
@@ -725,7 +725,7 @@ ESCENA 15 (Viñeta #15 del Storyboard) — 02:20–02:30
   MARGARET (pleasant threat): "Reopen it, and the town remembers the match."
   NORA (tired): "I've played your villain ten years."
 
-ESCENA 16 (Viñeta #16 del Storyboard) — 02:30–02:40
+SCENE 16 (Storyboard Panel #16) — 02:30–02:40
 - Location: Keller estate, dusk, warm interior against blue windows
 - Characters Present: Nora Hale, Adrian Keller
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Nora Hale and Adrian Keller: Nora Hale and Adrian Keller face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora stands in the town hall doorway as every head turns. Key object in frame: a witness signature. Location: Keller estate, dusk, warm interior against blue windows. Characters present: Nora Hale, Adrian Keller. No other characters appear.
@@ -740,7 +740,7 @@ ESCENA 16 (Viñeta #16 del Storyboard) — 02:30–02:40
   NORA (precise): "A debt doesn't transfer with land. Fraud does."
   ADRIAN (smiling): "Big words for someone with no lawyer."
 
-ESCENA 17 (Viñeta #17 del Storyboard) — 02:40–02:50
+SCENE 17 (Storyboard Panel #17) — 02:40–02:50
 - Location: Boone law office, grey morning, rain on the windows
 - Characters Present: Nora Hale, Sam Calloway, Adrian Keller
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Sam Calloway and Nora Hale: Sam Calloway and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Adrian corners Nora by the harbor railing. Key object in frame: a scorched beam. Location: Boone law office, grey morning, rain on the windows. Characters present: Nora Hale, Sam Calloway, Adrian Keller. No other characters appear.
@@ -756,7 +756,7 @@ ESCENA 17 (Viñeta #17 del Storyboard) — 02:40–02:50
   SAM (urgent): "The old survey files are in the boathouse."
   NORA (decided): "Tonight, before the hearing."
 
-ESCENA 18 (Viñeta #18 del Storyboard) — 02:50–03:00
+SCENE 18 (Storyboard Panel #18) — 02:50–03:00
 - Location: Keller boathouse, night, one hanging bulb and a flashlight
 - Characters Present: Nora Hale, Sam Calloway
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Sam Calloway and Nora Hale: Sam Calloway and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora stares at a survey map pinned to the boathouse wall. Key object in frame: the survey map. Location: Keller boathouse, night, one hanging bulb and a flashlight. Characters present: Nora Hale, Sam Calloway. No other characters appear.
@@ -771,15 +771,15 @@ ESCENA 18 (Viñeta #18 del Storyboard) — 02:50–03:00
   SAM (dry): "You always liked bad ideas with good lighting."
   NORA (impatient): "You coming? Bring the pry bar."
 
-COMANDO FINAL (16:9 YouTube):
+FINAL COMMAND (16:9 YouTube):
 
-"Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando entre 1 y 4 tomas exactamente como las lista el guion: la Toma 1 arranca directamente en movimiento desde el encuadre exacto de la viñeta correspondiente sin frames estáticos (two-shot si hablan dos personajes); cada línea hablada tiene su propio plano con el hablante de frente, rostro y boca visibles, nunca desde detrás del personaje; los planos silenciosos (insert, reacción, objeto) van después del diálogo y nunca contienen habla. Mantén estrictamente la misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre escenas. Formato: horizontal 16:9 para YouTube. Reglas negativas estrictas: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
+"Make a realistic cinematic video of 10 seconds per scene, executing between 1 and 4 shots exactly as the script lists them: Shot 1 starts directly in motion from the exact framing of the corresponding storyboard panel, with no static frames (two-shot if two characters speak); every spoken line gets its own shot with the speaker facing camera, face and mouth visible, never from behind the character; silent shots (inserts, reactions, objects) come after the dialogue and never contain speech. Keep strictly the same race, face and wardrobe for each character according to their position in the attached Character Sheet, and join them into a single continuous video, never inserting the reference image between scenes. Format: horizontal 16:9 for YouTube. Strict negative rules: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
 ```
 
-**Comando final 9:16 (Reels/Shorts):**
+**Final 9:16 command (Reels/Shorts):**
 
 ```text
-ESCENA 13 (Viñeta #13 del Storyboard) — 02:00–02:10
+SCENE 13 (Storyboard Panel #13) — 02:00–02:10
 - Location: Keller estate, dusk, warm interior against blue windows
 - Characters Present: Nora Hale, Sam Calloway
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Sam Calloway and Nora Hale: Sam Calloway and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Sam stands in the boathouse doorway, rain behind him. Key object in frame: a scorched beam. Location: Keller estate, dusk, warm interior against blue windows. Characters present: Nora Hale, Sam Calloway. No other characters appear.
@@ -794,7 +794,7 @@ ESCENA 13 (Viñeta #13 del Storyboard) — 02:00–02:10
   SAM (ashamed): "I signed a paper. I was twenty-two and scared."
   NORA (cutting): "Scared of being poor? Or her?"
 
-ESCENA 14 (Viñeta #14 del Storyboard) — 02:10–02:20
+SCENE 14 (Storyboard Panel #14) — 02:10–02:20
 - Location: Claire Boone's law office, grey morning, rain on the windows
 - Characters Present: Nora Hale, Sam Calloway, Claire Boone
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Sam Calloway and Nora Hale: Sam Calloway and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora sweeps a flashlight over scorched beams. Key object in frame: the survey map. Location: Claire Boone's law office, grey morning, rain on the windows. Characters present: Nora Hale, Sam Calloway, Claire Boone. No other characters appear.
@@ -810,7 +810,7 @@ ESCENA 14 (Viñeta #14 del Storyboard) — 02:10–02:20
   SAM (low): "The fire started in the boathouse, not the cliffs."
   NORA (raw): "Why did the town blame me?"
 
-ESCENA 15 (Viñeta #15 del Storyboard) — 02:20–02:30
+SCENE 15 (Storyboard Panel #15) — 02:20–02:30
 - Location: Keller boathouse, night, one hanging bulb and a flashlight
 - Characters Present: Nora Hale, Margaret Keller
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Margaret Keller and Nora Hale: Margaret Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Margaret pours tea without offering a cup. Key object in frame: the sealed petition. Location: Keller boathouse, night, one hanging bulb and a flashlight. Characters present: Nora Hale, Margaret Keller. No other characters appear.
@@ -825,7 +825,7 @@ ESCENA 15 (Viñeta #15 del Storyboard) — 02:20–02:30
   MARGARET (pleasant threat): "Reopen it, and the town remembers the match."
   NORA (tired): "I've played your villain ten years."
 
-ESCENA 16 (Viñeta #16 del Storyboard) — 02:30–02:40
+SCENE 16 (Storyboard Panel #16) — 02:30–02:40
 - Location: Keller estate, dusk, warm interior against blue windows
 - Characters Present: Nora Hale, Adrian Keller
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Nora Hale and Adrian Keller: Nora Hale and Adrian Keller face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora stands in the town hall doorway as every head turns. Key object in frame: a witness signature. Location: Keller estate, dusk, warm interior against blue windows. Characters present: Nora Hale, Adrian Keller. No other characters appear.
@@ -840,7 +840,7 @@ ESCENA 16 (Viñeta #16 del Storyboard) — 02:30–02:40
   NORA (precise): "A debt doesn't transfer with land. Fraud does."
   ADRIAN (smiling): "Big words for someone with no lawyer."
 
-ESCENA 17 (Viñeta #17 del Storyboard) — 02:40–02:50
+SCENE 17 (Storyboard Panel #17) — 02:40–02:50
 - Location: Boone law office, grey morning, rain on the windows
 - Characters Present: Nora Hale, Sam Calloway, Adrian Keller
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Sam Calloway and Nora Hale: Sam Calloway and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Adrian corners Nora by the harbor railing. Key object in frame: a scorched beam. Location: Boone law office, grey morning, rain on the windows. Characters present: Nora Hale, Sam Calloway, Adrian Keller. No other characters appear.
@@ -856,7 +856,7 @@ ESCENA 17 (Viñeta #17 del Storyboard) — 02:40–02:50
   SAM (urgent): "The old survey files are in the boathouse."
   NORA (decided): "Tonight, before the hearing."
 
-ESCENA 18 (Viñeta #18 del Storyboard) — 02:50–03:00
+SCENE 18 (Storyboard Panel #18) — 02:50–03:00
 - Location: Keller boathouse, night, one hanging bulb and a flashlight
 - Characters Present: Nora Hale, Sam Calloway
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Sam Calloway and Nora Hale: Sam Calloway and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora stares at a survey map pinned to the boathouse wall. Key object in frame: the survey map. Location: Keller boathouse, night, one hanging bulb and a flashlight. Characters present: Nora Hale, Sam Calloway. No other characters appear.
@@ -871,32 +871,32 @@ ESCENA 18 (Viñeta #18 del Storyboard) — 02:50–03:00
   SAM (dry): "You always liked bad ideas with good lighting."
   NORA (impatient): "You coming? Bring the pry bar."
 
-COMANDO FINAL (9:16 Reels/TikTok/Shorts):
+FINAL COMMAND (9:16 Reels/TikTok/Shorts):
 
-"Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando entre 1 y 4 tomas exactamente como las lista el guion: la Toma 1 arranca directamente en movimiento desde el encuadre exacto de la viñeta correspondiente sin frames estáticos (two-shot si hablan dos personajes); cada línea hablada tiene su propio plano con el hablante de frente, rostro y boca visibles, nunca desde detrás del personaje; los planos silenciosos (insert, reacción, objeto) van después del diálogo y nunca contienen habla. Mantén estrictamente la misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre escenas. Formato: vertical 9:16 para Reels, TikTok y Shorts. Reglas negativas estrictas: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
+"Make a realistic cinematic video of 10 seconds per scene, executing between 1 and 4 shots exactly as the script lists them: Shot 1 starts directly in motion from the exact framing of the corresponding storyboard panel, with no static frames (two-shot if two characters speak); every spoken line gets its own shot with the speaker facing camera, face and mouth visible, never from behind the character; silent shots (inserts, reactions, objects) come after the dialogue and never contain speech. Keep strictly the same race, face and wardrobe for each character according to their position in the attached Character Sheet, and join them into a single continuous video, never inserting the reference image between scenes. Format: vertical 9:16 for Reels, TikTok and Shorts. Strict negative rules: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
 ```
 
-### Lote 04 — Minuto 4 (escenas 19–24)
+### Batch 04 — Minute 4 (scenes 19–24)
 
-**Adjuntar:** `REF_CAST_MASTER.png` + `REF_GRID_MIN_04.png`
+**Attach:** `REF_CAST_MASTER.png` + `REF_GRID_MIN_04.png`
 
-**Adjuntos por escena de este lote:**
+**Per-scene attachments for this batch:**
 
-- Escena 019: `attach: [panel_019, ref_nora, ref_sam]`
-- Escena 020: `attach: [panel_020, ref_nora, ref_adrian, ref_claire]`
-- Escena 021: `attach: [panel_021, ref_nora, ref_adrian]`
-- Escena 022: `attach: [panel_022, ref_nora, ref_sam, ref_margaret]`
-- Escena 023: `attach: [panel_023, ref_nora, ref_claire]`
-- Escena 024: `attach: [panel_024, ref_nora, ref_sam]`
+- Scene 019: `attach: [panel_019, ref_nora, ref_sam]`
+- Scene 020: `attach: [panel_020, ref_nora, ref_adrian, ref_claire]`
+- Scene 021: `attach: [panel_021, ref_nora, ref_adrian]`
+- Scene 022: `attach: [panel_022, ref_nora, ref_sam, ref_margaret]`
+- Scene 023: `attach: [panel_023, ref_nora, ref_claire]`
+- Scene 024: `attach: [panel_024, ref_nora, ref_sam]`
 
-**Guardar 16:9 como:** `raw_clips/minute_04.mp4`
+**Save 16:9 as:** `raw_clips/minute_04.mp4`
 
-**Guardar 9:16 como:** `raw_clips/minute_04_vertical.mp4`
+**Save 9:16 as:** `raw_clips/minute_04_vertical.mp4`
 
-**Bloque 16:9 para Muse AI (YouTube):**
+**16:9 block for Muse AI (YouTube):**
 
 ```text
-ESCENA 19 (Viñeta #19 del Storyboard) — 03:00–03:10
+SCENE 19 (Storyboard Panel #19) — 03:00–03:10
 - Location: Keller estate, dusk, warm interior against blue windows
 - Characters Present: Nora Hale, Sam Calloway
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Nora Hale and Sam Calloway: Nora Hale and Sam Calloway face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora Hale speaks as the camera holds close on their face, the sealed petition catching the light between them. Location: Keller estate, dusk, warm interior against blue windows. Key object: the sealed petition. Characters present: Nora Hale, Sam Calloway. No other characters appear.
@@ -911,7 +911,7 @@ ESCENA 19 (Viñeta #19 del Storyboard) — 03:00–03:10
   NORA (shaking): "Seawall permits. Signed by Margaret, before the fire."
   SAM (quiet): "That's not a permit. That's a motive."
 
-ESCENA 20 (Viñeta #20 del Storyboard) — 03:10–03:20
+SCENE 20 (Storyboard Panel #20) — 03:10–03:20
 - Location: Claire Boone's law office, grey morning, rain on the windows
 - Characters Present: Nora Hale, Adrian Keller, Claire Boone
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Adrian Keller and Nora Hale: Adrian Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Adrian holds the lighthouse door open, waiting. Key object in frame: a witness signature. Location: Claire Boone's law office, grey morning, rain on the windows. Characters present: Nora Hale, Adrian Keller, Claire Boone. No other characters appear.
@@ -927,7 +927,7 @@ ESCENA 20 (Viñeta #20 del Storyboard) — 03:10–03:20
   ADRIAN (reasonable): "Give me the file. I'll call the fire an accident."
   NORA (wary): "In exchange for what?"
 
-ESCENA 21 (Viñeta #21 del Storyboard) — 03:20–03:30
+SCENE 21 (Storyboard Panel #21) — 03:20–03:30
 - Location: Keller boathouse, night, flashlight and dust
 - Characters Present: Nora Hale, Adrian Keller
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Adrian Keller and Nora Hale: Adrian Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora spreads water-stained survey files across the lighthouse floor. Key object in frame: the metal evidence box. Location: Keller boathouse, night, flashlight and dust. Characters present: Nora Hale, Adrian Keller. No other characters appear.
@@ -942,7 +942,7 @@ ESCENA 21 (Viñeta #21 del Storyboard) — 03:20–03:30
   ADRIAN (incredulous): "You'd rather be the arsonist than my alibi?"
   NORA (flat): "I'd rather be alone than owned. Move."
 
-ESCENA 22 (Viñeta #22 del Storyboard) — 03:30–03:40
+SCENE 22 (Storyboard Panel #22) — 03:30–03:40
 - Location: Hale lighthouse archive room, night, a single desk lamp
 - Characters Present: Nora Hale, Sam Calloway, Margaret Keller
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Margaret Keller and Nora Hale: Margaret Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Sam jimmies the boathouse lock with a pry bar. Key object in frame: the seawall permit. Location: Hale lighthouse archive room, night, a single desk lamp. Characters present: Nora Hale, Sam Calloway, Margaret Keller. No other characters appear.
@@ -958,7 +958,7 @@ ESCENA 22 (Viñeta #22 del Storyboard) — 03:30–03:40
   MARGARET (satisfied): "The trust is frozen. Emergency petition, effective this morning."
   NORA (steady): "On what grounds?"
 
-ESCENA 23 (Viñeta #23 del Storyboard) — 03:40–03:50
+SCENE 23 (Storyboard Panel #23) — 03:40–03:50
 - Location: Harbor diner, dawn, cold fluorescent light and steam
 - Characters Present: Nora Hale, Claire Boone
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Claire Boone and Nora Hale: Claire Boone and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora's flashlight beam catches a metal box under the floorboards. Key object in frame: a folded page. Location: Harbor diner, dawn, cold fluorescent light and steam. Characters present: Nora Hale, Claire Boone. No other characters appear.
@@ -973,7 +973,7 @@ ESCENA 23 (Viñeta #23 del Storyboard) — 03:40–03:50
   CLAIRE (gentle): "One of the statements is from Sam."
   NORA (low): "Tell me that's a lie. To my face."
 
-ESCENA 24 (Viñeta #24 del Storyboard) — 03:50–04:00
+SCENE 24 (Storyboard Panel #24) — 03:50–04:00
 - Location: Keller boathouse, night, flashlight and dust
 - Characters Present: Nora Hale, Sam Calloway
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Sam Calloway and Nora Hale: Sam Calloway and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Sam Calloway speaks as the camera holds close on their face, a diner coffee cup catching the light between them. Location: Keller boathouse, night, flashlight and dust. Key object: a diner coffee cup. Characters present: Nora Hale, Sam Calloway. No other characters appear.
@@ -988,15 +988,15 @@ ESCENA 24 (Viñeta #24 del Storyboard) — 03:50–04:00
   SAM (broken): "They threatened my sister's job. I'm sorry."
   NORA (hard): "Don't apologize. Fix it."
 
-COMANDO FINAL (16:9 YouTube):
+FINAL COMMAND (16:9 YouTube):
 
-"Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando entre 1 y 4 tomas exactamente como las lista el guion: la Toma 1 arranca directamente en movimiento desde el encuadre exacto de la viñeta correspondiente sin frames estáticos (two-shot si hablan dos personajes); cada línea hablada tiene su propio plano con el hablante de frente, rostro y boca visibles, nunca desde detrás del personaje; los planos silenciosos (insert, reacción, objeto) van después del diálogo y nunca contienen habla. Mantén estrictamente la misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre escenas. Formato: horizontal 16:9 para YouTube. Reglas negativas estrictas: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
+"Make a realistic cinematic video of 10 seconds per scene, executing between 1 and 4 shots exactly as the script lists them: Shot 1 starts directly in motion from the exact framing of the corresponding storyboard panel, with no static frames (two-shot if two characters speak); every spoken line gets its own shot with the speaker facing camera, face and mouth visible, never from behind the character; silent shots (inserts, reactions, objects) come after the dialogue and never contain speech. Keep strictly the same race, face and wardrobe for each character according to their position in the attached Character Sheet, and join them into a single continuous video, never inserting the reference image between scenes. Format: horizontal 16:9 for YouTube. Strict negative rules: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
 ```
 
-**Comando final 9:16 (Reels/Shorts):**
+**Final 9:16 command (Reels/Shorts):**
 
 ```text
-ESCENA 19 (Viñeta #19 del Storyboard) — 03:00–03:10
+SCENE 19 (Storyboard Panel #19) — 03:00–03:10
 - Location: Keller estate, dusk, warm interior against blue windows
 - Characters Present: Nora Hale, Sam Calloway
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Nora Hale and Sam Calloway: Nora Hale and Sam Calloway face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora Hale speaks as the camera holds close on their face, the sealed petition catching the light between them. Location: Keller estate, dusk, warm interior against blue windows. Key object: the sealed petition. Characters present: Nora Hale, Sam Calloway. No other characters appear.
@@ -1011,7 +1011,7 @@ ESCENA 19 (Viñeta #19 del Storyboard) — 03:00–03:10
   NORA (shaking): "Seawall permits. Signed by Margaret, before the fire."
   SAM (quiet): "That's not a permit. That's a motive."
 
-ESCENA 20 (Viñeta #20 del Storyboard) — 03:10–03:20
+SCENE 20 (Storyboard Panel #20) — 03:10–03:20
 - Location: Claire Boone's law office, grey morning, rain on the windows
 - Characters Present: Nora Hale, Adrian Keller, Claire Boone
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Adrian Keller and Nora Hale: Adrian Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Adrian holds the lighthouse door open, waiting. Key object in frame: a witness signature. Location: Claire Boone's law office, grey morning, rain on the windows. Characters present: Nora Hale, Adrian Keller, Claire Boone. No other characters appear.
@@ -1027,7 +1027,7 @@ ESCENA 20 (Viñeta #20 del Storyboard) — 03:10–03:20
   ADRIAN (reasonable): "Give me the file. I'll call the fire an accident."
   NORA (wary): "In exchange for what?"
 
-ESCENA 21 (Viñeta #21 del Storyboard) — 03:20–03:30
+SCENE 21 (Storyboard Panel #21) — 03:20–03:30
 - Location: Keller boathouse, night, flashlight and dust
 - Characters Present: Nora Hale, Adrian Keller
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Adrian Keller and Nora Hale: Adrian Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora spreads water-stained survey files across the lighthouse floor. Key object in frame: the metal evidence box. Location: Keller boathouse, night, flashlight and dust. Characters present: Nora Hale, Adrian Keller. No other characters appear.
@@ -1042,7 +1042,7 @@ ESCENA 21 (Viñeta #21 del Storyboard) — 03:20–03:30
   ADRIAN (incredulous): "You'd rather be the arsonist than my alibi?"
   NORA (flat): "I'd rather be alone than owned. Move."
 
-ESCENA 22 (Viñeta #22 del Storyboard) — 03:30–03:40
+SCENE 22 (Storyboard Panel #22) — 03:30–03:40
 - Location: Hale lighthouse archive room, night, a single desk lamp
 - Characters Present: Nora Hale, Sam Calloway, Margaret Keller
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Margaret Keller and Nora Hale: Margaret Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Sam jimmies the boathouse lock with a pry bar. Key object in frame: the seawall permit. Location: Hale lighthouse archive room, night, a single desk lamp. Characters present: Nora Hale, Sam Calloway, Margaret Keller. No other characters appear.
@@ -1058,7 +1058,7 @@ ESCENA 22 (Viñeta #22 del Storyboard) — 03:30–03:40
   MARGARET (satisfied): "The trust is frozen. Emergency petition, effective this morning."
   NORA (steady): "On what grounds?"
 
-ESCENA 23 (Viñeta #23 del Storyboard) — 03:40–03:50
+SCENE 23 (Storyboard Panel #23) — 03:40–03:50
 - Location: Harbor diner, dawn, cold fluorescent light and steam
 - Characters Present: Nora Hale, Claire Boone
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Claire Boone and Nora Hale: Claire Boone and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora's flashlight beam catches a metal box under the floorboards. Key object in frame: a folded page. Location: Harbor diner, dawn, cold fluorescent light and steam. Characters present: Nora Hale, Claire Boone. No other characters appear.
@@ -1073,7 +1073,7 @@ ESCENA 23 (Viñeta #23 del Storyboard) — 03:40–03:50
   CLAIRE (gentle): "One of the statements is from Sam."
   NORA (low): "Tell me that's a lie. To my face."
 
-ESCENA 24 (Viñeta #24 del Storyboard) — 03:50–04:00
+SCENE 24 (Storyboard Panel #24) — 03:50–04:00
 - Location: Keller boathouse, night, flashlight and dust
 - Characters Present: Nora Hale, Sam Calloway
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Sam Calloway and Nora Hale: Sam Calloway and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Sam Calloway speaks as the camera holds close on their face, a diner coffee cup catching the light between them. Location: Keller boathouse, night, flashlight and dust. Key object: a diner coffee cup. Characters present: Nora Hale, Sam Calloway. No other characters appear.
@@ -1088,32 +1088,32 @@ ESCENA 24 (Viñeta #24 del Storyboard) — 03:50–04:00
   SAM (broken): "They threatened my sister's job. I'm sorry."
   NORA (hard): "Don't apologize. Fix it."
 
-COMANDO FINAL (9:16 Reels/TikTok/Shorts):
+FINAL COMMAND (9:16 Reels/TikTok/Shorts):
 
-"Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando entre 1 y 4 tomas exactamente como las lista el guion: la Toma 1 arranca directamente en movimiento desde el encuadre exacto de la viñeta correspondiente sin frames estáticos (two-shot si hablan dos personajes); cada línea hablada tiene su propio plano con el hablante de frente, rostro y boca visibles, nunca desde detrás del personaje; los planos silenciosos (insert, reacción, objeto) van después del diálogo y nunca contienen habla. Mantén estrictamente la misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre escenas. Formato: vertical 9:16 para Reels, TikTok y Shorts. Reglas negativas estrictas: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
+"Make a realistic cinematic video of 10 seconds per scene, executing between 1 and 4 shots exactly as the script lists them: Shot 1 starts directly in motion from the exact framing of the corresponding storyboard panel, with no static frames (two-shot if two characters speak); every spoken line gets its own shot with the speaker facing camera, face and mouth visible, never from behind the character; silent shots (inserts, reactions, objects) come after the dialogue and never contain speech. Keep strictly the same race, face and wardrobe for each character according to their position in the attached Character Sheet, and join them into a single continuous video, never inserting the reference image between scenes. Format: vertical 9:16 for Reels, TikTok and Shorts. Strict negative rules: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
 ```
 
-### Lote 05 — Minuto 5 (escenas 25–30)
+### Batch 05 — Minute 5 (scenes 25–30)
 
-**Adjuntar:** `REF_CAST_MASTER.png` + `REF_GRID_MIN_05.png`
+**Attach:** `REF_CAST_MASTER.png` + `REF_GRID_MIN_05.png`
 
-**Adjuntos por escena de este lote:**
+**Per-scene attachments for this batch:**
 
-- Escena 025: `attach: [panel_025, ref_nora, ref_margaret, ref_adrian]`
-- Escena 026: `attach: [panel_026, ref_nora, ref_sam]`
-- Escena 027: `attach: [panel_027, ref_nora, ref_sam, ref_adrian]`
-- Escena 028: `attach: [panel_028, ref_nora, ref_sam]`
-- Escena 029: `attach: [panel_029, ref_nora, ref_adrian]`
-- Escena 030: `attach: [panel_030, ref_nora, ref_margaret]`
+- Scene 025: `attach: [panel_025, ref_nora, ref_margaret, ref_adrian]`
+- Scene 026: `attach: [panel_026, ref_nora, ref_sam]`
+- Scene 027: `attach: [panel_027, ref_nora, ref_sam, ref_adrian]`
+- Scene 028: `attach: [panel_028, ref_nora, ref_sam]`
+- Scene 029: `attach: [panel_029, ref_nora, ref_adrian]`
+- Scene 030: `attach: [panel_030, ref_nora, ref_margaret]`
 
-**Guardar 16:9 como:** `raw_clips/minute_05.mp4`
+**Save 16:9 as:** `raw_clips/minute_05.mp4`
 
-**Guardar 9:16 como:** `raw_clips/minute_05_vertical.mp4`
+**Save 9:16 as:** `raw_clips/minute_05_vertical.mp4`
 
-**Bloque 16:9 para Muse AI (YouTube):**
+**16:9 block for Muse AI (YouTube):**
 
 ```text
-ESCENA 25 (Viñeta #25 del Storyboard) — 04:00–04:10
+SCENE 25 (Storyboard Panel #25) — 04:00–04:10
 - Location: Hale lighthouse archive room, night, a single desk lamp
 - Characters Present: Nora Hale, Margaret Keller, Adrian Keller
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Adrian Keller and Nora Hale: Adrian Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora holds a permit signed by Margaret, dated before the fire. Key object in frame: the metal evidence box. Location: Hale lighthouse archive room, night, a single desk lamp. Characters present: Nora Hale, Margaret Keller, Adrian Keller. No other characters appear.
@@ -1129,7 +1129,7 @@ ESCENA 25 (Viñeta #25 del Storyboard) — 04:00–04:10
   ADRIAN (reasonable): "Sign the sale. I'll make the petition disappear."
   NORA (quiet): "And if I don't?"
 
-ESCENA 26 (Viñeta #26 del Storyboard) — 04:10–04:20
+SCENE 26 (Storyboard Panel #26) — 04:10–04:20
 - Location: Harbor diner, dawn, cold fluorescent light and steam
 - Characters Present: Nora Hale, Sam Calloway
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Nora Hale and Sam Calloway: Nora Hale and Sam Calloway face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora and Sam stand close in the archive, the file between them. Key object in frame: the seawall permit. Location: Harbor diner, dawn, cold fluorescent light and steam. Characters present: Nora Hale, Sam Calloway. No other characters appear.
@@ -1144,7 +1144,7 @@ ESCENA 26 (Viñeta #26 del Storyboard) — 04:10–04:20
   NORA (realizing): "Lighthouses keep logs. Every ship, every storm."
   SAM (nodding): "Your father logged the harbor for thirty years."
 
-ESCENA 27 (Viñeta #27 del Storyboard) — 04:20–04:30
+SCENE 27 (Storyboard Panel #27) — 04:20–04:30
 - Location: Keller boathouse, night, flashlight and dust
 - Characters Present: Nora Hale, Sam Calloway, Adrian Keller
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Nora Hale and Sam Calloway: Nora Hale and Sam Calloway face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Adrian waits in a diner booth across from Nora. Key object in frame: a folded page. Location: Keller boathouse, night, flashlight and dust. Characters present: Nora Hale, Sam Calloway, Adrian Keller. No other characters appear.
@@ -1160,7 +1160,7 @@ ESCENA 27 (Viñeta #27 del Storyboard) — 04:20–04:30
   NORA (urgent): "Including the night of the fire. And the boat at two."
   SAM (cold): "That's the Keller launch."
 
-ESCENA 28 (Viñeta #28 del Storyboard) — 04:30–04:40
+SCENE 28 (Storyboard Panel #28) — 04:30–04:40
 - Location: Hale lighthouse archive room, night, a single desk lamp
 - Characters Present: Nora Hale, Sam Calloway
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Nora Hale and Sam Calloway: Nora Hale and Sam Calloway face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora slides the file across the table, keeping one page back. Key object in frame: a diner coffee cup. Location: Hale lighthouse archive room, night, a single desk lamp. Characters present: Nora Hale, Sam Calloway. No other characters appear.
@@ -1175,7 +1175,7 @@ ESCENA 28 (Viñeta #28 del Storyboard) — 04:30–04:40
   NORA (quiet): "No. Margaret's launch. Adrian at the helm."
   SAM (careful): "Nora, are you sure?"
 
-ESCENA 29 (Viñeta #29 del Storyboard) — 04:40–04:50
+SCENE 29 (Storyboard Panel #29) — 04:40–04:50
 - Location: Harbor diner, dawn, cold fluorescent light and steam
 - Characters Present: Nora Hale, Adrian Keller
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Adrian Keller and Nora Hale: Adrian Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Adrian Keller speaks as the camera holds close on their face, the metal evidence box catching the light between them. Location: Harbor diner, dawn, cold fluorescent light and steam. Key object: the metal evidence box. Characters present: Nora Hale, Adrian Keller. No other characters appear.
@@ -1190,7 +1190,7 @@ ESCENA 29 (Viñeta #29 del Storyboard) — 04:40–04:50
   ADRIAN (amused): "A notebook beats a town of witnesses?"
   NORA (calm): "It beats you. You know it."
 
-ESCENA 30 (Viñeta #30 del Storyboard) — 04:50–05:00
+SCENE 30 (Storyboard Panel #30) — 04:50–05:00
 - Location: Keller boathouse, night, flashlight and dust
 - Characters Present: Nora Hale, Margaret Keller
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Margaret Keller and Nora Hale: Margaret Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Margaret Keller speaks as the camera holds close on their face, the seawall permit catching the light between them. Location: Keller boathouse, night, flashlight and dust. Key object: the seawall permit. Characters present: Nora Hale, Margaret Keller. No other characters appear.
@@ -1205,15 +1205,15 @@ ESCENA 30 (Viñeta #30 del Storyboard) — 04:50–05:00
   MARGARET (tired): "Name your price, Nora. One last time."
   NORA (final): "The hearing. Tomorrow. Public. All of it."
 
-COMANDO FINAL (16:9 YouTube):
+FINAL COMMAND (16:9 YouTube):
 
-"Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando entre 1 y 4 tomas exactamente como las lista el guion: la Toma 1 arranca directamente en movimiento desde el encuadre exacto de la viñeta correspondiente sin frames estáticos (two-shot si hablan dos personajes); cada línea hablada tiene su propio plano con el hablante de frente, rostro y boca visibles, nunca desde detrás del personaje; los planos silenciosos (insert, reacción, objeto) van después del diálogo y nunca contienen habla. Mantén estrictamente la misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre escenas. Formato: horizontal 16:9 para YouTube. Reglas negativas estrictas: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
+"Make a realistic cinematic video of 10 seconds per scene, executing between 1 and 4 shots exactly as the script lists them: Shot 1 starts directly in motion from the exact framing of the corresponding storyboard panel, with no static frames (two-shot if two characters speak); every spoken line gets its own shot with the speaker facing camera, face and mouth visible, never from behind the character; silent shots (inserts, reactions, objects) come after the dialogue and never contain speech. Keep strictly the same race, face and wardrobe for each character according to their position in the attached Character Sheet, and join them into a single continuous video, never inserting the reference image between scenes. Format: horizontal 16:9 for YouTube. Strict negative rules: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
 ```
 
-**Comando final 9:16 (Reels/Shorts):**
+**Final 9:16 command (Reels/Shorts):**
 
 ```text
-ESCENA 25 (Viñeta #25 del Storyboard) — 04:00–04:10
+SCENE 25 (Storyboard Panel #25) — 04:00–04:10
 - Location: Hale lighthouse archive room, night, a single desk lamp
 - Characters Present: Nora Hale, Margaret Keller, Adrian Keller
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Adrian Keller and Nora Hale: Adrian Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora holds a permit signed by Margaret, dated before the fire. Key object in frame: the metal evidence box. Location: Hale lighthouse archive room, night, a single desk lamp. Characters present: Nora Hale, Margaret Keller, Adrian Keller. No other characters appear.
@@ -1229,7 +1229,7 @@ ESCENA 25 (Viñeta #25 del Storyboard) — 04:00–04:10
   ADRIAN (reasonable): "Sign the sale. I'll make the petition disappear."
   NORA (quiet): "And if I don't?"
 
-ESCENA 26 (Viñeta #26 del Storyboard) — 04:10–04:20
+SCENE 26 (Storyboard Panel #26) — 04:10–04:20
 - Location: Harbor diner, dawn, cold fluorescent light and steam
 - Characters Present: Nora Hale, Sam Calloway
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Nora Hale and Sam Calloway: Nora Hale and Sam Calloway face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora and Sam stand close in the archive, the file between them. Key object in frame: the seawall permit. Location: Harbor diner, dawn, cold fluorescent light and steam. Characters present: Nora Hale, Sam Calloway. No other characters appear.
@@ -1244,7 +1244,7 @@ ESCENA 26 (Viñeta #26 del Storyboard) — 04:10–04:20
   NORA (realizing): "Lighthouses keep logs. Every ship, every storm."
   SAM (nodding): "Your father logged the harbor for thirty years."
 
-ESCENA 27 (Viñeta #27 del Storyboard) — 04:20–04:30
+SCENE 27 (Storyboard Panel #27) — 04:20–04:30
 - Location: Keller boathouse, night, flashlight and dust
 - Characters Present: Nora Hale, Sam Calloway, Adrian Keller
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Nora Hale and Sam Calloway: Nora Hale and Sam Calloway face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Adrian waits in a diner booth across from Nora. Key object in frame: a folded page. Location: Keller boathouse, night, flashlight and dust. Characters present: Nora Hale, Sam Calloway, Adrian Keller. No other characters appear.
@@ -1260,7 +1260,7 @@ ESCENA 27 (Viñeta #27 del Storyboard) — 04:20–04:30
   NORA (urgent): "Including the night of the fire. And the boat at two."
   SAM (cold): "That's the Keller launch."
 
-ESCENA 28 (Viñeta #28 del Storyboard) — 04:30–04:40
+SCENE 28 (Storyboard Panel #28) — 04:30–04:40
 - Location: Hale lighthouse archive room, night, a single desk lamp
 - Characters Present: Nora Hale, Sam Calloway
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Nora Hale and Sam Calloway: Nora Hale and Sam Calloway face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora slides the file across the table, keeping one page back. Key object in frame: a diner coffee cup. Location: Hale lighthouse archive room, night, a single desk lamp. Characters present: Nora Hale, Sam Calloway. No other characters appear.
@@ -1275,7 +1275,7 @@ ESCENA 28 (Viñeta #28 del Storyboard) — 04:30–04:40
   NORA (quiet): "No. Margaret's launch. Adrian at the helm."
   SAM (careful): "Nora, are you sure?"
 
-ESCENA 29 (Viñeta #29 del Storyboard) — 04:40–04:50
+SCENE 29 (Storyboard Panel #29) — 04:40–04:50
 - Location: Harbor diner, dawn, cold fluorescent light and steam
 - Characters Present: Nora Hale, Adrian Keller
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Adrian Keller and Nora Hale: Adrian Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Adrian Keller speaks as the camera holds close on their face, the metal evidence box catching the light between them. Location: Harbor diner, dawn, cold fluorescent light and steam. Key object: the metal evidence box. Characters present: Nora Hale, Adrian Keller. No other characters appear.
@@ -1290,7 +1290,7 @@ ESCENA 29 (Viñeta #29 del Storyboard) — 04:40–04:50
   ADRIAN (amused): "A notebook beats a town of witnesses?"
   NORA (calm): "It beats you. You know it."
 
-ESCENA 30 (Viñeta #30 del Storyboard) — 04:50–05:00
+SCENE 30 (Storyboard Panel #30) — 04:50–05:00
 - Location: Keller boathouse, night, flashlight and dust
 - Characters Present: Nora Hale, Margaret Keller
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Margaret Keller and Nora Hale: Margaret Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Margaret Keller speaks as the camera holds close on their face, the seawall permit catching the light between them. Location: Keller boathouse, night, flashlight and dust. Key object: the seawall permit. Characters present: Nora Hale, Margaret Keller. No other characters appear.
@@ -1305,32 +1305,32 @@ ESCENA 30 (Viñeta #30 del Storyboard) — 04:50–05:00
   MARGARET (tired): "Name your price, Nora. One last time."
   NORA (final): "The hearing. Tomorrow. Public. All of it."
 
-COMANDO FINAL (9:16 Reels/TikTok/Shorts):
+FINAL COMMAND (9:16 Reels/TikTok/Shorts):
 
-"Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando entre 1 y 4 tomas exactamente como las lista el guion: la Toma 1 arranca directamente en movimiento desde el encuadre exacto de la viñeta correspondiente sin frames estáticos (two-shot si hablan dos personajes); cada línea hablada tiene su propio plano con el hablante de frente, rostro y boca visibles, nunca desde detrás del personaje; los planos silenciosos (insert, reacción, objeto) van después del diálogo y nunca contienen habla. Mantén estrictamente la misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre escenas. Formato: vertical 9:16 para Reels, TikTok y Shorts. Reglas negativas estrictas: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
+"Make a realistic cinematic video of 10 seconds per scene, executing between 1 and 4 shots exactly as the script lists them: Shot 1 starts directly in motion from the exact framing of the corresponding storyboard panel, with no static frames (two-shot if two characters speak); every spoken line gets its own shot with the speaker facing camera, face and mouth visible, never from behind the character; silent shots (inserts, reactions, objects) come after the dialogue and never contain speech. Keep strictly the same race, face and wardrobe for each character according to their position in the attached Character Sheet, and join them into a single continuous video, never inserting the reference image between scenes. Format: vertical 9:16 for Reels, TikTok and Shorts. Strict negative rules: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
 ```
 
-### Lote 06 — Minuto 6 (escenas 31–36)
+### Batch 06 — Minute 6 (scenes 31–36)
 
-**Adjuntar:** `REF_CAST_MASTER.png` + `REF_GRID_MIN_06.png`
+**Attach:** `REF_CAST_MASTER.png` + `REF_GRID_MIN_06.png`
 
-**Adjuntos por escena de este lote:**
+**Per-scene attachments for this batch:**
 
-- Escena 031: `attach: [panel_031, ref_nora, ref_margaret]`
-- Escena 032: `attach: [panel_032, ref_nora, ref_claire]`
-- Escena 033: `attach: [panel_033, ref_nora, ref_sam]`
-- Escena 034: `attach: [panel_034, ref_sam, ref_margaret]`
-- Escena 035: `attach: [panel_035, ref_nora, ref_adrian]`
-- Escena 036: `attach: [panel_036, ref_nora, ref_margaret]`
+- Scene 031: `attach: [panel_031, ref_nora, ref_margaret]`
+- Scene 032: `attach: [panel_032, ref_nora, ref_claire]`
+- Scene 033: `attach: [panel_033, ref_nora, ref_sam]`
+- Scene 034: `attach: [panel_034, ref_sam, ref_margaret]`
+- Scene 035: `attach: [panel_035, ref_nora, ref_adrian]`
+- Scene 036: `attach: [panel_036, ref_nora, ref_margaret]`
 
-**Guardar 16:9 como:** `raw_clips/minute_06.mp4`
+**Save 16:9 as:** `raw_clips/minute_06.mp4`
 
-**Guardar 9:16 como:** `raw_clips/minute_06_vertical.mp4`
+**Save 9:16 as:** `raw_clips/minute_06_vertical.mp4`
 
-**Bloque 16:9 para Muse AI (YouTube):**
+**16:9 block for Muse AI (YouTube):**
 
 ```text
-ESCENA 31 (Viñeta #31 del Storyboard) — 05:00–05:10
+SCENE 31 (Storyboard Panel #31) — 05:00–05:10
 - Location: Town hall hearing room, grey morning, rain streaking the windows
 - Characters Present: Nora Hale, Margaret Keller
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Nora Hale and Margaret Keller: Nora Hale and Margaret Keller face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Rain hammers the town hall windows as Nora faces the panel. Key object in frame: the emergency petition. Location: Town hall hearing room, grey morning, rain streaking the windows. Characters present: Nora Hale, Margaret Keller. No other characters appear.
@@ -1345,7 +1345,7 @@ ESCENA 31 (Viñeta #31 del Storyboard) — 05:00–05:10
   NORA (steady): "I'd rather lose the house than his name."
   MARGARET (soft): "You lost it ten years ago."
 
-ESCENA 32 (Viñeta #32 del Storyboard) — 05:10–05:20
+SCENE 32 (Storyboard Panel #32) — 05:10–05:20
 - Location: Town hall hearing room, grey morning, rain streaking the windows
 - Characters Present: Nora Hale, Claire Boone
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Claire Boone and Nora Hale: Claire Boone and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. The hearing room is packed; Claire leans close to Nora. Key object in frame: the emergency petition. Location: Town hall hearing room, grey morning, rain streaking the windows. Characters present: Nora Hale, Claire Boone. No other characters appear.
@@ -1360,7 +1360,7 @@ ESCENA 32 (Viñeta #32 del Storyboard) — 05:10–05:20
   CLAIRE (nervous): "The hearing is packed. Half the town came."
   NORA (resolved): "Good. This time, I want witnesses."
 
-ESCENA 33 (Viñeta #33 del Storyboard) — 05:20–05:30
+SCENE 33 (Storyboard Panel #33) — 05:20–05:30
 - Location: Town hall hearing room, grey morning, rain streaking the windows
 - Characters Present: Nora Hale, Sam Calloway
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Sam Calloway and Nora Hale: Sam Calloway and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Sam catches Nora in the hearing room before she takes her seat. Key object in frame: a statement form. Location: Town hall hearing room, grey morning, rain streaking the windows. Characters present: Nora Hale, Sam Calloway. No other characters appear.
@@ -1375,7 +1375,7 @@ ESCENA 33 (Viñeta #33 del Storyboard) — 05:20–05:30
   SAM (low): "I should have told you ten years ago."
   NORA (fierce): "Tell it now. Loud enough for everyone."
 
-ESCENA 34 (Viñeta #34 del Storyboard) — 05:30–05:40
+SCENE 34 (Storyboard Panel #34) — 05:30–05:40
 - Location: Town hall hearing room, grey morning, rain streaking the windows
 - Characters Present: Sam Calloway, Margaret Keller
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Sam Calloway and Margaret Keller: Sam Calloway and Margaret Keller face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Sam Calloway speaks as the camera holds close on their face, a statement form catching the light between them. Location: Town hall hearing room, grey morning, rain streaking the windows. Key object: a statement form. Characters present: Sam Calloway, Margaret Keller. No other characters appear.
@@ -1390,7 +1390,7 @@ ESCENA 34 (Viñeta #34 del Storyboard) — 05:30–05:40
   SAM (public, shaking): "I signed a false statement. Margaret wrote it."
   MARGARET (dismissive): "He's a firefighter with a grudge."
 
-ESCENA 35 (Viñeta #35 del Storyboard) — 05:40–05:50
+SCENE 35 (Storyboard Panel #35) — 05:40–05:50
 - Location: Town hall hearing room, grey morning, rain streaking the windows
 - Characters Present: Nora Hale, Adrian Keller
 - Storyboard Panel (Shot 1 exact framing): [00s-04s] tight close-up, face and mouth visible: Nora Hale is on camera with face and mouth fully visible, looking at Adrian Keller. Nora faces Adrian across the hearing room. Key object in frame: the petition ruling. Location: Town hall hearing room, grey morning, rain streaking the windows. Characters present: Nora Hale, Adrian Keller. No other characters appear.
@@ -1405,7 +1405,7 @@ ESCENA 35 (Viñeta #35 del Storyboard) — 05:40–05:50
   NORA (calm): "Then hear someone who can't be bought."
   ADRIAN (uneasy): "You're bluffing."
 
-ESCENA 36 (Viñeta #36 del Storyboard) — 05:50–06:00
+SCENE 36 (Storyboard Panel #36) — 05:50–06:00
 - Location: Town hall hearing room, grey morning, rain streaking the windows
 - Characters Present: Nora Hale, Margaret Keller
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Margaret Keller and Nora Hale: Margaret Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. The clerk stamps the petition; the room goes silent. Key object in frame: the petition ruling. Location: Town hall hearing room, grey morning, rain streaking the windows. Characters present: Nora Hale, Margaret Keller. No other characters appear.
@@ -1420,15 +1420,15 @@ ESCENA 36 (Viñeta #36 del Storyboard) — 05:50–06:00
   MARGARET (controlled): "The petition is granted. The trust is frozen."
   NORA (raw): "On mental incompetence? That's a lie."
 
-COMANDO FINAL (16:9 YouTube):
+FINAL COMMAND (16:9 YouTube):
 
-"Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando entre 1 y 4 tomas exactamente como las lista el guion: la Toma 1 arranca directamente en movimiento desde el encuadre exacto de la viñeta correspondiente sin frames estáticos (two-shot si hablan dos personajes); cada línea hablada tiene su propio plano con el hablante de frente, rostro y boca visibles, nunca desde detrás del personaje; los planos silenciosos (insert, reacción, objeto) van después del diálogo y nunca contienen habla. Mantén estrictamente la misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre escenas. Formato: horizontal 16:9 para YouTube. Reglas negativas estrictas: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
+"Make a realistic cinematic video of 10 seconds per scene, executing between 1 and 4 shots exactly as the script lists them: Shot 1 starts directly in motion from the exact framing of the corresponding storyboard panel, with no static frames (two-shot if two characters speak); every spoken line gets its own shot with the speaker facing camera, face and mouth visible, never from behind the character; silent shots (inserts, reactions, objects) come after the dialogue and never contain speech. Keep strictly the same race, face and wardrobe for each character according to their position in the attached Character Sheet, and join them into a single continuous video, never inserting the reference image between scenes. Format: horizontal 16:9 for YouTube. Strict negative rules: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
 ```
 
-**Comando final 9:16 (Reels/Shorts):**
+**Final 9:16 command (Reels/Shorts):**
 
 ```text
-ESCENA 31 (Viñeta #31 del Storyboard) — 05:00–05:10
+SCENE 31 (Storyboard Panel #31) — 05:00–05:10
 - Location: Town hall hearing room, grey morning, rain streaking the windows
 - Characters Present: Nora Hale, Margaret Keller
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Nora Hale and Margaret Keller: Nora Hale and Margaret Keller face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Rain hammers the town hall windows as Nora faces the panel. Key object in frame: the emergency petition. Location: Town hall hearing room, grey morning, rain streaking the windows. Characters present: Nora Hale, Margaret Keller. No other characters appear.
@@ -1443,7 +1443,7 @@ ESCENA 31 (Viñeta #31 del Storyboard) — 05:00–05:10
   NORA (steady): "I'd rather lose the house than his name."
   MARGARET (soft): "You lost it ten years ago."
 
-ESCENA 32 (Viñeta #32 del Storyboard) — 05:10–05:20
+SCENE 32 (Storyboard Panel #32) — 05:10–05:20
 - Location: Town hall hearing room, grey morning, rain streaking the windows
 - Characters Present: Nora Hale, Claire Boone
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Claire Boone and Nora Hale: Claire Boone and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. The hearing room is packed; Claire leans close to Nora. Key object in frame: the emergency petition. Location: Town hall hearing room, grey morning, rain streaking the windows. Characters present: Nora Hale, Claire Boone. No other characters appear.
@@ -1458,7 +1458,7 @@ ESCENA 32 (Viñeta #32 del Storyboard) — 05:10–05:20
   CLAIRE (nervous): "The hearing is packed. Half the town came."
   NORA (resolved): "Good. This time, I want witnesses."
 
-ESCENA 33 (Viñeta #33 del Storyboard) — 05:20–05:30
+SCENE 33 (Storyboard Panel #33) — 05:20–05:30
 - Location: Town hall hearing room, grey morning, rain streaking the windows
 - Characters Present: Nora Hale, Sam Calloway
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Sam Calloway and Nora Hale: Sam Calloway and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Sam catches Nora in the hearing room before she takes her seat. Key object in frame: a statement form. Location: Town hall hearing room, grey morning, rain streaking the windows. Characters present: Nora Hale, Sam Calloway. No other characters appear.
@@ -1473,7 +1473,7 @@ ESCENA 33 (Viñeta #33 del Storyboard) — 05:20–05:30
   SAM (low): "I should have told you ten years ago."
   NORA (fierce): "Tell it now. Loud enough for everyone."
 
-ESCENA 34 (Viñeta #34 del Storyboard) — 05:30–05:40
+SCENE 34 (Storyboard Panel #34) — 05:30–05:40
 - Location: Town hall hearing room, grey morning, rain streaking the windows
 - Characters Present: Sam Calloway, Margaret Keller
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Sam Calloway and Margaret Keller: Sam Calloway and Margaret Keller face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Sam Calloway speaks as the camera holds close on their face, a statement form catching the light between them. Location: Town hall hearing room, grey morning, rain streaking the windows. Key object: a statement form. Characters present: Sam Calloway, Margaret Keller. No other characters appear.
@@ -1488,7 +1488,7 @@ ESCENA 34 (Viñeta #34 del Storyboard) — 05:30–05:40
   SAM (public, shaking): "I signed a false statement. Margaret wrote it."
   MARGARET (dismissive): "He's a firefighter with a grudge."
 
-ESCENA 35 (Viñeta #35 del Storyboard) — 05:40–05:50
+SCENE 35 (Storyboard Panel #35) — 05:40–05:50
 - Location: Town hall hearing room, grey morning, rain streaking the windows
 - Characters Present: Nora Hale, Adrian Keller
 - Storyboard Panel (Shot 1 exact framing): [00s-04s] tight close-up, face and mouth visible: Nora Hale is on camera with face and mouth fully visible, looking at Adrian Keller. Nora faces Adrian across the hearing room. Key object in frame: the petition ruling. Location: Town hall hearing room, grey morning, rain streaking the windows. Characters present: Nora Hale, Adrian Keller. No other characters appear.
@@ -1503,7 +1503,7 @@ ESCENA 35 (Viñeta #35 del Storyboard) — 05:40–05:50
   NORA (calm): "Then hear someone who can't be bought."
   ADRIAN (uneasy): "You're bluffing."
 
-ESCENA 36 (Viñeta #36 del Storyboard) — 05:50–06:00
+SCENE 36 (Storyboard Panel #36) — 05:50–06:00
 - Location: Town hall hearing room, grey morning, rain streaking the windows
 - Characters Present: Nora Hale, Margaret Keller
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Margaret Keller and Nora Hale: Margaret Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. The clerk stamps the petition; the room goes silent. Key object in frame: the petition ruling. Location: Town hall hearing room, grey morning, rain streaking the windows. Characters present: Nora Hale, Margaret Keller. No other characters appear.
@@ -1518,32 +1518,32 @@ ESCENA 36 (Viñeta #36 del Storyboard) — 05:50–06:00
   MARGARET (controlled): "The petition is granted. The trust is frozen."
   NORA (raw): "On mental incompetence? That's a lie."
 
-COMANDO FINAL (9:16 Reels/TikTok/Shorts):
+FINAL COMMAND (9:16 Reels/TikTok/Shorts):
 
-"Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando entre 1 y 4 tomas exactamente como las lista el guion: la Toma 1 arranca directamente en movimiento desde el encuadre exacto de la viñeta correspondiente sin frames estáticos (two-shot si hablan dos personajes); cada línea hablada tiene su propio plano con el hablante de frente, rostro y boca visibles, nunca desde detrás del personaje; los planos silenciosos (insert, reacción, objeto) van después del diálogo y nunca contienen habla. Mantén estrictamente la misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre escenas. Formato: vertical 9:16 para Reels, TikTok y Shorts. Reglas negativas estrictas: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
+"Make a realistic cinematic video of 10 seconds per scene, executing between 1 and 4 shots exactly as the script lists them: Shot 1 starts directly in motion from the exact framing of the corresponding storyboard panel, with no static frames (two-shot if two characters speak); every spoken line gets its own shot with the speaker facing camera, face and mouth visible, never from behind the character; silent shots (inserts, reactions, objects) come after the dialogue and never contain speech. Keep strictly the same race, face and wardrobe for each character according to their position in the attached Character Sheet, and join them into a single continuous video, never inserting the reference image between scenes. Format: vertical 9:16 for Reels, TikTok and Shorts. Strict negative rules: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
 ```
 
-### Lote 07 — Minuto 7 (escenas 37–42)
+### Batch 07 — Minute 7 (scenes 37–42)
 
-**Adjuntar:** `REF_CAST_MASTER.png` + `REF_GRID_MIN_07.png`
+**Attach:** `REF_CAST_MASTER.png` + `REF_GRID_MIN_07.png`
 
-**Adjuntos por escena de este lote:**
+**Per-scene attachments for this batch:**
 
-- Escena 037: `attach: [panel_037, ref_nora, ref_margaret]`
-- Escena 038: `attach: [panel_038, ref_nora, ref_adrian]`
-- Escena 039: `attach: [panel_039, ref_nora]`
-- Escena 040: `attach: [panel_040, ref_nora]`
-- Escena 041: `attach: [panel_041, ref_nora, ref_sam]`
-- Escena 042: `attach: [panel_042, ref_nora, ref_sam]`
+- Scene 037: `attach: [panel_037, ref_nora, ref_margaret]`
+- Scene 038: `attach: [panel_038, ref_nora, ref_adrian]`
+- Scene 039: `attach: [panel_039, ref_nora]`
+- Scene 040: `attach: [panel_040, ref_nora]`
+- Scene 041: `attach: [panel_041, ref_nora, ref_sam]`
+- Scene 042: `attach: [panel_042, ref_nora, ref_sam]`
 
-**Guardar 16:9 como:** `raw_clips/minute_07.mp4`
+**Save 16:9 as:** `raw_clips/minute_07.mp4`
 
-**Guardar 9:16 como:** `raw_clips/minute_07_vertical.mp4`
+**Save 9:16 as:** `raw_clips/minute_07_vertical.mp4`
 
-**Bloque 16:9 para Muse AI (YouTube):**
+**16:9 block for Muse AI (YouTube):**
 
 ```text
-ESCENA 37 (Viñeta #37 del Storyboard) — 06:00–06:10
+SCENE 37 (Storyboard Panel #37) — 06:00–06:10
 - Location: Hale lighthouse, storm night, lightning through the glass
 - Characters Present: Nora Hale, Margaret Keller
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Margaret Keller and Nora Hale: Margaret Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. At the lighthouse door, Margaret holds out the eviction notice. Location: Hale lighthouse, storm night, lightning through the glass. Key object: the eviction notice. Characters present: Nora Hale, Margaret Keller. No other characters appear.
@@ -1558,7 +1558,7 @@ ESCENA 37 (Viñeta #37 del Storyboard) — 06:00–06:10
   MARGARET (cold): "You have until midnight to leave the lighthouse."
   NORA (flat): "She bought the county. Not me."
 
-ESCENA 38 (Viñeta #38 del Storyboard) — 06:10–06:20
+SCENE 38 (Storyboard Panel #38) — 06:10–06:20
 - Location: Hale lighthouse, night, one lamp, rain outside
 - Characters Present: Nora Hale, Adrian Keller
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Adrian Keller and Nora Hale: Adrian Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Adrian waits in the lighthouse with the sale papers. Location: Hale lighthouse, night, one lamp, rain outside. Key object: the sale papers. Characters present: Nora Hale, Adrian Keller. No other characters appear.
@@ -1573,7 +1573,7 @@ ESCENA 38 (Viñeta #38 del Storyboard) — 06:10–06:20
   ADRIAN (reasonable): "Sign the sale. I'll make the eviction disappear."
   NORA (quiet): "And if I don't?"
 
-ESCENA 39 (Viñeta #39 del Storyboard) — 06:20–06:30
+SCENE 39 (Storyboard Panel #39) — 06:20–06:30
 - Location: Hale lighthouse, storm night, lightning through the glass
 - Characters Present: Nora Hale
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] medium shot, face and mouth visible: Nora Hale is on camera with face and mouth fully visible, looking at the other person in frame. Nora stands alone in the dark lighthouse, the cold lens above her. Key object in frame: the cold lamp. Location: Hale lighthouse, storm night, lightning through the glass. Characters present: Nora Hale. No other characters appear.
@@ -1587,7 +1587,7 @@ ESCENA 39 (Viñeta #39 del Storyboard) — 06:20–06:30
 - Dialogue (English, max 15 words, finish before 8.5 s):
   NORA (hushed): "He left me a key. There has to be something."
 
-ESCENA 40 (Viñeta #40 del Storyboard) — 06:30–06:40
+SCENE 40 (Storyboard Panel #40) — 06:30–06:40
 - Location: Hale lighthouse, storm night, lightning through the glass
 - Characters Present: Nora Hale
 - Storyboard Panel (Shot 1 exact framing): [00s-04s] tight close-up, face and mouth visible: Nora Hale is on camera with face and mouth fully visible, looking at the other person in frame. Nora finds an old harbor logbook behind the lens housing. Key object in frame: the harbor logbook. Location: Hale lighthouse, storm night, lightning through the glass. Characters present: Nora Hale. No other characters appear.
@@ -1603,7 +1603,7 @@ ESCENA 40 (Viñeta #40 del Storyboard) — 06:30–06:40
   NORA (precise): "The harbor log. Every boat, every night."
   NORA (breaking): "Dad, what did you see?"
 
-ESCENA 41 (Viñeta #41 del Storyboard) — 06:40–06:50
+SCENE 41 (Storyboard Panel #41) — 06:40–06:50
 - Location: Hale lighthouse archive room, dawn, cold blue light
 - Characters Present: Nora Hale, Sam Calloway
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Nora Hale and Sam Calloway: Nora Hale and Sam Calloway face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora opens the logbook on the lighthouse table, pages brittle. Key object in frame: the harbor log. Location: Hale lighthouse archive room, dawn, cold blue light. Characters present: Nora Hale, Sam Calloway. No other characters appear.
@@ -1618,7 +1618,7 @@ ESCENA 41 (Viñeta #41 del Storyboard) — 06:40–06:50
   NORA (focused): "Every keeper signs the log. Date, time, weather."
   SAM (quiet): "Your father never missed a night."
 
-ESCENA 42 (Viñeta #42 del Storyboard) — 06:50–07:00
+SCENE 42 (Storyboard Panel #42) — 06:50–07:00
 - Location: Harbor pier, morning, flat silver water
 - Characters Present: Nora Hale, Sam Calloway
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Sam Calloway and Nora Hale: Sam Calloway and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora and Sam compare timestamps under a desk lamp. Key object in frame: a torn page. Location: Harbor pier, morning, flat silver water. Characters present: Nora Hale, Sam Calloway. No other characters appear.
@@ -1633,15 +1633,15 @@ ESCENA 42 (Viñeta #42 del Storyboard) — 06:50–07:00
   SAM (grim): "The page is torn out."
   NORA (triumphant whisper): "No. Folded. He hid it behind the lens."
 
-COMANDO FINAL (16:9 YouTube):
+FINAL COMMAND (16:9 YouTube):
 
-"Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando entre 1 y 4 tomas exactamente como las lista el guion: la Toma 1 arranca directamente en movimiento desde el encuadre exacto de la viñeta correspondiente sin frames estáticos (two-shot si hablan dos personajes); cada línea hablada tiene su propio plano con el hablante de frente, rostro y boca visibles, nunca desde detrás del personaje; los planos silenciosos (insert, reacción, objeto) van después del diálogo y nunca contienen habla. Mantén estrictamente la misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre escenas. Formato: horizontal 16:9 para YouTube. Reglas negativas estrictas: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
+"Make a realistic cinematic video of 10 seconds per scene, executing between 1 and 4 shots exactly as the script lists them: Shot 1 starts directly in motion from the exact framing of the corresponding storyboard panel, with no static frames (two-shot if two characters speak); every spoken line gets its own shot with the speaker facing camera, face and mouth visible, never from behind the character; silent shots (inserts, reactions, objects) come after the dialogue and never contain speech. Keep strictly the same race, face and wardrobe for each character according to their position in the attached Character Sheet, and join them into a single continuous video, never inserting the reference image between scenes. Format: horizontal 16:9 for YouTube. Strict negative rules: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
 ```
 
-**Comando final 9:16 (Reels/Shorts):**
+**Final 9:16 command (Reels/Shorts):**
 
 ```text
-ESCENA 37 (Viñeta #37 del Storyboard) — 06:00–06:10
+SCENE 37 (Storyboard Panel #37) — 06:00–06:10
 - Location: Hale lighthouse, storm night, lightning through the glass
 - Characters Present: Nora Hale, Margaret Keller
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Margaret Keller and Nora Hale: Margaret Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. At the lighthouse door, Margaret holds out the eviction notice. Location: Hale lighthouse, storm night, lightning through the glass. Key object: the eviction notice. Characters present: Nora Hale, Margaret Keller. No other characters appear.
@@ -1656,7 +1656,7 @@ ESCENA 37 (Viñeta #37 del Storyboard) — 06:00–06:10
   MARGARET (cold): "You have until midnight to leave the lighthouse."
   NORA (flat): "She bought the county. Not me."
 
-ESCENA 38 (Viñeta #38 del Storyboard) — 06:10–06:20
+SCENE 38 (Storyboard Panel #38) — 06:10–06:20
 - Location: Hale lighthouse, night, one lamp, rain outside
 - Characters Present: Nora Hale, Adrian Keller
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Adrian Keller and Nora Hale: Adrian Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Adrian waits in the lighthouse with the sale papers. Location: Hale lighthouse, night, one lamp, rain outside. Key object: the sale papers. Characters present: Nora Hale, Adrian Keller. No other characters appear.
@@ -1671,7 +1671,7 @@ ESCENA 38 (Viñeta #38 del Storyboard) — 06:10–06:20
   ADRIAN (reasonable): "Sign the sale. I'll make the eviction disappear."
   NORA (quiet): "And if I don't?"
 
-ESCENA 39 (Viñeta #39 del Storyboard) — 06:20–06:30
+SCENE 39 (Storyboard Panel #39) — 06:20–06:30
 - Location: Hale lighthouse, storm night, lightning through the glass
 - Characters Present: Nora Hale
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] medium shot, face and mouth visible: Nora Hale is on camera with face and mouth fully visible, looking at the other person in frame. Nora stands alone in the dark lighthouse, the cold lens above her. Key object in frame: the cold lamp. Location: Hale lighthouse, storm night, lightning through the glass. Characters present: Nora Hale. No other characters appear.
@@ -1685,7 +1685,7 @@ ESCENA 39 (Viñeta #39 del Storyboard) — 06:20–06:30
 - Dialogue (English, max 15 words, finish before 8.5 s):
   NORA (hushed): "He left me a key. There has to be something."
 
-ESCENA 40 (Viñeta #40 del Storyboard) — 06:30–06:40
+SCENE 40 (Storyboard Panel #40) — 06:30–06:40
 - Location: Hale lighthouse, storm night, lightning through the glass
 - Characters Present: Nora Hale
 - Storyboard Panel (Shot 1 exact framing): [00s-04s] tight close-up, face and mouth visible: Nora Hale is on camera with face and mouth fully visible, looking at the other person in frame. Nora finds an old harbor logbook behind the lens housing. Key object in frame: the harbor logbook. Location: Hale lighthouse, storm night, lightning through the glass. Characters present: Nora Hale. No other characters appear.
@@ -1701,7 +1701,7 @@ ESCENA 40 (Viñeta #40 del Storyboard) — 06:30–06:40
   NORA (precise): "The harbor log. Every boat, every night."
   NORA (breaking): "Dad, what did you see?"
 
-ESCENA 41 (Viñeta #41 del Storyboard) — 06:40–06:50
+SCENE 41 (Storyboard Panel #41) — 06:40–06:50
 - Location: Hale lighthouse archive room, dawn, cold blue light
 - Characters Present: Nora Hale, Sam Calloway
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Nora Hale and Sam Calloway: Nora Hale and Sam Calloway face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora opens the logbook on the lighthouse table, pages brittle. Key object in frame: the harbor log. Location: Hale lighthouse archive room, dawn, cold blue light. Characters present: Nora Hale, Sam Calloway. No other characters appear.
@@ -1716,7 +1716,7 @@ ESCENA 41 (Viñeta #41 del Storyboard) — 06:40–06:50
   NORA (focused): "Every keeper signs the log. Date, time, weather."
   SAM (quiet): "Your father never missed a night."
 
-ESCENA 42 (Viñeta #42 del Storyboard) — 06:50–07:00
+SCENE 42 (Storyboard Panel #42) — 06:50–07:00
 - Location: Harbor pier, morning, flat silver water
 - Characters Present: Nora Hale, Sam Calloway
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Sam Calloway and Nora Hale: Sam Calloway and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora and Sam compare timestamps under a desk lamp. Key object in frame: a torn page. Location: Harbor pier, morning, flat silver water. Characters present: Nora Hale, Sam Calloway. No other characters appear.
@@ -1731,32 +1731,32 @@ ESCENA 42 (Viñeta #42 del Storyboard) — 06:50–07:00
   SAM (grim): "The page is torn out."
   NORA (triumphant whisper): "No. Folded. He hid it behind the lens."
 
-COMANDO FINAL (9:16 Reels/TikTok/Shorts):
+FINAL COMMAND (9:16 Reels/TikTok/Shorts):
 
-"Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando entre 1 y 4 tomas exactamente como las lista el guion: la Toma 1 arranca directamente en movimiento desde el encuadre exacto de la viñeta correspondiente sin frames estáticos (two-shot si hablan dos personajes); cada línea hablada tiene su propio plano con el hablante de frente, rostro y boca visibles, nunca desde detrás del personaje; los planos silenciosos (insert, reacción, objeto) van después del diálogo y nunca contienen habla. Mantén estrictamente la misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre escenas. Formato: vertical 9:16 para Reels, TikTok y Shorts. Reglas negativas estrictas: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
+"Make a realistic cinematic video of 10 seconds per scene, executing between 1 and 4 shots exactly as the script lists them: Shot 1 starts directly in motion from the exact framing of the corresponding storyboard panel, with no static frames (two-shot if two characters speak); every spoken line gets its own shot with the speaker facing camera, face and mouth visible, never from behind the character; silent shots (inserts, reactions, objects) come after the dialogue and never contain speech. Keep strictly the same race, face and wardrobe for each character according to their position in the attached Character Sheet, and join them into a single continuous video, never inserting the reference image between scenes. Format: vertical 9:16 for Reels, TikTok and Shorts. Strict negative rules: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
 ```
 
-### Lote 08 — Minuto 8 (escenas 43–48)
+### Batch 08 — Minute 8 (scenes 43–48)
 
-**Adjuntar:** `REF_CAST_MASTER.png` + `REF_GRID_MIN_08.png`
+**Attach:** `REF_CAST_MASTER.png` + `REF_GRID_MIN_08.png`
 
-**Adjuntos por escena de este lote:**
+**Per-scene attachments for this batch:**
 
-- Escena 043: `attach: [panel_043, ref_nora, ref_sam]`
-- Escena 044: `attach: [panel_044, ref_nora, ref_sam]`
-- Escena 045: `attach: [panel_045, ref_nora, ref_sam]`
-- Escena 046: `attach: [panel_046, ref_nora, ref_adrian]`
-- Escena 047: `attach: [panel_047, ref_nora, ref_margaret]`
-- Escena 048: `attach: [panel_048, ref_nora, ref_margaret, ref_claire]`
+- Scene 043: `attach: [panel_043, ref_nora, ref_sam]`
+- Scene 044: `attach: [panel_044, ref_nora, ref_sam]`
+- Scene 045: `attach: [panel_045, ref_nora, ref_sam]`
+- Scene 046: `attach: [panel_046, ref_nora, ref_adrian]`
+- Scene 047: `attach: [panel_047, ref_nora, ref_margaret]`
+- Scene 048: `attach: [panel_048, ref_nora, ref_margaret, ref_claire]`
 
-**Guardar 16:9 como:** `raw_clips/minute_08.mp4`
+**Save 16:9 as:** `raw_clips/minute_08.mp4`
 
-**Guardar 9:16 como:** `raw_clips/minute_08_vertical.mp4`
+**Save 9:16 as:** `raw_clips/minute_08_vertical.mp4`
 
-**Bloque 16:9 para Muse AI (YouTube):**
+**16:9 block for Muse AI (YouTube):**
 
 ```text
-ESCENA 43 (Viñeta #43 del Storyboard) — 07:00–07:10
+SCENE 43 (Storyboard Panel #43) — 07:00–07:10
 - Location: Town hall steps, dusk, wet stone
 - Characters Present: Nora Hale, Sam Calloway
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Nora Hale and Sam Calloway: Nora Hale and Sam Calloway face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora Hale speaks as the camera holds close on their face, a timestamp catching the light between them. Location: Town hall steps, dusk, wet stone. Key object: a timestamp. Characters present: Nora Hale, Sam Calloway. No other characters appear.
@@ -1771,7 +1771,7 @@ ESCENA 43 (Viñeta #43 del Storyboard) — 07:00–07:10
   NORA (urgent): "2:14 a.m. Keller launch. Two passengers, not one."
   SAM (low): "Who's the second?"
 
-ESCENA 44 (Viñeta #44 del Storyboard) — 07:10–07:20
+SCENE 44 (Storyboard Panel #44) — 07:10–07:20
 - Location: Hale lighthouse archive room, dawn, cold blue light
 - Characters Present: Nora Hale, Sam Calloway
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Sam Calloway and Nora Hale: Sam Calloway and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Sam reads over her shoulder, close enough to touch. Key object in frame: the town hall steps. Location: Hale lighthouse archive room, dawn, cold blue light. Characters present: Nora Hale, Sam Calloway. No other characters appear.
@@ -1786,7 +1786,7 @@ ESCENA 44 (Viñeta #44 del Storyboard) — 07:10–07:20
   SAM (stunned): "Your mother's name."
   NORA (flat): "She died when I was eleven. I watched them bury her."
 
-ESCENA 45 (Viñeta #45 del Storyboard) — 07:20–07:30
+SCENE 45 (Storyboard Panel #45) — 07:20–07:30
 - Location: Harbor pier, morning, flat silver water
 - Characters Present: Nora Hale, Sam Calloway
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Nora Hale and Sam Calloway: Nora Hale and Sam Calloway face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora looks up at Sam, a decision forming. Key object in frame: the harbor log. Location: Harbor pier, morning, flat silver water. Characters present: Nora Hale, Sam Calloway. No other characters appear.
@@ -1801,7 +1801,7 @@ ESCENA 45 (Viñeta #45 del Storyboard) — 07:20–07:30
   NORA (shaking): "Every year, in cash, under her maiden name."
   SAM (gentle): "Nora, we can still stop this."
 
-ESCENA 46 (Viñeta #46 del Storyboard) — 07:30–07:40
+SCENE 46 (Storyboard Panel #46) — 07:30–07:40
 - Location: Town hall steps, dusk, wet stone
 - Characters Present: Nora Hale, Adrian Keller
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Adrian Keller and Nora Hale: Adrian Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Adrian stands on the town hall steps, trying to smile. Key object in frame: a torn page. Location: Town hall steps, dusk, wet stone. Characters present: Nora Hale, Adrian Keller. No other characters appear.
@@ -1816,7 +1816,7 @@ ESCENA 46 (Viñeta #46 del Storyboard) — 07:30–07:40
   ADRIAN (reasonable): "The hearing is tomorrow. Change your mind tonight."
   NORA (calm): "I've had ten years. I'm not changing."
 
-ESCENA 47 (Viñeta #47 del Storyboard) — 07:40–07:50
+SCENE 47 (Storyboard Panel #47) — 07:40–07:50
 - Location: Hale lighthouse archive room, dawn, cold blue light
 - Characters Present: Nora Hale, Margaret Keller
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Margaret Keller and Nora Hale: Margaret Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora walks past him without stopping. Key object in frame: a timestamp. Location: Hale lighthouse archive room, dawn, cold blue light. Characters present: Nora Hale, Margaret Keller. No other characters appear.
@@ -1831,7 +1831,7 @@ ESCENA 47 (Viñeta #47 del Storyboard) — 07:40–07:50
   MARGARET (controlled): "You've made your point. Name a number."
   NORA (final): "Zero. You leave with nothing."
 
-ESCENA 48 (Viñeta #48 del Storyboard) — 07:50–08:00
+SCENE 48 (Storyboard Panel #48) — 07:50–08:00
 - Location: Harbor pier, morning, flat silver water
 - Characters Present: Nora Hale, Margaret Keller, Claire Boone
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Claire Boone and Nora Hale: Claire Boone and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Margaret waits in the hall, gloves in hand. Key object in frame: the town hall steps. Location: Harbor pier, morning, flat silver water. Characters present: Nora Hale, Margaret Keller, Claire Boone. No other characters appear.
@@ -1847,15 +1847,15 @@ ESCENA 48 (Viñeta #48 del Storyboard) — 07:50–08:00
   CLAIRE (worried): "Present that log, and the town turns on your mother."
   NORA (steady): "Then they'll tell the truth."
 
-COMANDO FINAL (16:9 YouTube):
+FINAL COMMAND (16:9 YouTube):
 
-"Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando entre 1 y 4 tomas exactamente como las lista el guion: la Toma 1 arranca directamente en movimiento desde el encuadre exacto de la viñeta correspondiente sin frames estáticos (two-shot si hablan dos personajes); cada línea hablada tiene su propio plano con el hablante de frente, rostro y boca visibles, nunca desde detrás del personaje; los planos silenciosos (insert, reacción, objeto) van después del diálogo y nunca contienen habla. Mantén estrictamente la misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre escenas. Formato: horizontal 16:9 para YouTube. Reglas negativas estrictas: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
+"Make a realistic cinematic video of 10 seconds per scene, executing between 1 and 4 shots exactly as the script lists them: Shot 1 starts directly in motion from the exact framing of the corresponding storyboard panel, with no static frames (two-shot if two characters speak); every spoken line gets its own shot with the speaker facing camera, face and mouth visible, never from behind the character; silent shots (inserts, reactions, objects) come after the dialogue and never contain speech. Keep strictly the same race, face and wardrobe for each character according to their position in the attached Character Sheet, and join them into a single continuous video, never inserting the reference image between scenes. Format: horizontal 16:9 for YouTube. Strict negative rules: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
 ```
 
-**Comando final 9:16 (Reels/Shorts):**
+**Final 9:16 command (Reels/Shorts):**
 
 ```text
-ESCENA 43 (Viñeta #43 del Storyboard) — 07:00–07:10
+SCENE 43 (Storyboard Panel #43) — 07:00–07:10
 - Location: Town hall steps, dusk, wet stone
 - Characters Present: Nora Hale, Sam Calloway
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Nora Hale and Sam Calloway: Nora Hale and Sam Calloway face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora Hale speaks as the camera holds close on their face, a timestamp catching the light between them. Location: Town hall steps, dusk, wet stone. Key object: a timestamp. Characters present: Nora Hale, Sam Calloway. No other characters appear.
@@ -1870,7 +1870,7 @@ ESCENA 43 (Viñeta #43 del Storyboard) — 07:00–07:10
   NORA (urgent): "2:14 a.m. Keller launch. Two passengers, not one."
   SAM (low): "Who's the second?"
 
-ESCENA 44 (Viñeta #44 del Storyboard) — 07:10–07:20
+SCENE 44 (Storyboard Panel #44) — 07:10–07:20
 - Location: Hale lighthouse archive room, dawn, cold blue light
 - Characters Present: Nora Hale, Sam Calloway
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Sam Calloway and Nora Hale: Sam Calloway and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Sam reads over her shoulder, close enough to touch. Key object in frame: the town hall steps. Location: Hale lighthouse archive room, dawn, cold blue light. Characters present: Nora Hale, Sam Calloway. No other characters appear.
@@ -1885,7 +1885,7 @@ ESCENA 44 (Viñeta #44 del Storyboard) — 07:10–07:20
   SAM (stunned): "Your mother's name."
   NORA (flat): "She died when I was eleven. I watched them bury her."
 
-ESCENA 45 (Viñeta #45 del Storyboard) — 07:20–07:30
+SCENE 45 (Storyboard Panel #45) — 07:20–07:30
 - Location: Harbor pier, morning, flat silver water
 - Characters Present: Nora Hale, Sam Calloway
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Nora Hale and Sam Calloway: Nora Hale and Sam Calloway face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora looks up at Sam, a decision forming. Key object in frame: the harbor log. Location: Harbor pier, morning, flat silver water. Characters present: Nora Hale, Sam Calloway. No other characters appear.
@@ -1900,7 +1900,7 @@ ESCENA 45 (Viñeta #45 del Storyboard) — 07:20–07:30
   NORA (shaking): "Every year, in cash, under her maiden name."
   SAM (gentle): "Nora, we can still stop this."
 
-ESCENA 46 (Viñeta #46 del Storyboard) — 07:30–07:40
+SCENE 46 (Storyboard Panel #46) — 07:30–07:40
 - Location: Town hall steps, dusk, wet stone
 - Characters Present: Nora Hale, Adrian Keller
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Adrian Keller and Nora Hale: Adrian Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Adrian stands on the town hall steps, trying to smile. Key object in frame: a torn page. Location: Town hall steps, dusk, wet stone. Characters present: Nora Hale, Adrian Keller. No other characters appear.
@@ -1915,7 +1915,7 @@ ESCENA 46 (Viñeta #46 del Storyboard) — 07:30–07:40
   ADRIAN (reasonable): "The hearing is tomorrow. Change your mind tonight."
   NORA (calm): "I've had ten years. I'm not changing."
 
-ESCENA 47 (Viñeta #47 del Storyboard) — 07:40–07:50
+SCENE 47 (Storyboard Panel #47) — 07:40–07:50
 - Location: Hale lighthouse archive room, dawn, cold blue light
 - Characters Present: Nora Hale, Margaret Keller
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Margaret Keller and Nora Hale: Margaret Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora walks past him without stopping. Key object in frame: a timestamp. Location: Hale lighthouse archive room, dawn, cold blue light. Characters present: Nora Hale, Margaret Keller. No other characters appear.
@@ -1930,7 +1930,7 @@ ESCENA 47 (Viñeta #47 del Storyboard) — 07:40–07:50
   MARGARET (controlled): "You've made your point. Name a number."
   NORA (final): "Zero. You leave with nothing."
 
-ESCENA 48 (Viñeta #48 del Storyboard) — 07:50–08:00
+SCENE 48 (Storyboard Panel #48) — 07:50–08:00
 - Location: Harbor pier, morning, flat silver water
 - Characters Present: Nora Hale, Margaret Keller, Claire Boone
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Claire Boone and Nora Hale: Claire Boone and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Margaret waits in the hall, gloves in hand. Key object in frame: the town hall steps. Location: Harbor pier, morning, flat silver water. Characters present: Nora Hale, Margaret Keller, Claire Boone. No other characters appear.
@@ -1946,32 +1946,32 @@ ESCENA 48 (Viñeta #48 del Storyboard) — 07:50–08:00
   CLAIRE (worried): "Present that log, and the town turns on your mother."
   NORA (steady): "Then they'll tell the truth."
 
-COMANDO FINAL (9:16 Reels/TikTok/Shorts):
+FINAL COMMAND (9:16 Reels/TikTok/Shorts):
 
-"Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando entre 1 y 4 tomas exactamente como las lista el guion: la Toma 1 arranca directamente en movimiento desde el encuadre exacto de la viñeta correspondiente sin frames estáticos (two-shot si hablan dos personajes); cada línea hablada tiene su propio plano con el hablante de frente, rostro y boca visibles, nunca desde detrás del personaje; los planos silenciosos (insert, reacción, objeto) van después del diálogo y nunca contienen habla. Mantén estrictamente la misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre escenas. Formato: vertical 9:16 para Reels, TikTok y Shorts. Reglas negativas estrictas: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
+"Make a realistic cinematic video of 10 seconds per scene, executing between 1 and 4 shots exactly as the script lists them: Shot 1 starts directly in motion from the exact framing of the corresponding storyboard panel, with no static frames (two-shot if two characters speak); every spoken line gets its own shot with the speaker facing camera, face and mouth visible, never from behind the character; silent shots (inserts, reactions, objects) come after the dialogue and never contain speech. Keep strictly the same race, face and wardrobe for each character according to their position in the attached Character Sheet, and join them into a single continuous video, never inserting the reference image between scenes. Format: vertical 9:16 for Reels, TikTok and Shorts. Strict negative rules: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
 ```
 
-### Lote 09 — Minuto 9 (escenas 49–54)
+### Batch 09 — Minute 9 (scenes 49–54)
 
-**Adjuntar:** `REF_CAST_MASTER.png` + `REF_GRID_MIN_09.png`
+**Attach:** `REF_CAST_MASTER.png` + `REF_GRID_MIN_09.png`
 
-**Adjuntos por escena de este lote:**
+**Per-scene attachments for this batch:**
 
-- Escena 049: `attach: [panel_049, ref_nora, ref_sam, ref_margaret]`
-- Escena 050: `attach: [panel_050, ref_nora, ref_margaret]`
-- Escena 051: `attach: [panel_051, ref_nora, ref_claire]`
-- Escena 052: `attach: [panel_052, ref_nora, ref_sam]`
-- Escena 053: `attach: [panel_053, ref_nora, ref_sam, ref_margaret]`
-- Escena 054: `attach: [panel_054, ref_nora, ref_sam, ref_margaret]`
+- Scene 049: `attach: [panel_049, ref_nora, ref_sam, ref_margaret]`
+- Scene 050: `attach: [panel_050, ref_nora, ref_margaret]`
+- Scene 051: `attach: [panel_051, ref_nora, ref_claire]`
+- Scene 052: `attach: [panel_052, ref_nora, ref_sam]`
+- Scene 053: `attach: [panel_053, ref_nora, ref_sam, ref_margaret]`
+- Scene 054: `attach: [panel_054, ref_nora, ref_sam, ref_margaret]`
 
-**Guardar 16:9 como:** `raw_clips/minute_09.mp4`
+**Save 16:9 as:** `raw_clips/minute_09.mp4`
 
-**Guardar 9:16 como:** `raw_clips/minute_09_vertical.mp4`
+**Save 9:16 as:** `raw_clips/minute_09_vertical.mp4`
 
-**Bloque 16:9 para Muse AI (YouTube):**
+**16:9 block for Muse AI (YouTube):**
 
 ```text
-ESCENA 49 (Viñeta #49 del Storyboard) — 08:00–08:10
+SCENE 49 (Storyboard Panel #49) — 08:00–08:10
 - Location: Town hall steps, dusk, wet stone
 - Characters Present: Nora Hale, Sam Calloway, Margaret Keller
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Nora Hale and Sam Calloway: Nora Hale and Sam Calloway face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora faces Margaret on the empty hearing floor. Key object in frame: the harbor log. Location: Town hall steps, dusk, wet stone. Characters present: Nora Hale, Sam Calloway, Margaret Keller. No other characters appear.
@@ -1987,7 +1987,7 @@ ESCENA 49 (Viñeta #49 del Storyboard) — 08:00–08:10
   NORA (vulnerable): "Whatever they say tomorrow, hear it from me first."
   SAM (low): "I'm not going anywhere."
 
-ESCENA 50 (Viñeta #50 del Storyboard) — 08:10–08:20
+SCENE 50 (Storyboard Panel #50) — 08:10–08:20
 - Location: Hale lighthouse archive room, dawn, cold blue light
 - Characters Present: Nora Hale, Margaret Keller
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Margaret Keller and Nora Hale: Margaret Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora stands at the lighthouse door as the town lights come on. Key object in frame: a torn page. Location: Hale lighthouse archive room, dawn, cold blue light. Characters present: Nora Hale, Margaret Keller. No other characters appear.
@@ -2002,7 +2002,7 @@ ESCENA 50 (Viñeta #50 del Storyboard) — 08:10–08:20
   MARGARET (cold): "You'll lose the only home you have left."
   NORA (fierce): "Not for the house. For his name."
 
-ESCENA 51 (Viñeta #51 del Storyboard) — 08:20–08:30
+SCENE 51 (Storyboard Panel #51) — 08:20–08:30
 - Location: Town hall hearing room, day, hard window light
 - Characters Present: Nora Hale, Claire Boone
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Claire Boone and Nora Hale: Claire Boone and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. The hearing room fills; Nora stands alone at the table. Key object in frame: the harbor log. Location: Town hall hearing room, day, hard window light. Characters present: Nora Hale, Claire Boone. No other characters appear.
@@ -2017,7 +2017,7 @@ ESCENA 51 (Viñeta #51 del Storyboard) — 08:20–08:30
   CLAIRE (nervous): "Emergency hearing. Every seat is full."
   NORA (resolved): "Good. Let them watch. Let them remember."
 
-ESCENA 52 (Viñeta #52 del Storyboard) — 08:30–08:40
+SCENE 52 (Storyboard Panel #52) — 08:30–08:40
 - Location: Hale lighthouse point, golden hour, wind down
 - Characters Present: Nora Hale, Sam Calloway
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Sam Calloway and Nora Hale: Sam Calloway and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Sam steps to the microphone, the room silent. Key object in frame: the clerk's desk. Location: Hale lighthouse point, golden hour, wind down. Characters present: Nora Hale, Sam Calloway. No other characters appear.
@@ -2032,7 +2032,7 @@ ESCENA 52 (Viñeta #52 del Storyboard) — 08:30–08:40
   SAM (steady): "If I do this, I lose the department."
   NORA (gentle): "Then do it for the right reason."
 
-ESCENA 53 (Viñeta #53 del Storyboard) — 08:40–08:50
+SCENE 53 (Storyboard Panel #53) — 08:40–08:50
 - Location: Harbor, golden hour, calm water
 - Characters Present: Nora Hale, Sam Calloway, Margaret Keller
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Nora Hale and Sam Calloway: Nora Hale and Sam Calloway face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Margaret's smile falters for the first time. Key object in frame: a second ledger. Location: Harbor, golden hour, calm water. Characters present: Nora Hale, Sam Calloway, Margaret Keller. No other characters appear.
@@ -2048,7 +2048,7 @@ ESCENA 53 (Viñeta #53 del Storyboard) — 08:40–08:50
   NORA (quiet): "Just tell them the truth."
   SAM (breaking): "The truth is I let them bury your father."
 
-ESCENA 54 (Viñeta #54 del Storyboard) — 08:50–09:00
+SCENE 54 (Storyboard Panel #54) — 08:50–09:00
 - Location: Town hall hearing room, day, hard window light
 - Characters Present: Nora Hale, Sam Calloway, Margaret Keller
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Sam Calloway and Margaret Keller: Sam Calloway and Margaret Keller face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora holds up the harbor log, open to the page. Key object in frame: Sam's hand. Location: Town hall hearing room, day, hard window light. Characters present: Nora Hale, Sam Calloway, Margaret Keller. No other characters appear.
@@ -2064,15 +2064,15 @@ ESCENA 54 (Viñeta #54 del Storyboard) — 08:50–09:00
   SAM (public, clear): "I signed a false statement. Margaret paid me."
   MARGARET (dismissive): "He's a firefighter with a grudge."
 
-COMANDO FINAL (16:9 YouTube):
+FINAL COMMAND (16:9 YouTube):
 
-"Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando entre 1 y 4 tomas exactamente como las lista el guion: la Toma 1 arranca directamente en movimiento desde el encuadre exacto de la viñeta correspondiente sin frames estáticos (two-shot si hablan dos personajes); cada línea hablada tiene su propio plano con el hablante de frente, rostro y boca visibles, nunca desde detrás del personaje; los planos silenciosos (insert, reacción, objeto) van después del diálogo y nunca contienen habla. Mantén estrictamente la misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre escenas. Formato: horizontal 16:9 para YouTube. Reglas negativas estrictas: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
+"Make a realistic cinematic video of 10 seconds per scene, executing between 1 and 4 shots exactly as the script lists them: Shot 1 starts directly in motion from the exact framing of the corresponding storyboard panel, with no static frames (two-shot if two characters speak); every spoken line gets its own shot with the speaker facing camera, face and mouth visible, never from behind the character; silent shots (inserts, reactions, objects) come after the dialogue and never contain speech. Keep strictly the same race, face and wardrobe for each character according to their position in the attached Character Sheet, and join them into a single continuous video, never inserting the reference image between scenes. Format: horizontal 16:9 for YouTube. Strict negative rules: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
 ```
 
-**Comando final 9:16 (Reels/Shorts):**
+**Final 9:16 command (Reels/Shorts):**
 
 ```text
-ESCENA 49 (Viñeta #49 del Storyboard) — 08:00–08:10
+SCENE 49 (Storyboard Panel #49) — 08:00–08:10
 - Location: Town hall steps, dusk, wet stone
 - Characters Present: Nora Hale, Sam Calloway, Margaret Keller
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Nora Hale and Sam Calloway: Nora Hale and Sam Calloway face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora faces Margaret on the empty hearing floor. Key object in frame: the harbor log. Location: Town hall steps, dusk, wet stone. Characters present: Nora Hale, Sam Calloway, Margaret Keller. No other characters appear.
@@ -2088,7 +2088,7 @@ ESCENA 49 (Viñeta #49 del Storyboard) — 08:00–08:10
   NORA (vulnerable): "Whatever they say tomorrow, hear it from me first."
   SAM (low): "I'm not going anywhere."
 
-ESCENA 50 (Viñeta #50 del Storyboard) — 08:10–08:20
+SCENE 50 (Storyboard Panel #50) — 08:10–08:20
 - Location: Hale lighthouse archive room, dawn, cold blue light
 - Characters Present: Nora Hale, Margaret Keller
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Margaret Keller and Nora Hale: Margaret Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora stands at the lighthouse door as the town lights come on. Key object in frame: a torn page. Location: Hale lighthouse archive room, dawn, cold blue light. Characters present: Nora Hale, Margaret Keller. No other characters appear.
@@ -2103,7 +2103,7 @@ ESCENA 50 (Viñeta #50 del Storyboard) — 08:10–08:20
   MARGARET (cold): "You'll lose the only home you have left."
   NORA (fierce): "Not for the house. For his name."
 
-ESCENA 51 (Viñeta #51 del Storyboard) — 08:20–08:30
+SCENE 51 (Storyboard Panel #51) — 08:20–08:30
 - Location: Town hall hearing room, day, hard window light
 - Characters Present: Nora Hale, Claire Boone
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Claire Boone and Nora Hale: Claire Boone and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. The hearing room fills; Nora stands alone at the table. Key object in frame: the harbor log. Location: Town hall hearing room, day, hard window light. Characters present: Nora Hale, Claire Boone. No other characters appear.
@@ -2118,7 +2118,7 @@ ESCENA 51 (Viñeta #51 del Storyboard) — 08:20–08:30
   CLAIRE (nervous): "Emergency hearing. Every seat is full."
   NORA (resolved): "Good. Let them watch. Let them remember."
 
-ESCENA 52 (Viñeta #52 del Storyboard) — 08:30–08:40
+SCENE 52 (Storyboard Panel #52) — 08:30–08:40
 - Location: Hale lighthouse point, golden hour, wind down
 - Characters Present: Nora Hale, Sam Calloway
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Sam Calloway and Nora Hale: Sam Calloway and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Sam steps to the microphone, the room silent. Key object in frame: the clerk's desk. Location: Hale lighthouse point, golden hour, wind down. Characters present: Nora Hale, Sam Calloway. No other characters appear.
@@ -2133,7 +2133,7 @@ ESCENA 52 (Viñeta #52 del Storyboard) — 08:30–08:40
   SAM (steady): "If I do this, I lose the department."
   NORA (gentle): "Then do it for the right reason."
 
-ESCENA 53 (Viñeta #53 del Storyboard) — 08:40–08:50
+SCENE 53 (Storyboard Panel #53) — 08:40–08:50
 - Location: Harbor, golden hour, calm water
 - Characters Present: Nora Hale, Sam Calloway, Margaret Keller
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Nora Hale and Sam Calloway: Nora Hale and Sam Calloway face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Margaret's smile falters for the first time. Key object in frame: a second ledger. Location: Harbor, golden hour, calm water. Characters present: Nora Hale, Sam Calloway, Margaret Keller. No other characters appear.
@@ -2149,7 +2149,7 @@ ESCENA 53 (Viñeta #53 del Storyboard) — 08:40–08:50
   NORA (quiet): "Just tell them the truth."
   SAM (breaking): "The truth is I let them bury your father."
 
-ESCENA 54 (Viñeta #54 del Storyboard) — 08:50–09:00
+SCENE 54 (Storyboard Panel #54) — 08:50–09:00
 - Location: Town hall hearing room, day, hard window light
 - Characters Present: Nora Hale, Sam Calloway, Margaret Keller
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Sam Calloway and Margaret Keller: Sam Calloway and Margaret Keller face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora holds up the harbor log, open to the page. Key object in frame: Sam's hand. Location: Town hall hearing room, day, hard window light. Characters present: Nora Hale, Sam Calloway, Margaret Keller. No other characters appear.
@@ -2165,32 +2165,32 @@ ESCENA 54 (Viñeta #54 del Storyboard) — 08:50–09:00
   SAM (public, clear): "I signed a false statement. Margaret paid me."
   MARGARET (dismissive): "He's a firefighter with a grudge."
 
-COMANDO FINAL (9:16 Reels/TikTok/Shorts):
+FINAL COMMAND (9:16 Reels/TikTok/Shorts):
 
-"Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando entre 1 y 4 tomas exactamente como las lista el guion: la Toma 1 arranca directamente en movimiento desde el encuadre exacto de la viñeta correspondiente sin frames estáticos (two-shot si hablan dos personajes); cada línea hablada tiene su propio plano con el hablante de frente, rostro y boca visibles, nunca desde detrás del personaje; los planos silenciosos (insert, reacción, objeto) van después del diálogo y nunca contienen habla. Mantén estrictamente la misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre escenas. Formato: vertical 9:16 para Reels, TikTok y Shorts. Reglas negativas estrictas: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
+"Make a realistic cinematic video of 10 seconds per scene, executing between 1 and 4 shots exactly as the script lists them: Shot 1 starts directly in motion from the exact framing of the corresponding storyboard panel, with no static frames (two-shot if two characters speak); every spoken line gets its own shot with the speaker facing camera, face and mouth visible, never from behind the character; silent shots (inserts, reactions, objects) come after the dialogue and never contain speech. Keep strictly the same race, face and wardrobe for each character according to their position in the attached Character Sheet, and join them into a single continuous video, never inserting the reference image between scenes. Format: vertical 9:16 for Reels, TikTok and Shorts. Strict negative rules: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
 ```
 
-### Lote 10 — Minuto 10 (escenas 55–60)
+### Batch 10 — Minute 10 (scenes 55–60)
 
-**Adjuntar:** `REF_CAST_MASTER.png` + `REF_GRID_MIN_10.png`
+**Attach:** `REF_CAST_MASTER.png` + `REF_GRID_MIN_10.png`
 
-**Adjuntos por escena de este lote:**
+**Per-scene attachments for this batch:**
 
-- Escena 055: `attach: [panel_055, ref_nora, ref_adrian]`
-- Escena 056: `attach: [panel_056, ref_nora, ref_margaret]`
-- Escena 057: `attach: [panel_057, ref_nora, ref_margaret, ref_claire]`
-- Escena 058: `attach: [panel_058, ref_nora, ref_sam, ref_adrian]`
-- Escena 059: `attach: [panel_059, ref_nora, ref_margaret]`
-- Escena 060: `attach: [panel_060, ref_nora, ref_sam]`
+- Scene 055: `attach: [panel_055, ref_nora, ref_adrian]`
+- Scene 056: `attach: [panel_056, ref_nora, ref_margaret]`
+- Scene 057: `attach: [panel_057, ref_nora, ref_margaret, ref_claire]`
+- Scene 058: `attach: [panel_058, ref_nora, ref_sam, ref_adrian]`
+- Scene 059: `attach: [panel_059, ref_nora, ref_margaret]`
+- Scene 060: `attach: [panel_060, ref_nora, ref_sam]`
 
-**Guardar 16:9 como:** `raw_clips/minute_10.mp4`
+**Save 16:9 as:** `raw_clips/minute_10.mp4`
 
-**Guardar 9:16 como:** `raw_clips/minute_10_vertical.mp4`
+**Save 9:16 as:** `raw_clips/minute_10_vertical.mp4`
 
-**Bloque 16:9 para Muse AI (YouTube):**
+**16:9 block for Muse AI (YouTube):**
 
 ```text
-ESCENA 55 (Viñeta #55 del Storyboard) — 09:00–09:10
+SCENE 55 (Storyboard Panel #55) — 09:00–09:10
 - Location: Hale lighthouse point, golden hour, wind down
 - Characters Present: Nora Hale, Adrian Keller
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Nora Hale and Adrian Keller: Nora Hale and Adrian Keller face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Adrian half-rises from his chair. Key object in frame: the harbor log. Location: Hale lighthouse point, golden hour, wind down. Characters present: Nora Hale, Adrian Keller. No other characters appear.
@@ -2205,7 +2205,7 @@ ESCENA 55 (Viñeta #55 del Storyboard) — 09:00–09:10
   NORA (calm): "Then hear someone who can't be bought. The log."
   ADRIAN (uneasy): "That's a piece of paper."
 
-ESCENA 56 (Viñeta #56 del Storyboard) — 09:10–09:20
+SCENE 56 (Storyboard Panel #56) — 09:10–09:20
 - Location: Harbor, golden hour, calm water
 - Characters Present: Nora Hale, Margaret Keller
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Nora Hale and Margaret Keller: Nora Hale and Margaret Keller face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora sets the log on the clerk's desk. Location: Harbor, golden hour, calm water. Key object: the clerk's desk. Characters present: Nora Hale, Margaret Keller. No other characters appear.
@@ -2220,7 +2220,7 @@ ESCENA 56 (Viñeta #56 del Storyboard) — 09:10–09:20
   NORA (precise): "2:14. Keller launch. Two aboard. Adrian steering."
   MARGARET (sharp): "That log is weather and guesswork."
 
-ESCENA 57 (Viñeta #57 del Storyboard) — 09:20–09:30
+SCENE 57 (Storyboard Panel #57) — 09:20–09:30
 - Location: Town hall hearing room, day, hard window light
 - Characters Present: Nora Hale, Margaret Keller, Claire Boone
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Nora Hale and Claire Boone: Nora Hale and Claire Boone face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Margaret reaches for the log; Nora slides it away. Key object in frame: a second ledger. Location: Town hall hearing room, day, hard window light. Characters present: Nora Hale, Margaret Keller, Claire Boone. No other characters appear.
@@ -2236,7 +2236,7 @@ ESCENA 57 (Viñeta #57 del Storyboard) — 09:20–09:30
   NORA (quiet): "Margaret. And the man who signed the fire report."
   CLAIRE (stunned): "The fire marshal."
 
-ESCENA 58 (Viñeta #58 del Storyboard) — 09:30–09:40
+SCENE 58 (Storyboard Panel #58) — 09:30–09:40
 - Location: Hale lighthouse point, golden hour, wind down
 - Characters Present: Nora Hale, Sam Calloway, Adrian Keller
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Adrian Keller and Nora Hale: Adrian Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Adrian Keller speaks as the camera holds close on their face, Sam's hand catching the light between them. Location: Hale lighthouse point, golden hour, wind down. Key object: Sam's hand. Characters present: Nora Hale, Sam Calloway, Adrian Keller. No other characters appear.
@@ -2252,7 +2252,7 @@ ESCENA 58 (Viñeta #58 del Storyboard) — 09:30–09:40
   ADRIAN (breaking): "An accident. We meant to scare him."
   NORA (raw): "You burned it and buried my father."
 
-ESCENA 59 (Viñeta #59 del Storyboard) — 09:40–09:50
+SCENE 59 (Storyboard Panel #59) — 09:40–09:50
 - Location: Harbor, golden hour, calm water
 - Characters Present: Nora Hale, Margaret Keller
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Nora Hale and Margaret Keller: Nora Hale and Margaret Keller face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora walks out of the town hall into the light. Key object in frame: the harbor log. Location: Harbor, golden hour, calm water. Characters present: Nora Hale, Margaret Keller. No other characters appear.
@@ -2267,7 +2267,7 @@ ESCENA 59 (Viñeta #59 del Storyboard) — 09:40–09:50
   NORA (fierce): "That's not an accident. That's a choice."
   MARGARET (quiet): "You'll regret this."
 
-ESCENA 60 (Viñeta #60 del Storyboard) — 09:50–10:00
+SCENE 60 (Storyboard Panel #60) — 09:50–10:00
 - Location: Town hall hearing room, day, hard window light
 - Characters Present: Nora Hale, Sam Calloway
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Nora Hale and Sam Calloway: Nora Hale and Sam Calloway face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora Hale speaks as the camera holds close on their face, the clerk's desk catching the light between them. Location: Town hall hearing room, day, hard window light. Key object: the clerk's desk. Characters present: Nora Hale, Sam Calloway. No other characters appear.
@@ -2282,15 +2282,15 @@ ESCENA 60 (Viñeta #60 del Storyboard) — 09:50–10:00
   NORA (hushed): "Wait. This ledger is older. Her name is on every page."
   SAM (stunned): "Nora... she's alive?"
 
-COMANDO FINAL (16:9 YouTube):
+FINAL COMMAND (16:9 YouTube):
 
-"Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando entre 1 y 4 tomas exactamente como las lista el guion: la Toma 1 arranca directamente en movimiento desde el encuadre exacto de la viñeta correspondiente sin frames estáticos (two-shot si hablan dos personajes); cada línea hablada tiene su propio plano con el hablante de frente, rostro y boca visibles, nunca desde detrás del personaje; los planos silenciosos (insert, reacción, objeto) van después del diálogo y nunca contienen habla. Mantén estrictamente la misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre escenas. Formato: horizontal 16:9 para YouTube. Reglas negativas estrictas: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
+"Make a realistic cinematic video of 10 seconds per scene, executing between 1 and 4 shots exactly as the script lists them: Shot 1 starts directly in motion from the exact framing of the corresponding storyboard panel, with no static frames (two-shot if two characters speak); every spoken line gets its own shot with the speaker facing camera, face and mouth visible, never from behind the character; silent shots (inserts, reactions, objects) come after the dialogue and never contain speech. Keep strictly the same race, face and wardrobe for each character according to their position in the attached Character Sheet, and join them into a single continuous video, never inserting the reference image between scenes. Format: horizontal 16:9 for YouTube. Strict negative rules: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
 ```
 
-**Comando final 9:16 (Reels/Shorts):**
+**Final 9:16 command (Reels/Shorts):**
 
 ```text
-ESCENA 55 (Viñeta #55 del Storyboard) — 09:00–09:10
+SCENE 55 (Storyboard Panel #55) — 09:00–09:10
 - Location: Hale lighthouse point, golden hour, wind down
 - Characters Present: Nora Hale, Adrian Keller
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Nora Hale and Adrian Keller: Nora Hale and Adrian Keller face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Adrian half-rises from his chair. Key object in frame: the harbor log. Location: Hale lighthouse point, golden hour, wind down. Characters present: Nora Hale, Adrian Keller. No other characters appear.
@@ -2305,7 +2305,7 @@ ESCENA 55 (Viñeta #55 del Storyboard) — 09:00–09:10
   NORA (calm): "Then hear someone who can't be bought. The log."
   ADRIAN (uneasy): "That's a piece of paper."
 
-ESCENA 56 (Viñeta #56 del Storyboard) — 09:10–09:20
+SCENE 56 (Storyboard Panel #56) — 09:10–09:20
 - Location: Harbor, golden hour, calm water
 - Characters Present: Nora Hale, Margaret Keller
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Nora Hale and Margaret Keller: Nora Hale and Margaret Keller face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora sets the log on the clerk's desk. Location: Harbor, golden hour, calm water. Key object: the clerk's desk. Characters present: Nora Hale, Margaret Keller. No other characters appear.
@@ -2320,7 +2320,7 @@ ESCENA 56 (Viñeta #56 del Storyboard) — 09:10–09:20
   NORA (precise): "2:14. Keller launch. Two aboard. Adrian steering."
   MARGARET (sharp): "That log is weather and guesswork."
 
-ESCENA 57 (Viñeta #57 del Storyboard) — 09:20–09:30
+SCENE 57 (Storyboard Panel #57) — 09:20–09:30
 - Location: Town hall hearing room, day, hard window light
 - Characters Present: Nora Hale, Margaret Keller, Claire Boone
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Nora Hale and Claire Boone: Nora Hale and Claire Boone face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Margaret reaches for the log; Nora slides it away. Key object in frame: a second ledger. Location: Town hall hearing room, day, hard window light. Characters present: Nora Hale, Margaret Keller, Claire Boone. No other characters appear.
@@ -2336,7 +2336,7 @@ ESCENA 57 (Viñeta #57 del Storyboard) — 09:20–09:30
   NORA (quiet): "Margaret. And the man who signed the fire report."
   CLAIRE (stunned): "The fire marshal."
 
-ESCENA 58 (Viñeta #58 del Storyboard) — 09:30–09:40
+SCENE 58 (Storyboard Panel #58) — 09:30–09:40
 - Location: Hale lighthouse point, golden hour, wind down
 - Characters Present: Nora Hale, Sam Calloway, Adrian Keller
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Adrian Keller and Nora Hale: Adrian Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Adrian Keller speaks as the camera holds close on their face, Sam's hand catching the light between them. Location: Hale lighthouse point, golden hour, wind down. Key object: Sam's hand. Characters present: Nora Hale, Sam Calloway, Adrian Keller. No other characters appear.
@@ -2352,7 +2352,7 @@ ESCENA 58 (Viñeta #58 del Storyboard) — 09:30–09:40
   ADRIAN (breaking): "An accident. We meant to scare him."
   NORA (raw): "You burned it and buried my father."
 
-ESCENA 59 (Viñeta #59 del Storyboard) — 09:40–09:50
+SCENE 59 (Storyboard Panel #59) — 09:40–09:50
 - Location: Harbor, golden hour, calm water
 - Characters Present: Nora Hale, Margaret Keller
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Nora Hale and Margaret Keller: Nora Hale and Margaret Keller face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora walks out of the town hall into the light. Key object in frame: the harbor log. Location: Harbor, golden hour, calm water. Characters present: Nora Hale, Margaret Keller. No other characters appear.
@@ -2367,7 +2367,7 @@ ESCENA 59 (Viñeta #59 del Storyboard) — 09:40–09:50
   NORA (fierce): "That's not an accident. That's a choice."
   MARGARET (quiet): "You'll regret this."
 
-ESCENA 60 (Viñeta #60 del Storyboard) — 09:50–10:00
+SCENE 60 (Storyboard Panel #60) — 09:50–10:00
 - Location: Town hall hearing room, day, hard window light
 - Characters Present: Nora Hale, Sam Calloway
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Nora Hale and Sam Calloway: Nora Hale and Sam Calloway face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Nora Hale speaks as the camera holds close on their face, the clerk's desk catching the light between them. Location: Town hall hearing room, day, hard window light. Key object: the clerk's desk. Characters present: Nora Hale, Sam Calloway. No other characters appear.
@@ -2382,20 +2382,20 @@ ESCENA 60 (Viñeta #60 del Storyboard) — 09:50–10:00
   NORA (hushed): "Wait. This ledger is older. Her name is on every page."
   SAM (stunned): "Nora... she's alive?"
 
-COMANDO FINAL (9:16 Reels/TikTok/Shorts):
+FINAL COMMAND (9:16 Reels/TikTok/Shorts):
 
-"Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando entre 1 y 4 tomas exactamente como las lista el guion: la Toma 1 arranca directamente en movimiento desde el encuadre exacto de la viñeta correspondiente sin frames estáticos (two-shot si hablan dos personajes); cada línea hablada tiene su propio plano con el hablante de frente, rostro y boca visibles, nunca desde detrás del personaje; los planos silenciosos (insert, reacción, objeto) van después del diálogo y nunca contienen habla. Mantén estrictamente la misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre escenas. Formato: vertical 9:16 para Reels, TikTok y Shorts. Reglas negativas estrictas: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
+"Make a realistic cinematic video of 10 seconds per scene, executing between 1 and 4 shots exactly as the script lists them: Shot 1 starts directly in motion from the exact framing of the corresponding storyboard panel, with no static frames (two-shot if two characters speak); every spoken line gets its own shot with the speaker facing camera, face and mouth visible, never from behind the character; silent shots (inserts, reactions, objects) come after the dialogue and never contain speech. Keep strictly the same race, face and wardrobe for each character according to their position in the attached Character Sheet, and join them into a single continuous video, never inserting the reference image between scenes. Format: vertical 9:16 for Reels, TikTok and Shorts. Strict negative rules: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
 ```
 
 ---
 
-## Paso 4 — Ensamblar
+## Step 4 — Assemble
 
-Cuando existan los 10 archivos `minute_01.mp4 … minute_10.mp4`:
+Once the 10 files exist: `minute_01.mp4 … minute_10.mp4`:
 
 ```powershell
 ./novelfactory.bat assemble demo_contract
 ```
 
-El ensamblador detecta el modo B, genera el máster 16:9 completo,
-el SRT sincronizado y el teaser vertical automático de 20 segundos.
+The assembler detects mode B, generates the complete 16:9 master,
+the synchronized SRT and the automatic 20-second vertical teaser.

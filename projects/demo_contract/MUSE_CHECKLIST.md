@@ -1,36 +1,36 @@
 # Checklist — The Silent Contract
 
-> **NOTA DE PRODUCCIÓN:** ADJUNTA EN CADA ESCENA: la viñeta de esa escena + las referencias SOLO de los personajes que salen en ESA escena + el prompt de esa escena. No generes ninguna escena sin sus personajes adjuntos.
+> **PRODUCTION NOTE:** ATTACH FOR EVERY SCENE: that scene's storyboard panel + references ONLY for the characters who appear in THAT scene + that scene's prompt. Never generate a scene without its attached characters.
 
-## Imágenes del método nuevo (`storyboards/`)
+## New-method images (`storyboards/`)
 
-- [ ] `REF_CAST_MASTER.png` — hoja maestra de personajes
-- [ ] `REF_GRID_MIN_01.png` — minuto 1 (escenas 1–6)
-- [ ] `REF_GRID_MIN_02.png` — minuto 2 (escenas 7–12)
-- [ ] `REF_GRID_MIN_03.png` — minuto 3 (escenas 13–18)
-- [ ] `REF_GRID_MIN_04.png` — minuto 4 (escenas 19–24)
-- [ ] `REF_GRID_MIN_05.png` — minuto 5 (escenas 25–30)
-- [ ] `REF_GRID_MIN_06.png` — minuto 6 (escenas 31–36)
-- [ ] `REF_GRID_MIN_07.png` — minuto 7 (escenas 37–42)
-- [ ] `REF_GRID_MIN_08.png` — minuto 8 (escenas 43–48)
-- [ ] `REF_GRID_MIN_09.png` — minuto 9 (escenas 49–54)
-- [ ] `REF_GRID_MIN_10.png` — minuto 10 (escenas 55–60)
+- [ ] `REF_CAST_MASTER.png` — master character sheet
+- [ ] `REF_GRID_MIN_01.png` — minute 1 (scenes 1–6)
+- [ ] `REF_GRID_MIN_02.png` — minute 2 (scenes 7–12)
+- [ ] `REF_GRID_MIN_03.png` — minute 3 (scenes 13–18)
+- [ ] `REF_GRID_MIN_04.png` — minute 4 (scenes 19–24)
+- [ ] `REF_GRID_MIN_05.png` — minute 5 (scenes 25–30)
+- [ ] `REF_GRID_MIN_06.png` — minute 6 (scenes 31–36)
+- [ ] `REF_GRID_MIN_07.png` — minute 7 (scenes 37–42)
+- [ ] `REF_GRID_MIN_08.png` — minute 8 (scenes 43–48)
+- [ ] `REF_GRID_MIN_09.png` — minute 9 (scenes 49–54)
+- [ ] `REF_GRID_MIN_10.png` — minute 10 (scenes 55–60)
 
-## Videos Muse AI (`raw_clips/`)
+## Muse AI videos (`raw_clips/`)
 
-- [ ] `minute_01.mp4` — lote 01 (adjuntos: REF_CAST_MASTER.png + REF_GRID_MIN_01.png)
-- [ ] `minute_02.mp4` — lote 02 (adjuntos: REF_CAST_MASTER.png + REF_GRID_MIN_02.png)
-- [ ] `minute_03.mp4` — lote 03 (adjuntos: REF_CAST_MASTER.png + REF_GRID_MIN_03.png)
-- [ ] `minute_04.mp4` — lote 04 (adjuntos: REF_CAST_MASTER.png + REF_GRID_MIN_04.png)
-- [ ] `minute_05.mp4` — lote 05 (adjuntos: REF_CAST_MASTER.png + REF_GRID_MIN_05.png)
-- [ ] `minute_06.mp4` — lote 06 (adjuntos: REF_CAST_MASTER.png + REF_GRID_MIN_06.png)
-- [ ] `minute_07.mp4` — lote 07 (adjuntos: REF_CAST_MASTER.png + REF_GRID_MIN_07.png)
-- [ ] `minute_08.mp4` — lote 08 (adjuntos: REF_CAST_MASTER.png + REF_GRID_MIN_08.png)
-- [ ] `minute_09.mp4` — lote 09 (adjuntos: REF_CAST_MASTER.png + REF_GRID_MIN_09.png)
-- [ ] `minute_10.mp4` — lote 10 (adjuntos: REF_CAST_MASTER.png + REF_GRID_MIN_10.png)
+- [ ] `minute_01.mp4` — batch 01 (attachments: REF_CAST_MASTER.png + REF_GRID_MIN_01.png)
+- [ ] `minute_02.mp4` — batch 02 (attachments: REF_CAST_MASTER.png + REF_GRID_MIN_02.png)
+- [ ] `minute_03.mp4` — batch 03 (attachments: REF_CAST_MASTER.png + REF_GRID_MIN_03.png)
+- [ ] `minute_04.mp4` — batch 04 (attachments: REF_CAST_MASTER.png + REF_GRID_MIN_04.png)
+- [ ] `minute_05.mp4` — batch 05 (attachments: REF_CAST_MASTER.png + REF_GRID_MIN_05.png)
+- [ ] `minute_06.mp4` — batch 06 (attachments: REF_CAST_MASTER.png + REF_GRID_MIN_06.png)
+- [ ] `minute_07.mp4` — batch 07 (attachments: REF_CAST_MASTER.png + REF_GRID_MIN_07.png)
+- [ ] `minute_08.mp4` — batch 08 (attachments: REF_CAST_MASTER.png + REF_GRID_MIN_08.png)
+- [ ] `minute_09.mp4` — batch 09 (attachments: REF_CAST_MASTER.png + REF_GRID_MIN_09.png)
+- [ ] `minute_10.mp4` — batch 10 (attachments: REF_CAST_MASTER.png + REF_GRID_MIN_10.png)
 
-## Cierre
+## Close-out
 
-- [ ] Los 10 lotes están en `raw_clips/`.
-- [ ] Ejecutar `./novelfactory.bat assemble demo_contract`.
-- [ ] Revisar `output/<slug>_master_16x9_1080p.mp4` y `output/<slug>_teaser_9x16.mp4`.
+- [ ] All 10 batches are in `raw_clips/`.
+- [ ] Run `./novelfactory.bat assemble demo_contract`.
+- [ ] Review `output/<slug>_master_16x9_1080p.mp4` and `output/<slug>_teaser_9x16.mp4`.

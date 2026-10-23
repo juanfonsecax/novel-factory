@@ -1,18 +1,18 @@
-NOVEL FACTORY — Hojas de referencia de personajes (PASO 0) · The Silent Contract
+NOVEL FACTORY — Character reference sheets (STEP 0) · The Silent Contract
 
-Esto se genera UNA sola vez por episodio, ANTES de la cola de frames:
-  1. Abre una conversación nueva de ChatGPT con generación de imágenes.
-  2. Pega el prompt de cada personaje; guarda el resultado en la carpeta del
-     proyecto: C:\Users\juand\Downloads\PROYECTOS REDES SOCIALES\novel_factory\projects\demo_contract\references
-     con el nombre exacto que se indica abajo (reference_<id>.png).
-  3. Recorta además la cara en primer plano de cada personaje y guarda el
-     recorte en la misma carpeta como reference_<id>_face.png (se adjunta en las
-     escenas donde ese personaje HABLA).
-  4. Adjunta TODAS las hojas de referencia a la conversación y déjalas ahí
-     mientras generas frame_001.png … frame_060.png (chatgpt_image_prompts_queue.txt).
-     En escenas habladas adjunta también el recorte reference_<id>_face.png del hablante.
-  5. Los prompts de escena nombran al personaje y su archivo reference_<id>.png:
-     la cara nunca se describe en texto, se copia de estas hojas.
+This is generated ONCE per episode, BEFORE the frame queue:
+  1. Open a new ChatGPT conversation with image generation.
+  2. Paste each character prompt; save the result in the project
+     folder: C:\Users\juand\Downloads\PROYECTOS REDES SOCIALES\novel_factory\projects\demo_contract\references
+     with the exact filename shown below (reference_<id>.png).
+  3. Also crop each character's face in close-up and save the
+     crop in the same folder as reference_<id>_face.png (attached in
+     scenes where that character SPEAKS).
+  4. Attach ALL reference sheets to the conversation and keep them there
+     while you generate frame_001.png … frame_060.png (chatgpt_image_prompts_queue.txt).
+     In speaking scenes also attach the speaker's reference_<id>_face.png crop.
+  5. Scene prompts name the character and their reference_<id>.png file:
+     the face is never described in text; it is copied from these sheets.
 
 === NORA HALE -> reference_nora.png ===
 Photorealistic character reference sheet of Nora Hale: three views of the same person on one wide 16:9 image — front view, three-quarter view and profile view of the head and shoulders — identical face in all three views, neutral medium-grey seamless studio background, even soft key light with gentle falloff, neutral expression. early thirties coastal New England woman, wiry build, dark auburn hair worn loose, storm-grey eyes, fair weathered skin, charcoal wool coat over a dark sweater Keep the exact same face, hairline and features in every view. No other people. No text, no letters, no labels, no watermark. Natural skin texture, no airbrushing, no plastic skin, no CGI sheen.

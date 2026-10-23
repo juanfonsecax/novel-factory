@@ -1,9 +1,9 @@
-NOVEL FACTORY — Cola de video (Muse AI, First Frame, 10 s) · The Silent Contract
+NOVEL FACTORY — Video queue (Muse AI, First Frame, 10 s) · The Silent Contract
 Frames: C:\Users\juand\Downloads\PROYECTOS REDES SOCIALES\novel_factory\projects\demo_contract\frames  →  Clips: C:\Users\juand\Downloads\PROYECTOS REDES SOCIALES\novel_factory\projects\demo_contract\raw_clips
 
-NOTA DE PRODUCCIÓN: ADJUNTA EN CADA ESCENA: la viñeta de esa escena + las referencias SOLO de los personajes que salen en ESA escena + el prompt de esa escena. No generes ninguna escena sin sus personajes adjuntos.
+PRODUCTION NOTE: ATTACH FOR EVERY SCENE: that scene's storyboard panel + references ONLY for the characters who appear in THAT scene + that scene's prompt. Never generate a scene without its attached characters.
 
-=== SCENE 001 | frame: frame_001.png | salida: scene_001.mp4 | estado: done ===
+=== SCENE 001 | frame: frame_001.png | output: scene_001.mp4 | status: done ===
 attach: [panel_001, ref_nora]
 MUSE AI — SHORT-DRAMA SCENE 001 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_001.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.
@@ -55,7 +55,7 @@ NEGATIVE: subtitles, captions, overlay text, watermark, logo, UI elements, frame
 
 OUTPUT: 16:9, exactly 10.0 seconds, native audio ON. Save as scene_001.mp4.
 
-=== SCENE 002 | frame: frame_002.png | salida: scene_002.mp4 | estado: done ===
+=== SCENE 002 | frame: frame_002.png | output: scene_002.mp4 | status: done ===
 attach: [panel_002, ref_nora, ref_sam]
 MUSE AI — SHORT-DRAMA SCENE 002 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_002.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.
@@ -108,7 +108,7 @@ NEGATIVE: subtitles, captions, overlay text, watermark, logo, UI elements, frame
 
 OUTPUT: 16:9, exactly 10.0 seconds, native audio ON. Save as scene_002.mp4.
 
-=== SCENE 003 | frame: frame_003.png | salida: scene_003.mp4 | estado: done ===
+=== SCENE 003 | frame: frame_003.png | output: scene_003.mp4 | status: done ===
 attach: [panel_003, ref_nora, ref_sam]
 MUSE AI — SHORT-DRAMA SCENE 003 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_003.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.
@@ -161,7 +161,7 @@ NEGATIVE: subtitles, captions, overlay text, watermark, logo, UI elements, frame
 
 OUTPUT: 16:9, exactly 10.0 seconds, native audio ON. Save as scene_003.mp4.
 
-=== SCENE 004 | frame: frame_004.png | salida: scene_004.mp4 | estado: done ===
+=== SCENE 004 | frame: frame_004.png | output: scene_004.mp4 | status: done ===
 attach: [panel_004, ref_nora, ref_sam]
 MUSE AI — SHORT-DRAMA SCENE 004 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_004.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.
@@ -214,7 +214,7 @@ NEGATIVE: subtitles, captions, overlay text, watermark, logo, UI elements, frame
 
 OUTPUT: 16:9, exactly 10.0 seconds, native audio ON. Save as scene_004.mp4.
 
-=== SCENE 005 | frame: frame_005.png | salida: scene_005.mp4 | estado: done ===
+=== SCENE 005 | frame: frame_005.png | output: scene_005.mp4 | status: done ===
 attach: [panel_005, ref_nora, ref_sam, ref_margaret]
 MUSE AI — SHORT-DRAMA SCENE 005 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_005.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.
@@ -268,7 +268,7 @@ NEGATIVE: subtitles, captions, overlay text, watermark, logo, UI elements, frame
 
 OUTPUT: 16:9, exactly 10.0 seconds, native audio ON. Save as scene_005.mp4.
 
-=== SCENE 006 | frame: frame_006.png | salida: scene_006.mp4 | estado: done ===
+=== SCENE 006 | frame: frame_006.png | output: scene_006.mp4 | status: done ===
 attach: [panel_006, ref_nora, ref_margaret, ref_adrian]
 MUSE AI — SHORT-DRAMA SCENE 006 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_006.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.
@@ -322,7 +322,7 @@ NEGATIVE: subtitles, captions, overlay text, watermark, logo, UI elements, frame
 
 OUTPUT: 16:9, exactly 10.0 seconds, native audio ON. Save as scene_006.mp4.
 
-=== SCENE 007 | frame: frame_007.png | salida: scene_007.mp4 | estado: done ===
+=== SCENE 007 | frame: frame_007.png | output: scene_007.mp4 | status: done ===
 attach: [panel_007, ref_nora, ref_margaret]
 MUSE AI — SHORT-DRAMA SCENE 007 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_007.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.
@@ -375,7 +375,7 @@ NEGATIVE: subtitles, captions, overlay text, watermark, logo, UI elements, frame
 
 OUTPUT: 16:9, exactly 10.0 seconds, native audio ON. Save as scene_007.mp4.
 
-=== SCENE 008 | frame: frame_008.png | salida: scene_008.mp4 | estado: done ===
+=== SCENE 008 | frame: frame_008.png | output: scene_008.mp4 | status: done ===
 attach: [panel_008, ref_nora, ref_adrian, ref_claire]
 MUSE AI — SHORT-DRAMA SCENE 008 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_008.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.
@@ -429,7 +429,7 @@ NEGATIVE: subtitles, captions, overlay text, watermark, logo, UI elements, frame
 
 OUTPUT: 16:9, exactly 10.0 seconds, native audio ON. Save as scene_008.mp4.
 
-=== SCENE 009 | frame: frame_009.png | salida: scene_009.mp4 | estado: done ===
+=== SCENE 009 | frame: frame_009.png | output: scene_009.mp4 | status: done ===
 attach: [panel_009, ref_nora, ref_claire]
 MUSE AI — SHORT-DRAMA SCENE 009 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_009.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.
@@ -482,7 +482,7 @@ NEGATIVE: subtitles, captions, overlay text, watermark, logo, UI elements, frame
 
 OUTPUT: 16:9, exactly 10.0 seconds, native audio ON. Save as scene_009.mp4.
 
-=== SCENE 010 | frame: frame_010.png | salida: scene_010.mp4 | estado: done ===
+=== SCENE 010 | frame: frame_010.png | output: scene_010.mp4 | status: done ===
 attach: [panel_010, ref_nora]
 MUSE AI — SHORT-DRAMA SCENE 010 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_010.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.
@@ -535,7 +535,7 @@ NEGATIVE: subtitles, captions, overlay text, watermark, logo, UI elements, frame
 
 OUTPUT: 16:9, exactly 10.0 seconds, native audio ON. Save as scene_010.mp4.
 
-=== SCENE 011 | frame: frame_011.png | salida: scene_011.mp4 | estado: done ===
+=== SCENE 011 | frame: frame_011.png | output: scene_011.mp4 | status: done ===
 attach: [panel_011, ref_nora, ref_claire]
 MUSE AI — SHORT-DRAMA SCENE 011 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_011.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.
@@ -588,7 +588,7 @@ NEGATIVE: subtitles, captions, overlay text, watermark, logo, UI elements, frame
 
 OUTPUT: 16:9, exactly 10.0 seconds, native audio ON. Save as scene_011.mp4.
 
-=== SCENE 012 | frame: frame_012.png | salida: scene_012.mp4 | estado: done ===
+=== SCENE 012 | frame: frame_012.png | output: scene_012.mp4 | status: done ===
 attach: [panel_012, ref_nora, ref_claire]
 MUSE AI — SHORT-DRAMA SCENE 012 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_012.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.
@@ -641,7 +641,7 @@ NEGATIVE: subtitles, captions, overlay text, watermark, logo, UI elements, frame
 
 OUTPUT: 16:9, exactly 10.0 seconds, native audio ON. Save as scene_012.mp4.
 
-=== SCENE 013 | frame: frame_013.png | salida: scene_013.mp4 | estado: pending ===
+=== SCENE 013 | frame: frame_013.png | output: scene_013.mp4 | status: pending ===
 attach: [panel_013, ref_nora, ref_sam]
 MUSE AI — SHORT-DRAMA SCENE 013 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_013.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.
@@ -694,7 +694,7 @@ NEGATIVE: subtitles, captions, overlay text, watermark, logo, UI elements, frame
 
 OUTPUT: 16:9, exactly 10.0 seconds, native audio ON. Save as scene_013.mp4.
 
-=== SCENE 014 | frame: frame_014.png | salida: scene_014.mp4 | estado: pending ===
+=== SCENE 014 | frame: frame_014.png | output: scene_014.mp4 | status: pending ===
 attach: [panel_014, ref_nora, ref_sam, ref_claire]
 MUSE AI — SHORT-DRAMA SCENE 014 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_014.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.
@@ -748,7 +748,7 @@ NEGATIVE: subtitles, captions, overlay text, watermark, logo, UI elements, frame
 
 OUTPUT: 16:9, exactly 10.0 seconds, native audio ON. Save as scene_014.mp4.
 
-=== SCENE 015 | frame: frame_015.png | salida: scene_015.mp4 | estado: pending ===
+=== SCENE 015 | frame: frame_015.png | output: scene_015.mp4 | status: pending ===
 attach: [panel_015, ref_nora, ref_margaret]
 MUSE AI — SHORT-DRAMA SCENE 015 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_015.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.
@@ -801,7 +801,7 @@ NEGATIVE: subtitles, captions, overlay text, watermark, logo, UI elements, frame
 
 OUTPUT: 16:9, exactly 10.0 seconds, native audio ON. Save as scene_015.mp4.
 
-=== SCENE 016 | frame: frame_016.png | salida: scene_016.mp4 | estado: pending ===
+=== SCENE 016 | frame: frame_016.png | output: scene_016.mp4 | status: pending ===
 attach: [panel_016, ref_nora, ref_adrian]
 MUSE AI — SHORT-DRAMA SCENE 016 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_016.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.
@@ -854,7 +854,7 @@ NEGATIVE: subtitles, captions, overlay text, watermark, logo, UI elements, frame
 
 OUTPUT: 16:9, exactly 10.0 seconds, native audio ON. Save as scene_016.mp4.
 
-=== SCENE 017 | frame: frame_017.png | salida: scene_017.mp4 | estado: pending ===
+=== SCENE 017 | frame: frame_017.png | output: scene_017.mp4 | status: pending ===
 attach: [panel_017, ref_nora, ref_sam, ref_adrian]
 MUSE AI — SHORT-DRAMA SCENE 017 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_017.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.
@@ -908,7 +908,7 @@ NEGATIVE: subtitles, captions, overlay text, watermark, logo, UI elements, frame
 
 OUTPUT: 16:9, exactly 10.0 seconds, native audio ON. Save as scene_017.mp4.
 
-=== SCENE 018 | frame: frame_018.png | salida: scene_018.mp4 | estado: pending ===
+=== SCENE 018 | frame: frame_018.png | output: scene_018.mp4 | status: pending ===
 attach: [panel_018, ref_nora, ref_sam]
 MUSE AI — SHORT-DRAMA SCENE 018 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_018.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.
@@ -961,7 +961,7 @@ NEGATIVE: subtitles, captions, overlay text, watermark, logo, UI elements, frame
 
 OUTPUT: 16:9, exactly 10.0 seconds, native audio ON. Save as scene_018.mp4.
 
-=== SCENE 019 | frame: frame_019.png | salida: scene_019.mp4 | estado: pending ===
+=== SCENE 019 | frame: frame_019.png | output: scene_019.mp4 | status: pending ===
 attach: [panel_019, ref_nora, ref_sam]
 MUSE AI — SHORT-DRAMA SCENE 019 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_019.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.
@@ -1014,7 +1014,7 @@ NEGATIVE: subtitles, captions, overlay text, watermark, logo, UI elements, frame
 
 OUTPUT: 16:9, exactly 10.0 seconds, native audio ON. Save as scene_019.mp4.
 
-=== SCENE 020 | frame: frame_020.png | salida: scene_020.mp4 | estado: pending ===
+=== SCENE 020 | frame: frame_020.png | output: scene_020.mp4 | status: pending ===
 attach: [panel_020, ref_nora, ref_adrian, ref_claire]
 MUSE AI — SHORT-DRAMA SCENE 020 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_020.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.
@@ -1068,7 +1068,7 @@ NEGATIVE: subtitles, captions, overlay text, watermark, logo, UI elements, frame
 
 OUTPUT: 16:9, exactly 10.0 seconds, native audio ON. Save as scene_020.mp4.
 
-=== SCENE 021 | frame: frame_021.png | salida: scene_021.mp4 | estado: pending ===
+=== SCENE 021 | frame: frame_021.png | output: scene_021.mp4 | status: pending ===
 attach: [panel_021, ref_nora, ref_adrian]
 MUSE AI — SHORT-DRAMA SCENE 021 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_021.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.
@@ -1121,7 +1121,7 @@ NEGATIVE: subtitles, captions, overlay text, watermark, logo, UI elements, frame
 
 OUTPUT: 16:9, exactly 10.0 seconds, native audio ON. Save as scene_021.mp4.
 
-=== SCENE 022 | frame: frame_022.png | salida: scene_022.mp4 | estado: pending ===
+=== SCENE 022 | frame: frame_022.png | output: scene_022.mp4 | status: pending ===
 attach: [panel_022, ref_nora, ref_sam, ref_margaret]
 MUSE AI — SHORT-DRAMA SCENE 022 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_022.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.
@@ -1175,7 +1175,7 @@ NEGATIVE: subtitles, captions, overlay text, watermark, logo, UI elements, frame
 
 OUTPUT: 16:9, exactly 10.0 seconds, native audio ON. Save as scene_022.mp4.
 
-=== SCENE 023 | frame: frame_023.png | salida: scene_023.mp4 | estado: pending ===
+=== SCENE 023 | frame: frame_023.png | output: scene_023.mp4 | status: pending ===
 attach: [panel_023, ref_nora, ref_claire]
 MUSE AI — SHORT-DRAMA SCENE 023 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_023.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.
@@ -1228,7 +1228,7 @@ NEGATIVE: subtitles, captions, overlay text, watermark, logo, UI elements, frame
 
 OUTPUT: 16:9, exactly 10.0 seconds, native audio ON. Save as scene_023.mp4.
 
-=== SCENE 024 | frame: frame_024.png | salida: scene_024.mp4 | estado: pending ===
+=== SCENE 024 | frame: frame_024.png | output: scene_024.mp4 | status: pending ===
 attach: [panel_024, ref_nora, ref_sam]
 MUSE AI — SHORT-DRAMA SCENE 024 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_024.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.
@@ -1281,7 +1281,7 @@ NEGATIVE: subtitles, captions, overlay text, watermark, logo, UI elements, frame
 
 OUTPUT: 16:9, exactly 10.0 seconds, native audio ON. Save as scene_024.mp4.
 
-=== SCENE 025 | frame: frame_025.png | salida: scene_025.mp4 | estado: pending ===
+=== SCENE 025 | frame: frame_025.png | output: scene_025.mp4 | status: pending ===
 attach: [panel_025, ref_nora, ref_margaret, ref_adrian]
 MUSE AI — SHORT-DRAMA SCENE 025 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_025.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.
@@ -1335,7 +1335,7 @@ NEGATIVE: subtitles, captions, overlay text, watermark, logo, UI elements, frame
 
 OUTPUT: 16:9, exactly 10.0 seconds, native audio ON. Save as scene_025.mp4.
 
-=== SCENE 026 | frame: frame_026.png | salida: scene_026.mp4 | estado: pending ===
+=== SCENE 026 | frame: frame_026.png | output: scene_026.mp4 | status: pending ===
 attach: [panel_026, ref_nora, ref_sam]
 MUSE AI — SHORT-DRAMA SCENE 026 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_026.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.
@@ -1388,7 +1388,7 @@ NEGATIVE: subtitles, captions, overlay text, watermark, logo, UI elements, frame
 
 OUTPUT: 16:9, exactly 10.0 seconds, native audio ON. Save as scene_026.mp4.
 
-=== SCENE 027 | frame: frame_027.png | salida: scene_027.mp4 | estado: pending ===
+=== SCENE 027 | frame: frame_027.png | output: scene_027.mp4 | status: pending ===
 attach: [panel_027, ref_nora, ref_sam, ref_adrian]
 MUSE AI — SHORT-DRAMA SCENE 027 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_027.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.
@@ -1442,7 +1442,7 @@ NEGATIVE: subtitles, captions, overlay text, watermark, logo, UI elements, frame
 
 OUTPUT: 16:9, exactly 10.0 seconds, native audio ON. Save as scene_027.mp4.
 
-=== SCENE 028 | frame: frame_028.png | salida: scene_028.mp4 | estado: pending ===
+=== SCENE 028 | frame: frame_028.png | output: scene_028.mp4 | status: pending ===
 attach: [panel_028, ref_nora, ref_sam]
 MUSE AI — SHORT-DRAMA SCENE 028 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_028.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.
@@ -1495,7 +1495,7 @@ NEGATIVE: subtitles, captions, overlay text, watermark, logo, UI elements, frame
 
 OUTPUT: 16:9, exactly 10.0 seconds, native audio ON. Save as scene_028.mp4.
 
-=== SCENE 029 | frame: frame_029.png | salida: scene_029.mp4 | estado: pending ===
+=== SCENE 029 | frame: frame_029.png | output: scene_029.mp4 | status: pending ===
 attach: [panel_029, ref_nora, ref_adrian]
 MUSE AI — SHORT-DRAMA SCENE 029 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_029.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.
@@ -1548,7 +1548,7 @@ NEGATIVE: subtitles, captions, overlay text, watermark, logo, UI elements, frame
 
 OUTPUT: 16:9, exactly 10.0 seconds, native audio ON. Save as scene_029.mp4.
 
-=== SCENE 030 | frame: frame_030.png | salida: scene_030.mp4 | estado: pending ===
+=== SCENE 030 | frame: frame_030.png | output: scene_030.mp4 | status: pending ===
 attach: [panel_030, ref_nora, ref_margaret]
 MUSE AI — SHORT-DRAMA SCENE 030 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_030.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.
@@ -1601,7 +1601,7 @@ NEGATIVE: subtitles, captions, overlay text, watermark, logo, UI elements, frame
 
 OUTPUT: 16:9, exactly 10.0 seconds, native audio ON. Save as scene_030.mp4.
 
-=== SCENE 031 | frame: frame_031.png | salida: scene_031.mp4 | estado: pending ===
+=== SCENE 031 | frame: frame_031.png | output: scene_031.mp4 | status: pending ===
 attach: [panel_031, ref_nora, ref_margaret]
 MUSE AI — SHORT-DRAMA SCENE 031 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_031.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.
@@ -1654,7 +1654,7 @@ NEGATIVE: subtitles, captions, overlay text, watermark, logo, UI elements, frame
 
 OUTPUT: 16:9, exactly 10.0 seconds, native audio ON. Save as scene_031.mp4.
 
-=== SCENE 032 | frame: frame_032.png | salida: scene_032.mp4 | estado: pending ===
+=== SCENE 032 | frame: frame_032.png | output: scene_032.mp4 | status: pending ===
 attach: [panel_032, ref_nora, ref_claire]
 MUSE AI — SHORT-DRAMA SCENE 032 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_032.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.
@@ -1707,7 +1707,7 @@ NEGATIVE: subtitles, captions, overlay text, watermark, logo, UI elements, frame
 
 OUTPUT: 16:9, exactly 10.0 seconds, native audio ON. Save as scene_032.mp4.
 
-=== SCENE 033 | frame: frame_033.png | salida: scene_033.mp4 | estado: pending ===
+=== SCENE 033 | frame: frame_033.png | output: scene_033.mp4 | status: pending ===
 attach: [panel_033, ref_nora, ref_sam]
 MUSE AI — SHORT-DRAMA SCENE 033 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_033.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.
@@ -1760,7 +1760,7 @@ NEGATIVE: subtitles, captions, overlay text, watermark, logo, UI elements, frame
 
 OUTPUT: 16:9, exactly 10.0 seconds, native audio ON. Save as scene_033.mp4.
 
-=== SCENE 034 | frame: frame_034.png | salida: scene_034.mp4 | estado: pending ===
+=== SCENE 034 | frame: frame_034.png | output: scene_034.mp4 | status: pending ===
 attach: [panel_034, ref_sam, ref_margaret]
 MUSE AI — SHORT-DRAMA SCENE 034 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_034.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.
@@ -1813,7 +1813,7 @@ NEGATIVE: subtitles, captions, overlay text, watermark, logo, UI elements, frame
 
 OUTPUT: 16:9, exactly 10.0 seconds, native audio ON. Save as scene_034.mp4.
 
-=== SCENE 035 | frame: frame_035.png | salida: scene_035.mp4 | estado: pending ===
+=== SCENE 035 | frame: frame_035.png | output: scene_035.mp4 | status: pending ===
 attach: [panel_035, ref_nora, ref_adrian]
 MUSE AI — SHORT-DRAMA SCENE 035 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_035.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.
@@ -1866,7 +1866,7 @@ NEGATIVE: subtitles, captions, overlay text, watermark, logo, UI elements, frame
 
 OUTPUT: 16:9, exactly 10.0 seconds, native audio ON. Save as scene_035.mp4.
 
-=== SCENE 036 | frame: frame_036.png | salida: scene_036.mp4 | estado: pending ===
+=== SCENE 036 | frame: frame_036.png | output: scene_036.mp4 | status: pending ===
 attach: [panel_036, ref_nora, ref_margaret]
 MUSE AI — SHORT-DRAMA SCENE 036 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_036.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.
@@ -1919,7 +1919,7 @@ NEGATIVE: subtitles, captions, overlay text, watermark, logo, UI elements, frame
 
 OUTPUT: 16:9, exactly 10.0 seconds, native audio ON. Save as scene_036.mp4.
 
-=== SCENE 037 | frame: frame_037.png | salida: scene_037.mp4 | estado: pending ===
+=== SCENE 037 | frame: frame_037.png | output: scene_037.mp4 | status: pending ===
 attach: [panel_037, ref_nora, ref_margaret]
 MUSE AI — SHORT-DRAMA SCENE 037 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_037.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.
@@ -1972,7 +1972,7 @@ NEGATIVE: subtitles, captions, overlay text, watermark, logo, UI elements, frame
 
 OUTPUT: 16:9, exactly 10.0 seconds, native audio ON. Save as scene_037.mp4.
 
-=== SCENE 038 | frame: frame_038.png | salida: scene_038.mp4 | estado: pending ===
+=== SCENE 038 | frame: frame_038.png | output: scene_038.mp4 | status: pending ===
 attach: [panel_038, ref_nora, ref_adrian]
 MUSE AI — SHORT-DRAMA SCENE 038 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_038.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.
@@ -2025,7 +2025,7 @@ NEGATIVE: subtitles, captions, overlay text, watermark, logo, UI elements, frame
 
 OUTPUT: 16:9, exactly 10.0 seconds, native audio ON. Save as scene_038.mp4.
 
-=== SCENE 039 | frame: frame_039.png | salida: scene_039.mp4 | estado: pending ===
+=== SCENE 039 | frame: frame_039.png | output: scene_039.mp4 | status: pending ===
 attach: [panel_039, ref_nora]
 MUSE AI — SHORT-DRAMA SCENE 039 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_039.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.
@@ -2077,7 +2077,7 @@ NEGATIVE: subtitles, captions, overlay text, watermark, logo, UI elements, frame
 
 OUTPUT: 16:9, exactly 10.0 seconds, native audio ON. Save as scene_039.mp4.
 
-=== SCENE 040 | frame: frame_040.png | salida: scene_040.mp4 | estado: pending ===
+=== SCENE 040 | frame: frame_040.png | output: scene_040.mp4 | status: pending ===
 attach: [panel_040, ref_nora]
 MUSE AI — SHORT-DRAMA SCENE 040 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_040.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.
@@ -2132,7 +2132,7 @@ NEGATIVE: subtitles, captions, overlay text, watermark, logo, UI elements, frame
 
 OUTPUT: 16:9, exactly 10.0 seconds, native audio ON. Save as scene_040.mp4.
 
-=== SCENE 041 | frame: frame_041.png | salida: scene_041.mp4 | estado: pending ===
+=== SCENE 041 | frame: frame_041.png | output: scene_041.mp4 | status: pending ===
 attach: [panel_041, ref_nora, ref_sam]
 MUSE AI — SHORT-DRAMA SCENE 041 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_041.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.
@@ -2185,7 +2185,7 @@ NEGATIVE: subtitles, captions, overlay text, watermark, logo, UI elements, frame
 
 OUTPUT: 16:9, exactly 10.0 seconds, native audio ON. Save as scene_041.mp4.
 
-=== SCENE 042 | frame: frame_042.png | salida: scene_042.mp4 | estado: pending ===
+=== SCENE 042 | frame: frame_042.png | output: scene_042.mp4 | status: pending ===
 attach: [panel_042, ref_nora, ref_sam]
 MUSE AI — SHORT-DRAMA SCENE 042 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_042.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.
@@ -2238,7 +2238,7 @@ NEGATIVE: subtitles, captions, overlay text, watermark, logo, UI elements, frame
 
 OUTPUT: 16:9, exactly 10.0 seconds, native audio ON. Save as scene_042.mp4.
 
-=== SCENE 043 | frame: frame_043.png | salida: scene_043.mp4 | estado: pending ===
+=== SCENE 043 | frame: frame_043.png | output: scene_043.mp4 | status: pending ===
 attach: [panel_043, ref_nora, ref_sam]
 MUSE AI — SHORT-DRAMA SCENE 043 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_043.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.
@@ -2291,7 +2291,7 @@ NEGATIVE: subtitles, captions, overlay text, watermark, logo, UI elements, frame
 
 OUTPUT: 16:9, exactly 10.0 seconds, native audio ON. Save as scene_043.mp4.
 
-=== SCENE 044 | frame: frame_044.png | salida: scene_044.mp4 | estado: pending ===
+=== SCENE 044 | frame: frame_044.png | output: scene_044.mp4 | status: pending ===
 attach: [panel_044, ref_nora, ref_sam]
 MUSE AI — SHORT-DRAMA SCENE 044 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_044.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.
@@ -2344,7 +2344,7 @@ NEGATIVE: subtitles, captions, overlay text, watermark, logo, UI elements, frame
 
 OUTPUT: 16:9, exactly 10.0 seconds, native audio ON. Save as scene_044.mp4.
 
-=== SCENE 045 | frame: frame_045.png | salida: scene_045.mp4 | estado: pending ===
+=== SCENE 045 | frame: frame_045.png | output: scene_045.mp4 | status: pending ===
 attach: [panel_045, ref_nora, ref_sam]
 MUSE AI — SHORT-DRAMA SCENE 045 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_045.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.
@@ -2397,7 +2397,7 @@ NEGATIVE: subtitles, captions, overlay text, watermark, logo, UI elements, frame
 
 OUTPUT: 16:9, exactly 10.0 seconds, native audio ON. Save as scene_045.mp4.
 
-=== SCENE 046 | frame: frame_046.png | salida: scene_046.mp4 | estado: pending ===
+=== SCENE 046 | frame: frame_046.png | output: scene_046.mp4 | status: pending ===
 attach: [panel_046, ref_nora, ref_adrian]
 MUSE AI — SHORT-DRAMA SCENE 046 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_046.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.
@@ -2450,7 +2450,7 @@ NEGATIVE: subtitles, captions, overlay text, watermark, logo, UI elements, frame
 
 OUTPUT: 16:9, exactly 10.0 seconds, native audio ON. Save as scene_046.mp4.
 
-=== SCENE 047 | frame: frame_047.png | salida: scene_047.mp4 | estado: pending ===
+=== SCENE 047 | frame: frame_047.png | output: scene_047.mp4 | status: pending ===
 attach: [panel_047, ref_nora, ref_margaret]
 MUSE AI — SHORT-DRAMA SCENE 047 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_047.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.
@@ -2503,7 +2503,7 @@ NEGATIVE: subtitles, captions, overlay text, watermark, logo, UI elements, frame
 
 OUTPUT: 16:9, exactly 10.0 seconds, native audio ON. Save as scene_047.mp4.
 
-=== SCENE 048 | frame: frame_048.png | salida: scene_048.mp4 | estado: pending ===
+=== SCENE 048 | frame: frame_048.png | output: scene_048.mp4 | status: pending ===
 attach: [panel_048, ref_nora, ref_margaret, ref_claire]
 MUSE AI — SHORT-DRAMA SCENE 048 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_048.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.
@@ -2557,7 +2557,7 @@ NEGATIVE: subtitles, captions, overlay text, watermark, logo, UI elements, frame
 
 OUTPUT: 16:9, exactly 10.0 seconds, native audio ON. Save as scene_048.mp4.
 
-=== SCENE 049 | frame: frame_049.png | salida: scene_049.mp4 | estado: pending ===
+=== SCENE 049 | frame: frame_049.png | output: scene_049.mp4 | status: pending ===
 attach: [panel_049, ref_nora, ref_sam, ref_margaret]
 MUSE AI — SHORT-DRAMA SCENE 049 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_049.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.
@@ -2611,7 +2611,7 @@ NEGATIVE: subtitles, captions, overlay text, watermark, logo, UI elements, frame
 
 OUTPUT: 16:9, exactly 10.0 seconds, native audio ON. Save as scene_049.mp4.
 
-=== SCENE 050 | frame: frame_050.png | salida: scene_050.mp4 | estado: pending ===
+=== SCENE 050 | frame: frame_050.png | output: scene_050.mp4 | status: pending ===
 attach: [panel_050, ref_nora, ref_margaret]
 MUSE AI — SHORT-DRAMA SCENE 050 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_050.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.
@@ -2664,7 +2664,7 @@ NEGATIVE: subtitles, captions, overlay text, watermark, logo, UI elements, frame
 
 OUTPUT: 16:9, exactly 10.0 seconds, native audio ON. Save as scene_050.mp4.
 
-=== SCENE 051 | frame: frame_051.png | salida: scene_051.mp4 | estado: pending ===
+=== SCENE 051 | frame: frame_051.png | output: scene_051.mp4 | status: pending ===
 attach: [panel_051, ref_nora, ref_claire]
 MUSE AI — SHORT-DRAMA SCENE 051 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_051.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.
@@ -2717,7 +2717,7 @@ NEGATIVE: subtitles, captions, overlay text, watermark, logo, UI elements, frame
 
 OUTPUT: 16:9, exactly 10.0 seconds, native audio ON. Save as scene_051.mp4.
 
-=== SCENE 052 | frame: frame_052.png | salida: scene_052.mp4 | estado: pending ===
+=== SCENE 052 | frame: frame_052.png | output: scene_052.mp4 | status: pending ===
 attach: [panel_052, ref_nora, ref_sam]
 MUSE AI — SHORT-DRAMA SCENE 052 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_052.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.
@@ -2770,7 +2770,7 @@ NEGATIVE: subtitles, captions, overlay text, watermark, logo, UI elements, frame
 
 OUTPUT: 16:9, exactly 10.0 seconds, native audio ON. Save as scene_052.mp4.
 
-=== SCENE 053 | frame: frame_053.png | salida: scene_053.mp4 | estado: pending ===
+=== SCENE 053 | frame: frame_053.png | output: scene_053.mp4 | status: pending ===
 attach: [panel_053, ref_nora, ref_sam, ref_margaret]
 MUSE AI — SHORT-DRAMA SCENE 053 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_053.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.
@@ -2824,7 +2824,7 @@ NEGATIVE: subtitles, captions, overlay text, watermark, logo, UI elements, frame
 
 OUTPUT: 16:9, exactly 10.0 seconds, native audio ON. Save as scene_053.mp4.
 
-=== SCENE 054 | frame: frame_054.png | salida: scene_054.mp4 | estado: pending ===
+=== SCENE 054 | frame: frame_054.png | output: scene_054.mp4 | status: pending ===
 attach: [panel_054, ref_nora, ref_sam, ref_margaret]
 MUSE AI — SHORT-DRAMA SCENE 054 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_054.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.
@@ -2878,7 +2878,7 @@ NEGATIVE: subtitles, captions, overlay text, watermark, logo, UI elements, frame
 
 OUTPUT: 16:9, exactly 10.0 seconds, native audio ON. Save as scene_054.mp4.
 
-=== SCENE 055 | frame: frame_055.png | salida: scene_055.mp4 | estado: pending ===
+=== SCENE 055 | frame: frame_055.png | output: scene_055.mp4 | status: pending ===
 attach: [panel_055, ref_nora, ref_adrian]
 MUSE AI — SHORT-DRAMA SCENE 055 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_055.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.
@@ -2931,7 +2931,7 @@ NEGATIVE: subtitles, captions, overlay text, watermark, logo, UI elements, frame
 
 OUTPUT: 16:9, exactly 10.0 seconds, native audio ON. Save as scene_055.mp4.
 
-=== SCENE 056 | frame: frame_056.png | salida: scene_056.mp4 | estado: pending ===
+=== SCENE 056 | frame: frame_056.png | output: scene_056.mp4 | status: pending ===
 attach: [panel_056, ref_nora, ref_margaret]
 MUSE AI — SHORT-DRAMA SCENE 056 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_056.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.
@@ -2984,7 +2984,7 @@ NEGATIVE: subtitles, captions, overlay text, watermark, logo, UI elements, frame
 
 OUTPUT: 16:9, exactly 10.0 seconds, native audio ON. Save as scene_056.mp4.
 
-=== SCENE 057 | frame: frame_057.png | salida: scene_057.mp4 | estado: pending ===
+=== SCENE 057 | frame: frame_057.png | output: scene_057.mp4 | status: pending ===
 attach: [panel_057, ref_nora, ref_margaret, ref_claire]
 MUSE AI — SHORT-DRAMA SCENE 057 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_057.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.
@@ -3038,7 +3038,7 @@ NEGATIVE: subtitles, captions, overlay text, watermark, logo, UI elements, frame
 
 OUTPUT: 16:9, exactly 10.0 seconds, native audio ON. Save as scene_057.mp4.
 
-=== SCENE 058 | frame: frame_058.png | salida: scene_058.mp4 | estado: pending ===
+=== SCENE 058 | frame: frame_058.png | output: scene_058.mp4 | status: pending ===
 attach: [panel_058, ref_nora, ref_sam, ref_adrian]
 MUSE AI — SHORT-DRAMA SCENE 058 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_058.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.
@@ -3092,7 +3092,7 @@ NEGATIVE: subtitles, captions, overlay text, watermark, logo, UI elements, frame
 
 OUTPUT: 16:9, exactly 10.0 seconds, native audio ON. Save as scene_058.mp4.
 
-=== SCENE 059 | frame: frame_059.png | salida: scene_059.mp4 | estado: pending ===
+=== SCENE 059 | frame: frame_059.png | output: scene_059.mp4 | status: pending ===
 attach: [panel_059, ref_nora, ref_margaret]
 MUSE AI — SHORT-DRAMA SCENE 059 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_059.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.
@@ -3145,7 +3145,7 @@ NEGATIVE: subtitles, captions, overlay text, watermark, logo, UI elements, frame
 
 OUTPUT: 16:9, exactly 10.0 seconds, native audio ON. Save as scene_059.mp4.
 
-=== SCENE 060 | frame: frame_060.png | salida: scene_060.mp4 | estado: pending ===
+=== SCENE 060 | frame: frame_060.png | output: scene_060.mp4 | status: pending ===
 attach: [panel_060, ref_nora, ref_sam]
 MUSE AI — SHORT-DRAMA SCENE 060 — 10 SECONDS — 16:9
 First frame (exact storyboard panel): frame_060.png. Shot 1 begins in motion from this framing; keep the same faces, wardrobe, props, location, light and color grade for the entire shot.

@@ -1,406 +1,417 @@
-# novel_factory — Novelas IA en formato largo por proyecto (default 22 min)
+﻿# novel_factory - Long-form AI novels per project (default 22 min)
 
-Módulo **autónomo, local y auditable** para producir episodios de novela corta
-("short-drama") en inglés nativo de EE. UU.: cada proyecto declara su duración
-(**default 22 min = 132 escenas de 10 s**; perfiles legacy 10 min y 1 min), con
-máster **16:9** para YouTube y **teasers 9:16** (automático de 20 s + 3 de 60 s)
-listos para el publicador multicanal existente (`USA WHITE/cola/pendientes`).
+An **autonomous, local, auditable** module for producing short-drama episodes in
+native US English. Each project declares its runtime (**default 22 min = 132
+10-second scenes**; legacy 10-min and 1-min profiles are still supported), with a
+**16:9** master for YouTube and **9:16 teasers** (one automatic 20-second teaser
+plus three 60-second teasers) ready for the existing multi-channel publisher
+(`USA WHITE/cola/pendientes`).
 
-- **Cero APIs de pago y cero red**: el guion lo escribe tu LLM en el chat, las
-  imágenes vía la cola de ChatGPT y los clips vía **Omni 1.1 Flash** (First Frame,
-  10 s, audio nativo). Todo lo demás es **Python estándar + ffmpeg/ffprobe**.
-- **No toca el código existente**: la integración con `USA WHITE` es **por archivos**
-  (JSON + MP4 en su cola). Nada de imports cruzados ni dependencias.
-- **Auditable**: JSON legible, rutas explícitas, reanudable (no repite trabajo),
-  tests offline incluidos.
+- **No paid APIs and no network**: your LLM writes the script in chat, images come
+  from the ChatGPT queue, and clips come from **Omni 1.1 Flash** (First Frame,
+  10 s, native audio). Everything else is **standard Python + ffmpeg/ffprobe**.
+- **Does not touch existing code**: the `USA WHITE` integration is **file-based**
+  (JSON + MP4 in its queue). No cross-imports or dependencies.
+- **Auditable**: readable JSON, explicit paths, resumable (no repeated work), and
+  offline tests included.
 
 ---
 
-## 1. El método: "Single First-Frame + Internal Multi-Cut 10 s"
+## 1. The method: "Single First-Frame + Internal Multi-Cut 10 s"
 
-Cada escena se genera como **un único clip de 10 s** a partir de **un único
-primer fotograma** (First Frame), pero **dentro** de esos 10 s el guion define
-**3 cortes de cámara exactos** (00s-03s → 03s-07s → 07s-10s). Resultado:
+Each scene is generated as **one 10-second clip** from **one first frame**, but
+**inside** those 10 seconds the script defines **3 exact camera cuts**
+(00s-03s -> 03s-07s -> 07s-10s). The result:
 
-| Ventaja | Por qué importa |
+| Benefit | Why it matters |
 |---|---|
-| 1 frame + 1 clip por escena | Una generación de imagen + una de vídeo por escena: el mínimo posible |
-| Cortes internos en el prompt | El clip no se ve "de una sola toma": ritmo de serie, no de presentación |
-| 10 s con audio nativo | Diálogo con lip-sync real, sin TTS externo ni APIs de voz |
-| Máster 16:9 | YouTube largo (mejor retención y monetización que solo Shorts) |
-| Teaser 9:16 (center-crop) | Los prompts de imagen ya piden composición centrada: el recorte vertical funciona sin re-render |
+| 1 frame + 1 clip per scene | One image generation and one video generation per scene: the minimum possible |
+| Internal cuts in the prompt | The clip does not look like a single take: series pacing, not a presentation |
+| 10 s with native audio | Dialogue with real lip-sync, no external TTS or voice APIs |
+| 16:9 master | Long-form YouTube (better retention and monetization than Shorts alone) |
+| 9:16 teaser (center crop) | Image prompts already request centered composition, so the vertical crop works without re-rendering |
 
-El ensamblador además **recorta segundos muertos** (silencio al inicio/final detectado
-con `silencedetect`), mezcla BGM local y normaliza a **-14 LUFS**.
-
----
-
-## 2. Requisitos
-
-- **Python 3.10+** (probado con 3.12). Solo biblioteca estándar.
-- **ffmpeg + ffprobe** en el PATH (probado con la build Gyan 8.x).
-  Si falta: `winget install Gyan.FFmpeg`
-- Windows (probado), Linux/macOS deberían funcionar igual (rutas y fuentes se autodetectan).
+The assembler also **trims dead seconds** (leading/trailing silence detected with
+`silencedetect`), mixes local BGM, and normalizes to **-14 LUFS**.
 
 ---
 
-## 3. Estructura
+## 2. Requirements
+
+- **Python 3.10+** (tested with 3.12). Standard library only.
+- **ffmpeg + ffprobe** on the PATH (tested with the Gyan 8.x build).
+  If missing: `winget install Gyan.FFmpeg`
+- Windows (tested); Linux/macOS should work the same way (paths and fonts are
+  auto-detected).
+
+---
+
+## 3. Structure
 
 ```
 novel_factory/
-├─ novelfactory.bat            Lanzador de todos los comandos (Windows)
-├─ nf_core.py                  Núcleo compartido (rutas, validación, ffmpeg, JSON atómico)
-├─ config/
-│  ├─ showrunner_rules.json    Reglas dramáticas: 6 actos, beats, retención, teasers, compliance
-│  └─ voice_and_style_locks.json  Bloqueos visuales/voz/prompts y parámetros de postproducción
-├─ generators/
-│  ├─ 00_export_master_workflow_prompts.py  Workflow 000-003 en un .md + lotes Muse AI de 1 min
-│  ├─ 01_story_to_master_json.py  Brief + prompt-pack para tu LLM + ingesta + demo
-│  ├─ 02_export_chatgpt_queue.py  Cola de prompts de imagen (ChatGPT) + verificación de frames
-│  ├─ 03_export_omni_queue.py     Cola de prompts de vídeo (Omni / Muse AI / Google Flow)
-│  ├─ 04_export_master_prompts.py Exporta los 4 prompts maestros rellenados
-│  ├─ 05_export_muse_method_pack.py Paquete: hoja de reparto + grids/lotes por bloque + checklist
-│  └─ master_prompts_library.py   PROMPT 000-003 (historia, guion, grids, video por lotes)
-├─ automation/
-│  ├─ omni_flow_runner.py      status · queue · assisted · watch (Descargas) · import-frames
-│  └─ dashboard.py             Dashboard local: copiar prompts, ver progreso y tracking
-├─ post_production/
-│  ├─ 04_assemble_novel_ffmpeg.py   Máster 16:9 (escenas o lotes Muse AI) + teaser 20 s 9:16 + SRT + pack + report
-│  └─ 05_export_to_publisher.py     Exporta teasers a USA WHITE/cola/pendientes
-├─ music/                      BGM local (ver music/README.md)
-├─ assets/fonts/               TTF opcional para el headline de los teasers
-├─ tests/test_novel_factory.py 107 tests offline (unittest)
-└─ projects/
-   └─ <episodio>/
-      ├─ story_brief.md              Premisa + reglas (para ti)
-      ├─ llm_prompt.md               Prompt-pack para pegar en tu LLM
-      ├─ project.json                Duración declarada (target_minutes, bloques, escenas)
-      ├─ master_episode.json         Guion maestro (escenas según project.json, fuente de todo)
-      ├─ chatgpt_image_prompts_queue.{txt,json,md}
-      ├─ chatgpt_reference_sheets.txt  PASO 0: hoja de referencia por personaje
-      ├─ MASTER_PROMPTS.md · .txt · master_prompts.json · prompts/
-      ├─ MASTER_WORKFLOW_PROMPTS_READY.md      Workflow 000-003 rellenado + variante 9:16
-      ├─ chatgpt_prompt_001_storyboards.txt    PROMPT 001 completo (todas las escenas + un grid 3x2 por bloque)
-      ├─ chatgpt_prompt_002_characters.txt     PROMPT 002 literal (hoja de personajes)
-      ├─ chatgpt_storyboard_grids_queue.{txt,json}  Cola de imágenes: REF_CAST_MASTER + un grid por bloque
-      ├─ muse_ai_batches_queue.{txt,json}      Lotes Muse AI de 1 min (6 escenas c/u, adjuntos + 16:9/9:16)
-      ├─ MUSE_PRODUCTION_PACK.md · .json       Guía completa del método nuevo (en orden)
-      ├─ MUSE_CHECKLIST.md                     Checklist de imágenes + un video por bloque
-      ├─ storyboards/   REF_CAST_MASTER.png · REF_GRID_MIN_01…NN.png (aquí guardas las imágenes)
-      ├─ omni_video_prompts_queue.{csv,json,txt}
-      ├─ muse_ai_video_prompts_queue.{csv,json,txt}
-      ├─ google_flow_video_prompts_queue.{csv,json,txt}
-      ├─ queue_state.json            Progreso (lo escribe el runner)
-      ├─ references/ reference_<id>.png (hojas de referencia de ChatGPT)
-      ├─ frames/   frame_001.png … frame_<total_scenes>.png
-      ├─ raw_clips/ scene_001.mp4 … scene_<total_scenes>.mp4  (modo A)
-      │              o minute_01.mp4 … minute_<total_blocks>.mp4 / batch_01…NN.mp4  (modo B, Muse AI)
-      └─ output/
-         ├─ <slug>_master_16x9_1080p.mp4
-         ├─ <slug>_master.srt
-         ├─ <slug>_teaser_9x16.mp4        Teaser automático de 20 s (9:16)
-         ├─ teaser_01_9x16.mp4 · teaser_02_9x16.mp4 · teaser_03_9x16.mp4  (solo modo A)
-         ├─ report.json
-         └─ publish_pack/ (título, descripción, tags, capítulos, captions)
+  novelfactory.bat            Launcher for every command (Windows)
+  nf_core.py                  Shared core (paths, validation, ffmpeg, atomic JSON)
+  config/
+    showrunner_rules.json     Dramatic rules: 6 acts, beats, retention, teasers, compliance
+    voice_and_style_locks.json  Visual/voice/prompt locks and post-production parameters
+  generators/
+    00_export_master_workflow_prompts.py  Workflow 000-003 in one .md + 1-min Muse AI batches
+    01_story_to_master_json.py  Brief + prompt pack for your LLM + ingest + demo
+    02_export_chatgpt_queue.py  Image prompt queue (ChatGPT) + frame verification
+    03_export_omni_queue.py     Video prompt queue (Omni / Muse AI / Google Flow)
+    04_export_master_prompts.py Export the four filled master prompts
+    05_export_muse_method_pack.py Pack: cast sheet + grids/batches per block + checklist
+    master_prompts_library.py   PROMPT 000-003 (story, script, grids, batch video)
+  automation/
+    omni_flow_runner.py       status / queue / assisted / watch (Downloads) / import-frames
+    dashboard.py              Local dashboard: copy prompts, view progress and tracking
+  post_production/
+    04_assemble_novel_ffmpeg.py   16:9 master (scenes or Muse AI batches) + 20 s 9:16 teaser + SRT + pack + report
+    05_export_to_publisher.py     Export teasers to USA WHITE/cola/pendientes
+  music/                      Local BGM (see music/README.md)
+  assets/fonts/               Optional TTF for the teaser headline
+  tests/test_novel_factory.py 116 offline tests (unittest)
+  projects/
+    <episode>/
+      story_brief.md              Premise + rules (for you)
+      llm_prompt.md               Prompt pack to paste into your LLM
+      project.json                Declared runtime (target_minutes, blocks, scenes)
+      master_episode.json         Master script (scenes from project.json, source of everything)
+      chatgpt_image_prompts_queue.{txt,json,md}
+      chatgpt_reference_sheets.txt  STEP 0: one reference sheet per character
+      MASTER_PROMPTS.md / .txt / master_prompts.json / prompts/
+      MASTER_WORKFLOW_PROMPTS_READY.md      Filled workflow 000-003 + 9:16 variant
+      chatgpt_prompt_001_storyboards.txt    Full PROMPT 001 (all scenes + one 3x2 grid per block)
+      chatgpt_prompt_002_characters.txt     Literal PROMPT 002 (character sheet)
+      chatgpt_storyboard_grids_queue.{txt,json}  Image queue: REF_CAST_MASTER + one grid per block
+      muse_ai_batches_queue.{txt,json}      1-min Muse AI batches (6 scenes each, attachments + 16:9/9:16)
+      MUSE_PRODUCTION_PACK.md / .json       Complete guide to the new method (in order)
+      MUSE_CHECKLIST.md                     Image checklist + one video per block
+      storyboards/   REF_CAST_MASTER.png ... REF_GRID_MIN_01..NN.png (save images here)
+      omni_video_prompts_queue.{csv,json,txt}
+      muse_ai_video_prompts_queue.{csv,json,txt}
+      google_flow_video_prompts_queue.{csv,json,txt}
+      queue_state.json            Progress (written by the runner)
+      references/ reference_<id>.png (ChatGPT reference sheets)
+      frames/   frame_001.png ... frame_<total_scenes>.png
+      raw_clips/ scene_001.mp4 ... scene_<total_scenes>.mp4  (mode A)
+                   or minute_01.mp4 ... minute_<total_blocks>.mp4 / batch_01..NN.mp4  (mode B, Muse AI)
+      output/
+        <slug>_master_16x9_1080p.mp4
+        <slug>_master.srt
+        <slug>_teaser_9x16.mp4        Automatic 20 s teaser (9:16)
+        teaser_01_9x16.mp4 ... teaser_02_9x16.mp4 ... teaser_03_9x16.mp4  (mode A only)
+        report.json
+        publish_pack/ (title, description, tags, chapters, captions)
 ```
 
 ---
 
-## 4. Flujo completo (orden exacto)
+## 4. Full flow (exact order)
 
 ```
- FASE                        COMANDO                                    PRODUCTO
- ─────────────────────────────────────────────────────────────────────────────────────
- 1. Guion        novelfactory.bat new mi_episodio --title "..."      story_brief.md
-                 (pegar llm_prompt.md en Claude/ChatGPT/Gemini)      llm_prompt.md
-                 novelfactory.bat ingest mi_episodio guion.json      master_episode.json
-                 novelfactory.bat validate mi_episodio
- 2. Método nuevo  novelfactory.bat prepare mi_episodio               MUSE_PRODUCTION_PACK.md + colas
-                  (ChatGPT: hoja maestra + un storyboard por bloque)   storyboards/REF_*.png
-                  (Muse AI: un lote de 1 minuto por bloque)            raw_clips/minute_01…NN.mp4
- 2.5 Dashboard   novelfactory.bat dashboard mi_episodio --serve --open  dashboard.html + tracking
-                 (solo método nuevo; el anterior queda en "Ver método anterior")
- 3. Legacy (opcional)
-                 novelfactory.bat frames mi_episodio                 cola ChatGPT (una por escena)
-                 novelfactory.bat omni mi_episodio                   cola Omni (una por escena)
-                 novelfactory.bat flow mi_episodio                   cola Google Flow (una por escena)
-                 novelfactory.bat assisted mi_episodio               raw_clips/scene_XXX.mp4
-                 (o) novelfactory.bat watch mi_episodio
-                 (o) novelfactory.bat import-frames mi_episodio --frames-src DIR
- 3.5 Prompts      novelfactory.bat prompts mi_episodio               MASTER_PROMPTS + prompts/*.txt
-                  novelfactory.bat export-master-prompts mi_episodio  WORKFLOW 000-003 + lotes Muse AI
-                  novelfactory.bat muse-pack mi_episodio              paquete: hoja de reparto + un grid/lote por bloque
-                  novelfactory.bat prepare mi_episodio                workflow 00 + 04 + paquete Muse 05
- 4. Ensamble     novelfactory.bat check mi_episodio                  preflight (sin render)
-                  novelfactory.bat assemble mi_episodio               máster + teaser 9:16 + SRT
- 5. Publicar     novelfactory.bat publish mi_episodio                plan de exportación
-                 novelfactory.bat publish mi_episodio --apply        posts en cola USA WHITE
+ STAGE                  COMMAND                                      PRODUCT
+ -----------------------------------------------------------------------------------
+ 1. Script               novelfactory.bat new my_episode --title "..."   story_brief.md
+                        (paste llm_prompt.md into Claude/ChatGPT/Gemini) llm_prompt.md
+                        novelfactory.bat ingest my_episode script.json  master_episode.json
+                        novelfactory.bat validate my_episode
+ 2. New method           novelfactory.bat prepare my_episode            MUSE_PRODUCTION_PACK.md + queues
+                        (ChatGPT: master sheet + one storyboard per block) storyboards/REF_*.png
+                        (Muse AI: one 1-minute batch per block)          raw_clips/minute_01..NN.mp4
+ 2.5 Dashboard           novelfactory.bat dashboard my_episode --serve --open  dashboard.html + tracking
+                        (new method only; the previous method lives under "Show legacy method")
+ 3. Legacy (optional)
+                        novelfactory.bat frames my_episode              ChatGPT queue (one per scene)
+                        novelfactory.bat omni my_episode                Omni queue (one per scene)
+                        novelfactory.bat flow my_episode                Google Flow queue (one per scene)
+                        novelfactory.bat assisted my_episode            raw_clips/scene_XXX.mp4
+                        (or) novelfactory.bat watch my_episode
+                        (or) novelfactory.bat import-frames my_episode --frames-src DIR
+ 3.5 Prompts            novelfactory.bat prompts my_episode             MASTER_PROMPTS + prompts/*.txt
+                        novelfactory.bat export-master-prompts my_episode  WORKFLOW 000-003 + Muse AI batches
+                        novelfactory.bat muse-pack my_episode           pack: cast sheet + one grid/batch per block
+                        novelfactory.bat prepare my_episode            workflow 00 + 04 + Muse pack 05
+ 4. Assembly            novelfactory.bat check my_episode               preflight (no render)
+                        novelfactory.bat assemble my_episode            master + 9:16 teaser + SRT
+ 5. Publish             novelfactory.bat publish my_episode             export plan
+                        novelfactory.bat publish my_episode --apply     posts queued in USA WHITE
 ```
 
-> **Demo de calibración sin LLM ni IA**: `novelfactory.bat demo demo_contract`
-> genera un maestro completo (fixture "The Silent Contract") para probar todo el
-> pipeline con clips sintéticos antes de gastar esfuerzo creativo.
+> **Calibration demo without an LLM or AI**: `novelfactory.bat demo demo_contract`
+> generates a complete master (the "The Silent Contract" fixture) so you can test
+> the whole pipeline with synthetic clips before spending creative effort.
 
-### 4.1 Guion (01)
+### 4.1 Script (01)
 
-- `new <slug>` crea `story_brief.md` + `llm_prompt.md`. El prompt-pack pide al LLM
-  **JSON puro** con el esquema exacto (escenas del proyecto, actos, beats, cortes internos,
-  diálogo, prompt de imagen, ambience, continuidad).
-- `--part 1` / `--part 2` divide la petición en dos mitades (útil con contextos
-  pequeños); `--part 1of3/2of3/3of3` la divide en tercios. `--ingest` acepta
-  **varios JSON** y los fusiona.
-- `--template` (o `demo`) genera el fixture de calibración marcado `demo_fixture: true`.
-- `--validate` revisa un maestro existente (errores bloqueantes vs advertencias).
-- `--minutes 22` (o `--profile youtube_10|short_1`) fija la duración al crear el proyecto;
-  el default es 22 min. `--allow-partial` permite ingerir menos escenas que las declaradas.
-- Tolerancias del ingest: desenvuelve envoltorios (`data`, `episode_json`...),
-  extrae JSON de fences Markdown, coacciona diálogo en string y cortes en lista
-  de strings, completa teasers y prompts vacíos (con avisos).
+- `new <slug>` creates `story_brief.md` + `llm_prompt.md`. The prompt pack asks the
+  LLM for **pure JSON** using the exact schema (project scenes, acts, beats,
+  internal cuts, dialogue, image prompt, ambience, continuity).
+- `--part 1` / `--part 2` splits the request into two halves (useful with small
+  contexts); `--part 1of3/2of3/3of3` splits it into thirds. `--ingest` accepts
+  **multiple JSON files** and merges them.
+- `--template` (or `demo`) generates the calibration fixture marked `demo_fixture: true`.
+- `--validate` checks an existing master (blocking errors vs. warnings).
+- `--minutes 22` (or `--profile youtube_10|short_1`) sets the runtime when creating
+  the project; the default is 22 min. `--allow-partial` allows ingesting fewer
+  scenes than declared.
+- Ingest tolerances: unwraps envelopes (`data`, `episode_json`, ...), extracts JSON
+  from Markdown fences, coerces string dialogue and list cuts, and fills empty
+  teasers/prompts (with warnings).
 
 ### 4.2 Frames (02)
 
-- Exporta `frames.txt` + `frames.json` + fichas `.md`: **un prompt de imagen 16:9
-  por escena** con el sufijo/negativo de estilo ya aplicado.
-- Reglas inyectadas: composición centrada (recorte 9:16), sin texto/logos, sin
-  describir identidad (solo estado transitorio), 20 % de aire arriba para overlay.
-- `--check` verifica qué `frame_XXX.png` faltan; `--show 1-3` imprime prompts sueltos.
-- **PASO 0 — hojas de referencia (`chatgpt_reference_sheets.txt`)**: una hoja por
-  personaje a partir de `characters[].visual_reference` (o `reference_image` si ya
-  tienes la imagen). Se generan UNA vez, se guardan en `references/` y se adjuntan
-  todas en el mismo hilo de ChatGPT antes de la cola. Así la cara nunca se describe
-  en texto: se copia de la referencia (misma filosofía que USA WHITE).
-- Flujo ChatGPT: adjunta las hojas de referencia, carga
-  `chatgpt_image_prompts_queue.txt`, guarda cada imagen en `frames/` como
-  `frame_XXX.png` y verifica con `--check`.
+- Exports `frames.txt` + `frames.json` + `.md` cards: **one 16:9 image prompt per
+  scene** with the style suffix/negative already applied.
+- Injected rules: centered composition (9:16 crop), no text/logos, no describing
+  identity (only transient state), and 20% headroom for overlays.
+- `--check` verifies which `frame_XXX.png` files are missing; `--show 1-3` prints
+  individual prompts.
+- **STEP 0 - reference sheets (`chatgpt_reference_sheets.txt`)**: one sheet per
+  character from `characters[].visual_reference` (or `reference_image` if the image
+  already exists). Generate them ONCE, save them in `references/`, and attach all of
+  them in the same ChatGPT thread before the queue. The face is never described in
+  text; it is copied from the reference (the same philosophy as USA WHITE).
+- ChatGPT flow: attach the reference sheets, load
+  `chatgpt_image_prompts_queue.txt`, save each image in `frames/` as
+  `frame_XXX.png`, and verify with `--check`.
 
 ### 4.3 Clips (03 + runner)
 
-- `omni` exporta la cola: `omni_video_prompts_queue.csv` (abre en Excel),
-  `...json` (lo consume el runner) y `...txt`. Cada prompt incluye: First Frame,
-  plan de cortes internos con tiempos exactos, diálogo con voz/delivery,
-  audio bed, movimiento de cámara, continuidad, estilo, reglas y negativos
-  (todo determinista desde el maestro, no prosa libre).
-- `--only-missing` re-exporta solo escenas sin clip; `--show 1-2` imprime prompts.
-- `--platform omni|muse|flow|all`: mismo maestro, tres plantillas de prompt nativas.
-  `muse` pide 10 s exactos con audio nativo; `flow` (Veo) asume el tope de 8 s, cierra
-  el diálogo antes de 8.5 s y deja que la postproducción extienda a 10 s.
+- `omni` exports the queue: `omni_video_prompts_queue.csv` (opens in Excel),
+  `...json` (consumed by the runner), and `...txt`. Each prompt includes: First
+  Frame, internal cut plan with exact timings, dialogue with voice/delivery, audio
+  bed, camera movement, continuity, style, rules, and negatives (all deterministic
+  from the master, not free prose).
+- `--only-missing` re-exports only scenes without a clip; `--show 1-2` prints prompts.
+- `--platform omni|muse|flow|all`: same master, three native prompt templates.
+  `muse` asks for exactly 10 s with native audio; `flow` (Veo) assumes the 8 s cap,
+  ends dialogue before 8.5 s, and lets post-production extend to 10 s.
 - **Runner** (`automation/omni_flow_runner.py`):
-  - `status`: tabla escena a escena (frame/clip/duración) + `queue_state.json`.
-  - `queue`: imprime el prompt de la siguiente escena pendiente (scripting).
-  - `assisted`: copia el prompt al portapapeles (tkinter), tú lo pegas en Omni,
-    pulsas Enter y el runner detecta el clip más reciente en `~/Downloads`,
-    valida duración (5-15 s) y lo archiva como `raw_clips/scene_XXX.mp4`.
-  - `watch --once` (o continuo): vigila Descargas y archiva automáticamente los
-    clips nuevos en orden de escena (espera a que la descarga termine; orden
-    natural `clip_2` antes que `clip_10`).
-  - `import-frames <slug> --frames-src DIR`: importa frames ya generados
-    (`frame_1.png`/`frame_01.png`/`scene_001.png`…) a `frames/`, con
-    `--from-scene/--to-scene` para un rango y `--move` para moverlos en vez de copiar.
-  - `--platform omni|muse|flow` (en `queue`/`assisted`): elige qué cola consume el
-    runner. `assisted` copia el prompt renderizado para esa plataforma.
-  - `--playwright-script tu_script.py`: hook opcional a **tu** automatización local
-    (recibe `NF_SCENE`, `NF_FRAME`, `NF_PROMPT` por entorno). El módulo **no**
-    incluye ni ejecuta automatización de sitios por defecto (los selectores
-    cambian y el uso automatizado puede violar sus términos).
+  - `status`: scene-by-scene table (frame/clip/duration) + `queue_state.json`.
+  - `queue`: prints the prompt for the next pending scene (scripting).
+  - `assisted`: copies the prompt to the clipboard (tkinter), you paste it into Omni,
+    press Enter, and the runner detects the most recent clip in `~/Downloads`,
+    validates duration (5-15 s), and archives it as `raw_clips/scene_XXX.mp4`.
+  - `watch --once` (or continuous): watches Downloads and automatically archives new
+    clips in scene order (waits for the download to finish; natural order
+    `clip_2` before `clip_10`).
+  - `import-frames <slug> --frames-src DIR`: imports already-generated frames
+    (`frame_1.png`/`frame_01.png`/`scene_001.png`) into `frames/`, with
+    `--from-scene/--to-scene` for a range and `--move` to move instead of copy.
+  - `--platform omni|muse|flow` (in `queue`/`assisted`): selects which queue the
+    runner consumes. `assisted` copies the prompt rendered for that platform.
+  - `--playwright-script your_script.py`: optional hook to **your** local
+    automation (receives `NF_SCENE`, `NF_FRAME`, `NF_PROMPT` via the environment).
+    The module **does not** include or run site automation by default (selectors
+    change and automated use may violate their terms).
 
-### 4.4 Ensamble (04)
+### 4.4 Assembly (04)
 
-`python post_production/04_assemble_novel_ffmpeg.py <proyecto> [opciones]`
+`python post_production/04_assemble_novel_ffmpeg.py <project> [options]`
 
-| Opción | Efecto |
+| Option | Effect |
 |---|---|
-| `--check` | Preflight: qué falta, sin renderizar nada |
-| `--limit N` | Solo las primeras N escenas (pruebas rápidas) |
-| `--skip-teasers` / `--no-music` / `--no-srt` | Saltar fases |
-| `--music ruta.mp3` | BGM concreta (si no, autodetecta en `music/`) |
-| `--punch-ins` | Zoom digital sutil en los cortes internos, alineado con la cabecera recortada |
-| `--no-trim` | No recortar silencio de cabecera/cola |
-| `--video-fade` | Fade a negro al inicio/fin del máster |
-| `--allow-gaps` | Continúa aunque falten clips (marca huecos en `report.json`) |
-| `--force` | Recalcula la normalización cacheada |
-| `--font ruta.ttf` | Fuente del headline de los teasers |
+| `--check` | Preflight: what is missing, without rendering |
+| `--limit N` | Only the first N scenes (quick tests) |
+| `--skip-teasers` / `--no-music` / `--no-srt` | Skip phases |
+| `--music path.mp3` | Specific BGM (otherwise auto-detects in `music/`) |
+| `--punch-ins` | Subtle digital zoom on internal cuts, aligned with the trimmed header |
+| `--no-trim` | Do not trim leading/trailing silence |
+| `--video-fade` | Fade to black at the start/end of the master |
+| `--allow-gaps` | Continue even if clips are missing (marks gaps in `report.json`) |
+| `--force` | Recompute the cached normalization |
+| `--font path.ttf` | Headline font for the teasers |
 
-Detección automática del modo de entrada:
-- **Modo A — escenas**: `raw_clips/scene_001.mp4 … scene_<total_scenes>.mp4` (10 s cada una).
-- **Modo B — lotes Muse AI**: `raw_clips/minute_01.mp4 … minute_<total_blocks>.mp4` o
-  `batch_01.mp4 … batch_NN.mp4` (1 min cada uno). Ensambla el máster completo sin
-  necesitar clips por escena y mantiene el SRT sincronizado a la duración declarada.
+Automatic input-mode detection:
+- **Mode A - scenes**: `raw_clips/scene_001.mp4 ... scene_<total_scenes>.mp4` (10 s each).
+- **Mode B - Muse AI batches**: `raw_clips/minute_01.mp4 ... minute_<total_blocks>.mp4`
+  or `batch_01.mp4 ... batch_NN.mp4` (1 min each). Assembles the complete master
+  without per-scene clips and keeps the SRT synchronized to the declared runtime.
 
-Pipeline interno: preflight → normalización (1920×1080, 30 fps, AAC 48k, **micro-fade
-de audio 0.08 s**; modo A recorta silencio ≤ 0.35 s y fija 10.0 s por escena; modo B
-fija 60 s por lote sin recorte; caché reanudable en `output/.work/norm/`) → concat sin
-recomprimir → mezcla BGM + fade + **ducking** (`sidechaincompress`) + `loudnorm`
--14 LUFS → `.srt` con tiempos reales → **teaser vertical automático de 20 s**
-(`<slug>_teaser_9x16.mp4`, primer gancho → 1080×1920) y, en modo A, 3 teasers 9:16 con
-**encaje híbrido** (fondo desenfocado + primer plano centrado) + headline y
-**subtítulos quemados** → `publish_pack/` + `report.json`.
+Internal pipeline: preflight -> normalization (1920x1080, 30 fps, AAC 48k, **0.08 s
+audio micro-fade**; mode A trims silence to 0.35 s and fixes each scene at 10.0 s;
+mode B fixes each batch at 60 s without trimming; resumable cache in
+`output/.work/norm/`) -> concat without re-encoding -> BGM mix + fade + **ducking**
+(`sidechaincompress`) + `loudnorm` -14 LUFS -> `.srt` with real timings ->
+**automatic 20 s vertical teaser** (`<slug>_teaser_9x16.mp4`, first hook ->
+1080x1920) and, in mode A, three 9:16 teasers with a **hybrid fit** (blurred
+background + centered foreground) + headline and **burned-in subtitles** ->
+`publish_pack/` + `report.json`.
 
-> En modo A cada escena dura exactamente `scene_seconds` (10.0 s; tolerancia 0.05 s) y
-> en modo B cada lote 60 s, de modo que el máster concatenado mide `target_minutes` exactos.
+> In mode A each scene lasts exactly `scene_seconds` (10.0 s; tolerance 0.05 s) and
+> in mode B each batch lasts 60 s, so the concatenated master measures exactly
+> `target_minutes`.
 
-### 4.5 Publicación (05)
+### 4.5 Publishing (05)
 
-`python post_production/05_export_to_publisher.py <proyecto> [opciones]`
+`python post_production/05_export_to_publisher.py <project> [options]`
 
-| Opción | Efecto |
+| Option | Effect |
 |---|---|
-| (sin flags) | PLAN: muestra qué copiaría, no escribe nada |
-| `--apply` | Copia los teasers + JSON de post a `USA WHITE/cola/pendientes/` |
-| `--only 1,3` | Exporta solo esos teasers |
-| `--personaje eva_hayes` | Cuenta destino (por defecto, la del maestro) |
-| `--publisher-root "C:\...\USA WHITE"` | Ruta explícita si la autodetección falla |
-| `--force` | Sobrescribe si ya existe en la cola |
-| `--strict` | Aborta el encolado de teasers con problemas de media (resolución/audio) |
+| (no flags) | PLAN: shows what would be copied, writes nothing |
+| `--apply` | Copies the teasers + post JSON to `USA WHITE/cola/pendientes/` |
+| `--only 1,3` | Exports only those teasers |
+| `--personaje eva_hayes` | Destination account (defaults to the master's account) |
+| `--publisher-root "C:\...\USA WHITE"` | Explicit path if auto-detection fails |
+| `--force` | Overwrites if the item already exists in the queue |
+| `--strict` | Aborts queuing teasers with media problems (resolution/audio) |
 
-La autodetección busca una carpeta con `src/orquestador.py` + `cola/pendientes`
-entre los hermanos del workspace. **Con `--publisher-root` nunca hay fallback
-silencioso**: si la ruta no es válida, se aborta.
+Auto-detection looks for a folder containing `src/orquestador.py` +
+`cola/pendientes` among the workspace siblings. **With `--publisher-root` there is
+never a silent fallback**: if the path is invalid, it aborts.
 
-**Encolado atómico e idempotente**: la media se copia a un temporal `.part-*` y se
-renombra con `os.replace`, y el JSON se escribe igual; re-ejecutar `--apply` no
-duplica nada (un item cuenta como completo solo si existen **ambos** archivos: media
-+ JSON). Si falta una parte, el item se **repara** en vez de omitirse.
+**Atomic, idempotent queuing**: media is copied to a temporary `.part-*` file and
+renamed with `os.replace`, and the JSON is written the same way; re-running
+`--apply` never duplicates anything (an item counts as complete only when **both**
+files exist: media + JSON). If one part is missing, the item is **repaired**
+instead of skipped.
 
-### 4.6 Dashboard local (copiar y pegar con tracking)
+### 4.6 Local dashboard (copy and paste with tracking)
 
-`novelfactory.bat dashboard mi_episodio [--serve] [--open] [--port 8787]`
+`novelfactory.bat dashboard my_episode [--serve] [--open] [--port 8787]`
 
-Genera `projects/<episodio>/dashboard.html`: un tablero autocontenido (sin build, sin
-npm, sin red) con un prompt de imagen y uno de vídeo por escena, las hojas de
-referencia y el guion. Sirve para el trabajo manual de copiar/pegar en ChatGPT y Omni
-sin abrir los JSON.
+Generates `projects/<episode>/dashboard.html`: a self-contained board (no build, no
+npm, no network) with one image prompt and one video prompt per scene, the reference
+sheets, and the script. It supports manual copy/paste into ChatGPT and Omni without
+opening the JSON files.
 
-- **Tabs**: **Método y prompts** (pestaña inicial) · Guion. El método anterior
-  (Referencias · Frames · Clips) queda oculto tras el botón **Ver método anterior**.
-- **Nueva metodología**: panel de 4 pasos con la cola de grids, los lotes
-  Muse AI y el comando de ensamblaje; también aparece como banner en las demás tabs.
-- **Imágenes en disco**: el dashboard lee `storyboards/` y marca cada tarjeta como
-  **En disco** o **Pendiente**; la barra superior muestra el progreso de grids y lotes del proyecto.
-- **Plataforma de video**: selector en la barra de filtros (Omni / Muse AI / Google
-  Flow); cambia el prompt de cada escena y el texto copiado, sin regenerar el HTML.
-- **Prompts maestros**: los 4 prompts (000-003) rellenados con los valores del
-  proyecto, con botones de copiar uno, copiar los 4, descargar `.txt` y JSON, y
-  acceso rápido por prompt.
-- **Lotes Muse AI**: bloques de 1 minuto (6 escenas) con adjuntos
-  (`REF_CAST_MASTER.png` + `REF_GRID_MIN_XX.png`), cortes de cámara, SFX, diálogo y
-  dos comandos finales (horizontal 16:9 / vertical 9:16), con botones separados para
-  copiar cada variante, copiar el bloque completo o descargarlo.
-- **Cola de imágenes**: tarjeta por imagen (`REF_CAST_MASTER.png` y
-  `REF_GRID_MIN_01…NN.png`) con prompt propio, más botones para copiar/descargar la
-  cola completa, lista para pegar en ChatGPT.
-- **Modo de ensamblaje**: el dashboard detecta escenas (`scene_XXX.mp4`) o lotes
-  (`minute_XX.mp4` / `batch_XX.mp4`) y muestra el progreso de lotes del proyecto.
-- **Copiar prompt**: botón por escena; marca la escena como "copiada".
-- **Marcar hecho**: tracking manual separado del disco. Si `frames/frame_XXX.png` o
-  `raw_clips/scene_XXX.mp4` ya existen, el dashboard lo detecta solo y muestra
-  "Archivo en disco" (no hay que marcarlo a mano).
-- **Filtros**: búsqueda por lugar/beat/diálogo/reparto, estado (pendiente, copiado,
-  hecho), acto, portadas de teaser y "ocultar hechos".
-- **Copiar siguiente pendiente**: toma la primera escena sin frame/clip de la tab
-  activa, copia su prompt y la registra.
-- **Progreso**: frames, clips, marcados manuales, referencias y teasers.
+- **Tabs**: **Method and prompts** (default tab) / Script. The previous method
+  (References -> Frames -> Clips) is hidden behind the **Show legacy method** button.
+- **New methodology**: a 4-step panel with the grid queue, Muse AI batches, and the
+  assembly command; it also appears as a banner in the other tabs.
+- **Images on disk**: the dashboard reads `storyboards/` and marks each card
+  **On disk** or **Pending**; the top bar shows grid and batch progress for the project.
+- **Video platform**: selector in the filter bar (Omni / Muse AI / Google Flow);
+  changes each scene's prompt and copied text without regenerating the HTML.
+- **Master prompts**: the four prompts (000-003) filled with project values, with
+  buttons to copy one, copy all four, download `.txt` and JSON, and quick access
+  per prompt.
+- **Muse AI batches**: 1-minute blocks (6 scenes) with attachments
+  (`REF_CAST_MASTER.png` + `REF_GRID_MIN_XX.png`), camera cuts, SFX, dialogue, and
+  two final commands (horizontal 16:9 / vertical 9:16), with separate buttons to
+  copy each variant, copy the full block, or download it.
+- **Image queue**: one card per image (`REF_CAST_MASTER.png` and
+  `REF_GRID_MIN_01..NN.png`) with its own prompt, plus buttons to copy/download the
+  full queue, ready to paste into ChatGPT.
+- **Assembly mode**: the dashboard detects scenes (`scene_XXX.mp4`) or batches
+  (`minute_XX.mp4` / `batch_XX.mp4`) and shows project batch progress.
+- **Copy prompt**: button per scene; marks the scene as "copied".
+- **Mark done**: manual tracking separate from disk. If `frames/frame_XXX.png` or
+  `raw_clips/scene_XXX.mp4` already exists, the dashboard detects it automatically
+  and shows "File on disk" (no need to mark it by hand).
+- **Filters**: search by location/beat/dialogue/cast, status (pending, copied,
+  done), act, teaser covers, and "hide done".
+- **Copy next pending**: takes the first scene without a frame/clip in the active
+  tab, copies its prompt, and records it.
+- **Progress**: frames, clips, manual marks, references, and teasers.
 
-Dos modos de persistencia:
+Two persistence modes:
 
-| Modo | Comando | Tracking |
+| Mode | Command | Tracking |
 |---|---|---|
-| Archivo | `dashboard mi_episodio` | `localStorage` del navegador + exportar/importar JSON |
-| Servidor local | `dashboard mi_episodio --serve --open` | `projects/<episodio>/dashboard_tracking.json` (atómico, en disco) |
+| File | `dashboard my_episode` | Browser `localStorage` + export/import JSON |
+| Local server | `dashboard my_episode --serve --open` | `projects/<episode>/dashboard_tracking.json` (atomic, on disk) |
 
-`--serve` levanta solo `127.0.0.1` (sin red externa) y añade `Recargar estado`
-para releer `frames/`, `raw_clips/` y `output/` sin regenerar el HTML. El botón
-**Exportar tracking** descarga el JSON y **Importar** lo restaura, así el progreso
-nunca queda atado a un navegador. Los archivos de media no se tocan.
+`--serve` listens only on `127.0.0.1` (no external network) and adds **Reload
+state** to re-read `frames/`, `raw_clips/`, and `output/` without regenerating the
+HTML. **Export tracking** downloads the JSON and **Import** restores it, so progress
+is never tied to a browser. Media files are never touched.
 
-> Si regeneras `master_episode.json`, vuelve a ejecutar `dashboard` para refrescar
-> los prompts embebidos; el tracking existente se conserva.
+> If you regenerate `master_episode.json`, run `dashboard` again to refresh the
+> embedded prompts; existing tracking is preserved.
 
-### 4.7 Prompts maestros (000–003)
+### 4.7 Master prompts (000-003)
 
-La librería `generators/master_prompts_library.py` contiene los cuatro prompts de
-producción encadenados y los rellena con los valores reales del episodio:
+The `generators/master_prompts_library.py` library contains the four chained
+production prompts and fills them with the episode's real values:
 
-| Prompt | Para qué sirve | Salida esperada |
+| Prompt | Purpose | Expected output |
 |---|---|---|
-| **000** Arquitecto de historias virales | Convierte tu idea en título, elenco y sinopsis por bloques | Texto que alimenta al 001 |
-| **001** Guionista de micro-dramas | Desglose técnico de las escenas del proyecto × 10 s con JSON exacto | `master_episode.json` (vía `ingest`) |
-| **002** Arquitecto de grids de imagen | Plan de contact sheets por minuto (6 paneles) para las imágenes | Grids/frames para ChatGPT |
-| **003** Director de video por lotes | Flujo Muse AI + Google Flow con reglas de plataforma | Clips `scene_XXX.mp4` |
+| **000** Viral story architect | Turns your idea into a title, cast, and block synopsis | Text that feeds 001 |
+| **001** Micro-drama screenwriter | Technical breakdown of the project scenes -> 10 s with exact JSON | `master_episode.json` (via `ingest`) |
+| **002** Image grid architect | Per-minute contact-sheet plan (6 panels) for the images | Grids/frames for ChatGPT |
+| **003** Batch video director | Muse AI + Google Flow flow with platform rules | `scene_XXX.mp4` clips |
 
-- Se generan solos al crear/plantilla/ingerir (`01` los exporta), y también a mano:
-  `novelfactory.bat prompts mi_episodio` → `MASTER_PROMPTS.md` + `.txt` + `prompts/*.txt`.
-- **Relleno literal**: los marcadores (`{story_idea}`, `{duration_minutes}`,
-  `{total_scenes}`, `{total_grid_images}`, `{visual_style}`, `{aspect_ratio}`) se
-  sustituyen por reemplazo de texto, así los ejemplos JSON de los prompts nunca se rompen.
-- El **PROMPT 000** conserva el texto original íntegro (cabecera 🧠 incluida).
+- They are generated automatically on create/template/ingest (`01` exports them),
+  and manually with `novelfactory.bat prompts my_episode` ->
+  `MASTER_PROMPTS.md` + `.txt` + `prompts/*.txt`.
+- **Literal fill**: placeholders (`{story_idea}`, `{duration_minutes}`,
+  `{total_scenes}`, `{total_grid_images}`, `{visual_style}`, `{aspect_ratio}`) are
+  replaced as text, so the JSON examples inside the prompts never break.
+- **PROMPT 000** keeps its original text intact (including its header).
 
 ---
 
-## 5. Informe de auditoría del workspace (por qué esta integración)
+## 5. Workspace audit report (why this integration)
 
-### 5.1 ¿Dónde está el módulo de edición y qué entradas recibe?
+### 5.1 Where is the editing module and what inputs does it receive?
 
-| Proyecto | Módulo | Entrada → Salida |
+| Project | Module | Input -> Output |
 |---|---|---|
-| **USA WHITE** | `src/final_video_pipeline.py` (orquestado por `auto_runner.py`) | `inbox_raw/<personaje>/` (frames/clips) → vídeo final **1080×1920 / 6 s** (180 frames) con subtítulos y copy → `output_final/` → `--export-to-cola <job>` |
-| **NOTICIAS IA AUTOMATIZADO** | `compose.py` + Whisper | noticias → vertical 1080×1920 30 fps con subtítulos `.ass` |
-| **NEW YOUTUBE** | (vacío) | — |
+| **USA WHITE** | `src/final_video_pipeline.py` (orchestrated by `auto_runner.py`) | `inbox_raw/<personaje>/` (frames/clips) -> final video **1080x1920 / 6 s** (180 frames) with subtitles and copy -> `output_final/` -> `--export-to-cola <job>` |
+| **NOTICIAS IA AUTOMATIZADO** | `compose.py` + Whisper | news -> vertical 1080x1920 30 fps with `.ass` subtitles |
+| **NEW YOUTUBE** | (empty) | - |
 
-Conclusión: los pipelines existentes editan **verticales cortos (6-60 s)** para
-Reels/Shorts. Un episodio largo (default 22 min) en **16:9** con SRT, capítulos y teasers
-derivados no entra en ellos sin reescribirlos. De ahí que `novel_factory` traiga su
-propio ensamblador (04) con el mismo lenguaje técnico (ffmpeg, H.264/AAC, loudnorm).
+Conclusion: the existing pipelines edit **short vertical videos (6-60 s)** for
+Reels/Shorts. A long episode (default 22 min) in **16:9** with SRT, chapters, and
+derived teasers does not fit them without a rewrite. That is why `novel_factory`
+brings its own assembler (04) using the same technical stack (ffmpeg, H.264/AAC,
+loudnorm).
 
-### 5.2 ¿Dónde está el módulo de publicación y cómo se dispara?
+### 5.2 Where is the publishing module and how is it triggered?
 
-- **`USA WHITE/src/orquestador.py`** publica el post más antiguo de
-  `cola/pendientes/` a Instagram (Graph API), Facebook, TikTok (worker con cookies
-  propias) y YouTube **Shorts** (API), con validación anti-repetición SHA-256
-  (`anti_ban.py`), proxy fail-closed y pausas humanas.
-- Disparadores: `python src\orquestador.py --publicar-siguiente [--seco]` (manual)
-  o el daemon `run_auto.bat` → `src/auto_runner.py --daemon`, que produce, exporta
-  jobs READY y publica **por slots de cada personaje** (`posting_schedule_us_est`),
-  con **tope diario** (`max_posts_por_dia_por_persona: 2`) y **espaciado mínimo**
-  entre publicaciones del mismo día. Los posts se filtran por `personaje_id`
-  activo (`automatico.personas_activas`).
-- **Límite detectado**: `publicador_youtube.py` solo sube **Shorts** (añade
-  `#Shorts` y usa la API de vídeos verticales cortos). El máster largo
-  **no** debe encolarse ahí.
+- **`USA WHITE/src/orquestador.py`** publishes the oldest post in
+  `cola/pendientes/` to Instagram (Graph API), Facebook, TikTok (a worker with its
+  own cookies), and YouTube **Shorts** (API), with SHA-256 anti-repetition
+  validation (`anti_ban.py`), a fail-closed proxy, and human-like pauses.
+- Triggers: `python src\orquestador.py --publicar-siguiente [--seco]` (manual) or
+  the `run_auto.bat` daemon -> `src/auto_runner.py --daemon`, which produces,
+  exports READY jobs, and publishes **per character slot**
+  (`posting_schedule_us_est`), with a **daily cap**
+  (`max_posts_por_dia_por_persona: 2`) and **minimum spacing** between posts on the
+  same day. Posts are filtered by the active `personaje_id`
+  (`automatico.personas_activas`).
+- **Known limit**: `publicador_youtube.py` only uploads **Shorts** (it adds
+  `#Shorts` and uses the short vertical video API). The long master **must not** be
+  queued there.
 
-### 5.3 ¿Qué scripts/carpetas de prompts o automatización de navegador ya existen?
+### 5.3 What prompt/browser-automation scripts or folders already exist?
 
 - USA WHITE: `src/auto_copywriter.py` (copy), `src/frame_prompt.py` +
-  `prompts_pendientes/` (prompts de frame inicial con archivo), `compositor.yaml`,
-  `config/HEADLINES_PLAYBOOK.md` y `VISUAL_PLAYBOOK.md`, y un **TikTok worker**
-  (`tiktok-worker/venv_tiktok` con Playwright local para subir con cookies).
-- NOTICIAS IA AUTOMATIZADO: su propio motor vertical con Whisper + `.ass`.
-- Patrón del workspace: **todo por carpetas de cola** (`cola/pendientes`,
-  `inbox`, `procesados`), con JSON intermedios y validaciones anti-duplicado.
+  `prompts_pendientes/` (first-frame prompts with files), `compositor.yaml`,
+  `config/HEADLINES_PLAYBOOK.md` and `VISUAL_PLAYBOOK.md`, and a **TikTok worker**
+  (`tiktok-worker/venv_tiktok` with local Playwright for uploading with cookies).
+- NOTICIAS IA AUTOMATIZADO: its own vertical engine with Whisper + `.ass`.
+- Workspace pattern: **everything through queue folders** (`cola/pendientes`,
+  `inbox`, `procesados`), with intermediate JSON and anti-duplicate validation.
 
-Conclusión: no había ningún sistema de "novela larga por escenas" ni colas de
-prompts para generadores First-Frame; el patrón dominante (colas + JSON + worker
-de navegador) es exactamente el que sigue `novel_factory` (menos el navegador:
-aquí el runner es asistido, no automatizado).
+Conclusion: there was no "long novel by scenes" system or prompt queues for
+First-Frame generators; the dominant pattern (queues + JSON + browser worker) is
+exactly what `novel_factory` follows (minus the browser: here the runner is
+assisted, not automated).
 
-### 5.4 ¿Cómo se conecta `novel_factory` sin romper nada?
+### 5.4 How does `novel_factory` connect without breaking anything?
 
-1. **Cero imports cruzados**: `novel_factory` solo escribe **archivos** en
-   `USA WHITE/cola/pendientes/` con el esquema exacto que ya consume el
-   orquestador (ver §6). No se modifica ni una línea de USA WHITE.
-2. **El máster largo no se encola**: `publicador_youtube.py` es solo Shorts. El
-   máster 16:9 se sube **a mano** con el `publish_pack/` (título, descripción con
-   capítulos, tags). Documentado dentro del propio pack.
-3. **Los 3 teasers** entran como posts `tipo: "reel"` normales: el daemon los
-   reparte por slots y tope diario del personaje elegido; o se publican uno a uno
-   con `--publicar-siguiente` (previo `--seco` de prueba).
-4. **Anti-duplicado integrado**: 05 no pisa nada existente (salvo `--force`) y los
-   `id` (`nf_<slug>_teaser_XX`) permiten reconocerlos en `cola/publicados`/`errores`.
-5. **Si mañana cambia USA WHITE**: la única superficie de contacto es el esquema
-   del post (5 campos clave) — está aislado en `build_post()` de 05.
+1. **Zero cross-imports**: `novel_factory` only writes **files** to
+   `USA WHITE/cola/pendientes/` using the exact schema the orchestrator already
+   consumes (see section 6). Not one line of USA WHITE is modified.
+2. **The long master is not queued**: `publicador_youtube.py` is Shorts-only. The
+   16:9 master is uploaded **manually** with `publish_pack/` (title, description
+   with chapters, tags). This is documented inside the pack itself.
+3. **The 3 teasers** enter as normal `tipo: "reel"` posts: the daemon distributes
+   them by slot and daily cap for the selected character, or they are published one
+   at a time with `--publicar-siguiente` (test first with `--seco`).
+4. **Built-in anti-duplication**: 05 never overwrites anything existing (unless
+   `--force`) and the `id` values (`nf_<slug>_teaser_XX`) make them recognizable in
+   `cola/publicados`/`errores`.
+5. **If USA WHITE changes tomorrow**: the only contact surface is the post schema
+   (5 key fields), isolated in `build_post()` in 05.
 
 ---
 
-## 6. Esquema del post encolado (contrato con el publicador)
+## 6. Queued post schema (contract with the publisher)
 
 ```json
 {
@@ -410,7 +421,7 @@ aquí el runner es asistido, no automatizado).
   "fecha_creacion": "2026-10-19T12:32:14-05:00",
   "archivo_media": "nf_the_silent_contract_teaser_01_9x16.mp4",
   "hook": "THE LIGHT WAS NEVER OFF",
-  "caption": "…texto del teaser…\n\n#shortdrama #novel …",
+  "caption": ".teaser text.\n\n#shortdrama #novel .",
   "estado": "pendiente_aprobacion",
   "final_video": true,
   "output_filename": "nf_the_silent_contract_teaser_01_9x16.mp4",
@@ -419,46 +430,47 @@ aquí el runner es asistido, no automatizado).
 }
 ```
 
-- El MP4 se copia **junto al JSON** en `cola/pendientes/` (el orquestador busca la
-  media ahí o en `procesados/`).
-- Publicación de prueba sin publicar nada:
+- The MP4 is copied **next to the JSON** in `cola/pendientes/` (the orchestrator
+  looks for the media there or in `procesados/`).
+- Test publishing without posting anything:
   `cd "USA WHITE" && python src\orquestador.py --publicar-siguiente --seco`
 
 ---
 
-## 7. Configuración
+## 7. Configuration
 
-### `config/showrunner_rules.json` (reglas dramáticas)
+### `config/showrunner_rules.json` (dramatic rules)
 
-- Duración por proyecto: cada proyecto declara `target_minutes` (default 22;
-  rango orientativo 18-26). Bloques = minutos; escenas = bloques × 6. Perfiles
-  legacy: `youtube_10` (10 min) y `short_1` (1 min). `format_profiles` solo
-  guarda `scenes_per_block` y `scene_seconds`; la duración vive en `project.json`.
-- 6 actos escalados al total, 3 teasers de 6 escenas (ventanas proporcionales),
-  6-15 palabras de diálogo por escena, 3 cortes exactos (0/3/7 s), máx. 5
-  personajes y 5 localizaciones, con bloques de 3-6 escenas por situación dramática.
-- `required_beats`: hitos por fracción del total (escena 1 hook, escena 2
-  mundo/herida, cierres de acto y escena final payoff + nuevo hook). Con 60
-  escenas reproduce 1/2/10/20/30/40/50/60.
-- Cada acto define objetivo, "must_happen", device de retención y punto de dopamina.
-- Motor de retención: tipos de open loop, cadencia de dopamina cada 2-3 escenas,
-  tipos de cliffhanger y una lista de **prohibiciones** (montaje lento, monólogo del
-  villano, resolución por casualidad...).
-- Compliance: sin celebridades reales, sin marcas, sin contenido explícito, sin
-  violencia gráfica, sin claims médicos/legales, divulgación de IA recomendada.
+- Per-project runtime: each project declares `target_minutes` (default 22;
+  suggested range 18-26). Blocks = minutes; scenes = blocks x 6. Legacy profiles:
+  `youtube_10` (10 min) and `short_1` (1 min). `format_profiles` only stores
+  `scenes_per_block` and `scene_seconds`; the runtime lives in `project.json`.
+- 6 acts scaled to the total, 3 teasers of 6 scenes (proportional windows),
+  6-15 words of dialogue per scene, 3 exact cuts (0/3/7 s), max. 5 characters and
+  5 locations, with blocks of 3-6 scenes per dramatic situation.
+- `required_beats`: milestones by fraction of the total (scene 1 hook, scene 2
+  world/wound, act closers, final payoff + new hook). With 60 scenes it reproduces
+  1/2/10/20/30/40/50/60.
+- Each act defines a goal, "must_happen", a retention device, and a dopamine point.
+- Retention engine: open-loop types, dopamine cadence every 2-3 scenes,
+  cliffhanger types, and a list of **prohibitions** (slow editing, villain
+  monologue, resolution by coincidence, ...).
+- Compliance: no real celebrities, no brands, no explicit content, no graphic
+  violence, no medical/legal claims, and recommended AI disclosure.
 
-### `config/voice_and_style_locks.json` (bloqueos de estilo)
+### `config/voice_and_style_locks.json` (style locks)
 
-- Look fotoreal 35 mm, lista de luces (nunca luz plana de estudio), lenguaje de
-  cámara, composición segura para recorte 9:16, rotación de planos por defecto.
-- `image_prompt_suffix` / `image_negative` / `video_negative` (se aplican siempre).
-- **Identity lock**: las caras vienen de las imágenes de referencia; nunca se
-  describe edad, nombre, color de ojos ni pelo base (solo estado transitorio).
-- **Voice lock**: arquetipos de voz (protagonista/antagonista/aliado/amor/autoridad),
-  velocidad ~2.5 palabras/s, inglés nativo, sin narrador salvo línea explícita.
-- Plantillas completas de prompt para Omni, Muse AI (`muse_prompt_template`) y
-  Google Flow (`flow_prompt_template`), y los parámetros de postproducción
-  (volumen de música, fades, loudness, CRF, recorte de silencio, overlay del teaser).
+- Photoreal 35 mm look, lighting list (never flat studio light), camera language,
+  safe composition for 9:16 cropping, and default shot rotation.
+- `image_prompt_suffix` / `image_negative` / `video_negative` (always applied).
+- **Identity lock**: faces come from the reference images; age, name, eye color,
+  and base hair are never described (only transient state).
+- **Voice lock**: voice archetypes (protagonist/antagonist/ally/love interest/
+  authority), pace ~2.5 words/s, native English, no narrator unless explicitly
+  scripted.
+- Complete prompt templates for Omni, Muse AI (`muse_prompt_template`), and Google
+  Flow (`flow_prompt_template`), plus post-production parameters (music volume,
+  fades, loudness, CRF, silence trimming, teaser overlay).
 
 ---
 
@@ -466,42 +478,43 @@ aquí el runner es asistido, no automatizado).
 
 ```powershell
 python -m unittest discover -s novel_factory\tests -v
-# o
+# or
 novel_factory\novelfactory.bat test
 ```
 
-107 tests offline: núcleo y esquema del maestro, generadores (un prompt de imagen y
-de vídeo por plataforma), librería de prompts maestros (000-003 sin marcadores),
-dashboard (estado, render, prompts y tracking), helpers del ensamblador (SRT, escape
-del concat, detección de silencio con clips generados al vuelo), exportador
-(detección de publicador, post JSON) y runner (cola por plataforma, detección de
-descargas, archivado y validación de clips). Los tests que necesitan ffmpeg se saltan
-solos si no está instalado.
+116 offline tests: master core and schema, generators (one image prompt and one
+video prompt per platform), master prompt library (000-003 without unresolved
+placeholders), dashboard (state, render, prompts, and tracking), assembler helpers
+(SRT, concat escaping, silence detection with clips generated on the fly), exporter
+(publisher detection, post JSON), and runner (per-platform queue, download
+detection, archiving, and clip validation). Tests that need ffmpeg skip themselves
+when it is not installed.
 
 ---
 
-## 9. Decisiones y límites conocidos
+## 9. Decisions and known limits
 
-- **Sin APIs de pago / sin red.** Nada de ElevenLabs, OpenAI o Vertex. El audio es
-  el nativo de Omni; la música es local.
-- **Playwright no incluido por diseño** (nunca se clonó ni ejecutó código externo;
-  tus cookies y sesiones no se exponen). Existe el hook `--playwright-script` para
-  tus propias automatizaciones locales.
-- **SRT sin quemar en el máster** (subtítulos como archivo, no hard-subs): evita
-  tapar planos y permite subir el .srt a YouTube.
-- **Loudnorm de una pasada** (-14 LUFS / TP -1.5 / LRA 11): suficiente para redes;
-  dos pasadas queda como mejora opcional.
-- **`--punch-ins`** re-encodea cada clip con cortes (más tiempo por episodio);
-  desactivado por defecto.
-- **El máster largo es manual** en YouTube (limitación real del publicador actual).
-- El fixture demo (`demo_contract`) está pensado para probar el pipeline con
-  material sintético; bórralo o renómbralo cuando produzcas el primer episodio real.
+- **No paid APIs / no network.** No ElevenLabs, OpenAI, or Vertex. Audio is Omni's
+  native audio; music is local.
+- **Playwright not included by design** (external code was never cloned or run;
+  your cookies and sessions are not exposed). The `--playwright-script` hook exists
+  for your own local automation.
+- **SRT not burned into the master** (subtitles as a file, not hard-subs): this
+  avoids covering shots and lets you upload the .srt to YouTube.
+- **Single-pass loudnorm** (-14 LUFS / TP -1.5 / LRA 11): sufficient for social
+  platforms; two-pass remains an optional improvement.
+- **`--punch-ins`** re-encodes each clip with cuts (slower per episode); disabled by
+  default.
+- **The long master is manual** on YouTube (a real limitation of the current
+  publisher).
+- The demo fixture (`demo_contract`) is meant for testing the pipeline with
+  synthetic material; delete or rename it when you produce the first real episode.
 
-## 10. Próximos pasos sugeridos
+## 10. Suggested next steps
 
-1. Episodio 1 real: `new` → tu LLM → `ingest` → frames → clips → `assemble`.
-2. Bajar 2-4 pistas libres a `music/` (ver ideas de mood en `music/README.md`).
-3. Prueba `publish` (plan) y luego la publicación en seco del publicador
-   (`--publicar-siguiente --seco`) antes del primer envío real.
-4. Opcional a futuro: dos pasadas de loudnorm, SRT quemado para teasers,
-   variantes de teaser (gancho vs. cliffhanger) y subtítulos bilingües.
+1. Real episode 1: `new` -> your LLM -> `ingest` -> frames -> clips -> `assemble`.
+2. Download 2-4 royalty-free tracks into `music/` (see mood ideas in `music/README.md`).
+3. Test `publish` (plan) and then the publisher's dry run
+   (`--publicar-siguiente --seco`) before the first real send.
+4. Optional future work: two-pass loudnorm, burned-in SRT for teasers, teaser
+   variants (hook vs. cliffhanger), and bilingual subtitles.

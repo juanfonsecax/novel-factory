@@ -1,252 +1,264 @@
-# The Stable Girl — Producción con Muse AI (método nuevo)
+# The Stable Girl — Muse AI Production (new method)
 
-**Slug:** `the_ranch_maid_heiress`  ·  **Escenas:** 60  ·  **Imágenes:** 11  ·  **Lotes:** 10
+**Slug:** `the_ranch_maid_heiress`  ·  **Scenes:** 60  ·  **Images:** 11  ·  **Batches:** 10
+
+> **PRODUCTION NOTE:** ATTACH FOR EVERY SCENE: that scene's storyboard panel + references ONLY for the characters who appear in THAT scene + that scene's prompt. Never generate a scene without its attached characters.
 
 > Framed for stealing from the Montana ranch family that raised her, the stable maid discovers Silver Creek was never theirs to keep: her mother owned the land, and the proof is hidden in the barn where she died.
 
-## Cómo funciona
+## How it works
 
-1. Genera **una** hoja maestra de personajes con los rostros y vestuarios fijos.
-2. Genera **diez** storyboards (uno por minuto) usando esa hoja como referencia.
-3. En Muse AI, sube la hoja maestra + el storyboard del minuto y pega el bloque del lote.
-4. Guarda cada video como `raw_clips/minute_0X.mp4` y ejecuta el comando de ensamblaje.
+1. Generate **one** master character sheet with fixed faces and wardrobes.
+2. Generate **10** storyboards (one per minute) using that sheet as reference.
+3. In Muse AI, upload the master sheet + the minute storyboard and paste the batch block.
+4. Save each video as `raw_clips/minute_0X.mp4` and run the assembly command.
 
-> No necesitas frames por escena ni clips de 10 s: el ensamblador detecta los lotes de 1 minuto.
+> You do not need per-scene frames or 10 s clips: the assembler detects 1-minute batches.
 
 ---
 
-## Paso 1 — Hoja maestra de personajes
+## Step 1 — Master character sheet
 
-Guarda el resultado como `storyboards/REF_CAST_MASTER.png`.
+Save the result as `storyboards/REF_CAST_MASTER.png`.
 
 **Prompt:**
 
 ```text
-Actúa como director de casting y diseñador de personajes. Genera UNA SOLA IMAGEN horizontal 16:9 que muestre juntos, de cuerpo completo, de pie, mirando al frente sobre un fondo gris neutro de estudio (#808080) y sin tocarse entre sí, a los siguientes personajes de nuestra novela en estilo Cinematográfico Realista 35mm:
+Act as a casting director and character designer. Generate A SINGLE horizontal 16:9 IMAGE showing together, full body, standing, facing forward on a neutral studio gray background (#808080) and not touching each other, the following characters from our novel in Realistic Cinematic 35mm style:
 
-Position #1 (Far Left) — ELENA VANCE. Rol: Protagonista. Edad: mid-twenties. Rasgos físicos: Casting sheet for the character reference image: woman in her mid-twenties, sun-weathered gently angular face, long chestnut hair worn in a single low braid, calm dark-brown eyes, clear sun-kissed skin with light natural freckles, slender but strong ranch build, signature faded blue denim work shirt and dark riding jeans.. Vestuario fijo: faded blue denim work shirt, dark riding jeans, worn boots, low braid.
-Position #2 — VICTORIA BLACKWELL. Rol: Antagonista. Edad: mid-forties. Rasgos físicos: Casting sheet for the character reference image: woman in her mid-forties, sleek platinum-blonde bob, sharp cheekbones, cool grey eyes, immaculate posture, dark red lipstick, pearl earrings, signature emerald silk blouse over tailored black trousers.. Vestuario fijo: emerald silk blouse, tailored black trousers, pearl earrings.
-Position #3 — RICHARD BLACKWELL. Rol: Heredero antagonista. Edad: thirty. Rasgos físicos: Casting sheet for the character reference image: man around thirty, clean-cut, sandy hair combed back, pale blue eyes, a practiced easy smile, tall athletic build, signature pressed white shirt under a charcoal blazer.. Vestuario fijo: pressed white shirt, charcoal blazer, polished boots.
-Position #4 — COLE BARRETT. Rol: Interés romántico. Edad: early-thirties. Rasgos físicos: Casting sheet for the character reference image: man in his early thirties, weathered rancher hands, dark hair a little long under a dust-worn felt hat, steady hazel eyes, quiet jaw, broad shoulders, signature oiled tan canvas chore jacket over a grey henley.. Vestuario fijo: oiled tan canvas chore jacket over a grey henley, worn felt hat.
-Position #5 (Far Right) — MAGGIE DOYLE. Rol: Aliada. Edad: late-fifties. Rasgos físicos: Casting sheet for the character reference image: woman in her late fifties, iron-grey hair pinned up in a loose bun, kind weathered face, small round glasses on a chain, floral house apron over a beige cardigan and a long dark skirt.. Vestuario fijo: floral house apron over a beige cardigan, long dark skirt.
+Position #1 (Far Left) — ELENA VANCE. Role: Protagonist. Age: mid-twenties. Physical features: Casting sheet for the character reference image: woman in her mid-twenties, sun-weathered gently angular face, long chestnut hair worn in a single low braid, calm dark-brown eyes, clear sun-kissed skin with light natural freckles, slender but strong ranch build, signature faded blue denim work shirt and dark riding jeans.. Fixed wardrobe: faded blue denim work shirt, dark riding jeans, worn boots, low braid.
+Position #2 — VICTORIA BLACKWELL. Role: Antagonist. Age: mid-forties. Physical features: Casting sheet for the character reference image: woman in her mid-forties, sleek platinum-blonde bob, sharp cheekbones, cool grey eyes, immaculate posture, dark red lipstick, pearl earrings, signature emerald silk blouse over tailored black trousers.. Fixed wardrobe: emerald silk blouse, tailored black trousers, pearl earrings.
+Position #3 — RICHARD BLACKWELL. Role: Antagonist heir. Age: thirty. Physical features: Casting sheet for the character reference image: man around thirty, clean-cut, sandy hair combed back, pale blue eyes, a practiced easy smile, tall athletic build, signature pressed white shirt under a charcoal blazer.. Fixed wardrobe: pressed white shirt, charcoal blazer, polished boots.
+Position #4 — COLE BARRETT. Role: Love interest. Age: early-thirties. Physical features: Casting sheet for the character reference image: man in his early thirties, weathered rancher hands, dark hair a little long under a dust-worn felt hat, steady hazel eyes, quiet jaw, broad shoulders, signature oiled tan canvas chore jacket over a grey henley.. Fixed wardrobe: oiled tan canvas chore jacket over a grey henley, worn felt hat.
+Position #5 (Far Right) — MAGGIE DOYLE. Role: Ally. Age: late-fifties. Physical features: Casting sheet for the character reference image: woman in her late fifties, iron-grey hair pinned up in a loose bun, kind weathered face, small round glasses on a chain, floral house apron over a beige cardigan and a long dark skirt.. Fixed wardrobe: floral house apron over a beige cardigan, long dark skirt.
 
-Ordena a los personajes de izquierda a derecha y coloca debajo de cada uno únicamente 'Position #N — NOMBRE EN MAYÚSCULAS'. Mantén exactamente las mismas posiciones, rostros, peinados y vestuarios en todas las imágenes del storyboard y de los lotes de Muse AI. Sin texto adicional, sin títulos, sin frases, sin logos, sin marcas de agua; solo la imagen de los personajes y sus posiciones.
+Arrange the characters from left to right and place only the following below each one: 'Position #N — NAME IN UPPERCASE'. Keep exactly the same positions, faces, hairstyles and wardrobes in every storyboard image and Muse AI batch. No additional text, no titles, no sentences, no logos, no watermarks; only the character image and their positions.
 ```
 
 ---
 
-## Paso 2 — Storyboards (10 imágenes)
+## Step 2 — Storyboards (10 images)
 
-Genera cada imagen con el mismo estilo y los mismos personajes de la hoja maestra.
-Guarda cada archivo en `storyboards/` con el nombre indicado.
+Generate each image with the same style and the same characters as the master sheet.
+Save each file in `storyboards/` with the indicated filename.
 
-### REF_GRID_MIN_01.png — Minuto 1 (escenas 1–6)
+### REF_GRID_MIN_01.png — Minute 1 (scenes 1–6)
 
 ```text
-Usando los personajes de REF_CAST_MASTER.png como referencia fija de rostros, edades, cuerpos y vestuarios, genera UNA IMAGEN horizontal 16:9 de Storyboard dividida en una cuadrícula limpia de 3x2 (6 viñetas numeradas del 1 al 6) que represente el MINUTO 1 (Escenas 1 a 6) de la historia en estilo Cinematográfico Realista 35mm:
+Using the characters in REF_CAST_MASTER.png as fixed references for faces, ages, bodies and wardrobes, generate A SINGLE horizontal 16:9 storyboard IMAGE divided into a clean 3x2 grid (6 panels numbered 1 to 6) representing MINUTE 1 (Scenes 1 to 6) of the story in Realistic Cinematic 35mm style:
 
-Look visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
+Visual look: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
 
-Viñeta 1 — Escena 1 (Silver Creek stable aisle, late afternoon): [00s-06s] two-shot, medium shot with Richard Blackwell and Elena Vance: Richard Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Elena tightens the girth strap, her open canvas work bag hooked on the stall rail beside her. Key object in frame: Elena's canvas work bag. Location: Silver Creek stable aisle, late afternoon. Characters present: Elena Vance, Richard Blackwell, Cole Barrett. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing faded blue denim work shirt, dark riding jeans, worn boots, low braid); Richard Blackwell (Cast Sheet Pos #3: around thirty; sandy hair combed back; wearing pressed white shirt, charcoal blazer, polished boots); Cole Barrett (Cast Sheet Pos #4: early thirties; dark hair under a dust-worn felt hat; wearing oiled tan canvas chore jacket over a grey henley, worn felt hat).
-Viñeta 2 — Escena 2 (Blackwell mansion foyer, dusk): [00s-08s] two-shot, medium shot with Victoria Blackwell and Elena Vance: Victoria Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. At the foot of the staircase, Victoria blocks Elena's path with one gloved hand raised. Key object in frame: canvas work bag. Key object in frame: Elena's canvas work bag. Location: Blackwell mansion foyer, dusk. Characters present: Elena Vance, Victoria Blackwell, Richard Blackwell. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing faded blue denim work shirt, dark riding jeans, worn boots, low braid); Victoria Blackwell (Cast Sheet Pos #2: mid-forties; platinum-blonde bob; wearing emerald silk blouse, tailored black trousers, pearl earrings); Richard Blackwell (Cast Sheet Pos #3: around thirty; sandy hair combed back; wearing pressed white shirt, charcoal blazer, polished boots).
-Viñeta 3 — Escena 3 (Blackwell mansion foyer, dusk): [00s-08s] two-shot, medium shot with Victoria Blackwell and Elena Vance: Victoria Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Elena sets the canvas work bag on the foyer table and loosens the drawstring without opening the bag. Its interior remains in shadow and out of frame; never show it empty and never show a full interior. Key object in frame: Elena's canvas work bag. Location: Blackwell mansion foyer, dusk. Characters present: Elena Vance, Victoria Blackwell, Richard Blackwell. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing faded blue denim work shirt, dark riding jeans, worn boots, low braid); Victoria Blackwell (Cast Sheet Pos #2: mid-forties; platinum-blonde bob; wearing emerald silk blouse, tailored black trousers, pearl earrings); Richard Blackwell (Cast Sheet Pos #3: around thirty; sandy hair combed back; wearing pressed white shirt, charcoal blazer, polished boots).
-Viñeta 4 — Escena 4 (Blackwell mansion foyer, dusk): [00s-04s] medium shot, face and mouth visible: Richard Blackwell is on camera with face and mouth fully visible, looking at Elena Vance. Richard reaches into the open canvas work bag before Elena can stop him. Key object in frame: the silver pocket watch. Location: Blackwell mansion foyer, dusk. Characters present: Elena Vance, Victoria Blackwell, Richard Blackwell. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing faded blue denim work shirt, dark riding jeans, worn boots, low braid); Victoria Blackwell (Cast Sheet Pos #2: mid-forties; platinum-blonde bob; wearing emerald silk blouse, tailored black trousers, pearl earrings); Richard Blackwell (Cast Sheet Pos #3: around thirty; sandy hair combed back; wearing pressed white shirt, charcoal blazer, polished boots).
-Viñeta 5 — Escena 5 (Blackwell mansion foyer, dusk): [00s-08s] two-shot, medium shot with Victoria Blackwell and Elena Vance: Victoria Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Victoria slides a written confession paper and a fountain pen across the foyer table. Location: Blackwell mansion foyer, dusk. Key object: written confession paper. Characters present: Elena Vance, Victoria Blackwell, Richard Blackwell. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing faded blue denim work shirt, dark riding jeans, worn boots, low braid); Victoria Blackwell (Cast Sheet Pos #2: mid-forties; platinum-blonde bob; wearing emerald silk blouse, tailored black trousers, pearl earrings); Richard Blackwell (Cast Sheet Pos #3: around thirty; sandy hair combed back; wearing pressed white shirt, charcoal blazer, polished boots).
-Viñeta 6 — Escena 6 (Silver Creek barn doorway, night rain): [00s-08s] two-shot, medium shot with Cole Barrett and Elena Vance: Cole Barrett and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. At the barn doorway, Cole steps out of the rain and pulls Elena under the overhang. Key object in frame: canvas work bag. Key object in frame: Elena's canvas work bag. Location: Silver Creek barn doorway, night rain. Characters present: Elena Vance, Cole Barrett. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing faded blue denim work shirt, dark riding jeans, worn boots, low braid); Cole Barrett (Cast Sheet Pos #4: early thirties; dark hair under a dust-worn felt hat; wearing oiled tan canvas chore jacket over a grey henley, worn felt hat).
+Panel 1 — Scene 1 (Silver Creek stable aisle, late afternoon): [00s-06s] two-shot, medium shot with Richard Blackwell and Elena Vance: Richard Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Elena tightens the girth strap, her open canvas work bag hooked on the stall rail beside her. Location: Silver Creek stable aisle, late afternoon. Key object: canvas work bag. Characters present: Elena Vance, Richard Blackwell, Cole Barrett. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing faded blue denim work shirt, dark riding jeans, worn boots, low braid); Richard Blackwell (Cast Sheet Pos #3: around thirty; sandy hair combed back; wearing pressed white shirt, charcoal blazer, polished boots); Cole Barrett (Cast Sheet Pos #4: early thirties; dark hair under a dust-worn felt hat; wearing oiled tan canvas chore jacket over a grey henley, worn felt hat).
+Panel 2 — Scene 2 (Blackwell mansion foyer, dusk): [00s-04s] medium shot, face and mouth visible: Victoria Blackwell is on camera with face and mouth fully visible, looking at Elena Vance. At the foot of the staircase, Victoria blocks Elena's path with one gloved hand raised. Key object in frame: canvas work bag. Location: Blackwell mansion foyer, dusk. Characters present: Elena Vance, Victoria Blackwell, Richard Blackwell. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing faded blue denim work shirt, dark riding jeans, worn boots, low braid); Victoria Blackwell (Cast Sheet Pos #2: mid-forties; platinum-blonde bob; wearing emerald silk blouse, tailored black trousers, pearl earrings); Richard Blackwell (Cast Sheet Pos #3: around thirty; sandy hair combed back; wearing pressed white shirt, charcoal blazer, polished boots).
+Panel 3 — Scene 3 (Blackwell mansion foyer, dusk): [00s-07s] two-shot, medium shot with Victoria Blackwell and Elena Vance: Victoria Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Elena sets the canvas work bag on the foyer table and loosens the drawstring without opening the bag. Its interior remains in shadow and out of frame; never show it empty and never show a full interior. Location: Blackwell mansion foyer, dusk. Key object: canvas work bag. Characters present: Elena Vance, Victoria Blackwell, Richard Blackwell. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing faded blue denim work shirt, dark riding jeans, worn boots, low braid); Victoria Blackwell (Cast Sheet Pos #2: mid-forties; platinum-blonde bob; wearing emerald silk blouse, tailored black trousers, pearl earrings); Richard Blackwell (Cast Sheet Pos #3: around thirty; sandy hair combed back; wearing pressed white shirt, charcoal blazer, polished boots).
+Panel 4 — Scene 4 (Blackwell mansion foyer, dusk): [00s-04s] medium shot, face and mouth visible: Richard Blackwell is on camera with face and mouth fully visible, looking at Elena Vance. Richard reaches into the open canvas work bag before Elena can stop him. Key object in frame: the silver pocket watch. Location: Blackwell mansion foyer, dusk. Characters present: Elena Vance, Victoria Blackwell, Richard Blackwell. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing faded blue denim work shirt, dark riding jeans, worn boots, low braid); Victoria Blackwell (Cast Sheet Pos #2: mid-forties; platinum-blonde bob; wearing emerald silk blouse, tailored black trousers, pearl earrings); Richard Blackwell (Cast Sheet Pos #3: around thirty; sandy hair combed back; wearing pressed white shirt, charcoal blazer, polished boots).
+Panel 5 — Scene 5 (Blackwell mansion foyer, dusk): [00s-08s] two-shot, medium shot with Victoria Blackwell and Elena Vance: Victoria Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Victoria slides a written confession paper and a fountain pen across the foyer table. Location: Blackwell mansion foyer, dusk. Key object: written confession paper. Characters present: Elena Vance, Victoria Blackwell, Richard Blackwell. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing faded blue denim work shirt, dark riding jeans, worn boots, low braid); Victoria Blackwell (Cast Sheet Pos #2: mid-forties; platinum-blonde bob; wearing emerald silk blouse, tailored black trousers, pearl earrings); Richard Blackwell (Cast Sheet Pos #3: around thirty; sandy hair combed back; wearing pressed white shirt, charcoal blazer, polished boots).
+Panel 6 — Scene 6 (Silver Creek barn doorway, night rain): [00s-07s] two-shot, medium shot with Cole Barrett and Elena Vance: Cole Barrett and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. At the barn doorway, Cole steps out of the rain and pulls Elena under the overhang. Key object in frame: canvas work bag. Location: Silver Creek barn doorway, night rain. Characters present: Elena Vance, Cole Barrett. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing faded blue denim work shirt, dark riding jeans, worn boots, low braid); Cole Barrett (Cast Sheet Pos #4: early thirties; dark hair under a dust-worn felt hat; wearing oiled tan canvas chore jacket over a grey henley, worn felt hat).
 
-Mantén continuidad exacta de posiciones, rostros, cuerpos, vestuario, props, locaciones, luz y hora del día entre las 6 viñetas. Cada viñeta es el PRIMER FRAME literal de la Toma 1 de su escena: mismo encuadre, misma cámara, mismo blocking y mismo objeto clave; la acción ya está en movimiento, nunca congelada. Cada viñeta es un plano cinematográfico 16:9 con acción legible.
-FORMATO DE VIÑETAS 100% VISUAL (SIN CAJAS DE TEXTO): Las 6 viñetas fotográficas en cuadrícula 3x2 deben ocupar el 100% del lienzo 16:9 separadas únicamente por líneas divisorias finas. Coloca SOLO el número pequeño [1], [2], [3], [4], [5], [6] en la esquina superior izquierda de cada viñeta. PROHIBIDO dibujar barras inferiores oscuras, subtítulos, cajas de texto o descripciones escritas dentro de la imagen.
+Keep exact continuity of positions, faces, bodies, wardrobe, props, locations, lighting and time of day across the 6 panels. Each panel is the literal FIRST FRAME of Shot 1 in its scene: same framing, same camera, same blocking and same key object; the action is already in motion, never frozen. Each panel is a 16:9 cinematic shot with legible action.
+100% VISUAL PANEL FORMAT (NO TEXT BOXES): The 6 photographic panels in a 3x2 grid must fill 100% of the 16:9 canvas, separated only by thin divider lines. Place ONLY the small number [1], [2], [3], [4], [5], [6] in the top-left corner of each panel. Drawing dark bottom bars, subtitles, text boxes or written descriptions inside the image is FORBIDDEN.
 ```
 
-### REF_GRID_MIN_02.png — Minuto 2 (escenas 7–12)
+### REF_GRID_MIN_02.png — Minute 2 (scenes 7–12)
 
 ```text
-Usando los personajes de REF_CAST_MASTER.png como referencia fija de rostros, edades, cuerpos y vestuarios, genera UNA IMAGEN horizontal 16:9 de Storyboard dividida en una cuadrícula limpia de 3x2 (6 viñetas numeradas del 1 al 6) que represente el MINUTO 2 (Escenas 7 a 12) de la historia en estilo Cinematográfico Realista 35mm:
+Using the characters in REF_CAST_MASTER.png as fixed references for faces, ages, bodies and wardrobes, generate A SINGLE horizontal 16:9 storyboard IMAGE divided into a clean 3x2 grid (6 panels numbered 1 to 6) representing MINUTE 2 (Scenes 7 to 12) of the story in Realistic Cinematic 35mm style:
 
-Look visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
+Visual look: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
 
-Viñeta 1 — Escena 7 (Blackwell study, late afternoon): [00s-04s] medium close-up on Victoria Blackwell, face and mouth visible: Victoria Blackwell is on camera with face and mouth fully visible, looking at Elena Vance. Victoria Blackwell holds the moment before speaking. Key object in frame: a bank envelope of hush money. Location: Blackwell study, late afternoon. Characters present: Elena Vance, Victoria Blackwell. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing faded blue denim work shirt, dark riding jeans, worn boots, low braid); Victoria Blackwell (Cast Sheet Pos #2: mid-forties; platinum-blonde bob; wearing emerald silk blouse, tailored black trousers, pearl earrings).
-Viñeta 2 — Escena 8 (gatehouse cottage, dusk): [00s-04s] medium close-up on Elena Vance, face and mouth visible: Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking. Key object in frame: a hand-sewn lining with a waxed envelope. Location: gatehouse cottage, dusk. Characters present: Elena Vance. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing faded blue denim work shirt, dark riding jeans, worn boots, low braid).
-Viñeta 3 — Escena 9 (Silver Creek barn aisle, night): [00s-04s] medium close-up on Cole Barrett, face and mouth visible: Cole Barrett is on camera with face and mouth fully visible, looking at Elena Vance. Cole Barrett holds the moment before speaking. Key object in frame: a small brass key. Location: Silver Creek barn aisle, night. Characters present: Elena Vance, Cole Barrett. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing faded blue denim work shirt, dark riding jeans, worn boots, low braid); Cole Barrett (Cast Sheet Pos #4: early thirties; dark hair under a dust-worn felt hat; wearing oiled tan canvas chore jacket over a grey henley, worn felt hat).
-Viñeta 4 — Escena 10 (Silver Creek sealed tack room, night): [00s-07s] two-shot, medium shot with Elena Vance and Cole Barrett: Elena Vance and Cole Barrett face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Inside the tack room, the maid pulls an open tin box from the floor while the foreman steps in with bolt cutters. Key object in frame: a fire-scorched property deed. Location: Silver Creek sealed tack room, night. Characters present: Elena Vance, Cole Barrett. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing faded blue denim work shirt, dark riding jeans, worn boots, low braid); Cole Barrett (Cast Sheet Pos #4: early thirties; dark hair under a dust-worn felt hat; wearing oiled tan canvas chore jacket over a grey henley, worn felt hat).
-Viñeta 5 — Escena 11 (Silver Creek county records office, morning): [00s-04s] medium close-up on Elena Vance, face and mouth visible: Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking. Key object in frame: a county sale record. Location: Silver Creek county records office, morning. Characters present: Elena Vance. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing faded blue denim work shirt under a tan canvas barn coat, braid loosened by work).
-Viñeta 6 — Escena 12 (county records steps, grey morning): [00s-07s] two-shot, medium shot with Cole Barrett and Elena Vance: Cole Barrett and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. On the stone steps, the maid backs up with a folder clutched to her chest while the foreman follows, hat in hand. Key object in frame: a probate form. Location: county records steps, grey morning. Characters present: Elena Vance, Cole Barrett. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing faded blue denim work shirt under a tan canvas barn coat, braid loosened by work); Cole Barrett (Cast Sheet Pos #4: early thirties; dark hair under a dust-worn felt hat; wearing canvas chore jacket, collar turned up, rain-darkened at the shoulders).
+Panel 1 — Scene 7 (Blackwell study, late afternoon): [00s-04s] medium close-up on Victoria Blackwell, face and mouth visible: Victoria Blackwell is on camera with face and mouth fully visible, looking at Elena Vance. Victoria Blackwell holds the moment before speaking. Key object in frame: a bank envelope of hush money. Location: Blackwell study, late afternoon. Characters present: Elena Vance, Victoria Blackwell. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing faded blue denim work shirt, dark riding jeans, worn boots, low braid); Victoria Blackwell (Cast Sheet Pos #2: mid-forties; platinum-blonde bob; wearing emerald silk blouse, tailored black trousers, pearl earrings).
+Panel 2 — Scene 8 (gatehouse cottage, dusk): [00s-04s] medium close-up on Elena Vance, face and mouth visible: Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking. Location: gatehouse cottage, dusk. Key object: the scene's central visual detail. Characters present: Elena Vance. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing faded blue denim work shirt, dark riding jeans, worn boots, low braid).
+Panel 3 — Scene 9 (Silver Creek barn aisle, night): [00s-04s] medium close-up on Cole Barrett, face and mouth visible: Cole Barrett is on camera with face and mouth fully visible, looking at Elena Vance. Cole Barrett holds the moment before speaking. Key object in frame: a small brass key. Location: Silver Creek barn aisle, night. Characters present: Elena Vance, Cole Barrett. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing faded blue denim work shirt, dark riding jeans, worn boots, low braid); Cole Barrett (Cast Sheet Pos #4: early thirties; dark hair under a dust-worn felt hat; wearing oiled tan canvas chore jacket over a grey henley, worn felt hat).
+Panel 4 — Scene 10 (Silver Creek sealed tack room, night): [00s-07s] two-shot, medium shot with Elena Vance and Cole Barrett: Elena Vance and Cole Barrett face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Inside the tack room, the maid pulls an open tin box from the floor while the foreman steps in with bolt cutters. Key object in frame: a fire-scorched property deed. Location: Silver Creek sealed tack room, night. Characters present: Elena Vance, Cole Barrett. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing faded blue denim work shirt, dark riding jeans, worn boots, low braid); Cole Barrett (Cast Sheet Pos #4: early thirties; dark hair under a dust-worn felt hat; wearing oiled tan canvas chore jacket over a grey henley, worn felt hat).
+Panel 5 — Scene 11 (Silver Creek county records office, morning): [00s-04s] medium close-up on Elena Vance, face and mouth visible: Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking. Key object in frame: a county sale record. Location: Silver Creek county records office, morning. Characters present: Elena Vance. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing faded blue denim work shirt under a tan canvas barn coat, braid loosened by work).
+Panel 6 — Scene 12 (county records steps, grey morning): [00s-07s] two-shot, medium shot with Cole Barrett and Elena Vance: Cole Barrett and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. On the stone steps, the maid backs up with a folder clutched to her chest while the foreman follows, hat in hand. Key object in frame: a probate form. Location: county records steps, grey morning. Characters present: Elena Vance, Cole Barrett. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing faded blue denim work shirt under a tan canvas barn coat, braid loosened by work); Cole Barrett (Cast Sheet Pos #4: early thirties; dark hair under a dust-worn felt hat; wearing canvas chore jacket, collar turned up, rain-darkened at the shoulders).
 
-Mantén continuidad exacta de posiciones, rostros, cuerpos, vestuario, props, locaciones, luz y hora del día entre las 6 viñetas. Cada viñeta es el PRIMER FRAME literal de la Toma 1 de su escena: mismo encuadre, misma cámara, mismo blocking y mismo objeto clave; la acción ya está en movimiento, nunca congelada. Cada viñeta es un plano cinematográfico 16:9 con acción legible.
-FORMATO DE VIÑETAS 100% VISUAL (SIN CAJAS DE TEXTO): Las 6 viñetas fotográficas en cuadrícula 3x2 deben ocupar el 100% del lienzo 16:9 separadas únicamente por líneas divisorias finas. Coloca SOLO el número pequeño [1], [2], [3], [4], [5], [6] en la esquina superior izquierda de cada viñeta. PROHIBIDO dibujar barras inferiores oscuras, subtítulos, cajas de texto o descripciones escritas dentro de la imagen.
+Keep exact continuity of positions, faces, bodies, wardrobe, props, locations, lighting and time of day across the 6 panels. Each panel is the literal FIRST FRAME of Shot 1 in its scene: same framing, same camera, same blocking and same key object; the action is already in motion, never frozen. Each panel is a 16:9 cinematic shot with legible action.
+100% VISUAL PANEL FORMAT (NO TEXT BOXES): The 6 photographic panels in a 3x2 grid must fill 100% of the 16:9 canvas, separated only by thin divider lines. Place ONLY the small number [1], [2], [3], [4], [5], [6] in the top-left corner of each panel. Drawing dark bottom bars, subtitles, text boxes or written descriptions inside the image is FORBIDDEN.
 ```
 
-### REF_GRID_MIN_03.png — Minuto 3 (escenas 13–18)
+### REF_GRID_MIN_03.png — Minute 3 (scenes 13–18)
 
 ```text
-Usando los personajes de REF_CAST_MASTER.png como referencia fija de rostros, edades, cuerpos y vestuarios, genera UNA IMAGEN horizontal 16:9 de Storyboard dividida en una cuadrícula limpia de 3x2 (6 viñetas numeradas del 1 al 6) que represente el MINUTO 3 (Escenas 13 a 18) de la historia en estilo Cinematográfico Realista 35mm:
+Using the characters in REF_CAST_MASTER.png as fixed references for faces, ages, bodies and wardrobes, generate A SINGLE horizontal 16:9 storyboard IMAGE divided into a clean 3x2 grid (6 panels numbered 1 to 6) representing MINUTE 3 (Scenes 13 to 18) of the story in Realistic Cinematic 35mm style:
 
-Look visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
+Visual look: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
 
-Viñeta 1 — Escena 13 (Blackwell paneled office, afternoon): [00s-03s] medium close-up on Victoria Blackwell, face and mouth visible: Victoria Blackwell is on camera with face and mouth fully visible, looking at Elena Vance. Victoria Blackwell holds the moment before speaking. Key object in frame: a grave-tending receipt. Location: Blackwell paneled office, afternoon. Characters present: Elena Vance, Victoria Blackwell. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing faded blue denim work shirt under a tan canvas barn coat, braid loosened by work); Victoria Blackwell (Cast Sheet Pos #2: mid-forties; platinum-blonde bob; wearing black cashmere turtleneck, long grey riding coat, leather gloves).
-Viñeta 2 — Escena 14 (Blackwell dark-paneled hallway, afternoon): [00s-07s] two-shot, medium shot with Richard Blackwell and Elena Vance: Richard Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. In the dark-paneled hallway, the heir steps close to the maid, hands open, while she backs away with her folder. Key object in frame: the planted silver watch. Location: Blackwell dark-paneled hallway, afternoon. Characters present: Elena Vance, Richard Blackwell. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing faded blue denim work shirt under a tan canvas barn coat, braid loosened by work); Richard Blackwell (Cast Sheet Pos #3: around thirty; sandy hair combed back; wearing grey wool overcoat over the white shirt, silver cufflinks).
-Viñeta 3 — Escena 15 (gatehouse cottage, dusk): [00s-07s] two-shot, medium shot with Maggie Doyle and Elena Vance: Maggie Doyle and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. At the oilcloth table, the maid pushes a covered pie aside while the housekeeper leans across it. Key object in frame: a signed 2008 statement. Location: gatehouse cottage, dusk. Characters present: Elena Vance, Maggie Doyle. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing faded blue denim work shirt under a tan canvas barn coat, braid loosened by work); Maggie Doyle (Cast Sheet Pos #5: late fifties; iron-grey hair in a loose bun; wearing wool shawl pinned over the cardigan, apron folded over one arm).
-Viñeta 4 — Escena 16 (Silver Creek barn aisle, night): [00s-07s] two-shot, medium shot with Cole Barrett and Elena Vance: Cole Barrett and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. In the barn aisle, the maid sets a lantern between them as the foreman steps in from the rain. Key object in frame: a truck's tire tracks. Location: Silver Creek barn aisle, night. Characters present: Elena Vance, Cole Barrett. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing faded blue denim work shirt under a tan canvas barn coat, braid loosened by work); Cole Barrett (Cast Sheet Pos #4: early thirties; dark hair under a dust-worn felt hat; wearing canvas chore jacket, collar turned up, rain-darkened at the shoulders).
-Viñeta 5 — Escena 17 (Blackwell study, night): [00s-07s] two-shot, medium shot with Victoria Blackwell and Richard Blackwell: Victoria Blackwell and Richard Blackwell face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. In the lamplit study, the mistress leans over the desk while the heir paces and loosens his collar. Key object in frame: June Vance's probate file. Location: Blackwell study, night. Characters present: Victoria Blackwell, Richard Blackwell. No other characters appear. Identity anchors: Victoria Blackwell (Cast Sheet Pos #2: mid-forties; platinum-blonde bob; wearing black cashmere turtleneck, long grey riding coat, leather gloves); Richard Blackwell (Cast Sheet Pos #3: around thirty; sandy hair combed back; wearing grey wool overcoat over the white shirt, silver cufflinks).
-Viñeta 6 — Escena 18 (Silver Creek county records office, morning): [00s-04s] medium close-up on Elena Vance, face and mouth visible: Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking. Key object in frame: a missing-file receipt. Location: Silver Creek county records office, morning. Characters present: Elena Vance. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing faded blue denim work shirt under a tan canvas barn coat, braid loosened by work).
+Panel 1 — Scene 13 (Blackwell paneled office, afternoon): [00s-03s] medium close-up on Victoria Blackwell, face and mouth visible: Victoria Blackwell is on camera with face and mouth fully visible, looking at Elena Vance. Victoria Blackwell holds the moment before speaking. Key object in frame: a grave-tending receipt. Location: Blackwell paneled office, afternoon. Characters present: Elena Vance, Victoria Blackwell. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing faded blue denim work shirt under a tan canvas barn coat, braid loosened by work); Victoria Blackwell (Cast Sheet Pos #2: mid-forties; platinum-blonde bob; wearing black cashmere turtleneck, long grey riding coat, leather gloves).
+Panel 2 — Scene 14 (Blackwell dark-paneled hallway, afternoon): [00s-07s] two-shot, medium shot with Richard Blackwell and Elena Vance: Richard Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. In the dark-paneled hallway, the heir steps close to the maid, hands open, while she backs away with her folder. Key object in frame: the planted silver watch. Location: Blackwell dark-paneled hallway, afternoon. Characters present: Elena Vance, Richard Blackwell. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing faded blue denim work shirt under a tan canvas barn coat, braid loosened by work); Richard Blackwell (Cast Sheet Pos #3: around thirty; sandy hair combed back; wearing grey wool overcoat over the white shirt, silver cufflinks).
+Panel 3 — Scene 15 (gatehouse cottage, dusk): [00s-07s] two-shot, medium shot with Maggie Doyle and Elena Vance: Maggie Doyle and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. At the oilcloth table, the maid pushes a covered pie aside while the housekeeper leans across it. Key object in frame: a signed 2008 statement. Location: gatehouse cottage, dusk. Characters present: Elena Vance, Maggie Doyle. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing faded blue denim work shirt under a tan canvas barn coat, braid loosened by work); Maggie Doyle (Cast Sheet Pos #5: late fifties; iron-grey hair in a loose bun; wearing wool shawl pinned over the cardigan, apron folded over one arm).
+Panel 4 — Scene 16 (Silver Creek barn aisle, night): [00s-07s] two-shot, medium shot with Cole Barrett and Elena Vance: Cole Barrett and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. In the barn aisle, the maid sets a lantern between them as the foreman steps in from the rain. Key object in frame: a truck's tire tracks. Location: Silver Creek barn aisle, night. Characters present: Elena Vance, Cole Barrett. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing faded blue denim work shirt under a tan canvas barn coat, braid loosened by work); Cole Barrett (Cast Sheet Pos #4: early thirties; dark hair under a dust-worn felt hat; wearing canvas chore jacket, collar turned up, rain-darkened at the shoulders).
+Panel 5 — Scene 17 (Blackwell study, night): [00s-07s] two-shot, medium shot with Victoria Blackwell and Richard Blackwell: Victoria Blackwell and Richard Blackwell face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. In the lamplit study, the mistress leans over the desk while the heir paces and loosens his collar. Key object in frame: June Vance's probate file. Location: Blackwell study, night. Characters present: Victoria Blackwell, Richard Blackwell. No other characters appear. Identity anchors: Victoria Blackwell (Cast Sheet Pos #2: mid-forties; platinum-blonde bob; wearing black cashmere turtleneck, long grey riding coat, leather gloves); Richard Blackwell (Cast Sheet Pos #3: around thirty; sandy hair combed back; wearing grey wool overcoat over the white shirt, silver cufflinks).
+Panel 6 — Scene 18 (Silver Creek county records office, morning): [00s-04s] medium close-up on Elena Vance, face and mouth visible: Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking. Key object in frame: a missing-file receipt. Location: Silver Creek county records office, morning. Characters present: Elena Vance. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing faded blue denim work shirt under a tan canvas barn coat, braid loosened by work).
 
-Mantén continuidad exacta de posiciones, rostros, cuerpos, vestuario, props, locaciones, luz y hora del día entre las 6 viñetas. Cada viñeta es el PRIMER FRAME literal de la Toma 1 de su escena: mismo encuadre, misma cámara, mismo blocking y mismo objeto clave; la acción ya está en movimiento, nunca congelada. Cada viñeta es un plano cinematográfico 16:9 con acción legible.
-FORMATO DE VIÑETAS 100% VISUAL (SIN CAJAS DE TEXTO): Las 6 viñetas fotográficas en cuadrícula 3x2 deben ocupar el 100% del lienzo 16:9 separadas únicamente por líneas divisorias finas. Coloca SOLO el número pequeño [1], [2], [3], [4], [5], [6] en la esquina superior izquierda de cada viñeta. PROHIBIDO dibujar barras inferiores oscuras, subtítulos, cajas de texto o descripciones escritas dentro de la imagen.
+Keep exact continuity of positions, faces, bodies, wardrobe, props, locations, lighting and time of day across the 6 panels. Each panel is the literal FIRST FRAME of Shot 1 in its scene: same framing, same camera, same blocking and same key object; the action is already in motion, never frozen. Each panel is a 16:9 cinematic shot with legible action.
+100% VISUAL PANEL FORMAT (NO TEXT BOXES): The 6 photographic panels in a 3x2 grid must fill 100% of the 16:9 canvas, separated only by thin divider lines. Place ONLY the small number [1], [2], [3], [4], [5], [6] in the top-left corner of each panel. Drawing dark bottom bars, subtitles, text boxes or written descriptions inside the image is FORBIDDEN.
 ```
 
-### REF_GRID_MIN_04.png — Minuto 4 (escenas 19–24)
+### REF_GRID_MIN_04.png — Minute 4 (scenes 19–24)
 
 ```text
-Usando los personajes de REF_CAST_MASTER.png como referencia fija de rostros, edades, cuerpos y vestuarios, genera UNA IMAGEN horizontal 16:9 de Storyboard dividida en una cuadrícula limpia de 3x2 (6 viñetas numeradas del 1 al 6) que represente el MINUTO 4 (Escenas 19 a 24) de la historia en estilo Cinematográfico Realista 35mm:
+Using the characters in REF_CAST_MASTER.png as fixed references for faces, ages, bodies and wardrobes, generate A SINGLE horizontal 16:9 storyboard IMAGE divided into a clean 3x2 grid (6 panels numbered 1 to 6) representing MINUTE 4 (Scenes 19 to 24) of the story in Realistic Cinematic 35mm style:
 
-Look visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
+Visual look: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
 
-Viñeta 1 — Escena 19 (Blackwell great room, dinner, night): [00s-07s] two-shot, medium shot with Victoria Blackwell and Elena Vance: Victoria Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. In the candlelit great room, the mistress rises with a glass while the maid steps to the edge of the tables. Key object in frame: a dinner place card. Location: Blackwell great room, dinner, night. Characters present: Elena Vance, Victoria Blackwell, Richard Blackwell. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing faded blue denim work shirt under a tan canvas barn coat, braid loosened by work); Victoria Blackwell (Cast Sheet Pos #2: mid-forties; platinum-blonde bob; wearing black cashmere turtleneck, long grey riding coat, leather gloves); Richard Blackwell (Cast Sheet Pos #3: around thirty; sandy hair combed back; wearing grey wool overcoat over the white shirt, silver cufflinks).
-Viñeta 2 — Escena 20 (Blackwell gravel yard, night): [00s-07s] two-shot, medium shot with Victoria Blackwell and Elena Vance: Victoria Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. In the gravel yard at night, a steel barrel burns as the mistress thrusts a folded paper at the maid. Key object in frame: a signed release form. Location: Blackwell gravel yard, night. Characters present: Elena Vance, Victoria Blackwell. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing faded blue denim work shirt under a tan canvas barn coat, braid loosened by work); Victoria Blackwell (Cast Sheet Pos #2: mid-forties; platinum-blonde bob; wearing black cashmere turtleneck, long grey riding coat, leather gloves).
-Viñeta 3 — Escena 21 (gatehouse cottage, night): [00s-07s] two-shot, medium shot with Elena Vance and Cole Barrett: Elena Vance and Cole Barrett face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. In the cottage lamplight, the maid unrolls the old county survey map while the foreman anchors the curling corners with heavy iron horseshoes. Key object in frame: a scraped parcel map. Location: gatehouse cottage, night. Characters present: Elena Vance, Cole Barrett. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing denim work shirt with rolled sleeves, dark riding jeans, leather work gloves tucked in the belt); Cole Barrett (Cast Sheet Pos #4: early thirties; dark hair under a dust-worn felt hat; wearing chore jacket with a broken zipper pull, leather work gloves).
-Viñeta 4 — Escena 22 (Blackwell tack room, night): [00s-06s] medium close-up on Elena Vance, face and mouth visible: Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking. Key object in frame: a stack of cash tax receipts. Location: Blackwell tack room, night. Characters present: Elena Vance. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing denim work shirt with rolled sleeves, dark riding jeans, leather work gloves tucked in the belt).
-Viñeta 5 — Escena 23 (Silver Creek barn hayloft, night): [00s-07s] two-shot, medium shot with Cole Barrett and Elena Vance: Cole Barrett and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. In the moonlight, the foreman gently binds the maid's bruised palm with white tape, his touch slow and deliberate. Key object in frame: a lantern in the hayloft. Location: Silver Creek barn hayloft, night. Characters present: Elena Vance, Cole Barrett. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing denim work shirt with rolled sleeves, dark riding jeans, leather work gloves tucked in the belt); Cole Barrett (Cast Sheet Pos #4: early thirties; dark hair under a dust-worn felt hat; wearing chore jacket with a broken zipper pull, leather work gloves).
-Viñeta 6 — Escena 24 (Blackwell study archives, night): [00s-07s] two-shot, medium shot with Richard Blackwell and Elena Vance: Richard Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Behind the desk, the maid turns with the open ledger as the heir steps over the threshold. Key object in frame: a ledger of quiet payments. Location: Blackwell study archives, night. Characters present: Elena Vance, Richard Blackwell. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing denim work shirt with rolled sleeves, dark riding jeans, leather work gloves tucked in the belt); Richard Blackwell (Cast Sheet Pos #3: around thirty; sandy hair combed back; wearing white shirt with sleeves rolled, dark trousers).
+Panel 1 — Scene 19 (Blackwell great room, dinner, night): [00s-07s] two-shot, medium shot with Victoria Blackwell and Elena Vance: Victoria Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. In the candlelit great room, the mistress rises with a glass while the maid steps to the edge of the tables. Key object in frame: a dinner place card. Location: Blackwell great room, dinner, night. Characters present: Elena Vance, Victoria Blackwell, Richard Blackwell. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing faded blue denim work shirt under a tan canvas barn coat, braid loosened by work); Victoria Blackwell (Cast Sheet Pos #2: mid-forties; platinum-blonde bob; wearing black cashmere turtleneck, long grey riding coat, leather gloves); Richard Blackwell (Cast Sheet Pos #3: around thirty; sandy hair combed back; wearing grey wool overcoat over the white shirt, silver cufflinks).
+Panel 2 — Scene 20 (Blackwell gravel yard, night): [00s-07s] two-shot, medium shot with Victoria Blackwell and Elena Vance: Victoria Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. In the gravel yard at night, a steel barrel burns as the mistress thrusts a folded paper at the maid. Key object in frame: a signed release form. Location: Blackwell gravel yard, night. Characters present: Elena Vance, Victoria Blackwell. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing faded blue denim work shirt under a tan canvas barn coat, braid loosened by work); Victoria Blackwell (Cast Sheet Pos #2: mid-forties; platinum-blonde bob; wearing black cashmere turtleneck, long grey riding coat, leather gloves).
+Panel 3 — Scene 21 (gatehouse cottage, night): [00s-07s] two-shot, medium shot with Elena Vance and Cole Barrett: Elena Vance and Cole Barrett face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. In the cottage lamplight, the maid unrolls the old county survey map while the foreman anchors the curling corners with heavy iron horseshoes. Key object in frame: a scraped parcel map. Location: gatehouse cottage, night. Characters present: Elena Vance, Cole Barrett. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing denim work shirt with rolled sleeves, dark riding jeans, leather work gloves tucked in the belt); Cole Barrett (Cast Sheet Pos #4: early thirties; dark hair under a dust-worn felt hat; wearing chore jacket with a broken zipper pull, leather work gloves).
+Panel 4 — Scene 22 (Blackwell tack room, night): [00s-06s] medium close-up on Elena Vance, face and mouth visible: Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking. Key object in frame: a stack of cash tax receipts. Location: Blackwell tack room, night. Characters present: Elena Vance. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing denim work shirt with rolled sleeves, dark riding jeans, leather work gloves tucked in the belt).
+Panel 5 — Scene 23 (Silver Creek barn hayloft, night): [00s-07s] two-shot, medium shot with Cole Barrett and Elena Vance: Cole Barrett and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. In the moonlight, the foreman gently binds the maid's bruised palm with white tape, his touch slow and deliberate. Key object in frame: a lantern in the hayloft. Location: Silver Creek barn hayloft, night. Characters present: Elena Vance, Cole Barrett. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing denim work shirt with rolled sleeves, dark riding jeans, leather work gloves tucked in the belt); Cole Barrett (Cast Sheet Pos #4: early thirties; dark hair under a dust-worn felt hat; wearing chore jacket with a broken zipper pull, leather work gloves).
+Panel 6 — Scene 24 (Blackwell study archives, night): [00s-07s] two-shot, medium shot with Richard Blackwell and Elena Vance: Richard Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Behind the desk, the maid turns with the open ledger as the heir steps over the threshold. Key object in frame: a ledger of quiet payments. Location: Blackwell study archives, night. Characters present: Elena Vance, Richard Blackwell. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing denim work shirt with rolled sleeves, dark riding jeans, leather work gloves tucked in the belt); Richard Blackwell (Cast Sheet Pos #3: around thirty; sandy hair combed back; wearing white shirt with sleeves rolled, dark trousers).
 
-Mantén continuidad exacta de posiciones, rostros, cuerpos, vestuario, props, locaciones, luz y hora del día entre las 6 viñetas. Cada viñeta es el PRIMER FRAME literal de la Toma 1 de su escena: mismo encuadre, misma cámara, mismo blocking y mismo objeto clave; la acción ya está en movimiento, nunca congelada. Cada viñeta es un plano cinematográfico 16:9 con acción legible.
-FORMATO DE VIÑETAS 100% VISUAL (SIN CAJAS DE TEXTO): Las 6 viñetas fotográficas en cuadrícula 3x2 deben ocupar el 100% del lienzo 16:9 separadas únicamente por líneas divisorias finas. Coloca SOLO el número pequeño [1], [2], [3], [4], [5], [6] en la esquina superior izquierda de cada viñeta. PROHIBIDO dibujar barras inferiores oscuras, subtítulos, cajas de texto o descripciones escritas dentro de la imagen.
+Keep exact continuity of positions, faces, bodies, wardrobe, props, locations, lighting and time of day across the 6 panels. Each panel is the literal FIRST FRAME of Shot 1 in its scene: same framing, same camera, same blocking and same key object; the action is already in motion, never frozen. Each panel is a 16:9 cinematic shot with legible action.
+100% VISUAL PANEL FORMAT (NO TEXT BOXES): The 6 photographic panels in a 3x2 grid must fill 100% of the 16:9 canvas, separated only by thin divider lines. Place ONLY the small number [1], [2], [3], [4], [5], [6] in the top-left corner of each panel. Drawing dark bottom bars, subtitles, text boxes or written descriptions inside the image is FORBIDDEN.
 ```
 
-### REF_GRID_MIN_05.png — Minuto 5 (escenas 25–30)
+### REF_GRID_MIN_05.png — Minute 5 (scenes 25–30)
 
 ```text
-Usando los personajes de REF_CAST_MASTER.png como referencia fija de rostros, edades, cuerpos y vestuarios, genera UNA IMAGEN horizontal 16:9 de Storyboard dividida en una cuadrícula limpia de 3x2 (6 viñetas numeradas del 1 al 6) que represente el MINUTO 5 (Escenas 25 a 30) de la historia en estilo Cinematográfico Realista 35mm:
+Using the characters in REF_CAST_MASTER.png as fixed references for faces, ages, bodies and wardrobes, generate A SINGLE horizontal 16:9 storyboard IMAGE divided into a clean 3x2 grid (6 panels numbered 1 to 6) representing MINUTE 5 (Scenes 25 to 30) of the story in Realistic Cinematic 35mm style:
 
-Look visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
+Visual look: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
 
-Viñeta 1 — Escena 25 (Blackwell mansion great room, night): [00s-07s] two-shot, medium shot with Victoria Blackwell and Elena Vance: Victoria Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. In the vast room, the mistress swings a small brass ribboned key while the maid backs toward the cold hearth. Key object in frame: Walter's unsigned will. Location: Blackwell mansion great room, night. Characters present: Elena Vance, Victoria Blackwell, Richard Blackwell. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing denim work shirt with rolled sleeves, dark riding jeans, leather work gloves tucked in the belt); Victoria Blackwell (Cast Sheet Pos #2: mid-forties; platinum-blonde bob; wearing silver-grey silk blouse, charcoal skirt, single pearl strand); Richard Blackwell (Cast Sheet Pos #3: around thirty; sandy hair combed back; wearing white shirt with sleeves rolled, dark trousers).
-Viñeta 2 — Escena 26 (Blackwell mansion gravel drive, night): [00s-07s] two-shot, medium shot with Cole Barrett and Richard Blackwell: Cole Barrett and Richard Blackwell face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Under harsh halogen yard lights, the foreman plants his boots in front of the heir, refusing to yield the driveway. Key object in frame: a shotgun on the porch. Location: Blackwell mansion gravel drive, night. Characters present: Richard Blackwell, Cole Barrett. No other characters appear. Identity anchors: Richard Blackwell (Cast Sheet Pos #3: around thirty; sandy hair combed back; wearing white shirt with sleeves rolled, dark trousers); Cole Barrett (Cast Sheet Pos #4: early thirties; dark hair under a dust-worn felt hat; wearing chore jacket with a broken zipper pull, leather work gloves).
-Viñeta 3 — Escena 27 (gatehouse cottage porch, night): [00s-07s] two-shot, medium shot with Richard Blackwell and Elena Vance: Richard Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. On the rain-slick porch steps, the heir reaches out with a cream envelope while the maid refuses to accept it. Key object in frame: a threat written on a feed receipt. Location: gatehouse cottage porch, night. Characters present: Elena Vance, Richard Blackwell. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing denim work shirt with rolled sleeves, dark riding jeans, leather work gloves tucked in the belt); Richard Blackwell (Cast Sheet Pos #3: around thirty; sandy hair combed back; wearing white shirt with sleeves rolled, dark trousers).
-Viñeta 4 — Escena 28 (Silver Creek barn aisle, night): [00s-07s] two-shot, medium shot with Maggie Doyle and Elena Vance: Maggie Doyle and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. In the barn aisle, the housekeeper rushes to the maid and grabs both of her elbows with trembling hands. Key object in frame: an empty wall safe. Location: Silver Creek barn aisle, night. Characters present: Elena Vance, Maggie Doyle. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing denim work shirt with rolled sleeves, dark riding jeans, leather work gloves tucked in the belt); Maggie Doyle (Cast Sheet Pos #5: late fifties; iron-grey hair in a loose bun; wearing beige cardigan under the wool shawl, apron gone).
-Viñeta 5 — Escena 29 (Blackwell estate gates, midnight): [00s-07s] two-shot, medium shot with Victoria Blackwell and Elena Vance: Victoria Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. By the iron gates, the mistress steps out of the luxury car into the headlights, holding a checkbook open. Key object in frame: a suitcase full of cash. Location: Blackwell estate gates, midnight. Characters present: Elena Vance, Victoria Blackwell. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing denim work shirt with rolled sleeves, dark riding jeans, leather work gloves tucked in the belt); Victoria Blackwell (Cast Sheet Pos #2: mid-forties; platinum-blonde bob; wearing silver-grey silk blouse, charcoal skirt, single pearl strand).
-Viñeta 6 — Escena 30 (Blackwell estate gates, midnight): [00s-07s] two-shot, medium shot with Victoria Blackwell and Elena Vance: Victoria Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Under the headlights, the mistress thrusts the certified check into the maid's face like an execution order. Key object in frame: a final cash offer. Location: Blackwell estate gates, midnight. Characters present: Elena Vance, Victoria Blackwell. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing denim work shirt with rolled sleeves, dark riding jeans, leather work gloves tucked in the belt); Victoria Blackwell (Cast Sheet Pos #2: mid-forties; platinum-blonde bob; wearing silver-grey silk blouse, charcoal skirt, single pearl strand).
+Panel 1 — Scene 25 (Blackwell mansion great room, night): [00s-07s] two-shot, medium shot with Victoria Blackwell and Elena Vance: Victoria Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. In the vast room, the mistress swings a small brass ribboned key while the maid backs toward the cold hearth. Key object in frame: Walter's unsigned will. Location: Blackwell mansion great room, night. Characters present: Elena Vance, Victoria Blackwell, Richard Blackwell. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing denim work shirt with rolled sleeves, dark riding jeans, leather work gloves tucked in the belt); Victoria Blackwell (Cast Sheet Pos #2: mid-forties; platinum-blonde bob; wearing silver-grey silk blouse, charcoal skirt, single pearl strand); Richard Blackwell (Cast Sheet Pos #3: around thirty; sandy hair combed back; wearing white shirt with sleeves rolled, dark trousers).
+Panel 2 — Scene 26 (Blackwell mansion gravel drive, night): [00s-07s] two-shot, medium shot with Cole Barrett and Richard Blackwell: Cole Barrett and Richard Blackwell face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Under harsh halogen yard lights, the foreman plants his boots in front of the heir, refusing to yield the driveway. Key object in frame: a shotgun on the porch. Location: Blackwell mansion gravel drive, night. Characters present: Richard Blackwell, Cole Barrett. No other characters appear. Identity anchors: Richard Blackwell (Cast Sheet Pos #3: around thirty; sandy hair combed back; wearing white shirt with sleeves rolled, dark trousers); Cole Barrett (Cast Sheet Pos #4: early thirties; dark hair under a dust-worn felt hat; wearing chore jacket with a broken zipper pull, leather work gloves).
+Panel 3 — Scene 27 (gatehouse cottage porch, night): [00s-07s] two-shot, medium shot with Richard Blackwell and Elena Vance: Richard Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. On the rain-slick porch steps, the heir reaches out with a cream envelope while the maid refuses to accept it. Key object in frame: a threat written on a feed receipt. Location: gatehouse cottage porch, night. Characters present: Elena Vance, Richard Blackwell. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing denim work shirt with rolled sleeves, dark riding jeans, leather work gloves tucked in the belt); Richard Blackwell (Cast Sheet Pos #3: around thirty; sandy hair combed back; wearing white shirt with sleeves rolled, dark trousers).
+Panel 4 — Scene 28 (Silver Creek barn aisle, night): [00s-07s] two-shot, medium shot with Maggie Doyle and Elena Vance: Maggie Doyle and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. In the barn aisle, the housekeeper rushes to the maid and grabs both of her elbows with trembling hands. Key object in frame: an empty wall safe. Location: Silver Creek barn aisle, night. Characters present: Elena Vance, Maggie Doyle. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing denim work shirt with rolled sleeves, dark riding jeans, leather work gloves tucked in the belt); Maggie Doyle (Cast Sheet Pos #5: late fifties; iron-grey hair in a loose bun; wearing beige cardigan under the wool shawl, apron gone).
+Panel 5 — Scene 29 (Blackwell estate gates, midnight): [00s-07s] two-shot, medium shot with Victoria Blackwell and Elena Vance: Victoria Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. By the iron gates, the mistress steps out of the luxury car into the headlights, holding a checkbook open. Key object in frame: a suitcase full of cash. Location: Blackwell estate gates, midnight. Characters present: Elena Vance, Victoria Blackwell. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing denim work shirt with rolled sleeves, dark riding jeans, leather work gloves tucked in the belt); Victoria Blackwell (Cast Sheet Pos #2: mid-forties; platinum-blonde bob; wearing silver-grey silk blouse, charcoal skirt, single pearl strand).
+Panel 6 — Scene 30 (Blackwell estate gates, midnight): [00s-07s] two-shot, medium shot with Victoria Blackwell and Elena Vance: Victoria Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Under the headlights, the mistress thrusts the certified check into the maid's face like an execution order. Key object in frame: a final cash offer. Location: Blackwell estate gates, midnight. Characters present: Elena Vance, Victoria Blackwell. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing denim work shirt with rolled sleeves, dark riding jeans, leather work gloves tucked in the belt); Victoria Blackwell (Cast Sheet Pos #2: mid-forties; platinum-blonde bob; wearing silver-grey silk blouse, charcoal skirt, single pearl strand).
 
-Mantén continuidad exacta de posiciones, rostros, cuerpos, vestuario, props, locaciones, luz y hora del día entre las 6 viñetas. Cada viñeta es el PRIMER FRAME literal de la Toma 1 de su escena: mismo encuadre, misma cámara, mismo blocking y mismo objeto clave; la acción ya está en movimiento, nunca congelada. Cada viñeta es un plano cinematográfico 16:9 con acción legible.
-FORMATO DE VIÑETAS 100% VISUAL (SIN CAJAS DE TEXTO): Las 6 viñetas fotográficas en cuadrícula 3x2 deben ocupar el 100% del lienzo 16:9 separadas únicamente por líneas divisorias finas. Coloca SOLO el número pequeño [1], [2], [3], [4], [5], [6] en la esquina superior izquierda de cada viñeta. PROHIBIDO dibujar barras inferiores oscuras, subtítulos, cajas de texto o descripciones escritas dentro de la imagen.
+Keep exact continuity of positions, faces, bodies, wardrobe, props, locations, lighting and time of day across the 6 panels. Each panel is the literal FIRST FRAME of Shot 1 in its scene: same framing, same camera, same blocking and same key object; the action is already in motion, never frozen. Each panel is a 16:9 cinematic shot with legible action.
+100% VISUAL PANEL FORMAT (NO TEXT BOXES): The 6 photographic panels in a 3x2 grid must fill 100% of the 16:9 canvas, separated only by thin divider lines. Place ONLY the small number [1], [2], [3], [4], [5], [6] in the top-left corner of each panel. Drawing dark bottom bars, subtitles, text boxes or written descriptions inside the image is FORBIDDEN.
 ```
 
-### REF_GRID_MIN_06.png — Minuto 6 (escenas 31–36)
+### REF_GRID_MIN_06.png — Minute 6 (scenes 31–36)
 
 ```text
-Usando los personajes de REF_CAST_MASTER.png como referencia fija de rostros, edades, cuerpos y vestuarios, genera UNA IMAGEN horizontal 16:9 de Storyboard dividida en una cuadrícula limpia de 3x2 (6 viñetas numeradas del 1 al 6) que represente el MINUTO 6 (Escenas 31 a 36) de la historia en estilo Cinematográfico Realista 35mm:
+Using the characters in REF_CAST_MASTER.png as fixed references for faces, ages, bodies and wardrobes, generate A SINGLE horizontal 16:9 storyboard IMAGE divided into a clean 3x2 grid (6 panels numbered 1 to 6) representing MINUTE 6 (Scenes 31 to 36) of the story in Realistic Cinematic 35mm style:
 
-Look visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
+Visual look: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
 
-Viñeta 1 — Escena 31 (gatehouse cottage, storm night): [00s-05s] medium close-up on Elena Vance, face and mouth visible: Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking. Key object in frame: a broken floorboard. Location: gatehouse cottage, storm night. Characters present: Elena Vance. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing denim work shirt under a charcoal storm coat, hair wet from rain).
-Viñeta 2 — Escena 32 (gatehouse cottage yard, storm night): [00s-04s] medium close-up on Elena Vance, face and mouth visible: Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking. Key object in frame: an eviction notice. Location: gatehouse cottage yard, storm night. Characters present: Elena Vance. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing denim work shirt under a charcoal storm coat, hair wet from rain).
-Viñeta 3 — Escena 33 (Silver Creek hay shed, storm night): [00s-07s] two-shot, medium shot with Maggie Doyle and Elena Vance: Maggie Doyle and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. In the drafty shelter, the maid wraps her own dry flannel scarf around the weeping housekeeper's neck. Key object in frame: a nursing-home bill. Location: Silver Creek hay shed, storm night. Characters present: Elena Vance, Maggie Doyle. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing denim work shirt under a charcoal storm coat, hair wet from rain); Maggie Doyle (Cast Sheet Pos #5: late fifties; iron-grey hair in a loose bun; wearing wool shawl against the storm, glasses fogged, small travel bag).
-Viñeta 4 — Escena 34 (Blackwell mansion rear terrace, storm night): [00s-07s] two-shot, medium shot with Victoria Blackwell and Richard Blackwell: Victoria Blackwell and Richard Blackwell face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Inside the glowing library, the mistress feeds the ancient deed into the fireplace flames while rain streaks the window. Key object in frame: a burned deed in the fireplace. Location: Blackwell mansion rear terrace, storm night. Characters present: Victoria Blackwell, Richard Blackwell. No other characters appear. Identity anchors: Victoria Blackwell (Cast Sheet Pos #2: mid-forties; platinum-blonde bob; wearing black cashmere sweater, thin diamond bracelet, hair set perfectly despite the storm); Richard Blackwell (Cast Sheet Pos #3: around thirty; sandy hair combed back; wearing dark rain jacket over the white shirt, collar up against the storm).
-Viñeta 5 — Escena 35 (Silver Creek stable tack room, storm night): [00s-07s] two-shot, medium shot with Elena Vance and Richard Blackwell: Elena Vance and Richard Blackwell face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. In a sudden flash of lightning, the maid appears like a ghost in the stable door, blocking the heir's retreat. Key object in frame: a safe-deposit box key. Location: Silver Creek stable tack room, storm night. Characters present: Elena Vance, Richard Blackwell. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing denim work shirt under a charcoal storm coat, hair wet from rain); Richard Blackwell (Cast Sheet Pos #3: around thirty; sandy hair combed back; wearing dark rain jacket over the white shirt, collar up against the storm).
-Viñeta 6 — Escena 36 (ranch ridge overlook, storm dawn): [00s-04s] medium close-up on Elena Vance, face and mouth visible: Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking. Key object in frame: a handful of red Montana dirt. Location: ranch ridge overlook, storm dawn. Characters present: Elena Vance. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing denim work shirt under a charcoal storm coat, hair wet from rain).
+Panel 1 — Scene 31 (gatehouse cottage, storm night): [00s-05s] medium close-up on Elena Vance, face and mouth visible: Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking. Key object in frame: a broken floorboard. Location: gatehouse cottage, storm night. Characters present: Elena Vance. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing denim work shirt under a charcoal storm coat, hair wet from rain).
+Panel 2 — Scene 32 (gatehouse cottage yard, storm night): [00s-04s] medium close-up on Elena Vance, face and mouth visible: Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking. Key object in frame: an eviction notice. Location: gatehouse cottage yard, storm night. Characters present: Elena Vance. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing denim work shirt under a charcoal storm coat, hair wet from rain).
+Panel 3 — Scene 33 (Silver Creek hay shed, storm night): [00s-07s] two-shot, medium shot with Maggie Doyle and Elena Vance: Maggie Doyle and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. In the drafty shelter, the maid wraps her own dry flannel scarf around the weeping housekeeper's neck. Key object in frame: a nursing-home bill. Location: Silver Creek hay shed, storm night. Characters present: Elena Vance, Maggie Doyle. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing denim work shirt under a charcoal storm coat, hair wet from rain); Maggie Doyle (Cast Sheet Pos #5: late fifties; iron-grey hair in a loose bun; wearing wool shawl against the storm, glasses fogged, small travel bag).
+Panel 4 — Scene 34 (Blackwell mansion rear terrace, storm night): [00s-07s] two-shot, medium shot with Victoria Blackwell and Richard Blackwell: Victoria Blackwell and Richard Blackwell face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Inside the glowing library, the mistress feeds the ancient deed into the fireplace flames while rain streaks the window. Key object in frame: a burned deed in the fireplace. Location: Blackwell mansion rear terrace, storm night. Characters present: Victoria Blackwell, Richard Blackwell. No other characters appear. Identity anchors: Victoria Blackwell (Cast Sheet Pos #2: mid-forties; platinum-blonde bob; wearing black cashmere sweater, thin diamond bracelet, hair set perfectly despite the storm); Richard Blackwell (Cast Sheet Pos #3: around thirty; sandy hair combed back; wearing dark rain jacket over the white shirt, collar up against the storm).
+Panel 5 — Scene 35 (Silver Creek stable tack room, storm night): [00s-07s] two-shot, medium shot with Elena Vance and Richard Blackwell: Elena Vance and Richard Blackwell face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. In a sudden flash of lightning, the maid appears like a ghost in the stable door, blocking the heir's retreat. Key object in frame: a safe-deposit box key. Location: Silver Creek stable tack room, storm night. Characters present: Elena Vance, Richard Blackwell. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing denim work shirt under a charcoal storm coat, hair wet from rain); Richard Blackwell (Cast Sheet Pos #3: around thirty; sandy hair combed back; wearing dark rain jacket over the white shirt, collar up against the storm).
+Panel 6 — Scene 36 (ranch ridge overlook, storm dawn): [00s-04s] medium close-up on Elena Vance, face and mouth visible: Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking. Key object in frame: a handful of red Montana dirt. Location: ranch ridge overlook, storm dawn. Characters present: Elena Vance. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing denim work shirt under a charcoal storm coat, hair wet from rain).
 
-Mantén continuidad exacta de posiciones, rostros, cuerpos, vestuario, props, locaciones, luz y hora del día entre las 6 viñetas. Cada viñeta es el PRIMER FRAME literal de la Toma 1 de su escena: mismo encuadre, misma cámara, mismo blocking y mismo objeto clave; la acción ya está en movimiento, nunca congelada. Cada viñeta es un plano cinematográfico 16:9 con acción legible.
-FORMATO DE VIÑETAS 100% VISUAL (SIN CAJAS DE TEXTO): Las 6 viñetas fotográficas en cuadrícula 3x2 deben ocupar el 100% del lienzo 16:9 separadas únicamente por líneas divisorias finas. Coloca SOLO el número pequeño [1], [2], [3], [4], [5], [6] en la esquina superior izquierda de cada viñeta. PROHIBIDO dibujar barras inferiores oscuras, subtítulos, cajas de texto o descripciones escritas dentro de la imagen.
+Keep exact continuity of positions, faces, bodies, wardrobe, props, locations, lighting and time of day across the 6 panels. Each panel is the literal FIRST FRAME of Shot 1 in its scene: same framing, same camera, same blocking and same key object; the action is already in motion, never frozen. Each panel is a 16:9 cinematic shot with legible action.
+100% VISUAL PANEL FORMAT (NO TEXT BOXES): The 6 photographic panels in a 3x2 grid must fill 100% of the 16:9 canvas, separated only by thin divider lines. Place ONLY the small number [1], [2], [3], [4], [5], [6] in the top-left corner of each panel. Drawing dark bottom bars, subtitles, text boxes or written descriptions inside the image is FORBIDDEN.
 ```
 
-### REF_GRID_MIN_07.png — Minuto 7 (escenas 37–42)
+### REF_GRID_MIN_07.png — Minute 7 (scenes 37–42)
 
 ```text
-Usando los personajes de REF_CAST_MASTER.png como referencia fija de rostros, edades, cuerpos y vestuarios, genera UNA IMAGEN horizontal 16:9 de Storyboard dividida en una cuadrícula limpia de 3x2 (6 viñetas numeradas del 1 al 6) que represente el MINUTO 7 (Escenas 37 a 42) de la historia en estilo Cinematográfico Realista 35mm:
+Using the characters in REF_CAST_MASTER.png as fixed references for faces, ages, bodies and wardrobes, generate A SINGLE horizontal 16:9 storyboard IMAGE divided into a clean 3x2 grid (6 panels numbered 1 to 6) representing MINUTE 7 (Scenes 37 to 42) of the story in Realistic Cinematic 35mm style:
 
-Look visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
+Visual look: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
 
-Viñeta 1 — Escena 37 (ranch ridge road, dawn): [00s-07s] two-shot, medium shot with Cole Barrett and Elena Vance: Cole Barrett and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. On the muddy road, the foreman wraps his dry wool jacket around her, pulling the collar up against the wind. Key object in frame: a truck key and gas can. Location: ranch ridge road, dawn. Characters present: Elena Vance, Cole Barrett. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing denim work shirt under a charcoal storm coat, hair wet from rain); Cole Barrett (Cast Sheet Pos #4: early thirties; dark hair under a dust-worn felt hat; wearing soaked canvas jacket, grey henley underneath, no hat).
-Viñeta 2 — Escena 38 (ranch ridge road, green truck cab, dawn): [00s-07s] two-shot, medium shot with Elena Vance and Cole Barrett: Elena Vance and Cole Barrett face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Inside the bouncing truck cab, the maid turns the brass key in the dashboard light, scraping away years of verdigris. Key object in frame: a brass bank key stamped FVT 14. Location: ranch ridge road, green truck cab, dawn. Characters present: Elena Vance, Cole Barrett. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing denim work shirt under a charcoal storm coat, hair wet from rain); Cole Barrett (Cast Sheet Pos #4: early thirties; dark hair under a dust-worn felt hat; wearing soaked canvas jacket, grey henley underneath, no hat).
-Viñeta 3 — Escena 39 (town bank exterior, morning): [00s-07s] two-shot, medium shot with Cole Barrett and Elena Vance: Cole Barrett and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. On the bank steps, the maid and foreman turn together as the limousine door opens across the street. Key object in frame: the bank vault door. Location: town bank exterior, morning. Characters present: Elena Vance, Cole Barrett. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing denim work shirt under a charcoal storm coat, hair wet from rain); Cole Barrett (Cast Sheet Pos #4: early thirties; dark hair under a dust-worn felt hat; wearing soaked canvas jacket, grey henley underneath, no hat).
-Viñeta 4 — Escena 40 (First Valley Trust vault corridor, morning): [00s-03s] medium close-up on Elena Vance, face and mouth visible: Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking. Key object in frame: Walter's certified will. Location: First Valley Trust vault corridor, morning. Characters present: Elena Vance. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing denim work shirt under a charcoal storm coat, hair wet from rain).
-Viñeta 5 — Escena 41 (First Valley Trust manager office, morning): [00s-03s] medium close-up on Elena Vance, face and mouth visible: Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking. Key object in frame: a notary seal. Location: First Valley Trust manager office, morning. Characters present: Elena Vance. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing clean white button shirt under the tan barn coat, braid neat).
-Viñeta 6 — Escena 42 (town bank steps, morning): [00s-07s] two-shot, medium shot with Victoria Blackwell and Cole Barrett: Victoria Blackwell and Cole Barrett face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. On the stone steps, the foreman plants himself between the mistress and the bank doors as the sheriff steps forward. Key object in frame: a bank payroll ledger. Location: town bank steps, morning. Characters present: Victoria Blackwell, Cole Barrett. No other characters appear. Identity anchors: Victoria Blackwell (Cast Sheet Pos #2: mid-forties; platinum-blonde bob; wearing deep emerald high-collar dress for the gala, diamond earrings); Cole Barrett (Cast Sheet Pos #4: early thirties; dark hair under a dust-worn felt hat; wearing clean denim jacket over the grey henley, hat brushed for once).
+Panel 1 — Scene 37 (ranch ridge road, dawn): [00s-07s] two-shot, medium shot with Cole Barrett and Elena Vance: Cole Barrett and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. On the muddy road, the foreman wraps his dry wool jacket around her, pulling the collar up against the wind. Key object in frame: a truck key and gas can. Location: ranch ridge road, dawn. Characters present: Elena Vance, Cole Barrett. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing denim work shirt under a charcoal storm coat, hair wet from rain); Cole Barrett (Cast Sheet Pos #4: early thirties; dark hair under a dust-worn felt hat; wearing soaked canvas jacket, grey henley underneath, no hat).
+Panel 2 — Scene 38 (ranch ridge road, green truck cab, dawn): [00s-07s] two-shot, medium shot with Elena Vance and Cole Barrett: Elena Vance and Cole Barrett face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Inside the bouncing truck cab, the maid turns the brass key in the dashboard light, scraping away years of verdigris. Key object in frame: a brass bank key stamped FVT 14. Location: ranch ridge road, green truck cab, dawn. Characters present: Elena Vance, Cole Barrett. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing denim work shirt under a charcoal storm coat, hair wet from rain); Cole Barrett (Cast Sheet Pos #4: early thirties; dark hair under a dust-worn felt hat; wearing soaked canvas jacket, grey henley underneath, no hat).
+Panel 3 — Scene 39 (town bank exterior, morning): [00s-07s] two-shot, medium shot with Cole Barrett and Elena Vance: Cole Barrett and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. On the bank steps, the maid and foreman turn together as the limousine door opens across the street. Key object in frame: the bank vault door. Location: town bank exterior, morning. Characters present: Elena Vance, Cole Barrett. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing denim work shirt under a charcoal storm coat, hair wet from rain); Cole Barrett (Cast Sheet Pos #4: early thirties; dark hair under a dust-worn felt hat; wearing soaked canvas jacket, grey henley underneath, no hat).
+Panel 4 — Scene 40 (First Valley Trust vault corridor, morning): [00s-03s] medium close-up on Elena Vance, face and mouth visible: Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking. Location: First Valley Trust vault corridor, morning. Key object: the scene's central visual detail. Characters present: Elena Vance. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing denim work shirt under a charcoal storm coat, hair wet from rain).
+Panel 5 — Scene 41 (First Valley Trust manager office, morning): [00s-03s] medium close-up on Elena Vance, face and mouth visible: Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking. Key object in frame: a notary seal. Location: First Valley Trust manager office, morning. Characters present: Elena Vance. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing clean white button shirt under the tan barn coat, braid neat).
+Panel 6 — Scene 42 (town bank steps, morning): [00s-07s] two-shot, medium shot with Victoria Blackwell and Cole Barrett: Victoria Blackwell and Cole Barrett face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. On the stone steps, the foreman plants himself between the mistress and the bank doors as the sheriff steps forward. Key object in frame: a bank payroll ledger. Location: town bank steps, morning. Characters present: Victoria Blackwell, Cole Barrett. No other characters appear. Identity anchors: Victoria Blackwell (Cast Sheet Pos #2: mid-forties; platinum-blonde bob; wearing deep emerald high-collar dress for the gala, diamond earrings); Cole Barrett (Cast Sheet Pos #4: early thirties; dark hair under a dust-worn felt hat; wearing clean denim jacket over the grey henley, hat brushed for once).
 
-Mantén continuidad exacta de posiciones, rostros, cuerpos, vestuario, props, locaciones, luz y hora del día entre las 6 viñetas. Cada viñeta es el PRIMER FRAME literal de la Toma 1 de su escena: mismo encuadre, misma cámara, mismo blocking y mismo objeto clave; la acción ya está en movimiento, nunca congelada. Cada viñeta es un plano cinematográfico 16:9 con acción legible.
-FORMATO DE VIÑETAS 100% VISUAL (SIN CAJAS DE TEXTO): Las 6 viñetas fotográficas en cuadrícula 3x2 deben ocupar el 100% del lienzo 16:9 separadas únicamente por líneas divisorias finas. Coloca SOLO el número pequeño [1], [2], [3], [4], [5], [6] en la esquina superior izquierda de cada viñeta. PROHIBIDO dibujar barras inferiores oscuras, subtítulos, cajas de texto o descripciones escritas dentro de la imagen.
+Keep exact continuity of positions, faces, bodies, wardrobe, props, locations, lighting and time of day across the 6 panels. Each panel is the literal FIRST FRAME of Shot 1 in its scene: same framing, same camera, same blocking and same key object; the action is already in motion, never frozen. Each panel is a 16:9 cinematic shot with legible action.
+100% VISUAL PANEL FORMAT (NO TEXT BOXES): The 6 photographic panels in a 3x2 grid must fill 100% of the 16:9 canvas, separated only by thin divider lines. Place ONLY the small number [1], [2], [3], [4], [5], [6] in the top-left corner of each panel. Drawing dark bottom bars, subtitles, text boxes or written descriptions inside the image is FORBIDDEN.
 ```
 
-### REF_GRID_MIN_08.png — Minuto 8 (escenas 43–48)
+### REF_GRID_MIN_08.png — Minute 8 (scenes 43–48)
 
 ```text
-Usando los personajes de REF_CAST_MASTER.png como referencia fija de rostros, edades, cuerpos y vestuarios, genera UNA IMAGEN horizontal 16:9 de Storyboard dividida en una cuadrícula limpia de 3x2 (6 viñetas numeradas del 1 al 6) que represente el MINUTO 8 (Escenas 43 a 48) de la historia en estilo Cinematográfico Realista 35mm:
+Using the characters in REF_CAST_MASTER.png as fixed references for faces, ages, bodies and wardrobes, generate A SINGLE horizontal 16:9 storyboard IMAGE divided into a clean 3x2 grid (6 panels numbered 1 to 6) representing MINUTE 8 (Scenes 43 to 48) of the story in Realistic Cinematic 35mm style:
 
-Look visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
+Visual look: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
 
-Viñeta 1 — Escena 43 (town bank steps, morning): [00s-07s] two-shot, medium shot with Elena Vance and Victoria Blackwell: Elena Vance and Victoria Blackwell face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. The maid emerges onto the sunlit steps, lifting the stamped court-certified envelope for the entire sidewalk to see. Key object in frame: a court filing stamp. Location: town bank steps, morning. Characters present: Elena Vance, Victoria Blackwell. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing clean white button shirt under the tan barn coat, braid neat); Victoria Blackwell (Cast Sheet Pos #2: mid-forties; platinum-blonde bob; wearing deep emerald high-collar dress for the gala, diamond earrings).
-Viñeta 2 — Escena 44 (Blackwell town car, morning): [00s-07s] two-shot, medium shot with Victoria Blackwell and Richard Blackwell: Victoria Blackwell and Richard Blackwell face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Inside the town car, the mistress grabs her son's lapel as he pulls himself back against the passenger door. Key object in frame: a perjury statement. Location: Blackwell town car, morning. Characters present: Victoria Blackwell, Richard Blackwell. No other characters appear. Identity anchors: Victoria Blackwell (Cast Sheet Pos #2: mid-forties; platinum-blonde bob; wearing deep emerald high-collar dress for the gala, diamond earrings); Richard Blackwell (Cast Sheet Pos #3: around thirty; sandy hair combed back; wearing black suit for the gala, sharp lapels, slicked hair).
-Viñeta 3 — Escena 45 (county civic hall back alley, noon): [00s-07s] two-shot, medium shot with Maggie Doyle and Elena Vance: Maggie Doyle and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. In the brick alleyway, the housekeeper presses an aged leather journal into the maid's hands, tears in her eyes. Key object in frame: a fire log with a check number. Location: county civic hall back alley, noon. Characters present: Elena Vance, Cole Barrett, Maggie Doyle. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing clean white button shirt under the tan barn coat, braid neat); Cole Barrett (Cast Sheet Pos #4: early thirties; dark hair under a dust-worn felt hat; wearing clean denim jacket over the grey henley, hat brushed for once); Maggie Doyle (Cast Sheet Pos #5: late fifties; iron-grey hair in a loose bun; wearing best Sunday cardigan, the apron folded neatly on a chair).
-Viñeta 4 — Escena 46 (Silver Creek civic hall foyer, afternoon): [00s-07s] two-shot, medium shot with Cole Barrett and Elena Vance: Cole Barrett and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Before the towering carved oak doors, the maid walks up and adjusts her mother's silver belt buckle. Key object in frame: a gala invitation. Location: Silver Creek civic hall foyer, afternoon. Characters present: Elena Vance, Cole Barrett. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing clean white button shirt under the tan barn coat, braid neat); Cole Barrett (Cast Sheet Pos #4: early thirties; dark hair under a dust-worn felt hat; wearing clean denim jacket over the grey henley, hat brushed for once).
-Viñeta 5 — Escena 47 (civic hall grand ballroom, afternoon): [00s-07s] two-shot, medium shot with Victoria Blackwell and Elena Vance: Victoria Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. The grand ballroom falls utterly silent as the ranch maid in her simple white shirt strides down the red carpet toward the stage. Key object in frame: an auction catalog. Location: civic hall grand ballroom, afternoon. Characters present: Elena Vance, Victoria Blackwell. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing clean white button shirt under the tan barn coat, braid neat); Victoria Blackwell (Cast Sheet Pos #2: mid-forties; platinum-blonde bob; wearing deep emerald high-collar dress for the gala, diamond earrings).
-Viñeta 6 — Escena 48 (civic hall auction stage, afternoon): [00s-07s] two-shot, medium shot with Victoria Blackwell and Elena Vance: Victoria Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Under the blinding stage lights, the mistress steps right into the maid's face, abandoning all high-society poise. Key object in frame: a gavel on the auction block. Location: civic hall auction stage, afternoon. Characters present: Elena Vance, Victoria Blackwell. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing clean white button shirt under the tan barn coat, braid neat); Victoria Blackwell (Cast Sheet Pos #2: mid-forties; platinum-blonde bob; wearing deep emerald high-collar dress for the gala, diamond earrings).
+Panel 1 — Scene 43 (town bank steps, morning): [00s-07s] two-shot, medium shot with Elena Vance and Victoria Blackwell: Elena Vance and Victoria Blackwell face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. The maid emerges onto the sunlit steps, lifting the stamped court-certified envelope for the entire sidewalk to see. Key object in frame: a court filing stamp. Location: town bank steps, morning. Characters present: Elena Vance, Victoria Blackwell. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing clean white button shirt under the tan barn coat, braid neat); Victoria Blackwell (Cast Sheet Pos #2: mid-forties; platinum-blonde bob; wearing deep emerald high-collar dress for the gala, diamond earrings).
+Panel 2 — Scene 44 (Blackwell town car, morning): [00s-07s] two-shot, medium shot with Victoria Blackwell and Richard Blackwell: Victoria Blackwell and Richard Blackwell face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Inside the town car, the mistress grabs her son's lapel as he pulls himself back against the passenger door. Key object in frame: a perjury statement. Location: Blackwell town car, morning. Characters present: Victoria Blackwell, Richard Blackwell. No other characters appear. Identity anchors: Victoria Blackwell (Cast Sheet Pos #2: mid-forties; platinum-blonde bob; wearing deep emerald high-collar dress for the gala, diamond earrings); Richard Blackwell (Cast Sheet Pos #3: around thirty; sandy hair combed back; wearing black suit for the gala, sharp lapels, slicked hair).
+Panel 3 — Scene 45 (county civic hall back alley, noon): [00s-07s] two-shot, medium shot with Maggie Doyle and Elena Vance: Maggie Doyle and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. In the brick alleyway, the housekeeper presses an aged leather journal into the maid's hands, tears in her eyes. Key object in frame: a fire log with a check number. Location: county civic hall back alley, noon. Characters present: Elena Vance, Cole Barrett, Maggie Doyle. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing clean white button shirt under the tan barn coat, braid neat); Cole Barrett (Cast Sheet Pos #4: early thirties; dark hair under a dust-worn felt hat; wearing clean denim jacket over the grey henley, hat brushed for once); Maggie Doyle (Cast Sheet Pos #5: late fifties; iron-grey hair in a loose bun; wearing best Sunday cardigan, the apron folded neatly on a chair).
+Panel 4 — Scene 46 (Silver Creek civic hall foyer, afternoon): [00s-07s] two-shot, medium shot with Cole Barrett and Elena Vance: Cole Barrett and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Before the towering carved oak doors, the maid walks up and adjusts her mother's silver belt buckle. Key object in frame: a gala invitation. Location: Silver Creek civic hall foyer, afternoon. Characters present: Elena Vance, Cole Barrett. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing clean white button shirt under the tan barn coat, braid neat); Cole Barrett (Cast Sheet Pos #4: early thirties; dark hair under a dust-worn felt hat; wearing clean denim jacket over the grey henley, hat brushed for once).
+Panel 5 — Scene 47 (civic hall grand ballroom, afternoon): [00s-07s] two-shot, medium shot with Victoria Blackwell and Elena Vance: Victoria Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. The grand ballroom falls utterly silent as the ranch maid in her simple white shirt strides down the red carpet toward the stage. Key object in frame: an auction catalog. Location: civic hall grand ballroom, afternoon. Characters present: Elena Vance, Victoria Blackwell. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing clean white button shirt under the tan barn coat, braid neat); Victoria Blackwell (Cast Sheet Pos #2: mid-forties; platinum-blonde bob; wearing deep emerald high-collar dress for the gala, diamond earrings).
+Panel 6 — Scene 48 (civic hall auction stage, afternoon): [00s-07s] two-shot, medium shot with Victoria Blackwell and Elena Vance: Victoria Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Under the blinding stage lights, the mistress steps right into the maid's face, abandoning all high-society poise. Key object in frame: a gavel on the auction block. Location: civic hall auction stage, afternoon. Characters present: Elena Vance, Victoria Blackwell. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing clean white button shirt under the tan barn coat, braid neat); Victoria Blackwell (Cast Sheet Pos #2: mid-forties; platinum-blonde bob; wearing deep emerald high-collar dress for the gala, diamond earrings).
 
-Mantén continuidad exacta de posiciones, rostros, cuerpos, vestuario, props, locaciones, luz y hora del día entre las 6 viñetas. Cada viñeta es el PRIMER FRAME literal de la Toma 1 de su escena: mismo encuadre, misma cámara, mismo blocking y mismo objeto clave; la acción ya está en movimiento, nunca congelada. Cada viñeta es un plano cinematográfico 16:9 con acción legible.
-FORMATO DE VIÑETAS 100% VISUAL (SIN CAJAS DE TEXTO): Las 6 viñetas fotográficas en cuadrícula 3x2 deben ocupar el 100% del lienzo 16:9 separadas únicamente por líneas divisorias finas. Coloca SOLO el número pequeño [1], [2], [3], [4], [5], [6] en la esquina superior izquierda de cada viñeta. PROHIBIDO dibujar barras inferiores oscuras, subtítulos, cajas de texto o descripciones escritas dentro de la imagen.
+Keep exact continuity of positions, faces, bodies, wardrobe, props, locations, lighting and time of day across the 6 panels. Each panel is the literal FIRST FRAME of Shot 1 in its scene: same framing, same camera, same blocking and same key object; the action is already in motion, never frozen. Each panel is a 16:9 cinematic shot with legible action.
+100% VISUAL PANEL FORMAT (NO TEXT BOXES): The 6 photographic panels in a 3x2 grid must fill 100% of the 16:9 canvas, separated only by thin divider lines. Place ONLY the small number [1], [2], [3], [4], [5], [6] in the top-left corner of each panel. Drawing dark bottom bars, subtitles, text boxes or written descriptions inside the image is FORBIDDEN.
 ```
 
-### REF_GRID_MIN_09.png — Minuto 9 (escenas 49–54)
+### REF_GRID_MIN_09.png — Minute 9 (scenes 49–54)
 
 ```text
-Usando los personajes de REF_CAST_MASTER.png como referencia fija de rostros, edades, cuerpos y vestuarios, genera UNA IMAGEN horizontal 16:9 de Storyboard dividida en una cuadrícula limpia de 3x2 (6 viñetas numeradas del 1 al 6) que represente el MINUTO 9 (Escenas 49 a 54) de la historia en estilo Cinematográfico Realista 35mm:
+Using the characters in REF_CAST_MASTER.png as fixed references for faces, ages, bodies and wardrobes, generate A SINGLE horizontal 16:9 storyboard IMAGE divided into a clean 3x2 grid (6 panels numbered 1 to 6) representing MINUTE 9 (Scenes 49 to 54) of the story in Realistic Cinematic 35mm style:
 
-Look visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
+Visual look: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
 
-Viñeta 1 — Escena 49 (civic hall auction stage, afternoon): [00s-04s] medium close-up on Elena Vance, face and mouth visible: Elena Vance is on camera with face and mouth fully visible, looking at Cole Barrett. Elena Vance holds the moment before speaking. Key object in frame: a verified signature card. Location: civic hall auction stage, afternoon. Characters present: Elena Vance, Cole Barrett. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing clean white button shirt under the tan barn coat, braid neat); Cole Barrett (Cast Sheet Pos #4: early thirties; dark hair under a dust-worn felt hat; wearing clean denim jacket over the grey henley, hat brushed for once).
-Viñeta 2 — Escena 50 (civic hall stage wings, afternoon): [00s-06s] medium close-up on Victoria Blackwell, face and mouth visible: Victoria Blackwell is on camera with face and mouth fully visible, looking at Elena Vance. Victoria Blackwell holds the moment before speaking. Key object in frame: a kerosene can. Location: civic hall stage wings, afternoon. Characters present: Elena Vance, Victoria Blackwell. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing clean white button shirt under the tan barn coat, braid neat); Victoria Blackwell (Cast Sheet Pos #2: mid-forties; platinum-blonde bob; wearing deep emerald high-collar dress for the gala, diamond earrings).
-Viñeta 3 — Escena 51 (Silver Creek barn exterior, dusk): [00s-07s] two-shot, medium shot with Cole Barrett and Elena Vance: Cole Barrett and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Close on the foreman looking up at Elena, breathing hard but smiling with fierce triumph. Key object in frame: a coil of rope in the hayloft. Location: Silver Creek barn exterior, dusk. Characters present: Elena Vance, Cole Barrett. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing deep green flannel shirt, dark jeans, her mother's silver belt buckle); Cole Barrett (Cast Sheet Pos #4: early thirties; dark hair under a dust-worn felt hat; wearing same denim jacket, hat in hand, standing at the barn door).
-Viñeta 4 — Escena 52 (civic hall courtroom chamber, evening): [00s-03s] medium close-up on Richard Blackwell, face and mouth visible: Richard Blackwell is on camera with face and mouth fully visible, looking at the other person in frame. Richard Blackwell holds the moment before speaking. Key object in frame: a handwritten confession. Location: civic hall courtroom chamber, evening. Characters present: Richard Blackwell. No other characters appear. Identity anchors: Richard Blackwell (Cast Sheet Pos #3: around thirty; sandy hair combed back; wearing black gala suit, tie loosened, shaken).
-Viñeta 5 — Escena 53 (civic hall courtroom chamber, evening): [00s-03s] medium close-up on Maggie Doyle, face and mouth visible: Maggie Doyle is on camera with face and mouth fully visible, looking at Victoria Blackwell. Maggie Doyle holds the moment before speaking. Key object in frame: a recantation form. Location: civic hall courtroom chamber, evening. Characters present: Victoria Blackwell, Maggie Doyle. No other characters appear. Identity anchors: Victoria Blackwell (Cast Sheet Pos #2: mid-forties; platinum-blonde bob; wearing emerald gala dress, gloves gone, jewelry missing); Maggie Doyle (Cast Sheet Pos #5: late fifties; iron-grey hair in a loose bun; wearing same Sunday cardigan, hair escaped from the bun, standing tall).
-Viñeta 6 — Escena 54 (civic hall courtroom chamber, evening): [00s-04s] tight close-up, face and mouth visible: Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Close on Elena's eyes filling with tears of vindication, a slow, radiant smile breaking across her face. Key object in frame: a court order. Location: civic hall courtroom chamber, evening. Characters present: Elena Vance. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing deep green flannel shirt, dark jeans, her mother's silver belt buckle).
+Panel 1 — Scene 49 (civic hall auction stage, afternoon): [00s-04s] medium close-up on Elena Vance, face and mouth visible: Elena Vance is on camera with face and mouth fully visible, looking at Cole Barrett. Elena Vance holds the moment before speaking. Key object in frame: a verified signature card. Location: civic hall auction stage, afternoon. Characters present: Elena Vance, Cole Barrett. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing clean white button shirt under the tan barn coat, braid neat); Cole Barrett (Cast Sheet Pos #4: early thirties; dark hair under a dust-worn felt hat; wearing clean denim jacket over the grey henley, hat brushed for once).
+Panel 2 — Scene 50 (civic hall stage wings, afternoon): [00s-06s] medium close-up on Victoria Blackwell, face and mouth visible: Victoria Blackwell is on camera with face and mouth fully visible, looking at Elena Vance. Victoria Blackwell holds the moment before speaking. Location: civic hall stage wings, afternoon. Key object: the scene's central visual detail. Characters present: Elena Vance, Victoria Blackwell. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing clean white button shirt under the tan barn coat, braid neat); Victoria Blackwell (Cast Sheet Pos #2: mid-forties; platinum-blonde bob; wearing deep emerald high-collar dress for the gala, diamond earrings).
+Panel 3 — Scene 51 (Silver Creek barn exterior, dusk): [00s-07s] two-shot, medium shot with Cole Barrett and Elena Vance: Cole Barrett and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Close on the foreman looking up at Elena, breathing hard but smiling with fierce triumph. Location: Silver Creek barn exterior, dusk. Key object: the scene's central visual detail. Characters present: Elena Vance, Cole Barrett. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing deep green flannel shirt, dark jeans, her mother's silver belt buckle); Cole Barrett (Cast Sheet Pos #4: early thirties; dark hair under a dust-worn felt hat; wearing same denim jacket, hat in hand, standing at the barn door).
+Panel 4 — Scene 52 (civic hall courtroom chamber, evening): [00s-03s] medium close-up on Richard Blackwell, face and mouth visible: Richard Blackwell is on camera alone in the frame with face and mouth fully visible. Richard Blackwell holds the moment before speaking. Key object in frame: a handwritten confession. Location: civic hall courtroom chamber, evening. Characters present: Richard Blackwell. No other characters appear. Identity anchors: Richard Blackwell (Cast Sheet Pos #3: around thirty; sandy hair combed back; wearing black gala suit, tie loosened, shaken).
+Panel 5 — Scene 53 (civic hall courtroom chamber, evening): [00s-03s] medium close-up on Maggie Doyle, face and mouth visible: Maggie Doyle is on camera alone in the frame with face and mouth fully visible. Maggie Doyle holds the moment before speaking. Key object in frame: a recantation form. Location: civic hall courtroom chamber, evening. Characters present: Maggie Doyle. No other characters appear. Identity anchors: Maggie Doyle (Cast Sheet Pos #5: late fifties; iron-grey hair in a loose bun; wearing same Sunday cardigan, hair escaped from the bun, standing tall).
+Panel 6 — Scene 54 (civic hall courtroom chamber, evening): [00s-04s] tight close-up, face and mouth visible: Elena Vance is on camera alone in the frame with face and mouth fully visible. Close on Elena's eyes filling with tears of vindication, a slow, radiant smile breaking across her face. Key object in frame: a court order. Location: civic hall courtroom chamber, evening. Characters present: Elena Vance. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing deep green flannel shirt, dark jeans, her mother's silver belt buckle).
 
-Mantén continuidad exacta de posiciones, rostros, cuerpos, vestuario, props, locaciones, luz y hora del día entre las 6 viñetas. Cada viñeta es el PRIMER FRAME literal de la Toma 1 de su escena: mismo encuadre, misma cámara, mismo blocking y mismo objeto clave; la acción ya está en movimiento, nunca congelada. Cada viñeta es un plano cinematográfico 16:9 con acción legible.
-FORMATO DE VIÑETAS 100% VISUAL (SIN CAJAS DE TEXTO): Las 6 viñetas fotográficas en cuadrícula 3x2 deben ocupar el 100% del lienzo 16:9 separadas únicamente por líneas divisorias finas. Coloca SOLO el número pequeño [1], [2], [3], [4], [5], [6] en la esquina superior izquierda de cada viñeta. PROHIBIDO dibujar barras inferiores oscuras, subtítulos, cajas de texto o descripciones escritas dentro de la imagen.
+Keep exact continuity of positions, faces, bodies, wardrobe, props, locations, lighting and time of day across the 6 panels. Each panel is the literal FIRST FRAME of Shot 1 in its scene: same framing, same camera, same blocking and same key object; the action is already in motion, never frozen. Each panel is a 16:9 cinematic shot with legible action.
+100% VISUAL PANEL FORMAT (NO TEXT BOXES): The 6 photographic panels in a 3x2 grid must fill 100% of the 16:9 canvas, separated only by thin divider lines. Place ONLY the small number [1], [2], [3], [4], [5], [6] in the top-left corner of each panel. Drawing dark bottom bars, subtitles, text boxes or written descriptions inside the image is FORBIDDEN.
 ```
 
-### REF_GRID_MIN_10.png — Minuto 10 (escenas 55–60)
+### REF_GRID_MIN_10.png — Minute 10 (scenes 55–60)
 
 ```text
-Usando los personajes de REF_CAST_MASTER.png como referencia fija de rostros, edades, cuerpos y vestuarios, genera UNA IMAGEN horizontal 16:9 de Storyboard dividida en una cuadrícula limpia de 3x2 (6 viñetas numeradas del 1 al 6) que represente el MINUTO 10 (Escenas 55 a 60) de la historia en estilo Cinematográfico Realista 35mm:
+Using the characters in REF_CAST_MASTER.png as fixed references for faces, ages, bodies and wardrobes, generate A SINGLE horizontal 16:9 storyboard IMAGE divided into a clean 3x2 grid (6 panels numbered 1 to 6) representing MINUTE 10 (Scenes 55 to 60) of the story in Realistic Cinematic 35mm style:
 
-Look visual: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
+Visual look: prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette.
 
-Viñeta 1 — Escena 55 (civic hall grand steps, night): [00s-07s] two-shot, medium shot with Victoria Blackwell and Elena Vance: Victoria Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Under the flashing blue lights of state police cruisers, the troopers secure handcuffs behind the mistress's back. Key object in frame: a pair of handcuffs. Location: civic hall grand steps, night. Characters present: Elena Vance, Victoria Blackwell. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing deep green flannel shirt, dark jeans, her mother's silver belt buckle); Victoria Blackwell (Cast Sheet Pos #2: mid-forties; platinum-blonde bob; wearing emerald gala dress, gloves gone, jewelry missing).
-Viñeta 2 — Escena 56 (civic hall grand steps, night): [00s-07s] two-shot, medium shot with Victoria Blackwell and Elena Vance: Victoria Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. On the wet steps, the handcuffed mistress collapses forward onto her knees before the maid she once tormented. Key object in frame: a suitcase on the steps. Location: civic hall grand steps, night. Characters present: Elena Vance, Victoria Blackwell. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing deep green flannel shirt, dark jeans, her mother's silver belt buckle); Victoria Blackwell (Cast Sheet Pos #2: mid-forties; platinum-blonde bob; wearing emerald gala dress, gloves gone, jewelry missing).
-Viñeta 3 — Escena 57 (Silver Creek mansion foyer, night): [00s-07s] two-shot, medium shot with Maggie Doyle and Elena Vance: Maggie Doyle and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. The grand foyer is warm with lamplight; the maid crosses the floor where she was once humiliated, now as the estate's mistress. Key object in frame: a clean white teacup. Location: Silver Creek mansion foyer, night. Characters present: Elena Vance, Maggie Doyle. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing deep green flannel shirt, dark jeans, her mother's silver belt buckle); Maggie Doyle (Cast Sheet Pos #5: late fifties; iron-grey hair in a loose bun; wearing same Sunday cardigan, hair escaped from the bun, standing tall).
-Viñeta 4 — Escena 58 (Silver Creek barn gate, moonlight): [00s-07s] two-shot, medium shot with Cole Barrett and Elena Vance: Cole Barrett and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. At the corral gate, the foreman turns to the maid, nervously rolling the brim of his felt hat in both hands. Key object in frame: a set of ranch keys. Location: Silver Creek barn gate, moonlight. Characters present: Elena Vance, Cole Barrett. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing deep green flannel shirt, dark jeans, her mother's silver belt buckle); Cole Barrett (Cast Sheet Pos #4: early thirties; dark hair under a dust-worn felt hat; wearing same denim jacket, hat in hand, standing at the barn door).
-Viñeta 5 — Escena 59 (Blackwell great room mantelpiece, night): [00s-04s] tight close-up, face and mouth visible: Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Close on Elena's face, radiant with deep peace as a single grateful tear slips down her cheek. Key object in frame: a framed photograph of June. Location: Blackwell great room mantelpiece, night. Characters present: Elena Vance. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing deep green flannel shirt, dark jeans, her mother's silver belt buckle).
-Viñeta 6 — Escena 60 (mansion study desk, night): [00s-03s] tight close-up, face and mouth visible: Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Close on Elena's eyes widening in stunned alarm as she reads Walter's final words in the letter. Key object in frame: a folded letter with a second clause. Location: mansion study desk, night. Characters present: Elena Vance. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing deep green flannel shirt, dark jeans, her mother's silver belt buckle).
+Panel 1 — Scene 55 (civic hall grand steps, night): [00s-07s] two-shot, medium shot with Victoria Blackwell and Elena Vance: Victoria Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Under the flashing blue lights of state police cruisers, the troopers secure handcuffs behind the mistress's back. Key object in frame: a pair of handcuffs. Location: civic hall grand steps, night. Characters present: Elena Vance, Victoria Blackwell. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing deep green flannel shirt, dark jeans, her mother's silver belt buckle); Victoria Blackwell (Cast Sheet Pos #2: mid-forties; platinum-blonde bob; wearing emerald gala dress, gloves gone, jewelry missing).
+Panel 2 — Scene 56 (civic hall grand steps, night): [00s-07s] two-shot, medium shot with Victoria Blackwell and Elena Vance: Victoria Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. On the wet steps, the handcuffed mistress collapses forward onto her knees before the maid she once tormented. Key object in frame: a suitcase on the steps. Location: civic hall grand steps, night. Characters present: Elena Vance, Victoria Blackwell. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing deep green flannel shirt, dark jeans, her mother's silver belt buckle); Victoria Blackwell (Cast Sheet Pos #2: mid-forties; platinum-blonde bob; wearing emerald gala dress, gloves gone, jewelry missing).
+Panel 3 — Scene 57 (Silver Creek mansion foyer, night): [00s-07s] two-shot, medium shot with Maggie Doyle and Elena Vance: Maggie Doyle and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. The grand foyer is warm with lamplight; the maid crosses the floor where she was once humiliated, now as the estate's mistress. Key object in frame: a clean white teacup. Location: Silver Creek mansion foyer, night. Characters present: Elena Vance, Maggie Doyle. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing deep green flannel shirt, dark jeans, her mother's silver belt buckle); Maggie Doyle (Cast Sheet Pos #5: late fifties; iron-grey hair in a loose bun; wearing same Sunday cardigan, hair escaped from the bun, standing tall).
+Panel 4 — Scene 58 (Silver Creek barn gate, moonlight): [00s-07s] two-shot, medium shot with Cole Barrett and Elena Vance: Cole Barrett and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. At the corral gate, the foreman turns to the maid, nervously rolling the brim of his felt hat in both hands. Key object in frame: a set of ranch keys. Location: Silver Creek barn gate, moonlight. Characters present: Elena Vance, Cole Barrett. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing deep green flannel shirt, dark jeans, her mother's silver belt buckle); Cole Barrett (Cast Sheet Pos #4: early thirties; dark hair under a dust-worn felt hat; wearing same denim jacket, hat in hand, standing at the barn door).
+Panel 5 — Scene 59 (Blackwell great room mantelpiece, night): [00s-04s] tight close-up, face and mouth visible: Elena Vance is on camera alone in the frame with face and mouth fully visible. Close on Elena's face, radiant with deep peace as a single grateful tear slips down her cheek. Key object in frame: a framed photograph of June. Location: Blackwell great room mantelpiece, night. Characters present: Elena Vance. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing deep green flannel shirt, dark jeans, her mother's silver belt buckle).
+Panel 6 — Scene 60 (mansion study desk, night): [00s-04s] tight close-up, face and mouth visible: Elena Vance is on camera alone in the frame with face and mouth fully visible. Close on Elena's eyes widening in stunned alarm as she reads Walter's final words in the letter. Location: mansion study desk, night. Key object: the scene's central visual detail. Characters present: Elena Vance. No other characters appear. Identity anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing deep green flannel shirt, dark jeans, her mother's silver belt buckle).
 
-Mantén continuidad exacta de posiciones, rostros, cuerpos, vestuario, props, locaciones, luz y hora del día entre las 6 viñetas. Cada viñeta es el PRIMER FRAME literal de la Toma 1 de su escena: mismo encuadre, misma cámara, mismo blocking y mismo objeto clave; la acción ya está en movimiento, nunca congelada. Cada viñeta es un plano cinematográfico 16:9 con acción legible.
-FORMATO DE VIÑETAS 100% VISUAL (SIN CAJAS DE TEXTO): Las 6 viñetas fotográficas en cuadrícula 3x2 deben ocupar el 100% del lienzo 16:9 separadas únicamente por líneas divisorias finas. Coloca SOLO el número pequeño [1], [2], [3], [4], [5], [6] en la esquina superior izquierda de cada viñeta. PROHIBIDO dibujar barras inferiores oscuras, subtítulos, cajas de texto o descripciones escritas dentro de la imagen.
+Keep exact continuity of positions, faces, bodies, wardrobe, props, locations, lighting and time of day across the 6 panels. Each panel is the literal FIRST FRAME of Shot 1 in its scene: same framing, same camera, same blocking and same key object; the action is already in motion, never frozen. Each panel is a 16:9 cinematic shot with legible action.
+100% VISUAL PANEL FORMAT (NO TEXT BOXES): The 6 photographic panels in a 3x2 grid must fill 100% of the 16:9 canvas, separated only by thin divider lines. Place ONLY the small number [1], [2], [3], [4], [5], [6] in the top-left corner of each panel. Drawing dark bottom bars, subtitles, text boxes or written descriptions inside the image is FORBIDDEN.
 ```
 
 ---
 
-## Paso 3 — Lotes Muse AI (10 videos de 1 minuto)
+## Step 3 — Muse AI batches (10 1-minute videos)
 
-En cada lote: adjunta los dos archivos indicados y pega **un guion completo**
-(16:9 para YouTube o 9:16 para Reels/Shorts). El guion ya termina con el comando final.
+For each batch: attach the two indicated files and paste **one complete script**
+(16:9 for YouTube or 9:16 for Reels/Shorts). The script already ends with the final command.
 
-### Lote 01 — Minuto 1 (escenas 1–6)
+### Batch 01 — Minute 1 (scenes 1–6)
 
-**Adjuntar:** `REF_CAST_MASTER.png` + `REF_GRID_MIN_01.png`
+**Attach:** `REF_CAST_MASTER.png` + `REF_GRID_MIN_01.png`
 
-**Guardar 16:9 como:** `raw_clips/minute_01.mp4`
+**Per-scene attachments for this batch:**
 
-**Guardar 9:16 como:** `raw_clips/minute_01_vertical.mp4`
+- Scene 001: `attach: [panel_001, ref_elena, ref_richard, ref_cole]`
+- Scene 002: `attach: [panel_002, ref_elena, ref_victoria, ref_richard]`
+- Scene 003: `attach: [panel_003, ref_elena, ref_victoria, ref_richard]`
+- Scene 004: `attach: [panel_004, ref_elena, ref_victoria, ref_richard]`
+- Scene 005: `attach: [panel_005, ref_elena, ref_victoria, ref_richard]`
+- Scene 006: `attach: [panel_006, ref_elena, ref_cole]`
 
-**Bloque 16:9 para Muse AI (YouTube):**
+**Save 16:9 as:** `raw_clips/minute_01.mp4`
+
+**Save 9:16 as:** `raw_clips/minute_01_vertical.mp4`
+
+**16:9 block for Muse AI (YouTube):**
 
 ```text
-ESCENA 1 (Viñeta #1 del Storyboard) — 00:00–00:10
+SCENE 1 (Storyboard Panel #1) — 00:00–00:10
 - Location: Silver Creek stable aisle, late afternoon
 - Characters Present: Elena Vance, Richard Blackwell, Cole Barrett
-- Storyboard Panel (Shot 1 exact framing): [00s-06s] two-shot, medium shot with Richard Blackwell and Elena Vance: Richard Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Elena tightens the girth strap, her open canvas work bag hooked on the stall rail beside her. Key object in frame: Elena's canvas work bag. Location: Silver Creek stable aisle, late afternoon. Characters present: Elena Vance, Richard Blackwell, Cole Barrett. No other characters appear.
+- Storyboard Panel (Shot 1 exact framing): [00s-06s] two-shot, medium shot with Richard Blackwell and Elena Vance: Richard Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Elena tightens the girth strap, her open canvas work bag hooked on the stall rail beside her. Location: Silver Creek stable aisle, late afternoon. Key object: canvas work bag. Characters present: Elena Vance, Richard Blackwell, Cole Barrett. No other characters appear.
 - Identity Anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing faded blue denim work shirt, dark riding jeans, worn boots, low braid); Richard Blackwell (Cast Sheet Pos #3: around thirty; sandy hair combed back; wearing pressed white shirt, charcoal blazer, polished boots); Cole Barrett (Cast Sheet Pos #4: early thirties; dark hair under a dust-worn felt hat; wearing oiled tan canvas chore jacket over a grey henley, worn felt hat)
-- Key Object: Elena's canvas work bag → Object In / Object Out: Elena's canvas work bag → the silver pocket watch
+- Key Object: canvas work bag → Object In / Object Out: canvas work bag → canvas work bag
+- Object Rule: never show the container interior; it stays in shadow and out of frame.
 - Silent Present: Cole Barrett — mouths closed for the whole scene, no lines.
 - Camera Cuts & Visual Action (10s):
-  * [00s-06s]: two-shot, medium shot with Richard Blackwell and Elena Vance — Richard Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Elena tightens the girth strap, her open canvas work bag hooked on the stall rail beside her. Key object in frame: Elena's canvas work bag.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [00s-06s]: two-shot, medium shot with Richard Blackwell and Elena Vance — Richard Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Elena tightens the girth strap, her open canvas work bag hooked on the stall rail beside her  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
   * [06s-08s]: tight close-up — Richard slips the silver pocket watch into Elena's open canvas work bag, his hand hidden by the saddle flap.  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
   * [08s-10s]: tight close-up — At the stable door, Cole freezes with a bucket in hand and watches Richard withdraw his hand  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
 - Sound Design (SFX & Voice Tone): leather creaking under the girth strap, a horse shifting in its stall, the soft click of the watch case, a distant stable door. Voice tone: RICHARD — smooth mid-range American English, reasonable tone that never quite reaches sincerity; ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical
@@ -254,33 +266,35 @@ ESCENA 1 (Viñeta #1 del Storyboard) — 00:00–00:10
   RICHARD (smooth, fake charm): "Make sure that saddle is ready by dusk, Elena."
   ELENA (calm, working): "It's already tightened, Mr. Blackwell."
 
-ESCENA 2 (Viñeta #2 del Storyboard) — 00:10–00:20
+SCENE 2 (Storyboard Panel #2) — 00:10–00:20
 - Location: Blackwell mansion foyer, dusk
 - Characters Present: Elena Vance, Victoria Blackwell, Richard Blackwell
-- Storyboard Panel (Shot 1 exact framing): [00s-08s] two-shot, medium shot with Victoria Blackwell and Elena Vance: Victoria Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. At the foot of the staircase, Victoria blocks Elena's path with one gloved hand raised. Key object in frame: canvas work bag. Key object in frame: Elena's canvas work bag. Location: Blackwell mansion foyer, dusk. Characters present: Elena Vance, Victoria Blackwell, Richard Blackwell. No other characters appear.
+- Storyboard Panel (Shot 1 exact framing): [00s-04s] medium shot, face and mouth visible: Victoria Blackwell is on camera with face and mouth fully visible, looking at Elena Vance. At the foot of the staircase, Victoria blocks Elena's path with one gloved hand raised. Key object in frame: canvas work bag. Location: Blackwell mansion foyer, dusk. Characters present: Elena Vance, Victoria Blackwell, Richard Blackwell. No other characters appear.
 - Identity Anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing faded blue denim work shirt, dark riding jeans, worn boots, low braid); Victoria Blackwell (Cast Sheet Pos #2: mid-forties; platinum-blonde bob; wearing emerald silk blouse, tailored black trousers, pearl earrings); Richard Blackwell (Cast Sheet Pos #3: around thirty; sandy hair combed back; wearing pressed white shirt, charcoal blazer, polished boots)
-- Key Object: Elena's canvas work bag → Object In / Object Out: Elena's canvas work bag → Elena's canvas work bag
+- Key Object: canvas work bag → Object In / Object Out: canvas work bag → canvas work bag
 - Object Rule: never show the container interior; it stays in shadow and out of frame.
 - Silent Present: Richard Blackwell — mouths closed for the whole scene, no lines.
 - Camera Cuts & Visual Action (10s):
-  * [00s-08s]: two-shot, medium shot with Victoria Blackwell and Elena Vance — Victoria Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. At the foot of the staircase, Victoria blocks Elena's path with one gloved hand raised. Key object in frame: canvas work bag. Key object in frame: Elena's canvas work bag.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
-  * [08s-09s]: tight close-up — Victoria points at the canvas work bag on Elena's shoulder, her grey eyes fixed on the clasp  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
+  * [00s-04s]: medium shot, face and mouth visible — Victoria Blackwell is on camera with face and mouth fully visible, looking at Elena Vance. At the foot of the staircase, Victoria blocks Elena's path with one gloved hand raised. Key object in frame: canvas work bag  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [04s-06s]: tight close-up of the story object, centered — canvas work bag is revealed in a silent, centered close-up, clearly visible and unobstructed.  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
+  * [06s-09s]: tight close-up, face and mouth visible — Elena Vance is on camera with face and mouth fully visible, looking at Victoria Blackwell. Victoria points at the canvas work bag on Elena's shoulder, her grey eyes fixed on the clasp  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
   * [09s-10s]: tight close-up — Elena grips the strap and lifts her chin, the bag pressed against her hip  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
 - Sound Design (SFX & Voice Tone): the tall clock ticking in the foyer, a fire settling in the grate, rain tapping the windows, a sharp indrawn breath. Voice tone: VICTORIA — low, polished, unhurried American English, smiles through threats, never shouts; ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical
 - Dialogue (English, max 15 words, finish before 8.5 s):
   VICTORIA (cold, accusing): "My late husband's silver watch vanished today. Open your bag."
   ELENA (firm, shocked): "I haven't touched anything in this house."
 
-ESCENA 3 (Viñeta #3 del Storyboard) — 00:20–00:30
+SCENE 3 (Storyboard Panel #3) — 00:20–00:30
 - Location: Blackwell mansion foyer, dusk
 - Characters Present: Elena Vance, Victoria Blackwell, Richard Blackwell
-- Storyboard Panel (Shot 1 exact framing): [00s-08s] two-shot, medium shot with Victoria Blackwell and Elena Vance: Victoria Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Elena sets the canvas work bag on the foyer table and loosens the drawstring without opening the bag. Its interior remains in shadow and out of frame; never show it empty and never show a full interior. Key object in frame: Elena's canvas work bag. Location: Blackwell mansion foyer, dusk. Characters present: Elena Vance, Victoria Blackwell, Richard Blackwell. No other characters appear.
+- Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Victoria Blackwell and Elena Vance: Victoria Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Elena sets the canvas work bag on the foyer table and loosens the drawstring without opening the bag. Its interior remains in shadow and out of frame; never show it empty and never show a full interior. Location: Blackwell mansion foyer, dusk. Key object: canvas work bag. Characters present: Elena Vance, Victoria Blackwell, Richard Blackwell. No other characters appear.
 - Identity Anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing faded blue denim work shirt, dark riding jeans, worn boots, low braid); Victoria Blackwell (Cast Sheet Pos #2: mid-forties; platinum-blonde bob; wearing emerald silk blouse, tailored black trousers, pearl earrings); Richard Blackwell (Cast Sheet Pos #3: around thirty; sandy hair combed back; wearing pressed white shirt, charcoal blazer, polished boots)
-- Key Object: Elena's canvas work bag → Object In / Object Out: Elena's canvas work bag → Elena's canvas work bag
+- Key Object: canvas work bag → Object In / Object Out: canvas work bag → canvas work bag
 - Object Rule: never show the container interior; it stays in shadow and out of frame.
 - Silent Present: Richard Blackwell — mouths closed for the whole scene, no lines.
 - Camera Cuts & Visual Action (10s):
-  * [00s-08s]: two-shot, medium shot with Victoria Blackwell and Elena Vance — Victoria Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Elena sets the canvas work bag on the foyer table and loosens the drawstring without opening the bag. Its interior remains in shadow and out of frame; never show it empty and never show a full interior. Key object in frame: Elena's canvas work bag.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [00s-07s]: two-shot, medium shot with Victoria Blackwell and Elena Vance — Victoria Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Elena sets the canvas work bag on the foyer table and loosens the drawstring without opening the bag. Its interior remains in shadow and out of frame; never show it empty and never show a full interior.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [07s-08s]: tight close-up of the story object, centered — A silent insert shows canvas work bag being placed inside Elena's canvas work bag; no face in this shot.  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
   * [08s-09s]: tight close-up — Victoria Blackwell stays on the outside of Elena's canvas work bag, which stays loosened but never gaping. Its interior remains in shadow and out of frame; never show it empty and never show a full interior.  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
   * [09s-10s]: tight close-up — Elena holds Victoria's gaze, her jaw tight and her hands still on the table  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
 - Sound Design (SFX & Voice Tone): canvas rasping open, leather tools knocking together, the clock ticking, a chair leg scraping stone. Voice tone: VICTORIA — low, polished, unhurried American English, smiles through threats, never shouts; ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical
@@ -288,7 +302,7 @@ ESCENA 3 (Viñeta #3 del Storyboard) — 00:20–00:30
   VICTORIA (cruel, precise): "If that watch is inside, you leave Silver Creek tonight."
   ELENA (steady, defiant): "Look for yourself. Only my mother's tools are in there."
 
-ESCENA 4 (Viñeta #4 del Storyboard) — 00:30–00:40
+SCENE 4 (Storyboard Panel #4) — 00:30–00:40
 - Location: Blackwell mansion foyer, dusk
 - Characters Present: Elena Vance, Victoria Blackwell, Richard Blackwell
 - Storyboard Panel (Shot 1 exact framing): [00s-04s] medium shot, face and mouth visible: Richard Blackwell is on camera with face and mouth fully visible, looking at Elena Vance. Richard reaches into the open canvas work bag before Elena can stop him. Key object in frame: the silver pocket watch. Location: Blackwell mansion foyer, dusk. Characters present: Elena Vance, Victoria Blackwell, Richard Blackwell. No other characters appear.
@@ -304,7 +318,7 @@ ESCENA 4 (Viñeta #4 del Storyboard) — 00:30–00:40
   RICHARD (feigned shock): "Look what was hiding right under her mother's leather tools."
   ELENA (low, fierce): "You came near my saddle in the stable today."
 
-ESCENA 5 (Viñeta #5 del Storyboard) — 00:40–00:50
+SCENE 5 (Storyboard Panel #5) — 00:40–00:50
 - Location: Blackwell mansion foyer, dusk
 - Characters Present: Elena Vance, Victoria Blackwell, Richard Blackwell
 - Storyboard Panel (Shot 1 exact framing): [00s-08s] two-shot, medium shot with Victoria Blackwell and Elena Vance: Victoria Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Victoria slides a written confession paper and a fountain pen across the foyer table. Location: Blackwell mansion foyer, dusk. Key object: written confession paper. Characters present: Elena Vance, Victoria Blackwell, Richard Blackwell. No other characters appear.
@@ -321,15 +335,16 @@ ESCENA 5 (Viñeta #5 del Storyboard) — 00:40–00:50
   VICTORIA (silky threat): "Sign this confession and leave quietly, or I call the sheriff."
   ELENA (defiant, quiet): "Call him. I will never sign a lie."
 
-ESCENA 6 (Viñeta #6 del Storyboard) — 00:50–01:00
+SCENE 6 (Storyboard Panel #6) — 00:50–01:00
 - Location: Silver Creek barn doorway, night rain
 - Characters Present: Elena Vance, Cole Barrett
-- Storyboard Panel (Shot 1 exact framing): [00s-08s] two-shot, medium shot with Cole Barrett and Elena Vance: Cole Barrett and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. At the barn doorway, Cole steps out of the rain and pulls Elena under the overhang. Key object in frame: canvas work bag. Key object in frame: Elena's canvas work bag. Location: Silver Creek barn doorway, night rain. Characters present: Elena Vance, Cole Barrett. No other characters appear.
+- Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Cole Barrett and Elena Vance: Cole Barrett and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. At the barn doorway, Cole steps out of the rain and pulls Elena under the overhang. Key object in frame: canvas work bag. Location: Silver Creek barn doorway, night rain. Characters present: Elena Vance, Cole Barrett. No other characters appear.
 - Identity Anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing faded blue denim work shirt, dark riding jeans, worn boots, low braid); Cole Barrett (Cast Sheet Pos #4: early thirties; dark hair under a dust-worn felt hat; wearing oiled tan canvas chore jacket over a grey henley, worn felt hat)
-- Key Object: Elena's canvas work bag → Object In / Object Out: Elena's canvas work bag → Elena's canvas work bag
+- Key Object: canvas work bag → Object In / Object Out: canvas work bag → canvas work bag
 - Object Rule: never show the container interior; it stays in shadow and out of frame.
 - Camera Cuts & Visual Action (10s):
-  * [00s-08s]: two-shot, medium shot with Cole Barrett and Elena Vance — Cole Barrett and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. At the barn doorway, Cole steps out of the rain and pulls Elena under the overhang. Key object in frame: canvas work bag. Key object in frame: Elena's canvas work bag.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [00s-07s]: two-shot, medium shot with Cole Barrett and Elena Vance — Cole Barrett and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. At the barn doorway, Cole steps out of the rain and pulls Elena under the overhang. Key object in frame: canvas work bag  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [07s-08s]: tight close-up of the story object, centered — A silent insert shows canvas work bag being placed inside Elena's canvas work bag; no face in this shot.  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
   * [08s-09s]: tight close-up — Cole tilts his hat back, rain running off the brim, and holds Elena's gaze  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
   * [09s-10s]: tight close-up — Elena searches his face, hope and fear breaking through her guarded expression  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
 - Sound Design (SFX & Voice Tone): rain hammering the tin roof, water dripping from the eaves, boots shifting in wet straw, a horse snorting in the dark. Voice tone: COLE — quiet, low American English, careful diction, warmth held under restraint; ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical
@@ -337,23 +352,24 @@ ESCENA 6 (Viñeta #6 del Storyboard) — 00:50–01:00
   COLE (low, urgent): "I saw Richard put that watch in your bag. I'll testify."
   ELENA (afraid for him): "Without proof, Victoria will destroy us both."
 
-COMANDO FINAL (16:9 YouTube):
+FINAL COMMAND (16:9 YouTube):
 
-"Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando entre 1 y 4 tomas exactamente como las lista el guion: la Toma 1 arranca directamente en movimiento desde el encuadre exacto de la viñeta correspondiente sin frames estáticos (two-shot si hablan dos personajes); cada línea hablada tiene su propio plano con el hablante de frente, rostro y boca visibles, nunca desde detrás del personaje; los planos silenciosos (insert, reacción, objeto) van después del diálogo y nunca contienen habla. Mantén estrictamente la misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre escenas. Formato: horizontal 16:9 para YouTube. Reglas negativas estrictas: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
+"Make a realistic cinematic video of 10 seconds per scene, executing between 1 and 4 shots exactly as the script lists them: Shot 1 starts directly in motion from the exact framing of the corresponding storyboard panel, with no static frames (two-shot if two characters speak); every spoken line gets its own shot with the speaker facing camera, face and mouth visible, never from behind the character; silent shots (inserts, reactions, objects) come after the dialogue and never contain speech. Keep strictly the same race, face and wardrobe for each character according to their position in the attached Character Sheet, and join them into a single continuous video, never inserting the reference image between scenes. Format: horizontal 16:9 for YouTube. Strict negative rules: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
 ```
 
-**Comando final 9:16 (Reels/Shorts):**
+**Final 9:16 command (Reels/Shorts):**
 
 ```text
-ESCENA 1 (Viñeta #1 del Storyboard) — 00:00–00:10
+SCENE 1 (Storyboard Panel #1) — 00:00–00:10
 - Location: Silver Creek stable aisle, late afternoon
 - Characters Present: Elena Vance, Richard Blackwell, Cole Barrett
-- Storyboard Panel (Shot 1 exact framing): [00s-06s] two-shot, medium shot with Richard Blackwell and Elena Vance: Richard Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Elena tightens the girth strap, her open canvas work bag hooked on the stall rail beside her. Key object in frame: Elena's canvas work bag. Location: Silver Creek stable aisle, late afternoon. Characters present: Elena Vance, Richard Blackwell, Cole Barrett. No other characters appear.
+- Storyboard Panel (Shot 1 exact framing): [00s-06s] two-shot, medium shot with Richard Blackwell and Elena Vance: Richard Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Elena tightens the girth strap, her open canvas work bag hooked on the stall rail beside her. Location: Silver Creek stable aisle, late afternoon. Key object: canvas work bag. Characters present: Elena Vance, Richard Blackwell, Cole Barrett. No other characters appear.
 - Identity Anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing faded blue denim work shirt, dark riding jeans, worn boots, low braid); Richard Blackwell (Cast Sheet Pos #3: around thirty; sandy hair combed back; wearing pressed white shirt, charcoal blazer, polished boots); Cole Barrett (Cast Sheet Pos #4: early thirties; dark hair under a dust-worn felt hat; wearing oiled tan canvas chore jacket over a grey henley, worn felt hat)
-- Key Object: Elena's canvas work bag → Object In / Object Out: Elena's canvas work bag → the silver pocket watch
+- Key Object: canvas work bag → Object In / Object Out: canvas work bag → canvas work bag
+- Object Rule: never show the container interior; it stays in shadow and out of frame.
 - Silent Present: Cole Barrett — mouths closed for the whole scene, no lines.
 - Camera Cuts & Visual Action (10s):
-  * [00s-06s]: two-shot, medium shot with Richard Blackwell and Elena Vance — Richard Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Elena tightens the girth strap, her open canvas work bag hooked on the stall rail beside her. Key object in frame: Elena's canvas work bag.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [00s-06s]: two-shot, medium shot with Richard Blackwell and Elena Vance — Richard Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Elena tightens the girth strap, her open canvas work bag hooked on the stall rail beside her  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
   * [06s-08s]: tight close-up — Richard slips the silver pocket watch into Elena's open canvas work bag, his hand hidden by the saddle flap.  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
   * [08s-10s]: tight close-up — At the stable door, Cole freezes with a bucket in hand and watches Richard withdraw his hand  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
 - Sound Design (SFX & Voice Tone): leather creaking under the girth strap, a horse shifting in its stall, the soft click of the watch case, a distant stable door. Voice tone: RICHARD — smooth mid-range American English, reasonable tone that never quite reaches sincerity; ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical
@@ -361,33 +377,35 @@ ESCENA 1 (Viñeta #1 del Storyboard) — 00:00–00:10
   RICHARD (smooth, fake charm): "Make sure that saddle is ready by dusk, Elena."
   ELENA (calm, working): "It's already tightened, Mr. Blackwell."
 
-ESCENA 2 (Viñeta #2 del Storyboard) — 00:10–00:20
+SCENE 2 (Storyboard Panel #2) — 00:10–00:20
 - Location: Blackwell mansion foyer, dusk
 - Characters Present: Elena Vance, Victoria Blackwell, Richard Blackwell
-- Storyboard Panel (Shot 1 exact framing): [00s-08s] two-shot, medium shot with Victoria Blackwell and Elena Vance: Victoria Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. At the foot of the staircase, Victoria blocks Elena's path with one gloved hand raised. Key object in frame: canvas work bag. Key object in frame: Elena's canvas work bag. Location: Blackwell mansion foyer, dusk. Characters present: Elena Vance, Victoria Blackwell, Richard Blackwell. No other characters appear.
+- Storyboard Panel (Shot 1 exact framing): [00s-04s] medium shot, face and mouth visible: Victoria Blackwell is on camera with face and mouth fully visible, looking at Elena Vance. At the foot of the staircase, Victoria blocks Elena's path with one gloved hand raised. Key object in frame: canvas work bag. Location: Blackwell mansion foyer, dusk. Characters present: Elena Vance, Victoria Blackwell, Richard Blackwell. No other characters appear.
 - Identity Anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing faded blue denim work shirt, dark riding jeans, worn boots, low braid); Victoria Blackwell (Cast Sheet Pos #2: mid-forties; platinum-blonde bob; wearing emerald silk blouse, tailored black trousers, pearl earrings); Richard Blackwell (Cast Sheet Pos #3: around thirty; sandy hair combed back; wearing pressed white shirt, charcoal blazer, polished boots)
-- Key Object: Elena's canvas work bag → Object In / Object Out: Elena's canvas work bag → Elena's canvas work bag
+- Key Object: canvas work bag → Object In / Object Out: canvas work bag → canvas work bag
 - Object Rule: never show the container interior; it stays in shadow and out of frame.
 - Silent Present: Richard Blackwell — mouths closed for the whole scene, no lines.
 - Camera Cuts & Visual Action (10s):
-  * [00s-08s]: two-shot, medium shot with Victoria Blackwell and Elena Vance — Victoria Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. At the foot of the staircase, Victoria blocks Elena's path with one gloved hand raised. Key object in frame: canvas work bag. Key object in frame: Elena's canvas work bag.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
-  * [08s-09s]: tight close-up — Victoria points at the canvas work bag on Elena's shoulder, her grey eyes fixed on the clasp  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
+  * [00s-04s]: medium shot, face and mouth visible — Victoria Blackwell is on camera with face and mouth fully visible, looking at Elena Vance. At the foot of the staircase, Victoria blocks Elena's path with one gloved hand raised. Key object in frame: canvas work bag  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [04s-06s]: tight close-up of the story object, centered — canvas work bag is revealed in a silent, centered close-up, clearly visible and unobstructed.  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
+  * [06s-09s]: tight close-up, face and mouth visible — Elena Vance is on camera with face and mouth fully visible, looking at Victoria Blackwell. Victoria points at the canvas work bag on Elena's shoulder, her grey eyes fixed on the clasp  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
   * [09s-10s]: tight close-up — Elena grips the strap and lifts her chin, the bag pressed against her hip  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
 - Sound Design (SFX & Voice Tone): the tall clock ticking in the foyer, a fire settling in the grate, rain tapping the windows, a sharp indrawn breath. Voice tone: VICTORIA — low, polished, unhurried American English, smiles through threats, never shouts; ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical
 - Dialogue (English, max 15 words, finish before 8.5 s):
   VICTORIA (cold, accusing): "My late husband's silver watch vanished today. Open your bag."
   ELENA (firm, shocked): "I haven't touched anything in this house."
 
-ESCENA 3 (Viñeta #3 del Storyboard) — 00:20–00:30
+SCENE 3 (Storyboard Panel #3) — 00:20–00:30
 - Location: Blackwell mansion foyer, dusk
 - Characters Present: Elena Vance, Victoria Blackwell, Richard Blackwell
-- Storyboard Panel (Shot 1 exact framing): [00s-08s] two-shot, medium shot with Victoria Blackwell and Elena Vance: Victoria Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Elena sets the canvas work bag on the foyer table and loosens the drawstring without opening the bag. Its interior remains in shadow and out of frame; never show it empty and never show a full interior. Key object in frame: Elena's canvas work bag. Location: Blackwell mansion foyer, dusk. Characters present: Elena Vance, Victoria Blackwell, Richard Blackwell. No other characters appear.
+- Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Victoria Blackwell and Elena Vance: Victoria Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Elena sets the canvas work bag on the foyer table and loosens the drawstring without opening the bag. Its interior remains in shadow and out of frame; never show it empty and never show a full interior. Location: Blackwell mansion foyer, dusk. Key object: canvas work bag. Characters present: Elena Vance, Victoria Blackwell, Richard Blackwell. No other characters appear.
 - Identity Anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing faded blue denim work shirt, dark riding jeans, worn boots, low braid); Victoria Blackwell (Cast Sheet Pos #2: mid-forties; platinum-blonde bob; wearing emerald silk blouse, tailored black trousers, pearl earrings); Richard Blackwell (Cast Sheet Pos #3: around thirty; sandy hair combed back; wearing pressed white shirt, charcoal blazer, polished boots)
-- Key Object: Elena's canvas work bag → Object In / Object Out: Elena's canvas work bag → Elena's canvas work bag
+- Key Object: canvas work bag → Object In / Object Out: canvas work bag → canvas work bag
 - Object Rule: never show the container interior; it stays in shadow and out of frame.
 - Silent Present: Richard Blackwell — mouths closed for the whole scene, no lines.
 - Camera Cuts & Visual Action (10s):
-  * [00s-08s]: two-shot, medium shot with Victoria Blackwell and Elena Vance — Victoria Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Elena sets the canvas work bag on the foyer table and loosens the drawstring without opening the bag. Its interior remains in shadow and out of frame; never show it empty and never show a full interior. Key object in frame: Elena's canvas work bag.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [00s-07s]: two-shot, medium shot with Victoria Blackwell and Elena Vance — Victoria Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Elena sets the canvas work bag on the foyer table and loosens the drawstring without opening the bag. Its interior remains in shadow and out of frame; never show it empty and never show a full interior.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [07s-08s]: tight close-up of the story object, centered — A silent insert shows canvas work bag being placed inside Elena's canvas work bag; no face in this shot.  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
   * [08s-09s]: tight close-up — Victoria Blackwell stays on the outside of Elena's canvas work bag, which stays loosened but never gaping. Its interior remains in shadow and out of frame; never show it empty and never show a full interior.  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
   * [09s-10s]: tight close-up — Elena holds Victoria's gaze, her jaw tight and her hands still on the table  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
 - Sound Design (SFX & Voice Tone): canvas rasping open, leather tools knocking together, the clock ticking, a chair leg scraping stone. Voice tone: VICTORIA — low, polished, unhurried American English, smiles through threats, never shouts; ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical
@@ -395,7 +413,7 @@ ESCENA 3 (Viñeta #3 del Storyboard) — 00:20–00:30
   VICTORIA (cruel, precise): "If that watch is inside, you leave Silver Creek tonight."
   ELENA (steady, defiant): "Look for yourself. Only my mother's tools are in there."
 
-ESCENA 4 (Viñeta #4 del Storyboard) — 00:30–00:40
+SCENE 4 (Storyboard Panel #4) — 00:30–00:40
 - Location: Blackwell mansion foyer, dusk
 - Characters Present: Elena Vance, Victoria Blackwell, Richard Blackwell
 - Storyboard Panel (Shot 1 exact framing): [00s-04s] medium shot, face and mouth visible: Richard Blackwell is on camera with face and mouth fully visible, looking at Elena Vance. Richard reaches into the open canvas work bag before Elena can stop him. Key object in frame: the silver pocket watch. Location: Blackwell mansion foyer, dusk. Characters present: Elena Vance, Victoria Blackwell, Richard Blackwell. No other characters appear.
@@ -411,7 +429,7 @@ ESCENA 4 (Viñeta #4 del Storyboard) — 00:30–00:40
   RICHARD (feigned shock): "Look what was hiding right under her mother's leather tools."
   ELENA (low, fierce): "You came near my saddle in the stable today."
 
-ESCENA 5 (Viñeta #5 del Storyboard) — 00:40–00:50
+SCENE 5 (Storyboard Panel #5) — 00:40–00:50
 - Location: Blackwell mansion foyer, dusk
 - Characters Present: Elena Vance, Victoria Blackwell, Richard Blackwell
 - Storyboard Panel (Shot 1 exact framing): [00s-08s] two-shot, medium shot with Victoria Blackwell and Elena Vance: Victoria Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Victoria slides a written confession paper and a fountain pen across the foyer table. Location: Blackwell mansion foyer, dusk. Key object: written confession paper. Characters present: Elena Vance, Victoria Blackwell, Richard Blackwell. No other characters appear.
@@ -428,15 +446,16 @@ ESCENA 5 (Viñeta #5 del Storyboard) — 00:40–00:50
   VICTORIA (silky threat): "Sign this confession and leave quietly, or I call the sheriff."
   ELENA (defiant, quiet): "Call him. I will never sign a lie."
 
-ESCENA 6 (Viñeta #6 del Storyboard) — 00:50–01:00
+SCENE 6 (Storyboard Panel #6) — 00:50–01:00
 - Location: Silver Creek barn doorway, night rain
 - Characters Present: Elena Vance, Cole Barrett
-- Storyboard Panel (Shot 1 exact framing): [00s-08s] two-shot, medium shot with Cole Barrett and Elena Vance: Cole Barrett and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. At the barn doorway, Cole steps out of the rain and pulls Elena under the overhang. Key object in frame: canvas work bag. Key object in frame: Elena's canvas work bag. Location: Silver Creek barn doorway, night rain. Characters present: Elena Vance, Cole Barrett. No other characters appear.
+- Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Cole Barrett and Elena Vance: Cole Barrett and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. At the barn doorway, Cole steps out of the rain and pulls Elena under the overhang. Key object in frame: canvas work bag. Location: Silver Creek barn doorway, night rain. Characters present: Elena Vance, Cole Barrett. No other characters appear.
 - Identity Anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing faded blue denim work shirt, dark riding jeans, worn boots, low braid); Cole Barrett (Cast Sheet Pos #4: early thirties; dark hair under a dust-worn felt hat; wearing oiled tan canvas chore jacket over a grey henley, worn felt hat)
-- Key Object: Elena's canvas work bag → Object In / Object Out: Elena's canvas work bag → Elena's canvas work bag
+- Key Object: canvas work bag → Object In / Object Out: canvas work bag → canvas work bag
 - Object Rule: never show the container interior; it stays in shadow and out of frame.
 - Camera Cuts & Visual Action (10s):
-  * [00s-08s]: two-shot, medium shot with Cole Barrett and Elena Vance — Cole Barrett and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. At the barn doorway, Cole steps out of the rain and pulls Elena under the overhang. Key object in frame: canvas work bag. Key object in frame: Elena's canvas work bag.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [00s-07s]: two-shot, medium shot with Cole Barrett and Elena Vance — Cole Barrett and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. At the barn doorway, Cole steps out of the rain and pulls Elena under the overhang. Key object in frame: canvas work bag  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [07s-08s]: tight close-up of the story object, centered — A silent insert shows canvas work bag being placed inside Elena's canvas work bag; no face in this shot.  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
   * [08s-09s]: tight close-up — Cole tilts his hat back, rain running off the brim, and holds Elena's gaze  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
   * [09s-10s]: tight close-up — Elena searches his face, hope and fear breaking through her guarded expression  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
 - Sound Design (SFX & Voice Tone): rain hammering the tin roof, water dripping from the eaves, boots shifting in wet straw, a horse snorting in the dark. Voice tone: COLE — quiet, low American English, careful diction, warmth held under restraint; ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical
@@ -444,23 +463,32 @@ ESCENA 6 (Viñeta #6 del Storyboard) — 00:50–01:00
   COLE (low, urgent): "I saw Richard put that watch in your bag. I'll testify."
   ELENA (afraid for him): "Without proof, Victoria will destroy us both."
 
-COMANDO FINAL (9:16 Reels/TikTok/Shorts):
+FINAL COMMAND (9:16 Reels/TikTok/Shorts):
 
-"Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando entre 1 y 4 tomas exactamente como las lista el guion: la Toma 1 arranca directamente en movimiento desde el encuadre exacto de la viñeta correspondiente sin frames estáticos (two-shot si hablan dos personajes); cada línea hablada tiene su propio plano con el hablante de frente, rostro y boca visibles, nunca desde detrás del personaje; los planos silenciosos (insert, reacción, objeto) van después del diálogo y nunca contienen habla. Mantén estrictamente la misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre escenas. Formato: vertical 9:16 para Reels, TikTok y Shorts. Reglas negativas estrictas: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
+"Make a realistic cinematic video of 10 seconds per scene, executing between 1 and 4 shots exactly as the script lists them: Shot 1 starts directly in motion from the exact framing of the corresponding storyboard panel, with no static frames (two-shot if two characters speak); every spoken line gets its own shot with the speaker facing camera, face and mouth visible, never from behind the character; silent shots (inserts, reactions, objects) come after the dialogue and never contain speech. Keep strictly the same race, face and wardrobe for each character according to their position in the attached Character Sheet, and join them into a single continuous video, never inserting the reference image between scenes. Format: vertical 9:16 for Reels, TikTok and Shorts. Strict negative rules: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
 ```
 
-### Lote 02 — Minuto 2 (escenas 7–12)
+### Batch 02 — Minute 2 (scenes 7–12)
 
-**Adjuntar:** `REF_CAST_MASTER.png` + `REF_GRID_MIN_02.png`
+**Attach:** `REF_CAST_MASTER.png` + `REF_GRID_MIN_02.png`
 
-**Guardar 16:9 como:** `raw_clips/minute_02.mp4`
+**Per-scene attachments for this batch:**
 
-**Guardar 9:16 como:** `raw_clips/minute_02_vertical.mp4`
+- Scene 007: `attach: [panel_007, ref_elena, ref_victoria]`
+- Scene 008: `attach: [panel_008, ref_elena]`
+- Scene 009: `attach: [panel_009, ref_elena, ref_cole]`
+- Scene 010: `attach: [panel_010, ref_elena, ref_cole]`
+- Scene 011: `attach: [panel_011, ref_elena]`
+- Scene 012: `attach: [panel_012, ref_elena, ref_cole]`
 
-**Bloque 16:9 para Muse AI (YouTube):**
+**Save 16:9 as:** `raw_clips/minute_02.mp4`
+
+**Save 9:16 as:** `raw_clips/minute_02_vertical.mp4`
+
+**16:9 block for Muse AI (YouTube):**
 
 ```text
-ESCENA 7 (Viñeta #7 del Storyboard) — 01:00–01:10
+SCENE 7 (Storyboard Panel #7) — 01:00–01:10
 - Location: Blackwell study, late afternoon
 - Characters Present: Elena Vance, Victoria Blackwell
 - Storyboard Panel (Shot 1 exact framing): [00s-04s] medium close-up on Victoria Blackwell, face and mouth visible: Victoria Blackwell is on camera with face and mouth fully visible, looking at Elena Vance. Victoria Blackwell holds the moment before speaking. Key object in frame: a bank envelope of hush money. Location: Blackwell study, late afternoon. Characters present: Elena Vance, Victoria Blackwell. No other characters appear.
@@ -476,15 +504,15 @@ ESCENA 7 (Viñeta #7 del Storyboard) — 01:00–01:10
   VICTORIA (pleasant threat): "Sheriff Drummond is a friend. Sign by Friday."
   ELENA (cold): "Do you still tend her grave?"
 
-ESCENA 8 (Viñeta #8 del Storyboard) — 01:10–01:20
+SCENE 8 (Storyboard Panel #8) — 01:10–01:20
 - Location: gatehouse cottage, dusk
 - Characters Present: Elena Vance
-- Storyboard Panel (Shot 1 exact framing): [00s-04s] medium close-up on Elena Vance, face and mouth visible: Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking. Key object in frame: a hand-sewn lining with a waxed envelope. Location: gatehouse cottage, dusk. Characters present: Elena Vance. No other characters appear.
+- Storyboard Panel (Shot 1 exact framing): [00s-04s] medium close-up on Elena Vance, face and mouth visible: Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking. Location: gatehouse cottage, dusk. Key object: the scene's central visual detail. Characters present: Elena Vance. No other characters appear.
 - Identity Anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing faded blue denim work shirt, dark riding jeans, worn boots, low braid)
-- Key Object: a hand-sewn lining with a waxed envelope → Object In / Object Out: a hand-sewn lining with a waxed envelope → a hand-sewn lining with a waxed envelope
+- Key Object: the central visual detail of the scene
 - Camera Cuts & Visual Action (10s):
-  * [00s-04s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking. Key object in frame: a hand-sewn lining with a waxed envelope.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
-  * [04s-07s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [00s-04s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [04s-07s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
   * [07s-08s]: medium close-up — In the small stone cottage, the maid works the old saddle's leather lining open with her thumbs. Key object in frame: a hand-sewn lining with a waxed envelope  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
   * [08s-10s]: close-up — Insert: her fingers draw a small brass key from the hidden seam, warm against the cold leather  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
 - Sound Design (SFX & Voice Tone): wind pressing the eaves, leather creaking, a stove ticking as it cools. Voice tone: ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical
@@ -492,7 +520,7 @@ ESCENA 8 (Viñeta #8 del Storyboard) — 01:10–01:20
   ELENA (hushed): "You sewed it into the lining, Mama."
   ELENA (breaking): "What were you afraid I'd find?"
 
-ESCENA 9 (Viñeta #9 del Storyboard) — 01:20–01:30
+SCENE 9 (Storyboard Panel #9) — 01:20–01:30
 - Location: Silver Creek barn aisle, night
 - Characters Present: Elena Vance, Cole Barrett
 - Storyboard Panel (Shot 1 exact framing): [00s-04s] medium close-up on Cole Barrett, face and mouth visible: Cole Barrett is on camera with face and mouth fully visible, looking at Elena Vance. Cole Barrett holds the moment before speaking. Key object in frame: a small brass key. Location: Silver Creek barn aisle, night. Characters present: Elena Vance, Cole Barrett. No other characters appear.
@@ -508,7 +536,7 @@ ESCENA 9 (Viñeta #9 del Storyboard) — 01:20–01:30
   COLE (low): "That key fits no door in this valley."
   ELENA (decided): "Then we open that room tonight."
 
-ESCENA 10 (Viñeta #10 del Storyboard) — 01:30–01:40
+SCENE 10 (Storyboard Panel #10) — 01:30–01:40
 - Location: Silver Creek sealed tack room, night
 - Characters Present: Elena Vance, Cole Barrett
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Elena Vance and Cole Barrett: Elena Vance and Cole Barrett face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Inside the tack room, the maid pulls an open tin box from the floor while the foreman steps in with bolt cutters. Key object in frame: a fire-scorched property deed. Location: Silver Creek sealed tack room, night. Characters present: Elena Vance, Cole Barrett. No other characters appear.
@@ -523,15 +551,15 @@ ESCENA 10 (Viñeta #10 del Storyboard) — 01:30–01:40
   ELENA (shaking): "This deed says Vance. My mother owned Silver Creek."
   COLE (grim): "Then the fire wasn't bad luck."
 
-ESCENA 11 (Viñeta #11 del Storyboard) — 01:40–01:50
+SCENE 11 (Storyboard Panel #11) — 01:40–01:50
 - Location: Silver Creek county records office, morning
 - Characters Present: Elena Vance
-- Storyboard Panel (Shot 1 exact framing): [00s-04s] medium close-up on Elena Vance, face and mouth visible: Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking. Key object in frame: a county sale record. Location: Silver Creek county records office, morning. Characters present: Elena Vance. No other characters appear.
+- Storyboard Panel (Shot 1 exact framing): [00s-04s] medium close-up on Elena Vance, face and mouth visible: Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking. Key object in frame: a county sale record. Location: Silver Creek county records office, morning. Characters present: Elena Vance. No other characters appear.
 - Identity Anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing faded blue denim work shirt under a tan canvas barn coat, braid loosened by work)
 - Key Object: a county sale record → Object In / Object Out: a county sale record → a county sale record
 - Camera Cuts & Visual Action (10s):
-  * [00s-04s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking. Key object in frame: a county sale record.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
-  * [04s-07s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [00s-04s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking. Key object in frame: a county sale record.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [04s-07s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
   * [07s-08s]: medium shot — At the oak counter, the maid lays the old deed down while the clerk turns a heavy ledger toward her. Key object in frame: a county sale record  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
   * [08s-10s]: close-up — Insert: the ledger's ruled page for the Silver Creek parcel, stamped and countersigned  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
 - Sound Design (SFX & Voice Tone): ledger pages turning, a wall clock, boots on creaking wood. Voice tone: ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical
@@ -539,7 +567,7 @@ ESCENA 11 (Viñeta #11 del Storyboard) — 01:40–01:50
   ELENA (flat): "The sale was recorded in 2009. Blackwell owns it."
   ELENA (hard): "Then open a probate file."
 
-ESCENA 12 (Viñeta #12 del Storyboard) — 01:50–02:00
+SCENE 12 (Storyboard Panel #12) — 01:50–02:00
 - Location: county records steps, grey morning
 - Characters Present: Elena Vance, Cole Barrett
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Cole Barrett and Elena Vance: Cole Barrett and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. On the stone steps, the maid backs up with a folder clutched to her chest while the foreman follows, hat in hand. Key object in frame: a probate form. Location: county records steps, grey morning. Characters present: Elena Vance, Cole Barrett. No other characters appear.
@@ -554,15 +582,15 @@ ESCENA 12 (Viñeta #12 del Storyboard) — 01:50–02:00
   COLE (urgent): "Probate takes months. She's already calling her lawyer."
   ELENA (quiet): "Then I'll fight with what she fears."
 
-COMANDO FINAL (16:9 YouTube):
+FINAL COMMAND (16:9 YouTube):
 
-"Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando entre 1 y 4 tomas exactamente como las lista el guion: la Toma 1 arranca directamente en movimiento desde el encuadre exacto de la viñeta correspondiente sin frames estáticos (two-shot si hablan dos personajes); cada línea hablada tiene su propio plano con el hablante de frente, rostro y boca visibles, nunca desde detrás del personaje; los planos silenciosos (insert, reacción, objeto) van después del diálogo y nunca contienen habla. Mantén estrictamente la misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre escenas. Formato: horizontal 16:9 para YouTube. Reglas negativas estrictas: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
+"Make a realistic cinematic video of 10 seconds per scene, executing between 1 and 4 shots exactly as the script lists them: Shot 1 starts directly in motion from the exact framing of the corresponding storyboard panel, with no static frames (two-shot if two characters speak); every spoken line gets its own shot with the speaker facing camera, face and mouth visible, never from behind the character; silent shots (inserts, reactions, objects) come after the dialogue and never contain speech. Keep strictly the same race, face and wardrobe for each character according to their position in the attached Character Sheet, and join them into a single continuous video, never inserting the reference image between scenes. Format: horizontal 16:9 for YouTube. Strict negative rules: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
 ```
 
-**Comando final 9:16 (Reels/Shorts):**
+**Final 9:16 command (Reels/Shorts):**
 
 ```text
-ESCENA 7 (Viñeta #7 del Storyboard) — 01:00–01:10
+SCENE 7 (Storyboard Panel #7) — 01:00–01:10
 - Location: Blackwell study, late afternoon
 - Characters Present: Elena Vance, Victoria Blackwell
 - Storyboard Panel (Shot 1 exact framing): [00s-04s] medium close-up on Victoria Blackwell, face and mouth visible: Victoria Blackwell is on camera with face and mouth fully visible, looking at Elena Vance. Victoria Blackwell holds the moment before speaking. Key object in frame: a bank envelope of hush money. Location: Blackwell study, late afternoon. Characters present: Elena Vance, Victoria Blackwell. No other characters appear.
@@ -578,15 +606,15 @@ ESCENA 7 (Viñeta #7 del Storyboard) — 01:00–01:10
   VICTORIA (pleasant threat): "Sheriff Drummond is a friend. Sign by Friday."
   ELENA (cold): "Do you still tend her grave?"
 
-ESCENA 8 (Viñeta #8 del Storyboard) — 01:10–01:20
+SCENE 8 (Storyboard Panel #8) — 01:10–01:20
 - Location: gatehouse cottage, dusk
 - Characters Present: Elena Vance
-- Storyboard Panel (Shot 1 exact framing): [00s-04s] medium close-up on Elena Vance, face and mouth visible: Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking. Key object in frame: a hand-sewn lining with a waxed envelope. Location: gatehouse cottage, dusk. Characters present: Elena Vance. No other characters appear.
+- Storyboard Panel (Shot 1 exact framing): [00s-04s] medium close-up on Elena Vance, face and mouth visible: Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking. Location: gatehouse cottage, dusk. Key object: the scene's central visual detail. Characters present: Elena Vance. No other characters appear.
 - Identity Anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing faded blue denim work shirt, dark riding jeans, worn boots, low braid)
-- Key Object: a hand-sewn lining with a waxed envelope → Object In / Object Out: a hand-sewn lining with a waxed envelope → a hand-sewn lining with a waxed envelope
+- Key Object: the central visual detail of the scene
 - Camera Cuts & Visual Action (10s):
-  * [00s-04s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking. Key object in frame: a hand-sewn lining with a waxed envelope.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
-  * [04s-07s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [00s-04s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [04s-07s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
   * [07s-08s]: medium close-up — In the small stone cottage, the maid works the old saddle's leather lining open with her thumbs. Key object in frame: a hand-sewn lining with a waxed envelope  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
   * [08s-10s]: close-up — Insert: her fingers draw a small brass key from the hidden seam, warm against the cold leather  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
 - Sound Design (SFX & Voice Tone): wind pressing the eaves, leather creaking, a stove ticking as it cools. Voice tone: ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical
@@ -594,7 +622,7 @@ ESCENA 8 (Viñeta #8 del Storyboard) — 01:10–01:20
   ELENA (hushed): "You sewed it into the lining, Mama."
   ELENA (breaking): "What were you afraid I'd find?"
 
-ESCENA 9 (Viñeta #9 del Storyboard) — 01:20–01:30
+SCENE 9 (Storyboard Panel #9) — 01:20–01:30
 - Location: Silver Creek barn aisle, night
 - Characters Present: Elena Vance, Cole Barrett
 - Storyboard Panel (Shot 1 exact framing): [00s-04s] medium close-up on Cole Barrett, face and mouth visible: Cole Barrett is on camera with face and mouth fully visible, looking at Elena Vance. Cole Barrett holds the moment before speaking. Key object in frame: a small brass key. Location: Silver Creek barn aisle, night. Characters present: Elena Vance, Cole Barrett. No other characters appear.
@@ -610,7 +638,7 @@ ESCENA 9 (Viñeta #9 del Storyboard) — 01:20–01:30
   COLE (low): "That key fits no door in this valley."
   ELENA (decided): "Then we open that room tonight."
 
-ESCENA 10 (Viñeta #10 del Storyboard) — 01:30–01:40
+SCENE 10 (Storyboard Panel #10) — 01:30–01:40
 - Location: Silver Creek sealed tack room, night
 - Characters Present: Elena Vance, Cole Barrett
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Elena Vance and Cole Barrett: Elena Vance and Cole Barrett face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Inside the tack room, the maid pulls an open tin box from the floor while the foreman steps in with bolt cutters. Key object in frame: a fire-scorched property deed. Location: Silver Creek sealed tack room, night. Characters present: Elena Vance, Cole Barrett. No other characters appear.
@@ -625,15 +653,15 @@ ESCENA 10 (Viñeta #10 del Storyboard) — 01:30–01:40
   ELENA (shaking): "This deed says Vance. My mother owned Silver Creek."
   COLE (grim): "Then the fire wasn't bad luck."
 
-ESCENA 11 (Viñeta #11 del Storyboard) — 01:40–01:50
+SCENE 11 (Storyboard Panel #11) — 01:40–01:50
 - Location: Silver Creek county records office, morning
 - Characters Present: Elena Vance
-- Storyboard Panel (Shot 1 exact framing): [00s-04s] medium close-up on Elena Vance, face and mouth visible: Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking. Key object in frame: a county sale record. Location: Silver Creek county records office, morning. Characters present: Elena Vance. No other characters appear.
+- Storyboard Panel (Shot 1 exact framing): [00s-04s] medium close-up on Elena Vance, face and mouth visible: Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking. Key object in frame: a county sale record. Location: Silver Creek county records office, morning. Characters present: Elena Vance. No other characters appear.
 - Identity Anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing faded blue denim work shirt under a tan canvas barn coat, braid loosened by work)
 - Key Object: a county sale record → Object In / Object Out: a county sale record → a county sale record
 - Camera Cuts & Visual Action (10s):
-  * [00s-04s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking. Key object in frame: a county sale record.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
-  * [04s-07s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [00s-04s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking. Key object in frame: a county sale record.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [04s-07s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
   * [07s-08s]: medium shot — At the oak counter, the maid lays the old deed down while the clerk turns a heavy ledger toward her. Key object in frame: a county sale record  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
   * [08s-10s]: close-up — Insert: the ledger's ruled page for the Silver Creek parcel, stamped and countersigned  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
 - Sound Design (SFX & Voice Tone): ledger pages turning, a wall clock, boots on creaking wood. Voice tone: ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical
@@ -641,7 +669,7 @@ ESCENA 11 (Viñeta #11 del Storyboard) — 01:40–01:50
   ELENA (flat): "The sale was recorded in 2009. Blackwell owns it."
   ELENA (hard): "Then open a probate file."
 
-ESCENA 12 (Viñeta #12 del Storyboard) — 01:50–02:00
+SCENE 12 (Storyboard Panel #12) — 01:50–02:00
 - Location: county records steps, grey morning
 - Characters Present: Elena Vance, Cole Barrett
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Cole Barrett and Elena Vance: Cole Barrett and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. On the stone steps, the maid backs up with a folder clutched to her chest while the foreman follows, hat in hand. Key object in frame: a probate form. Location: county records steps, grey morning. Characters present: Elena Vance, Cole Barrett. No other characters appear.
@@ -656,23 +684,32 @@ ESCENA 12 (Viñeta #12 del Storyboard) — 01:50–02:00
   COLE (urgent): "Probate takes months. She's already calling her lawyer."
   ELENA (quiet): "Then I'll fight with what she fears."
 
-COMANDO FINAL (9:16 Reels/TikTok/Shorts):
+FINAL COMMAND (9:16 Reels/TikTok/Shorts):
 
-"Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando entre 1 y 4 tomas exactamente como las lista el guion: la Toma 1 arranca directamente en movimiento desde el encuadre exacto de la viñeta correspondiente sin frames estáticos (two-shot si hablan dos personajes); cada línea hablada tiene su propio plano con el hablante de frente, rostro y boca visibles, nunca desde detrás del personaje; los planos silenciosos (insert, reacción, objeto) van después del diálogo y nunca contienen habla. Mantén estrictamente la misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre escenas. Formato: vertical 9:16 para Reels, TikTok y Shorts. Reglas negativas estrictas: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
+"Make a realistic cinematic video of 10 seconds per scene, executing between 1 and 4 shots exactly as the script lists them: Shot 1 starts directly in motion from the exact framing of the corresponding storyboard panel, with no static frames (two-shot if two characters speak); every spoken line gets its own shot with the speaker facing camera, face and mouth visible, never from behind the character; silent shots (inserts, reactions, objects) come after the dialogue and never contain speech. Keep strictly the same race, face and wardrobe for each character according to their position in the attached Character Sheet, and join them into a single continuous video, never inserting the reference image between scenes. Format: vertical 9:16 for Reels, TikTok and Shorts. Strict negative rules: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
 ```
 
-### Lote 03 — Minuto 3 (escenas 13–18)
+### Batch 03 — Minute 3 (scenes 13–18)
 
-**Adjuntar:** `REF_CAST_MASTER.png` + `REF_GRID_MIN_03.png`
+**Attach:** `REF_CAST_MASTER.png` + `REF_GRID_MIN_03.png`
 
-**Guardar 16:9 como:** `raw_clips/minute_03.mp4`
+**Per-scene attachments for this batch:**
 
-**Guardar 9:16 como:** `raw_clips/minute_03_vertical.mp4`
+- Scene 013: `attach: [panel_013, ref_elena, ref_victoria]`
+- Scene 014: `attach: [panel_014, ref_elena, ref_richard]`
+- Scene 015: `attach: [panel_015, ref_elena, ref_maggie]`
+- Scene 016: `attach: [panel_016, ref_elena, ref_cole]`
+- Scene 017: `attach: [panel_017, ref_victoria, ref_richard]`
+- Scene 018: `attach: [panel_018, ref_elena]`
 
-**Bloque 16:9 para Muse AI (YouTube):**
+**Save 16:9 as:** `raw_clips/minute_03.mp4`
+
+**Save 9:16 as:** `raw_clips/minute_03_vertical.mp4`
+
+**16:9 block for Muse AI (YouTube):**
 
 ```text
-ESCENA 13 (Viñeta #13 del Storyboard) — 02:00–02:10
+SCENE 13 (Storyboard Panel #13) — 02:00–02:10
 - Location: Blackwell paneled office, afternoon
 - Characters Present: Elena Vance, Victoria Blackwell
 - Storyboard Panel (Shot 1 exact framing): [00s-03s] medium close-up on Victoria Blackwell, face and mouth visible: Victoria Blackwell is on camera with face and mouth fully visible, looking at Elena Vance. Victoria Blackwell holds the moment before speaking. Key object in frame: a grave-tending receipt. Location: Blackwell paneled office, afternoon. Characters present: Elena Vance, Victoria Blackwell. No other characters appear.
@@ -688,7 +725,7 @@ ESCENA 13 (Viñeta #13 del Storyboard) — 02:00–02:10
   VICTORIA (controlled): "I'll tend her grave. Leave Silver Creek."
   ELENA (flat): "You're offering a gardener, not her name."
 
-ESCENA 14 (Viñeta #14 del Storyboard) — 02:10–02:20
+SCENE 14 (Storyboard Panel #14) — 02:10–02:20
 - Location: Blackwell dark-paneled hallway, afternoon
 - Characters Present: Elena Vance, Richard Blackwell
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Richard Blackwell and Elena Vance: Richard Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. In the dark-paneled hallway, the heir steps close to the maid, hands open, while she backs away with her folder. Key object in frame: the planted silver watch. Location: Blackwell dark-paneled hallway, afternoon. Characters present: Elena Vance, Richard Blackwell. No other characters appear.
@@ -703,7 +740,7 @@ ESCENA 14 (Viñeta #14 del Storyboard) — 02:10–02:20
   RICHARD (low): "I know you didn't take the watch. Leave before she decides."
   ELENA (sharp): "Why do you care?"
 
-ESCENA 15 (Viñeta #15 del Storyboard) — 02:20–02:30
+SCENE 15 (Storyboard Panel #15) — 02:20–02:30
 - Location: gatehouse cottage, dusk
 - Characters Present: Elena Vance, Maggie Doyle
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Maggie Doyle and Elena Vance: Maggie Doyle and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. At the oilcloth table, the maid pushes a covered pie aside while the housekeeper leans across it. Key object in frame: a signed 2008 statement. Location: gatehouse cottage, dusk. Characters present: Elena Vance, Maggie Doyle. No other characters appear.
@@ -718,7 +755,7 @@ ESCENA 15 (Viñeta #15 del Storyboard) — 02:20–02:30
   MAGGIE (ashamed): "I signed a lie about the fire."
   ELENA (raw): "You told them my mother was careless."
 
-ESCENA 16 (Viñeta #16 del Storyboard) — 02:30–02:40
+SCENE 16 (Storyboard Panel #16) — 02:30–02:40
 - Location: Silver Creek barn aisle, night
 - Characters Present: Elena Vance, Cole Barrett
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Cole Barrett and Elena Vance: Cole Barrett and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. In the barn aisle, the maid sets a lantern between them as the foreman steps in from the rain. Key object in frame: a truck's tire tracks. Location: Silver Creek barn aisle, night. Characters present: Elena Vance, Cole Barrett. No other characters appear.
@@ -733,7 +770,7 @@ ESCENA 16 (Viñeta #16 del Storyboard) — 02:30–02:40
   COLE (quiet): "I was fifteen. I saw a truck leave."
   ELENA (cold): "You watched it leave and said nothing."
 
-ESCENA 17 (Viñeta #17 del Storyboard) — 02:40–02:50
+SCENE 17 (Storyboard Panel #17) — 02:40–02:50
 - Location: Blackwell study, night
 - Characters Present: Victoria Blackwell, Richard Blackwell
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Victoria Blackwell and Richard Blackwell: Victoria Blackwell and Richard Blackwell face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. In the lamplit study, the mistress leans over the desk while the heir paces and loosens his collar. Key object in frame: June Vance's probate file. Location: Blackwell study, night. Characters present: Victoria Blackwell, Richard Blackwell. No other characters appear.
@@ -748,15 +785,15 @@ ESCENA 17 (Viñeta #17 del Storyboard) — 02:40–02:50
   VICTORIA (sharp): "The probate clerk called. Someone requested June's file."
   RICHARD (tired): "The watch was your idea, remember?"
 
-ESCENA 18 (Viñeta #18 del Storyboard) — 02:50–03:00
+SCENE 18 (Storyboard Panel #18) — 02:50–03:00
 - Location: Silver Creek county records office, morning
 - Characters Present: Elena Vance
-- Storyboard Panel (Shot 1 exact framing): [00s-04s] medium close-up on Elena Vance, face and mouth visible: Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking. Key object in frame: a missing-file receipt. Location: Silver Creek county records office, morning. Characters present: Elena Vance. No other characters appear.
+- Storyboard Panel (Shot 1 exact framing): [00s-04s] medium close-up on Elena Vance, face and mouth visible: Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking. Key object in frame: a missing-file receipt. Location: Silver Creek county records office, morning. Characters present: Elena Vance. No other characters appear.
 - Identity Anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing faded blue denim work shirt under a tan canvas barn coat, braid loosened by work)
 - Key Object: a missing-file receipt → Object In / Object Out: a missing-file receipt → a missing-file receipt
 - Camera Cuts & Visual Action (10s):
-  * [00s-04s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking. Key object in frame: a missing-file receipt.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
-  * [04s-07s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [00s-04s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking. Key object in frame: a missing-file receipt.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [04s-07s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
   * [07s-08s]: medium shot — At the counter, the clerk shakes her head over a sealed drawer while the maid pulls her folder back. Key object in frame: a missing-file receipt  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
   * [08s-10s]: close-up — Insert: the drawer's small brass lock, closed and freshly oiled  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
 - Sound Design (SFX & Voice Tone): a drawer lock clicking, a clock, a pen set down too carefully. Voice tone: ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical
@@ -764,15 +801,15 @@ ESCENA 18 (Viñeta #18 del Storyboard) — 02:50–03:00
   ELENA (flat): "Blackwell pulled the file. No record remains."
   ELENA (determined): "She made sure there's a record somewhere."
 
-COMANDO FINAL (16:9 YouTube):
+FINAL COMMAND (16:9 YouTube):
 
-"Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando entre 1 y 4 tomas exactamente como las lista el guion: la Toma 1 arranca directamente en movimiento desde el encuadre exacto de la viñeta correspondiente sin frames estáticos (two-shot si hablan dos personajes); cada línea hablada tiene su propio plano con el hablante de frente, rostro y boca visibles, nunca desde detrás del personaje; los planos silenciosos (insert, reacción, objeto) van después del diálogo y nunca contienen habla. Mantén estrictamente la misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre escenas. Formato: horizontal 16:9 para YouTube. Reglas negativas estrictas: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
+"Make a realistic cinematic video of 10 seconds per scene, executing between 1 and 4 shots exactly as the script lists them: Shot 1 starts directly in motion from the exact framing of the corresponding storyboard panel, with no static frames (two-shot if two characters speak); every spoken line gets its own shot with the speaker facing camera, face and mouth visible, never from behind the character; silent shots (inserts, reactions, objects) come after the dialogue and never contain speech. Keep strictly the same race, face and wardrobe for each character according to their position in the attached Character Sheet, and join them into a single continuous video, never inserting the reference image between scenes. Format: horizontal 16:9 for YouTube. Strict negative rules: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
 ```
 
-**Comando final 9:16 (Reels/Shorts):**
+**Final 9:16 command (Reels/Shorts):**
 
 ```text
-ESCENA 13 (Viñeta #13 del Storyboard) — 02:00–02:10
+SCENE 13 (Storyboard Panel #13) — 02:00–02:10
 - Location: Blackwell paneled office, afternoon
 - Characters Present: Elena Vance, Victoria Blackwell
 - Storyboard Panel (Shot 1 exact framing): [00s-03s] medium close-up on Victoria Blackwell, face and mouth visible: Victoria Blackwell is on camera with face and mouth fully visible, looking at Elena Vance. Victoria Blackwell holds the moment before speaking. Key object in frame: a grave-tending receipt. Location: Blackwell paneled office, afternoon. Characters present: Elena Vance, Victoria Blackwell. No other characters appear.
@@ -788,7 +825,7 @@ ESCENA 13 (Viñeta #13 del Storyboard) — 02:00–02:10
   VICTORIA (controlled): "I'll tend her grave. Leave Silver Creek."
   ELENA (flat): "You're offering a gardener, not her name."
 
-ESCENA 14 (Viñeta #14 del Storyboard) — 02:10–02:20
+SCENE 14 (Storyboard Panel #14) — 02:10–02:20
 - Location: Blackwell dark-paneled hallway, afternoon
 - Characters Present: Elena Vance, Richard Blackwell
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Richard Blackwell and Elena Vance: Richard Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. In the dark-paneled hallway, the heir steps close to the maid, hands open, while she backs away with her folder. Key object in frame: the planted silver watch. Location: Blackwell dark-paneled hallway, afternoon. Characters present: Elena Vance, Richard Blackwell. No other characters appear.
@@ -803,7 +840,7 @@ ESCENA 14 (Viñeta #14 del Storyboard) — 02:10–02:20
   RICHARD (low): "I know you didn't take the watch. Leave before she decides."
   ELENA (sharp): "Why do you care?"
 
-ESCENA 15 (Viñeta #15 del Storyboard) — 02:20–02:30
+SCENE 15 (Storyboard Panel #15) — 02:20–02:30
 - Location: gatehouse cottage, dusk
 - Characters Present: Elena Vance, Maggie Doyle
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Maggie Doyle and Elena Vance: Maggie Doyle and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. At the oilcloth table, the maid pushes a covered pie aside while the housekeeper leans across it. Key object in frame: a signed 2008 statement. Location: gatehouse cottage, dusk. Characters present: Elena Vance, Maggie Doyle. No other characters appear.
@@ -818,7 +855,7 @@ ESCENA 15 (Viñeta #15 del Storyboard) — 02:20–02:30
   MAGGIE (ashamed): "I signed a lie about the fire."
   ELENA (raw): "You told them my mother was careless."
 
-ESCENA 16 (Viñeta #16 del Storyboard) — 02:30–02:40
+SCENE 16 (Storyboard Panel #16) — 02:30–02:40
 - Location: Silver Creek barn aisle, night
 - Characters Present: Elena Vance, Cole Barrett
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Cole Barrett and Elena Vance: Cole Barrett and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. In the barn aisle, the maid sets a lantern between them as the foreman steps in from the rain. Key object in frame: a truck's tire tracks. Location: Silver Creek barn aisle, night. Characters present: Elena Vance, Cole Barrett. No other characters appear.
@@ -833,7 +870,7 @@ ESCENA 16 (Viñeta #16 del Storyboard) — 02:30–02:40
   COLE (quiet): "I was fifteen. I saw a truck leave."
   ELENA (cold): "You watched it leave and said nothing."
 
-ESCENA 17 (Viñeta #17 del Storyboard) — 02:40–02:50
+SCENE 17 (Storyboard Panel #17) — 02:40–02:50
 - Location: Blackwell study, night
 - Characters Present: Victoria Blackwell, Richard Blackwell
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Victoria Blackwell and Richard Blackwell: Victoria Blackwell and Richard Blackwell face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. In the lamplit study, the mistress leans over the desk while the heir paces and loosens his collar. Key object in frame: June Vance's probate file. Location: Blackwell study, night. Characters present: Victoria Blackwell, Richard Blackwell. No other characters appear.
@@ -848,15 +885,15 @@ ESCENA 17 (Viñeta #17 del Storyboard) — 02:40–02:50
   VICTORIA (sharp): "The probate clerk called. Someone requested June's file."
   RICHARD (tired): "The watch was your idea, remember?"
 
-ESCENA 18 (Viñeta #18 del Storyboard) — 02:50–03:00
+SCENE 18 (Storyboard Panel #18) — 02:50–03:00
 - Location: Silver Creek county records office, morning
 - Characters Present: Elena Vance
-- Storyboard Panel (Shot 1 exact framing): [00s-04s] medium close-up on Elena Vance, face and mouth visible: Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking. Key object in frame: a missing-file receipt. Location: Silver Creek county records office, morning. Characters present: Elena Vance. No other characters appear.
+- Storyboard Panel (Shot 1 exact framing): [00s-04s] medium close-up on Elena Vance, face and mouth visible: Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking. Key object in frame: a missing-file receipt. Location: Silver Creek county records office, morning. Characters present: Elena Vance. No other characters appear.
 - Identity Anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing faded blue denim work shirt under a tan canvas barn coat, braid loosened by work)
 - Key Object: a missing-file receipt → Object In / Object Out: a missing-file receipt → a missing-file receipt
 - Camera Cuts & Visual Action (10s):
-  * [00s-04s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking. Key object in frame: a missing-file receipt.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
-  * [04s-07s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [00s-04s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking. Key object in frame: a missing-file receipt.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [04s-07s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
   * [07s-08s]: medium shot — At the counter, the clerk shakes her head over a sealed drawer while the maid pulls her folder back. Key object in frame: a missing-file receipt  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
   * [08s-10s]: close-up — Insert: the drawer's small brass lock, closed and freshly oiled  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
 - Sound Design (SFX & Voice Tone): a drawer lock clicking, a clock, a pen set down too carefully. Voice tone: ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical
@@ -864,23 +901,32 @@ ESCENA 18 (Viñeta #18 del Storyboard) — 02:50–03:00
   ELENA (flat): "Blackwell pulled the file. No record remains."
   ELENA (determined): "She made sure there's a record somewhere."
 
-COMANDO FINAL (9:16 Reels/TikTok/Shorts):
+FINAL COMMAND (9:16 Reels/TikTok/Shorts):
 
-"Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando entre 1 y 4 tomas exactamente como las lista el guion: la Toma 1 arranca directamente en movimiento desde el encuadre exacto de la viñeta correspondiente sin frames estáticos (two-shot si hablan dos personajes); cada línea hablada tiene su propio plano con el hablante de frente, rostro y boca visibles, nunca desde detrás del personaje; los planos silenciosos (insert, reacción, objeto) van después del diálogo y nunca contienen habla. Mantén estrictamente la misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre escenas. Formato: vertical 9:16 para Reels, TikTok y Shorts. Reglas negativas estrictas: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
+"Make a realistic cinematic video of 10 seconds per scene, executing between 1 and 4 shots exactly as the script lists them: Shot 1 starts directly in motion from the exact framing of the corresponding storyboard panel, with no static frames (two-shot if two characters speak); every spoken line gets its own shot with the speaker facing camera, face and mouth visible, never from behind the character; silent shots (inserts, reactions, objects) come after the dialogue and never contain speech. Keep strictly the same race, face and wardrobe for each character according to their position in the attached Character Sheet, and join them into a single continuous video, never inserting the reference image between scenes. Format: vertical 9:16 for Reels, TikTok and Shorts. Strict negative rules: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
 ```
 
-### Lote 04 — Minuto 4 (escenas 19–24)
+### Batch 04 — Minute 4 (scenes 19–24)
 
-**Adjuntar:** `REF_CAST_MASTER.png` + `REF_GRID_MIN_04.png`
+**Attach:** `REF_CAST_MASTER.png` + `REF_GRID_MIN_04.png`
 
-**Guardar 16:9 como:** `raw_clips/minute_04.mp4`
+**Per-scene attachments for this batch:**
 
-**Guardar 9:16 como:** `raw_clips/minute_04_vertical.mp4`
+- Scene 019: `attach: [panel_019, ref_elena, ref_victoria, ref_richard]`
+- Scene 020: `attach: [panel_020, ref_elena, ref_victoria]`
+- Scene 021: `attach: [panel_021, ref_elena, ref_cole]`
+- Scene 022: `attach: [panel_022, ref_elena]`
+- Scene 023: `attach: [panel_023, ref_elena, ref_cole]`
+- Scene 024: `attach: [panel_024, ref_elena, ref_richard]`
 
-**Bloque 16:9 para Muse AI (YouTube):**
+**Save 16:9 as:** `raw_clips/minute_04.mp4`
+
+**Save 9:16 as:** `raw_clips/minute_04_vertical.mp4`
+
+**16:9 block for Muse AI (YouTube):**
 
 ```text
-ESCENA 19 (Viñeta #19 del Storyboard) — 03:00–03:10
+SCENE 19 (Storyboard Panel #19) — 03:00–03:10
 - Location: Blackwell great room, dinner, night
 - Characters Present: Elena Vance, Victoria Blackwell, Richard Blackwell
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Victoria Blackwell and Elena Vance: Victoria Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. In the candlelit great room, the mistress rises with a glass while the maid steps to the edge of the tables. Key object in frame: a dinner place card. Location: Blackwell great room, dinner, night. Characters present: Elena Vance, Victoria Blackwell, Richard Blackwell. No other characters appear.
@@ -896,7 +942,7 @@ ESCENA 19 (Viñeta #19 del Storyboard) — 03:00–03:10
   VICTORIA (sweet): "Elena leaves soon. Tell them your plans, dear."
   ELENA (polite): "She's kind. My plans haven't changed."
 
-ESCENA 20 (Viñeta #20 del Storyboard) — 03:10–03:20
+SCENE 20 (Storyboard Panel #20) — 03:10–03:20
 - Location: Blackwell gravel yard, night
 - Characters Present: Elena Vance, Victoria Blackwell
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Victoria Blackwell and Elena Vance: Victoria Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. In the gravel yard at night, a steel barrel burns as the mistress thrusts a folded paper at the maid. Key object in frame: a signed release form. Location: Blackwell gravel yard, night. Characters present: Elena Vance, Victoria Blackwell. No other characters appear.
@@ -911,7 +957,7 @@ ESCENA 20 (Viñeta #20 del Storyboard) — 03:10–03:20
   VICTORIA (cold): "Sign by midnight, or I add arson."
   ELENA (steady): "You burned her saddle. You're afraid of it."
 
-ESCENA 21 (Viñeta #21 del Storyboard) — 03:20–03:30
+SCENE 21 (Storyboard Panel #21) — 03:20–03:30
 - Location: gatehouse cottage, night
 - Characters Present: Elena Vance, Cole Barrett
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Elena Vance and Cole Barrett: Elena Vance and Cole Barrett face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. In the cottage lamplight, the maid unrolls the old county survey map while the foreman anchors the curling corners with heavy iron horseshoes. Key object in frame: a scraped parcel map. Location: gatehouse cottage, night. Characters present: Elena Vance, Cole Barrett. No other characters appear.
@@ -926,14 +972,14 @@ ESCENA 21 (Viñeta #21 del Storyboard) — 03:20–03:30
   ELENA (urgent): "Someone scraped the original section line off with a blade."
   COLE (low): "That's Walter Blackwell's handwriting underneath."
 
-ESCENA 22 (Viñeta #22 del Storyboard) — 03:30–03:40
+SCENE 22 (Storyboard Panel #22) — 03:30–03:40
 - Location: Blackwell tack room, night
 - Characters Present: Elena Vance
-- Storyboard Panel (Shot 1 exact framing): [00s-06s] medium close-up on Elena Vance, face and mouth visible: Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking. Key object in frame: a stack of cash tax receipts. Location: Blackwell tack room, night. Characters present: Elena Vance. No other characters appear.
+- Storyboard Panel (Shot 1 exact framing): [00s-06s] medium close-up on Elena Vance, face and mouth visible: Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking. Key object in frame: a stack of cash tax receipts. Location: Blackwell tack room, night. Characters present: Elena Vance. No other characters appear.
 - Identity Anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing denim work shirt with rolled sleeves, dark riding jeans, leather work gloves tucked in the belt)
 - Key Object: a stack of cash tax receipts → Object In / Object Out: a stack of cash tax receipts → a stack of cash tax receipts
 - Camera Cuts & Visual Action (10s):
-  * [00s-06s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking. Key object in frame: a stack of cash tax receipts.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [00s-06s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking. Key object in frame: a stack of cash tax receipts.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
   * [06s-07s]: medium shot — In the shadowy tack room, the maid kneels beside the wall timber and slides a cylindrical tin case from the hollow cavity. Key object in frame: a stack of cash tax receipts  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
   * [07s-08s]: close-up — Insert: the cap unscrews with a grinding squeak, revealing rolled bank tax receipts tied with red butcher twine  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
   * [08s-10s]: tight close-up — Close on her face as flashlight beam illuminates the receipts bearing her mother's signature  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
@@ -941,7 +987,7 @@ ESCENA 22 (Viñeta #22 del Storyboard) — 03:30–03:40
 - Dialogue (English, max 15 words, finish before 8.5 s):
   ELENA (focused): "Every tax installment from 2005 to 2008. Paid in cash."
 
-ESCENA 23 (Viñeta #23 del Storyboard) — 03:40–03:50
+SCENE 23 (Storyboard Panel #23) — 03:40–03:50
 - Location: Silver Creek barn hayloft, night
 - Characters Present: Elena Vance, Cole Barrett
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Cole Barrett and Elena Vance: Cole Barrett and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. In the moonlight, the foreman gently binds the maid's bruised palm with white tape, his touch slow and deliberate. Key object in frame: a lantern in the hayloft. Location: Silver Creek barn hayloft, night. Characters present: Elena Vance, Cole Barrett. No other characters appear.
@@ -956,7 +1002,7 @@ ESCENA 23 (Viñeta #23 del Storyboard) — 03:40–03:50
   COLE (warm): "You don't have to carry this alone."
   ELENA (quiet): "Everyone beside my mother paid for it."
 
-ESCENA 24 (Viñeta #24 del Storyboard) — 03:50–04:00
+SCENE 24 (Storyboard Panel #24) — 03:50–04:00
 - Location: Blackwell study archives, night
 - Characters Present: Elena Vance, Richard Blackwell
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Richard Blackwell and Elena Vance: Richard Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Behind the desk, the maid turns with the open ledger as the heir steps over the threshold. Key object in frame: a ledger of quiet payments. Location: Blackwell study archives, night. Characters present: Elena Vance, Richard Blackwell. No other characters appear.
@@ -971,15 +1017,15 @@ ESCENA 24 (Viñeta #24 del Storyboard) — 03:50–04:00
   RICHARD (low): "That book lists my father's quiet payments."
   ELENA (cold): "Payments to the coroner. She bought the certificate."
 
-COMANDO FINAL (16:9 YouTube):
+FINAL COMMAND (16:9 YouTube):
 
-"Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando entre 1 y 4 tomas exactamente como las lista el guion: la Toma 1 arranca directamente en movimiento desde el encuadre exacto de la viñeta correspondiente sin frames estáticos (two-shot si hablan dos personajes); cada línea hablada tiene su propio plano con el hablante de frente, rostro y boca visibles, nunca desde detrás del personaje; los planos silenciosos (insert, reacción, objeto) van después del diálogo y nunca contienen habla. Mantén estrictamente la misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre escenas. Formato: horizontal 16:9 para YouTube. Reglas negativas estrictas: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
+"Make a realistic cinematic video of 10 seconds per scene, executing between 1 and 4 shots exactly as the script lists them: Shot 1 starts directly in motion from the exact framing of the corresponding storyboard panel, with no static frames (two-shot if two characters speak); every spoken line gets its own shot with the speaker facing camera, face and mouth visible, never from behind the character; silent shots (inserts, reactions, objects) come after the dialogue and never contain speech. Keep strictly the same race, face and wardrobe for each character according to their position in the attached Character Sheet, and join them into a single continuous video, never inserting the reference image between scenes. Format: horizontal 16:9 for YouTube. Strict negative rules: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
 ```
 
-**Comando final 9:16 (Reels/Shorts):**
+**Final 9:16 command (Reels/Shorts):**
 
 ```text
-ESCENA 19 (Viñeta #19 del Storyboard) — 03:00–03:10
+SCENE 19 (Storyboard Panel #19) — 03:00–03:10
 - Location: Blackwell great room, dinner, night
 - Characters Present: Elena Vance, Victoria Blackwell, Richard Blackwell
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Victoria Blackwell and Elena Vance: Victoria Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. In the candlelit great room, the mistress rises with a glass while the maid steps to the edge of the tables. Key object in frame: a dinner place card. Location: Blackwell great room, dinner, night. Characters present: Elena Vance, Victoria Blackwell, Richard Blackwell. No other characters appear.
@@ -995,7 +1041,7 @@ ESCENA 19 (Viñeta #19 del Storyboard) — 03:00–03:10
   VICTORIA (sweet): "Elena leaves soon. Tell them your plans, dear."
   ELENA (polite): "She's kind. My plans haven't changed."
 
-ESCENA 20 (Viñeta #20 del Storyboard) — 03:10–03:20
+SCENE 20 (Storyboard Panel #20) — 03:10–03:20
 - Location: Blackwell gravel yard, night
 - Characters Present: Elena Vance, Victoria Blackwell
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Victoria Blackwell and Elena Vance: Victoria Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. In the gravel yard at night, a steel barrel burns as the mistress thrusts a folded paper at the maid. Key object in frame: a signed release form. Location: Blackwell gravel yard, night. Characters present: Elena Vance, Victoria Blackwell. No other characters appear.
@@ -1010,7 +1056,7 @@ ESCENA 20 (Viñeta #20 del Storyboard) — 03:10–03:20
   VICTORIA (cold): "Sign by midnight, or I add arson."
   ELENA (steady): "You burned her saddle. You're afraid of it."
 
-ESCENA 21 (Viñeta #21 del Storyboard) — 03:20–03:30
+SCENE 21 (Storyboard Panel #21) — 03:20–03:30
 - Location: gatehouse cottage, night
 - Characters Present: Elena Vance, Cole Barrett
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Elena Vance and Cole Barrett: Elena Vance and Cole Barrett face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. In the cottage lamplight, the maid unrolls the old county survey map while the foreman anchors the curling corners with heavy iron horseshoes. Key object in frame: a scraped parcel map. Location: gatehouse cottage, night. Characters present: Elena Vance, Cole Barrett. No other characters appear.
@@ -1025,14 +1071,14 @@ ESCENA 21 (Viñeta #21 del Storyboard) — 03:20–03:30
   ELENA (urgent): "Someone scraped the original section line off with a blade."
   COLE (low): "That's Walter Blackwell's handwriting underneath."
 
-ESCENA 22 (Viñeta #22 del Storyboard) — 03:30–03:40
+SCENE 22 (Storyboard Panel #22) — 03:30–03:40
 - Location: Blackwell tack room, night
 - Characters Present: Elena Vance
-- Storyboard Panel (Shot 1 exact framing): [00s-06s] medium close-up on Elena Vance, face and mouth visible: Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking. Key object in frame: a stack of cash tax receipts. Location: Blackwell tack room, night. Characters present: Elena Vance. No other characters appear.
+- Storyboard Panel (Shot 1 exact framing): [00s-06s] medium close-up on Elena Vance, face and mouth visible: Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking. Key object in frame: a stack of cash tax receipts. Location: Blackwell tack room, night. Characters present: Elena Vance. No other characters appear.
 - Identity Anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing denim work shirt with rolled sleeves, dark riding jeans, leather work gloves tucked in the belt)
 - Key Object: a stack of cash tax receipts → Object In / Object Out: a stack of cash tax receipts → a stack of cash tax receipts
 - Camera Cuts & Visual Action (10s):
-  * [00s-06s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking. Key object in frame: a stack of cash tax receipts.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [00s-06s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking. Key object in frame: a stack of cash tax receipts.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
   * [06s-07s]: medium shot — In the shadowy tack room, the maid kneels beside the wall timber and slides a cylindrical tin case from the hollow cavity. Key object in frame: a stack of cash tax receipts  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
   * [07s-08s]: close-up — Insert: the cap unscrews with a grinding squeak, revealing rolled bank tax receipts tied with red butcher twine  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
   * [08s-10s]: tight close-up — Close on her face as flashlight beam illuminates the receipts bearing her mother's signature  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
@@ -1040,7 +1086,7 @@ ESCENA 22 (Viñeta #22 del Storyboard) — 03:30–03:40
 - Dialogue (English, max 15 words, finish before 8.5 s):
   ELENA (focused): "Every tax installment from 2005 to 2008. Paid in cash."
 
-ESCENA 23 (Viñeta #23 del Storyboard) — 03:40–03:50
+SCENE 23 (Storyboard Panel #23) — 03:40–03:50
 - Location: Silver Creek barn hayloft, night
 - Characters Present: Elena Vance, Cole Barrett
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Cole Barrett and Elena Vance: Cole Barrett and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. In the moonlight, the foreman gently binds the maid's bruised palm with white tape, his touch slow and deliberate. Key object in frame: a lantern in the hayloft. Location: Silver Creek barn hayloft, night. Characters present: Elena Vance, Cole Barrett. No other characters appear.
@@ -1055,7 +1101,7 @@ ESCENA 23 (Viñeta #23 del Storyboard) — 03:40–03:50
   COLE (warm): "You don't have to carry this alone."
   ELENA (quiet): "Everyone beside my mother paid for it."
 
-ESCENA 24 (Viñeta #24 del Storyboard) — 03:50–04:00
+SCENE 24 (Storyboard Panel #24) — 03:50–04:00
 - Location: Blackwell study archives, night
 - Characters Present: Elena Vance, Richard Blackwell
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Richard Blackwell and Elena Vance: Richard Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Behind the desk, the maid turns with the open ledger as the heir steps over the threshold. Key object in frame: a ledger of quiet payments. Location: Blackwell study archives, night. Characters present: Elena Vance, Richard Blackwell. No other characters appear.
@@ -1070,28 +1116,37 @@ ESCENA 24 (Viñeta #24 del Storyboard) — 03:50–04:00
   RICHARD (low): "That book lists my father's quiet payments."
   ELENA (cold): "Payments to the coroner. She bought the certificate."
 
-COMANDO FINAL (9:16 Reels/TikTok/Shorts):
+FINAL COMMAND (9:16 Reels/TikTok/Shorts):
 
-"Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando entre 1 y 4 tomas exactamente como las lista el guion: la Toma 1 arranca directamente en movimiento desde el encuadre exacto de la viñeta correspondiente sin frames estáticos (two-shot si hablan dos personajes); cada línea hablada tiene su propio plano con el hablante de frente, rostro y boca visibles, nunca desde detrás del personaje; los planos silenciosos (insert, reacción, objeto) van después del diálogo y nunca contienen habla. Mantén estrictamente la misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre escenas. Formato: vertical 9:16 para Reels, TikTok y Shorts. Reglas negativas estrictas: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
+"Make a realistic cinematic video of 10 seconds per scene, executing between 1 and 4 shots exactly as the script lists them: Shot 1 starts directly in motion from the exact framing of the corresponding storyboard panel, with no static frames (two-shot if two characters speak); every spoken line gets its own shot with the speaker facing camera, face and mouth visible, never from behind the character; silent shots (inserts, reactions, objects) come after the dialogue and never contain speech. Keep strictly the same race, face and wardrobe for each character according to their position in the attached Character Sheet, and join them into a single continuous video, never inserting the reference image between scenes. Format: vertical 9:16 for Reels, TikTok and Shorts. Strict negative rules: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
 ```
 
-### Lote 05 — Minuto 5 (escenas 25–30)
+### Batch 05 — Minute 5 (scenes 25–30)
 
-**Adjuntar:** `REF_CAST_MASTER.png` + `REF_GRID_MIN_05.png`
+**Attach:** `REF_CAST_MASTER.png` + `REF_GRID_MIN_05.png`
 
-**Guardar 16:9 como:** `raw_clips/minute_05.mp4`
+**Per-scene attachments for this batch:**
 
-**Guardar 9:16 como:** `raw_clips/minute_05_vertical.mp4`
+- Scene 025: `attach: [panel_025, ref_elena, ref_victoria, ref_richard]`
+- Scene 026: `attach: [panel_026, ref_richard, ref_cole]`
+- Scene 027: `attach: [panel_027, ref_elena, ref_richard]`
+- Scene 028: `attach: [panel_028, ref_elena, ref_maggie]`
+- Scene 029: `attach: [panel_029, ref_elena, ref_victoria]`
+- Scene 030: `attach: [panel_030, ref_elena, ref_victoria]`
 
-**Bloque 16:9 para Muse AI (YouTube):**
+**Save 16:9 as:** `raw_clips/minute_05.mp4`
+
+**Save 9:16 as:** `raw_clips/minute_05_vertical.mp4`
+
+**16:9 block for Muse AI (YouTube):**
 
 ```text
-ESCENA 25 (Viñeta #25 del Storyboard) — 04:00–04:10
+SCENE 25 (Storyboard Panel #25) — 04:00–04:10
 - Location: Blackwell mansion great room, night
 - Characters Present: Elena Vance, Victoria Blackwell, Richard Blackwell
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Victoria Blackwell and Elena Vance: Victoria Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. In the vast room, the mistress swings a small brass ribboned key while the maid backs toward the cold hearth. Key object in frame: Walter's unsigned will. Location: Blackwell mansion great room, night. Characters present: Elena Vance, Victoria Blackwell, Richard Blackwell. No other characters appear.
 - Identity Anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing denim work shirt with rolled sleeves, dark riding jeans, leather work gloves tucked in the belt); Victoria Blackwell (Cast Sheet Pos #2: mid-forties; platinum-blonde bob; wearing silver-grey silk blouse, charcoal skirt, single pearl strand); Richard Blackwell (Cast Sheet Pos #3: around thirty; sandy hair combed back; wearing white shirt with sleeves rolled, dark trousers)
-- Key Object: Walter's unsigned will → Object In / Object Out: Walter's unsigned will → Walter's unsigned will
+- Key Object: the central visual detail of the scene
 - Silent Present: Richard Blackwell — mouths closed for the whole scene, no lines.
 - Camera Cuts & Visual Action (10s):
   * [00s-07s]: two-shot, medium shot with Victoria Blackwell and Elena Vance — Victoria Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. In the vast room, the mistress swings a small brass ribboned key while the maid backs toward the cold hearth. Key object in frame: Walter's unsigned will  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
@@ -1102,7 +1157,7 @@ ESCENA 25 (Viñeta #25 del Storyboard) — 04:00–04:10
   VICTORIA (mocking): "Did you think Walter was a saint?"
   ELENA (fierce): "He gave her the ranch. You murdered him."
 
-ESCENA 26 (Viñeta #26 del Storyboard) — 04:10–04:20
+SCENE 26 (Storyboard Panel #26) — 04:10–04:20
 - Location: Blackwell mansion gravel drive, night
 - Characters Present: Richard Blackwell, Cole Barrett
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Cole Barrett and Richard Blackwell: Cole Barrett and Richard Blackwell face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Under harsh halogen yard lights, the foreman plants his boots in front of the heir, refusing to yield the driveway. Key object in frame: a shotgun on the porch. Location: Blackwell mansion gravel drive, night. Characters present: Richard Blackwell, Cole Barrett. No other characters appear.
@@ -1117,12 +1172,12 @@ ESCENA 26 (Viñeta #26 del Storyboard) — 04:10–04:20
   COLE (hard): "One step toward the gatehouse, Richard."
   RICHARD (scornful): "You're throwing your life away for a girl."
 
-ESCENA 27 (Viñeta #27 del Storyboard) — 04:20–04:30
+SCENE 27 (Storyboard Panel #27) — 04:20–04:30
 - Location: gatehouse cottage porch, night
 - Characters Present: Elena Vance, Richard Blackwell
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Richard Blackwell and Elena Vance: Richard Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. On the rain-slick porch steps, the heir reaches out with a cream envelope while the maid refuses to accept it. Key object in frame: a threat written on a feed receipt. Location: gatehouse cottage porch, night. Characters present: Elena Vance, Richard Blackwell. No other characters appear.
 - Identity Anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing denim work shirt with rolled sleeves, dark riding jeans, leather work gloves tucked in the belt); Richard Blackwell (Cast Sheet Pos #3: around thirty; sandy hair combed back; wearing white shirt with sleeves rolled, dark trousers)
-- Key Object: a threat written on a feed receipt → Object In / Object Out: a threat written on a feed receipt → a threat written on a feed receipt
+- Key Object: the central visual detail of the scene
 - Camera Cuts & Visual Action (10s):
   * [00s-07s]: two-shot, medium shot with Richard Blackwell and Elena Vance — Richard Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. On the rain-slick porch steps, the heir reaches out with a cream envelope while the maid refuses to accept it. Key object in frame: a threat written on a feed receipt  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
   * [07s-08s]: close-up — Insert: the wet envelope bears the embossed gold seal of the county probate registry  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
@@ -1132,7 +1187,7 @@ ESCENA 27 (Viñeta #27 del Storyboard) — 04:20–04:30
   RICHARD (flat): "My mother hired two men from Billings."
   ELENA (defiant): "Tell them to bring shovels. I'm not running."
 
-ESCENA 28 (Viñeta #28 del Storyboard) — 04:30–04:40
+SCENE 28 (Storyboard Panel #28) — 04:30–04:40
 - Location: Silver Creek barn aisle, night
 - Characters Present: Elena Vance, Maggie Doyle
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Maggie Doyle and Elena Vance: Maggie Doyle and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. In the barn aisle, the housekeeper rushes to the maid and grabs both of her elbows with trembling hands. Key object in frame: an empty wall safe. Location: Silver Creek barn aisle, night. Characters present: Elena Vance, Maggie Doyle. No other characters appear.
@@ -1147,7 +1202,7 @@ ESCENA 28 (Viñeta #28 del Storyboard) — 04:30–04:40
   MAGGIE (urgent): "Victoria cleared the safe. She's leaving after the gala."
   ELENA (steady): "We have until midnight."
 
-ESCENA 29 (Viñeta #29 del Storyboard) — 04:40–04:50
+SCENE 29 (Storyboard Panel #29) — 04:40–04:50
 - Location: Blackwell estate gates, midnight
 - Characters Present: Elena Vance, Victoria Blackwell
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Victoria Blackwell and Elena Vance: Victoria Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. By the iron gates, the mistress steps out of the luxury car into the headlights, holding a checkbook open. Key object in frame: a suitcase full of cash. Location: Blackwell estate gates, midnight. Characters present: Elena Vance, Victoria Blackwell. No other characters appear.
@@ -1162,7 +1217,7 @@ ESCENA 29 (Viñeta #29 del Storyboard) — 04:40–04:50
   VICTORIA (reasonable): "Half a million. Buy any ranch you want."
   ELENA (cold): "I just call my mother a thief."
 
-ESCENA 30 (Viñeta #30 del Storyboard) — 04:50–05:00
+SCENE 30 (Storyboard Panel #30) — 04:50–05:00
 - Location: Blackwell estate gates, midnight
 - Characters Present: Elena Vance, Victoria Blackwell
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Victoria Blackwell and Elena Vance: Victoria Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Under the headlights, the mistress thrusts the certified check into the maid's face like an execution order. Key object in frame: a final cash offer. Location: Blackwell estate gates, midnight. Characters present: Elena Vance, Victoria Blackwell. No other characters appear.
@@ -1177,20 +1232,20 @@ ESCENA 30 (Viñeta #30 del Storyboard) — 04:50–05:00
   VICTORIA (final): "Take the money. Leave the name behind."
   ELENA (quiet): "My mother died for that name."
 
-COMANDO FINAL (16:9 YouTube):
+FINAL COMMAND (16:9 YouTube):
 
-"Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando entre 1 y 4 tomas exactamente como las lista el guion: la Toma 1 arranca directamente en movimiento desde el encuadre exacto de la viñeta correspondiente sin frames estáticos (two-shot si hablan dos personajes); cada línea hablada tiene su propio plano con el hablante de frente, rostro y boca visibles, nunca desde detrás del personaje; los planos silenciosos (insert, reacción, objeto) van después del diálogo y nunca contienen habla. Mantén estrictamente la misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre escenas. Formato: horizontal 16:9 para YouTube. Reglas negativas estrictas: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
+"Make a realistic cinematic video of 10 seconds per scene, executing between 1 and 4 shots exactly as the script lists them: Shot 1 starts directly in motion from the exact framing of the corresponding storyboard panel, with no static frames (two-shot if two characters speak); every spoken line gets its own shot with the speaker facing camera, face and mouth visible, never from behind the character; silent shots (inserts, reactions, objects) come after the dialogue and never contain speech. Keep strictly the same race, face and wardrobe for each character according to their position in the attached Character Sheet, and join them into a single continuous video, never inserting the reference image between scenes. Format: horizontal 16:9 for YouTube. Strict negative rules: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
 ```
 
-**Comando final 9:16 (Reels/Shorts):**
+**Final 9:16 command (Reels/Shorts):**
 
 ```text
-ESCENA 25 (Viñeta #25 del Storyboard) — 04:00–04:10
+SCENE 25 (Storyboard Panel #25) — 04:00–04:10
 - Location: Blackwell mansion great room, night
 - Characters Present: Elena Vance, Victoria Blackwell, Richard Blackwell
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Victoria Blackwell and Elena Vance: Victoria Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. In the vast room, the mistress swings a small brass ribboned key while the maid backs toward the cold hearth. Key object in frame: Walter's unsigned will. Location: Blackwell mansion great room, night. Characters present: Elena Vance, Victoria Blackwell, Richard Blackwell. No other characters appear.
 - Identity Anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing denim work shirt with rolled sleeves, dark riding jeans, leather work gloves tucked in the belt); Victoria Blackwell (Cast Sheet Pos #2: mid-forties; platinum-blonde bob; wearing silver-grey silk blouse, charcoal skirt, single pearl strand); Richard Blackwell (Cast Sheet Pos #3: around thirty; sandy hair combed back; wearing white shirt with sleeves rolled, dark trousers)
-- Key Object: Walter's unsigned will → Object In / Object Out: Walter's unsigned will → Walter's unsigned will
+- Key Object: the central visual detail of the scene
 - Silent Present: Richard Blackwell — mouths closed for the whole scene, no lines.
 - Camera Cuts & Visual Action (10s):
   * [00s-07s]: two-shot, medium shot with Victoria Blackwell and Elena Vance — Victoria Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. In the vast room, the mistress swings a small brass ribboned key while the maid backs toward the cold hearth. Key object in frame: Walter's unsigned will  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
@@ -1201,7 +1256,7 @@ ESCENA 25 (Viñeta #25 del Storyboard) — 04:00–04:10
   VICTORIA (mocking): "Did you think Walter was a saint?"
   ELENA (fierce): "He gave her the ranch. You murdered him."
 
-ESCENA 26 (Viñeta #26 del Storyboard) — 04:10–04:20
+SCENE 26 (Storyboard Panel #26) — 04:10–04:20
 - Location: Blackwell mansion gravel drive, night
 - Characters Present: Richard Blackwell, Cole Barrett
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Cole Barrett and Richard Blackwell: Cole Barrett and Richard Blackwell face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Under harsh halogen yard lights, the foreman plants his boots in front of the heir, refusing to yield the driveway. Key object in frame: a shotgun on the porch. Location: Blackwell mansion gravel drive, night. Characters present: Richard Blackwell, Cole Barrett. No other characters appear.
@@ -1216,12 +1271,12 @@ ESCENA 26 (Viñeta #26 del Storyboard) — 04:10–04:20
   COLE (hard): "One step toward the gatehouse, Richard."
   RICHARD (scornful): "You're throwing your life away for a girl."
 
-ESCENA 27 (Viñeta #27 del Storyboard) — 04:20–04:30
+SCENE 27 (Storyboard Panel #27) — 04:20–04:30
 - Location: gatehouse cottage porch, night
 - Characters Present: Elena Vance, Richard Blackwell
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Richard Blackwell and Elena Vance: Richard Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. On the rain-slick porch steps, the heir reaches out with a cream envelope while the maid refuses to accept it. Key object in frame: a threat written on a feed receipt. Location: gatehouse cottage porch, night. Characters present: Elena Vance, Richard Blackwell. No other characters appear.
 - Identity Anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing denim work shirt with rolled sleeves, dark riding jeans, leather work gloves tucked in the belt); Richard Blackwell (Cast Sheet Pos #3: around thirty; sandy hair combed back; wearing white shirt with sleeves rolled, dark trousers)
-- Key Object: a threat written on a feed receipt → Object In / Object Out: a threat written on a feed receipt → a threat written on a feed receipt
+- Key Object: the central visual detail of the scene
 - Camera Cuts & Visual Action (10s):
   * [00s-07s]: two-shot, medium shot with Richard Blackwell and Elena Vance — Richard Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. On the rain-slick porch steps, the heir reaches out with a cream envelope while the maid refuses to accept it. Key object in frame: a threat written on a feed receipt  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
   * [07s-08s]: close-up — Insert: the wet envelope bears the embossed gold seal of the county probate registry  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
@@ -1231,7 +1286,7 @@ ESCENA 27 (Viñeta #27 del Storyboard) — 04:20–04:30
   RICHARD (flat): "My mother hired two men from Billings."
   ELENA (defiant): "Tell them to bring shovels. I'm not running."
 
-ESCENA 28 (Viñeta #28 del Storyboard) — 04:30–04:40
+SCENE 28 (Storyboard Panel #28) — 04:30–04:40
 - Location: Silver Creek barn aisle, night
 - Characters Present: Elena Vance, Maggie Doyle
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Maggie Doyle and Elena Vance: Maggie Doyle and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. In the barn aisle, the housekeeper rushes to the maid and grabs both of her elbows with trembling hands. Key object in frame: an empty wall safe. Location: Silver Creek barn aisle, night. Characters present: Elena Vance, Maggie Doyle. No other characters appear.
@@ -1246,7 +1301,7 @@ ESCENA 28 (Viñeta #28 del Storyboard) — 04:30–04:40
   MAGGIE (urgent): "Victoria cleared the safe. She's leaving after the gala."
   ELENA (steady): "We have until midnight."
 
-ESCENA 29 (Viñeta #29 del Storyboard) — 04:40–04:50
+SCENE 29 (Storyboard Panel #29) — 04:40–04:50
 - Location: Blackwell estate gates, midnight
 - Characters Present: Elena Vance, Victoria Blackwell
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Victoria Blackwell and Elena Vance: Victoria Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. By the iron gates, the mistress steps out of the luxury car into the headlights, holding a checkbook open. Key object in frame: a suitcase full of cash. Location: Blackwell estate gates, midnight. Characters present: Elena Vance, Victoria Blackwell. No other characters appear.
@@ -1261,7 +1316,7 @@ ESCENA 29 (Viñeta #29 del Storyboard) — 04:40–04:50
   VICTORIA (reasonable): "Half a million. Buy any ranch you want."
   ELENA (cold): "I just call my mother a thief."
 
-ESCENA 30 (Viñeta #30 del Storyboard) — 04:50–05:00
+SCENE 30 (Storyboard Panel #30) — 04:50–05:00
 - Location: Blackwell estate gates, midnight
 - Characters Present: Elena Vance, Victoria Blackwell
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Victoria Blackwell and Elena Vance: Victoria Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Under the headlights, the mistress thrusts the certified check into the maid's face like an execution order. Key object in frame: a final cash offer. Location: Blackwell estate gates, midnight. Characters present: Elena Vance, Victoria Blackwell. No other characters appear.
@@ -1276,31 +1331,40 @@ ESCENA 30 (Viñeta #30 del Storyboard) — 04:50–05:00
   VICTORIA (final): "Take the money. Leave the name behind."
   ELENA (quiet): "My mother died for that name."
 
-COMANDO FINAL (9:16 Reels/TikTok/Shorts):
+FINAL COMMAND (9:16 Reels/TikTok/Shorts):
 
-"Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando entre 1 y 4 tomas exactamente como las lista el guion: la Toma 1 arranca directamente en movimiento desde el encuadre exacto de la viñeta correspondiente sin frames estáticos (two-shot si hablan dos personajes); cada línea hablada tiene su propio plano con el hablante de frente, rostro y boca visibles, nunca desde detrás del personaje; los planos silenciosos (insert, reacción, objeto) van después del diálogo y nunca contienen habla. Mantén estrictamente la misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre escenas. Formato: vertical 9:16 para Reels, TikTok y Shorts. Reglas negativas estrictas: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
+"Make a realistic cinematic video of 10 seconds per scene, executing between 1 and 4 shots exactly as the script lists them: Shot 1 starts directly in motion from the exact framing of the corresponding storyboard panel, with no static frames (two-shot if two characters speak); every spoken line gets its own shot with the speaker facing camera, face and mouth visible, never from behind the character; silent shots (inserts, reactions, objects) come after the dialogue and never contain speech. Keep strictly the same race, face and wardrobe for each character according to their position in the attached Character Sheet, and join them into a single continuous video, never inserting the reference image between scenes. Format: vertical 9:16 for Reels, TikTok and Shorts. Strict negative rules: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
 ```
 
-### Lote 06 — Minuto 6 (escenas 31–36)
+### Batch 06 — Minute 6 (scenes 31–36)
 
-**Adjuntar:** `REF_CAST_MASTER.png` + `REF_GRID_MIN_06.png`
+**Attach:** `REF_CAST_MASTER.png` + `REF_GRID_MIN_06.png`
 
-**Guardar 16:9 como:** `raw_clips/minute_06.mp4`
+**Per-scene attachments for this batch:**
 
-**Guardar 9:16 como:** `raw_clips/minute_06_vertical.mp4`
+- Scene 031: `attach: [panel_031, ref_elena]`
+- Scene 032: `attach: [panel_032, ref_elena]`
+- Scene 033: `attach: [panel_033, ref_elena, ref_maggie]`
+- Scene 034: `attach: [panel_034, ref_victoria, ref_richard]`
+- Scene 035: `attach: [panel_035, ref_elena, ref_richard]`
+- Scene 036: `attach: [panel_036, ref_elena]`
 
-**Bloque 16:9 para Muse AI (YouTube):**
+**Save 16:9 as:** `raw_clips/minute_06.mp4`
+
+**Save 9:16 as:** `raw_clips/minute_06_vertical.mp4`
+
+**16:9 block for Muse AI (YouTube):**
 
 ```text
-ESCENA 31 (Viñeta #31 del Storyboard) — 05:00–05:10
+SCENE 31 (Storyboard Panel #31) — 05:00–05:10
 - Location: gatehouse cottage, storm night
 - Characters Present: Elena Vance
-- Storyboard Panel (Shot 1 exact framing): [00s-05s] medium close-up on Elena Vance, face and mouth visible: Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking. Key object in frame: a broken floorboard. Location: gatehouse cottage, storm night. Characters present: Elena Vance. No other characters appear.
+- Storyboard Panel (Shot 1 exact framing): [00s-05s] medium close-up on Elena Vance, face and mouth visible: Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking. Key object in frame: a broken floorboard. Location: gatehouse cottage, storm night. Characters present: Elena Vance. No other characters appear.
 - Identity Anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing denim work shirt under a charcoal storm coat, hair wet from rain)
 - Key Object: a broken floorboard → Object In / Object Out: a broken floorboard → a broken floorboard
 - Camera Cuts & Visual Action (10s):
-  * [00s-05s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking. Key object in frame: a broken floorboard.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
-  * [05s-07s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [00s-05s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking. Key object in frame: a broken floorboard.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [05s-07s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
   * [07s-08s]: wide establishing shot — Inside the ransacked cottage, the storm sweeps through shattered windows, scattering torn clothes and broken crockery across wet stones. Key object in frame: a broken floorboard  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
   * [08s-10s]: tight close-up — Close on the maid's boots stepping through broken glass as rain drips from her soaked chin  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
 - Sound Design (SFX & Voice Tone): gale force winds howl through glass shards, torrents of rain hitting stone floor, thunder. Voice tone: ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical
@@ -1308,15 +1372,15 @@ ESCENA 31 (Viñeta #31 del Storyboard) — 05:00–05:10
   ELENA (shaking): "They took the tin box and the original deed."
   ELENA (broken): "They took everything."
 
-ESCENA 32 (Viñeta #32 del Storyboard) — 05:10–05:20
+SCENE 32 (Storyboard Panel #32) — 05:10–05:20
 - Location: gatehouse cottage yard, storm night
 - Characters Present: Elena Vance
-- Storyboard Panel (Shot 1 exact framing): [00s-04s] medium close-up on Elena Vance, face and mouth visible: Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking. Key object in frame: an eviction notice. Location: gatehouse cottage yard, storm night. Characters present: Elena Vance. No other characters appear.
+- Storyboard Panel (Shot 1 exact framing): [00s-04s] medium close-up on Elena Vance, face and mouth visible: Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking. Key object in frame: an eviction notice. Location: gatehouse cottage yard, storm night. Characters present: Elena Vance. No other characters appear.
 - Identity Anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing denim work shirt under a charcoal storm coat, hair wet from rain)
 - Key Object: an eviction notice → Object In / Object Out: an eviction notice → an eviction notice
 - Camera Cuts & Visual Action (10s):
-  * [00s-04s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking. Key object in frame: an eviction notice.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
-  * [04s-07s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera with face and mouth fully visible, looking at Victoria Blackwell. Elena Vance holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [00s-04s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking. Key object in frame: an eviction notice.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [04s-07s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
   * [07s-08s]: medium shot — In the swirling red and blue emergency light, the maid runs to the padlocked gate as rain washes mud over her boots. Key object in frame: an eviction notice  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
   * [08s-10s]: close-up — Insert: a laminated county eviction warrant stapled to the post: 'Immediate Vacate — Trespassing Order'  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
 - Sound Design (SFX & Voice Tone): police cruiser siren chirping, heavy rain squall, chain links rattling against timber post. Voice tone: ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical
@@ -1324,7 +1388,7 @@ ESCENA 32 (Viñeta #32 del Storyboard) — 05:10–05:20
   ELENA (raw): "Drummond signed an eviction without a hearing."
   ELENA (defiant): "Victoria bought the county, not me."
 
-ESCENA 33 (Viñeta #33 del Storyboard) — 05:20–05:30
+SCENE 33 (Storyboard Panel #33) — 05:20–05:30
 - Location: Silver Creek hay shed, storm night
 - Characters Present: Elena Vance, Maggie Doyle
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Maggie Doyle and Elena Vance: Maggie Doyle and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. In the drafty shelter, the maid wraps her own dry flannel scarf around the weeping housekeeper's neck. Key object in frame: a nursing-home bill. Location: Silver Creek hay shed, storm night. Characters present: Elena Vance, Maggie Doyle. No other characters appear.
@@ -1339,7 +1403,7 @@ ESCENA 33 (Viñeta #33 del Storyboard) — 05:20–05:30
   MAGGIE (ashamed): "She threatened my sister's care in Helena."
   ELENA (gentle): "You kept your family alive. Help me finish."
 
-ESCENA 34 (Viñeta #34 del Storyboard) — 05:30–05:40
+SCENE 34 (Storyboard Panel #34) — 05:30–05:40
 - Location: Blackwell mansion rear terrace, storm night
 - Characters Present: Victoria Blackwell, Richard Blackwell
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Victoria Blackwell and Richard Blackwell: Victoria Blackwell and Richard Blackwell face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Inside the glowing library, the mistress feeds the ancient deed into the fireplace flames while rain streaks the window. Key object in frame: a burned deed in the fireplace. Location: Blackwell mansion rear terrace, storm night. Characters present: Victoria Blackwell, Richard Blackwell. No other characters appear.
@@ -1354,7 +1418,7 @@ ESCENA 34 (Viñeta #34 del Storyboard) — 05:30–05:40
   VICTORIA (satisfied): "No deed, no contract, no claim."
   RICHARD (quiet): "You burned the paper, not what Walter hid."
 
-ESCENA 35 (Viñeta #35 del Storyboard) — 05:40–05:50
+SCENE 35 (Storyboard Panel #35) — 05:40–05:50
 - Location: Silver Creek stable tack room, storm night
 - Characters Present: Elena Vance, Richard Blackwell
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Elena Vance and Richard Blackwell: Elena Vance and Richard Blackwell face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. In a sudden flash of lightning, the maid appears like a ghost in the stable door, blocking the heir's retreat. Key object in frame: a safe-deposit box key. Location: Silver Creek stable tack room, storm night. Characters present: Elena Vance, Richard Blackwell. No other characters appear.
@@ -1369,15 +1433,15 @@ ESCENA 35 (Viñeta #35 del Storyboard) — 05:40–05:50
   ELENA (sharp): "What did your father put in the vault?"
   RICHARD (low): "Box 14. The original will."
 
-ESCENA 36 (Viñeta #36 del Storyboard) — 05:50–06:00
+SCENE 36 (Storyboard Panel #36) — 05:50–06:00
 - Location: ranch ridge overlook, storm dawn
 - Characters Present: Elena Vance
-- Storyboard Panel (Shot 1 exact framing): [00s-04s] medium close-up on Elena Vance, face and mouth visible: Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking. Key object in frame: a handful of red Montana dirt. Location: ranch ridge overlook, storm dawn. Characters present: Elena Vance. No other characters appear.
+- Storyboard Panel (Shot 1 exact framing): [00s-04s] medium close-up on Elena Vance, face and mouth visible: Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking. Key object in frame: a handful of red Montana dirt. Location: ranch ridge overlook, storm dawn. Characters present: Elena Vance. No other characters appear.
 - Identity Anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing denim work shirt under a charcoal storm coat, hair wet from rain)
 - Key Object: a handful of red Montana dirt → Object In / Object Out: a handful of red Montana dirt → a handful of red Montana dirt
 - Camera Cuts & Visual Action (10s):
-  * [00s-04s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking. Key object in frame: a handful of red Montana dirt.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
-  * [04s-07s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [00s-04s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking. Key object in frame: a handful of red Montana dirt.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [04s-07s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
   * [07s-08s]: wide establishing shot — On the high ridge, the maid walks into frame against the vast Montana valley as dawn breaks slate grey. Key object in frame: a handful of red Montana dirt  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
   * [08s-10s]: tight close-up — Close on her wet face, eyes stinging with salt and cold wind, but chin jutting forward in stubborn pride  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
 - Sound Design (SFX & Voice Tone): gale wind howling over mountain crest, distant hawk cry, thunder rolling away into hills. Voice tone: ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical
@@ -1385,23 +1449,23 @@ ESCENA 36 (Viñeta #36 del Storyboard) — 05:50–06:00
   ELENA (tired): "They took the house and burned the deed."
   ELENA (fierce): "But this dirt remembers her sweat."
 
-COMANDO FINAL (16:9 YouTube):
+FINAL COMMAND (16:9 YouTube):
 
-"Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando entre 1 y 4 tomas exactamente como las lista el guion: la Toma 1 arranca directamente en movimiento desde el encuadre exacto de la viñeta correspondiente sin frames estáticos (two-shot si hablan dos personajes); cada línea hablada tiene su propio plano con el hablante de frente, rostro y boca visibles, nunca desde detrás del personaje; los planos silenciosos (insert, reacción, objeto) van después del diálogo y nunca contienen habla. Mantén estrictamente la misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre escenas. Formato: horizontal 16:9 para YouTube. Reglas negativas estrictas: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
+"Make a realistic cinematic video of 10 seconds per scene, executing between 1 and 4 shots exactly as the script lists them: Shot 1 starts directly in motion from the exact framing of the corresponding storyboard panel, with no static frames (two-shot if two characters speak); every spoken line gets its own shot with the speaker facing camera, face and mouth visible, never from behind the character; silent shots (inserts, reactions, objects) come after the dialogue and never contain speech. Keep strictly the same race, face and wardrobe for each character according to their position in the attached Character Sheet, and join them into a single continuous video, never inserting the reference image between scenes. Format: horizontal 16:9 for YouTube. Strict negative rules: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
 ```
 
-**Comando final 9:16 (Reels/Shorts):**
+**Final 9:16 command (Reels/Shorts):**
 
 ```text
-ESCENA 31 (Viñeta #31 del Storyboard) — 05:00–05:10
+SCENE 31 (Storyboard Panel #31) — 05:00–05:10
 - Location: gatehouse cottage, storm night
 - Characters Present: Elena Vance
-- Storyboard Panel (Shot 1 exact framing): [00s-05s] medium close-up on Elena Vance, face and mouth visible: Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking. Key object in frame: a broken floorboard. Location: gatehouse cottage, storm night. Characters present: Elena Vance. No other characters appear.
+- Storyboard Panel (Shot 1 exact framing): [00s-05s] medium close-up on Elena Vance, face and mouth visible: Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking. Key object in frame: a broken floorboard. Location: gatehouse cottage, storm night. Characters present: Elena Vance. No other characters appear.
 - Identity Anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing denim work shirt under a charcoal storm coat, hair wet from rain)
 - Key Object: a broken floorboard → Object In / Object Out: a broken floorboard → a broken floorboard
 - Camera Cuts & Visual Action (10s):
-  * [00s-05s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking. Key object in frame: a broken floorboard.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
-  * [05s-07s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [00s-05s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking. Key object in frame: a broken floorboard.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [05s-07s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
   * [07s-08s]: wide establishing shot — Inside the ransacked cottage, the storm sweeps through shattered windows, scattering torn clothes and broken crockery across wet stones. Key object in frame: a broken floorboard  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
   * [08s-10s]: tight close-up — Close on the maid's boots stepping through broken glass as rain drips from her soaked chin  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
 - Sound Design (SFX & Voice Tone): gale force winds howl through glass shards, torrents of rain hitting stone floor, thunder. Voice tone: ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical
@@ -1409,15 +1473,15 @@ ESCENA 31 (Viñeta #31 del Storyboard) — 05:00–05:10
   ELENA (shaking): "They took the tin box and the original deed."
   ELENA (broken): "They took everything."
 
-ESCENA 32 (Viñeta #32 del Storyboard) — 05:10–05:20
+SCENE 32 (Storyboard Panel #32) — 05:10–05:20
 - Location: gatehouse cottage yard, storm night
 - Characters Present: Elena Vance
-- Storyboard Panel (Shot 1 exact framing): [00s-04s] medium close-up on Elena Vance, face and mouth visible: Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking. Key object in frame: an eviction notice. Location: gatehouse cottage yard, storm night. Characters present: Elena Vance. No other characters appear.
+- Storyboard Panel (Shot 1 exact framing): [00s-04s] medium close-up on Elena Vance, face and mouth visible: Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking. Key object in frame: an eviction notice. Location: gatehouse cottage yard, storm night. Characters present: Elena Vance. No other characters appear.
 - Identity Anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing denim work shirt under a charcoal storm coat, hair wet from rain)
 - Key Object: an eviction notice → Object In / Object Out: an eviction notice → an eviction notice
 - Camera Cuts & Visual Action (10s):
-  * [00s-04s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking. Key object in frame: an eviction notice.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
-  * [04s-07s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera with face and mouth fully visible, looking at Victoria Blackwell. Elena Vance holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [00s-04s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking. Key object in frame: an eviction notice.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [04s-07s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
   * [07s-08s]: medium shot — In the swirling red and blue emergency light, the maid runs to the padlocked gate as rain washes mud over her boots. Key object in frame: an eviction notice  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
   * [08s-10s]: close-up — Insert: a laminated county eviction warrant stapled to the post: 'Immediate Vacate — Trespassing Order'  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
 - Sound Design (SFX & Voice Tone): police cruiser siren chirping, heavy rain squall, chain links rattling against timber post. Voice tone: ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical
@@ -1425,7 +1489,7 @@ ESCENA 32 (Viñeta #32 del Storyboard) — 05:10–05:20
   ELENA (raw): "Drummond signed an eviction without a hearing."
   ELENA (defiant): "Victoria bought the county, not me."
 
-ESCENA 33 (Viñeta #33 del Storyboard) — 05:20–05:30
+SCENE 33 (Storyboard Panel #33) — 05:20–05:30
 - Location: Silver Creek hay shed, storm night
 - Characters Present: Elena Vance, Maggie Doyle
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Maggie Doyle and Elena Vance: Maggie Doyle and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. In the drafty shelter, the maid wraps her own dry flannel scarf around the weeping housekeeper's neck. Key object in frame: a nursing-home bill. Location: Silver Creek hay shed, storm night. Characters present: Elena Vance, Maggie Doyle. No other characters appear.
@@ -1440,7 +1504,7 @@ ESCENA 33 (Viñeta #33 del Storyboard) — 05:20–05:30
   MAGGIE (ashamed): "She threatened my sister's care in Helena."
   ELENA (gentle): "You kept your family alive. Help me finish."
 
-ESCENA 34 (Viñeta #34 del Storyboard) — 05:30–05:40
+SCENE 34 (Storyboard Panel #34) — 05:30–05:40
 - Location: Blackwell mansion rear terrace, storm night
 - Characters Present: Victoria Blackwell, Richard Blackwell
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Victoria Blackwell and Richard Blackwell: Victoria Blackwell and Richard Blackwell face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Inside the glowing library, the mistress feeds the ancient deed into the fireplace flames while rain streaks the window. Key object in frame: a burned deed in the fireplace. Location: Blackwell mansion rear terrace, storm night. Characters present: Victoria Blackwell, Richard Blackwell. No other characters appear.
@@ -1455,7 +1519,7 @@ ESCENA 34 (Viñeta #34 del Storyboard) — 05:30–05:40
   VICTORIA (satisfied): "No deed, no contract, no claim."
   RICHARD (quiet): "You burned the paper, not what Walter hid."
 
-ESCENA 35 (Viñeta #35 del Storyboard) — 05:40–05:50
+SCENE 35 (Storyboard Panel #35) — 05:40–05:50
 - Location: Silver Creek stable tack room, storm night
 - Characters Present: Elena Vance, Richard Blackwell
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Elena Vance and Richard Blackwell: Elena Vance and Richard Blackwell face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. In a sudden flash of lightning, the maid appears like a ghost in the stable door, blocking the heir's retreat. Key object in frame: a safe-deposit box key. Location: Silver Creek stable tack room, storm night. Characters present: Elena Vance, Richard Blackwell. No other characters appear.
@@ -1470,15 +1534,15 @@ ESCENA 35 (Viñeta #35 del Storyboard) — 05:40–05:50
   ELENA (sharp): "What did your father put in the vault?"
   RICHARD (low): "Box 14. The original will."
 
-ESCENA 36 (Viñeta #36 del Storyboard) — 05:50–06:00
+SCENE 36 (Storyboard Panel #36) — 05:50–06:00
 - Location: ranch ridge overlook, storm dawn
 - Characters Present: Elena Vance
-- Storyboard Panel (Shot 1 exact framing): [00s-04s] medium close-up on Elena Vance, face and mouth visible: Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking. Key object in frame: a handful of red Montana dirt. Location: ranch ridge overlook, storm dawn. Characters present: Elena Vance. No other characters appear.
+- Storyboard Panel (Shot 1 exact framing): [00s-04s] medium close-up on Elena Vance, face and mouth visible: Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking. Key object in frame: a handful of red Montana dirt. Location: ranch ridge overlook, storm dawn. Characters present: Elena Vance. No other characters appear.
 - Identity Anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing denim work shirt under a charcoal storm coat, hair wet from rain)
 - Key Object: a handful of red Montana dirt → Object In / Object Out: a handful of red Montana dirt → a handful of red Montana dirt
 - Camera Cuts & Visual Action (10s):
-  * [00s-04s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking. Key object in frame: a handful of red Montana dirt.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
-  * [04s-07s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [00s-04s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking. Key object in frame: a handful of red Montana dirt.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [04s-07s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
   * [07s-08s]: wide establishing shot — On the high ridge, the maid walks into frame against the vast Montana valley as dawn breaks slate grey. Key object in frame: a handful of red Montana dirt  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
   * [08s-10s]: tight close-up — Close on her wet face, eyes stinging with salt and cold wind, but chin jutting forward in stubborn pride  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
 - Sound Design (SFX & Voice Tone): gale wind howling over mountain crest, distant hawk cry, thunder rolling away into hills. Voice tone: ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical
@@ -1486,28 +1550,37 @@ ESCENA 36 (Viñeta #36 del Storyboard) — 05:50–06:00
   ELENA (tired): "They took the house and burned the deed."
   ELENA (fierce): "But this dirt remembers her sweat."
 
-COMANDO FINAL (9:16 Reels/TikTok/Shorts):
+FINAL COMMAND (9:16 Reels/TikTok/Shorts):
 
-"Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando entre 1 y 4 tomas exactamente como las lista el guion: la Toma 1 arranca directamente en movimiento desde el encuadre exacto de la viñeta correspondiente sin frames estáticos (two-shot si hablan dos personajes); cada línea hablada tiene su propio plano con el hablante de frente, rostro y boca visibles, nunca desde detrás del personaje; los planos silenciosos (insert, reacción, objeto) van después del diálogo y nunca contienen habla. Mantén estrictamente la misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre escenas. Formato: vertical 9:16 para Reels, TikTok y Shorts. Reglas negativas estrictas: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
+"Make a realistic cinematic video of 10 seconds per scene, executing between 1 and 4 shots exactly as the script lists them: Shot 1 starts directly in motion from the exact framing of the corresponding storyboard panel, with no static frames (two-shot if two characters speak); every spoken line gets its own shot with the speaker facing camera, face and mouth visible, never from behind the character; silent shots (inserts, reactions, objects) come after the dialogue and never contain speech. Keep strictly the same race, face and wardrobe for each character according to their position in the attached Character Sheet, and join them into a single continuous video, never inserting the reference image between scenes. Format: vertical 9:16 for Reels, TikTok and Shorts. Strict negative rules: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
 ```
 
-### Lote 07 — Minuto 7 (escenas 37–42)
+### Batch 07 — Minute 7 (scenes 37–42)
 
-**Adjuntar:** `REF_CAST_MASTER.png` + `REF_GRID_MIN_07.png`
+**Attach:** `REF_CAST_MASTER.png` + `REF_GRID_MIN_07.png`
 
-**Guardar 16:9 como:** `raw_clips/minute_07.mp4`
+**Per-scene attachments for this batch:**
 
-**Guardar 9:16 como:** `raw_clips/minute_07_vertical.mp4`
+- Scene 037: `attach: [panel_037, ref_elena, ref_cole]`
+- Scene 038: `attach: [panel_038, ref_elena, ref_cole]`
+- Scene 039: `attach: [panel_039, ref_elena, ref_cole]`
+- Scene 040: `attach: [panel_040, ref_elena]`
+- Scene 041: `attach: [panel_041, ref_elena]`
+- Scene 042: `attach: [panel_042, ref_victoria, ref_cole]`
 
-**Bloque 16:9 para Muse AI (YouTube):**
+**Save 16:9 as:** `raw_clips/minute_07.mp4`
+
+**Save 9:16 as:** `raw_clips/minute_07_vertical.mp4`
+
+**16:9 block for Muse AI (YouTube):**
 
 ```text
-ESCENA 37 (Viñeta #37 del Storyboard) — 06:00–06:10
+SCENE 37 (Storyboard Panel #37) — 06:00–06:10
 - Location: ranch ridge road, dawn
 - Characters Present: Elena Vance, Cole Barrett
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Cole Barrett and Elena Vance: Cole Barrett and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. On the muddy road, the foreman wraps his dry wool jacket around her, pulling the collar up against the wind. Key object in frame: a truck key and gas can. Location: ranch ridge road, dawn. Characters present: Elena Vance, Cole Barrett. No other characters appear.
 - Identity Anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing denim work shirt under a charcoal storm coat, hair wet from rain); Cole Barrett (Cast Sheet Pos #4: early thirties; dark hair under a dust-worn felt hat; wearing soaked canvas jacket, grey henley underneath, no hat)
-- Key Object: a truck key and gas can → Object In / Object Out: a truck key and gas can → a truck key and gas can
+- Key Object: the central visual detail of the scene
 - Camera Cuts & Visual Action (10s):
   * [00s-07s]: two-shot, medium shot with Cole Barrett and Elena Vance — Cole Barrett and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. On the muddy road, the foreman wraps his dry wool jacket around her, pulling the collar up against the wind. Key object in frame: a truck key and gas can  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
   * [07s-08s]: tight close-up — Close on his calloused hand lingering at the lapel, steadying her trembling frame  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
@@ -1517,12 +1590,12 @@ ESCENA 37 (Viñeta #37 del Storyboard) — 06:00–06:10
   COLE (urgent): "The bank opens in two hours."
   ELENA (wary): "Victoria will have the sheriff arrest us."
 
-ESCENA 38 (Viñeta #38 del Storyboard) — 06:10–06:20
+SCENE 38 (Storyboard Panel #38) — 06:10–06:20
 - Location: ranch ridge road, green truck cab, dawn
 - Characters Present: Elena Vance, Cole Barrett
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Elena Vance and Cole Barrett: Elena Vance and Cole Barrett face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Inside the bouncing truck cab, the maid turns the brass key in the dashboard light, scraping away years of verdigris. Key object in frame: a brass bank key stamped FVT 14. Location: ranch ridge road, green truck cab, dawn. Characters present: Elena Vance, Cole Barrett. No other characters appear.
 - Identity Anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing denim work shirt under a charcoal storm coat, hair wet from rain); Cole Barrett (Cast Sheet Pos #4: early thirties; dark hair under a dust-worn felt hat; wearing soaked canvas jacket, grey henley underneath, no hat)
-- Key Object: a brass bank key stamped FVT 14 → Object In / Object Out: a brass bank key stamped FVT 14 → a brass bank key stamped FVT 14
+- Key Object: the central visual detail of the scene
 - Camera Cuts & Visual Action (10s):
   * [00s-07s]: two-shot, medium shot with Elena Vance and Cole Barrett — Elena Vance and Cole Barrett face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Inside the bouncing truck cab, the maid turns the brass key in the dashboard light, scraping away years of verdigris. Key object in frame: a brass bank key stamped FVT 14  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
   * [07s-08s]: close-up — Insert: under the brass patina, tiny stamped numerals read: 'FVT — 14'  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
@@ -1532,7 +1605,7 @@ ESCENA 38 (Viñeta #38 del Storyboard) — 06:10–06:20
   ELENA (realizing): "FVT fourteen. This was never a saddle key."
   COLE (low): "It's Walter's private vault key."
 
-ESCENA 39 (Viñeta #39 del Storyboard) — 06:20–06:30
+SCENE 39 (Storyboard Panel #39) — 06:20–06:30
 - Location: town bank exterior, morning
 - Characters Present: Elena Vance, Cole Barrett
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Cole Barrett and Elena Vance: Cole Barrett and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. On the bank steps, the maid and foreman turn together as the limousine door opens across the street. Key object in frame: the bank vault door. Location: town bank exterior, morning. Characters present: Elena Vance, Cole Barrett. No other characters appear.
@@ -1547,15 +1620,15 @@ ESCENA 39 (Viñeta #39 del Storyboard) — 06:20–06:30
   COLE (urgent): "Victoria's here with Drummond."
   ELENA (fast): "Hold Drummond on the steps for sixty seconds."
 
-ESCENA 40 (Viñeta #40 del Storyboard) — 06:30–06:40
+SCENE 40 (Storyboard Panel #40) — 06:30–06:40
 - Location: First Valley Trust vault corridor, morning
 - Characters Present: Elena Vance
-- Storyboard Panel (Shot 1 exact framing): [00s-03s] medium close-up on Elena Vance, face and mouth visible: Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking. Key object in frame: Walter's certified will. Location: First Valley Trust vault corridor, morning. Characters present: Elena Vance. No other characters appear.
+- Storyboard Panel (Shot 1 exact framing): [00s-03s] medium close-up on Elena Vance, face and mouth visible: Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking. Location: First Valley Trust vault corridor, morning. Key object: the scene's central visual detail. Characters present: Elena Vance. No other characters appear.
 - Identity Anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing denim work shirt under a charcoal storm coat, hair wet from rain)
-- Key Object: Walter's certified will → Object In / Object Out: Walter's certified will → Walter's certified will
+- Key Object: the central visual detail of the scene
 - Camera Cuts & Visual Action (10s):
-  * [00s-03s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking. Key object in frame: Walter's certified will.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
-  * [03s-07s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [00s-03s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [03s-07s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
   * [07s-08s]: medium shot — Inside the gleaming vault, the maid turns the brass key into Lock 14; the heavy tumbler clicks open with a hollow ring. Key object in frame: Walter's certified will  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
   * [08s-10s]: close-up — Insert: the long metal deposit box slides out, containing a blue ribboned document: 'Last Will and Testament of Walter Blackwell'  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
 - Sound Design (SFX & Voice Tone): heavy steel tumbler clunking open, metal drawer sliding on runners, fluorescent bulb hum. Voice tone: ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical
@@ -1563,23 +1636,23 @@ ESCENA 40 (Viñeta #40 del Storyboard) — 06:30–06:40
   ELENA (hushed): "The key was never for a door."
   ELENA (stunned): "The first page leaves Silver Creek to me."
 
-ESCENA 41 (Viñeta #41 del Storyboard) — 06:40–06:50
+SCENE 41 (Storyboard Panel #41) — 06:40–06:50
 - Location: First Valley Trust manager office, morning
 - Characters Present: Elena Vance
-- Storyboard Panel (Shot 1 exact framing): [00s-03s] medium close-up on Elena Vance, face and mouth visible: Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking. Key object in frame: a notary seal. Location: First Valley Trust manager office, morning. Characters present: Elena Vance. No other characters appear.
+- Storyboard Panel (Shot 1 exact framing): [00s-03s] medium close-up on Elena Vance, face and mouth visible: Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking. Key object in frame: a notary seal. Location: First Valley Trust manager office, morning. Characters present: Elena Vance. No other characters appear.
 - Identity Anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing clean white button shirt under the tan barn coat, braid neat)
 - Key Object: a notary seal → Object In / Object Out: a notary seal → a notary seal
 - Camera Cuts & Visual Action (10s):
-  * [00s-03s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking. Key object in frame: a notary seal.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [00s-03s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking. Key object in frame: a notary seal.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
   * [03s-05s]: medium shot — In the sunlit bank office, the maid steps up to the desk as the grey-haired bank manager lifts the embossed blue notary seal to his bifocals. Key object in frame: a notary seal.  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
-  * [05s-08s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [05s-08s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
   * [08s-10s]: close-up — Insert: the manager's heavy gold signet embosser stamps 'CERTIFIED ORIGINAL COPY — FIRST VALLEY TRUST' across the parchment  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
 - Sound Design (SFX & Voice Tone): heavy brass seal clunking on paper, ticking grandfather clock, muffled street traffic outside. Voice tone: ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical
 - Dialogue (English, max 15 words, finish before 8.5 s):
   ELENA (urgent): "Is the notary seal intact?"
   ELENA (stunned): "It's valid. Walter deposited it himself."
 
-ESCENA 42 (Viñeta #42 del Storyboard) — 06:50–07:00
+SCENE 42 (Storyboard Panel #42) — 06:50–07:00
 - Location: town bank steps, morning
 - Characters Present: Victoria Blackwell, Cole Barrett
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Victoria Blackwell and Cole Barrett: Victoria Blackwell and Cole Barrett face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. On the stone steps, the foreman plants himself between the mistress and the bank doors as the sheriff steps forward. Key object in frame: a bank payroll ledger. Location: town bank steps, morning. Characters present: Victoria Blackwell, Cole Barrett. No other characters appear.
@@ -1594,20 +1667,20 @@ ESCENA 42 (Viñeta #42 del Storyboard) — 06:50–07:00
   VICTORIA (cold): "Step aside, Cole. You're on my payroll."
   COLE (steady): "I work for Silver Creek's real owner now."
 
-COMANDO FINAL (16:9 YouTube):
+FINAL COMMAND (16:9 YouTube):
 
-"Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando entre 1 y 4 tomas exactamente como las lista el guion: la Toma 1 arranca directamente en movimiento desde el encuadre exacto de la viñeta correspondiente sin frames estáticos (two-shot si hablan dos personajes); cada línea hablada tiene su propio plano con el hablante de frente, rostro y boca visibles, nunca desde detrás del personaje; los planos silenciosos (insert, reacción, objeto) van después del diálogo y nunca contienen habla. Mantén estrictamente la misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre escenas. Formato: horizontal 16:9 para YouTube. Reglas negativas estrictas: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
+"Make a realistic cinematic video of 10 seconds per scene, executing between 1 and 4 shots exactly as the script lists them: Shot 1 starts directly in motion from the exact framing of the corresponding storyboard panel, with no static frames (two-shot if two characters speak); every spoken line gets its own shot with the speaker facing camera, face and mouth visible, never from behind the character; silent shots (inserts, reactions, objects) come after the dialogue and never contain speech. Keep strictly the same race, face and wardrobe for each character according to their position in the attached Character Sheet, and join them into a single continuous video, never inserting the reference image between scenes. Format: horizontal 16:9 for YouTube. Strict negative rules: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
 ```
 
-**Comando final 9:16 (Reels/Shorts):**
+**Final 9:16 command (Reels/Shorts):**
 
 ```text
-ESCENA 37 (Viñeta #37 del Storyboard) — 06:00–06:10
+SCENE 37 (Storyboard Panel #37) — 06:00–06:10
 - Location: ranch ridge road, dawn
 - Characters Present: Elena Vance, Cole Barrett
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Cole Barrett and Elena Vance: Cole Barrett and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. On the muddy road, the foreman wraps his dry wool jacket around her, pulling the collar up against the wind. Key object in frame: a truck key and gas can. Location: ranch ridge road, dawn. Characters present: Elena Vance, Cole Barrett. No other characters appear.
 - Identity Anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing denim work shirt under a charcoal storm coat, hair wet from rain); Cole Barrett (Cast Sheet Pos #4: early thirties; dark hair under a dust-worn felt hat; wearing soaked canvas jacket, grey henley underneath, no hat)
-- Key Object: a truck key and gas can → Object In / Object Out: a truck key and gas can → a truck key and gas can
+- Key Object: the central visual detail of the scene
 - Camera Cuts & Visual Action (10s):
   * [00s-07s]: two-shot, medium shot with Cole Barrett and Elena Vance — Cole Barrett and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. On the muddy road, the foreman wraps his dry wool jacket around her, pulling the collar up against the wind. Key object in frame: a truck key and gas can  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
   * [07s-08s]: tight close-up — Close on his calloused hand lingering at the lapel, steadying her trembling frame  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
@@ -1617,12 +1690,12 @@ ESCENA 37 (Viñeta #37 del Storyboard) — 06:00–06:10
   COLE (urgent): "The bank opens in two hours."
   ELENA (wary): "Victoria will have the sheriff arrest us."
 
-ESCENA 38 (Viñeta #38 del Storyboard) — 06:10–06:20
+SCENE 38 (Storyboard Panel #38) — 06:10–06:20
 - Location: ranch ridge road, green truck cab, dawn
 - Characters Present: Elena Vance, Cole Barrett
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Elena Vance and Cole Barrett: Elena Vance and Cole Barrett face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Inside the bouncing truck cab, the maid turns the brass key in the dashboard light, scraping away years of verdigris. Key object in frame: a brass bank key stamped FVT 14. Location: ranch ridge road, green truck cab, dawn. Characters present: Elena Vance, Cole Barrett. No other characters appear.
 - Identity Anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing denim work shirt under a charcoal storm coat, hair wet from rain); Cole Barrett (Cast Sheet Pos #4: early thirties; dark hair under a dust-worn felt hat; wearing soaked canvas jacket, grey henley underneath, no hat)
-- Key Object: a brass bank key stamped FVT 14 → Object In / Object Out: a brass bank key stamped FVT 14 → a brass bank key stamped FVT 14
+- Key Object: the central visual detail of the scene
 - Camera Cuts & Visual Action (10s):
   * [00s-07s]: two-shot, medium shot with Elena Vance and Cole Barrett — Elena Vance and Cole Barrett face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Inside the bouncing truck cab, the maid turns the brass key in the dashboard light, scraping away years of verdigris. Key object in frame: a brass bank key stamped FVT 14  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
   * [07s-08s]: close-up — Insert: under the brass patina, tiny stamped numerals read: 'FVT — 14'  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
@@ -1632,7 +1705,7 @@ ESCENA 38 (Viñeta #38 del Storyboard) — 06:10–06:20
   ELENA (realizing): "FVT fourteen. This was never a saddle key."
   COLE (low): "It's Walter's private vault key."
 
-ESCENA 39 (Viñeta #39 del Storyboard) — 06:20–06:30
+SCENE 39 (Storyboard Panel #39) — 06:20–06:30
 - Location: town bank exterior, morning
 - Characters Present: Elena Vance, Cole Barrett
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Cole Barrett and Elena Vance: Cole Barrett and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. On the bank steps, the maid and foreman turn together as the limousine door opens across the street. Key object in frame: the bank vault door. Location: town bank exterior, morning. Characters present: Elena Vance, Cole Barrett. No other characters appear.
@@ -1647,15 +1720,15 @@ ESCENA 39 (Viñeta #39 del Storyboard) — 06:20–06:30
   COLE (urgent): "Victoria's here with Drummond."
   ELENA (fast): "Hold Drummond on the steps for sixty seconds."
 
-ESCENA 40 (Viñeta #40 del Storyboard) — 06:30–06:40
+SCENE 40 (Storyboard Panel #40) — 06:30–06:40
 - Location: First Valley Trust vault corridor, morning
 - Characters Present: Elena Vance
-- Storyboard Panel (Shot 1 exact framing): [00s-03s] medium close-up on Elena Vance, face and mouth visible: Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking. Key object in frame: Walter's certified will. Location: First Valley Trust vault corridor, morning. Characters present: Elena Vance. No other characters appear.
+- Storyboard Panel (Shot 1 exact framing): [00s-03s] medium close-up on Elena Vance, face and mouth visible: Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking. Location: First Valley Trust vault corridor, morning. Key object: the scene's central visual detail. Characters present: Elena Vance. No other characters appear.
 - Identity Anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing denim work shirt under a charcoal storm coat, hair wet from rain)
-- Key Object: Walter's certified will → Object In / Object Out: Walter's certified will → Walter's certified will
+- Key Object: the central visual detail of the scene
 - Camera Cuts & Visual Action (10s):
-  * [00s-03s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking. Key object in frame: Walter's certified will.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
-  * [03s-07s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [00s-03s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [03s-07s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
   * [07s-08s]: medium shot — Inside the gleaming vault, the maid turns the brass key into Lock 14; the heavy tumbler clicks open with a hollow ring. Key object in frame: Walter's certified will  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
   * [08s-10s]: close-up — Insert: the long metal deposit box slides out, containing a blue ribboned document: 'Last Will and Testament of Walter Blackwell'  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
 - Sound Design (SFX & Voice Tone): heavy steel tumbler clunking open, metal drawer sliding on runners, fluorescent bulb hum. Voice tone: ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical
@@ -1663,23 +1736,23 @@ ESCENA 40 (Viñeta #40 del Storyboard) — 06:30–06:40
   ELENA (hushed): "The key was never for a door."
   ELENA (stunned): "The first page leaves Silver Creek to me."
 
-ESCENA 41 (Viñeta #41 del Storyboard) — 06:40–06:50
+SCENE 41 (Storyboard Panel #41) — 06:40–06:50
 - Location: First Valley Trust manager office, morning
 - Characters Present: Elena Vance
-- Storyboard Panel (Shot 1 exact framing): [00s-03s] medium close-up on Elena Vance, face and mouth visible: Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking. Key object in frame: a notary seal. Location: First Valley Trust manager office, morning. Characters present: Elena Vance. No other characters appear.
+- Storyboard Panel (Shot 1 exact framing): [00s-03s] medium close-up on Elena Vance, face and mouth visible: Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking. Key object in frame: a notary seal. Location: First Valley Trust manager office, morning. Characters present: Elena Vance. No other characters appear.
 - Identity Anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing clean white button shirt under the tan barn coat, braid neat)
 - Key Object: a notary seal → Object In / Object Out: a notary seal → a notary seal
 - Camera Cuts & Visual Action (10s):
-  * [00s-03s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking. Key object in frame: a notary seal.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [00s-03s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking. Key object in frame: a notary seal.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
   * [03s-05s]: medium shot — In the sunlit bank office, the maid steps up to the desk as the grey-haired bank manager lifts the embossed blue notary seal to his bifocals. Key object in frame: a notary seal.  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
-  * [05s-08s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [05s-08s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
   * [08s-10s]: close-up — Insert: the manager's heavy gold signet embosser stamps 'CERTIFIED ORIGINAL COPY — FIRST VALLEY TRUST' across the parchment  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
 - Sound Design (SFX & Voice Tone): heavy brass seal clunking on paper, ticking grandfather clock, muffled street traffic outside. Voice tone: ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical
 - Dialogue (English, max 15 words, finish before 8.5 s):
   ELENA (urgent): "Is the notary seal intact?"
   ELENA (stunned): "It's valid. Walter deposited it himself."
 
-ESCENA 42 (Viñeta #42 del Storyboard) — 06:50–07:00
+SCENE 42 (Storyboard Panel #42) — 06:50–07:00
 - Location: town bank steps, morning
 - Characters Present: Victoria Blackwell, Cole Barrett
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Victoria Blackwell and Cole Barrett: Victoria Blackwell and Cole Barrett face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. On the stone steps, the foreman plants himself between the mistress and the bank doors as the sheriff steps forward. Key object in frame: a bank payroll ledger. Location: town bank steps, morning. Characters present: Victoria Blackwell, Cole Barrett. No other characters appear.
@@ -1694,23 +1767,32 @@ ESCENA 42 (Viñeta #42 del Storyboard) — 06:50–07:00
   VICTORIA (cold): "Step aside, Cole. You're on my payroll."
   COLE (steady): "I work for Silver Creek's real owner now."
 
-COMANDO FINAL (9:16 Reels/TikTok/Shorts):
+FINAL COMMAND (9:16 Reels/TikTok/Shorts):
 
-"Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando entre 1 y 4 tomas exactamente como las lista el guion: la Toma 1 arranca directamente en movimiento desde el encuadre exacto de la viñeta correspondiente sin frames estáticos (two-shot si hablan dos personajes); cada línea hablada tiene su propio plano con el hablante de frente, rostro y boca visibles, nunca desde detrás del personaje; los planos silenciosos (insert, reacción, objeto) van después del diálogo y nunca contienen habla. Mantén estrictamente la misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre escenas. Formato: vertical 9:16 para Reels, TikTok y Shorts. Reglas negativas estrictas: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
+"Make a realistic cinematic video of 10 seconds per scene, executing between 1 and 4 shots exactly as the script lists them: Shot 1 starts directly in motion from the exact framing of the corresponding storyboard panel, with no static frames (two-shot if two characters speak); every spoken line gets its own shot with the speaker facing camera, face and mouth visible, never from behind the character; silent shots (inserts, reactions, objects) come after the dialogue and never contain speech. Keep strictly the same race, face and wardrobe for each character according to their position in the attached Character Sheet, and join them into a single continuous video, never inserting the reference image between scenes. Format: vertical 9:16 for Reels, TikTok and Shorts. Strict negative rules: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
 ```
 
-### Lote 08 — Minuto 8 (escenas 43–48)
+### Batch 08 — Minute 8 (scenes 43–48)
 
-**Adjuntar:** `REF_CAST_MASTER.png` + `REF_GRID_MIN_08.png`
+**Attach:** `REF_CAST_MASTER.png` + `REF_GRID_MIN_08.png`
 
-**Guardar 16:9 como:** `raw_clips/minute_08.mp4`
+**Per-scene attachments for this batch:**
 
-**Guardar 9:16 como:** `raw_clips/minute_08_vertical.mp4`
+- Scene 043: `attach: [panel_043, ref_elena, ref_victoria]`
+- Scene 044: `attach: [panel_044, ref_victoria, ref_richard]`
+- Scene 045: `attach: [panel_045, ref_elena, ref_cole, ref_maggie]`
+- Scene 046: `attach: [panel_046, ref_elena, ref_cole]`
+- Scene 047: `attach: [panel_047, ref_elena, ref_victoria]`
+- Scene 048: `attach: [panel_048, ref_elena, ref_victoria]`
 
-**Bloque 16:9 para Muse AI (YouTube):**
+**Save 16:9 as:** `raw_clips/minute_08.mp4`
+
+**Save 9:16 as:** `raw_clips/minute_08_vertical.mp4`
+
+**16:9 block for Muse AI (YouTube):**
 
 ```text
-ESCENA 43 (Viñeta #43 del Storyboard) — 07:00–07:10
+SCENE 43 (Storyboard Panel #43) — 07:00–07:10
 - Location: town bank steps, morning
 - Characters Present: Elena Vance, Victoria Blackwell
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Elena Vance and Victoria Blackwell: Elena Vance and Victoria Blackwell face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. The maid emerges onto the sunlit steps, lifting the stamped court-certified envelope for the entire sidewalk to see. Key object in frame: a court filing stamp. Location: town bank steps, morning. Characters present: Elena Vance, Victoria Blackwell. No other characters appear.
@@ -1725,7 +1807,7 @@ ESCENA 43 (Viñeta #43 del Storyboard) — 07:00–07:10
   ELENA (calm): "You said she had no standing. This will differs."
   VICTORIA (sharp): "That paper is an obsolete draft."
 
-ESCENA 44 (Viñeta #44 del Storyboard) — 07:10–07:20
+SCENE 44 (Storyboard Panel #44) — 07:10–07:20
 - Location: Blackwell town car, morning
 - Characters Present: Victoria Blackwell, Richard Blackwell
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Victoria Blackwell and Richard Blackwell: Victoria Blackwell and Richard Blackwell face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Inside the town car, the mistress grabs her son's lapel as he pulls himself back against the passenger door. Key object in frame: a perjury statement. Location: Blackwell town car, morning. Characters present: Victoria Blackwell, Richard Blackwell. No other characters appear.
@@ -1740,12 +1822,12 @@ ESCENA 44 (Viñeta #44 del Storyboard) — 07:10–07:20
   VICTORIA (cold): "Tell the judge the will was stolen."
   RICHARD (firm): "Father was never demented. I won't perjure myself."
 
-ESCENA 45 (Viñeta #45 del Storyboard) — 07:20–07:30
+SCENE 45 (Storyboard Panel #45) — 07:20–07:30
 - Location: county civic hall back alley, noon
 - Characters Present: Elena Vance, Cole Barrett, Maggie Doyle
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Maggie Doyle and Elena Vance: Maggie Doyle and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. In the brick alleyway, the housekeeper presses an aged leather journal into the maid's hands, tears in her eyes. Key object in frame: a fire log with a check number. Location: county civic hall back alley, noon. Characters present: Elena Vance, Cole Barrett, Maggie Doyle. No other characters appear.
 - Identity Anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing clean white button shirt under the tan barn coat, braid neat); Cole Barrett (Cast Sheet Pos #4: early thirties; dark hair under a dust-worn felt hat; wearing clean denim jacket over the grey henley, hat brushed for once); Maggie Doyle (Cast Sheet Pos #5: late fifties; iron-grey hair in a loose bun; wearing best Sunday cardigan, the apron folded neatly on a chair)
-- Key Object: a fire log with a check number → Object In / Object Out: a fire log with a check number → a fire log with a check number
+- Key Object: the central visual detail of the scene
 - Silent Present: Cole Barrett — mouths closed for the whole scene, no lines.
 - Camera Cuts & Visual Action (10s):
   * [00s-07s]: two-shot, medium shot with Maggie Doyle and Elena Vance — Maggie Doyle and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. In the brick alleyway, the housekeeper presses an aged leather journal into the maid's hands, tears in her eyes. Key object in frame: a fire log with a check number  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
@@ -1756,7 +1838,7 @@ ESCENA 45 (Viñeta #45 del Storyboard) — 07:20–07:30
   MAGGIE (urgent): "Walter kept this log. The check is here."
   ELENA (grateful): "This proves arson. You saved her honor."
 
-ESCENA 46 (Viñeta #46 del Storyboard) — 07:30–07:40
+SCENE 46 (Storyboard Panel #46) — 07:30–07:40
 - Location: Silver Creek civic hall foyer, afternoon
 - Characters Present: Elena Vance, Cole Barrett
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Cole Barrett and Elena Vance: Cole Barrett and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Before the towering carved oak doors, the maid walks up and adjusts her mother's silver belt buckle. Key object in frame: a gala invitation. Location: Silver Creek civic hall foyer, afternoon. Characters present: Elena Vance, Cole Barrett. No other characters appear.
@@ -1771,7 +1853,7 @@ ESCENA 46 (Viñeta #46 del Storyboard) — 07:30–07:40
   COLE (low): "Every rancher and judge is here."
   ELENA (resolved): "Good. They should know who fed their horses."
 
-ESCENA 47 (Viñeta #47 del Storyboard) — 07:40–07:50
+SCENE 47 (Storyboard Panel #47) — 07:40–07:50
 - Location: civic hall grand ballroom, afternoon
 - Characters Present: Elena Vance, Victoria Blackwell
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Victoria Blackwell and Elena Vance: Victoria Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. The grand ballroom falls utterly silent as the ranch maid in her simple white shirt strides down the red carpet toward the stage. Key object in frame: an auction catalog. Location: civic hall grand ballroom, afternoon. Characters present: Elena Vance, Victoria Blackwell. No other characters appear.
@@ -1786,7 +1868,7 @@ ESCENA 47 (Viñeta #47 del Storyboard) — 07:40–07:50
   VICTORIA (cold): "Security, remove her. This is a private gala."
   ELENA (calm): "You're auctioning land you don't own."
 
-ESCENA 48 (Viñeta #48 del Storyboard) — 07:50–08:00
+SCENE 48 (Storyboard Panel #48) — 07:50–08:00
 - Location: civic hall auction stage, afternoon
 - Characters Present: Elena Vance, Victoria Blackwell
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Victoria Blackwell and Elena Vance: Victoria Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Under the blinding stage lights, the mistress steps right into the maid's face, abandoning all high-society poise. Key object in frame: a gavel on the auction block. Location: civic hall auction stage, afternoon. Characters present: Elena Vance, Victoria Blackwell. No other characters appear.
@@ -1801,15 +1883,15 @@ ESCENA 48 (Viñeta #48 del Storyboard) — 07:50–08:00
   VICTORIA (mocking): "You are a stable rat playing dress-up."
   ELENA (quiet): "It was never yours. You warmed the chair."
 
-COMANDO FINAL (16:9 YouTube):
+FINAL COMMAND (16:9 YouTube):
 
-"Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando entre 1 y 4 tomas exactamente como las lista el guion: la Toma 1 arranca directamente en movimiento desde el encuadre exacto de la viñeta correspondiente sin frames estáticos (two-shot si hablan dos personajes); cada línea hablada tiene su propio plano con el hablante de frente, rostro y boca visibles, nunca desde detrás del personaje; los planos silenciosos (insert, reacción, objeto) van después del diálogo y nunca contienen habla. Mantén estrictamente la misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre escenas. Formato: horizontal 16:9 para YouTube. Reglas negativas estrictas: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
+"Make a realistic cinematic video of 10 seconds per scene, executing between 1 and 4 shots exactly as the script lists them: Shot 1 starts directly in motion from the exact framing of the corresponding storyboard panel, with no static frames (two-shot if two characters speak); every spoken line gets its own shot with the speaker facing camera, face and mouth visible, never from behind the character; silent shots (inserts, reactions, objects) come after the dialogue and never contain speech. Keep strictly the same race, face and wardrobe for each character according to their position in the attached Character Sheet, and join them into a single continuous video, never inserting the reference image between scenes. Format: horizontal 16:9 for YouTube. Strict negative rules: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
 ```
 
-**Comando final 9:16 (Reels/Shorts):**
+**Final 9:16 command (Reels/Shorts):**
 
 ```text
-ESCENA 43 (Viñeta #43 del Storyboard) — 07:00–07:10
+SCENE 43 (Storyboard Panel #43) — 07:00–07:10
 - Location: town bank steps, morning
 - Characters Present: Elena Vance, Victoria Blackwell
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Elena Vance and Victoria Blackwell: Elena Vance and Victoria Blackwell face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. The maid emerges onto the sunlit steps, lifting the stamped court-certified envelope for the entire sidewalk to see. Key object in frame: a court filing stamp. Location: town bank steps, morning. Characters present: Elena Vance, Victoria Blackwell. No other characters appear.
@@ -1824,7 +1906,7 @@ ESCENA 43 (Viñeta #43 del Storyboard) — 07:00–07:10
   ELENA (calm): "You said she had no standing. This will differs."
   VICTORIA (sharp): "That paper is an obsolete draft."
 
-ESCENA 44 (Viñeta #44 del Storyboard) — 07:10–07:20
+SCENE 44 (Storyboard Panel #44) — 07:10–07:20
 - Location: Blackwell town car, morning
 - Characters Present: Victoria Blackwell, Richard Blackwell
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Victoria Blackwell and Richard Blackwell: Victoria Blackwell and Richard Blackwell face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Inside the town car, the mistress grabs her son's lapel as he pulls himself back against the passenger door. Key object in frame: a perjury statement. Location: Blackwell town car, morning. Characters present: Victoria Blackwell, Richard Blackwell. No other characters appear.
@@ -1839,12 +1921,12 @@ ESCENA 44 (Viñeta #44 del Storyboard) — 07:10–07:20
   VICTORIA (cold): "Tell the judge the will was stolen."
   RICHARD (firm): "Father was never demented. I won't perjure myself."
 
-ESCENA 45 (Viñeta #45 del Storyboard) — 07:20–07:30
+SCENE 45 (Storyboard Panel #45) — 07:20–07:30
 - Location: county civic hall back alley, noon
 - Characters Present: Elena Vance, Cole Barrett, Maggie Doyle
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Maggie Doyle and Elena Vance: Maggie Doyle and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. In the brick alleyway, the housekeeper presses an aged leather journal into the maid's hands, tears in her eyes. Key object in frame: a fire log with a check number. Location: county civic hall back alley, noon. Characters present: Elena Vance, Cole Barrett, Maggie Doyle. No other characters appear.
 - Identity Anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing clean white button shirt under the tan barn coat, braid neat); Cole Barrett (Cast Sheet Pos #4: early thirties; dark hair under a dust-worn felt hat; wearing clean denim jacket over the grey henley, hat brushed for once); Maggie Doyle (Cast Sheet Pos #5: late fifties; iron-grey hair in a loose bun; wearing best Sunday cardigan, the apron folded neatly on a chair)
-- Key Object: a fire log with a check number → Object In / Object Out: a fire log with a check number → a fire log with a check number
+- Key Object: the central visual detail of the scene
 - Silent Present: Cole Barrett — mouths closed for the whole scene, no lines.
 - Camera Cuts & Visual Action (10s):
   * [00s-07s]: two-shot, medium shot with Maggie Doyle and Elena Vance — Maggie Doyle and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. In the brick alleyway, the housekeeper presses an aged leather journal into the maid's hands, tears in her eyes. Key object in frame: a fire log with a check number  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
@@ -1855,7 +1937,7 @@ ESCENA 45 (Viñeta #45 del Storyboard) — 07:20–07:30
   MAGGIE (urgent): "Walter kept this log. The check is here."
   ELENA (grateful): "This proves arson. You saved her honor."
 
-ESCENA 46 (Viñeta #46 del Storyboard) — 07:30–07:40
+SCENE 46 (Storyboard Panel #46) — 07:30–07:40
 - Location: Silver Creek civic hall foyer, afternoon
 - Characters Present: Elena Vance, Cole Barrett
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Cole Barrett and Elena Vance: Cole Barrett and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Before the towering carved oak doors, the maid walks up and adjusts her mother's silver belt buckle. Key object in frame: a gala invitation. Location: Silver Creek civic hall foyer, afternoon. Characters present: Elena Vance, Cole Barrett. No other characters appear.
@@ -1870,7 +1952,7 @@ ESCENA 46 (Viñeta #46 del Storyboard) — 07:30–07:40
   COLE (low): "Every rancher and judge is here."
   ELENA (resolved): "Good. They should know who fed their horses."
 
-ESCENA 47 (Viñeta #47 del Storyboard) — 07:40–07:50
+SCENE 47 (Storyboard Panel #47) — 07:40–07:50
 - Location: civic hall grand ballroom, afternoon
 - Characters Present: Elena Vance, Victoria Blackwell
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Victoria Blackwell and Elena Vance: Victoria Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. The grand ballroom falls utterly silent as the ranch maid in her simple white shirt strides down the red carpet toward the stage. Key object in frame: an auction catalog. Location: civic hall grand ballroom, afternoon. Characters present: Elena Vance, Victoria Blackwell. No other characters appear.
@@ -1885,7 +1967,7 @@ ESCENA 47 (Viñeta #47 del Storyboard) — 07:40–07:50
   VICTORIA (cold): "Security, remove her. This is a private gala."
   ELENA (calm): "You're auctioning land you don't own."
 
-ESCENA 48 (Viñeta #48 del Storyboard) — 07:50–08:00
+SCENE 48 (Storyboard Panel #48) — 07:50–08:00
 - Location: civic hall auction stage, afternoon
 - Characters Present: Elena Vance, Victoria Blackwell
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Victoria Blackwell and Elena Vance: Victoria Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Under the blinding stage lights, the mistress steps right into the maid's face, abandoning all high-society poise. Key object in frame: a gavel on the auction block. Location: civic hall auction stage, afternoon. Characters present: Elena Vance, Victoria Blackwell. No other characters appear.
@@ -1900,23 +1982,32 @@ ESCENA 48 (Viñeta #48 del Storyboard) — 07:50–08:00
   VICTORIA (mocking): "You are a stable rat playing dress-up."
   ELENA (quiet): "It was never yours. You warmed the chair."
 
-COMANDO FINAL (9:16 Reels/TikTok/Shorts):
+FINAL COMMAND (9:16 Reels/TikTok/Shorts):
 
-"Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando entre 1 y 4 tomas exactamente como las lista el guion: la Toma 1 arranca directamente en movimiento desde el encuadre exacto de la viñeta correspondiente sin frames estáticos (two-shot si hablan dos personajes); cada línea hablada tiene su propio plano con el hablante de frente, rostro y boca visibles, nunca desde detrás del personaje; los planos silenciosos (insert, reacción, objeto) van después del diálogo y nunca contienen habla. Mantén estrictamente la misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre escenas. Formato: vertical 9:16 para Reels, TikTok y Shorts. Reglas negativas estrictas: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
+"Make a realistic cinematic video of 10 seconds per scene, executing between 1 and 4 shots exactly as the script lists them: Shot 1 starts directly in motion from the exact framing of the corresponding storyboard panel, with no static frames (two-shot if two characters speak); every spoken line gets its own shot with the speaker facing camera, face and mouth visible, never from behind the character; silent shots (inserts, reactions, objects) come after the dialogue and never contain speech. Keep strictly the same race, face and wardrobe for each character according to their position in the attached Character Sheet, and join them into a single continuous video, never inserting the reference image between scenes. Format: vertical 9:16 for Reels, TikTok and Shorts. Strict negative rules: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
 ```
 
-### Lote 09 — Minuto 9 (escenas 49–54)
+### Batch 09 — Minute 9 (scenes 49–54)
 
-**Adjuntar:** `REF_CAST_MASTER.png` + `REF_GRID_MIN_09.png`
+**Attach:** `REF_CAST_MASTER.png` + `REF_GRID_MIN_09.png`
 
-**Guardar 16:9 como:** `raw_clips/minute_09.mp4`
+**Per-scene attachments for this batch:**
 
-**Guardar 9:16 como:** `raw_clips/minute_09_vertical.mp4`
+- Scene 049: `attach: [panel_049, ref_elena, ref_cole]`
+- Scene 050: `attach: [panel_050, ref_elena, ref_victoria]`
+- Scene 051: `attach: [panel_051, ref_elena, ref_cole]`
+- Scene 052: `attach: [panel_052, ref_richard]`
+- Scene 053: `attach: [panel_053, ref_maggie]`
+- Scene 054: `attach: [panel_054, ref_elena]`
 
-**Bloque 16:9 para Muse AI (YouTube):**
+**Save 16:9 as:** `raw_clips/minute_09.mp4`
+
+**Save 9:16 as:** `raw_clips/minute_09_vertical.mp4`
+
+**16:9 block for Muse AI (YouTube):**
 
 ```text
-ESCENA 49 (Viñeta #49 del Storyboard) — 08:00–08:10
+SCENE 49 (Storyboard Panel #49) — 08:00–08:10
 - Location: civic hall auction stage, afternoon
 - Characters Present: Elena Vance, Cole Barrett
 - Storyboard Panel (Shot 1 exact framing): [00s-04s] medium close-up on Elena Vance, face and mouth visible: Elena Vance is on camera with face and mouth fully visible, looking at Cole Barrett. Elena Vance holds the moment before speaking. Key object in frame: a verified signature card. Location: civic hall auction stage, afternoon. Characters present: Elena Vance, Cole Barrett. No other characters appear.
@@ -1925,7 +2016,7 @@ ESCENA 49 (Viñeta #49 del Storyboard) — 08:00–08:10
 - Silent Present: Cole Barrett — mouths closed for the whole scene, no lines.
 - Camera Cuts & Visual Action (10s):
   * [00s-04s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera with face and mouth fully visible, looking at Cole Barrett. Elena Vance holds the moment before speaking. Key object in frame: a verified signature card.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
-  * [04s-07s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera with face and mouth fully visible, looking at Victoria Blackwell. Elena Vance holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [04s-07s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera with face and mouth fully visible, looking at Cole Barrett. Elena Vance holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
   * [07s-08s]: medium shot — At the edge of the stage, the maid hands the heavy blue legal dossier down to the seated county probate judge. Key object in frame: a verified signature card  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
   * [08s-10s]: tight close-up — Close on the judge adjusting his spectacles, his eyebrows climbing higher as he reads the notary stamp  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
 - Sound Design (SFX & Voice Tone): gavel wooden strike on table, stunned uproar from crowd, chairs scraping parquet floor. Voice tone: ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical
@@ -1933,15 +2024,15 @@ ESCENA 49 (Viñeta #49 del Storyboard) — 08:00–08:10
   ELENA (clear): "Walter's signature is verified. The auction is halted."
   ELENA (cold): "Now ask Mrs. Blackwell about the fire."
 
-ESCENA 50 (Viñeta #50 del Storyboard) — 08:10–08:20
+SCENE 50 (Storyboard Panel #50) — 08:10–08:20
 - Location: civic hall stage wings, afternoon
 - Characters Present: Elena Vance, Victoria Blackwell
-- Storyboard Panel (Shot 1 exact framing): [00s-06s] medium close-up on Victoria Blackwell, face and mouth visible: Victoria Blackwell is on camera with face and mouth fully visible, looking at Elena Vance. Victoria Blackwell holds the moment before speaking. Key object in frame: a kerosene can. Location: civic hall stage wings, afternoon. Characters present: Elena Vance, Victoria Blackwell. No other characters appear.
+- Storyboard Panel (Shot 1 exact framing): [00s-06s] medium close-up on Victoria Blackwell, face and mouth visible: Victoria Blackwell is on camera with face and mouth fully visible, looking at Elena Vance. Victoria Blackwell holds the moment before speaking. Location: civic hall stage wings, afternoon. Key object: the scene's central visual detail. Characters present: Elena Vance, Victoria Blackwell. No other characters appear.
 - Identity Anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing clean white button shirt under the tan barn coat, braid neat); Victoria Blackwell (Cast Sheet Pos #2: mid-forties; platinum-blonde bob; wearing deep emerald high-collar dress for the gala, diamond earrings)
-- Key Object: a kerosene can → Object In / Object Out: a kerosene can → a kerosene can
+- Key Object: the central visual detail of the scene
 - Silent Present: Elena Vance — mouths closed for the whole scene, no lines.
 - Camera Cuts & Visual Action (10s):
-  * [00s-06s]: medium close-up on Victoria Blackwell, face and mouth visible — Victoria Blackwell is on camera with face and mouth fully visible, looking at Elena Vance. Victoria Blackwell holds the moment before speaking. Key object in frame: a kerosene can.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [00s-06s]: medium close-up on Victoria Blackwell, face and mouth visible — Victoria Blackwell is on camera with face and mouth fully visible, looking at Elena Vance. Victoria Blackwell holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
   * [06s-07s]: medium two-shot — In the red velvet backstage shadows, the mistress corners the maid against the rope rigging, eyes feverish with malice. Key object in frame: a kerosene can  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
   * [07s-08s]: tight close-up — Close on the mistress's diamond-ringed hand touching the maid's cheek with chilling faux affection  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
   * [08s-10s]: extreme close-up — Extreme close-up on the mistress's whispered threat, her lips parting with vicious triumph  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
@@ -1949,14 +2040,14 @@ ESCENA 50 (Viñeta #50 del Storyboard) — 08:10–08:20
 - Dialogue (English, max 15 words, finish before 8.5 s):
   VICTORIA (quiet threat): "Sign the release, or your horses burn tonight."
 
-ESCENA 51 (Viñeta #51 del Storyboard) — 08:20–08:30
+SCENE 51 (Storyboard Panel #51) — 08:20–08:30
 - Location: Silver Creek barn exterior, dusk
 - Characters Present: Elena Vance, Cole Barrett
-- Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Cole Barrett and Elena Vance: Cole Barrett and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Close on the foreman looking up at Elena, breathing hard but smiling with fierce triumph. Key object in frame: a coil of rope in the hayloft. Location: Silver Creek barn exterior, dusk. Characters present: Elena Vance, Cole Barrett. No other characters appear.
+- Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Cole Barrett and Elena Vance: Cole Barrett and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Close on the foreman looking up at Elena, breathing hard but smiling with fierce triumph. Location: Silver Creek barn exterior, dusk. Key object: the scene's central visual detail. Characters present: Elena Vance, Cole Barrett. No other characters appear.
 - Identity Anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing deep green flannel shirt, dark jeans, her mother's silver belt buckle); Cole Barrett (Cast Sheet Pos #4: early thirties; dark hair under a dust-worn felt hat; wearing same denim jacket, hat in hand, standing at the barn door)
-- Key Object: a coil of rope in the hayloft → Object In / Object Out: a coil of rope in the hayloft → a coil of rope in the hayloft
+- Key Object: the central visual detail of the scene
 - Camera Cuts & Visual Action (10s):
-  * [00s-07s]: two-shot, medium shot with Cole Barrett and Elena Vance — Cole Barrett and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Close on the foreman looking up at Elena, breathing hard but smiling with fierce triumph. Key object in frame: a coil of rope in the hayloft.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [00s-07s]: two-shot, medium shot with Cole Barrett and Elena Vance — Cole Barrett and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Close on the foreman looking up at Elena, breathing hard but smiling with fierce triumph  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
   * [07s-08s]: medium shot — The maid sprints through the barn gates as the foreman yanks a lit flare from a captured trespasser's hand. Key object in frame: a coil of rope in the hayloft  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
   * [08s-10s]: close-up — Insert: the foreman grinds the smoking red flare out beneath his heavy work boot into the damp mud  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
 - Sound Design (SFX & Voice Tone): flare hissing into wet gravel, horses whinnying safe inside, heavy boots running on dirt. Voice tone: COLE — quiet, low American English, careful diction, warmth held under restraint; ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical
@@ -1964,49 +2055,48 @@ ESCENA 51 (Viñeta #51 del Storyboard) — 08:20–08:30
   COLE (dry): "We waited in the hayloft. No spark."
   ELENA (hard): "Tie them up. Drummond needs company."
 
-ESCENA 52 (Viñeta #52 del Storyboard) — 08:30–08:40
+SCENE 52 (Storyboard Panel #52) — 08:30–08:40
 - Location: civic hall courtroom chamber, evening
 - Characters Present: Richard Blackwell
-- Storyboard Panel (Shot 1 exact framing): [00s-03s] medium close-up on Richard Blackwell, face and mouth visible: Richard Blackwell is on camera with face and mouth fully visible, looking at the other person in frame. Richard Blackwell holds the moment before speaking. Key object in frame: a handwritten confession. Location: civic hall courtroom chamber, evening. Characters present: Richard Blackwell. No other characters appear.
+- Storyboard Panel (Shot 1 exact framing): [00s-03s] medium close-up on Richard Blackwell, face and mouth visible: Richard Blackwell is on camera alone in the frame with face and mouth fully visible. Richard Blackwell holds the moment before speaking. Key object in frame: a handwritten confession. Location: civic hall courtroom chamber, evening. Characters present: Richard Blackwell. No other characters appear.
 - Identity Anchors: Richard Blackwell (Cast Sheet Pos #3: around thirty; sandy hair combed back; wearing black gala suit, tie loosened, shaken)
 - Key Object: a handwritten confession → Object In / Object Out: a handwritten confession → a handwritten confession
 - On-Object Text (only legible text allowed in frame): "CONFESSION"
 - Camera Cuts & Visual Action (10s):
-  * [00s-03s]: medium close-up on Richard Blackwell, face and mouth visible — Richard Blackwell is on camera with face and mouth fully visible, looking at the other person in frame. Richard Blackwell holds the moment before speaking. Key object in frame: a handwritten confession.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [00s-03s]: medium close-up on Richard Blackwell, face and mouth visible — Richard Blackwell is on camera alone in the frame with face and mouth fully visible. Richard Blackwell holds the moment before speaking. Key object in frame: a handwritten confession.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
   * [03s-05s]: medium shot — At the witness stand, the heir raises his right hand before the court clerk, his voice echoing across the silent gallery. Key object in frame: a handwritten confession.  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
-  * [05s-09s]: medium close-up on Richard Blackwell, face and mouth visible — Richard Blackwell is on camera with face and mouth fully visible, looking at Elena Vance. Richard Blackwell holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [05s-09s]: medium close-up on Richard Blackwell, face and mouth visible — Richard Blackwell is on camera alone in the frame with face and mouth fully visible. Richard Blackwell holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
   * [09s-10s]: tight close-up — Close on his pale face  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
 - Sound Design (SFX & Voice Tone): courtroom gavel banging, reporters' camera shutters clicking, collective gasp from gallery. Voice tone: RICHARD — smooth mid-range American English, reasonable tone that never quite reaches sincerity
 - Dialogue (English, max 15 words, finish before 8.5 s):
   RICHARD (public, shaking): "I planted the watch for my mother."
   RICHARD (breaking): "Elena never stole anything. We stole fifteen years."
 
-ESCENA 53 (Viñeta #53 del Storyboard) — 08:40–08:50
+SCENE 53 (Storyboard Panel #53) — 08:40–08:50
 - Location: civic hall courtroom chamber, evening
-- Characters Present: Victoria Blackwell, Maggie Doyle
-- Storyboard Panel (Shot 1 exact framing): [00s-03s] medium close-up on Maggie Doyle, face and mouth visible: Maggie Doyle is on camera with face and mouth fully visible, looking at Victoria Blackwell. Maggie Doyle holds the moment before speaking. Key object in frame: a recantation form. Location: civic hall courtroom chamber, evening. Characters present: Victoria Blackwell, Maggie Doyle. No other characters appear.
-- Identity Anchors: Victoria Blackwell (Cast Sheet Pos #2: mid-forties; platinum-blonde bob; wearing emerald gala dress, gloves gone, jewelry missing); Maggie Doyle (Cast Sheet Pos #5: late fifties; iron-grey hair in a loose bun; wearing same Sunday cardigan, hair escaped from the bun, standing tall)
+- Characters Present: Maggie Doyle
+- Storyboard Panel (Shot 1 exact framing): [00s-03s] medium close-up on Maggie Doyle, face and mouth visible: Maggie Doyle is on camera alone in the frame with face and mouth fully visible. Maggie Doyle holds the moment before speaking. Key object in frame: a recantation form. Location: civic hall courtroom chamber, evening. Characters present: Maggie Doyle. No other characters appear.
+- Identity Anchors: Maggie Doyle (Cast Sheet Pos #5: late fifties; iron-grey hair in a loose bun; wearing same Sunday cardigan, hair escaped from the bun, standing tall)
 - Key Object: a recantation form → Object In / Object Out: a recantation form → a recantation form
-- Silent Present: Victoria Blackwell — mouths closed for the whole scene, no lines.
 - Camera Cuts & Visual Action (10s):
-  * [00s-03s]: medium close-up on Maggie Doyle, face and mouth visible — Maggie Doyle is on camera with face and mouth fully visible, looking at Victoria Blackwell. Maggie Doyle holds the moment before speaking. Key object in frame: a recantation form.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [00s-03s]: medium close-up on Maggie Doyle, face and mouth visible — Maggie Doyle is on camera alone in the frame with face and mouth fully visible. Maggie Doyle holds the moment before speaking. Key object in frame: a recantation form.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
   * [03s-05s]: medium shot — The housekeeper grips the microphone and lifts her chin toward the district attorney. Key object in frame: a recantation form.  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
-  * [05s-08s]: medium close-up on Maggie Doyle, face and mouth visible — Maggie Doyle is on camera with face and mouth fully visible, looking at the other person in frame. Maggie Doyle holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [05s-08s]: medium close-up on Maggie Doyle, face and mouth visible — Maggie Doyle is on camera alone in the frame with face and mouth fully visible. Maggie Doyle holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
   * [08s-10s]: tight close-up — Close on her hand pressing the original fire log onto the court clerk's cedar bench  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
 - Sound Design (SFX & Voice Tone): courtroom stenographer machine clicking rapidly, paper rustling, silence falling heavy. Voice tone: MAGGIE — grounded, plainspoken American English with a soft Irish lilt worn thin by thirty years in Montana
 - Dialogue (English, max 15 words, finish before 8.5 s):
   MAGGIE (clear): "I recant. Victoria set the fire."
   MAGGIE (raw): "June Vance was murdered protecting that ranch."
 
-ESCENA 54 (Viñeta #54 del Storyboard) — 08:50–09:00
+SCENE 54 (Storyboard Panel #54) — 08:50–09:00
 - Location: civic hall courtroom chamber, evening
 - Characters Present: Elena Vance
-- Storyboard Panel (Shot 1 exact framing): [00s-04s] tight close-up, face and mouth visible: Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Close on Elena's eyes filling with tears of vindication, a slow, radiant smile breaking across her face. Key object in frame: a court order. Location: civic hall courtroom chamber, evening. Characters present: Elena Vance. No other characters appear.
+- Storyboard Panel (Shot 1 exact framing): [00s-04s] tight close-up, face and mouth visible: Elena Vance is on camera alone in the frame with face and mouth fully visible. Close on Elena's eyes filling with tears of vindication, a slow, radiant smile breaking across her face. Key object in frame: a court order. Location: civic hall courtroom chamber, evening. Characters present: Elena Vance. No other characters appear.
 - Identity Anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing deep green flannel shirt, dark jeans, her mother's silver belt buckle)
 - Key Object: a court order → Object In / Object Out: a court order → a court order
 - Camera Cuts & Visual Action (10s):
-  * [00s-04s]: tight close-up, face and mouth visible — Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Close on Elena's eyes filling with tears of vindication, a slow, radiant smile breaking across her face. Key object in frame: a court order.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
-  * [04s-07s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [00s-04s]: tight close-up, face and mouth visible — Elena Vance is on camera alone in the frame with face and mouth fully visible. Close on Elena's eyes filling with tears of vindication, a slow, radiant smile breaking across her face. Key object in frame: a court order.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [04s-07s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
   * [07s-08s]: medium shot — At the plaintiff's table, the maid rises as the judge brings the wooden gavel down. Key object in frame: a court order  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
   * [08s-10s]: close-up — Insert: the judge signs 'CERTIFICATE OF OWNERSHIP — SILVER CREEK RANCH — OWNER: ELENA VANCE'  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
 - Sound Design (SFX & Voice Tone): resounding gavel strike, loud sustained applause from gallery, floorboards creaking. Voice tone: ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical
@@ -2014,15 +2104,15 @@ ESCENA 54 (Viñeta #54 del Storyboard) — 08:50–09:00
   ELENA (steady): "The court recognizes Elena Vance as sole heir."
   ELENA (breaking): "We did it, Mama. We're home."
 
-COMANDO FINAL (16:9 YouTube):
+FINAL COMMAND (16:9 YouTube):
 
-"Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando entre 1 y 4 tomas exactamente como las lista el guion: la Toma 1 arranca directamente en movimiento desde el encuadre exacto de la viñeta correspondiente sin frames estáticos (two-shot si hablan dos personajes); cada línea hablada tiene su propio plano con el hablante de frente, rostro y boca visibles, nunca desde detrás del personaje; los planos silenciosos (insert, reacción, objeto) van después del diálogo y nunca contienen habla. Mantén estrictamente la misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre escenas. Formato: horizontal 16:9 para YouTube. Reglas negativas estrictas: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
+"Make a realistic cinematic video of 10 seconds per scene, executing between 1 and 4 shots exactly as the script lists them: Shot 1 starts directly in motion from the exact framing of the corresponding storyboard panel, with no static frames (two-shot if two characters speak); every spoken line gets its own shot with the speaker facing camera, face and mouth visible, never from behind the character; silent shots (inserts, reactions, objects) come after the dialogue and never contain speech. Keep strictly the same race, face and wardrobe for each character according to their position in the attached Character Sheet, and join them into a single continuous video, never inserting the reference image between scenes. Format: horizontal 16:9 for YouTube. Strict negative rules: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
 ```
 
-**Comando final 9:16 (Reels/Shorts):**
+**Final 9:16 command (Reels/Shorts):**
 
 ```text
-ESCENA 49 (Viñeta #49 del Storyboard) — 08:00–08:10
+SCENE 49 (Storyboard Panel #49) — 08:00–08:10
 - Location: civic hall auction stage, afternoon
 - Characters Present: Elena Vance, Cole Barrett
 - Storyboard Panel (Shot 1 exact framing): [00s-04s] medium close-up on Elena Vance, face and mouth visible: Elena Vance is on camera with face and mouth fully visible, looking at Cole Barrett. Elena Vance holds the moment before speaking. Key object in frame: a verified signature card. Location: civic hall auction stage, afternoon. Characters present: Elena Vance, Cole Barrett. No other characters appear.
@@ -2031,7 +2121,7 @@ ESCENA 49 (Viñeta #49 del Storyboard) — 08:00–08:10
 - Silent Present: Cole Barrett — mouths closed for the whole scene, no lines.
 - Camera Cuts & Visual Action (10s):
   * [00s-04s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera with face and mouth fully visible, looking at Cole Barrett. Elena Vance holds the moment before speaking. Key object in frame: a verified signature card.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
-  * [04s-07s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera with face and mouth fully visible, looking at Victoria Blackwell. Elena Vance holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [04s-07s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera with face and mouth fully visible, looking at Cole Barrett. Elena Vance holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
   * [07s-08s]: medium shot — At the edge of the stage, the maid hands the heavy blue legal dossier down to the seated county probate judge. Key object in frame: a verified signature card  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
   * [08s-10s]: tight close-up — Close on the judge adjusting his spectacles, his eyebrows climbing higher as he reads the notary stamp  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
 - Sound Design (SFX & Voice Tone): gavel wooden strike on table, stunned uproar from crowd, chairs scraping parquet floor. Voice tone: ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical
@@ -2039,15 +2129,15 @@ ESCENA 49 (Viñeta #49 del Storyboard) — 08:00–08:10
   ELENA (clear): "Walter's signature is verified. The auction is halted."
   ELENA (cold): "Now ask Mrs. Blackwell about the fire."
 
-ESCENA 50 (Viñeta #50 del Storyboard) — 08:10–08:20
+SCENE 50 (Storyboard Panel #50) — 08:10–08:20
 - Location: civic hall stage wings, afternoon
 - Characters Present: Elena Vance, Victoria Blackwell
-- Storyboard Panel (Shot 1 exact framing): [00s-06s] medium close-up on Victoria Blackwell, face and mouth visible: Victoria Blackwell is on camera with face and mouth fully visible, looking at Elena Vance. Victoria Blackwell holds the moment before speaking. Key object in frame: a kerosene can. Location: civic hall stage wings, afternoon. Characters present: Elena Vance, Victoria Blackwell. No other characters appear.
+- Storyboard Panel (Shot 1 exact framing): [00s-06s] medium close-up on Victoria Blackwell, face and mouth visible: Victoria Blackwell is on camera with face and mouth fully visible, looking at Elena Vance. Victoria Blackwell holds the moment before speaking. Location: civic hall stage wings, afternoon. Key object: the scene's central visual detail. Characters present: Elena Vance, Victoria Blackwell. No other characters appear.
 - Identity Anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing clean white button shirt under the tan barn coat, braid neat); Victoria Blackwell (Cast Sheet Pos #2: mid-forties; platinum-blonde bob; wearing deep emerald high-collar dress for the gala, diamond earrings)
-- Key Object: a kerosene can → Object In / Object Out: a kerosene can → a kerosene can
+- Key Object: the central visual detail of the scene
 - Silent Present: Elena Vance — mouths closed for the whole scene, no lines.
 - Camera Cuts & Visual Action (10s):
-  * [00s-06s]: medium close-up on Victoria Blackwell, face and mouth visible — Victoria Blackwell is on camera with face and mouth fully visible, looking at Elena Vance. Victoria Blackwell holds the moment before speaking. Key object in frame: a kerosene can.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [00s-06s]: medium close-up on Victoria Blackwell, face and mouth visible — Victoria Blackwell is on camera with face and mouth fully visible, looking at Elena Vance. Victoria Blackwell holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
   * [06s-07s]: medium two-shot — In the red velvet backstage shadows, the mistress corners the maid against the rope rigging, eyes feverish with malice. Key object in frame: a kerosene can  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
   * [07s-08s]: tight close-up — Close on the mistress's diamond-ringed hand touching the maid's cheek with chilling faux affection  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
   * [08s-10s]: extreme close-up — Extreme close-up on the mistress's whispered threat, her lips parting with vicious triumph  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
@@ -2055,14 +2145,14 @@ ESCENA 50 (Viñeta #50 del Storyboard) — 08:10–08:20
 - Dialogue (English, max 15 words, finish before 8.5 s):
   VICTORIA (quiet threat): "Sign the release, or your horses burn tonight."
 
-ESCENA 51 (Viñeta #51 del Storyboard) — 08:20–08:30
+SCENE 51 (Storyboard Panel #51) — 08:20–08:30
 - Location: Silver Creek barn exterior, dusk
 - Characters Present: Elena Vance, Cole Barrett
-- Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Cole Barrett and Elena Vance: Cole Barrett and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Close on the foreman looking up at Elena, breathing hard but smiling with fierce triumph. Key object in frame: a coil of rope in the hayloft. Location: Silver Creek barn exterior, dusk. Characters present: Elena Vance, Cole Barrett. No other characters appear.
+- Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Cole Barrett and Elena Vance: Cole Barrett and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Close on the foreman looking up at Elena, breathing hard but smiling with fierce triumph. Location: Silver Creek barn exterior, dusk. Key object: the scene's central visual detail. Characters present: Elena Vance, Cole Barrett. No other characters appear.
 - Identity Anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing deep green flannel shirt, dark jeans, her mother's silver belt buckle); Cole Barrett (Cast Sheet Pos #4: early thirties; dark hair under a dust-worn felt hat; wearing same denim jacket, hat in hand, standing at the barn door)
-- Key Object: a coil of rope in the hayloft → Object In / Object Out: a coil of rope in the hayloft → a coil of rope in the hayloft
+- Key Object: the central visual detail of the scene
 - Camera Cuts & Visual Action (10s):
-  * [00s-07s]: two-shot, medium shot with Cole Barrett and Elena Vance — Cole Barrett and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Close on the foreman looking up at Elena, breathing hard but smiling with fierce triumph. Key object in frame: a coil of rope in the hayloft.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [00s-07s]: two-shot, medium shot with Cole Barrett and Elena Vance — Cole Barrett and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Close on the foreman looking up at Elena, breathing hard but smiling with fierce triumph  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
   * [07s-08s]: medium shot — The maid sprints through the barn gates as the foreman yanks a lit flare from a captured trespasser's hand. Key object in frame: a coil of rope in the hayloft  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
   * [08s-10s]: close-up — Insert: the foreman grinds the smoking red flare out beneath his heavy work boot into the damp mud  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
 - Sound Design (SFX & Voice Tone): flare hissing into wet gravel, horses whinnying safe inside, heavy boots running on dirt. Voice tone: COLE — quiet, low American English, careful diction, warmth held under restraint; ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical
@@ -2070,49 +2160,48 @@ ESCENA 51 (Viñeta #51 del Storyboard) — 08:20–08:30
   COLE (dry): "We waited in the hayloft. No spark."
   ELENA (hard): "Tie them up. Drummond needs company."
 
-ESCENA 52 (Viñeta #52 del Storyboard) — 08:30–08:40
+SCENE 52 (Storyboard Panel #52) — 08:30–08:40
 - Location: civic hall courtroom chamber, evening
 - Characters Present: Richard Blackwell
-- Storyboard Panel (Shot 1 exact framing): [00s-03s] medium close-up on Richard Blackwell, face and mouth visible: Richard Blackwell is on camera with face and mouth fully visible, looking at the other person in frame. Richard Blackwell holds the moment before speaking. Key object in frame: a handwritten confession. Location: civic hall courtroom chamber, evening. Characters present: Richard Blackwell. No other characters appear.
+- Storyboard Panel (Shot 1 exact framing): [00s-03s] medium close-up on Richard Blackwell, face and mouth visible: Richard Blackwell is on camera alone in the frame with face and mouth fully visible. Richard Blackwell holds the moment before speaking. Key object in frame: a handwritten confession. Location: civic hall courtroom chamber, evening. Characters present: Richard Blackwell. No other characters appear.
 - Identity Anchors: Richard Blackwell (Cast Sheet Pos #3: around thirty; sandy hair combed back; wearing black gala suit, tie loosened, shaken)
 - Key Object: a handwritten confession → Object In / Object Out: a handwritten confession → a handwritten confession
 - On-Object Text (only legible text allowed in frame): "CONFESSION"
 - Camera Cuts & Visual Action (10s):
-  * [00s-03s]: medium close-up on Richard Blackwell, face and mouth visible — Richard Blackwell is on camera with face and mouth fully visible, looking at the other person in frame. Richard Blackwell holds the moment before speaking. Key object in frame: a handwritten confession.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [00s-03s]: medium close-up on Richard Blackwell, face and mouth visible — Richard Blackwell is on camera alone in the frame with face and mouth fully visible. Richard Blackwell holds the moment before speaking. Key object in frame: a handwritten confession.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
   * [03s-05s]: medium shot — At the witness stand, the heir raises his right hand before the court clerk, his voice echoing across the silent gallery. Key object in frame: a handwritten confession.  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
-  * [05s-09s]: medium close-up on Richard Blackwell, face and mouth visible — Richard Blackwell is on camera with face and mouth fully visible, looking at Elena Vance. Richard Blackwell holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [05s-09s]: medium close-up on Richard Blackwell, face and mouth visible — Richard Blackwell is on camera alone in the frame with face and mouth fully visible. Richard Blackwell holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
   * [09s-10s]: tight close-up — Close on his pale face  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
 - Sound Design (SFX & Voice Tone): courtroom gavel banging, reporters' camera shutters clicking, collective gasp from gallery. Voice tone: RICHARD — smooth mid-range American English, reasonable tone that never quite reaches sincerity
 - Dialogue (English, max 15 words, finish before 8.5 s):
   RICHARD (public, shaking): "I planted the watch for my mother."
   RICHARD (breaking): "Elena never stole anything. We stole fifteen years."
 
-ESCENA 53 (Viñeta #53 del Storyboard) — 08:40–08:50
+SCENE 53 (Storyboard Panel #53) — 08:40–08:50
 - Location: civic hall courtroom chamber, evening
-- Characters Present: Victoria Blackwell, Maggie Doyle
-- Storyboard Panel (Shot 1 exact framing): [00s-03s] medium close-up on Maggie Doyle, face and mouth visible: Maggie Doyle is on camera with face and mouth fully visible, looking at Victoria Blackwell. Maggie Doyle holds the moment before speaking. Key object in frame: a recantation form. Location: civic hall courtroom chamber, evening. Characters present: Victoria Blackwell, Maggie Doyle. No other characters appear.
-- Identity Anchors: Victoria Blackwell (Cast Sheet Pos #2: mid-forties; platinum-blonde bob; wearing emerald gala dress, gloves gone, jewelry missing); Maggie Doyle (Cast Sheet Pos #5: late fifties; iron-grey hair in a loose bun; wearing same Sunday cardigan, hair escaped from the bun, standing tall)
+- Characters Present: Maggie Doyle
+- Storyboard Panel (Shot 1 exact framing): [00s-03s] medium close-up on Maggie Doyle, face and mouth visible: Maggie Doyle is on camera alone in the frame with face and mouth fully visible. Maggie Doyle holds the moment before speaking. Key object in frame: a recantation form. Location: civic hall courtroom chamber, evening. Characters present: Maggie Doyle. No other characters appear.
+- Identity Anchors: Maggie Doyle (Cast Sheet Pos #5: late fifties; iron-grey hair in a loose bun; wearing same Sunday cardigan, hair escaped from the bun, standing tall)
 - Key Object: a recantation form → Object In / Object Out: a recantation form → a recantation form
-- Silent Present: Victoria Blackwell — mouths closed for the whole scene, no lines.
 - Camera Cuts & Visual Action (10s):
-  * [00s-03s]: medium close-up on Maggie Doyle, face and mouth visible — Maggie Doyle is on camera with face and mouth fully visible, looking at Victoria Blackwell. Maggie Doyle holds the moment before speaking. Key object in frame: a recantation form.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [00s-03s]: medium close-up on Maggie Doyle, face and mouth visible — Maggie Doyle is on camera alone in the frame with face and mouth fully visible. Maggie Doyle holds the moment before speaking. Key object in frame: a recantation form.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
   * [03s-05s]: medium shot — The housekeeper grips the microphone and lifts her chin toward the district attorney. Key object in frame: a recantation form.  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
-  * [05s-08s]: medium close-up on Maggie Doyle, face and mouth visible — Maggie Doyle is on camera with face and mouth fully visible, looking at the other person in frame. Maggie Doyle holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [05s-08s]: medium close-up on Maggie Doyle, face and mouth visible — Maggie Doyle is on camera alone in the frame with face and mouth fully visible. Maggie Doyle holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
   * [08s-10s]: tight close-up — Close on her hand pressing the original fire log onto the court clerk's cedar bench  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
 - Sound Design (SFX & Voice Tone): courtroom stenographer machine clicking rapidly, paper rustling, silence falling heavy. Voice tone: MAGGIE — grounded, plainspoken American English with a soft Irish lilt worn thin by thirty years in Montana
 - Dialogue (English, max 15 words, finish before 8.5 s):
   MAGGIE (clear): "I recant. Victoria set the fire."
   MAGGIE (raw): "June Vance was murdered protecting that ranch."
 
-ESCENA 54 (Viñeta #54 del Storyboard) — 08:50–09:00
+SCENE 54 (Storyboard Panel #54) — 08:50–09:00
 - Location: civic hall courtroom chamber, evening
 - Characters Present: Elena Vance
-- Storyboard Panel (Shot 1 exact framing): [00s-04s] tight close-up, face and mouth visible: Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Close on Elena's eyes filling with tears of vindication, a slow, radiant smile breaking across her face. Key object in frame: a court order. Location: civic hall courtroom chamber, evening. Characters present: Elena Vance. No other characters appear.
+- Storyboard Panel (Shot 1 exact framing): [00s-04s] tight close-up, face and mouth visible: Elena Vance is on camera alone in the frame with face and mouth fully visible. Close on Elena's eyes filling with tears of vindication, a slow, radiant smile breaking across her face. Key object in frame: a court order. Location: civic hall courtroom chamber, evening. Characters present: Elena Vance. No other characters appear.
 - Identity Anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing deep green flannel shirt, dark jeans, her mother's silver belt buckle)
 - Key Object: a court order → Object In / Object Out: a court order → a court order
 - Camera Cuts & Visual Action (10s):
-  * [00s-04s]: tight close-up, face and mouth visible — Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Close on Elena's eyes filling with tears of vindication, a slow, radiant smile breaking across her face. Key object in frame: a court order.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
-  * [04s-07s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [00s-04s]: tight close-up, face and mouth visible — Elena Vance is on camera alone in the frame with face and mouth fully visible. Close on Elena's eyes filling with tears of vindication, a slow, radiant smile breaking across her face. Key object in frame: a court order.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [04s-07s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
   * [07s-08s]: medium shot — At the plaintiff's table, the maid rises as the judge brings the wooden gavel down. Key object in frame: a court order  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
   * [08s-10s]: close-up — Insert: the judge signs 'CERTIFICATE OF OWNERSHIP — SILVER CREEK RANCH — OWNER: ELENA VANCE'  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
 - Sound Design (SFX & Voice Tone): resounding gavel strike, loud sustained applause from gallery, floorboards creaking. Voice tone: ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical
@@ -2120,23 +2209,32 @@ ESCENA 54 (Viñeta #54 del Storyboard) — 08:50–09:00
   ELENA (steady): "The court recognizes Elena Vance as sole heir."
   ELENA (breaking): "We did it, Mama. We're home."
 
-COMANDO FINAL (9:16 Reels/TikTok/Shorts):
+FINAL COMMAND (9:16 Reels/TikTok/Shorts):
 
-"Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando entre 1 y 4 tomas exactamente como las lista el guion: la Toma 1 arranca directamente en movimiento desde el encuadre exacto de la viñeta correspondiente sin frames estáticos (two-shot si hablan dos personajes); cada línea hablada tiene su propio plano con el hablante de frente, rostro y boca visibles, nunca desde detrás del personaje; los planos silenciosos (insert, reacción, objeto) van después del diálogo y nunca contienen habla. Mantén estrictamente la misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre escenas. Formato: vertical 9:16 para Reels, TikTok y Shorts. Reglas negativas estrictas: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
+"Make a realistic cinematic video of 10 seconds per scene, executing between 1 and 4 shots exactly as the script lists them: Shot 1 starts directly in motion from the exact framing of the corresponding storyboard panel, with no static frames (two-shot if two characters speak); every spoken line gets its own shot with the speaker facing camera, face and mouth visible, never from behind the character; silent shots (inserts, reactions, objects) come after the dialogue and never contain speech. Keep strictly the same race, face and wardrobe for each character according to their position in the attached Character Sheet, and join them into a single continuous video, never inserting the reference image between scenes. Format: vertical 9:16 for Reels, TikTok and Shorts. Strict negative rules: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
 ```
 
-### Lote 10 — Minuto 10 (escenas 55–60)
+### Batch 10 — Minute 10 (scenes 55–60)
 
-**Adjuntar:** `REF_CAST_MASTER.png` + `REF_GRID_MIN_10.png`
+**Attach:** `REF_CAST_MASTER.png` + `REF_GRID_MIN_10.png`
 
-**Guardar 16:9 como:** `raw_clips/minute_10.mp4`
+**Per-scene attachments for this batch:**
 
-**Guardar 9:16 como:** `raw_clips/minute_10_vertical.mp4`
+- Scene 055: `attach: [panel_055, ref_elena, ref_victoria]`
+- Scene 056: `attach: [panel_056, ref_elena, ref_victoria]`
+- Scene 057: `attach: [panel_057, ref_elena, ref_maggie]`
+- Scene 058: `attach: [panel_058, ref_elena, ref_cole]`
+- Scene 059: `attach: [panel_059, ref_elena]`
+- Scene 060: `attach: [panel_060, ref_elena]`
 
-**Bloque 16:9 para Muse AI (YouTube):**
+**Save 16:9 as:** `raw_clips/minute_10.mp4`
+
+**Save 9:16 as:** `raw_clips/minute_10_vertical.mp4`
+
+**16:9 block for Muse AI (YouTube):**
 
 ```text
-ESCENA 55 (Viñeta #55 del Storyboard) — 09:00–09:10
+SCENE 55 (Storyboard Panel #55) — 09:00–09:10
 - Location: civic hall grand steps, night
 - Characters Present: Elena Vance, Victoria Blackwell
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Victoria Blackwell and Elena Vance: Victoria Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Under the flashing blue lights of state police cruisers, the troopers secure handcuffs behind the mistress's back. Key object in frame: a pair of handcuffs. Location: civic hall grand steps, night. Characters present: Elena Vance, Victoria Blackwell. No other characters appear.
@@ -2144,14 +2242,14 @@ ESCENA 55 (Viñeta #55 del Storyboard) — 09:00–09:10
 - Key Object: a pair of handcuffs → Object In / Object Out: a pair of handcuffs → a pair of handcuffs
 - Camera Cuts & Visual Action (10s):
   * [00s-07s]: two-shot, medium shot with Victoria Blackwell and Elena Vance — Victoria Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Under the flashing blue lights of state police cruisers, the troopers secure handcuffs behind the mistress's back. Key object in frame: a pair of handcuffs  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
-  * [07s-08s]: tight close-up — Close on the steel cuffs ratcheting shut with sharp metallic clicks over her bare wrists  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
+  * [07s-08s]: tight close-up — Close on the steel cuffs ratcheting shut with a pair of handcuffs metallic clicks over her bare wrists  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
   * [08s-10s]: tight close-up — Over the mistress's shoulder, she sees the entire town watching her downfall in silence  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
 - Sound Design (SFX & Voice Tone): handcuffs clicking into place, police radios squawking, crowd watching without a sound. Voice tone: VICTORIA — low, polished, unhurried American English, smiles through threats, never shouts; ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical
 - Dialogue (English, max 15 words, finish before 8.5 s):
   VICTORIA (furious): "You cannot do this! I built this town!"
   ELENA (cold): "You built it on my mother's grave."
 
-ESCENA 56 (Viñeta #56 del Storyboard) — 09:10–09:20
+SCENE 56 (Storyboard Panel #56) — 09:10–09:20
 - Location: civic hall grand steps, night
 - Characters Present: Elena Vance, Victoria Blackwell
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Victoria Blackwell and Elena Vance: Victoria Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. On the wet steps, the handcuffed mistress collapses forward onto her knees before the maid she once tormented. Key object in frame: a suitcase on the steps. Location: civic hall grand steps, night. Characters present: Elena Vance, Victoria Blackwell. No other characters appear.
@@ -2166,7 +2264,7 @@ ESCENA 56 (Viñeta #56 del Storyboard) — 09:10–09:20
   VICTORIA (small): "Leave me the guesthouse."
   ELENA (flat): "You left me a broken cup and a broom."
 
-ESCENA 57 (Viñeta #57 del Storyboard) — 09:20–09:30
+SCENE 57 (Storyboard Panel #57) — 09:20–09:30
 - Location: Silver Creek mansion foyer, night
 - Characters Present: Elena Vance, Maggie Doyle
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Maggie Doyle and Elena Vance: Maggie Doyle and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. The grand foyer is warm with lamplight; the maid crosses the floor where she was once humiliated, now as the estate's mistress. Key object in frame: a clean white teacup. Location: Silver Creek mansion foyer, night. Characters present: Elena Vance, Maggie Doyle. No other characters appear.
@@ -2181,7 +2279,7 @@ ESCENA 57 (Viñeta #57 del Storyboard) — 09:20–09:30
   MAGGIE (warm): "The house is quiet. It feels clean."
   ELENA (quiet): "It's a sanctuary for everyone they pushed down."
 
-ESCENA 58 (Viñeta #58 del Storyboard) — 09:30–09:40
+SCENE 58 (Storyboard Panel #58) — 09:30–09:40
 - Location: Silver Creek barn gate, moonlight
 - Characters Present: Elena Vance, Cole Barrett
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Cole Barrett and Elena Vance: Cole Barrett and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. At the corral gate, the foreman turns to the maid, nervously rolling the brim of his felt hat in both hands. Key object in frame: a set of ranch keys. Location: Silver Creek barn gate, moonlight. Characters present: Elena Vance, Cole Barrett. No other characters appear.
@@ -2196,15 +2294,15 @@ ESCENA 58 (Viñeta #58 del Storyboard) — 09:30–09:40
   COLE (dry): "You own twenty thousand acres now."
   ELENA (warm): "I need you. Stay and build this with me."
 
-ESCENA 59 (Viñeta #59 del Storyboard) — 09:40–09:50
+SCENE 59 (Storyboard Panel #59) — 09:40–09:50
 - Location: Blackwell great room mantelpiece, night
 - Characters Present: Elena Vance
-- Storyboard Panel (Shot 1 exact framing): [00s-04s] tight close-up, face and mouth visible: Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Close on Elena's face, radiant with deep peace as a single grateful tear slips down her cheek. Key object in frame: a framed photograph of June. Location: Blackwell great room mantelpiece, night. Characters present: Elena Vance. No other characters appear.
+- Storyboard Panel (Shot 1 exact framing): [00s-04s] tight close-up, face and mouth visible: Elena Vance is on camera alone in the frame with face and mouth fully visible. Close on Elena's face, radiant with deep peace as a single grateful tear slips down her cheek. Key object in frame: a framed photograph of June. Location: Blackwell great room mantelpiece, night. Characters present: Elena Vance. No other characters appear.
 - Identity Anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing deep green flannel shirt, dark jeans, her mother's silver belt buckle)
 - Key Object: a framed photograph of June → Object In / Object Out: a framed photograph of June → a framed photograph of June
 - Camera Cuts & Visual Action (10s):
-  * [00s-04s]: tight close-up, face and mouth visible — Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Close on Elena's face, radiant with deep peace as a single grateful tear slips down her cheek. Key object in frame: a framed photograph of June.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
-  * [04s-07s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [00s-04s]: tight close-up, face and mouth visible — Elena Vance is on camera alone in the frame with face and mouth fully visible. Close on Elena's face, radiant with deep peace as a single grateful tear slips down her cheek. Key object in frame: a framed photograph of June.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [04s-07s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
   * [07s-08s]: medium shot — Before the roaring stone hearth, the maid steps back as June Vance's smiling photograph occupies the place of honor. Key object in frame: a framed photograph of June  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
   * [08s-10s]: close-up — Insert: the silver belt buckle catches the orange firelight beside the tin frame, engraved: 'VANCE RANCH — 1982'  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
 - Sound Design (SFX & Voice Tone): deep hearth fire crackling warmly, pine wood popping, soft wind against glass. Voice tone: ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical
@@ -2212,31 +2310,31 @@ ESCENA 59 (Viñeta #59 del Storyboard) — 09:40–09:50
   ELENA (fierce): "Your name will never be erased again."
   ELENA (quiet): "Silver Creek is ours. Justice is done."
 
-ESCENA 60 (Viñeta #60 del Storyboard) — 09:50–10:00
+SCENE 60 (Storyboard Panel #60) — 09:50–10:00
 - Location: mansion study desk, night
 - Characters Present: Elena Vance
-- Storyboard Panel (Shot 1 exact framing): [00s-03s] tight close-up, face and mouth visible: Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Close on Elena's eyes widening in stunned alarm as she reads Walter's final words in the letter. Key object in frame: a folded letter with a second clause. Location: mansion study desk, night. Characters present: Elena Vance. No other characters appear.
+- Storyboard Panel (Shot 1 exact framing): [00s-04s] tight close-up, face and mouth visible: Elena Vance is on camera alone in the frame with face and mouth fully visible. Close on Elena's eyes widening in stunned alarm as she reads Walter's final words in the letter. Location: mansion study desk, night. Key object: the scene's central visual detail. Characters present: Elena Vance. No other characters appear.
 - Identity Anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing deep green flannel shirt, dark jeans, her mother's silver belt buckle)
-- Key Object: a folded letter with a second clause → Object In / Object Out: a folded letter with a second clause → a folded letter with a second clause
+- Key Object: the central visual detail of the scene
 - Camera Cuts & Visual Action (10s):
-  * [00s-03s]: tight close-up, face and mouth visible — Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Close on Elena's eyes widening in stunned alarm as she reads Walter's final words in the letter. Key object in frame: a folded letter with a second clause.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
-  * [03s-06s]: medium shot — At the quiet study desk, the maid lifts the will parchment and finds a sealed wax envelope attached to the back. Key object in frame: a folded letter with a second clause.  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
-  * [06s-08s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera with face and mouth fully visible, looking at Victoria Blackwell. Elena Vance holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [00s-04s]: tight close-up, face and mouth visible — Elena Vance is on camera alone in the frame with face and mouth fully visible. Close on Elena's eyes widening in stunned alarm as she reads Walter's final words in the letter  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [04s-07s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [07s-08s]: medium shot — At the quiet study desk, the maid lifts the will parchment and finds a sealed wax envelope attached to the back. Key object in frame: a folded letter with a second clause  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
   * [08s-10s]: close-up — Insert: her thumb cracks the red wax seal: 'To Elena — Read in private after you claim the ranch'  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
 - Sound Design (SFX & Voice Tone): paper crackling in silence, banker lamp humming softly, sudden wind banging study shutters. Voice tone: ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical
 - Dialogue (English, max 15 words, finish before 8.5 s):
   ELENA (stunned): "There's another clause. You have a brother."
   ELENA (urgent): "Find him before Victoria's family does."
 
-COMANDO FINAL (16:9 YouTube):
+FINAL COMMAND (16:9 YouTube):
 
-"Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando entre 1 y 4 tomas exactamente como las lista el guion: la Toma 1 arranca directamente en movimiento desde el encuadre exacto de la viñeta correspondiente sin frames estáticos (two-shot si hablan dos personajes); cada línea hablada tiene su propio plano con el hablante de frente, rostro y boca visibles, nunca desde detrás del personaje; los planos silenciosos (insert, reacción, objeto) van después del diálogo y nunca contienen habla. Mantén estrictamente la misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre escenas. Formato: horizontal 16:9 para YouTube. Reglas negativas estrictas: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
+"Make a realistic cinematic video of 10 seconds per scene, executing between 1 and 4 shots exactly as the script lists them: Shot 1 starts directly in motion from the exact framing of the corresponding storyboard panel, with no static frames (two-shot if two characters speak); every spoken line gets its own shot with the speaker facing camera, face and mouth visible, never from behind the character; silent shots (inserts, reactions, objects) come after the dialogue and never contain speech. Keep strictly the same race, face and wardrobe for each character according to their position in the attached Character Sheet, and join them into a single continuous video, never inserting the reference image between scenes. Format: horizontal 16:9 for YouTube. Strict negative rules: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
 ```
 
-**Comando final 9:16 (Reels/Shorts):**
+**Final 9:16 command (Reels/Shorts):**
 
 ```text
-ESCENA 55 (Viñeta #55 del Storyboard) — 09:00–09:10
+SCENE 55 (Storyboard Panel #55) — 09:00–09:10
 - Location: civic hall grand steps, night
 - Characters Present: Elena Vance, Victoria Blackwell
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Victoria Blackwell and Elena Vance: Victoria Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Under the flashing blue lights of state police cruisers, the troopers secure handcuffs behind the mistress's back. Key object in frame: a pair of handcuffs. Location: civic hall grand steps, night. Characters present: Elena Vance, Victoria Blackwell. No other characters appear.
@@ -2244,14 +2342,14 @@ ESCENA 55 (Viñeta #55 del Storyboard) — 09:00–09:10
 - Key Object: a pair of handcuffs → Object In / Object Out: a pair of handcuffs → a pair of handcuffs
 - Camera Cuts & Visual Action (10s):
   * [00s-07s]: two-shot, medium shot with Victoria Blackwell and Elena Vance — Victoria Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Under the flashing blue lights of state police cruisers, the troopers secure handcuffs behind the mistress's back. Key object in frame: a pair of handcuffs  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
-  * [07s-08s]: tight close-up — Close on the steel cuffs ratcheting shut with sharp metallic clicks over her bare wrists  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
+  * [07s-08s]: tight close-up — Close on the steel cuffs ratcheting shut with a pair of handcuffs metallic clicks over her bare wrists  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
   * [08s-10s]: tight close-up — Over the mistress's shoulder, she sees the entire town watching her downfall in silence  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
 - Sound Design (SFX & Voice Tone): handcuffs clicking into place, police radios squawking, crowd watching without a sound. Voice tone: VICTORIA — low, polished, unhurried American English, smiles through threats, never shouts; ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical
 - Dialogue (English, max 15 words, finish before 8.5 s):
   VICTORIA (furious): "You cannot do this! I built this town!"
   ELENA (cold): "You built it on my mother's grave."
 
-ESCENA 56 (Viñeta #56 del Storyboard) — 09:10–09:20
+SCENE 56 (Storyboard Panel #56) — 09:10–09:20
 - Location: civic hall grand steps, night
 - Characters Present: Elena Vance, Victoria Blackwell
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Victoria Blackwell and Elena Vance: Victoria Blackwell and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. On the wet steps, the handcuffed mistress collapses forward onto her knees before the maid she once tormented. Key object in frame: a suitcase on the steps. Location: civic hall grand steps, night. Characters present: Elena Vance, Victoria Blackwell. No other characters appear.
@@ -2266,7 +2364,7 @@ ESCENA 56 (Viñeta #56 del Storyboard) — 09:10–09:20
   VICTORIA (small): "Leave me the guesthouse."
   ELENA (flat): "You left me a broken cup and a broom."
 
-ESCENA 57 (Viñeta #57 del Storyboard) — 09:20–09:30
+SCENE 57 (Storyboard Panel #57) — 09:20–09:30
 - Location: Silver Creek mansion foyer, night
 - Characters Present: Elena Vance, Maggie Doyle
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Maggie Doyle and Elena Vance: Maggie Doyle and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. The grand foyer is warm with lamplight; the maid crosses the floor where she was once humiliated, now as the estate's mistress. Key object in frame: a clean white teacup. Location: Silver Creek mansion foyer, night. Characters present: Elena Vance, Maggie Doyle. No other characters appear.
@@ -2281,7 +2379,7 @@ ESCENA 57 (Viñeta #57 del Storyboard) — 09:20–09:30
   MAGGIE (warm): "The house is quiet. It feels clean."
   ELENA (quiet): "It's a sanctuary for everyone they pushed down."
 
-ESCENA 58 (Viñeta #58 del Storyboard) — 09:30–09:40
+SCENE 58 (Storyboard Panel #58) — 09:30–09:40
 - Location: Silver Creek barn gate, moonlight
 - Characters Present: Elena Vance, Cole Barrett
 - Storyboard Panel (Shot 1 exact framing): [00s-07s] two-shot, medium shot with Cole Barrett and Elena Vance: Cole Barrett and Elena Vance face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. At the corral gate, the foreman turns to the maid, nervously rolling the brim of his felt hat in both hands. Key object in frame: a set of ranch keys. Location: Silver Creek barn gate, moonlight. Characters present: Elena Vance, Cole Barrett. No other characters appear.
@@ -2296,15 +2394,15 @@ ESCENA 58 (Viñeta #58 del Storyboard) — 09:30–09:40
   COLE (dry): "You own twenty thousand acres now."
   ELENA (warm): "I need you. Stay and build this with me."
 
-ESCENA 59 (Viñeta #59 del Storyboard) — 09:40–09:50
+SCENE 59 (Storyboard Panel #59) — 09:40–09:50
 - Location: Blackwell great room mantelpiece, night
 - Characters Present: Elena Vance
-- Storyboard Panel (Shot 1 exact framing): [00s-04s] tight close-up, face and mouth visible: Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Close on Elena's face, radiant with deep peace as a single grateful tear slips down her cheek. Key object in frame: a framed photograph of June. Location: Blackwell great room mantelpiece, night. Characters present: Elena Vance. No other characters appear.
+- Storyboard Panel (Shot 1 exact framing): [00s-04s] tight close-up, face and mouth visible: Elena Vance is on camera alone in the frame with face and mouth fully visible. Close on Elena's face, radiant with deep peace as a single grateful tear slips down her cheek. Key object in frame: a framed photograph of June. Location: Blackwell great room mantelpiece, night. Characters present: Elena Vance. No other characters appear.
 - Identity Anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing deep green flannel shirt, dark jeans, her mother's silver belt buckle)
 - Key Object: a framed photograph of June → Object In / Object Out: a framed photograph of June → a framed photograph of June
 - Camera Cuts & Visual Action (10s):
-  * [00s-04s]: tight close-up, face and mouth visible — Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Close on Elena's face, radiant with deep peace as a single grateful tear slips down her cheek. Key object in frame: a framed photograph of June.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
-  * [04s-07s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Elena Vance holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [00s-04s]: tight close-up, face and mouth visible — Elena Vance is on camera alone in the frame with face and mouth fully visible. Close on Elena's face, radiant with deep peace as a single grateful tear slips down her cheek. Key object in frame: a framed photograph of June.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [04s-07s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
   * [07s-08s]: medium shot — Before the roaring stone hearth, the maid steps back as June Vance's smiling photograph occupies the place of honor. Key object in frame: a framed photograph of June  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
   * [08s-10s]: close-up — Insert: the silver belt buckle catches the orange firelight beside the tin frame, engraved: 'VANCE RANCH — 1982'  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
 - Sound Design (SFX & Voice Tone): deep hearth fire crackling warmly, pine wood popping, soft wind against glass. Voice tone: ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical
@@ -2312,36 +2410,36 @@ ESCENA 59 (Viñeta #59 del Storyboard) — 09:40–09:50
   ELENA (fierce): "Your name will never be erased again."
   ELENA (quiet): "Silver Creek is ours. Justice is done."
 
-ESCENA 60 (Viñeta #60 del Storyboard) — 09:50–10:00
+SCENE 60 (Storyboard Panel #60) — 09:50–10:00
 - Location: mansion study desk, night
 - Characters Present: Elena Vance
-- Storyboard Panel (Shot 1 exact framing): [00s-03s] tight close-up, face and mouth visible: Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Close on Elena's eyes widening in stunned alarm as she reads Walter's final words in the letter. Key object in frame: a folded letter with a second clause. Location: mansion study desk, night. Characters present: Elena Vance. No other characters appear.
+- Storyboard Panel (Shot 1 exact framing): [00s-04s] tight close-up, face and mouth visible: Elena Vance is on camera alone in the frame with face and mouth fully visible. Close on Elena's eyes widening in stunned alarm as she reads Walter's final words in the letter. Location: mansion study desk, night. Key object: the scene's central visual detail. Characters present: Elena Vance. No other characters appear.
 - Identity Anchors: Elena Vance (Cast Sheet Pos #1: mid-twenties; long chestnut low braid; wearing deep green flannel shirt, dark jeans, her mother's silver belt buckle)
-- Key Object: a folded letter with a second clause → Object In / Object Out: a folded letter with a second clause → a folded letter with a second clause
+- Key Object: the central visual detail of the scene
 - Camera Cuts & Visual Action (10s):
-  * [00s-03s]: tight close-up, face and mouth visible — Elena Vance is on camera with face and mouth fully visible, looking at the other person in frame. Close on Elena's eyes widening in stunned alarm as she reads Walter's final words in the letter. Key object in frame: a folded letter with a second clause.  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
-  * [03s-06s]: medium shot — At the quiet study desk, the maid lifts the will parchment and finds a sealed wax envelope attached to the back. Key object in frame: a folded letter with a second clause.  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
-  * [06s-08s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera with face and mouth fully visible, looking at Victoria Blackwell. Elena Vance holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [00s-04s]: tight close-up, face and mouth visible — Elena Vance is on camera alone in the frame with face and mouth fully visible. Close on Elena's eyes widening in stunned alarm as she reads Walter's final words in the letter  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [04s-07s]: medium close-up on Elena Vance, face and mouth visible — Elena Vance is on camera alone in the frame with face and mouth fully visible. Elena Vance holds the moment before speaking  [SPEAKING SHOT: speaker on camera, face and mouth visible for the whole line.]
+  * [07s-08s]: medium shot — At the quiet study desk, the maid lifts the will parchment and finds a sealed wax envelope attached to the back. Key object in frame: a folded letter with a second clause  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
   * [08s-10s]: close-up — Insert: her thumb cracks the red wax seal: 'To Elena — Read in private after you claim the ranch'  [SILENT SHOT: no dialogue, no speaking, mouths closed.]
 - Sound Design (SFX & Voice Tone): paper crackling in silence, banker lamp humming softly, sudden wind banging study shutters. Voice tone: ELENA — warm mid-range American English, plain Montana vowels, steady under pressure, never theatrical
 - Dialogue (English, max 15 words, finish before 8.5 s):
   ELENA (stunned): "There's another clause. You have a brother."
   ELENA (urgent): "Find him before Victoria's family does."
 
-COMANDO FINAL (9:16 Reels/TikTok/Shorts):
+FINAL COMMAND (9:16 Reels/TikTok/Shorts):
 
-"Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando entre 1 y 4 tomas exactamente como las lista el guion: la Toma 1 arranca directamente en movimiento desde el encuadre exacto de la viñeta correspondiente sin frames estáticos (two-shot si hablan dos personajes); cada línea hablada tiene su propio plano con el hablante de frente, rostro y boca visibles, nunca desde detrás del personaje; los planos silenciosos (insert, reacción, objeto) van después del diálogo y nunca contienen habla. Mantén estrictamente la misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre escenas. Formato: vertical 9:16 para Reels, TikTok y Shorts. Reglas negativas estrictas: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
+"Make a realistic cinematic video of 10 seconds per scene, executing between 1 and 4 shots exactly as the script lists them: Shot 1 starts directly in motion from the exact framing of the corresponding storyboard panel, with no static frames (two-shot if two characters speak); every spoken line gets its own shot with the speaker facing camera, face and mouth visible, never from behind the character; silent shots (inserts, reactions, objects) come after the dialogue and never contain speech. Keep strictly the same race, face and wardrobe for each character according to their position in the attached Character Sheet, and join them into a single continuous video, never inserting the reference image between scenes. Format: vertical 9:16 for Reels, TikTok and Shorts. Strict negative rules: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
 ```
 
 ---
 
-## Paso 4 — Ensamblar
+## Step 4 — Assemble
 
-Cuando existan los 10 archivos `minute_01.mp4 … minute_10.mp4`:
+Once the 10 files exist: `minute_01.mp4 … minute_10.mp4`:
 
 ```powershell
 ./novelfactory.bat assemble the_ranch_maid_heiress
 ```
 
-El ensamblador detecta el modo B, genera el máster 16:9 de 10 minutos,
-el SRT sincronizado y el teaser vertical automático de 20 segundos.
+The assembler detects mode B, generates the complete 16:9 master,
+the synchronized SRT and the automatic 20-second vertical teaser.
