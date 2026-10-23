@@ -1806,7 +1806,7 @@
       "scene_id": 17,
       "act": 2,
       "beat": "plan",
-      "location": "Claire Boone's law office, grey morning, rain on the windows",
+      "location": "Boone law office, grey morning, rain on the windows",
       "time_of_day": "grey morning, rain on the windows",
       "characters": [
         "nora",
@@ -1815,7 +1815,7 @@
       ],
       "wardrobe": "charcoal wool coat, dark jeans, hair dry now, no umbrella",
       "on_screen_hook": "",
-      "first_frame_prompt": "Cinematic still of Nora Hale, Sam Calloway, Adrian Keller, two-shot, medium shot with Sam Calloway and Nora Hale, at Claire Boone's law office, grey morning, rain on the windows. Sam Calloway and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Adrian corners Nora by the harbor railing. Key object in frame: a scorched beam. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing charcoal wool coat, dark jeans, hair dry now, no umbrella); Sam Calloway (Cast Sheet Pos #2: mid-thirties; short dark-sand hair; wearing faded canvas work jacket, dark trousers, worn boots); Adrian Keller (Cast Sheet Pos #4: late thirties; ash-blond hair swept back; wearing navy blazer, open-collared white shirt, dark trousers); Claire Boone (Cast Sheet Pos #5: age as shown in the reference sheet; brown blunt bob; wearing forest-green cardigan, cream blouse, dark trousers). Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No subtitles, no captions, no overlay text, no watermark, no signage, no UI text. Any paper, document, letter or sign in frame must show no legible words; do not invent readable text. Keep the first frame exactly the same framing as Shot 1.",
+      "first_frame_prompt": "Cinematic still of Nora Hale, Sam Calloway, Adrian Keller, two-shot, medium shot with Sam Calloway and Nora Hale, at Boone law office, grey morning, rain on the windows. Sam Calloway and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Adrian corners Nora by the harbor railing. Key object in frame: a scorched beam. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing charcoal wool coat, dark jeans, hair dry now, no umbrella); Sam Calloway (Cast Sheet Pos #2: mid-thirties; short dark-sand hair; wearing faded canvas work jacket, dark trousers, worn boots); Adrian Keller (Cast Sheet Pos #4: late thirties; ash-blond hair swept back; wearing navy blazer, open-collared white shirt, dark trousers). Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No subtitles, no captions, no overlay text, no watermark, no signage, no UI text. Any paper, document, letter or sign in frame must show no legible words; do not invent readable text. Keep the first frame exactly the same framing as Shot 1.",
       "internal_cuts": [
         {
           "at": 0.0,
@@ -1885,8 +1885,7 @@
       "characters_present": [
         "nora",
         "sam",
-        "adrian",
-        "claire"
+        "adrian"
       ],
       "object_hidden": false,
       "object_start": {
@@ -1900,12 +1899,11 @@
       "diegetic_text": [],
       "on_object_text": [],
       "present_silent": [
-        "adrian",
-        "claire"
+        "adrian"
       ],
       "shot_lock_version": "2",
-      "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing charcoal wool coat, dark jeans, hair dry now, no umbrella); Sam Calloway (Cast Sheet Pos #2: mid-thirties; short dark-sand hair; wearing faded canvas work jacket, dark trousers, worn boots); Adrian Keller (Cast Sheet Pos #4: late thirties; ash-blond hair swept back; wearing navy blazer, open-collared white shirt, dark trousers); Claire Boone (Cast Sheet Pos #5: age as shown in the reference sheet; brown blunt bob; wearing forest-green cardigan, cream blouse, dark trousers)",
-      "storyboard_panel": "[00s-07s] two-shot, medium shot with Sam Calloway and Nora Hale: Sam Calloway and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Adrian corners Nora by the harbor railing. Key object in frame: a scorched beam. Location: Claire Boone's law office, grey morning, rain on the windows. Characters present: Nora Hale, Sam Calloway, Adrian Keller. No other characters appear.",
+      "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing charcoal wool coat, dark jeans, hair dry now, no umbrella); Sam Calloway (Cast Sheet Pos #2: mid-thirties; short dark-sand hair; wearing faded canvas work jacket, dark trousers, worn boots); Adrian Keller (Cast Sheet Pos #4: late thirties; ash-blond hair swept back; wearing navy blazer, open-collared white shirt, dark trousers)",
+      "storyboard_panel": "[00s-07s] two-shot, medium shot with Sam Calloway and Nora Hale: Sam Calloway and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Adrian corners Nora by the harbor railing. Key object in frame: a scorched beam. Location: Boone law office, grey morning, rain on the windows. Characters present: Nora Hale, Sam Calloway, Adrian Keller. No other characters appear.",
       "dialogue_end_seconds": 5.4,
       "frame_regeneration_required": true
     },
@@ -3685,23 +3683,8 @@
           "range": "04s-06s"
         },
         {
-          "at": 6.33,
-          "range": "06s-08s",
-          "framing": "close-up, face and mouth visible",
-          "action": "Nora Hale is on camera with face and mouth fully visible, looking at Adrian Keller. Nora Hale speaks as the camera holds close on their face, the petition ruling catching the light between them",
-          "dialogue": true,
-          "silent": false,
-          "kind": "dialogue",
-          "speakers": [
-            "nora"
-          ],
-          "line_indexes": [
-            2
-          ]
-        },
-        {
-          "at": 8.5,
-          "range": "08s-10s",
+          "at": 6.5,
+          "range": "06s-10s",
           "framing": "tight close-up",
           "action": "Adrian Keller holds the silence after the line, the petition ruling sharp in the foreground",
           "dialogue": false,
@@ -3724,13 +3707,6 @@
           "delivery": "uneasy",
           "shot": 2,
           "recipient": "Nora Hale"
-        },
-        {
-          "speaker": "NORA",
-          "line": "I document.",
-          "delivery": "flat",
-          "shot": 3,
-          "recipient": "Adrian Keller"
         }
       ],
       "sfx_ambience": "storm wind, rain on glass, a gavel, a chair scraping",
@@ -3763,7 +3739,7 @@
       "shot_lock_version": "2",
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing storm-soaked shirt and trousers, no coat, hair plastered down); Adrian Keller (Cast Sheet Pos #4: late thirties; ash-blond hair swept back; wearing navy blazer, open-collared white shirt, dark trousers)",
       "storyboard_panel": "[00s-04s] tight close-up, face and mouth visible: Nora Hale is on camera with face and mouth fully visible, looking at Adrian Keller. Nora faces Adrian across the hearing room. Key object in frame: the petition ruling. Location: Town hall hearing room, grey morning, rain streaking the windows. Characters present: Nora Hale, Adrian Keller. No other characters appear.",
-      "dialogue_end_seconds": 7.3,
+      "dialogue_end_seconds": 5.4,
       "frame_regeneration_required": true
     },
     {
@@ -3972,7 +3948,7 @@
       "scene_id": 38,
       "act": 4,
       "beat": "escalation",
-      "location": "Hale lighthouse kitchen, night, one lamp, rain outside",
+      "location": "Hale lighthouse, night, one lamp, rain outside",
       "time_of_day": "night, one lamp, rain outside",
       "characters": [
         "nora",
@@ -3980,13 +3956,13 @@
       ],
       "wardrobe": "storm-soaked shirt and trousers, no coat, hair plastered down",
       "on_screen_hook": "",
-      "first_frame_prompt": "Cinematic still of Nora Hale, Adrian Keller, two-shot, medium shot with Adrian Keller and Nora Hale, at Hale lighthouse kitchen, night, one lamp, rain outside. Adrian Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Adrian waits in the lighthouse kitchen with the sale papers. Key object in frame: the sale papers. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing storm-soaked shirt and trousers, no coat, hair plastered down); Adrian Keller (Cast Sheet Pos #4: late thirties; ash-blond hair swept back; wearing navy blazer, open-collared white shirt, dark trousers). Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No subtitles, no captions, no overlay text, no watermark, no signage, no UI text. Any paper, document, letter or sign in frame must show no legible words; do not invent readable text. Keep the first frame exactly the same framing as Shot 1.",
+      "first_frame_prompt": "Cinematic still of Nora Hale, Adrian Keller, two-shot, medium shot with Adrian Keller and Nora Hale, at Hale lighthouse, night, one lamp, rain outside. Adrian Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Adrian waits in the lighthouse with the sale papers. Key object in frame: the sale papers. Identity anchors: Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing storm-soaked shirt and trousers, no coat, hair plastered down); Adrian Keller (Cast Sheet Pos #4: late thirties; ash-blond hair swept back; wearing navy blazer, open-collared white shirt, dark trousers). Ultra-realistic cinematic still, 16:9 widescreen, shot on 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture with visible pores, no airbrushing, no plastic skin, no CGI sheen, no 3D render. Center-weighted composition so a 9:16 vertical crop remains usable. No subtitles, no captions, no overlay text, no watermark, no signage, no UI text. Any paper, document, letter or sign in frame must show no legible words; do not invent readable text. Keep the first frame exactly the same framing as Shot 1.",
       "internal_cuts": [
         {
           "at": 0.0,
           "range": "00s-07s",
           "framing": "two-shot, medium shot with Adrian Keller and Nora Hale",
-          "action": "Adrian Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Adrian waits in the lighthouse kitchen with the sale papers",
+          "action": "Adrian Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Adrian waits in the lighthouse with the sale papers",
           "dialogue": true,
           "silent": false,
           "kind": "dialogue",
@@ -4045,7 +4021,7 @@
       "continuity_future_refs": [],
       "key_object": "the sale papers",
       "because_previous_ended_with": "The escalation leaves the eviction notice exposed, and there is no way back.",
-      "this_scene_starts_with": "Adrian waits in the lighthouse kitchen with the sale papers",
+      "this_scene_starts_with": "Adrian waits in the lighthouse with the sale papers",
       "single_change_at_end": "The escalation leaves the sale papers exposed, and there is no way back.",
       "characters_present": [
         "nora",
@@ -4065,7 +4041,7 @@
       "present_silent": [],
       "shot_lock_version": "2",
       "character_anchors": "Nora Hale (Cast Sheet Pos #1: early thirties; dark auburn hair worn loose; wearing storm-soaked shirt and trousers, no coat, hair plastered down); Adrian Keller (Cast Sheet Pos #4: late thirties; ash-blond hair swept back; wearing navy blazer, open-collared white shirt, dark trousers)",
-      "storyboard_panel": "[00s-07s] two-shot, medium shot with Adrian Keller and Nora Hale: Adrian Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Adrian waits in the lighthouse kitchen with the sale papers. Location: Hale lighthouse kitchen, night, one lamp, rain outside. Key object: the sale papers. Characters present: Nora Hale, Adrian Keller. No other characters appear.",
+      "storyboard_panel": "[00s-07s] two-shot, medium shot with Adrian Keller and Nora Hale: Adrian Keller and Nora Hale face each other in a two-shot, both faces and mouths fully visible, each oriented toward the other. Adrian waits in the lighthouse with the sale papers. Location: Hale lighthouse, night, one lamp, rain outside. Key object: the sale papers. Characters present: Nora Hale, Adrian Keller. No other characters appear.",
       "dialogue_end_seconds": 5.4,
       "frame_regeneration_required": true
     },

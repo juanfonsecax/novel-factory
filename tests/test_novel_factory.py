@@ -193,6 +193,26 @@ class DurationTests(unittest.TestCase):
         self.assertEqual([s["scene_id"] for s in merged["scenes"]], list(range(1, 133)))
         self.assertFalse(any("Faltan" in warning for warning in warnings))
 
+    def test_merge_payloads_preserves_project_metadata(self):
+        first = minimal_payload(66)
+        first["episode"]["target_minutes"] = 22
+        first["characters_locked"] = [{"id": "a", "name": "A"}]
+        first["source_mode"] = "proven_adaptation"
+        first["source_script"] = "proven beat map"
+        first["visual_variant"] = "christmas_snow"
+        first["object_ledger"] = [{"name": "the red cookie tin"}]
+        second = minimal_payload(66)
+        second["episode"]["total_scenes"] = 132
+        for scene in second["scenes"]:
+            scene["scene_id"] += 66
+        merged, _warnings = nf.merge_payloads([first, second])
+        self.assertEqual(merged["characters_locked"], [{"id": "a", "name": "A"}])
+        self.assertEqual(merged["source_mode"], "proven_adaptation")
+        self.assertEqual(merged["source_script"], "proven beat map")
+        self.assertEqual(merged["visual_variant"], "christmas_snow")
+        self.assertEqual(merged["object_ledger"], [{"name": "the red cookie tin"}])
+        self.assertEqual(merged["episode"]["target_minutes"], 22)
+
     def test_create_project_persists_duration_meta(self):
         slug = "unit_duration_tmp"
         root = nf.project_dir(slug)
@@ -1097,7 +1117,14 @@ class RunnerTests(unittest.TestCase):
 
 class DashboardTests(unittest.TestCase):
     def test_build_state_from_demo(self):
-        state = DASH.build_state(DEMO_DIR)
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / "demo_contract"
+            root.mkdir()
+            shutil.copy2(DEMO_DIR / "master_episode.json", root / "master_episode.json")
+            raw = root / "raw_clips"
+            raw.mkdir()
+            (raw / "scene_001.mp4").write_bytes(b"x")
+            state = DASH.build_state(root)
         self.assertEqual(state["totals"]["scenes"], 60)
         self.assertEqual(len(state["scenes"]), 60)
         first = state["scenes"][0]
@@ -1113,10 +1140,36 @@ class DashboardTests(unittest.TestCase):
         self.assertEqual(len(state["storyboard_grids"]["items"]), 11)
         self.assertIn("REF_CAST_MASTER.png", state["storyboard_grids"]["text"])
         self.assertEqual(state["assembly"]["minutes_expected"], 10)
+        self.assertEqual(state["totals"]["minutes"], 10)
+        self.assertEqual(state["totals"]["blocks"], 10)
         self.assertIn(state["assembly"]["clip_mode"], ("scenes", "batches", "incomplete", "empty"))
         self.assertIn("batch_clips_disk", state["totals"])
         self.assertEqual(state["assembly"]["storyboards_expected"], 11)
         self.assertIn("storyboards_disk", state["totals"])
+
+    def test_christmas_letters_pack_is_22_min_and_132_scenes(self):
+        project = NF_ROOT / "projects" / "the_christmas_letters"
+        if not (project / "master_episode.json").exists():
+            self.skipTest("no existe projects/the_christmas_letters")
+        master = nf.load_master(project)
+        self.assertEqual(master["episode"]["title"], "The Christmas Letters")
+        self.assertEqual(master["episode"]["target_minutes"], 22)
+        self.assertEqual(master["episode"]["total_blocks"], 22)
+        self.assertEqual(len(master["scenes"]), 132)
+        self.assertEqual(len(master["narrative_continuity"]["minute_blocks"]), 22)
+        self.assertEqual(len(master["teasers"]), 3)
+        self.assertEqual(master.get("shot_lock_version"), "2")
+        self.assertEqual(master.get("source_mode"), "proven_adaptation")
+        self.assertEqual(master.get("visual_variant"), "christmas_snow")
+        self.assertTrue(all(scene.get("first_frame_prompt") for scene in master["scenes"]))
+        self.assertTrue(all(scene.get("internal_cuts") for scene in master["scenes"]))
+        result = nf.validate_master(master, production=True)
+        self.assertEqual(result["errors"], [], msg=f"errores: {result['errors']}")
+        self.assertEqual(result["warnings"], [], msg=f"advertencias: {result['warnings']}")
+        state = DASH.build_state(project)
+        self.assertEqual(state["totals"]["minutes"], 22)
+        self.assertEqual(state["totals"]["blocks"], 22)
+        self.assertEqual(state["totals"]["scenes"], 132)
 
     def test_build_state_detects_batch_mode(self):
         with tempfile.TemporaryDirectory() as tmp:

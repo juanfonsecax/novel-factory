@@ -1,5 +1,7 @@
 # Checklist — The Silent Contract
 
+> **NOTA DE PRODUCCIÓN:** ADJUNTA EN CADA ESCENA: la viñeta de esa escena + las referencias SOLO de los personajes que salen en ESA escena + el prompt de esa escena. No generes ninguna escena sin sus personajes adjuntos.
+
 ## Imágenes del método nuevo (`storyboards/`)
 
 - [ ] `REF_CAST_MASTER.png` — hoja maestra de personajes

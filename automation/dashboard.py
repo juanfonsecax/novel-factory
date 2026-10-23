@@ -374,6 +374,8 @@ def build_state(project: str | Path, paths: Optional[Dict[str, Path]] = None) ->
         },
         "totals": {
             "scenes": len(scenes),
+            "minutes": nf.master_target_minutes(master),
+            "blocks": max(1, int(ep.get("total_blocks") or (len(scenes) + 5) // 6)),
             "master_prompts": len(prompt_pack["prompts"]),
             "muse_batches": len(muse_batches),
             "storyboard_grids": len(storyboard_grids),
@@ -825,7 +827,8 @@ function renderProgress() {
   mode.textContent = MODE === "server" ? "servidor local · tracking en disco" : "modo archivo · tracking en navegador";
   mode.classList.toggle("server", MODE === "server");
   const moviePart = `${images}/${imagesMax} imágenes · ${batchesDoneCount(format)}/${batchMax} lotes de 1 min`;
-  $("#project-sub").innerHTML = `<b>${esc(state.title)}</b> · ${esc(state.slug)} · ${state.scenes.length} escenas · ${moviePart}`;
+  const durationPart = `${state.totals.minutes || 0} min · ${state.totals.blocks || 0} bloques · ${state.scenes.length} escenas`;
+  $("#project-sub").innerHTML = `<b>${esc(state.title)}</b> · ${esc(state.slug)} · ${durationPart} · ${moviePart}`;
   renderProjectSelect();
   const formatSelect = $("#format-select");
   if (formatSelect) formatSelect.value = format;
@@ -1221,11 +1224,11 @@ function methodBanner() {
   return `<div class="method" style="padding:13px 16px;margin-bottom:18px">
     <div class="master-head" style="margin-bottom:0">
       <div>
-        <b>Contrato V2 activo · ${state.totals.scenes || 0} escenas sincronizadas</b>
+        <b>Contrato V2 activo · ${state.totals.minutes || 0} min · ${state.totals.blocks || 0} bloques · ${state.totals.scenes || 0} escenas sincronizadas</b>
         <p>Prompts de producción con speaker shot lock, silencios y objetos en cámara. Imágenes en <b>storyboards/</b>:
         <b>${assembly.storyboards_disk || 0}/${assembly.storyboards_expected || 1}</b> ·
         modo detectado: <b>${clipModeLabel(assembly.clip_mode)}</b> ·
-        lotes en disco: <b>${assembly.batch_clips_disk || 0}/${Math.ceil((state.totals.scenes || 60) / 6)}</b>.</p>
+        lotes en disco: <b>${assembly.batch_clips_disk || 0}/${state.totals.blocks || 0}</b>.</p>
       </div>
       <div class="master-actions">
         <button class="btn green" data-action="goto-prompts">Ver guía 4 pasos</button>

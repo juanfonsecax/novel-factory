@@ -3344,7 +3344,11 @@ def merge_payloads(payloads: List[Dict[str, Any]]) -> Tuple[Dict[str, Any], List
 
     ordered = [keyed[sid] for sid in sorted(keyed)] + unkeyed
     merged: Dict[str, Any] = {"scenes": ordered}
-    for key in ("episode", "characters", "locations", "acts", "publisher", "soundtrack"):
+    for key in (
+        "episode", "characters", "characters_locked", "locations", "acts",
+        "publisher", "soundtrack", "source_mode", "source_script",
+        "visual_variant", "object_ledger",
+    ):
         for payload in payloads:
             if payload.get(key):
                 merged.setdefault(key, payload[key])
