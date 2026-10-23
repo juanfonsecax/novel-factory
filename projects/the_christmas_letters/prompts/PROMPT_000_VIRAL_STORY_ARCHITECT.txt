@@ -1,0 +1,100 @@
+🧠 PROMPT 000 — ARQUITECTO DE HISTORIAS VIRALES (CHINA / USA MICRO-DRAMA SHOWRUNNER)
+Actúa como un Showrunner experto en Micro-Dramas virales de Estados Unidos y China (estilo ReelShort, DramaBox y canales de novelas con IA de +500,000 vistas).
+
+Tu objetivo es transformar mi idea base en una HISTORIA DE ALTA RETENCIÓN pensada para el mercado en INGLÉS (alto RPM), estructurada matemáticamente para una duración de 22 minuto(s) (132 escenas de 10 segundos cada una, divididas en 22 bloques de 1 minuto / 6 escenas).
+
+IDEA BASE / SEMILLA:
+PREMISE:
+Six years after Eleanor Cole threw Valentina Reyes out of the Cole mansion on Christmas night, Val returns as the hired decorator for the family's Christmas Eve engagement gala. Nate Cole, the heir she once loved, is engaged to Madison Pierce, a glamorous socialite who wants half of Cole Hotels in the prenup. Val does not know that Eleanor paid Walter Briggs, the mansion's porter, to intercept all 72 letters Val wrote to Nate over six years, in both directions, and that Eleanor forged a goodbye letter signed with Val's name but missing the small star Val always draws beside her signature. As Val decorates the mansion, she finds one stolen letter, a red cookie tin, and an ally in June Alvarez, the cook. Nate begins to doubt his mother's story, Madison's business motives surface, and Walter's guilt cracks open. On Christmas Eve, Eleanor expels Val into the snow and schedules the wedding for midnight, while Val books the 11:59 train out of Grand Central. Nate must choose between his inheritance and the woman he never stopped loving, and Val must prove the letters are real before the train leaves. The story pays off every planted object: the tin of letters, the forged letter, the crystal star ornament, the prenup, and the sealed letter. It ends with the star signature exposed, Eleanor unrepentant, Madison gone, and Val letting the midnight train leave so she can stay with Nate.
+
+EPISODE:
+- Title: The Christmas Letters
+- Series: The Christmas Letters
+- Logline: Six years after Eleanor Cole threw her out, Valentina Reyes returns to decorate the mansion and discovers the 72 letters she wrote to Nate were stolen, and his Christmas Eve wedding is her last chance to prove it.
+- Genre: Christmas romantic suspense short-drama
+- Tone: cinematic, intimate, high-stakes, Christmas-lit, fast-paced
+- Setting: (not specified)
+
+CAST:
+- Valentina Reyes (protagonist): late twenties Latina event decorator, long dark wavy hair, warm brown eyes, full lips, golden-brown skin, cream cashmere turtleneck and dark tailored trousers | voice: warm mid-range American English, controlled, dignity under pressure
+- Nathaniel Cole (love_interest): early thirties hotel heir, square jaw, short dark-brown hair, intense grey eyes, athletic build, charcoal overcoat over a black suit | voice: low, clipped American English, warmth held under restraint
+- Madison Pierce (rival): late twenties socialite, platinum blonde bob, sharp cheekbones, pale blue eyes, ivory shearling coat and gold hoops | voice: bright, polished American English with a competitive edge
+- Eleanor Cole (matriarch): early sixties matriarch, tall and straight-backed, silver chignon, pale blue eyes, porcelain skin, midnight-blue dress and pearls | voice: low, polished American English, never raises her voice
+- Walter Briggs (guilty_witness): late fifties mansion porter, weathered face, grey hair, heavy build, grey uniform with brass buttons | voice: rough, quiet American English, a lifetime of service in it
+- June Alvarez (ally): early fifties cook, dark hair pulled back, warm brown eyes, strong hands, white chef coat and red scarf | voice: warm, plainspoken American English with a slight Spanish accent
+
+LOCATIONS:
+- Cole mansion foyer
+- Cole mansion ballroom
+- Cole mansion study
+- Cole mansion library
+- Cole mansion kitchen
+- Cole mansion wine cellar
+
+ACT MAP:
+- Act 1 — The Ornament : Bring Val back into the Cole mansion, plant the letters and the star, and end on the first proof that the past was stolen.
+- Act 2 — The Trap : Let Eleanor use the wedding and the prenup to tighten the trap while Nate and Val trace the letters to Walter.
+- Act 3 — The First Crack : Move the wedding to Christmas Eve, expose the forged letter, and make Eleanor decide to burn the tin.
+- Act 4 — The Dark Night : Break Walter open, put the tin in Nate's hands, and make Eleanor disown the truth in public.
+- Act 5 — The Turn : Expose the prenup, interrupt the wedding, and turn the letters into public evidence.
+- Act 6 — The Payoff : Expel Val, rescue the tin from the furnace, race the midnight train, and pay off the star and the opening line.
+
+REGLAS DE ORO DE DRAMATURGIA Y RETENCIÓN QUE DEBES APLICAR:
+1. GANCHO EXPLOSIVO EN LOS PRIMEROS 10 SEGUNDOS (ESCENA 1): La historia jamás debe empezar de forma lenta. Debe abrir en medio de una tensión máxima: una humillación pública, una traición descubierta, un secreto millonario, una diferencia extrema de clases sociales o un contrato inesperado.
+2. MICRO-GIROS CADA 30 SEGUNDOS (CADA 3 ESCENAS): Cada 3 escenas debe ocurrir una revelación, un conflicto emocional, una mirada prohibida, una confrontación o un obstáculo que impida que el espectador cierre el video.
+3. CLIFFHANGER AL FINAL DE CADA MINUTO (ESCENAS 6, 12, 18...): La última escena de cada bloque de 6 escenas debe terminar en máxima tensión dramática.
+4. PERSONAJES CON CONTRASTE VISUAL INMEDIATO (MÁXIMO 3 A 5 PERSONAJES PRINCIPALES): Diseña personajes cuyo estatus social y personalidad se entiendan en 1 segundo solo por su vestuario (ej. multimillonario arrogante vs. trabajadora humilde con dignidad de hierro; heredera secreta vs. villana elitista).
+5. ECONOMÍA DE ESCENARIOS (MÁXIMO 3 A 5 LOCACIONES): Concentra la acción en locaciones visualmente ricas y contrastantes para mantener continuidad perfecta. Agrupa 3 a 6 escenas consecutivas en la misma situación dramática antes de cambiar de lugar.
+6. CAUSALIDAD ESTRICTA Y ORDEN CRONOLÓGICO: Cada escena debe ser consecuencia de la anterior y causa de la siguiente. Prohibido mostrar una consecuencia antes de su causa, revelar la misma pista dos veces o teletransportar personajes sin una transición visible o hablada. Cada acto termina en una decisión que obliga al siguiente.
+7. CATÁLOGO DE 6 ESTRUCTURAS VIRALES PROBADAS (LATAM → USA, +500,000 VISTAS): Usa este catálogo como banco de estructuras. Elige UNA sola como columna vertebral de la historia y adáptala al mercado estadounidense en inglés. No copies nombres, marcas ni diálogos: conserva la mecánica emocional y el orden de beats.
+1. The Ranch Laundress and the Stolen Heirloom (`ranch_laundress_stolen_heirloom`)
+   Inspiración: @novelasaa7 · 831K vistas · Ranch / Class Revenge.
+   Premisa: A humble ranch laundress is publicly accused of stealing the family heirloom. The real thief is a wealthy family member, and the heir she loves is the only one willing to prove her innocence.
+   Gancho: They accused the help. The thief wore the family name.
+   Beats: Public humiliation: the heirloom disappears during a family gathering and the laundress is accused. -> A physical detail contradicts the accusation: mud on the wrong boots, a broken clasp, a locked room. -> The heir investigates and discovers the planted evidence and the family cover-up. -> The laundress is forced to leave; the heir stops her at the gate with proof. -> Public reveal before the family and the town: the real thief is exposed. -> Payoff: the laundress is vindicated, the heir chooses her, and a new family secret opens.
+   Adaptación USA: Texas or Montana ranch, county fair or ranch anniversary party, US English, land and class stakes, conservative family dynasty.
+2. The Humiliated Vagabond Is the Billionaire Owner (`humiliated_vagabond_is_billionaire_owner`)
+   Inspiración: @Mini_Dramas07 · 658K vistas · Hidden Billionaire / Revenge.
+   Premisa: A humble ranch hand arrives at the property and is humiliated by the corrupt foreman and the family, never suspecting that he is the new billionaire owner who bought the entire ranch.
+   Gancho: They threw out the man who owns the land.
+   Beats: Humiliation: the drifter is mocked, underpaid and thrown out of the ranch house. -> The heroine defends him and loses her job for it. -> The drifter returns as the anonymous billionaire owner and quietly changes the power dynamic. -> The corrupt foreman tries to cover up the abuse and frames the heroine. -> Public reveal: the owner identifies himself and exposes the foreman's fraud. -> Payoff: the heroine is chosen, the foreman faces the consequences, and a new threat appears.
+   Adaptación USA: Texas or Montana cattle ranch, US English, ranch-hand class conflict, land ownership and public status reversal.
+3. The Hidden Will and the Secret Daughter (`hidden_will_secret_daughter`)
+   Inspiración: @Mini_Dramas07 & @TIEMPOCONLASABUELAS · 578K vistas · Family Secret / Inheritance.
+   Premisa: A young woman enters the ranch as a maid to find the true will hidden under the floorboards or in a secret drawer by the ambitious widow and the family lawyer.
+   Gancho: The will named a daughter no one had ever met.
+   Beats: The maid arrives at the ranch and is treated as invisible by the widow and the lawyer. -> A loose floorboard or locked drawer reveals a second, older will. -> The widow accuses the maid of theft and forgery before the family. -> The maid finds a birth record, photograph or letter proving she is the secret daughter. -> Public hearing: the lawyer's forgery is exposed and the widow loses control. -> Payoff: the maid claims her name and inheritance, and a new family secret opens.
+   Adaptación USA: Texas or Montana ranch estate, US English, probate hearing, legitimacy and family-dynasty stakes.
+4. Contract Marriage with the Proud Foreman (`contract_marriage_proud_foreman`)
+   Inspiración: @Mini_Dramas07 · 185K vistas · Contract Marriage / Romance.
+   Premisa: To save her late father's ranch from bank ruin, the protagonist must marry her proud rival by contract. In secret, he protects her from an internal betrayal that wants to take the land.
+   Gancho: She bought a husband for one year. He wanted the truth.
+   Beats: The bank deadline forces the contract marriage to be signed in public. -> Forced proximity reveals the foreman's secret debt and the heroine's collapsing ranch. -> Sabotage at the ranch puts the heroine in danger and the foreman protects her. -> The antagonist exposes the contract to humiliate them; the couple turns it into a real commitment. -> Public confrontation: the sabotage is traced to the antagonist. -> Payoff: the contract is torn up, a real proposal lands, and a new threat appears.
+   Adaptación USA: Texas or Wyoming ranch, US English, bank foreclosure, blue-collar vs. landowner class tension.
+5. The Untamable Champion Horse (`untamable_champion_horse`)
+   Inspiración: @Mini_Dramas07 · 122K vistas · Horse Ranch / Forbidden Love.
+   Premisa: A champion horse that nobody on the ranch can ride is tamed by the humblest worker on the property. The feat saves the ranch from ruin and awakens a forbidden love.
+   Gancho: The horse that broke every rider chose the one nobody saw.
+   Beats: The untamable champion injures another rider and the ranch is threatened with foreclosure. -> The humblest worker is blamed and forbidden from entering the stable. -> A hidden injury or doped feed reveals the rival stable's sabotage. -> The worker bonds with the horse and proves the method works before the championship. -> Public race: the sabotage is exposed and the rival stable is disqualified. -> Payoff: the horse wins, the forbidden love is chosen, and a new race or threat opens.
+   Adaptación USA: Kentucky or Texas horse country, US English, championship race, forbidden romance and animal stakes.
+6. Grandma's Buried Secret and the Family Betrayal (`grandmas_buried_secret_betrayal`)
+   Inspiración: @TIEMPOCONLASABUELAS & @Dramasquetocanelalma · +500K vistas · Family Betrayal / Mystery.
+   Premisa: A grandmother despised by her ambitious children reveals a secret buried for decades and gives the inheritance to the only person who cared for her with nobility.
+   Gancho: Grandma left a box in the ground and a warning on the lid.
+   Beats: At the family gathering, the despised grandmother announces a buried secret. -> The ambitious children deny it and threaten the protagonist's inheritance. -> A buried box, land deed or photograph proves the fortune was stolen from another branch. -> The family destroys evidence and tries to run the protagonist out of town. -> Public reveal at the family business or town meeting: the betrayal is exposed. -> Payoff: the inheritance goes to the noble caregiver, and a second grave or name opens the next mystery.
+   Adaptación USA: Texas ranch or Louisiana family estate, US English, funeral and land-deed stakes, matriarch inheritance and family-business betrayal.
+
+ENTREGA EL RESULTADO EN ESTE FORMATO EXACTO (LISTO PARA COPIAR AL PROMPT 001):
+1. TÍTULO VIRAL EN INGLÉS (3 opciones de alto CTR).
+2. ELENCO PRINCIPAL (3 a 5 personajes: Nombre, Edad, Apariencia Física exacta, Vestuario característico fijo y Timbre de Voz en inglés).
+3. SINOPSIS NARRATIVA INTENSA BLOQUE POR BLOQUE (1 párrafo por cada minuto de historia = 6 escenas por minuto, describiendo inicio, conflicto, giros y desenlace/cliffhanger).
+
+REGLA DE CONTINUIDAD NARRATIVA (Hilo Conductor Único + Cadena Causa y Efecto + Ledger de Estado Arrastrado + Prohibición de Ping-Pong de Locaciones + Un Solo Nombre por Objeto Clave + Prueba de Desorden + Puentes y Ritmo ReelShort/DramaBox):
+1. UNA SOLA PREGUNTA MOTRIZ POR BLOQUE DE 6 ESCENAS: cada minuto tiene una única pregunta dramática; ninguna escena abre una pregunta nueva.
+2. CADENA CAUSA-EFECTO OBLIGATORIA: de la escena 2 hasta la última, cada escena declara `because_previous_ended_with` (copia literal del cambio final de la escena anterior), `this_scene_starts_with` (acción concreta ya en movimiento que continúa esa consecuencia) y `single_change_at_end` (un único cambio de estado irreversible).
+3. PUENTES DE ENTRADA Y SALIDA (ARRANQUE Y CIERRE): cada escena declara `entry_bridge` (micro-acción o línea <= 2 s con que arrancamos a causa de la anterior) y `exit_hook` (gesto, orden, decisión o pregunta con que termina y empuja a la siguiente). exit_hook(N) alimenta entry_bridge(N+1).
+4. REGLA DE RITMO POR BLOQUE (6 ESCENAS): PROHIBIDO 6 picos de confrontación seguidos. Al menos 1 beat NO confrontacional por bloque (decisión en solitario, descubrimiento, plan, momento tierno/vulnerable).
+5. ROTACIÓN DE CLIFFHANGER: rotar el tipo entre bloques (identidad -> emoción -> revelación). Prohibido repetir el mismo tipo en dos bloques seguidos.
+6. PROHIBIDO EL PING-PONG DE LOCACIONES: agrupa de 3 a 5 escenas consecutivas en la misma locación; el patrón A-B-A está prohibido.
+7. UN SOLO NOMBRE POR OBJETO CLAVE: el mismo `key_object` exacto aparece en el panel de storyboard, en la acción de la Toma 1 y en la lista Key Object; nunca uses alias.
+8. PRUEBA DE DESORDEN: si al desordenar el bloque la cadena de consecuencias deja de tener sentido, reescríbelo. El validador rechaza placeholders mecánicos y saltos sin transición.

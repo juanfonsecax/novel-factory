@@ -1,0 +1,76 @@
+🎬 PROMPT 003 — GENERADOR DE GUION CINEMATOGRÁFICO EN INGLÉS + CAMBIOS DE CÁMARA + SONIDO (OPTIMIZADO PARA MUSE AI Y GOOGLE FLOW)
+Actúa como guionista de Hollywood, director de fotografía y diseñador sonoro.
+Ya tenemos creado el storyboard de la historia y la hoja maestra de personajes. Ahora debes convertir ese storyboard en un guion cinematográfico y técnico completo en texto, respetando exactamente las escenas que aparecen en el storyboard, con todos los diálogos hablados en INGLÉS (English) para monetización internacional.
+
+DATOS DEL PROYECTO
+Storyboard:
+El storyboard completo creado en el paso 1: 22 imágenes de 6 viñetas, una por minuto. Cada escena debe corresponder exactamente a su viñeta.
+Duración del bloque:
+1 minuto = 6 escenas de 10 segundos (o el total de escenas del storyboard adjunto).
+
+REGLA PRINCIPAL
+Cada escena dura exactamente 10 segundos.
+Debes mantener exactamente el mismo número y orden de escenas del storyboard.
+NO debes agregar ni eliminar escenas.
+Cada escena debe corresponder directamente a su respectiva viñeta del storyboard.
+
+DIÁLOGOS EN INGLÉS (REGLA DURA: MÁXIMO 15 PALABRAS POR ESCENA)
+Todos los diálogos hablados deben estar en INGLÉS natural, dramático y emocional.
+- Máximo 15 palabras por escena y máximo 15 por intervención.
+- La voz debe terminar antes de 8.5 segundos; deja el resto para pausas, miradas y reacciones.
+- Nunca cortes una frase por tiempo: si una idea necesita más, divídela entre escenas.
+- No todas las escenas necesitan diálogo: usa "No dialogue (Pure visual & sound tension)." cuando la imagen hable mejor.
+
+DIRECCIÓN DE CÁMARA: ENTRE 1 Y 4 TOMAS POR ESCENA DE 10s, NACIDAS DEL DIÁLOGO
+1. REGLA DE ORO: UNA LÍNEA = UN PLANO DEL HABLANTE:
+   - Quien habla está EN CÁMARA con rostro y boca visibles durante toda su línea, mirando al destinatario. Prohibido poner diálogo sobre un insert, una reacción o una espalda.
+   - Toma 1: arranca EN MOVIMIENTO desde el frame exacto de la viñeta. Mismo encuadre, misma posición de cámara, mismo blocking, mismo vestuario, misma luz y mismo objeto clave. Prohibido abrir con un frame estático. Si hay dos hablantes, la Toma 1 es un two-shot que los muestra a ambos y sostiene sus dos líneas.
+   - Los planos silenciosos (insert, reacción, detalle del objeto) van DESPUÉS de que termina el diálogo. Excepción: el hallazgo/revelación va en su propio plano silencioso centrado de 2–3 segundos; declara en qué segundo termina el diálogo ("El diálogo termina en el segundo X").
+   - Los presentes que no hablan se listan como mudos: una sola vez y con la boca cerrada.
+2. OBJETO CLAVE Y TEXTO EN PANTALLA:
+   - Cada escena declara OBJETO AL INICIAR y OBJETO AL TERMINAR visibles en cámara; el insert del objeto lo muestra tal cual.
+   - Nunca muestres el interior vacío de una bolsa, caja fuerte o contenedor donde se escondió el objeto.
+   - Solo el texto diegético declarado (ej. la palabra CONFESSION en el documento) puede verse legible; el resto de papeles y carteles no muestra palabras.
+3. IDENTIDAD Y POSICIONES:
+   - Cada personaje presente se nombra como Nombre (Cast Sheet Pos #N: descriptor estable, wearing vestuario del acto).
+   - La Hoja de Personajes fija posiciones de izquierda a derecha; nunca insertes esa hoja como plano entre escenas.
+3. DISEÑO SONORO (SFX & AMBIENCE) Y VOZ:
+   - Especifica el timbre de voz constante de quien habla (ej. "Warm emotional young female voice" / "Deep authoritative male baritone voice").
+   - Especifica los efectos de sonido realistas del entorno (ej. "Rain on window, footsteps on gravel, tense dramatic silence").
+4. CAUSALIDAD Y LOCACIÓN:
+   - Cada escena es consecuencia de la anterior y causa de la siguiente. Prohibido revelar una consecuencia antes de su causa o repetir la misma pista.
+   - Agrupa 3 a 6 escenas consecutivas en la misma situación dramática antes de cambiar de lugar. Todo cambio de lugar necesita una transición visible o hablada.
+
+ESTRUCTURA OBLIGATORIA DE CADA ESCENA
+Para cada escena utiliza exactamente esta estructura:
+
+ESCENA [N] (Viñeta #[N] del Storyboard) — [MM:SS–MM:SS]
+- Location: [Lugar exacto de la viñeta]
+- Characters Present: [Nombre (Cast Sheet Pos #N), ...]
+- Storyboard Panel (Shot 1 exact framing): [ encuadre + acción de la viñeta + objeto clave + todos los presentes ]
+- Identity Anchors: [Nombre (Cast Sheet Pos #N: descriptor, wearing vestuario), ...]
+- Object In / Object Out: [OBJETO AL INICIAR visible → OBJETO AL TERMINAR visible]
+- Camera Cuts & Visual Action (10s, 1–4 tomas):
+  * [00s–..]: [Toma 1: encuadre exacto de la viñeta + acción ya en movimiento; two-shot si hablan dos personajes]
+  * [..s–..s]: [PLANO QUE HABLA: nombre (visible, mira a destinatario) dice exactamente, una sola vez: "línea"] (una toma por línea hablada)
+  * [..s–..s]: [SIN DIÁLOGO: insert, reacción o plano del objeto; el hallazgo va centrado 2–3 s]
+- Mudos: [PRESENTES QUE NO HABLAN: nombre — boca cerrada en toda la escena]
+- Sound Design (SFX & Voice Tone): [Efectos de sonido del ambiente + tono de voz fijo del personaje]
+- Dialogue (English, max 15 words per line, finish before 8.5 s):
+  [NOMBRE DEL PERSONAJE]: "[Diálogo en inglés breve, concreto y completo, máx. 15 palabras]"
+
+RESULTADO FINAL
+Entrega únicamente el bloque de escenas con la estructura anterior y, al final de las escenas, incluye este comando exacto listo para copiar y pegar junto con el guion en MUSE AI:
+
+COMANDO FINAL PARA PEGAR EN MUSE AI (JUNTO CON EL STORYBOARD Y LA HOJA DE PERSONAJES ADJUNTOS):
+"Haz un video cinematográfico realista de 10 segundos por cada escena ejecutando entre 1 y 4 tomas exactamente como las lista el guion (la Toma 1 arranca directamente en movimiento desde el encuadre exacto de la viñeta correspondiente sin frames estáticos; cada línea hablada tiene su propio plano con el hablante de frente, rostro y boca visibles, nunca desde detrás del personaje; los planos silenciosos de insert, reacción u objeto van después del diálogo y nunca contienen habla), manteniendo estrictamente la misma raza, rostro y vestuario de cada personaje según su posición en la Hoja de Personajes adjunta, y únelos en un solo video continuo sin insertar jamás la imagen de referencia entre escenas. Formato: 16:9. Reglas negativas estrictas: no subtitles, no captions, no overlay text, no watermark, no background music, no groans or mouth noises before dialogue."
+
+REGLA DE CONTINUIDAD NARRATIVA (Hilo Conductor Único + Cadena Causa y Efecto + Ledger de Estado Arrastrado + Prohibición de Ping-Pong de Locaciones + Un Solo Nombre por Objeto Clave + Prueba de Desorden + Puentes y Ritmo ReelShort/DramaBox):
+1. UNA SOLA PREGUNTA MOTRIZ POR BLOQUE DE 6 ESCENAS: cada minuto tiene una única pregunta dramática; ninguna escena abre una pregunta nueva.
+2. CADENA CAUSA-EFECTO OBLIGATORIA: de la escena 2 hasta la última, cada escena declara `because_previous_ended_with` (copia literal del cambio final de la escena anterior), `this_scene_starts_with` (acción concreta ya en movimiento que continúa esa consecuencia) y `single_change_at_end` (un único cambio de estado irreversible).
+3. PUENTES DE ENTRADA Y SALIDA (ARRANQUE Y CIERRE): cada escena declara `entry_bridge` (micro-acción o línea <= 2 s con que arrancamos a causa de la anterior) y `exit_hook` (gesto, orden, decisión o pregunta con que termina y empuja a la siguiente). exit_hook(N) alimenta entry_bridge(N+1).
+4. REGLA DE RITMO POR BLOQUE (6 ESCENAS): PROHIBIDO 6 picos de confrontación seguidos. Al menos 1 beat NO confrontacional por bloque (decisión en solitario, descubrimiento, plan, momento tierno/vulnerable).
+5. ROTACIÓN DE CLIFFHANGER: rotar el tipo entre bloques (identidad -> emoción -> revelación). Prohibido repetir el mismo tipo en dos bloques seguidos.
+6. PROHIBIDO EL PING-PONG DE LOCACIONES: agrupa de 3 a 5 escenas consecutivas en la misma locación; el patrón A-B-A está prohibido.
+7. UN SOLO NOMBRE POR OBJETO CLAVE: el mismo `key_object` exacto aparece en el panel de storyboard, en la acción de la Toma 1 y en la lista Key Object; nunca uses alias.
+8. PRUEBA DE DESORDEN: si al desordenar el bloque la cadena de consecuencias deja de tener sentido, reescríbelo. El validador rechaza placeholders mecánicos y saltos sin transición.

@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "slug": "the_christmas_letters",
+  "target_minutes": 22,
+  "total_blocks": 22,
+  "total_scenes": 132,
+  "scene_seconds": 10.0,
+  "scenes_per_block": 6,
+  "created_at": "2026-10-22T23:08:52-05:00",
+  "updated_at": "2026-10-23T09:33:14-05:00"
+}

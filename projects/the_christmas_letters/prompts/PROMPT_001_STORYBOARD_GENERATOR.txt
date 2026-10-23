@@ -1,0 +1,126 @@
+🎬 PROMPT 001 — GENERADOR DE STORYBOARD CINEMATOGRÁFICO (6 ESCENAS POR IMAGEN)
+Actúa como director de cine y crea un storyboard visual para la historia que te voy a proporcionar.
+
+DATOS DE LA HISTORIA
+Historia:
+PREMISE:
+Six years after Eleanor Cole threw Valentina Reyes out of the Cole mansion on Christmas night, Val returns as the hired decorator for the family's Christmas Eve engagement gala. Nate Cole, the heir she once loved, is engaged to Madison Pierce, a glamorous socialite who wants half of Cole Hotels in the prenup. Val does not know that Eleanor paid Walter Briggs, the mansion's porter, to intercept all 72 letters Val wrote to Nate over six years, in both directions, and that Eleanor forged a goodbye letter signed with Val's name but missing the small star Val always draws beside her signature. As Val decorates the mansion, she finds one stolen letter, a red cookie tin, and an ally in June Alvarez, the cook. Nate begins to doubt his mother's story, Madison's business motives surface, and Walter's guilt cracks open. On Christmas Eve, Eleanor expels Val into the snow and schedules the wedding for midnight, while Val books the 11:59 train out of Grand Central. Nate must choose between his inheritance and the woman he never stopped loving, and Val must prove the letters are real before the train leaves. The story pays off every planted object: the tin of letters, the forged letter, the crystal star ornament, the prenup, and the sealed letter. It ends with the star signature exposed, Eleanor unrepentant, Madison gone, and Val letting the midnight train leave so she can stay with Nate.
+
+EPISODE:
+- Title: The Christmas Letters
+- Series: The Christmas Letters
+- Logline: Six years after Eleanor Cole threw her out, Valentina Reyes returns to decorate the mansion and discovers the 72 letters she wrote to Nate were stolen, and his Christmas Eve wedding is her last chance to prove it.
+- Genre: Christmas romantic suspense short-drama
+- Tone: cinematic, intimate, high-stakes, Christmas-lit, fast-paced
+- Setting: (not specified)
+
+CAST:
+- Valentina Reyes (protagonist): late twenties Latina event decorator, long dark wavy hair, warm brown eyes, full lips, golden-brown skin, cream cashmere turtleneck and dark tailored trousers | voice: warm mid-range American English, controlled, dignity under pressure
+- Nathaniel Cole (love_interest): early thirties hotel heir, square jaw, short dark-brown hair, intense grey eyes, athletic build, charcoal overcoat over a black suit | voice: low, clipped American English, warmth held under restraint
+- Madison Pierce (rival): late twenties socialite, platinum blonde bob, sharp cheekbones, pale blue eyes, ivory shearling coat and gold hoops | voice: bright, polished American English with a competitive edge
+- Eleanor Cole (matriarch): early sixties matriarch, tall and straight-backed, silver chignon, pale blue eyes, porcelain skin, midnight-blue dress and pearls | voice: low, polished American English, never raises her voice
+- Walter Briggs (guilty_witness): late fifties mansion porter, weathered face, grey hair, heavy build, grey uniform with brass buttons | voice: rough, quiet American English, a lifetime of service in it
+- June Alvarez (ally): early fifties cook, dark hair pulled back, warm brown eyes, strong hands, white chef coat and red scarf | voice: warm, plainspoken American English with a slight Spanish accent
+
+LOCATIONS:
+- Cole mansion foyer
+- Cole mansion ballroom
+- Cole mansion study
+- Cole mansion library
+- Cole mansion kitchen
+- Cole mansion wine cellar
+
+ACT MAP:
+- Act 1 — The Ornament : Bring Val back into the Cole mansion, plant the letters and the star, and end on the first proof that the past was stolen.
+- Act 2 — The Trap : Let Eleanor use the wedding and the prenup to tighten the trap while Nate and Val trace the letters to Walter.
+- Act 3 — The First Crack : Move the wedding to Christmas Eve, expose the forged letter, and make Eleanor decide to burn the tin.
+- Act 4 — The Dark Night : Break Walter open, put the tin in Nate's hands, and make Eleanor disown the truth in public.
+- Act 5 — The Turn : Expose the prenup, interrupt the wedding, and turn the letters into public evidence.
+- Act 6 — The Payoff : Expel Val, rescue the tin from the furnace, race the midnight train, and pay off the star and the opening line.
+
+Duración:
+22 minuto(s) (132 escenas de 10 segundos = 22 imagen(es) de storyboard de 6 viñetas cada una)
+
+Estilo visual:
+prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette Lighting palette: late-afternoon sun raking across the scene with long shadows; overcast storm light with a cold rim on faces; practical tungsten warmth inside against a blue dusk exterior. Camera language: wide establishing shot with a human scale reference; medium shot, chest up, subject slightly off-center; tight close-up, eyes in sharp focus, background falling off; over-the-shoulder shot with the listener soft in foreground.
+(Opciones: Cinematográfico realista 35mm / Realista / Animación 3D / Animación 2D / Anime / Ilustración)
+
+REGLAS DEL STORYBOARD
+Cada escena dura exactamente 10 segundos.
+Calcula automáticamente el número de escenas según la duración.
+Cada imagen debe contener 6 escenas/viñetas (en cuadrícula limpia de 3x2: 6 viñetas numeradas del 1 al 6).
+Por lo tanto:
+1 minuto = 6 escenas = 1 imagen
+2 minutos = 12 escenas = 2 imágenes
+3 minutos = 18 escenas = 3 imágenes
+4 minutos = 24 escenas = 4 imágenes
+5 minutos = 30 escenas = 5 imágenes
+22 minutos = 132 escenas = 22 imágenes
+Cada imagen representa exactamente 1 minuto de historia.
+
+CADA VIÑETA
+Cada viñeta debe mostrar visualmente el momento correspondiente de la historia con encuadre de cine profesional (alternando planos generales establecedores, planos medios dramáticos y primeros planos emocionales).
+Cada viñeta es el PRIMER FRAME literal de la Toma 1 de su escena: mismo encuadre, misma posición de cámara, mismo blocking, mismo vestuario, misma luz y mismo objeto clave. La Toma 1 arranca en movimiento desde esa imagen; nunca es un frame congelado.
+Debe incluir:
+- Todos los personajes presentes en la escena, con su posición fija de la Hoja de Personajes.
+- Lugar.
+- Acción física clara ya en movimiento.
+- Emoción intensa en los rostros.
+- El objeto clave de la escena visible o claramente implicado.
+- Composición e iluminación cinematográfica.
+FORMATO DE VIÑETAS 100% VISUAL (SIN CAJAS DE TEXTO): Las 6 viñetas fotográficas en cuadrícula 3x2 deben ocupar el 100% del lienzo 16:9 separadas únicamente por líneas divisorias finas. Coloca SOLO el número pequeño [1], [2], [3], [4], [5], [6] en la esquina superior izquierda de cada viñeta. PROHIBIDO dibujar barras inferiores oscuras, subtítulos, cajas de texto o descripciones escritas dentro de la imagen.
+
+IMPORTANTE:
+No escribir diálogos ni párrafos dentro del storyboard.
+
+CONTINUIDAD
+Mantén la misma apariencia exacta de los personajes durante todo el storyboard.
+Conserva también la continuidad estricta de:
+- Rostros.
+- Cabello.
+- Edad.
+- Complexión.
+- Vestuario.
+- Locaciones.
+- Época.
+- Objetos importantes (anillos, contratos, vehículos, herramientas).
+- Iluminación.
+- Ambiente.
+Si un personaje cambia de ropa por motivos narrativos, el cambio debe ser coherente.
+
+ESTILO VISUAL
+Utiliza exactamente el estilo visual seleccionado (prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette Lighting palette: late-afternoon sun raking across the scene with long shadows; overcast storm light with a cold rim on faces; practical tungsten warmth inside against a blue dusk exterior. Camera language: wide establishing shot with a human scale reference; medium shot, chest up, subject slightly off-center; tight close-up, eyes in sharp focus, background falling off; over-the-shoulder shot with the listener soft in foreground.).
+Mantén ese estilo de manera consistente en todas las imágenes y todas las viñetas.
+El storyboard debe tener apariencia profesional y cinematográfica.
+
+IMPORTANTE
+El resultado debe ser principalmente visual.
+No incluir:
+- Diálogos.
+- Narración extensa.
+- Subtítulos.
+- Párrafos.
+- Prompts de video.
+- Explicaciones del proceso.
+- Descripciones escritas, cajas de texto o barras inferiores dentro de la imagen.
+
+RESULTADO FINAL
+A partir de la historia, duración y estilo proporcionados:
+1. Calcula el número total de escenas (132 escenas).
+2. Cada escena debe durar 10 segundos.
+3. Divide las escenas en grupos de 6.
+4. Genera una imagen por cada grupo de 6 escenas.
+5. Cada imagen debe contener 6 viñetas claramente divididas.
+6. Mantén la numeración [1]-[6] en la esquina superior izquierda, sin texto adicional.
+7. Mantén la continuidad absoluta de personajes y escenarios.
+8. Cuenta toda la historia visualmente de principio a fin.
+
+REGLA DE CONTINUIDAD NARRATIVA (Hilo Conductor Único + Cadena Causa y Efecto + Ledger de Estado Arrastrado + Prohibición de Ping-Pong de Locaciones + Un Solo Nombre por Objeto Clave + Prueba de Desorden + Puentes y Ritmo ReelShort/DramaBox):
+1. UNA SOLA PREGUNTA MOTRIZ POR BLOQUE DE 6 ESCENAS: cada minuto tiene una única pregunta dramática; ninguna escena abre una pregunta nueva.
+2. CADENA CAUSA-EFECTO OBLIGATORIA: de la escena 2 hasta la última, cada escena declara `because_previous_ended_with` (copia literal del cambio final de la escena anterior), `this_scene_starts_with` (acción concreta ya en movimiento que continúa esa consecuencia) y `single_change_at_end` (un único cambio de estado irreversible).
+3. PUENTES DE ENTRADA Y SALIDA (ARRANQUE Y CIERRE): cada escena declara `entry_bridge` (micro-acción o línea <= 2 s con que arrancamos a causa de la anterior) y `exit_hook` (gesto, orden, decisión o pregunta con que termina y empuja a la siguiente). exit_hook(N) alimenta entry_bridge(N+1).
+4. REGLA DE RITMO POR BLOQUE (6 ESCENAS): PROHIBIDO 6 picos de confrontación seguidos. Al menos 1 beat NO confrontacional por bloque (decisión en solitario, descubrimiento, plan, momento tierno/vulnerable).
+5. ROTACIÓN DE CLIFFHANGER: rotar el tipo entre bloques (identidad -> emoción -> revelación). Prohibido repetir el mismo tipo en dos bloques seguidos.
+6. PROHIBIDO EL PING-PONG DE LOCACIONES: agrupa de 3 a 5 escenas consecutivas en la misma locación; el patrón A-B-A está prohibido.
+7. UN SOLO NOMBRE POR OBJETO CLAVE: el mismo `key_object` exacto aparece en el panel de storyboard, en la acción de la Toma 1 y en la lista Key Object; nunca uses alias.
+8. PRUEBA DE DESORDEN: si al desordenar el bloque la cadena de consecuencias deja de tener sentido, reescríbelo. El validador rechaza placeholders mecánicos y saltos sin transición.

@@ -1,0 +1,82 @@
+NOVEL FACTORY — PROMPT 002 — HOJA MAESTRA DE PERSONAJES · The Christmas Letters
+Adjunta el storyboard creado con PROMPT 001 antes de pegar este prompt.
+
+👤 PROMPT 002 — GENERADOR DE PERSONAJES (HOJA MAESTRA EN UNA SOLA IMAGEN)
+Actúa como director de casting y diseñador de personajes.
+Ya tenemos creado el storyboard de la historia.
+Ahora analiza ese storyboard e identifica los personajes principales y secundarios relevantes que aparecen en la historia.
+Tu tarea es generar UNA SOLA IMAGEN que muestre juntos a todos los personajes identificados.
+
+REFERENCIA
+Storyboard: el storyboard completo creado en el paso anterior. La hoja debe mantener exactamente los rostros, edades, etnias, vestuarios y accesorios que aparecen en ese storyboard.
+
+REGLA PRINCIPAL
+Los personajes deben basarse directamente en el storyboard.
+Debes mantener exactamente su:
+- Sexo.
+- Edad aproximada.
+- Etnia y rasgos físicos.
+- Rostro.
+- Cabello.
+- Tono de piel.
+- Complexión.
+- Vestuario principal.
+- Accesorios importantes.
+- Estilo visual (prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette Lighting palette: late-afternoon sun raking across the scene with long shadows; overcast storm light with a cold rim on faces; practical tungsten warmth inside against a blue dusk exterior. Camera language: wide establishing shot with a human scale reference; medium shot, chest up, subject slightly off-center; tight close-up, eyes in sharp focus, background falling off; over-the-shoulder shot with the listener soft in foreground.).
+
+Si el storyboard tiene 2 personajes, muestra los 2 en una sola imagen.
+Si tiene 3 personajes, muestra los 3 en una sola imagen.
+Si tiene 4 personajes, muestra los 4 en una sola imagen.
+Y así sucesivamente (priorizando los 3 a 5 personajes principales de la trama).
+No inventes personajes que no sean relevantes para la historia.
+
+COMPOSICIÓN DE LA IMAGEN
+Genera una hoja de referencia de personajes limpia y profesional.
+Todos los personajes deben aparecer:
+- En una sola imagen.
+- Uno al lado del otro.
+- Claramente separados.
+- De cuerpo completo.
+- De pie.
+- Mirando hacia la cámara.
+- En una pose natural y neutral.
+- Sin taparse entre ellos.
+- Sin interactuar físicamente entre ellos.
+Debe verse claramente el rostro y el cuerpo completo de cada personaje.
+Usa un fondo sencillo y neutro (gris estudio limpio) para que los personajes sean los protagonistas de la imagen.
+
+CONSISTENCIA
+Esta imagen funcionará como referencia oficial de los personajes para las siguientes generaciones de imágenes y videos en Muse AI y Google Flow.
+Por eso, los rostros y características físicas deben corresponder lo máximo posible con los personajes mostrados en el storyboard.
+No rediseñes a los personajes.
+El objetivo es extraer del storyboard una referencia visual clara y consistente de cada personaje.
+
+ESTILO VISUAL
+Utiliza exactamente el mismo estilo visual utilizado en el storyboard (prestige cinematic short-drama, photoreal, 35mm anamorphic glass, shallow depth of field, fine film grain, natural skin texture, muted teal-and-amber coastal palette Lighting palette: late-afternoon sun raking across the scene with long shadows; overcast storm light with a cold rim on faces; practical tungsten warmth inside against a blue dusk exterior. Camera language: wide establishing shot with a human scale reference; medium shot, chest up, subject slightly off-center; tight close-up, eyes in sharp focus, background falling off; over-the-shoulder shot with the listener soft in foreground.).
+No cambiar el estilo visual de la historia.
+
+VESTUARIO
+Utiliza para cada personaje su vestuario más representativo o principal dentro de la historia.
+El vestuario debe ayudar a identificar inmediatamente quién es cada personaje.
+
+TEXTO
+Ordena a los personajes de izquierda a derecha y coloca debajo de cada uno únicamente:
+Position #N — NOMBRE DEL PERSONAJE EN MAYÚSCULAS
+Ejemplo:
+Position #1 (Far Left) — ELENA
+Position #2 — SAM
+Position #3 — MARGARET
+Position #4 (Far Right) — ADRIAN
+Cada personaje conserva siempre la misma posición, el mismo rostro y el mismo vestuario en la hoja y en todas las escenas.
+No incluir:
+- Descripciones largas.
+- Diálogos.
+- Biografías.
+- Párrafos.
+- Información de las escenas.
+El texto debe ser mínimo para mantener la imagen limpia.
+
+RESULTADO FINAL
+Genera UNA SOLA IMAGEN que contenga a todos los personajes relevantes de la historia.
+La imagen debe funcionar como una hoja maestra de referencia de personajes, que posteriormente pueda utilizarse para mantener la misma apariencia de los personajes en todas las escenas y videos.
+Entrega solamente la imagen de los personajes.
