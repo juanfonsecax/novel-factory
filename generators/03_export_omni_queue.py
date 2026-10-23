@@ -423,7 +423,7 @@ def run_check(paths: Dict[str, Path], rows: List[Dict[str, Any]], allow_missing:
         nf.info("Faltan clips: " + ", ".join(map(str, missing_clips[:20])) +
                 (" …" if len(missing_clips) > 20 else ""))
     if not missing_clips:
-        nf.ok("Los 60 clips están listos para el ensamblaje.")
+        nf.ok(f"Los {len(rows)} clips están listos para el ensamblaje.")
         return 0
     if missing_frames and not allow_missing:
         nf.warn("Genera primero los frames faltantes (02) antes de producir los videos.")

@@ -12,7 +12,7 @@ Los marcadores que el sistema rellena automáticamente son exactamente:
 
   {story_idea}          Idea base / arquitectura narrativa del proyecto.
   {duration_minutes}    Duración total del episodio en minutos.
-  {total_scenes}        Número total de escenas (60 por defecto).
+  {total_scenes}        Número total de escenas del proyecto.
   {total_grid_images}   Número de bloques de 1 minuto (6 escenas cada uno).
   {visual_style}        Look visual bloqueado del proyecto.
   {aspect_ratio}        Relación de aspecto del máster (16:9 por defecto).
@@ -50,7 +50,7 @@ VIRAL_TEMPLATES_TOKEN = "<<<VIRAL_TEMPLATES>>>"
 
 NARRATIVE_CONTINUITY_RULE = """REGLA DE CONTINUIDAD NARRATIVA (Hilo Conductor Único + Cadena Causa y Efecto + Ledger de Estado Arrastrado + Prohibición de Ping-Pong de Locaciones + Un Solo Nombre por Objeto Clave + Prueba de Desorden + Puentes y Ritmo ReelShort/DramaBox):
 1. UNA SOLA PREGUNTA MOTRIZ POR BLOQUE DE 6 ESCENAS: cada minuto tiene una única pregunta dramática; ninguna escena abre una pregunta nueva.
-2. CADENA CAUSA-EFECTO OBLIGATORIA: de la escena 2 a la 60, cada escena declara `because_previous_ended_with` (copia literal del cambio final de la escena anterior), `this_scene_starts_with` (acción concreta ya en movimiento que continúa esa consecuencia) y `single_change_at_end` (un único cambio de estado irreversible).
+2. CADENA CAUSA-EFECTO OBLIGATORIA: de la escena 2 hasta la última, cada escena declara `because_previous_ended_with` (copia literal del cambio final de la escena anterior), `this_scene_starts_with` (acción concreta ya en movimiento que continúa esa consecuencia) y `single_change_at_end` (un único cambio de estado irreversible).
 3. PUENTES DE ENTRADA Y SALIDA (ARRANQUE Y CIERRE): cada escena declara `entry_bridge` (micro-acción o línea <= 2 s con que arrancamos a causa de la anterior) y `exit_hook` (gesto, orden, decisión o pregunta con que termina y empuja a la siguiente). exit_hook(N) alimenta entry_bridge(N+1).
 4. REGLA DE RITMO POR BLOQUE (6 ESCENAS): PROHIBIDO 6 picos de confrontación seguidos. Al menos 1 beat NO confrontacional por bloque (decisión en solitario, descubrimiento, plan, momento tierno/vulnerable).
 5. ROTACIÓN DE CLIFFHANGER: rotar el tipo entre bloques (identidad -> emoción -> revelación). Prohibido repetir el mismo tipo en dos bloques seguidos.
@@ -67,15 +67,15 @@ PROMPT_00B_SOURCE_BEAT_EXTRACTOR = """🔍 PROMPT 00B — EXTRACTOR DE BEATS Y P
 Actúa como un Showrunner y Script Doctor analítico especializado en micro-dramas de alta retención (ReelShort, DramaBox).
 
 OBJETIVO:
-Analiza el GUIÓN FUENTE PROBADO adjunto (o transcripción de historia viral) y extrae ÚNICAMENTE el esqueleto dramático y los puentes escena por escena para 60 escenas de 10 segundos agrupadas en 10 bloques de 1 minuto (6 escenas por bloque).
+Analiza el GUIÓN FUENTE PROBADO adjunto (o transcripción de historia viral) y extrae ÚNICAMENTE el esqueleto dramático y los puentes escena por escena para todas las escenas de 10 segundos del proyecto, agrupadas en bloques de 1 minuto (6 escenas por bloque).
 
 REGLA DE ORO (PROHIBICIÓN ESTRICTA):
 ESTÁ TOTALMENTE PROHIBIDO COPIAR DIÁLOGOS, NOMBRES, MARCAS O TEXTO LITERAL DEL ORIGINAL.
 Solo extrae funciones dramáticas, dinámicas de poder, giros, emociones y puentes de causalidad. La superficie completa se reinventará en inglés idiomático en el siguiente paso.
 
 POR CADA ESCENA EXTRAE:
-1. scene_id: número de escena (1 a 60).
-2. block: bloque de 1 minuto al que pertenece (1 a 10).
+1. scene_id: número de escena (1 al total declarado por el proyecto).
+2. block: bloque de 1 minuto al que pertenece (1 al total de bloques del proyecto).
 3. beat_function: una de las 6 funciones clave:
    - "hook" (atrapa en los primeros 3-5 s)
    - "setup-stakes" (establece qué se gana o se pierde)
@@ -148,7 +148,7 @@ Por lo tanto:
 3 minutos = 18 escenas = 3 imágenes
 4 minutos = 24 escenas = 4 imágenes
 5 minutos = 30 escenas = 5 imágenes
-10 minutos = 60 escenas = 10 imágenes
+{duration_minutes} minutos = {total_scenes} escenas = {total_grid_images} imágenes
 Cada imagen representa exactamente 1 minuto de historia.
 
 CADA VIÑETA
@@ -302,7 +302,7 @@ Ya tenemos creado el storyboard de la historia y la hoja maestra de personajes. 
 
 DATOS DEL PROYECTO
 Storyboard:
-El storyboard completo creado en el paso 1: 10 imágenes de 6 viñetas, una por minuto. Cada escena debe corresponder exactamente a su viñeta.
+El storyboard completo creado en el paso 1: {total_grid_images} imágenes de 6 viñetas, una por minuto. Cada escena debe corresponder exactamente a su viñeta.
 Duración del bloque:
 1 minuto = 6 escenas de 10 segundos (o el total de escenas del storyboard adjunto).
 
@@ -531,11 +531,12 @@ def values_from_master(
     episode = master.get("episode") if isinstance(master.get("episode"), dict) else {}
     scenes = [s for s in (master.get("scenes") or []) if isinstance(s, dict)]
 
-    total_scenes_raw = overrides.get("total_scenes") or episode.get("total_scenes") or len(scenes) or 60
+    fallback_scenes = nf.scene_count_for_target(nf.DEFAULT_TARGET_MINUTES)
+    total_scenes_raw = overrides.get("total_scenes") or episode.get("total_scenes") or len(scenes) or fallback_scenes
     try:
         total_scenes = int(total_scenes_raw)
     except (TypeError, ValueError):
-        total_scenes = 60
+        total_scenes = fallback_scenes
     total_scenes = max(1, total_scenes)
 
     total_seconds_raw = episode.get("total_seconds")
@@ -639,7 +640,7 @@ def render_viral_niche_block(template: Dict[str, Any]) -> str:
         "- Usa este arquetipo como el único motor de la historia; no mezcles nichos ni tramas de otros arquetipos.",
         "- Escribe títulos, elenco y sinopsis en inglés nativo de Estados Unidos (en-US).",
         "- Mantén de 3 a 5 personajes principales y de 3 a 5 locaciones.",
-        "- Conserva 60 escenas / 10 minutos y un cliffhanger al final de cada minuto.",
+        "- Conserva la duración y el número de escenas declarados por el proyecto, con un cliffhanger al final de cada minuto.",
         "- La semilla en inglés es el material canónico; esta selección manda sobre la idea base.",
     ]
     return "\n".join(lines).strip()

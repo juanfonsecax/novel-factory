@@ -70,13 +70,17 @@ def scene_hint_from_name(name: str) -> Optional[int]:
         sid = int(match.group(1))
     except ValueError:
         return None
-    return sid if 1 <= sid <= nf.SCENE_COUNT else None
+    return sid if sid >= 1 else None
 
 
 # ---------------------------------------------------------------------------
 # Estado del proyecto
 # ---------------------------------------------------------------------------
-def load_queue(paths: Dict[str, Path], platform: str = "omni") -> Dict[int, Dict[str, Any]]:
+def load_queue(
+    paths: Dict[str, Path],
+    platform: str = "omni",
+    max_scene: Optional[int] = None,
+) -> Dict[int, Dict[str, Any]]:
     key, _label = QUEUE_KEYS.get(str(platform or "omni").strip().lower(), QUEUE_KEYS["omni"])
     queue_path = paths.get(key)
     if not queue_path:
@@ -91,7 +95,7 @@ def load_queue(paths: Dict[str, Path], platform: str = "omni") -> Dict[int, Dict
             sid = int(item.get("scene_id") or 0)
         except (TypeError, ValueError):
             continue
-        if 1 <= sid <= nf.SCENE_COUNT:
+        if sid >= 1 and (max_scene is None or sid <= int(max_scene)):
             out[sid] = item
     return out
 
@@ -254,7 +258,7 @@ def cmd_queue(args: argparse.Namespace) -> int:
     paths, master = _prepare(args)
     platform = getattr(args, "platform", "omni")
     _key, label = QUEUE_KEYS.get(platform, QUEUE_KEYS["omni"])
-    queue = load_queue(paths, platform)
+    queue = load_queue(paths, platform, nf.master_scene_count(master))
     rows = build_status(paths, master)
     for r in rows:
         if r["clip"]:
@@ -291,7 +295,7 @@ def cmd_assisted(args: argparse.Namespace) -> int:
     paths, master = _prepare(args)
     platform = getattr(args, "platform", "omni")
     _key, label = QUEUE_KEYS.get(platform, QUEUE_KEYS["omni"])
-    queue = load_queue(paths, platform)
+    queue = load_queue(paths, platform, nf.master_scene_count(master))
     if not queue:
         nf.warn(f"No hay cola de {label}. Ejecuta generators/03_export_omni_queue.py {args.project} --platform {platform}")
         return 1
@@ -394,7 +398,7 @@ def cmd_import_frames(args: argparse.Namespace) -> int:
     missing = [r["scene_id"] for r in rows if not r["frame"]]
     if args.from_scene or args.to_scene:
         lo = args.from_scene or 1
-        hi = args.to_scene or nf.SCENE_COUNT
+        hi = args.to_scene or max((r["scene_id"] for r in rows), default=0)
         targets = [sid for sid in range(lo, hi + 1) if (args.overwrite or sid in missing)]
     else:
         targets = list(missing)

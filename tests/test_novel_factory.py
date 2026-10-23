@@ -78,8 +78,9 @@ class CoreTests(unittest.TestCase):
     def test_scene_stems(self):
         self.assertEqual(nf.scene_stem(1), "scene_001")
         self.assertEqual(nf.frame_stem(60), "frame_060")
+        self.assertEqual(nf.frame_stem(132), "frame_132")
         with self.assertRaises(nf.NFError):
-            nf.scene_stem(61)
+            nf.scene_stem(0)
 
     def test_time_helpers(self):
         self.assertEqual(nf.fmt_srt(3661.5), "01:01:01,500")
@@ -98,6 +99,117 @@ class CoreTests(unittest.TestCase):
         self.assertEqual((nf.MASTER_W, nf.MASTER_H), (1920, 1080))
         self.assertEqual((nf.TEASER_W, nf.TEASER_H), (1080, 1920))
         self.assertEqual(nf.default_teaser_ranges(), [list(range(1, 7)), list(range(21, 27)), list(range(55, 61))])
+
+
+class DurationTests(unittest.TestCase):
+    def test_defaults_and_legacy_profiles(self):
+        self.assertEqual(nf.DEFAULT_TARGET_MINUTES, 22)
+        self.assertEqual(nf.resolve_target_minutes(), 22)
+        self.assertEqual(nf.resolve_target_minutes(format_profile="youtube_10"), 10)
+        self.assertEqual(nf.resolve_target_minutes(format_profile="short_1"), 1)
+        self.assertEqual(nf.scene_count_for_target(22), 132)
+        self.assertEqual(nf.scene_count_for_target(19), 114)
+        self.assertEqual(nf.target_minutes_for_scene_count(132), 22)
+        self.assertEqual(nf.target_minutes_for_scene_count(114), 19)
+        with self.assertRaises(nf.NFError):
+            nf.resolve_target_minutes(0)
+
+    def test_config_has_no_fixed_duration_truth(self):
+        rules = nf.load_showrunner()
+        fmt = rules.get("format") or {}
+        self.assertNotIn("total_scenes", fmt)
+        self.assertNotIn("total_seconds", fmt)
+        self.assertNotIn("minute_blocks", rules.get("narrative_continuity_engine") or {})
+        for profile in (rules.get("format_profiles") or {}).values():
+            self.assertEqual(set(profile), {"scenes_per_block", "scene_seconds"})
+
+    def test_required_beats_scale_by_percentage(self):
+        legacy = nf.required_beats_for_scene_count(60)
+        self.assertEqual(
+            legacy,
+            {1: "cold_open_hook", 2: "world_and_wound", 10: "act_cliffhanger",
+             20: "act_cliffhanger", 30: "act_cliffhanger", 40: "act_cliffhanger",
+             50: "act_cliffhanger", 60: "payoff_next_hook"},
+        )
+        long = nf.required_beats_for_scene_count(132)
+        self.assertEqual(long[1], "cold_open_hook")
+        self.assertEqual(long[2], "world_and_wound")
+        self.assertEqual(long[22], "act_cliffhanger")
+        self.assertEqual(long[110], "act_cliffhanger")
+        self.assertEqual(long[132], "payoff_next_hook")
+        self.assertEqual(nf.hook_scene_ids(132), [1, 22, 44, 66, 88, 110, 132])
+
+    def test_target_22_normalizes_132_scenes_and_22_blocks(self):
+        master, _warnings = nf.normalize_master(
+            minimal_payload(132), "unit_22", "Unit 22", target_minutes=22
+        )
+        ep = master["episode"]
+        self.assertEqual(len(master["scenes"]), 132)
+        self.assertEqual(ep["target_minutes"], 22)
+        self.assertEqual(ep["total_blocks"], 22)
+        self.assertEqual(ep["total_scenes"], 132)
+        self.assertEqual(ep["total_seconds"], 1320)
+        blocks = master["narrative_continuity"]["minute_blocks"]
+        self.assertEqual(len(blocks), 22)
+        self.assertEqual(blocks[0]["scenes"], [1, 2, 3, 4, 5, 6])
+        self.assertEqual(blocks[-1]["scenes"], [127, 128, 129, 130, 131, 132])
+        for teaser in master["teasers"]:
+            self.assertEqual(len(teaser["scenes"]), 6)
+            self.assertLessEqual(max(teaser["scenes"]), 132)
+        result = nf.validate_master(master)
+        self.assertEqual(result["errors"], [], msg=f"errores: {result['errors']}")
+
+    def test_target_19_normalizes_114_scenes_and_19_blocks(self):
+        master, _warnings = nf.normalize_master(
+            minimal_payload(114), "unit_19", "Unit 19", target_minutes=19
+        )
+        ep = master["episode"]
+        self.assertEqual(len(master["scenes"]), 114)
+        self.assertEqual(ep["target_minutes"], 19)
+        self.assertEqual(ep["total_blocks"], 19)
+        self.assertEqual(ep["total_scenes"], 114)
+        self.assertEqual(ep["total_seconds"], 1140)
+        blocks = master["narrative_continuity"]["minute_blocks"]
+        self.assertEqual(len(blocks), 19)
+        self.assertEqual(blocks[-1]["scenes"], [109, 110, 111, 112, 113, 114])
+        result = nf.validate_master(master)
+        self.assertEqual(result["errors"], [], msg=f"errores: {result['errors']}")
+
+    def test_scene_count_must_match_declared_duration(self):
+        with self.assertRaises(nf.NFError):
+            nf.normalize_master(minimal_payload(132), "unit_bad", "Unit Bad", target_minutes=19)
+        with self.assertRaises(nf.NFError):
+            nf.normalize_master(minimal_payload(132), "unit_bad", "Unit Bad")
+
+    def test_merge_payloads_uses_declared_long_duration(self):
+        first = minimal_payload(66)
+        first["episode"]["target_minutes"] = 22
+        second = minimal_payload(66)
+        second["episode"]["total_scenes"] = 132
+        for scene in second["scenes"]:
+            scene["scene_id"] += 66
+        merged, warnings = nf.merge_payloads([first, second])
+        self.assertEqual(len(merged["scenes"]), 132)
+        self.assertEqual([s["scene_id"] for s in merged["scenes"]], list(range(1, 133)))
+        self.assertFalse(any("Faltan" in warning for warning in warnings))
+
+    def test_create_project_persists_duration_meta(self):
+        slug = "unit_duration_tmp"
+        root = nf.project_dir(slug)
+        try:
+            paths = nf.create_project(slug)
+            meta = nf.load_project_meta(paths)
+            self.assertEqual(meta["target_minutes"], 22)
+            self.assertEqual(meta["total_blocks"], 22)
+            self.assertEqual(meta["total_scenes"], 132)
+            paths = nf.create_project(slug, target_minutes=19)
+            self.assertEqual(nf.load_project_meta(paths)["target_minutes"], 19)
+            paths = nf.create_project(slug, format_profile="short_1")
+            short = nf.load_project_meta(paths)
+            self.assertEqual(short["target_minutes"], 1)
+            self.assertEqual(short["total_scenes"], 6)
+        finally:
+            shutil.rmtree(root, ignore_errors=True)
 
 
 class MasterSchemaTests(unittest.TestCase):

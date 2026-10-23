@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""01 — Del brief al JSON Maestro de 60 escenas (10 min).
+"""01 — Del brief al JSON Maestro del proyecto (duración declarada por proyecto).
 
 No llama a ninguna API. Genera:
   1) story_brief.md  — la fuente (idea, sinopsis o transcripción).
@@ -12,8 +12,8 @@ Flujo recomendado:
   -> pegas llm_prompt.md en el LLM y guardas su respuesta como llm_response.json
   python generators/01_story_to_master_json.py mi_episodio --ingest llm_response.json
 
-Si el LLM no puede devolver 60 escenas de una vez, usa --part 1 / --part 2 y
-luego ingiere los dos archivos juntos.
+Si el LLM no puede devolver todas las escenas de una vez, usa --part 1 / --part 2
+y luego ingiere los dos archivos juntos.
 
 Modo de calibración sin LLM:
   python generators/01_story_to_master_json.py demo_contract --template
@@ -50,12 +50,16 @@ def build_brief_markdown(
     personaje: str,
     episode_number: int,
     source_mode: str = "proven_adaptation",
+    target_minutes: Optional[int] = None,
 ) -> str:
+    minutes = nf.resolve_target_minutes(target_minutes, default=nf.DEFAULT_TARGET_MINUTES)
+    scenes = nf.scene_count_for_target(minutes)
     parts = [
         f"# Story Brief — {title or slug}",
         "",
         f"- **Slug:** {slug}",
         f"- **Episode:** {episode_number}",
+        f"- **Format:** {minutes} min = {minutes} blocks of 1 min = {scenes} scenes of 10 s",
         f"- **Genre:** {genre}",
         f"- **Language:** English (US) — all dialogue and prompts",
         f"- **Publisher persona (USA WHITE):** {personaje}",
@@ -84,12 +88,16 @@ def build_brief_markdown(
             "```",
             "",
         ]
+    hook_ids = nf.hook_scene_ids(scenes)
+    cliff_ids = [sid for sid in hook_ids if sid not in (1, scenes)]
     parts += [
         "## Non-negotiables",
         "",
-        "- 60 scenes x 10 seconds = 600 seconds (10:00) master in 16:9.",
+        f"- {scenes} scenes x 10 seconds = {scenes * 10} seconds ({minutes}:00) master in 16:9.",
         "- English only. US short-drama cadence: short lines, concrete stakes, no exposition dumps.",
-        "- 6 acts of 10 scenes. Cliffhanger at 10 / 20 / 30 / 40 / 50. Payoff at 59 and a next-episode hook at 60.",
+        f"- 6 acts scaled to {scenes} scenes. Cliffhangers at scenes "
+        f"{' / '.join(str(sid) for sid in cliff_ids)}. Payoff at {max(1, scenes - 1)} "
+        f"and a next-episode hook at {scenes}.",
         "- One first-frame still per scene (16:9, center-weighted so a 9:16 crop works).",
         "- Native audio in the generated clip: dialogue + diegetic ambience only. No music.",
         "- No real celebrities, brands, explicit content, graphic violence or hate.",
@@ -106,11 +114,13 @@ def build_brief_markdown(
 # ---------------------------------------------------------------------------
 # Prompt para el LLM
 # ---------------------------------------------------------------------------
-def _acts_block(rules: Dict[str, Any]) -> str:
+def _acts_block(rules: Dict[str, Any], total_scenes: int) -> str:
     lines: List[str] = []
-    for act in rules.get("acts") or []:
+    acts = [a for a in (rules.get("acts") or []) if isinstance(a, dict)]
+    for act in acts:
+        start, end = nf.act_scene_range(int(act.get("act") or 0), total_scenes, len(acts) or 6)
         lines.append(
-            f"### Act {act.get('act')} — {act.get('title')} (scenes {act.get('scenes', [0, 0])[0]}-{act.get('scenes', [0, 0])[1]})\n"
+            f"### Act {act.get('act')} — {act.get('title')} (scenes {start}-{end})\n"
             f"Goal: {act.get('goal')}\n"
             f"Must happen: " + "; ".join(act.get("must_happen") or []) + "\n"
             f"Retention device: {act.get('retention_device')}\n"
@@ -119,15 +129,17 @@ def _acts_block(rules: Dict[str, Any]) -> str:
     return "\n\n".join(lines)
 
 
-def _retention_block(rules: Dict[str, Any]) -> str:
+def _retention_block(rules: Dict[str, Any], total_scenes: int) -> str:
     eng = rules.get("retention_engine") or {}
     fmt = rules.get("format") or {}
     max_words = fmt.get("max_scene_words", 15)
     max_line = fmt.get("max_line_words", 15)
     max_speech = fmt.get("max_scene_speech_seconds", 8.5)
     wps = fmt.get("speech_words_per_second", 2.5)
+    seconds = total_scenes * nf.scene_seconds(rules)
     return (
-        f"- Total scenes: {fmt.get('total_scenes')} x {fmt.get('scene_seconds')} s = {fmt.get('total_seconds')} s.\n"
+        f"- Total scenes: {total_scenes} x {nf.scene_seconds(rules)} s = {seconds} s "
+        f"({nf.human_duration(seconds)}).\n"
         f"- Dialogue per scene: {max_words} words TOTAL across all speakers (hard cap). "
         f"Target {fmt.get('words_per_scene_dialogue')}. Never exceed {max_words}.\n"
         f"- Max {max_line} words per single line. At ~{wps} words/second that is <= {max_speech} s of speech "
@@ -147,15 +159,15 @@ def _retention_block(rules: Dict[str, Any]) -> str:
     )
 
 
-def _narrative_continuity_block(rules: Dict[str, Any]) -> str:
+def _narrative_continuity_block(rules: Dict[str, Any], total_scenes: int) -> str:
     engine = rules.get("narrative_continuity_engine") or {}
     if not engine or not engine.get("enabled", True):
         return ""
-    per_block = int(engine.get("scenes_per_block") or 6)
-    blocks = int(engine.get("minute_blocks") or 10)
+    per_block = int(engine.get("scenes_per_block") or nf.SCENES_PER_BLOCK)
+    blocks = max(1, (int(total_scenes) + per_block - 1) // per_block)
     return f"""## NARRATIVE CONTINUITY ENGINE (MANDATORY)
 
-The episode is {blocks} minute-blocks of {per_block} scenes. These rules are checked by the validator.
+The episode is {blocks} minute-blocks of {per_block} scenes ({total_scenes} scenes). These rules are checked by the validator.
 
 1. SINGLE DRIVING QUESTION PER BLOCK: every {per_block}-scene block carries exactly ONE
    `driving_question` in the top-level `narrative_continuity.minute_blocks` array. No scene may
@@ -181,14 +193,23 @@ The episode is {blocks} minute-blocks of {per_block} scenes. These rules are che
    rewrite it. Mechanical placeholders (`hard cut...`, `the room falls quiet...`,
    `reacts as the line lands...`) are rejected by validation.
 
-The continuity and bridge fields are mandatory from scene 2 to scene 60; scene 1 declares its opening
+The continuity and bridge fields are mandatory from scene 2 to scene {total_scenes}; scene 1 declares its opening
 state and first change. Never repeat the same sentence in `this_scene_starts_with` and
 `single_change_at_end`.
 """
 
 
-def _reelshort_reskin_block(rules: Dict[str, Any]) -> str:
-    return """## REELSHORT / DRAMABOX RE-SKIN & LOCALIZATION RULES (MANDATORY)
+def _reelshort_reskin_block(rules: Dict[str, Any], total_blocks: int) -> str:
+    rhythm = rules.get("reelshort_dramabox_rhythm_template") or {}
+    arc = rhythm.get("arc_by_fraction") or {}
+    first_victory = max(1, int(round(total_blocks * float(arc.get("first_victory_latest") or 0.5))))
+    window = arc.get("biggest_revelation_window") or [0.8, 1.0]
+    try:
+        reveal_start = max(1, int(round(total_blocks * float(window[0]))))
+    except (IndexError, TypeError, ValueError):
+        reveal_start = max(1, total_blocks - 2)
+    reveal_start = min(reveal_start, total_blocks)
+    return f"""## REELSHORT / DRAMABOX RE-SKIN & LOCALIZATION RULES (MANDATORY)
 
 1. WHAT TO PRESERVE FROM THE PROVEN SOURCE:
    - Beat functions (hook, setup-stakes, reversal, escalation, crisis, cliffhanger), sequence order, timings, causal bridges, and cliffhanger types.
@@ -202,8 +223,8 @@ def _reelshort_reskin_block(rules: Dict[str, Any]) -> str:
    - A shift in power, information, or emotion every 10-20 seconds.
    - Major turn around ~30 seconds.
    - Cliffhanger in the last 10 seconds, cutting BEFORE the answer ("answer small, ask big").
-   - Protagonist first victory / face-slap by block 5 at latest.
-   - Biggest revelation reserved for blocks 8-10 (paywall equivalent).
+   - Protagonist first victory / face-slap by block {first_victory} at latest.
+   - Biggest revelation reserved for blocks {reveal_start}-{total_blocks} (paywall equivalent).
 """
 
 
@@ -251,32 +272,41 @@ def _selected_viral_template_block(rules: Dict[str, Any], template_id: str) -> s
     )
 
 
-def _part_plan(part: str) -> Dict[str, Any]:
+def _part_plan(part: str, total_scenes: int) -> Dict[str, Any]:
     """Traduce --part a rango de escenas + reglas de prompts/teasers.
 
     Acepta 'full', la división clásica en 2 ('1'/'2') y las etiquetas explícitas
-    '1of2'/'2of2' y '1of3'/'2of3'/'3of3'.
+    '1of2'/'2of2' y '1of3'/'2of3'/'3of3'. Los rangos se escalan al total real.
     """
+    total = max(1, int(total_scenes))
     key = str(part or "full").strip().lower()
     if key in ("", "full", "0", "all"):
         return {
             "label": "",
-            "lo": 1, "hi": 60,
-            "rule": "Write the COMPLETE episode: all 60 scenes, Acts 1-6. Do not summarize or skip scenes.",
+            "lo": 1, "hi": total,
+            "rule": (
+                f"Write the COMPLETE episode: all {total} scenes, Acts 1-6. "
+                "Do not summarize or skip scenes."
+            ),
             "teasers": "Teasers: include all 3 (6 consecutive scenes each, 60 s each).",
         }
     if key in ("1of3", "2of3", "3of3"):
         idx = int(key[0])
-        lo, hi = (idx - 1) * 20 + 1, idx * 20
+        lo = ((idx - 1) * total) // 3 + 1
+        hi = (idx * total) // 3
         label = f"PART {idx} OF 3"
     else:
         idx = 1 if key in ("1", "1of2") else 2 if key in ("2", "2of2") else None
         if idx is None:
             raise NFError(f"--part inválido: {part!r} (usa full, 1of3/2of3/3of3 o 1of2/2of2)")
-        lo, hi = (1, 30) if idx == 1 else (31, 60)
+        lo = ((idx - 1) * total) // 2 + 1
+        hi = (idx * total) // 2
         label = f"PART {idx} OF 2"
 
-    teaser_ranges = {1: (1, 6), 2: (21, 26), 3: (55, 60)}
+    ranges = nf.default_teaser_ranges(total)
+    teaser_ranges = {
+        index: (rng[0], rng[-1]) for index, rng in enumerate(ranges, start=1) if rng
+    }
     within = [tid for tid, (a, b) in teaser_ranges.items() if a >= lo and b <= hi]
     if within:
         teaser_rule = (
@@ -338,13 +368,19 @@ def build_llm_prompt(
     part: str = "full",
     context_text: str = "",
     viral_template: str = "",
+    target_minutes: Optional[int] = None,
 ) -> str:
     fmt = rules.get("format") or {}
     identity = style.get("identity_lock") or {}
     voice = style.get("voice_lock") or {}
     visual = style.get("visual_style_lock") or {}
 
-    plan = _part_plan(part)
+    minutes = nf.resolve_target_minutes(target_minutes, default=nf.DEFAULT_TARGET_MINUTES)
+    total_scenes = nf.scene_count_for_target(minutes, rules)
+    total_blocks = max(1, (total_scenes + nf.scenes_per_block(rules) - 1) // nf.scenes_per_block(rules))
+    hook_ids = nf.hook_scene_ids(total_scenes, rules)
+    cliff_ids = [sid for sid in hook_ids if sid not in (1, total_scenes)]
+    plan = _part_plan(part, total_scenes)
     part_rule = plan["rule"]
     teaser_rule = plan["teasers"]
 
@@ -390,7 +426,7 @@ def build_llm_prompt(
       "location": "Hale lighthouse cliff edge, storm dusk",
       "time_of_day": "storm dusk",
       "characters": ["nora"],
-      "on_screen_hook": "5-10 word teaser headline (only for scenes 1, 10, 20, 30, 40, 50, 60; empty elsewhere)",
+      "on_screen_hook": "5-10 word teaser headline (only for scenes $hook_ids; empty elsewhere)",
       "first_frame_prompt": "Cinematic still of Nora Hale (the character in reference_nora.png), wide establishing shot, at the Hale lighthouse cliff edge, storm dusk. Nora strides along the cliff edge, coat snapping in the wind, jaw set, eyes bright with contained anger. Wardrobe: charcoal wool coat over a dark sweater, dark jeans, rain-wet hair. Keep Nora Hale's face and wardrobe identical to reference_nora.png. Framing keeps the face unobstructed and centered for a 9:16 crop. 45-80 words, no style suffix (it is appended automatically), no text or logos.",
       "key_object": "brass key",
       "object_focus": "",
@@ -436,7 +472,11 @@ def build_llm_prompt(
   "soundtrack": {"mood": "tense coastal romantic suspense", "bpm": 78, "notes": "Dialogue forward; music mixed in post."}
 }"""
     schema = Template(schema).safe_substitute(
-        slug=slug, title=title or "Untitled Episode", episode_number=episode_number, personaje=personaje
+        slug=slug,
+        title=title or "Untitled Episode",
+        episode_number=episode_number,
+        personaje=personaje,
+        hook_ids=", ".join(str(sid) for sid in hook_ids),
     )
 
     context_block = ""
@@ -467,11 +507,16 @@ Write the complete episode as ONE valid JSON object that follows the schema belo
 {context_block}
 ## FORMAT (NON-NEGOTIABLE)
 
-{_retention_block(rules)}
+{_retention_block(rules, total_scenes)}
+
+## FORMAT LENGTH
+
+- This project: {minutes} min = {total_blocks} blocks of 1 minute = {total_scenes} scenes.
+- Write every block as one minute of screen time; do not compress or expand the declared duration.
 
 ## ACT MAP
 
-{_acts_block(rules)}
+{_acts_block(rules, total_scenes)}
 
 ## VIRAL STRUCTURE CATALOG (LATAM -> USA)
 
@@ -479,9 +524,9 @@ Write the complete episode as ONE valid JSON object that follows the schema belo
 
 {_selected_viral_template_block(rules, viral_template)}
 
-{_narrative_continuity_block(rules)}
+{_narrative_continuity_block(rules, total_scenes)}
 
-{_reelshort_reskin_block(rules)}
+{_reelshort_reskin_block(rules, total_blocks)}
 
 ## FIRST-FRAME / VISUAL RULES
 
@@ -553,7 +598,7 @@ Rules for the JSON:
 - Causal order: never show a consequence before its cause, never reveal the same clue twice, and never jump location without a transition.
 - Every dialogue "speaker" and every entry in scene "characters" must match a character declared in "characters[].name".
 - Scene 1 must open with a question or contradiction, not a slow establishing montage.
-- Scenes 10, 20, 30, 40 and 50 must end on a cliffhanger. Scene 59 pays off. Scene 60 opens the next episode.
+- Scenes {", ".join(str(sid) for sid in cliff_ids)} must end on a cliffhanger. Scene {max(1, total_scenes - 1)} pays off. Scene {total_scenes} opens the next episode.
 - No real celebrities, brands, explicit content, graphic violence, hate or medical/legal claims.
 
 ## OUTPUT
@@ -1256,7 +1301,7 @@ def merge_payloads(payloads: List[Dict[str, Any]]) -> Tuple[Dict[str, Any], List
 # ---------------------------------------------------------------------------
 def main(argv: Optional[List[str]] = None) -> int:
     parser = argparse.ArgumentParser(
-        description="01 — Convierte idea/transcripción en el JSON Maestro de 60 escenas.",
+        description="01 — Convierte idea/transcripción en el JSON Maestro del proyecto.",
     )
     parser.add_argument("slug", help="Slug del episodio (carpeta en projects/).")
     parser.add_argument("--title", default="", help="Título del episodio.")
@@ -1268,6 +1313,10 @@ def main(argv: Optional[List[str]] = None) -> int:
                         help="Modo de entrada: proven_adaptation (default) o original_unproven.")
     parser.add_argument("--genre", default="romantic suspense short-drama")
     parser.add_argument("--episode-number", type=int, default=1)
+    parser.add_argument("--minutes", type=int, default=None,
+                        help="Duración del proyecto en minutos (default 22; rango orientativo 18-26).")
+    parser.add_argument("--profile", default="", choices=["", "youtube_10", "short_1"],
+                        help="Atajo legacy de duración: youtube_10 (10 min) o short_1 (1 min).")
     parser.add_argument("--personaje", default="emma_hayes",
                         help="Persona de USA WHITE para el pack de publicación (default: emma_hayes).")
     parser.add_argument("--part", default="full",
@@ -1283,14 +1332,15 @@ def main(argv: Optional[List[str]] = None) -> int:
     parser.add_argument("--validate", action="store_true", help="Valida un master_episode.json existente.")
     parser.add_argument("--strict", action="store_true",
                         help="Modo producción: reparto, hablantes, presupuesto de habla y continuidad pasan a error.")
-    parser.add_argument("--allow-partial", action="store_true", help="Permite ingerir menos de 60 escenas.")
+    parser.add_argument("--allow-partial", action="store_true",
+                        help="Permite ingerir menos escenas que las declaradas por el proyecto.")
     parser.add_argument("--force", action="store_true", help="Sobrescribe sin preguntar (siempre deja backup).")
     args = parser.parse_args(argv)
 
     slug = nf.slugify(args.slug)
     nf.log("")
     nf.log("=" * 70)
-    nf.log("  NOVEL FACTORY — 01 · Guion maestro de 60 escenas (10:00)")
+    nf.log("  NOVEL FACTORY — 01 · Guion maestro del proyecto")
     nf.log("=" * 70)
 
     if args.validate:
@@ -1301,8 +1351,30 @@ def main(argv: Optional[List[str]] = None) -> int:
         nf.log("")
         return 0 if nf.print_validation(result) else 1
 
-    paths = nf.create_project(slug)
-    nf.info(f"Proyecto: {paths['root']}")
+    had_meta = nf.project_paths(slug)["meta"].exists()
+    if args.template:
+        requested = nf.resolve_target_minutes(
+            args.minutes, args.profile, default=nf.LEGACY_TARGET_MINUTES
+        )
+        if requested != nf.LEGACY_TARGET_MINUTES:
+            raise nf.NFError(
+                "--template genera el fixture legacy de 60 escenas (10 min). "
+                "Para otra duración usa --brief + --minutes."
+            )
+        paths = nf.create_project(slug, target_minutes=nf.LEGACY_TARGET_MINUTES)
+        target_minutes = nf.LEGACY_TARGET_MINUTES
+    elif args.ingest and not had_meta and args.minutes is None and not args.profile:
+        paths = nf.create_project(slug, target_minutes=nf.LEGACY_TARGET_MINUTES)
+        target_minutes = nf.LEGACY_TARGET_MINUTES
+        nf.info("Proyecto legacy sin project.json: se asume 10 min. "
+                "Usa --minutes para otra duración.")
+    else:
+        paths = nf.create_project(slug, target_minutes=args.minutes, format_profile=args.profile)
+        target_minutes = int(
+            nf.load_project_meta(paths).get("target_minutes") or nf.DEFAULT_TARGET_MINUTES
+        )
+    nf.info(f"Proyecto: {paths['root']} · {target_minutes} min · "
+            f"{nf.scene_count_for_target(target_minutes)} escenas")
 
     if args.ingest:
         nf.log("")
@@ -1311,7 +1383,8 @@ def main(argv: Optional[List[str]] = None) -> int:
         payload, merge_warnings = merge_payloads(payloads)
         warnings.extend(merge_warnings)
         master, norm_warnings = nf.normalize_master(
-            payload, slug, args.title, repair=True, allow_partial=args.allow_partial
+            payload, slug, args.title, repair=True, allow_partial=args.allow_partial,
+            target_minutes=target_minutes,
         )
         warnings.extend(norm_warnings)
         result = nf.validate_master(master, allow_partial=args.allow_partial, production=args.strict)
@@ -1332,7 +1405,10 @@ def main(argv: Optional[List[str]] = None) -> int:
         ep = nf.episode_meta(master)
         nf.log("")
         nf.ok(f"Maestro escrito: {paths['master']}")
-        nf.info(f"{ep.get('title')} · {len(master['scenes'])} escenas · {nf.human_duration(ep.get('total_seconds', 600))}")
+        total_seconds = ep.get("total_seconds") or (
+            nf.scene_count_for_target(target_minutes) * nf.scene_seconds()
+        )
+        nf.info(f"{ep.get('title')} · {len(master['scenes'])} escenas · {nf.human_duration(total_seconds)}")
         nf.info(f"Personaje de publicación: {master.get('publisher', {}).get('personaje_id')}")
         export_master_prompts(paths, master, _read_brief_text(paths))
         nf.log("")
@@ -1342,7 +1418,9 @@ def main(argv: Optional[List[str]] = None) -> int:
     if args.template:
         nf.info("Generando episodio demo de calibración (sin LLM)…")
         payload = build_demo_payload(slug, args.title or "The Silent Contract", args.personaje, args.episode_number)
-        master, warnings = nf.normalize_master(payload, slug, args.title, repair=True)
+        master, warnings = nf.normalize_master(
+            payload, slug, args.title, repair=True, target_minutes=target_minutes
+        )
         result = nf.validate_master(master, production=args.strict)
         for w in warnings:
             nf.warn(w)
@@ -1354,7 +1432,8 @@ def main(argv: Optional[List[str]] = None) -> int:
         nf.write_text(
             paths["root"] / "story_brief.md",
             build_brief_markdown(slug, master["episode"]["title"], master["episode"]["logline"],
-                                 "", master["episode"]["genre"], args.personaje, args.episode_number),
+                                 "", master["episode"]["genre"], args.personaje,
+                                 args.episode_number, target_minutes=target_minutes),
         )
         nf.log("")
         nf.ok(f"Episodio demo listo: {paths['master']}")
@@ -1391,7 +1470,8 @@ def main(argv: Optional[List[str]] = None) -> int:
 
     title = args.title or args.slug.replace("_", " ").title()
     brief = build_brief_markdown(
-        slug, title, idea, source_text, args.genre, args.personaje, args.episode_number, source_mode=source_mode
+        slug, title, idea, source_text, args.genre, args.personaje, args.episode_number,
+        source_mode=source_mode, target_minutes=target_minutes,
     )
     brief_path = nf.write_text(paths["root"] / "story_brief.md", brief)
 
@@ -1422,20 +1502,22 @@ def main(argv: Optional[List[str]] = None) -> int:
         part=args.part,
         context_text=context_text,
         viral_template=args.viral_template,
+        target_minutes=target_minutes,
     )
     prompt_path = nf.write_text(paths["root"] / "llm_prompt.md", prompt)
 
     style = nf.load_style_locks()
     seed = (idea or source_text or title).strip()
+    total_scenes = nf.scene_count_for_target(target_minutes)
     export_master_prompts(
         paths,
         {},
         brief,
         overrides={
             "story_idea": seed,
-            "duration_minutes": 10,
-            "total_scenes": 60,
-            "total_grid_images": 10,
+            "duration_minutes": target_minutes,
+            "total_scenes": total_scenes,
+            "total_grid_images": (total_scenes + nf.SCENES_PER_BLOCK - 1) // nf.SCENES_PER_BLOCK,
             "visual_style": mpl.visual_style_from_style(style),
             "aspect_ratio": "16:9",
         },
@@ -1445,7 +1527,7 @@ def main(argv: Optional[List[str]] = None) -> int:
     nf.ok(f"Brief:  {brief_path}")
     nf.ok(f"Prompt: {prompt_path}  ({len(prompt):,} caracteres)")
     nf.log("")
-    plan = _part_plan(args.part)
+    plan = _part_plan(args.part, total_scenes)
     nf.log("  Pasos:")
     nf.log("   1. Abre llm_prompt.md, cópialo completo y pégalo en Claude / Gemini / ChatGPT.")
     nf.log("   2. Guarda la respuesta como projects/" + slug + "/llm_response.json")

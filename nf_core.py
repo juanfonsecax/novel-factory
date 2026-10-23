@@ -40,9 +40,13 @@ ASSETS_DIR = NF_ROOT / "assets"
 SHOWRUNNER_FILE = CONFIG_DIR / "showrunner_rules.json"
 STYLE_FILE = CONFIG_DIR / "voice_and_style_locks.json"
 
-SCENE_COUNT = 60
+SCENES_PER_BLOCK = 6
 SCENE_SECONDS = 10.0
-TOTAL_SECONDS = SCENE_COUNT * SCENE_SECONDS  # 600 s = 10 min
+LEGACY_TARGET_MINUTES = 10
+DEFAULT_TARGET_MINUTES = 22
+FORMAT_PROFILE_TARGET_MINUTES = {"youtube_10": 10, "short_1": 1}
+SCENE_COUNT = LEGACY_TARGET_MINUTES * SCENES_PER_BLOCK  # legacy 10-min default (60 scenes)
+TOTAL_SECONDS = SCENE_COUNT * SCENE_SECONDS  # legacy 600 s = 10 min
 FPS = 30
 MASTER_W, MASTER_H = 1920, 1080          # 16:9
 TEASER_W, TEASER_H = 1080, 1920          # 9:16
@@ -252,6 +256,152 @@ def load_style_locks() -> Dict[str, Any]:
     return data
 
 
+def scenes_per_block(rules: Optional[Dict[str, Any]] = None) -> int:
+    rules = rules if isinstance(rules, dict) else load_showrunner()
+    engine = rules.get("narrative_continuity_engine") or {}
+    profiles = rules.get("format_profiles") or {}
+    profile = profiles.get("youtube_10") if isinstance(profiles, dict) else {}
+    raw = engine.get("scenes_per_block") or (profile or {}).get("scenes_per_block") or SCENES_PER_BLOCK
+    try:
+        value = int(raw)
+    except (TypeError, ValueError):
+        value = SCENES_PER_BLOCK
+    return value if value > 0 else SCENES_PER_BLOCK
+
+
+def scene_seconds(rules: Optional[Dict[str, Any]] = None) -> float:
+    rules = rules if isinstance(rules, dict) else load_showrunner()
+    fmt = rules.get("format") or {}
+    try:
+        return float(fmt.get("scene_seconds") or SCENE_SECONDS)
+    except (TypeError, ValueError):
+        return SCENE_SECONDS
+
+
+def resolve_target_minutes(
+    target_minutes: Any = None,
+    format_profile: str = "",
+    default: Any = None,
+) -> int:
+    """Duración del proyecto en minutos. Los perfiles legacy son atajos."""
+    profile = str(format_profile or "").strip().lower()
+    if profile:
+        if profile not in FORMAT_PROFILE_TARGET_MINUTES:
+            raise NFError(
+                f"Perfil de formato desconocido: {format_profile!r}. "
+                f"Disponibles: {', '.join(sorted(FORMAT_PROFILE_TARGET_MINUTES))}"
+            )
+        if target_minutes in (None, ""):
+            return int(FORMAT_PROFILE_TARGET_MINUTES[profile])
+    if target_minutes in (None, ""):
+        base = DEFAULT_TARGET_MINUTES if default is None else default
+        try:
+            return int(base)
+        except (TypeError, ValueError) as exc:
+            raise NFError(f"Duración por defecto inválida: {base!r}") from exc
+    try:
+        value = int(target_minutes)
+    except (TypeError, ValueError) as exc:
+        raise NFError(f"target_minutes inválido: {target_minutes!r}") from exc
+    if value < 1:
+        raise NFError(f"target_minutes debe ser >= 1 (recibido {value}).")
+    return value
+
+
+def scene_count_for_target(target_minutes: Any, rules: Optional[Dict[str, Any]] = None) -> int:
+    return resolve_target_minutes(target_minutes) * scenes_per_block(rules)
+
+
+def target_minutes_for_scene_count(scene_count: Any, rules: Optional[Dict[str, Any]] = None) -> int:
+    try:
+        count = int(scene_count)
+    except (TypeError, ValueError):
+        return 0
+    if count < 1:
+        return 0
+    per_block = scenes_per_block(rules)
+    if count % per_block == 0:
+        return count // per_block
+    return max(1, int(round(count / float(per_block))))
+
+
+def master_target_minutes(master: Dict[str, Any]) -> int:
+    ep = master.get("episode") if isinstance(master.get("episode"), dict) else {}
+    for key in ("target_minutes", "total_blocks", "minute_blocks", "blocks"):
+        if ep.get(key) not in (None, ""):
+            try:
+                return resolve_target_minutes(ep.get(key))
+            except NFError:
+                continue
+    if ep.get("total_scenes") not in (None, ""):
+        derived = target_minutes_for_scene_count(ep.get("total_scenes"))
+        if derived:
+            return derived
+    scenes = [s for s in (master.get("scenes") or []) if isinstance(s, dict)]
+    return target_minutes_for_scene_count(len(scenes)) or LEGACY_TARGET_MINUTES
+
+
+def master_scene_count(master: Dict[str, Any]) -> int:
+    ep = master.get("episode") if isinstance(master.get("episode"), dict) else {}
+    for key in ("target_minutes", "total_blocks", "minute_blocks", "blocks"):
+        if ep.get(key) not in (None, ""):
+            try:
+                return scene_count_for_target(ep.get(key))
+            except NFError:
+                continue
+    if ep.get("total_scenes") not in (None, ""):
+        try:
+            value = int(ep.get("total_scenes"))
+        except (TypeError, ValueError):
+            value = 0
+        if value > 0:
+            return value
+    scenes = [s for s in (master.get("scenes") or []) if isinstance(s, dict)]
+    return len(scenes) or SCENE_COUNT
+
+
+def required_beats_for_scene_count(scene_count: Any, rules: Optional[Dict[str, Any]] = None) -> Dict[int, str]:
+    """Hitos por porcentaje del total; con 60 escenas reproduce 1/2/10..50/60."""
+    rules = rules if isinstance(rules, dict) else load_showrunner()
+    template = rules.get("required_beats") or {}
+    try:
+        count = max(1, int(scene_count))
+    except (TypeError, ValueError):
+        count = SCENE_COUNT
+    if isinstance(template, dict) and any(str(key).isdigit() for key in template):
+        return {int(k): str(v) for k, v in template.items() if str(k).isdigit()}
+    first = str(template.get("first_scene") or "cold_open_hook")
+    second = str(template.get("second_scene") or "world_and_wound")
+    cliff = str(template.get("act_cliffhanger") or "act_cliffhanger")
+    final = str(template.get("final_scene") or "payoff_next_hook")
+    fractions = template.get("act_cliffhanger_fractions") or [1 / 6, 2 / 6, 3 / 6, 4 / 6, 5 / 6]
+    beats: Dict[int, str] = {1: first}
+    if count >= 2:
+        beats[2] = second
+    for fraction in fractions:
+        try:
+            sid = int(round(count * float(fraction)))
+        except (TypeError, ValueError):
+            continue
+        beats.setdefault(min(max(1, sid), count), cliff)
+    beats[count] = final
+    return beats
+
+
+def hook_scene_ids(scene_count: Any, rules: Optional[Dict[str, Any]] = None) -> List[int]:
+    beats = required_beats_for_scene_count(scene_count, rules)
+    return sorted(sid for sid, beat in beats.items() if beat != "world_and_wound")
+
+
+def act_scene_range(act_number: int, scene_count: int, act_count: int = 6) -> Tuple[int, int]:
+    total = max(1, int(scene_count))
+    acts = max(1, int(act_count))
+    number = min(max(1, int(act_number)), acts)
+    start = ((number - 1) * total) // acts + 1
+    end = (number * total) // acts
+    return start, max(start, end)
+
+
 def human_duration(seconds: float) -> str:
     seconds = max(0, int(round(seconds)))
     h, rem = divmod(seconds, 3600)
@@ -267,7 +417,7 @@ def fmt_srt(seconds: float) -> str:
     return f"{h:02d}:{m:02d}:{s:02d},{ms:03d}"
 
 
-def parse_ranges(spec: str) -> List[int]:
+def parse_ranges(spec: str, max_scene: Optional[int] = None) -> List[int]:
     """'1-5,8,10-12' -> [1..5, 8, 10..12] (1-based, sin duplicados, ordenado)."""
     out: set[int] = set()
     for part in str(spec or "").replace(" ", "").split(","):
@@ -285,7 +435,9 @@ def parse_ranges(spec: str) -> List[int]:
             out.add(int(part))
         else:
             raise NFError(f"Rango inválido: '{part}'")
-    return sorted(i for i in out if 1 <= i <= SCENE_COUNT)
+    if max_scene is None:
+        return sorted(i for i in out if i >= 1)
+    return sorted(i for i in out if 1 <= i <= int(max_scene))
 
 
 # --- Proyectos / episodios ---
@@ -301,6 +453,7 @@ def project_paths(slug_or_dir: str | Path) -> Dict[str, Path]:
         root = project_dir(str(slug_or_dir))
     return {
         "root": root,
+        "meta": root / "project.json",
         "master": root / "master_episode.json",
         "frames": root / "frames",
         "references": root / "references",
@@ -337,7 +490,21 @@ def project_paths(slug_or_dir: str | Path) -> Dict[str, Path]:
     }
 
 
-def create_project(slug: str) -> Dict[str, Path]:
+def load_project_meta(paths_or_dir: Dict[str, Path] | str | Path) -> Dict[str, Any]:
+    paths = paths_or_dir if isinstance(paths_or_dir, dict) else project_paths(paths_or_dir)
+    meta_path = paths.get("meta")
+    if not meta_path:
+        return {}
+    data = read_json(meta_path, default={})
+    return data if isinstance(data, dict) else {}
+
+
+def create_project(
+    slug: str,
+    target_minutes: Any = None,
+    format_profile: str = "",
+) -> Dict[str, Path]:
+    """Crea el proyecto y declara su duración en project.json."""
     paths = project_paths(project_dir(slug))
     for key in ("root", "frames", "references", "raw_clips", "output", "prompts_dir"):
         paths[key].mkdir(parents=True, exist_ok=True)
@@ -345,6 +512,26 @@ def create_project(slug: str) -> Dict[str, Path]:
         keep = folder / ".gitkeep"
         if not keep.exists():
             keep.write_text("", encoding="utf-8")
+    existing = load_project_meta(paths)
+    if target_minutes in (None, "") and not str(format_profile or "").strip() and existing.get("target_minutes") not in (None, ""):
+        target = resolve_target_minutes(existing.get("target_minutes"))
+    else:
+        target = resolve_target_minutes(
+            target_minutes, format_profile, default=DEFAULT_TARGET_MINUTES
+        )
+    rules = load_showrunner()
+    meta = {
+        "schema_version": 1,
+        "slug": slugify(slug),
+        "target_minutes": target,
+        "total_blocks": target,
+        "total_scenes": scene_count_for_target(target, rules),
+        "scene_seconds": scene_seconds(rules),
+        "scenes_per_block": scenes_per_block(rules),
+        "created_at": str(existing.get("created_at") or now_iso()),
+        "updated_at": now_iso(),
+    }
+    write_json(paths["meta"], meta)
     return paths
 
 
@@ -366,13 +553,13 @@ def resolve_project(slug_or_dir: str | Path, must_exist: bool = True) -> Dict[st
 
 
 def scene_stem(index: int) -> str:
-    if not 1 <= int(index) <= SCENE_COUNT:
+    if int(index) < 1:
         raise NFError(f"scene_id fuera de rango: {index}")
     return f"scene_{int(index):03d}"
 
 
 def frame_stem(index: int) -> str:
-    if not 1 <= int(index) <= SCENE_COUNT:
+    if int(index) < 1:
         raise NFError(f"scene_id fuera de rango: {index}")
     return f"frame_{int(index):03d}"
 
@@ -2247,14 +2434,14 @@ def build_narrative_continuity(
     master: Dict[str, Any],
     rules: Optional[Dict[str, Any]] = None,
 ) -> Dict[str, Any]:
-    """Construye los 10 bloques de 1 minuto con su única pregunta motriz."""
+    """Construye los N bloques de 1 minuto del proyecto con su única pregunta motriz."""
     rules = rules if isinstance(rules, dict) else load_showrunner()
     engine = rules.get("narrative_continuity_engine") or {}
     if not engine or not engine.get("enabled", True):
         return {}
     scenes = ordered_scenes(master)
-    per_block = int(engine.get("scenes_per_block") or 6)
-    total_blocks = int(engine.get("minute_blocks") or 10)
+    per_block = int(engine.get("scenes_per_block") or SCENES_PER_BLOCK)
+    total_blocks = (len(scenes) + per_block - 1) // per_block if scenes else 0
     characters = [c for c in (master.get("characters") or []) if isinstance(c, dict)]
     protagonist = next(
         (str(c.get("name") or c.get("id") or "") for c in characters if str(c.get("role") or "") == "protagonist"),
@@ -2292,15 +2479,23 @@ def build_narrative_continuity(
     return {
         "schema_version": int(engine.get("schema_version") or 1),
         "engine": "narrative_continuity_engine",
+        "scene_count": len(scenes),
+        "total_blocks": len(blocks),
         "minute_blocks": blocks,
     }
 
 
-def _normalize_teasers(payload: Dict[str, Any], scenes: List[Dict[str, Any]], warnings: List[str]) -> List[Dict[str, Any]]:
+def _normalize_teasers(
+    payload: Dict[str, Any],
+    scenes: List[Dict[str, Any]],
+    warnings: List[str],
+    scene_count: Optional[int] = None,
+) -> List[Dict[str, Any]]:
+    ranges = default_teaser_ranges(scene_count)
     defaults = [
-        {"id": 1, "title": "Official Teaser", "scenes": list(range(1, 7))},
-        {"id": 2, "title": "The Twist", "scenes": list(range(21, 27))},
-        {"id": 3, "title": "The Cliffhanger", "scenes": list(range(55, 61))},
+        {"id": 1, "title": "Official Teaser", "scenes": ranges[0]},
+        {"id": 2, "title": "The Twist", "scenes": ranges[1]},
+        {"id": 3, "title": "The Cliffhanger", "scenes": ranges[2]},
     ]
     provided = payload.get("teasers")
     teasers: List[Dict[str, Any]] = []
@@ -2315,7 +2510,7 @@ def _normalize_teasers(payload: Dict[str, Any], scenes: List[Dict[str, Any]], wa
                     val = int(sid)
                 except (TypeError, ValueError):
                     continue
-                if 1 <= val <= SCENE_COUNT and val not in ids:
+                if 1 <= val <= int(scene_count or SCENE_COUNT) and val not in ids:
                     ids.append(val)
             if len(ids) < 4:
                 warnings.append(f"Teaser {idx + 1} tiene menos de 4 escenas válidas; se completa con el rango por defecto.")
@@ -2363,6 +2558,7 @@ def normalize_master(
     title: str = "",
     repair: bool = True,
     allow_partial: bool = False,
+    target_minutes: Optional[int] = None,
 ) -> Tuple[Dict[str, Any], List[str]]:
     """Lleva la respuesta del LLM (o un maestro existente) al esquema canónico.
 
@@ -2382,25 +2578,46 @@ def normalize_master(
             warnings.append(f"Se desenvolvió la clave contenedora '{key}'.")
             break
 
+    rules = load_showrunner()
+    ep_in = payload.get("episode") if isinstance(payload.get("episode"), dict) else {}
+    declared_target = target_minutes
+    if declared_target in (None, ""):
+        for key in ("target_minutes", "total_blocks", "minute_blocks", "blocks"):
+            if ep_in.get(key) not in (None, ""):
+                declared_target = ep_in.get(key)
+                break
+    if declared_target in (None, ""):
+        for key in ("target_minutes", "total_blocks", "minute_blocks", "blocks"):
+            if payload.get(key) not in (None, ""):
+                declared_target = payload.get(key)
+                break
+    if declared_target in (None, "") and ep_in.get("total_scenes") not in (None, ""):
+        declared_target = target_minutes_for_scene_count(ep_in.get("total_scenes"), rules) or None
+    if declared_target in (None, ""):
+        declared_target = LEGACY_TARGET_MINUTES
+    target = resolve_target_minutes(declared_target)
+    expected_scenes = scene_count_for_target(target, rules)
+
     raw_scenes = payload.get("scenes")
     if not isinstance(raw_scenes, list) or not raw_scenes:
-        raise NFError("El JSON no contiene una lista 'scenes' con las 60 escenas.")
-    if len(raw_scenes) != SCENE_COUNT:
+        raise NFError("El JSON no contiene una lista 'scenes' con las escenas del proyecto.")
+    if len(raw_scenes) != expected_scenes:
         if not allow_partial:
             raise NFError(
-                f"El JSON trae {len(raw_scenes)} escenas y el formato exige exactamente {SCENE_COUNT}. "
-                "Pide al LLM que regenere el guion completo (o divide el trabajo por actos y únelos)."
+                f"El JSON trae {len(raw_scenes)} escenas y el proyecto declara {target} min "
+                f"({expected_scenes} escenas). Pide al LLM que regenere el guion completo "
+                "(o divide el trabajo por actos y únelos)."
             )
-        warnings.append(f"Modo parcial: {len(raw_scenes)} de {SCENE_COUNT} escenas (no publicable todavía).")
+        warnings.append(
+            f"Modo parcial: {len(raw_scenes)} de {expected_scenes} escenas "
+            f"({target} min planeados; no publicable todavía)."
+        )
     if not all(isinstance(s, dict) for s in raw_scenes):
         raise NFError("Todas las entradas de 'scenes' deben ser objetos JSON.")
 
     style = load_style_locks()
     rotation = ((style.get("visual_style_lock") or {}).get("default_shot_rotation") or DEFAULT_SHOT_ROTATION)
-    rules = load_showrunner()
-    required_beats = {int(k): v for k, v in (rules.get("required_beats") or {}).items() if str(k).isdigit()}
-
-    ep_in = payload.get("episode") if isinstance(payload.get("episode"), dict) else {}
+    required_beats = required_beats_for_scene_count(expected_scenes, rules)
     ep: Dict[str, Any] = dict(ep_in)
     ep.setdefault("slug", slugify(slug))
     ep.setdefault("title", title or str(ep.get("series_title") or "").strip() or slug.replace("_", " ").title())
@@ -2412,9 +2629,11 @@ def normalize_master(
     ep.setdefault("audience", "US women 25-55, short-drama and audio-series viewers")
     ep.setdefault("tone", "cinematic, intimate, high-stakes, fast-paced")
     ep.setdefault("hook_line", "")
-    ep["total_scenes"] = SCENE_COUNT
-    ep["scene_seconds"] = int(SCENE_SECONDS)
-    ep["total_seconds"] = int(TOTAL_SECONDS)
+    ep["target_minutes"] = target
+    ep["total_blocks"] = target
+    ep["total_scenes"] = expected_scenes
+    ep["scene_seconds"] = int(scene_seconds(rules))
+    ep["total_seconds"] = int(expected_scenes * scene_seconds(rules))
     ep["aspect_master"] = "16:9"
     ep["aspect_teaser"] = "9:16"
     if not str(ep.get("logline") or "").strip():
@@ -2440,7 +2659,11 @@ def normalize_master(
             act = int(scene.get("act") or 0)
         except (TypeError, ValueError):
             act = 0
-        scene["act"] = act if 1 <= act <= 6 else ((max(1, sid) - 1) // 10 + 1)
+        act_count = len(rules.get("acts") or []) or 6
+        scene["act"] = act if 1 <= act <= act_count else (
+            ((max(1, sid) - 1) * act_count) // expected_scenes + 1
+        )
+        scene["act"] = min(act_count, scene["act"])
         scene["beat"] = str(scene.get("beat") or required_beats.get(sid) or "").strip()
         scene["dialogue"] = _coerce_dialogue(scene.get("dialogue"))
         scene["internal_cuts"] = _coerce_cuts(
@@ -2515,8 +2738,8 @@ def normalize_master(
     for scene in scenes:
         scene["character_anchors"] = format_character_anchors(scene, master["characters_locked"])
         scene["storyboard_panel"] = build_storyboard_panel_description(scene, master)
-    master["partial"] = len(scenes) != SCENE_COUNT
-    master["teasers"] = _normalize_teasers(payload, scenes, warnings)
+    master["partial"] = len(scenes) != expected_scenes
+    master["teasers"] = _normalize_teasers(payload, scenes, warnings, expected_scenes)
     master["narrative_continuity"] = build_narrative_continuity(master, rules)
 
     # TAREA A: Modo fuente probada (proven_adaptation vs original_unproven)
@@ -2703,19 +2926,22 @@ def validate_master(
 
     ep = episode_meta(master)
     scenes = [s for s in (master.get("scenes") or []) if isinstance(s, dict)]
+    expected_scenes = master_scene_count(master)
 
     if not ep.get("slug"):
         errors.append("episode.slug ausente.")
     if not str(ep.get("title") or "").strip():
         errors.append("episode.title ausente.")
-    if not allow_partial and len(scenes) != SCENE_COUNT:
-        errors.append(f"Se esperaban {SCENE_COUNT} escenas y hay {len(scenes)}.")
+    if not allow_partial and len(scenes) != expected_scenes:
+        errors.append(f"Se esperaban {expected_scenes} escenas y hay {len(scenes)}.")
     if production and master.get("partial") and not allow_partial:
-        errors.append("El maestro es parcial (<60 escenas): no es publicable.")
+        errors.append(
+            f"El maestro es parcial (<{expected_scenes} escenas): no es publicable."
+        )
     ids = [int(s.get("scene_id") or 0) for s in scenes]
     if len(set(ids)) != len(ids):
         errors.append("scene_id duplicado.")
-    if not allow_partial and ids != list(range(1, len(scenes) + 1)):
+    if not allow_partial and ids != list(range(1, expected_scenes + 1)):
         errors.append("scene_id debe ser 1..N sin huecos ni duplicados.")
     elif allow_partial and ids != sorted(ids):
         warnings.append("IDs parciales desordenados: ordénalos antes de fusionar.")
@@ -2946,7 +3172,9 @@ def validate_master(
     if engine:
         nc = master.get("narrative_continuity") if isinstance(master.get("narrative_continuity"), dict) else {}
         blocks = nc.get("minute_blocks") if isinstance(nc.get("minute_blocks"), list) else []
-        expected_blocks = int(engine.get("minute_blocks") or 10)
+        block_scene_count = expected_scenes if not allow_partial else len(scenes)
+        per_block = int(engine.get("scenes_per_block") or SCENES_PER_BLOCK)
+        expected_blocks = (block_scene_count + per_block - 1) // per_block if block_scene_count else 0
         if len(blocks) != expected_blocks:
             errors.append(
                 f"Continuidad: se esperaban {expected_blocks} bloques de 1 minuto y hay {len(blocks)}."
@@ -3012,7 +3240,7 @@ def validate_master(
                 )
 
     if scenes:
-        required = {int(k): v for k, v in (rules.get("required_beats") or {}).items() if str(k).isdigit()}
+        required = required_beats_for_scene_count(expected_scenes, rules)
         by_id = {int(s.get("scene_id") or 0): s for s in scenes}
         for sid, beat in required.items():
             if sid in by_id and str(by_id[sid].get("beat") or "") != beat:
@@ -3028,7 +3256,7 @@ def validate_master(
                 warnings.append(f"Teaser {t.get('id')}: se esperaban 6 escenas (60 s) y hay {len(ids_t)}.")
             if ids_t and ids_t != list(range(min(ids_t), min(ids_t) + len(ids_t))):
                 strict(f"Teaser {t.get('id')}: las escenas deben ser consecutivas ({ids_t}).")
-            if any(not (1 <= i <= len(scenes)) for i in ids_t):
+            if any(not (1 <= i <= expected_scenes) for i in ids_t):
                 errors.append(f"Teaser {t.get('id')}: referencia escenas fuera de rango.")
 
     if silent > max(2, len(scenes) // 10):
@@ -3048,6 +3276,41 @@ def validate_master(
     return {"errors": errors, "warnings": warnings}
 
 
+def expected_scene_count_from_payloads(payloads: List[Dict[str, Any]]) -> int:
+    for payload in payloads:
+        if not isinstance(payload, dict):
+            continue
+        ep = payload.get("episode") if isinstance(payload.get("episode"), dict) else {}
+        for key in ("target_minutes", "total_blocks", "minute_blocks", "blocks"):
+            if ep.get(key) not in (None, ""):
+                try:
+                    return scene_count_for_target(ep.get(key))
+                except NFError:
+                    continue
+        if ep.get("total_scenes") not in (None, ""):
+            try:
+                value = int(ep.get("total_scenes"))
+            except (TypeError, ValueError):
+                value = 0
+            if value > 0:
+                return value
+    highest = 0
+    longest = 0
+    for payload in payloads:
+        if not isinstance(payload, dict):
+            continue
+        raw = payload.get("scenes") if isinstance(payload.get("scenes"), list) else []
+        longest = max(longest, len(raw))
+        for scene in raw:
+            if not isinstance(scene, dict):
+                continue
+            try:
+                highest = max(highest, int(scene.get("scene_id") or 0))
+            except (TypeError, ValueError):
+                continue
+    return highest or longest or SCENE_COUNT
+
+
 def merge_payloads(payloads: List[Dict[str, Any]]) -> Tuple[Dict[str, Any], List[str]]:
     """Fusiona partes del guion por scene_id: ordena, deduplica y no renumera."""
     warnings: List[str] = []
@@ -3055,9 +3318,13 @@ def merge_payloads(payloads: List[Dict[str, Any]]) -> Tuple[Dict[str, Any], List
         raise NFError("No hay payloads para fusionar.")
     if len(payloads) == 1:
         return payloads[0], warnings
-    full = [p for p in payloads if len(p.get("scenes") or []) == SCENE_COUNT]
+    expected_scenes = expected_scene_count_from_payloads(payloads)
+    full = [p for p in payloads if len(p.get("scenes") or []) == expected_scenes]
     if full:
-        warnings.append("Se recibieron varios JSON con 60 escenas; se usa el primero y se ignoran los demás.")
+        warnings.append(
+            f"Se recibieron varios JSON con {expected_scenes} escenas; "
+            "se usa el primero y se ignoran los demás."
+        )
         return full[0], warnings
 
     keyed: Dict[int, Dict[str, Any]] = {}
@@ -3095,10 +3362,13 @@ def merge_payloads(payloads: List[Dict[str, Any]]) -> Tuple[Dict[str, Any], List
                 teasers.setdefault(tid, teaser)
     if teasers:
         merged["teasers"] = [teasers[k] for k in sorted(teasers)]
-    missing = [i for i in range(1, SCENE_COUNT + 1) if i not in keyed]
+    missing = [i for i in range(1, expected_scenes + 1) if i not in keyed]
     if missing:
         warnings.append(f"Faltan {len(missing)} escenas tras fusionar: {missing[:12]}{'…' if len(missing) > 12 else ''}")
-    warnings.append(f"Fusionados {len(payloads)} archivos en un maestro ({len(ordered)} escenas).")
+    warnings.append(
+        f"Fusionados {len(payloads)} archivos en un maestro "
+        f"({len(ordered)} de {expected_scenes} escenas)."
+    )
     return merged, warnings
 
 
@@ -3161,8 +3431,19 @@ def extract_json_blob(text: str) -> Any:
     raise NFError("No se encontró un JSON válido en el texto. Pega solo el JSON del LLM o revisa el archivo.")
 
 
-def default_teaser_ranges() -> List[List[int]]:
-    return [list(range(1, 7)), list(range(21, 27)), list(range(55, 61))]
+def default_teaser_ranges(scene_count: Optional[int] = None) -> List[List[int]]:
+    try:
+        total = max(1, int(scene_count or SCENE_COUNT))
+    except (TypeError, ValueError):
+        total = SCENE_COUNT
+    window = min(6, total)
+    start_mid = max(1, min(total - window + 1, int(round(total * 0.35))))
+    start_end = max(1, total - window + 1)
+    return [
+        list(range(1, window + 1)),
+        list(range(start_mid, start_mid + window)),
+        list(range(start_end, start_end + window)),
+    ]
 
 
 # --- Despacho de subcomandos (CLI opcional de nf_core) ---

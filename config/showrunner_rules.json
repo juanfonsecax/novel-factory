@@ -1,17 +1,23 @@
 {
   "schema_version": "1.0",
-  "name": "US Short-Drama Showrunner Engine (60 x 10s)",
+  "name": "US Short-Drama Showrunner Engine (1-minute blocks)",
   "language": "en-US",
+  "format_profiles": {
+    "youtube_10": {
+      "scenes_per_block": 6,
+      "scene_seconds": 10
+    },
+    "short_1": {
+      "scenes_per_block": 6,
+      "scene_seconds": 10
+    }
+  },
   "format": {
-    "total_scenes": 60,
     "scene_seconds": 10,
-    "total_seconds": 600,
     "master_aspect": "16:9",
     "teaser_aspect": "9:16",
     "teaser_count": 3,
     "teaser_seconds": 60,
-    "scenes_per_act": 10,
-    "acts": 6,
     "words_per_scene_dialogue": [6, 20],
     "speech_words_per_second": 2.5,
     "max_scene_words": 20,
@@ -32,7 +38,6 @@
   "narrative_continuity_engine": {
     "schema_version": 1,
     "enabled": true,
-    "minute_blocks": 10,
     "scenes_per_block": 6,
     "scene_fields": [
       "because_previous_ended_with",
@@ -56,7 +61,7 @@
         "question_max_words": 24
       },
       "2_strict_cause_and_effect_chain": {
-        "description": "De la escena 2 a la 60, cada escena declara la consecuencia de la anterior, la acción concreta con la que arranca y el único cambio de estado con el que termina.",
+        "description": "De la escena 2 hasta la última, cada escena declara la consecuencia de la anterior, la acción concreta con la que arranca y el único cambio de estado con el que termina.",
         "required_fields": [
           "because_previous_ended_with",
           "this_scene_starts_with",
@@ -82,7 +87,7 @@
         "reject_unmotivated_location_reset": true
       },
       "6_entry_and_exit_bridges": {
-        "description": "De la escena 2 a la 60, entry_bridge inicia la escena a causa de la anterior (max ~2s) y exit_hook empuja a la siguiente con un gesto, orden, decisión o pregunta. exit_hook(N) alimenta entry_bridge(N+1).",
+        "description": "De la escena 2 hasta la última, entry_bridge inicia la escena a causa de la anterior (max ~2s) y exit_hook empuja a la siguiente con un gesto, orden, decisión o pregunta. exit_hook(N) alimenta entry_bridge(N+1).",
         "required_fields": ["entry_bridge", "exit_hook"]
       },
       "7_block_rhythm_and_recorrido": {
@@ -96,103 +101,106 @@
     }
   },
   "required_beats": {
-    "1": "cold_open_hook",
-    "2": "world_and_wound",
-    "10": "act_cliffhanger",
-    "20": "act_cliffhanger",
-    "30": "act_cliffhanger",
-    "40": "act_cliffhanger",
-    "50": "act_cliffhanger",
-    "60": "payoff_next_hook"
+    "basis": "scene_fraction",
+    "first_scene": "cold_open_hook",
+    "second_scene": "world_and_wound",
+    "act_cliffhanger_fractions": [0.1666667, 0.3333333, 0.5, 0.6666667, 0.8333333],
+    "final_scene": "payoff_next_hook"
   },
   "acts": [
     {
       "act": 1,
       "title": "The Bait",
-      "scenes": [1, 10],
+      "start_fraction": 0.0,
+      "end_fraction": 0.1666667,
       "goal": "Open a visceral question in the first 3 seconds, establish the protagonist's desire and wound, then detonate the inciting incident.",
       "must_happen": [
         "Scene 1 poses an unanswered question or a visual contradiction (no slow establishing montage).",
         "The protagonist wants something concrete and is denied it by someone with power.",
         "The antagonist is introduced as reasonable and likable, never cartoonish.",
-        "Scene 10 reveals a secret object, document, witness or betrayal that changes the question."
+        "A mid-act reveal (secret object, document, witness or betrayal) changes the question."
       ],
       "retention_device": "Open loop stacked on a second open loop; every scene ends on a partial answer that creates a new question.",
-      "dopamine_point": "Scene 8-10: first small act of defiance from the protagonist."
+      "dopamine_point": "Early in the act: first small act of defiance from the protagonist."
     },
     {
       "act": 2,
       "title": "The Trap",
-      "scenes": [11, 20],
+      "start_fraction": 0.1666667,
+      "end_fraction": 0.3333333,
       "goal": "Tighten the trap: the antagonist uses the system, not violence. Humiliation and betrayal push the protagonist toward a forced choice.",
       "must_happen": [
         "The protagonist's credibility or livelihood is threatened in public.",
         "A trusted ally withholds information or signs something they should not.",
         "The antagonist offers a deal the protagonist cannot easily refuse.",
-        "Scene 20 ends on a demand, a deadline or a public accusation."
+        "The act ends on a demand, a deadline or a public accusation."
       ],
       "retention_device": "Countdown pressure (hearing, deadline, debt) plus dramatic irony: the audience learns the truth before the town does.",
-      "dopamine_point": "Scene 17-18: a first piece of evidence lands in the protagonist's hands."
+      "dopamine_point": "Late in the act: a first piece of evidence lands in the protagonist's hands."
     },
     {
       "act": 3,
       "title": "The First Crack",
-      "scenes": [21, 30],
+      "start_fraction": 0.3333333,
+      "end_fraction": 0.5,
       "goal": "The protagonist stops reacting and starts investigating. A romance or loyalty beat raises the emotional stakes. A costly mistake keeps the antagonist ahead.",
       "must_happen": [
         "The protagonist takes a concrete risk (break-in, trespass, public question, leaked file).",
         "The audience gets a hard piece of proof the town does not yet believe.",
         "A romance or intimacy beat complicates the alliance.",
         "The antagonist counterattacks using the protagonist's own action against her/him.",
-        "Scene 30 ends on a temptation or a compromise that could destroy the case."
+        "The act ends on a temptation or a compromise that could destroy the case."
       ],
       "retention_device": "Proof vs. believability: the protagonist has the truth but not the power to make anyone believe it.",
-      "dopamine_point": "Scene 24-25: discovery of the physical evidence (ledger, recording, permit, logbook)."
+      "dopamine_point": "Mid-act: discovery of the physical evidence (ledger, recording, permit, logbook)."
     },
     {
       "act": 4,
       "title": "The Dark Night",
-      "scenes": [31, 40],
+      "start_fraction": 0.5,
+      "end_fraction": 0.6666667,
       "goal": "Take everything away. The ally breaks, the institution turns, and the protagonist is isolated. The lowest point must be caused by a choice, not bad luck.",
       "must_happen": [
         "The protagonist rejects the antagonist's deal and pays an immediate price.",
         "The institution (court, trust, employer, town council) freezes or seizes something vital.",
         "The ally's betrayal is explained by a credible threat, not villainy.",
         "The protagonist loses the physical evidence or access to it.",
-        "Scene 40 ends with a new interpretation of an old object/place (the lighthouse, the house, the boathouse)."
+        "The act ends with a new interpretation of an old object/place (the lighthouse, the house, the boathouse)."
       ],
       "retention_device": "All-is-lost engine: the audience wants to see how the protagonist climbs out, not whether she deserves to.",
-      "dopamine_point": "Scene 35-36: a micro-revenge line or a quiet power move that costs the protagonist something."
+      "dopamine_point": "Late in the act: a micro-revenge line or a quiet power move that costs the protagonist something."
     },
     {
       "act": 5,
       "title": "The Turn",
-      "scenes": [41, 50],
+      "start_fraction": 0.6666667,
+      "end_fraction": 0.8333333,
       "goal": "The protagonist turns the same system against the antagonist using the truth she already had. The confrontation begins in public. A final complication raises the price of winning.",
       "must_happen": [
         "The protagonist converts a discarded detail into leverage (logbook, timestamp, witness, receipt).",
         "The antagonist's power is shown to depend on the town's belief, which can be broken.",
         "A public or semi-public confrontation forces the antagonist to drop the mask.",
         "The ally earns a partial redemption through a costly action.",
-        "Scene 50 ends on the antagonist's last threat or a new piece of evidence that reframes the case."
+        "The act ends on the antagonist's last threat or a new piece of evidence that reframes the case."
       ],
       "retention_device": "Power flip: the audience now knows the protagonist can win, but not at what cost.",
-      "dopamine_point": "Scene 47-49: the protagonist says the line the audience has been waiting ten episodes for."
+      "dopamine_point": "The act's final beats: the protagonist says the line the audience has been waiting ten episodes for."
     },
     {
       "act": 6,
       "title": "The Payoff",
-      "scenes": [51, 60],
+      "start_fraction": 0.8333333,
+      "end_fraction": 1.0,
       "goal": "Deliver the public confrontation, the emotional payoff and the romantic resolution. End on a new open loop for the next episode.",
       "must_happen": [
         "The truth is exposed in a public, irreversible way (hearing, broadcast, town meeting).",
         "The antagonist loses the specific thing they used to control the protagonist.",
         "The protagonist chooses what she keeps, not only what she destroys.",
         "A romantic or familial payoff lands in one concrete gesture, not a speech.",
-        "Scene 59 or 60 plants the next-episode hook in a single line or object."
+        "The final two scenes plant the next-episode hook in a single line or object."
       ],
       "retention_device": "Payoff + new question: close the season question and open a second, more personal mystery in the last 20 seconds.",
-      "dopamine_point": "Scene 56-59: public humiliation of the antagonist and the protagonist's final refusal."
+      "dopamine_point": "The act's final beats: public humiliation of the antagonist and the protagonist's final refusal."
     }
   ],
   "viral_latam_to_usa_templates": [
@@ -602,9 +610,9 @@
       "cliffhanger_window_seconds": [50, 60],
       "cut_before_answer": true
     },
-    "ten_minute_arc": {
-      "first_victory_latest_block": 5,
-      "biggest_revelation_blocks": [8, 9, 10],
+    "arc_by_fraction": {
+      "first_victory_latest": 0.5,
+      "biggest_revelation_window": [0.8, 1.0],
       "principle": "answer small, ask big"
     }
   }

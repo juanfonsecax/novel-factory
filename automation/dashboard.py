@@ -302,8 +302,9 @@ def build_state(project: str | Path, paths: Optional[Dict[str, Path]] = None) ->
             storyboards_disk += 1
 
     batch_files: List[str] = []
+    expected_batches = max(1, int(ep.get("total_blocks") or nf.master_target_minutes(master)))
     raw_clips = paths["raw_clips"]
-    for number in range(1, 11):
+    for number in range(1, expected_batches + 1):
         for pattern in ("minute_{n:02d}.mp4", "batch_{n:02d}.mp4",
                         "minute_{n}.mp4", "batch_{n}.mp4"):
             candidate = raw_clips / pattern.format(n=number)
@@ -322,7 +323,7 @@ def build_state(project: str | Path, paths: Optional[Dict[str, Path]] = None) ->
     scene_clips_disk = sum(1 for scene in scenes if scene["clip_exists"])
     if scenes and scene_clips_disk == len(scenes):
         clip_mode = "scenes"
-    elif len(batch_files) == 10:
+    elif len(batch_files) == expected_batches:
         clip_mode = "batches"
     elif batch_files or scene_clips_disk:
         clip_mode = "incomplete"
@@ -366,7 +367,7 @@ def build_state(project: str | Path, paths: Optional[Dict[str, Path]] = None) ->
             "storyboards_disk": storyboards_disk,
             "storyboards_expected": len(storyboard_grids),
             "storyboards_dir": str(storyboards_dir),
-            "minutes_expected": 10,
+            "minutes_expected": nf.master_target_minutes(master),
             "teasers": teasers,
             "masters": masters,
             "report": report_exists,
@@ -805,12 +806,14 @@ function renderProjectSelect() {
 
 function renderProgress() {
   const images = state.assembly.storyboards_disk || 0;
-  const imagesMax = state.assembly.storyboards_expected || 11;
+  const imagesMax = state.assembly.storyboards_expected || 1;
+  const storyboardMax = storyboardItems().length || 1;
+  const batchMax = museBatches().length || 1;
   const cast = castMaster();
   const bars = [
     ["PASO 1 · Hoja de personajes", cast && cast.exists ? 1 : 0, 1],
-    ["PASO 2 · Storyboards", storyboardDoneCount(), 10],
-    ["PASO 3 · Lotes Muse AI", batchesDoneCount(format), 10],
+    ["PASO 2 · Storyboards", storyboardDoneCount(), storyboardMax],
+    ["PASO 3 · Lotes Muse AI", batchesDoneCount(format), batchMax],
     ["PASO 4 · Máster ensamblado", state.assembly.masters.length ? 1 : 0, 1],
     ["Prompts maestros", (state.master_prompts && state.master_prompts.items ? state.master_prompts.items.length : 0), 4],
   ];
@@ -821,7 +824,7 @@ function renderProgress() {
   const mode = $("#mode");
   mode.textContent = MODE === "server" ? "servidor local · tracking en disco" : "modo archivo · tracking en navegador";
   mode.classList.toggle("server", MODE === "server");
-  const moviePart = `${images}/${imagesMax} imágenes · ${batchesDoneCount(format)}/10 lotes de 1 min`;
+  const moviePart = `${images}/${imagesMax} imágenes · ${batchesDoneCount(format)}/${batchMax} lotes de 1 min`;
   $("#project-sub").innerHTML = `<b>${esc(state.title)}</b> · ${esc(state.slug)} · ${state.scenes.length} escenas · ${moviePart}`;
   renderProjectSelect();
   const formatSelect = $("#format-select");
@@ -1139,7 +1142,7 @@ function productionGuide() {
   const castPrompt = cast ? cast.prompt : "";
   const batchBody = batches.length
     ? `<div class="step-actions">
-        <button class="btn primary" data-action="copy-muse-batches">Copiar los 10 lotes en ${esc(formatLabel())}</button>
+        <button class="btn primary" data-action="copy-muse-batches">Copiar los ${batches.length} lotes en ${esc(formatLabel())}</button>
         <button class="btn" data-action="download-muse-batches">Descargar lotes .txt</button>
       </div>
       <div class="grid">${batches.map(museBatchCard).join("")}</div>`
@@ -1149,7 +1152,7 @@ function productionGuide() {
       <h2>Flujo de producción en 4 pasos</h2>
       <p>Copia y pega cada bloque en el orden indicado. El selector de formato decide qué prompt completo se copia en Muse AI; la instrucción de adjuntar queda fuera del texto copiable.</p>
     </div>
-    <div class="guide-note">Método actual: 1 hoja de personajes + 10 storyboards + 10 lotes de 1 minuto.</div>
+    <div class="guide-note">Método actual: 1 hoja de personajes + un storyboard por bloque + un lote de 1 minuto por bloque.</div>
   </section>
   ${guideStep(1, "Hoja maestra de personajes",
     "Genera <b>REF_CAST_MASTER.png</b> en ChatGPT con los personajes reales del proyecto. Es la referencia fija de rostros y vestuario.",
@@ -1161,22 +1164,22 @@ function productionGuide() {
      </div>
      ${castPrompt ? `<details class="prompt-details"><summary>Ver prompt del cast</summary><pre class="prompt">${esc(castPrompt)}</pre></details>` : ""}`)}
   ${guideStep(2, "Storyboards por minuto",
-    "Genera los 10 grids 3x2 en ChatGPT. Cada imagen cubre 6 escenas de un minuto y debe usar los mismos rostros y vestuario del cast.",
-    { ok: gridsReady >= 10, detail: `${gridsReady}/10` },
-    `<div class="save-path"><b>Guardar en:</b> <code>storyboards/REF_GRID_MIN_01.png … REF_GRID_MIN_10.png</code></div>
+    `Genera los ${grids.length} grids 3x2 en ChatGPT. Cada imagen cubre 6 escenas de un minuto y debe usar los mismos rostros y vestuario del cast.`,
+    { ok: gridsReady >= grids.length, detail: `${gridsReady}/${grids.length}` },
+    `<div class="save-path"><b>Guardar en:</b> <code>storyboards/REF_GRID_MIN_01.png … REF_GRID_MIN_${String(grids.length).padStart(2, "0")}.png</code></div>
      <div class="step-actions">
-       <button class="btn primary" data-action="copy-storyboard-grids-10">Copiar los 10 storyboards</button>
-       <button class="btn" data-action="copy-storyboard-grids">Copiar cola completa (cast + 10)</button>
+       <button class="btn primary" data-action="copy-storyboard-grids-10">Copiar los ${grids.length} storyboards</button>
+       <button class="btn" data-action="copy-storyboard-grids">Copiar cola completa (cast + ${grids.length})</button>
        <button class="btn" data-action="download-storyboard-grids">Descargar cola .txt</button>
      </div>
      <div class="mini-grid">${grids.map(storyboardMiniCard).join("")}</div>`)}
   ${guideStep(3, "Lotes de 1 minuto en Muse AI",
     "En cada lote adjunta <b>REF_CAST_MASTER.png</b> + <b>REF_GRID_MIN_0X.png</b>. Pega el guion completo del formato elegido; el bloque ya termina con el comando final.",
-    { ok: batchReady >= 10, detail: `${batchReady}/10` },
+    { ok: batchReady >= batches.length, detail: `${batchReady}/${batches.length}` },
     `<div class="save-path"><b>Formato activo:</b> ${esc(formatLabel())} · <b>Guardar en:</b> <code>raw_clips/minute_0X.mp4</code> ${format === "9x16" ? "(sufijo <code>_vertical.mp4</code>)" : ""}</div>
      ${batchBody}`)}
   ${guideStep(4, "Ensamblar el máster",
-    "Cuando existan los 10 lotes, ejecuta el ensamblador. El máster 16:9 y los teasers 9:16 se guardan en <b>output/</b>.",
+    `Cuando existan los ${batches.length} lotes, ejecuta el ensamblador. El máster 16:9 y los teasers 9:16 se guardan en <b>output/</b>.`,
     { ok: masterReady, detail: masterReady ? `${assembly.masters.length} máster` : "0/1" },
     `<div class="save-path"><b>Salida:</b> <code>output/${esc(state.slug)}_master_16x9_1080p.mp4</code> ${masterReady ? "✅" : "⏳"}</div>
      <div class="step-actions">
@@ -1218,11 +1221,11 @@ function methodBanner() {
   return `<div class="method" style="padding:13px 16px;margin-bottom:18px">
     <div class="master-head" style="margin-bottom:0">
       <div>
-        <b>Contrato V2 activo · 60 escenas sincronizadas</b>
+        <b>Contrato V2 activo · ${state.totals.scenes || 0} escenas sincronizadas</b>
         <p>Prompts de producción con speaker shot lock, silencios y objetos en cámara. Imágenes en <b>storyboards/</b>:
-        <b>${assembly.storyboards_disk || 0}/${assembly.storyboards_expected || 11}</b> ·
+        <b>${assembly.storyboards_disk || 0}/${assembly.storyboards_expected || 1}</b> ·
         modo detectado: <b>${clipModeLabel(assembly.clip_mode)}</b> ·
-        lotes en disco: <b>${assembly.batch_clips_disk || 0}/10</b>.</p>
+        lotes en disco: <b>${assembly.batch_clips_disk || 0}/${Math.ceil((state.totals.scenes || 60) / 6)}</b>.</p>
       </div>
       <div class="master-actions">
         <button class="btn green" data-action="goto-prompts">Ver guía 4 pasos</button>
@@ -1232,8 +1235,9 @@ function methodBanner() {
 }
 
 function clipModeLabel(mode) {
-  if (mode === "scenes") return "A — 60 escenas de 10 s";
-  if (mode === "batches") return "B — 10 lotes Muse AI de 1 min";
+  const scenes = (state.totals && state.totals.scenes) || 60;
+  if (mode === "scenes") return `A — ${scenes} escenas de 10 s`;
+  if (mode === "batches") return `B — ${Math.ceil(scenes / 6)} lotes Muse AI de 1 min`;
   if (mode === "incomplete") return "incompleto (faltan clips)";
   return "sin clips todavía";
 }
@@ -1248,7 +1252,7 @@ function legacyPanel() {
   return `<details class="legacy" id="legacy-details">
     <summary>Método anterior y opciones avanzadas</summary>
     <div class="legacy-body">
-      <div class="guide-note"><b>Nueva metodología</b> — 11 imágenes + 10 lotes de 1 minuto. Esta sección conserva los tabs de referencias, frames, clips y los prompts individuales 000–003.</div>
+      <div class="guide-note"><b>Nueva metodología</b> — 1 hoja de personajes + un grid y un lote de 1 minuto por bloque. Esta sección conserva los tabs de referencias, frames, clips y los prompts individuales 000–003.</div>
       <div class="legacy-links">
         <button class="btn" data-tab="references">Referencias (${state.references.length})</button>
         <button class="btn" data-tab="frames">Frames imagen (${state.scenes.length})</button>
@@ -1420,17 +1424,17 @@ async function handleAction(button) {
     return;
   }
   if (action === "copy-storyboard-grids") {
-    await copyText(storyboardGridsText(), `Cola de ${storyboardGrids().count} imágenes copiada (1 cast + 10 storyboards)`);
+    await copyText(storyboardGridsText(), `Cola de ${storyboardGrids().count} imágenes copiada (1 cast + ${storyboardItems().length} storyboards)`);
     return;
   }
   if (action === "copy-storyboard-grids-10") {
     const text = storyboardItems().map((item) => item.prompt).join("\n\n\n");
-    await copyText(text, "Los 10 storyboards copiados en orden");
+    await copyText(text, `Los ${storyboardItems().length} storyboards copiados en orden`);
     return;
   }
   if (action === "download-storyboard-grids") {
     downloadText(`chatgpt_storyboard_grids_queue_${state.slug || "episode"}.txt`, storyboardGridsText());
-    toast("Cola de 11 imágenes descargada");
+    toast(`Cola de ${storyboardGrids().count} imágenes descargada`);
     return;
   }
   if (action === "copy-storyboard-grid" || action === "download-storyboard-grid") {

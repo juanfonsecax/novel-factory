@@ -167,11 +167,14 @@ def export_workflow(project: str | Path, out_dir: Optional[Path] = None, niche: 
 
     overrides: Dict[str, Any] = {}
     if not master:
+        meta = nf.load_project_meta(paths)
+        target = int(meta.get("target_minutes") or nf.DEFAULT_TARGET_MINUTES)
+        total_scenes = nf.scene_count_for_target(target)
         overrides = {
             "story_idea": brief_text or _story_fallback(),
-            "duration_minutes": "10",
-            "total_scenes": "60",
-            "total_grid_images": "10",
+            "duration_minutes": str(target),
+            "total_scenes": str(total_scenes),
+            "total_grid_images": str(target),
             "aspect_ratio": str(style.get("master_aspect") or "16:9"),
         }
 

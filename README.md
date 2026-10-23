@@ -1,8 +1,9 @@
-# novel_factory — Novelas IA en formato 60 × 10 s (10 min por episodio)
+# novel_factory — Novelas IA en formato largo por proyecto (default 22 min)
 
 Módulo **autónomo, local y auditable** para producir episodios de novela corta
-("short-drama") en inglés nativo de EE. UU.: **60 escenas de 10 s = 10 minutos**,
-con máster **16:9** para YouTube y **teasers 9:16** (automático de 20 s + 3 de 60 s)
+("short-drama") en inglés nativo de EE. UU.: cada proyecto declara su duración
+(**default 22 min = 132 escenas de 10 s**; perfiles legacy 10 min y 1 min), con
+máster **16:9** para YouTube y **teasers 9:16** (automático de 20 s + 3 de 60 s)
 listos para el publicador multicanal existente (`USA WHITE/cola/pendientes`).
 
 - **Cero APIs de pago y cero red**: el guion lo escribe tu LLM en el chat, las
@@ -23,7 +24,7 @@ primer fotograma** (First Frame), pero **dentro** de esos 10 s el guion define
 
 | Ventaja | Por qué importa |
 |---|---|
-| 1 frame + 1 clip por escena | 60 generaciones de imagen + 60 generaciones de vídeo: el mínimo posible |
+| 1 frame + 1 clip por escena | Una generación de imagen + una de vídeo por escena: el mínimo posible |
 | Cortes internos en el prompt | El clip no se ve "de una sola toma": ritmo de serie, no de presentación |
 | 10 s con audio nativo | Diálogo con lip-sync real, sin TTS externo ni APIs de voz |
 | Máster 16:9 | YouTube largo (mejor retención y monetización que solo Shorts) |
@@ -55,10 +56,10 @@ novel_factory/
 ├─ generators/
 │  ├─ 00_export_master_workflow_prompts.py  Workflow 000-003 en un .md + lotes Muse AI de 1 min
 │  ├─ 01_story_to_master_json.py  Brief + prompt-pack para tu LLM + ingesta + demo
-│  ├─ 02_export_chatgpt_queue.py  Cola de 60 prompts de imagen (ChatGPT) + verificación de frames
-│  ├─ 03_export_omni_queue.py     Cola de 60 prompts de vídeo (Omni / Muse AI / Google Flow)
+│  ├─ 02_export_chatgpt_queue.py  Cola de prompts de imagen (ChatGPT) + verificación de frames
+│  ├─ 03_export_omni_queue.py     Cola de prompts de vídeo (Omni / Muse AI / Google Flow)
 │  ├─ 04_export_master_prompts.py Exporta los 4 prompts maestros rellenados
-│  ├─ 05_export_muse_method_pack.py Paquete único: 11 imágenes + 10 lotes Muse AI + checklist
+│  ├─ 05_export_muse_method_pack.py Paquete: hoja de reparto + grids/lotes por bloque + checklist
 │  └─ master_prompts_library.py   PROMPT 000-003 (historia, guion, grids, video por lotes)
 ├─ automation/
 │  ├─ omni_flow_runner.py      status · queue · assisted · watch (Descargas) · import-frames
@@ -68,31 +69,32 @@ novel_factory/
 │  └─ 05_export_to_publisher.py     Exporta teasers a USA WHITE/cola/pendientes
 ├─ music/                      BGM local (ver music/README.md)
 ├─ assets/fonts/               TTF opcional para el headline de los teasers
-├─ tests/test_novel_factory.py 67 tests offline (unittest)
+├─ tests/test_novel_factory.py 107 tests offline (unittest)
 └─ projects/
    └─ <episodio>/
       ├─ story_brief.md              Premisa + reglas (para ti)
       ├─ llm_prompt.md               Prompt-pack para pegar en tu LLM
-      ├─ master_episode.json         Guion maestro (60 escenas, fuente de todo)
+      ├─ project.json                Duración declarada (target_minutes, bloques, escenas)
+      ├─ master_episode.json         Guion maestro (escenas según project.json, fuente de todo)
       ├─ chatgpt_image_prompts_queue.{txt,json,md}
       ├─ chatgpt_reference_sheets.txt  PASO 0: hoja de referencia por personaje
       ├─ MASTER_PROMPTS.md · .txt · master_prompts.json · prompts/
       ├─ MASTER_WORKFLOW_PROMPTS_READY.md      Workflow 000-003 rellenado + variante 9:16
-      ├─ chatgpt_prompt_001_storyboards.txt    PROMPT 001 completo (60 escenas + 10 grids 3x2, sin truncar)
+      ├─ chatgpt_prompt_001_storyboards.txt    PROMPT 001 completo (todas las escenas + un grid 3x2 por bloque)
       ├─ chatgpt_prompt_002_characters.txt     PROMPT 002 literal (hoja de personajes)
-      ├─ chatgpt_storyboard_grids_queue.{txt,json}  Cola de 11 imágenes: REF_CAST_MASTER + REF_GRID_MIN_01…10
+      ├─ chatgpt_storyboard_grids_queue.{txt,json}  Cola de imágenes: REF_CAST_MASTER + un grid por bloque
       ├─ muse_ai_batches_queue.{txt,json}      Lotes Muse AI de 1 min (6 escenas c/u, adjuntos + 16:9/9:16)
       ├─ MUSE_PRODUCTION_PACK.md · .json       Guía completa del método nuevo (en orden)
-      ├─ MUSE_CHECKLIST.md                     Checklist de 11 imágenes + 10 videos
-      ├─ storyboards/   REF_CAST_MASTER.png · REF_GRID_MIN_01…10.png (aquí guardas las imágenes)
+      ├─ MUSE_CHECKLIST.md                     Checklist de imágenes + un video por bloque
+      ├─ storyboards/   REF_CAST_MASTER.png · REF_GRID_MIN_01…NN.png (aquí guardas las imágenes)
       ├─ omni_video_prompts_queue.{csv,json,txt}
       ├─ muse_ai_video_prompts_queue.{csv,json,txt}
       ├─ google_flow_video_prompts_queue.{csv,json,txt}
       ├─ queue_state.json            Progreso (lo escribe el runner)
       ├─ references/ reference_<id>.png (hojas de referencia de ChatGPT)
-      ├─ frames/   frame_001.png … frame_060.png
-      ├─ raw_clips/ scene_001.mp4 … scene_060.mp4  (modo A)
-      │              o minute_01.mp4 … minute_10.mp4 / batch_01…10.mp4  (modo B, Muse AI)
+      ├─ frames/   frame_001.png … frame_<total_scenes>.png
+      ├─ raw_clips/ scene_001.mp4 … scene_<total_scenes>.mp4  (modo A)
+      │              o minute_01.mp4 … minute_<total_blocks>.mp4 / batch_01…NN.mp4  (modo B, Muse AI)
       └─ output/
          ├─ <slug>_master_16x9_1080p.mp4
          ├─ <slug>_master.srt
@@ -114,20 +116,20 @@ novel_factory/
                  novelfactory.bat ingest mi_episodio guion.json      master_episode.json
                  novelfactory.bat validate mi_episodio
  2. Método nuevo  novelfactory.bat prepare mi_episodio               MUSE_PRODUCTION_PACK.md + colas
-                  (ChatGPT: hoja maestra + 10 storyboards)            storyboards/REF_*.png
-                  (Muse AI: 10 lotes de 1 minuto)                     raw_clips/minute_01…10.mp4
+                  (ChatGPT: hoja maestra + un storyboard por bloque)   storyboards/REF_*.png
+                  (Muse AI: un lote de 1 minuto por bloque)            raw_clips/minute_01…NN.mp4
  2.5 Dashboard   novelfactory.bat dashboard mi_episodio --serve --open  dashboard.html + tracking
                  (solo método nuevo; el anterior queda en "Ver método anterior")
  3. Legacy (opcional)
-                 novelfactory.bat frames mi_episodio                 cola ChatGPT (60 escenas)
-                 novelfactory.bat omni mi_episodio                   cola Omni (60)
-                 novelfactory.bat flow mi_episodio                   cola Google Flow (60)
+                 novelfactory.bat frames mi_episodio                 cola ChatGPT (una por escena)
+                 novelfactory.bat omni mi_episodio                   cola Omni (una por escena)
+                 novelfactory.bat flow mi_episodio                   cola Google Flow (una por escena)
                  novelfactory.bat assisted mi_episodio               raw_clips/scene_XXX.mp4
                  (o) novelfactory.bat watch mi_episodio
                  (o) novelfactory.bat import-frames mi_episodio --frames-src DIR
  3.5 Prompts      novelfactory.bat prompts mi_episodio               MASTER_PROMPTS + prompts/*.txt
                   novelfactory.bat export-master-prompts mi_episodio  WORKFLOW 000-003 + lotes Muse AI
-                  novelfactory.bat muse-pack mi_episodio              paquete único 11 imágenes + 10 lotes
+                  novelfactory.bat muse-pack mi_episodio              paquete: hoja de reparto + un grid/lote por bloque
                   novelfactory.bat prepare mi_episodio                workflow 00 + 04 + paquete Muse 05
  4. Ensamble     novelfactory.bat check mi_episodio                  preflight (sin render)
                   novelfactory.bat assemble mi_episodio               máster + teaser 9:16 + SRT
@@ -142,13 +144,15 @@ novel_factory/
 ### 4.1 Guion (01)
 
 - `new <slug>` crea `story_brief.md` + `llm_prompt.md`. El prompt-pack pide al LLM
-  **JSON puro** con el esquema exacto (60 escenas, actos, beats, cortes internos,
+  **JSON puro** con el esquema exacto (escenas del proyecto, actos, beats, cortes internos,
   diálogo, prompt de imagen, ambience, continuidad).
 - `--part 1` / `--part 2` divide la petición en dos mitades (útil con contextos
-  pequeños: escenas 1-30 y 31-60); `--ingest` acepta **varios JSON** y los fusiona.
+  pequeños); `--part 1of3/2of3/3of3` la divide en tercios. `--ingest` acepta
+  **varios JSON** y los fusiona.
 - `--template` (o `demo`) genera el fixture de calibración marcado `demo_fixture: true`.
 - `--validate` revisa un maestro existente (errores bloqueantes vs advertencias).
-- `--allow-partial` permite ingerir menos de 60 escenas (solo para depurar).
+- `--minutes 22` (o `--profile youtube_10|short_1`) fija la duración al crear el proyecto;
+  el default es 22 min. `--allow-partial` permite ingerir menos escenas que las declaradas.
 - Tolerancias del ingest: desenvuelve envoltorios (`data`, `episode_json`...),
   extrae JSON de fences Markdown, coacciona diálogo en string y cortes en lista
   de strings, completa teasers y prompts vacíos (con avisos).
@@ -217,10 +221,10 @@ novel_factory/
 | `--font ruta.ttf` | Fuente del headline de los teasers |
 
 Detección automática del modo de entrada:
-- **Modo A — escenas**: `raw_clips/scene_001.mp4 … scene_060.mp4` (10 s cada una).
-- **Modo B — lotes Muse AI**: `raw_clips/minute_01.mp4 … minute_10.mp4` o
-  `batch_01.mp4 … batch_10.mp4` (1 min cada uno). Ensambla el máster de 10 min sin
-  necesitar clips por escena y mantiene el SRT sincronizado a 600 s.
+- **Modo A — escenas**: `raw_clips/scene_001.mp4 … scene_<total_scenes>.mp4` (10 s cada una).
+- **Modo B — lotes Muse AI**: `raw_clips/minute_01.mp4 … minute_<total_blocks>.mp4` o
+  `batch_01.mp4 … batch_NN.mp4` (1 min cada uno). Ensambla el máster completo sin
+  necesitar clips por escena y mantiene el SRT sincronizado a la duración declarada.
 
 Pipeline interno: preflight → normalización (1920×1080, 30 fps, AAC 48k, **micro-fade
 de audio 0.08 s**; modo A recorta silencio ≤ 0.35 s y fija 10.0 s por escena; modo B
@@ -232,7 +236,7 @@ recomprimir → mezcla BGM + fade + **ducking** (`sidechaincompress`) + `loudnor
 **subtítulos quemados** → `publish_pack/` + `report.json`.
 
 > En modo A cada escena dura exactamente `scene_seconds` (10.0 s; tolerancia 0.05 s) y
-> en modo B cada lote 60 s, de modo que el máster concatenado mide 600 s exactos.
+> en modo B cada lote 60 s, de modo que el máster concatenado mide `target_minutes` exactos.
 
 ### 4.5 Publicación (05)
 
@@ -262,16 +266,16 @@ duplica nada (un item cuenta como completo solo si existen **ambos** archivos: m
 `novelfactory.bat dashboard mi_episodio [--serve] [--open] [--port 8787]`
 
 Genera `projects/<episodio>/dashboard.html`: un tablero autocontenido (sin build, sin
-npm, sin red) con los 60 prompts de imagen, los 60 prompts de vídeo, las hojas de
+npm, sin red) con un prompt de imagen y uno de vídeo por escena, las hojas de
 referencia y el guion. Sirve para el trabajo manual de copiar/pegar en ChatGPT y Omni
 sin abrir los JSON.
 
 - **Tabs**: **Método y prompts** (pestaña inicial) · Guion. El método anterior
   (Referencias · Frames · Clips) queda oculto tras el botón **Ver método anterior**.
-- **Nueva metodología**: panel de 4 pasos con la cola de 11 imágenes, los 10 lotes
+- **Nueva metodología**: panel de 4 pasos con la cola de grids, los lotes
   Muse AI y el comando de ensamblaje; también aparece como banner en las demás tabs.
 - **Imágenes en disco**: el dashboard lee `storyboards/` y marca cada tarjeta como
-  **En disco** o **Pendiente**; la barra superior muestra el progreso 0/11 y 0/10.
+  **En disco** o **Pendiente**; la barra superior muestra el progreso de grids y lotes del proyecto.
 - **Plataforma de video**: selector en la barra de filtros (Omni / Muse AI / Google
   Flow); cambia el prompt de cada escena y el texto copiado, sin regenerar el HTML.
 - **Prompts maestros**: los 4 prompts (000-003) rellenados con los valores del
@@ -281,11 +285,11 @@ sin abrir los JSON.
   (`REF_CAST_MASTER.png` + `REF_GRID_MIN_XX.png`), cortes de cámara, SFX, diálogo y
   dos comandos finales (horizontal 16:9 / vertical 9:16), con botones separados para
   copiar cada variante, copiar el bloque completo o descargarlo.
-- **Cola de 11 imágenes**: tarjeta por imagen (`REF_CAST_MASTER.png` y
-  `REF_GRID_MIN_01…10.png`) con prompt propio, más botones para copiar/descargar la
+- **Cola de imágenes**: tarjeta por imagen (`REF_CAST_MASTER.png` y
+  `REF_GRID_MIN_01…NN.png`) con prompt propio, más botones para copiar/descargar la
   cola completa, lista para pegar en ChatGPT.
 - **Modo de ensamblaje**: el dashboard detecta escenas (`scene_XXX.mp4`) o lotes
-  (`minute_XX.mp4` / `batch_XX.mp4`) y muestra el progreso 0/10 en la barra superior.
+  (`minute_XX.mp4` / `batch_XX.mp4`) y muestra el progreso de lotes del proyecto.
 - **Copiar prompt**: botón por escena; marca la escena como "copiada".
 - **Marcar hecho**: tracking manual separado del disco. Si `frames/frame_XXX.png` o
   `raw_clips/scene_XXX.mp4` ya existen, el dashboard lo detecta solo y muestra
@@ -319,7 +323,7 @@ producción encadenados y los rellena con los valores reales del episodio:
 | Prompt | Para qué sirve | Salida esperada |
 |---|---|---|
 | **000** Arquitecto de historias virales | Convierte tu idea en título, elenco y sinopsis por bloques | Texto que alimenta al 001 |
-| **001** Guionista de micro-dramas | Desglose técnico de 60 escenas × 10 s con JSON exacto | `master_episode.json` (vía `ingest`) |
+| **001** Guionista de micro-dramas | Desglose técnico de las escenas del proyecto × 10 s con JSON exacto | `master_episode.json` (vía `ingest`) |
 | **002** Arquitecto de grids de imagen | Plan de contact sheets por minuto (6 paneles) para las imágenes | Grids/frames para ChatGPT |
 | **003** Director de video por lotes | Flujo Muse AI + Google Flow con reglas de plataforma | Clips `scene_XXX.mp4` |
 
@@ -343,7 +347,7 @@ producción encadenados y los rellena con los valores reales del episodio:
 | **NEW YOUTUBE** | (vacío) | — |
 
 Conclusión: los pipelines existentes editan **verticales cortos (6-60 s)** para
-Reels/Shorts. Un episodio de 10 minutos en **16:9** con SRT, capítulos y teasers
+Reels/Shorts. Un episodio largo (default 22 min) en **16:9** con SRT, capítulos y teasers
 derivados no entra en ellos sin reescribirlos. De ahí que `novel_factory` traiga su
 propio ensamblador (04) con el mismo lenguaje técnico (ffmpeg, H.264/AAC, loudnorm).
 
@@ -360,7 +364,7 @@ propio ensamblador (04) con el mismo lenguaje técnico (ffmpeg, H.264/AAC, loudn
   entre publicaciones del mismo día. Los posts se filtran por `personaje_id`
   activo (`automatico.personas_activas`).
 - **Límite detectado**: `publicador_youtube.py` solo sube **Shorts** (añade
-  `#Shorts` y usa la API de vídeos verticales cortos). El máster de 10 min
+  `#Shorts` y usa la API de vídeos verticales cortos). El máster largo
   **no** debe encolarse ahí.
 
 ### 5.3 ¿Qué scripts/carpetas de prompts o automatización de navegador ya existen?
@@ -426,11 +430,16 @@ aquí el runner es asistido, no automatizado).
 
 ### `config/showrunner_rules.json` (reglas dramáticas)
 
-- Formato: 60 escenas × 10 s, 6 actos de 10, 3 teasers de 6 escenas, 6-15 palabras
-  de diálogo por escena, 3 cortes exactos (0/3/7 s), máx. 5 personajes y 5
-  localizaciones, con bloques de 3-6 escenas por situación dramática.
-- `required_beats`: escenas 1 (hook), 2 (mundo/herida), 10/20/30/40/50 (cliffhangers
-  de acto) y 60 (payoff + nuevo hook).
+- Duración por proyecto: cada proyecto declara `target_minutes` (default 22;
+  rango orientativo 18-26). Bloques = minutos; escenas = bloques × 6. Perfiles
+  legacy: `youtube_10` (10 min) y `short_1` (1 min). `format_profiles` solo
+  guarda `scenes_per_block` y `scene_seconds`; la duración vive en `project.json`.
+- 6 actos escalados al total, 3 teasers de 6 escenas (ventanas proporcionales),
+  6-15 palabras de diálogo por escena, 3 cortes exactos (0/3/7 s), máx. 5
+  personajes y 5 localizaciones, con bloques de 3-6 escenas por situación dramática.
+- `required_beats`: hitos por fracción del total (escena 1 hook, escena 2
+  mundo/herida, cierres de acto y escena final payoff + nuevo hook). Con 60
+  escenas reproduce 1/2/10/20/30/40/50/60.
 - Cada acto define objetivo, "must_happen", device de retención y punto de dopamina.
 - Motor de retención: tipos de open loop, cadencia de dopamina cada 2-3 escenas,
   tipos de cliffhanger y una lista de **prohibiciones** (montaje lento, monólogo del
@@ -461,7 +470,7 @@ python -m unittest discover -s novel_factory\tests -v
 novel_factory\novelfactory.bat test
 ```
 
-48 tests offline: núcleo y esquema del maestro, generadores (60 prompts de imagen y
+107 tests offline: núcleo y esquema del maestro, generadores (un prompt de imagen y
 de vídeo por plataforma), librería de prompts maestros (000-003 sin marcadores),
 dashboard (estado, render, prompts y tracking), helpers del ensamblador (SRT, escape
 del concat, detección de silencio con clips generados al vuelo), exportador

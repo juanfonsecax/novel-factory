@@ -77,7 +77,7 @@ def write_reference_sheets(paths: Dict[str, Path], master: Dict[str, Any], sheet
     lines = [
         f"NOVEL FACTORY — Hojas de referencia de personajes (PASO 0) · {ep.get('title') or ep.get('slug')}",
         "",
-        "Esto se genera UNA sola vez por episodio, ANTES de la cola de los 60 frames:",
+        "Esto se genera UNA sola vez por episodio, ANTES de la cola de frames:",
         "  1. Abre una conversación nueva de ChatGPT con generación de imágenes.",
         "  2. Pega el prompt de cada personaje; guarda el resultado en la carpeta del",
         f"     proyecto: {refs_dir}",
@@ -291,7 +291,7 @@ def write_thumbnail_prompts(
     lines = [
         "NOVEL FACTORY — Portadas de teaser 9:16 (opcional, 3 imágenes verticales)",
         "",
-        "Genera estas portadas ADEMÁS de los 60 frames 16:9. Mismo personaje y referencia.",
+        "Genera estas portadas ADEMÁS de los frames 16:9 del proyecto. Mismo personaje y referencia.",
         "Nombre sugerido: thumbnail_teaser_01.png … thumbnail_teaser_03.png",
         "",
     ]
@@ -396,7 +396,7 @@ def short_scene_brief(scene: Dict[str, Any], max_words: int = 10) -> str:
 
 
 def scene_breakdown_lines(master: Dict[str, Any]) -> List[str]:
-    """Las 60 escenas completas (nunca truncadas) para PROMPT 001."""
+    """Todas las escenas del proyecto (nunca truncadas) para PROMPT 001."""
     lines: List[str] = []
     for scene in nf.ordered_scenes(master):
         sid = int(scene.get("scene_id") or 0)
@@ -459,7 +459,7 @@ def build_storyboard_grid_items(
     style: Dict[str, Any],
     pack: Optional[Dict[str, Any]] = None,
 ) -> List[Dict[str, Any]]:
-    """Cola de 11 imágenes: 1 hoja de casting + 10 storyboards de 6 viñetas."""
+    """Cola de imágenes: 1 hoja de casting + un storyboard de 6 viñetas por bloque."""
     pack = pack or mpl.build_prompt_pack(master, style)
     ep = nf.episode_meta(master)
     title = str(ep.get("title") or ep.get("slug") or "Episodio")
@@ -505,20 +505,21 @@ def write_storyboard_grid_queue(
     style: Dict[str, Any],
     pack: Optional[Dict[str, Any]] = None,
 ) -> Dict[str, Path]:
-    """Exporta la cola de 11 imágenes (cast sheet + 10 grids) en .txt y .json."""
+    """Exporta la cola de imágenes (cast sheet + un grid por bloque) en .txt y .json."""
     root = paths["root"]
     ep = nf.episode_meta(master)
     items = build_storyboard_grid_items(master, style, pack)
     txt_path = paths.get("chatgpt_storyboard_grids_txt") or (root / "chatgpt_storyboard_grids_queue.txt")
     json_path = paths.get("chatgpt_storyboard_grids_json") or (root / "chatgpt_storyboard_grids_queue.json")
     nf.write_text(txt_path, render_storyboard_grid_queue_text(items))
+    storyboard_count = max(0, len(items) - 1)
     nf.write_json(json_path, {
         "schema_version": "1.0",
         "episode": ep.get("slug"),
         "title": ep.get("title"),
         "count": len(items),
-        "note": "1 hoja de personajes (REF_CAST_MASTER.png) + 10 storyboards de 6 viñetas "
-                "(REF_GRID_MIN_01.png … REF_GRID_MIN_10.png).",
+        "note": f"1 hoja de personajes (REF_CAST_MASTER.png) + {storyboard_count} storyboards "
+                f"de 6 viñetas (REF_GRID_MIN_01.png … REF_GRID_MIN_{storyboard_count:02d}.png).",
         "items": items,
     })
     return {"txt": txt_path, "json": json_path, "items": items}
@@ -529,21 +530,23 @@ def write_master_image_prompt_files(
     master: Dict[str, Any],
     style: Dict[str, Any],
 ) -> Dict[str, Path]:
-    """Exporta PROMPT 001 (60 escenas + 10 grids), PROMPT 002 y la cola de 11 imágenes."""
+    """Exporta PROMPT 001, PROMPT 002 y la cola de imágenes del proyecto."""
     pack = mpl.build_prompt_pack(master, style)
     by_key = {prompt["key"]: prompt for prompt in pack["prompts"]}
     root = paths["root"]
     ep = nf.episode_meta(master)
     title = ep.get("title") or ep.get("slug") or "Episodio"
     grid_items = build_storyboard_grid_items(master, style, pack)
+    total_scenes = len(nf.ordered_scenes(master))
+    storyboard_count = max(0, len(grid_items) - 1)
 
     prompt_001 = paths.get("chatgpt_prompt_001") or (root / "chatgpt_prompt_001_storyboards.txt")
     prompt_002 = paths.get("chatgpt_prompt_002") or (root / "chatgpt_prompt_002_characters.txt")
 
     header_001 = (
         f"NOVEL FACTORY — PROMPT 001 — GENERADOR DE STORYBOARD · {title}\n"
-        "Incluye la historia completa (60 escenas, sin truncar) y los 10 prompts individuales "
-        "de una imagen por minuto.\n\n"
+        f"Incluye la historia completa ({total_scenes} escenas, sin truncar) y los "
+        f"{storyboard_count} prompts individuales de una imagen por minuto.\n\n"
     )
     header_002 = (
         f"NOVEL FACTORY — PROMPT 002 — HOJA MAESTRA DE PERSONAJES · {title}\n"
@@ -554,13 +557,13 @@ def write_master_image_prompt_files(
         by_key["prompt_001"]["text"].strip(),
         "",
         "=" * 78,
-        f"HISTORIA COMPLETA — {len(nf.ordered_scenes(master))} ESCENAS (SIN TRUNCAR)",
+        f"HISTORIA COMPLETA — {total_scenes} ESCENAS (SIN TRUNCAR)",
         "=" * 78,
         "",
         *scene_breakdown_lines(master),
         "",
         "=" * 78,
-        "10 PROMPTS INDIVIDUALES — UNA IMAGEN DE STORYBOARD POR MINUTO",
+        f"{storyboard_count} PROMPTS INDIVIDUALES — UNA IMAGEN DE STORYBOARD POR MINUTO",
         "=" * 78,
         "",
     ]
@@ -651,11 +654,12 @@ def main(argv: Optional[List[str]] = None) -> int:
         nf.info(f"{paths['chatgpt_txt'].name}          (cola pura, 1 prompt por línea)")
         nf.info(f"chatgpt_image_prompts_queue_labeled.txt (con nombre de archivo por escena)")
         nf.info(f"{paths['chatgpt_json'].name}         (índice JSON)")
+        grid_count = nf.master_target_minutes(master)
         nf.ok("Prompts maestros de imagen:")
-        nf.info(f"{image_prompts['prompt_001'].name}  (PROMPT 001 — 60 escenas + 10 grids)")
+        nf.info(f"{image_prompts['prompt_001'].name}  (PROMPT 001 — {len(entries)} escenas + {grid_count} grids)")
         nf.info(f"{image_prompts['prompt_002'].name}  (PROMPT 002 — hoja maestra de personajes)")
-        nf.info(f"{image_prompts['grids_txt'].name}  (cola de 11 imágenes: 1 cast + 10 grids)")
-        nf.info(f"{image_prompts['grids_json'].name} (manifiesto de la cola de 11 imágenes)")
+        nf.info(f"{image_prompts['grids_txt'].name}  (cola de {grid_count + 1} imágenes: 1 cast + {grid_count} grids)")
+        nf.info(f"{image_prompts['grids_json'].name} (manifiesto de la cola de {grid_count + 1} imágenes)")
 
     if not args.check:
         if sheets:

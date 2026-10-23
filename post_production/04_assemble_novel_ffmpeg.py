@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
-"""04 — Ensamblaje del episodio con ffmpeg: clips -> master 16:9 (10 min) + teasers 9:16.
+"""04 — Ensamblaje del episodio con ffmpeg: clips -> master 16:9 + teasers 9:16.
 
 Qué hace, en orden:
   1. Preflight: detecta el modo de entrada y verifica clips, frames y música.
-     · Modo A: 60 escenas individuales de 10 s (scene_001.mp4 … scene_060.mp4).
-     · Modo B: 10 lotes Muse AI de 1 min (minute_01.mp4 … minute_10.mp4 o
-       batch_01.mp4 … batch_10.mp4); ensambla el master sin clips por escena.
+     · Modo A: escenas individuales de 10 s (scene_001.mp4 … scene_NNN.mp4).
+     · Modo B: lotes Muse AI de 1 min (minute_01.mp4 … minute_NN.mp4 o
+       batch_01.mp4 … batch_NN.mp4); ensambla el master sin clips por escena.
   2. Normaliza cada clip: en modo A corta silencio muerto y fija 10.0 s; en modo B
      fija 60 s por lote sin recorte. Estandariza a 1920x1080 / 30 fps / H.264+AAC
      con micro-fade de audio (0.08 s) y cachea en output/.work/norm/.
   3. Concatena los clips sin recomprimir (concat demuxer + -c copy).
   4. Mezcla BGM en bucle a volumen bajo, fades y loudnorm de YouTube (-14 LUFS).
-  5. Escribe subtítulos .srt sincronizados con la línea de tiempo (600 s).
+  5. Escribe subtítulos .srt sincronizados con la línea de tiempo del proyecto.
   6. Renderiza un teaser vertical automático de 20 s (9:16) y, en modo A, los 3
      teasers de 60 s con headline opcional.
   7. Deja un pack de publicación (título, descripción, tags, capítulos) y un reporte JSON.
@@ -730,8 +730,8 @@ def main(argv: Optional[List[str]] = None) -> int:
         nf.warn(f"Faltan {len(missing)} clips: {', '.join(map(str, missing[:20]))}" +
                 (" …" if len(missing) > 20 else ""))
         if not args.allow_gaps:
-            nf.err("Genera los clips con la cola de Omni (03), los 10 lotes de Muse AI "
-                   "o usa --allow-gaps / --limit para pruebas.")
+            nf.err("Genera los clips con la cola de Omni (03), los lotes de Muse AI "
+                   "del proyecto o usa --allow-gaps / --limit para pruebas.")
             return 1
     if args.check:
         nf.log("")

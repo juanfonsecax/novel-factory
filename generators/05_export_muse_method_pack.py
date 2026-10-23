@@ -11,7 +11,7 @@ Salidas en la carpeta del episodio:
   MUSE_PRODUCTION_PACK.md     Guía completa (prompts + instrucciones)
   MUSE_PRODUCTION_PACK.json   Manifiesto máquina-legible
   MUSE_CHECKLIST.md           Checklist imprimible
-  storyboards/README.md       Dónde guardar las 11 imágenes
+  storyboards/README.md       Dónde guardar las imágenes del proyecto
 
 Uso:
   python generators/05_export_muse_method_pack.py mi_episodio
@@ -115,7 +115,7 @@ def render_markdown(pack: Dict[str, Any]) -> str:
         "## Cómo funciona",
         "",
         "1. Genera **una** hoja maestra de personajes con los rostros y vestuarios fijos.",
-        "2. Genera **diez** storyboards (uno por minuto) usando esa hoja como referencia.",
+        f"2. Genera **{counts['batches']}** storyboards (uno por minuto) usando esa hoja como referencia.",
         "3. En Muse AI, sube la hoja maestra + el storyboard del minuto y pega el bloque del lote.",
         "4. Guarda cada video como `raw_clips/minute_0X.mp4` y ejecuta el comando de ensamblaje.",
         "",
@@ -133,7 +133,7 @@ def render_markdown(pack: Dict[str, Any]) -> str:
         "",
         "---",
         "",
-        "## Paso 2 — Storyboards (10 imágenes)",
+        f"## Paso 2 — Storyboards ({counts['batches']} imágenes)",
         "",
         "Genera cada imagen con el mismo estilo y los mismos personajes de la hoja maestra.",
         "Guarda cada archivo en `storyboards/` con el nombre indicado.",
@@ -151,7 +151,7 @@ def render_markdown(pack: Dict[str, Any]) -> str:
     lines += [
         "---",
         "",
-        "## Paso 3 — Lotes Muse AI (10 videos de 1 minuto)",
+        f"## Paso 3 — Lotes Muse AI ({counts['batches']} videos de 1 minuto)",
         "",
         "En cada lote: adjunta los dos archivos indicados y pega **un guion completo**",
         "(16:9 para YouTube o 9:16 para Reels/Shorts). El guion ya termina con el comando final.",
@@ -192,13 +192,14 @@ def render_markdown(pack: Dict[str, Any]) -> str:
         "",
         "## Paso 4 — Ensamblar",
         "",
-        "Cuando existan los 10 archivos `minute_01.mp4 … minute_10.mp4`:",
+        f"Cuando existan los {counts['batches']} archivos "
+        f"`minute_01.mp4 … minute_{counts['batches']:02d}.mp4`:",
         "",
         "```powershell",
         pack["assemble_command"],
         "```",
         "",
-        "El ensamblador detecta el modo B, genera el máster 16:9 de 10 minutos,",
+        "El ensamblador detecta el modo B, genera el máster 16:9 completo,",
         "el SRT sincronizado y el teaser vertical automático de 20 segundos.",
         "",
     ]
@@ -232,7 +233,7 @@ def render_checklist(pack: Dict[str, Any]) -> str:
         "",
         "## Cierre",
         "",
-        "- [ ] Los 10 lotes están en `raw_clips/`.",
+        f"- [ ] Los {pack['counts']['batches']} lotes están en `raw_clips/`.",
         f"- [ ] Ejecutar `{pack['assemble_command']}`.",
         "- [ ] Revisar `output/<slug>_master_16x9_1080p.mp4` y `output/<slug>_teaser_9x16.mp4`.",
         "",
@@ -252,15 +253,17 @@ def write_pack(paths: Dict[str, Path], pack: Dict[str, Any]) -> Dict[str, Path]:
     nf.write_json(json_path, pack)
     nf.write_text(checklist_path, render_checklist(pack))
     if not readme_path.exists():
+        grid_count = int(pack["counts"]["batches"])
+        image_count = int(pack["counts"]["images"])
         nf.write_text(readme_path, "\n".join([
             "# Storyboards del método Muse AI",
             "",
             "Guarda aquí las imágenes generadas en ChatGPT con estos nombres exactos:",
             "",
             "- `REF_CAST_MASTER.png` (hoja maestra de personajes)",
-            "- `REF_GRID_MIN_01.png` … `REF_GRID_MIN_10.png` (un storyboard por minuto)",
+            f"- `REF_GRID_MIN_01.png` … `REF_GRID_MIN_{grid_count:02d}.png` (un storyboard por minuto)",
             "",
-            "El dashboard detecta estos archivos y marca el progreso de las 11 imágenes.",
+            f"El dashboard detecta estos archivos y marca el progreso de las {image_count} imágenes.",
             "",
         ]))
     return {
@@ -289,10 +292,11 @@ def main(argv=None) -> int:
     written = write_pack(paths, pack)
 
     nf.ok(f"Paquete exportado en: {paths['root']}")
-    nf.info(f"{written['md'].name}  (guía completa: 11 imágenes + 10 lotes)")
+    nf.info(f"{written['md'].name}  (guía completa: {pack['counts']['images']} imágenes + "
+            f"{pack['counts']['batches']} lotes)")
     nf.info(f"{written['checklist'].name}  (checklist imprimible)")
     nf.info(f"{written['json'].name}  (manifiesto máquina-legible)")
-    nf.info(f"storyboards/README.md  (dónde guardar las 11 imágenes)")
+    nf.info(f"storyboards/README.md  (dónde guardar las {pack['counts']['images']} imágenes)")
     nf.info(f"Comando final: {pack['assemble_command']}")
     return 0
 
